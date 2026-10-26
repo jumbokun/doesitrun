@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "manimgx",
+    "repo": "academa-labs/manimgx",
+    "dir": "manimgx",
+    "gpu": false,
+    "mem": "5g",
+    "goal": "Install ManimGX so that the README's 'From Python to MP4' example (scene.py with the Hello3D ThreeDScene, rendered via `manimgx render scene.py`) produces Hello3D.mp4.",
+    "check": "renders that exact README scene with `manimgx render scene.py` and checks a ~6 second Hello3D.mp4 is produced",
+    "server": false
+  },
+  {
+    "slug": "earshot",
+    "repo": "Leonxlnx/earshot",
+    "dir": "earshot",
+    "gpu": false,
+    "mem": "5g",
+    "goal": "Install earshot per its README (CPU only) so that `python -m earshot doctor --load`, run from the repo directory, succeeds with both models loaded.",
+    "check": "runs `python -m earshot doctor --load` from /work/earshot and requires exit code 0",
+    "server": false
+  },
+  {
+    "slug": "kev",
+    "repo": "jaredpalmer/kev",
+    "dir": "kev",
+    "gpu": true,
+    "mem": "10g",
+    "goal": "Run a Kev model server locally ON THE GPU (it is an 8 GB laptop GPU, so pick the Kev variant/dtype that fits) on port 8009, so that the README's example curl ticket to localhost:8009/v1/systemone returns answers.",
+    "check": "runs /work/run.sh, then sends the README's example ticket to localhost:8009/v1/systemone, requires a valid department choice, and requires GPU memory use to have risen (CPU fallback fails)",
+    "server": true
+  },
+  {
+    "slug": "nanojev",
+    "repo": "TianyuCodings/NanoJev",
+    "dir": "NanoJev",
+    "gpu": true,
+    "mem": "10g",
+    "goal": "Get the README's CUDA inference path working: download the checkpoint per the Quick start and run scripts/serve_decisions.py on port 8765 (bound to 127.0.0.1) so POST /api/evaluate answers decision requests using the GPU.",
+    "check": "runs /work/run.sh, checks GET /api/health on :8765, POSTs a small {\"states\": [...]} boolean-question request to /api/evaluate requiring HTTP 200 with a result for that state, and requires GPU memory use to have risen",
+    "server": true
+  },
+  {
+    "slug": "unimate",
+    "repo": "Friedrich-M/UniMate",
+    "dir": "UniMate",
+    "gpu": true,
+    "mem": "10g",
+    "goal": "Get the README's Inference path '2b. Animate your own rigged asset' working with the bundled assets/examples/unitree_go2 asset: download the released checkpoint into outputs/unimate_uniml3d_f60_v3 as the README shows, then `python -m unimate.inference.sample --exp_dir outputs/unimate_uniml3d_f60_v3 --asset assets/examples/unitree_go2 --prompt \"An object trots forward.\"` must write motion output. The 88 GB dataset is NOT needed and must not be downloaded. Mesh driving (run_animate_motion.sh) is not required.",
+    "check": "runs that sample command from /work/UniMate with --output_dir pointing to a fresh directory and requires at least one output file",
+    "server": false
+  }
+]
