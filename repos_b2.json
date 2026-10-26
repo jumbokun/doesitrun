@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "groundingdino",
+    "repo": "IDEA-Research/GroundingDINO",
+    "dir": "GroundingDINO",
+    "gpu": true,
+    "mem": "7g",
+    "goal": "Install GroundingDINO per its README WITH its CUDA extension compiled (so `from groundingdino import _C` works — the README warns about `NameError: name '_C' is not defined`), download the Swin-T OGC weights into weights/, and make the README GPU demo `demo/inference_on_a_image.py` work on .asset/cat_dog.jpeg.",
+    "check": "imports `groundingdino._C`, then runs demo/inference_on_a_image.py with groundingdino/config/GroundingDINO_SwinT_OGC.py and weights/groundingdino_swint_ogc.pth on .asset/cat_dog.jpeg with text 'cat . dog .' on the GPU (no --cpu-only) and requires pred.jpg",
+    "server": false
+  },
+  {
+    "slug": "oldphotos",
+    "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+    "dir": "Bringing-Old-Photos-Back-to-Life",
+    "gpu": true,
+    "mem": "7g",
+    "goal": "Follow the README Installation (Synchronized-BatchNorm copies, dlib landmark model, face and global checkpoints, requirements) so that the Full Pipeline `python run.py --input_folder <abs path to test_images/old_w_scratch> --output_folder <dir> --GPU 0 --with_scratch` restores every bundled scratched test image.",
+    "check": "runs that exact command on test_images/old_w_scratch with --GPU 0 --with_scratch and requires final_output/ to contain one result per input image",
+    "server": false
+  },
+  {
+    "slug": "lama",
+    "repo": "advimman/lama",
+    "dir": "lama",
+    "gpu": true,
+    "mem": "7g",
+    "goal": "Get the README Inference path working: big-lama model downloaded into /work/lama/big-lama, and `python3 bin/predict.py model.path=$(pwd)/big-lama indir=<dir> outdir=<dir>` (with TORCH_HOME and PYTHONPATH set as the README says) inpainting PNG image+mask pairs named like image.png / image_mask001.png on CUDA.",
+    "check": "creates its own PNG image + image_mask001.png pair, runs bin/predict.py with model.path=/work/lama/big-lama and device=cuda, and requires an inpainted PNG of the same size",
+    "server": false
+  },
+  {
+    "slug": "stylegan2ada",
+    "repo": "NVlabs/stylegan2-ada-pytorch",
+    "dir": "stylegan2-ada-pytorch",
+    "gpu": true,
+    "mem": "7g",
+    "goal": "Make the README's `python generate.py --outdir=out --trunc=1 --seeds=85,265 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada-pytorch/pretrained/metfaces.pkl` work on the GPU WITH the custom CUDA plugins (bias_act, upfirdn2d) actually compiling — a run that prints 'Falling back to slow reference implementation' does not count.",
+    "check": "runs that generate.py command (seeds 85,265) and requires 1024x1024 seed0085.png and seed0265.png with no plugin-fallback warning in the output",
+    "server": false
+  },
+  {
+    "slug": "yolov7",
+    "repo": "WongKinYiu/yolov7",
+    "dir": "yolov7",
+    "gpu": true,
+    "mem": "7g",
+    "goal": "Install yolov7 and the yolov7.pt weights (in the repo root) so that the README image demo `python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg` runs on the GPU (--device 0).",
+    "check": "runs that detect.py command with --device 0 and requires horse detections in the log and the annotated horses.jpg",
+    "server": false
+  },
+  {
+    "slug": "mdm",
+    "repo": "GuyTevet/motion-diffusion-model",
+    "dir": "motion-diffusion-model",
+    "gpu": true,
+    "mem": "7g",
+    "goal": "Get the README text-to-motion path working: environment, the text-to-motion dependencies and data the README requires, and one HumanML3D text-to-motion checkpoint placed under ./save/ (e.g. save/humanml_.../model*.pt), so that `python -m sample.generate --model_path <that checkpoint> --text_prompt \"the person walked forward and is picking up his toolbox.\"` produces results.npy and the stick-figure mp4.",
+    "check": "picks the first save/humanml*/model*.pt, runs sample.generate with --device 0 and that text prompt into a fresh --output_dir, and requires results.npy and an mp4",
+    "server": false
+  }
+]
