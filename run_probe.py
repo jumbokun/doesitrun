@@ -186,6 +186,14 @@ def replay_and_save(cfg, res, rundir, key="replay"):
         for f in ("setup.sh", "env.sh", "run.sh"):
             if (deliv / f).exists():
                 sh(["docker", "cp", str(deliv / f), f"{replay}:/work/{f}"])
+        # Supplementary only: files the agent's setup.sh needed but did not deliver (packaging miss),
+        # exported by hand into deliverables/extra/. Recorded so the result can't pass for a clean replay.
+        extra = deliv / "extra"
+        if key != "replay" and extra.is_dir():
+            for item in extra.iterdir():
+                sh(["docker", "cp", str(item), f"{replay}:/work/{item.name}"])
+            res.setdefault("notes", []).append(
+                f"{key}: added undelivered files {sorted(i.name for i in extra.iterdir())}")
         t0 = time.time()
         try:
             p = sh(["docker", "exec", "-w", "/work", replay, "bash", "/work/setup.sh"], timeout=REPLAY_SETUP_SEC)
