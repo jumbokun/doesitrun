@@ -175,9 +175,11 @@ def probe(cfg):
     replay_and_save(cfg, res, rundir)
 
 
-def replay_and_save(cfg, res, rundir):
+def replay_and_save(cfg, res, rundir, key="replay"):
+    """key="replay" is the pre-registered replay; "replay_supplementary" is an extra, clearly
+    labelled attempt that never overwrites it (used to tell network flakes from broken scripts)."""
     slug = cfg["slug"]
-    replay = f"rr-{slug}-replay"
+    replay = f"rr-{slug}-{key.replace('_', '-')}"
     deliv = rundir / "deliverables"
     if (deliv / "setup.sh").exists():
         start_container(replay, cfg)
@@ -190,12 +192,12 @@ def replay_and_save(cfg, res, rundir):
             setup_ok, log = p.returncode == 0, p.stdout + p.stderr
         except subprocess.TimeoutExpired:
             setup_ok, log = False, "setup.sh timed out"
-        (rundir / "replay_setup.log").write_text(log[-200_000:], encoding="utf-8")
-        res["replay"] = {"setup_ok": setup_ok, "setup_secs": round(time.time() - t0)}
-        res["replay"]["oracle"] = oracle(replay, slug, rundir / "replay_oracle.txt")
+        (rundir / f"{key}_setup.log").write_text(log[-200_000:], encoding="utf-8")
+        res[key] = {"setup_ok": setup_ok, "setup_secs": round(time.time() - t0), "mem": cfg["mem"]}
+        res[key]["oracle"] = oracle(replay, slug, rundir / f"{key}_oracle.txt")
         sh(["docker", "stop", replay])
     else:
-        res["replay"] = {"setup_ok": False, "note": "no setup.sh delivered"}
+        res[key] = {"setup_ok": False, "note": "no setup.sh delivered"}
 
     res["finished"] = time.strftime("%Y-%m-%d %H:%M:%S")
     (rundir / "result.json").write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -210,12 +212,14 @@ if __name__ == "__main__":
     repos_file = "repos.json"
     if args and args[0].startswith("--repos="):
         repos_file = args.pop(0).split("=", 1)[1]
-    replay_only = bool(args) and args[0] == "--replay-only"
-    if replay_only:
-        args.pop(0)
+    mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary") else None
     cfgs = {c["slug"]: c for c in json.loads((ROOT / repos_file).read_text(encoding="utf-8"))}
     for slug in args:
-        if replay_only:
+        if mode == "--replay-supplementary":
+            rundir = RUNS / slug
+            res = json.loads((rundir / "result.json").read_text(encoding="utf-8"))
+            replay_and_save(cfgs[slug], res, rundir, key="replay_supplementary")
+        elif mode == "--replay-only":
             # Re-run only the fresh-container replay (e.g. after an infrastructure crash);
             # the invalidated attempt is kept in the record, not overwritten silently.
             rundir = RUNS / slug
