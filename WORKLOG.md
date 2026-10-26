@@ -73,3 +73,43 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   failures are INFRA, not agent results. Host had 31.4 GB RAM / 3.6 GB free afterwards; two lanes downloading
   multi-GB torch wheels concurrently is the likely trigger (unproven). Restarted with `docker desktop restart`.
   Resume is single-lane; crashed replay logs kept as *.crash.*, invalidated replay kept in result.json.
+- 2026-10-26 14:2x: replays of groundingdino/yolov7 after the crash failed on uv network timeouts (30 s) while
+  downloading torch deps; probe-network throughput re-measured at ~3.8 MB/s (default net ~5.8 MB/s), so a
+  transient stall + no retry in setup.sh. Counted as FAIL per protocol; a clearly labelled supplementary
+  replay (`--replay-supplementary`, stored under replay_supplementary) runs after the batch.
+- 2026-10-26 14:4x: user requirement — don't use much memory. Host had 0.1 GB free; WSL VM committed 11.9 GB,
+  of which 11.7 GB was page cache from downloads. Dropped VM caches (commit → 6.8 GB, host free → 1.8 GB),
+  capped rr-oldphotos live to 4 GB, wrote ~/.wslconfig (memory=8GB, autoMemoryReclaim=dropCache).
+  CONDITION CHANGE: lama, mdm and the supplementary replays run at 4 GB/container (earlier repos had 5–10 GB).
+  resume_lowmem.sh restarts WSL after oldphotos so the cap takes effect, then resumes.
+- 2026-10-26 15:2x: drop_caches_loop.sh (every 2 min while running) kept the VM at ~2.5–4 GB commit
+  (was hitting the 8 GB cap with page cache); host free 0.6 → 4.7 GB.
+- 2026-10-26 16:33: batch 2 finished. Agent-stage oracle 6/6. Protocol replay 3/6.
+
+| repo | agent oracle | agent | protocol replay | supplementary replay |
+|---|---|---|---|---|
+| stylegan2ada | pass | 22 min / 17 turns / $0.79 | pass | - |
+| oldphotos | pass | 36 min / 35 turns / $1.24 | pass | - |
+| lama | pass | 21 min / 46 turns / $2.03 | pass | - |
+| groundingdino | pass | 47 min / 36 turns / $1.61 | FAIL (uv 30 s timeout, torch deps) | pass (4 GB) |
+| yolov7 | pass | 16 min / 22 turns / $0.75 | FAIL (uv 30 s timeout, torch deps) | pass (4 GB) |
+| mdm | pass | 31 min / 61 turns / $3.13 | FAIL (setup.sh needs undelivered requirements.txt/patches/tools) | FAIL (pypi.nvidia.com timeout; extras added) |
+
+  $ = Claude Code's API-price estimate (total_cost_usd); actual billing is subscription quota (apiKeySource=none).
+  MDM's Google Drive checkpoint was tested in isolation on rr-net: gdown 5.2.0 fetched the 207 MB zip in 27 s,
+  so Drive was not the blocker. MDM's replay is UNRESOLVED, not passed.
+
+  What the agent had to fix in 2020–23 repos: every one pinned torch without sm_120 kernels (1.7/1.8/1.9/2.5
+  → 2.8/2.11 cu128); conda/python3.6–3.7 assumed; unresolvable old pins; code patches needed in 3/6
+  (oldphotos 1 line scikit-image dtype, lama 4 patches for albumentations>=1.0 etc., mdm 5-line patch +
+  chumpy-free SMPL pickle rewrite); dead tooling (gdown --fuzzy in 6.x, spacy/typer-slim/click, libgl1-mesa-glx).
+
+## Interpretation (batches 1+2)
+- Getting an old repo running is now within a general agent's reach: 11/11 passed the hidden oracle on the
+  agent's own container, median ~27 min, worst 47 min, none timed out.
+- The weak link moved to REPRODUCIBILITY: 3/6 batch-2 setup.sh failed on a fresh machine — 2 on transient
+  multi-GB wheel download stalls (no retry/timeout tuning), 1 on not packaging its own helper files.
+  "Works on my container" ≠ a shareable installer. A product must enforce: self-contained deliverable,
+  download retries / a local wheel+model cache, and a mandatory fresh-container replay before publishing.
+- That strengthens the shared-cache thesis: pay the 20–60 min agent run once per repo, ship a replay-verified
+  installer plus cached artifacts, so the user's install doesn't depend on PyPI/NVIDIA CDN luck.
