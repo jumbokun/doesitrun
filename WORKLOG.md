@@ -139,3 +139,12 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   man-page style (NAME/SYNOPSIS); under set -e it exited silently with 0 bytes. Reproduced locally.
   PROTOCOL ADDITION (committed before implementing or running it): oracle audits — see README "Oracle audits".
   Oracles now run with bash -x. BERT's failure is genuine (setup.sh needs an undelivered tools/ file; a 403).
+- 2026-10-27: first audits — microsoft/data-formulator: oracle_defect (oracle's curl omitted the X-Workspace-Id
+  header the code requires by design); google/python-fire: oracle_defect (confirms local repro); google-research/bert
+  and google/trax: repo_failure — their README model links (GCS) now return 403 AccessDenied to anonymous users.
+  Auditor is not rubber-stamping defects.
+- 2026-10-27: Tencent and ByteDance (3D/video/large-model repos) ran near the 90-min cap at 2 parallel; cancelled
+  both runs (collect still committed the finished ones: Tencent 3, ByteDance 2) and redispatched the remaining 15
+  at 5 parallel. The 4 jobs in flight at cancel time were rerun from scratch.
+- 2026-10-27: auto-audit dispatcher (local script, polls every 3 min) sends each committed CPU failure to the audit
+  exactly once. First version broke on a Git Bash vs Windows /tmp path and dispatched one empty run (cancelled).
