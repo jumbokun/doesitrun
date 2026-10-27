@@ -1,16 +1,20 @@
-"""Prove the sandbox cannot reach the host or LAN, but can reach the internet.
+"""Prove the sandbox cannot reach the host, the LAN or the cloud control plane, but can reach the internet.
 
 Starts two canary HTTP servers on the host (one on 127.0.0.1, one on 0.0.0.0), then from a
-probe-configured container tries every known path to them. Exit 1 if any canary is reachable
-or the internet is not. run_probe.py calls verify() before every batch.
+probe-configured container tries every known path to them and to cloud metadata endpoints.
+A positive control from Docker's default network must reach a canary, otherwise "blocked" could just
+mean the canaries were down. Works on Docker Desktop (host at 192.168.65.254) and on a native Linux
+host such as a GitHub runner (host = bridge gateway). run_probe.py calls verify() before every batch.
 """
 import http.server
+import json
+import pathlib
 import socket
 import subprocess
 import sys
 import threading
 
-sys.path.insert(0, __file__.rsplit("\\", 1)[0].rsplit("/", 1)[0])
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import run_probe  # noqa: E402
 
 CANARY = b"rr-canary-host-service"
@@ -35,47 +39,64 @@ def lan_ip():
         s.close()
 
 
+def gateway(network):
+    p = subprocess.run(["docker", "network", "inspect", network, "--format", "{{json .IPAM.Config}}"],
+                       capture_output=True, text=True)
+    try:
+        return next((c["Gateway"] for c in json.loads(p.stdout) if c.get("Gateway")), None)
+    except ValueError:
+        return None
+
+
+def curl_lines(targets):
+    return "; ".join(f'echo "{label} -> $(curl -s -m 4 {url} || echo blocked)"' for label, url in targets)
+
+
 def verify():
     servers = [http.server.ThreadingHTTPServer(("127.0.0.1", 18999), H),
                http.server.ThreadingHTTPServer(("0.0.0.0", 18998), H)]
     for s in servers:
         threading.Thread(target=s.serve_forever, daemon=True).start()
-    lan = lan_ip()
-    gw = lan.rsplit(".", 1)[0] + ".1"
-    name = "rr-fwcheck"
-    run_probe.start_container(name, {"gpu": False, "mem": "1g"})
-    targets = ["host.docker.internal", "gateway.docker.internal", "192.168.65.254",
-               "192.168.65.1", "192.168.65.7", lan]
-    script = "; ".join(
-        f'echo "{h}:{p} -> $(curl -s -m 4 http://{h}:{p}/ || echo blocked)"'
-        for h in targets for p in (18999, 18998))
-    script += f'; echo "router {gw}:80 -> $(curl -s -m 4 -o /dev/null -w %{{http_code}} http://{gw}/ || echo blocked)"'
-    script += '; echo "internet pypi -> $(curl -s -m 15 -o /dev/null -w %{http_code} https://pypi.org/simple/)"'
-    script += '; echo "internet hf -> $(curl -s -m 15 -o /dev/null -w %{http_code} https://huggingface.co/api/models?limit=1)"'
-    out = subprocess.run(["docker", "exec", name, "bash", "-c", script],
-                         capture_output=True, text=True).stdout
-    subprocess.run(["docker", "rm", "-f", name], capture_output=True)
-    # Positive control: from Docker's default network the canary MUST be reachable,
-    # otherwise "blocked" above might just mean the canaries were down.
-    control = subprocess.run(["docker", "run", "--rm", "--entrypoint", "curl", run_probe.IMAGE,
-                              "-s", "-m", "4", "http://192.168.65.254:18999/"],
+    try:
+        lan = lan_ip()
+        name = "rr-fwcheck"
+        run_probe.start_container(name, {"gpu": False, "mem": "1g"})
+        hosts = ["host.docker.internal", "gateway.docker.internal", "192.168.65.254", "192.168.65.1",
+                 "192.168.65.7", lan, gateway("bridge"), gateway(run_probe.NET)]
+        targets = [(f"{h}:{p}", f"http://{h}:{p}/") for h in dict.fromkeys(filter(None, hosts)) for p in (18999, 18998)]
+        cloud = [("imds 169.254.169.254", "-o /dev/null -w %{http_code} http://169.254.169.254/"),
+                 ("wireserver 168.63.129.16", "-o /dev/null -w %{http_code} http://168.63.129.16/"),
+                 ("router " + lan.rsplit(".", 1)[0] + ".1", "-o /dev/null -w %{http_code} http://" + lan.rsplit(".", 1)[0] + ".1/")]
+        internet = [("internet pypi", "-o /dev/null -w %{http_code} https://pypi.org/simple/pip/"),
+                    ("internet hf", "-o /dev/null -w %{http_code} https://huggingface.co/api/models?limit=1")]
+        out = subprocess.run(["docker", "exec", name, "bash", "-c", curl_lines(targets + cloud + internet)],
                              capture_output=True, text=True).stdout
-    print("positive control (default network) ->", control or "unreachable")
-    if CANARY.decode() not in control:
-        print("FIREWALL CHECK INVALID: canary not reachable even without the firewall")
+        subprocess.run(["docker", "rm", "-f", name], capture_output=True)
+
+        controls = [h for h in ("192.168.65.254", gateway("bridge")) if h]
+        control_out = subprocess.run(
+            ["docker", "run", "--rm", "--entrypoint", "bash", run_probe.IMAGE, "-c",
+             curl_lines([(f"control {h}:{p}", f"http://{h}:{p}/") for h in controls for p in (18999, 18998)])],
+            capture_output=True, text=True).stdout
+    finally:
         for s in servers:
             s.shutdown()
-        return False
-    for s in servers:
-        s.shutdown()
     print(out)
+    print(control_out)
+
+    def reached(line):
+        value = line.split("->", 1)[1].strip() if "->" in line else ""
+        return value not in ("", "blocked", "000", "000blocked")
+
     leaked = CANARY.decode() in out
-    router_open = any(l.startswith("router") and "blocked" not in l and not l.rstrip().endswith("000")
-                      for l in out.splitlines())
+    cloud_open = [l for l in out.splitlines() if l.split(" ->")[0].split(" ")[0] in ("imds", "wireserver", "router")
+                  and reached(l)]
     internet_ok = "pypi -> 200" in out and "hf -> 200" in out
-    ok = not leaked and not router_open and internet_ok
+    control_ok = CANARY.decode() in control_out
+    ok = control_ok and not leaked and not cloud_open and internet_ok
     print("FIREWALL", "OK" if ok else "FAILED",
-          {"host_canary_leaked": leaked, "router_reachable": router_open, "internet_ok": internet_ok})
+          {"positive_control_reached_canary": control_ok, "host_canary_leaked": leaked,
+           "cloud_or_router_reachable": cloud_open, "internet_ok": internet_ok})
     return ok
 
 

@@ -7,6 +7,7 @@ saw, then replay the agent's setup.sh on a FRESH container and run the oracle ag
 Usage: python run_probe.py <slug> [<slug> ...]
 """
 import json
+import os
 import pathlib
 import subprocess
 import sys
@@ -14,7 +15,7 @@ import time
 
 ROOT = pathlib.Path(__file__).resolve().parent
 RUNS = ROOT / "runs"
-IMAGE = "rr-base"
+IMAGE = os.environ.get("RR_IMAGE", "rr-base")  # rr-base (CUDA, local GPU) or rr-cpu (CI runners)
 AGENT_BUDGET_SEC = 90 * 60
 REPLAY_SETUP_SEC = 90 * 60
 ORACLE_SEC = 60 * 60
@@ -63,7 +64,8 @@ NET, BRIDGE, SUBNET = "rr-net", "rr-br0", "172.31.250.0/24"
 # Everything private is off-limits from rr-net: Docker Desktop's host address (192.168.65.254
 # reaches services bound even to the host's 127.0.0.1), the LAN, link-local/metadata, CGNAT.
 BLOCKED = ["192.168.65.0/24", "192.168.0.0/16", "10.0.0.0/8", "172.16.0.0/12",
-           "169.254.0.0/16", "100.64.0.0/10"]
+           "169.254.0.0/16", "100.64.0.0/10",
+           "168.63.129.16/32"]  # Azure WireServer: public-looking, but the host's control plane on GitHub runners
 
 
 def vm_iptables(script):
@@ -82,6 +84,10 @@ def ensure_network_and_firewall():
     script = "set -e\n" + "\n".join(
         f"iptables -C DOCKER-USER -i {BRIDGE} -d {cidr} -j REJECT 2>/dev/null || "
         f"iptables -I DOCKER-USER 1 -i {BRIDGE} -d {cidr} -j REJECT" for cidr in BLOCKED)
+    # Traffic to the host itself (e.g. the bridge gateway 172.31.250.1 on a native Linux host) goes
+    # through INPUT, not FORWARD, so DOCKER-USER never sees it. Refuse everything the bridge sends in.
+    script += (f"\niptables -C INPUT -i {BRIDGE} -j REJECT 2>/dev/null || "
+               f"iptables -I INPUT 1 -i {BRIDGE} -j REJECT")
     p = vm_iptables(script)
     if p.returncode:
         raise RuntimeError("firewall setup failed: " + p.stderr)
