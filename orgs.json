@@ -1,0 +1,48 @@
+{
+  "_doc": "Attribution rules. owners: GitHub owner -> team (high confidence). license: phrases in LICENSE/CONTRIBUTING (medium). readme: phrases in README that may only name the team or be a citation (low; never assigns a company on its own).",
+  "companies": {
+    "Google": {
+      "owners": {"google": "Google", "google-research": "Google Research", "google-deepmind": "Google DeepMind",
+                 "deepmind": "Google DeepMind", "GoogleCloudPlatform": "Google Cloud", "tensorflow": "TensorFlow",
+                 "google-ai-edge": "Google AI Edge", "googlecolab": "Colab", "google-gemini": "Gemini",
+                 "google-health": "Google Health", "googleinterns": "Google"},
+      "license": ["Google LLC", "Google Inc", "Google Individual Contributor License", "DeepMind Technologies"],
+      "readme": {"Google DeepMind": "Google DeepMind", "DeepMind": "Google DeepMind", "Google Research": "Google Research",
+                 "Google Brain": "Google Research", "Google Cloud": "Google Cloud"}
+    },
+    "Meta": {
+      "owners": {"facebookresearch": "FAIR", "facebook": "Meta", "meta-llama": "Llama", "facebookincubator": "Meta"},
+      "license": ["Meta Platforms", "Facebook, Inc", "Facebook Inc"],
+      "readme": {"FAIR": "FAIR", "Meta AI": "Meta AI", "Reality Labs": "Reality Labs"}
+    },
+    "Microsoft": {
+      "owners": {"microsoft": "Microsoft", "Azure": "Azure", "Azure-Samples": "Azure"},
+      "license": ["Microsoft Corporation"],
+      "readme": {"Microsoft Research": "Microsoft Research", "MSRA": "Microsoft Research Asia"}
+    },
+    "NVIDIA": {
+      "owners": {"NVlabs": "NVIDIA Research", "NVIDIA": "NVIDIA", "NVIDIA-AI-IOT": "NVIDIA", "nv-tlabs": "NVIDIA Toronto AI Lab"},
+      "license": ["NVIDIA CORPORATION", "NVIDIA Corporation"],
+      "readme": {"NVIDIA Research": "NVIDIA Research"}
+    },
+    "Samsung": {"owners": {"samsung": "Samsung", "SamsungLabs": "Samsung Labs"}, "license": ["Samsung Electronics"],
+                "readme": {"Samsung AI Center": "Samsung AI Center", "Samsung Research": "Samsung Research"}},
+    "Alibaba": {"owners": {"alibaba": "Alibaba", "QwenLM": "Qwen", "modelscope": "ModelScope", "alibaba-damo-academy": "DAMO"},
+                "license": ["Alibaba Group"], "readme": {"DAMO Academy": "DAMO", "Tongyi": "Tongyi"}},
+    "Tencent": {"owners": {"Tencent": "Tencent", "TencentARC": "ARC Lab", "Tencent-Hunyuan": "Hunyuan", "TencentQQGYLab": "QQ"},
+                "license": ["THL A29 Limited", "Tencent"], "readme": {"ARC Lab": "ARC Lab", "Hunyuan": "Hunyuan"}},
+    "ByteDance": {"owners": {"bytedance": "ByteDance", "ByteDance-Seed": "Seed"}, "license": ["Bytedance Ltd", "ByteDance Ltd"],
+                  "readme": {"ByteDance Seed": "Seed"}},
+    "Baidu": {"owners": {"PaddlePaddle": "PaddlePaddle", "baidu": "Baidu"}, "license": ["Baidu"], "readme": {}},
+    "DeepSeek": {"owners": {"deepseek-ai": "DeepSeek"}, "license": ["DeepSeek"], "readme": {}},
+    "Apple": {"owners": {"apple": "Apple", "ml-explore": "MLX"}, "license": ["Apple Inc"], "readme": {}},
+    "Amazon": {"owners": {"amazon-science": "Amazon Science", "aws": "AWS", "awslabs": "AWS Labs"}, "license": ["Amazon.com"], "readme": {}},
+    "OpenAI": {"owners": {"openai": "OpenAI"}, "license": ["OpenAI"], "readme": {}},
+    "IDEA": {"owners": {"IDEA-Research": "IDEA Research"}, "license": ["International Digital Economy Academy"], "readme": {}},
+    "Bilibili": {"owners": {"bilibili": "Bilibili"}, "license": [], "readme": {}},
+    "JD": {"owners": {"jd-opensource": "JD"}, "license": [], "readme": {}}
+  },
+  "academia_markers": ["University", "Universität", "Université", "Institute of Technology", "Academia Sinica",
+                       "Tsinghua", "Peking University", "ETH Zurich", "EPFL", "Max Planck", "Stanford", "Berkeley", "MIT CSAIL",
+                       "Carnegie Mellon", "Tel Aviv", "Zhejiang University", "Shanghai AI Lab", "Skoltech"]
+}
