@@ -35,6 +35,11 @@ Deliverables (all in /work):
    you created (venv/conda/PATH/env vars) so `python` and the project's CLI resolve correctly.
 3. {run_clause}
 4. /work/NOTES.md - short: what broke when following the README, and what you changed.
+5. /work/REPORT.json - machine-readable version of NOTES.md:
+   {{"readme_path_worked_as_written": true|false,
+    "interventions": [{{"kind": "python_version|dependency_pin|system_package|gpu_compat|code_patch|
+                                 undocumented_step|dead_link|doc_error|other", "detail": "one line"}}]}}
+   One entry per distinct thing you had to do that the README did not tell you to do.
 
 Verification: after you finish, an independent check you cannot see will run that {check}.
 Test the goal yourself before finishing.
@@ -117,6 +122,23 @@ def oracle(name, slug, out_path):
     return {"pass": ok, "secs": round(time.time() - t0)}
 
 
+def repo_diff(name, repo_dir):
+    """Objective measure of how much of the repo's own code had to change: tracked-file edits
+    in the agent's working clone (whatever setup.sh patched in, not what the agent says it did),
+    ignoring whitespace-only churn (LaMa's aug.py: 217 raw lines vs 49 real)."""
+    p = sh(["docker", "exec", name, "git", "-C", f"/work/{repo_dir}", "diff", "--numstat",
+                "--ignore-all-space", "--ignore-blank-lines"])
+    if p.returncode:
+        return {"error": (p.stderr or "")[-300:]}
+    files = []
+    for line in p.stdout.splitlines():
+        added, removed, path = line.split("\t", 2)
+        files.append({"path": path, "added": int(added) if added.isdigit() else 0,
+                      "removed": int(removed) if removed.isdigit() else 0})
+    return {"files_changed": len(files),
+            "lines_changed": sum(f["added"] + f["removed"] for f in files), "files": files}
+
+
 def run_agent(cfg, name, rundir):
     cwd = rundir / "agent_cwd"
     cwd.mkdir(parents=True, exist_ok=True)
@@ -173,8 +195,9 @@ def probe(cfg):
 
     deliv = rundir / "deliverables"
     deliv.mkdir(exist_ok=True)
-    for f in ("setup.sh", "env.sh", "run.sh", "NOTES.md"):
+    for f in ("setup.sh", "env.sh", "run.sh", "NOTES.md", "REPORT.json"):
         sh(["docker", "cp", f"{name}:/work/{f}", str(deliv / f)])
+    res["repo_diff"] = repo_diff(name, cfg["dir"])
     sh(["docker", "stop", name])  # keep for inspection; frees CPU/GPU
 
     replay_and_save(cfg, res, rundir)
