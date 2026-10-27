@@ -33,6 +33,8 @@ def replay_class(res, key):
 
 
 def repo_score(res):
+    if (res.get("audit") or {}).get("verdict") == "oracle_defect":
+        return None, "not scored: the pre-registered audit found the hidden oracle defective"
     if not res["oracle"]["pass"]:
         return 0, "agent could not reproduce"
     minutes = res["agent"]["secs"] / 60
@@ -43,6 +45,8 @@ def repo_score(res):
 def company_table(rows):
     groups = {}
     for r in rows:
+        if r["score"] is None:
+            continue  # audited oracle defect: excluded from every mean
         groups.setdefault(r["company"], {}).setdefault(r["team"], []).append(r["score"])
     out = []
     for company, teams in groups.items():
@@ -74,6 +78,8 @@ def main():
             "replay_after_repair": replay_class(res, "replay_after_repair"),
             "company": a["company"], "team": a["team"], "attribution_confidence": a["confidence"],
             "attribution_evidence": a["evidence"],
+            "audit": (res.get("audit") or {}).get("verdict"),
+            "audit_reason": (res.get("audit") or {}).get("reason"),
         })
     ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
@@ -84,7 +90,7 @@ def main():
           "repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never "
           "mixed. Method: README.md; full notebook: WORKLOG.md.", ""]
     for t in order:
-        rows = sorted(tracks[t], key=lambda r: -r["score"])
+        rows = sorted(tracks[t], key=lambda r: (r["score"] is None, -(r["score"] or 0)))
         companies = company_table(rows)
         out["tracks"].append({"track": t, "label": TRACK_LABELS.get(t, t), "repos": rows, "companies": companies})
         md += [f"## {TRACK_LABELS.get(t, t)} — {len(rows)} repos", "",
@@ -93,7 +99,8 @@ def main():
         for i, r in enumerate(rows, 1):
             later = [f"{k}: {r[k]}" for k in ("replay_supplementary", "replay_after_repair")
                      if r["replay"] != "pass" and r[k] != "not run"]
-            md.append(f"| {i} | [{r['repo']}](https://github.com/{r['repo']}) | {r['score']} | "
+            md.append(f"| {i} | [{r['repo']}](https://github.com/{r['repo']}) | "
+                      f"{'not scored (oracle defect)' if r['score'] is None else r['score']} | "
                       f"{r['agent_minutes']:.0f} min | {r['files_patched']} ({r['lines_patched']} lines) | "
                       f"{'; '.join([r['replay']] + later)} | {r['company']} / {r['team']} ({r['attribution_confidence']}) |")
         md += ["", "| company | n | mean | teams |", "|---|---|---|---|"]

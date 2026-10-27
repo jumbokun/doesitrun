@@ -34,6 +34,16 @@ def replay_badge(r):
     return f'<span class="badge {"warn" if good else "neg"}" title="{esc(detail)}">{esc(label)}</span>'
 
 
+def score_cell(r):
+    if r["score"] is None:
+        return (f'<div class="score"><span class="badge warn" title="{esc(r.get("audit_reason") or "")}">'
+                f'oracle defect · not scored</span></div>')
+    return f"""<div class="score {tone(r['score'])}">
+          <span class="mono num">{r['score']:.0f}</span>
+          <span class="bar"><span style="width:{max(2, r['score']):.0f}%"></span></span>
+        </div>"""
+
+
 def repo_rows(rows):
     out = []
     for i, r in enumerate(rows, 1):
@@ -56,10 +66,7 @@ def repo_rows(rows):
             {replay_badge(r)}
           </div>
         </div>
-        <div class="score {tone(r['score'])}">
-          <span class="mono num">{r['score']:.0f}</span>
-          <span class="bar"><span style="width:{max(2, r['score']):.0f}%"></span></span>
-        </div>
+        {score_cell(r)}
       </li>""")
     return "".join(out)
 
@@ -134,7 +141,7 @@ def main():
     data = json.loads((ROOT / "data" / "leaderboard.json").read_text(encoding="utf-8"))
     tracks = data["tracks"]
     rows = [r for t in tracks for r in t["repos"]]
-    ran = [r for r in rows if r["score"] > 0]
+    ran = [r for r in rows if (r["score"] or 0) > 0]
     sections = "".join(track_section(t, i) for i, t in enumerate(tracks))
     replays = sum(r["replay"] == "pass" for r in rows)
     median_min = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
