@@ -27,7 +27,7 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | Alibaba | 84 (10) | Qwen 93 · ModelScope 78 |
 | Baidu | 83 (9) | Baidu 88 · PaddlePaddle 82 |
 | Google | 70 (9) | DeepMind 89 · Google 74 · Google Research 53 |
-| NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 — a CPU track is hard on CUDA-first repos |
+| NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 — two 0s unrelated to CUDA (Megatron-LM's tokenizer, SPADE's 404 link) |
 | Tencent | 64 (9) | ARC Lab 94 · Tencent 76 · **Hunyuan 39** |
 | ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
 

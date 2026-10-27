@@ -89,9 +89,10 @@ CPU track, mean score (number scored). Teams are split only where separate GitHu
 | NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 |
 | ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
 
-Read it with care. Each repo ran once. A CPU-only machine is unfair to CUDA-first code, which explains a lot of NVIDIA's
-score. And "top 25 by stars" mixes research dumps with polished products. The interesting part is less the order than
-*why* things fail.
+Read it with care. Each repo ran once. NVIDIA's mean is pulled down mostly by two zeros that have nothing to do with
+CUDA (Megatron-LM's tokenizer fails to load with current transformers; SPADE's pretrained models are a 404). Porting
+CUDA-first StyleGAN-era code to CPU cost it points too. And "top 25 by stars" mixes research dumps with polished
+products. The interesting part is less the order than *why* things fail.
 
 ## What I got wrong along the way
 
