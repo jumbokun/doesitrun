@@ -9,6 +9,7 @@ Usage: python run_probe.py <slug> [<slug> ...]
 import json
 import os
 import pathlib
+import re
 import subprocess
 import sys
 import time
@@ -191,12 +192,42 @@ def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", bud
     return info
 
 
+DATA_RUNS = ROOT / "data" / "runs"
+TRACK = os.environ.get("RR_TRACK", "gpu-rtx5060")  # hardware track the scores belong to
+
+
+def classify_replay(log, passed):
+    """Why a fresh-container replay failed, from its setup log (stored with the result, so the
+    committed record is self-contained)."""
+    if passed:
+        return "pass"
+    if re.search(r"network timeout|operation timed out|Read timed out|UV_HTTP_TIMEOUT", log):
+        return "fail: download timeout"
+    if re.search(r"File not found: /work/|No such file or directory: '?/work/", log):
+        return "fail: installer not self-contained"
+    return "fail: other"
+
+
+def export_run(slug):
+    """Copy the durable part of a run (result + agent deliverables, no transcripts/logs) to data/runs."""
+    src, dst = RUNS / slug, DATA_RUNS / slug
+    dst.mkdir(parents=True, exist_ok=True)
+    (dst / "result.json").write_bytes((src / "result.json").read_bytes())
+    for d in ("deliverables", "deliverables_first_pass"):
+        if (src / d).is_dir():
+            (dst / d).mkdir(exist_ok=True)
+            for f in (src / d).iterdir():
+                if f.is_file():
+                    (dst / d / f.name).write_bytes(f.read_bytes())
+
+
 def probe(cfg):
     slug = cfg["slug"]
     rundir = RUNS / slug
     rundir.mkdir(parents=True, exist_ok=True)
     name, replay = f"rr-{slug}", f"rr-{slug}-replay"
-    res = {"slug": slug, "repo": cfg["repo"], "started": time.strftime("%Y-%m-%d %H:%M:%S")}
+    res = {"slug": slug, "repo": cfg["repo"], "track": TRACK, "goal": cfg["goal"], "check": cfg["check"],
+           "started": time.strftime("%Y-%m-%d %H:%M:%S")}
 
     start_container(name, cfg)
     res["agent"] = run_agent(cfg, name, rundir)
@@ -294,12 +325,14 @@ def replay_and_save(cfg, res, rundir, key="replay"):
         (rundir / f"{key}_setup.log").write_text(log[-200_000:], encoding="utf-8")
         res[key] = {"setup_ok": setup_ok, "setup_secs": round(time.time() - t0), "mem": cfg["mem"]}
         res[key]["oracle"] = oracle(replay, slug, rundir / f"{key}_oracle.txt")
+        res[key]["class"] = classify_replay(log, res[key]["oracle"]["pass"])
         sh(["docker", "stop", replay])
     else:
         res[key] = {"setup_ok": False, "note": "no setup.sh delivered"}
 
     res["finished"] = time.strftime("%Y-%m-%d %H:%M:%S")
     (rundir / "result.json").write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
+    export_run(slug)
     print(json.dumps(res, ensure_ascii=False), flush=True)
 
 
