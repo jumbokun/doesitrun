@@ -5,6 +5,8 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 
 **Live leaderboard → https://jumbokun.github.io/doesitrun/** · **The story: [what broke](STORY.md)**
 
+[![Does it run? leaderboard](docs/screenshot.png)](https://jumbokun.github.io/doesitrun/)
+
 ### Results so far (2026-10-27)
 
 **CPU track — 80 repos, 10 from each of Google, Meta, Microsoft, NVIDIA, Alibaba, Tencent, ByteDance, Baidu**
