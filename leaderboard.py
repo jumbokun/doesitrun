@@ -25,6 +25,14 @@ TRACK_LABELS = {"cpu-gha": "CPU · GitHub-hosted runner (4 vCPU, 16 GB)",
                 "gpu-rtx5060": "GPU · RTX 5060 Laptop 8 GB"}
 
 
+def team_of(a):
+    """Split by team only on org-account evidence. A team inferred from a README mention is low confidence
+    (unilm is MSR but its README does not say so; trax's does), so such repos stay under the company name."""
+    if any("README mentions" in e for e in a.get("evidence", [])):
+        return a["company"]
+    return a["team"]
+
+
 def replay_class(res, key):
     r = res.get(key)
     if not r:
@@ -80,7 +88,7 @@ def main():
             "replay": replay_class(res, "replay"),
             "replay_supplementary": replay_class(res, "replay_supplementary"),
             "replay_after_repair": replay_class(res, "replay_after_repair"),
-            "company": a["company"], "team": a["team"], "attribution_confidence": a["confidence"],
+            "company": a["company"], "team": team_of(a), "attribution_confidence": a["confidence"],
             "attribution_evidence": a["evidence"],
             "audit": (res.get("audit") or {}).get("verdict"),
             "audit_reason": (res.get("audit") or {}).get("reason"),
