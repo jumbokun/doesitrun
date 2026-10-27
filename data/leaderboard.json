@@ -326,26 +326,6 @@
           "audit_reason": null
         },
         {
-          "repo": "google/python-fire",
-          "slug": "google-python-fire",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google' is Google org account (Google)"
-          ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
           "repo": "google-research/bert",
           "slug": "google-research-bert",
           "score": 0,
@@ -362,8 +342,8 @@
           "attribution_evidence": [
             "owner 'google-research' is Google org account (Google Research)"
           ],
-          "audit": null,
-          "audit_reason": null
+          "audit": "repo_failure",
+          "audit_reason": "The oracle stops at its first real step: curl -f gets HTTP 403 AccessDenied for the BERT-Tiny zip. That is the exact checkpoint URL listed in the README (line 48), and other official bert_models URLs also return 403. The installing agent's /work/setup.sh also notes the official GCS zip is gone. The README's documented model download is dead upstream, so the documented demo cannot be reproduced as written. This is not an oracle bug."
         },
         {
           "repo": "google/trax",
@@ -383,8 +363,28 @@
             "owner 'google' is Google org account (Google)",
             "README mentions 'Google Brain' -> team Google Research (low)"
           ],
-          "audit": null,
-          "audit_reason": null
+          "audit": "repo_failure",
+          "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle."
+        },
+        {
+          "repo": "google/python-fire",
+          "slug": "google-python-fire",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "All README demos work: Hello World!, Hello David!, 20, 30, and the trace all print correctly. `python hello.py --help` exits 0 and prints Fire's help page (NAME / SYNOPSIS / FLAGS), but that page never contains the literal word 'usage'. The README only says the command 'Shows usage information', so the oracle's `grep -qi usage` checks for a string Fire doesn't print."
         },
         {
           "repo": "microsoft/data-formulator",
@@ -428,18 +428,18 @@
         },
         {
           "company": "Google",
-          "n": 10,
-          "mean": 63.3,
+          "n": 9,
+          "mean": 70.3,
           "teams": [
+            {
+              "team": "Google",
+              "n": 3,
+              "mean": 98.9
+            },
             {
               "team": "Google DeepMind",
               "n": 2,
               "mean": 88.8
-            },
-            {
-              "team": "Google",
-              "n": 4,
-              "mean": 74.2
             },
             {
               "team": "Google Research",

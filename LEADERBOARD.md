@@ -22,15 +22,15 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 14 | [google-deepmind/pysc2](https://github.com/google-deepmind/pysc2) | 80.3 | 10 min | 1 (1 lines) | pass | Google / Google DeepMind (high) |
 | 15 | [microsoft/Swin-Transformer](https://github.com/microsoft/Swin-Transformer) | 76.8 | 3 min | 2 (43 lines) | pass | Microsoft / Microsoft (high) |
 | 16 | [google-research/timesfm](https://github.com/google-research/timesfm) | 59.2 | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
-| 17 | [google/python-fire](https://github.com/google/python-fire) | 0 | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
-| 18 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
-| 19 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 17 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
+| 18 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 19 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
 | 20 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
 | Microsoft | 9 | 93.3 | Microsoft Research 99.4 (n=1); Microsoft 92.5 (n=8) |
-| Google | 10 | 63.3 | Google DeepMind 88.8 (n=2); Google 74.2 (n=4); Google Research 39.7 (n=4) |
+| Google | 9 | 70.3 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 39.7 (n=4) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos
 
