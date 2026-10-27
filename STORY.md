@@ -35,7 +35,7 @@ Tencent, ByteDance and Baidu, on free GitHub Actions runners (4 vCPU, 16 GB RAM,
    the installed environment, and rules "repo failure", "test defect" or "inconclusive". A defective test means the
    repo is left unscored. It is never turned into a pass.
 
-Score = `100 − agent minutes (max 50) − 10 × repo files the agent had to modify (max 40)`, or 0 if the demo never ran.
+Score = `100 − agent minutes (max 50) − 10 × repo files the agent modified (max 40)`, or 0 if the demo never ran.
 The number of files changed comes from `git diff` on the repo, not from the agent's notes.
 
 ## What broke
@@ -50,12 +50,13 @@ sends you to a Google Drive file that is a 404 ([#175](https://github.com/NVlabs
 `pip install -e .` gives a CLI that crashes on import. That's known ([#86](https://github.com/ByteDance-Seed/Depth-Anything-3/issues/86))
 and two PRs are open.
 
-**What agents fixed silently.** Across the 80 CPU runs, the agents' own reports list 78 dependency pins they had to
-change, 67 steps the README didn't mention, and 42 GPU-to-CPU adaptations. These counts are self-reported. The
-code changes are measured directly: 30 of 80 repos needed at least one of their own files modified.
+**What agents fixed silently.** Across the 80 CPU runs, the agents' own reports list 78 dependency-pin changes,
+67 steps the README didn't mention, and 42 GPU-compatibility changes. These counts are self-reported. Code changes
+are measured directly with `git diff`: in 30 of 80 repos the agent modified at least one of the repo's own files.
 
-**Installers.** 59 of 80 install scripts replayed on a fresh machine on the first try. The typical failures are a helper
-file the agent created but never packaged, or a multi-GB wheel download that stalled.
+**Installers.** Of the 62 repos whose demo ran, 59 install scripts replayed on a fresh machine on the first try, and
+the other 3 replayed after one repair round. (On the earlier GPU batch, first-try replays failed on stalled multi-GB
+wheel downloads and on helper files the agent never packaged.)
 
 ## The tests were the weakest link
 
@@ -65,7 +66,8 @@ I expected the examiner's hidden tests to be the reliable part. They weren't. So
   (NAME / SYNOPSIS) and never uses that word.
 - **microsoft/data-formulator:** the test called an internal API without the `X-Workspace-Id` header the server requires
   by design. With the header it works.
-- **NVIDIA/warp:** the test defined a Warp kernel inside `python -c`, which Warp explicitly refuses.
+- **NVIDIA/warp:** the test defined a Warp kernel inside `python -c`. Warp's own docs say not to: its code generator
+  reads kernel source with `inspect`, which fails for code with no source file.
 - **NVIDIA/SkillSpector:** the scanner exits 1 when it finds a risk, as documented. The test treated that as a crash.
 
 The auditor isn't a rubber stamp: it ruled BERT, trax, SPADE and Depth-Anything-3 genuine failures, each with a command
@@ -108,4 +110,5 @@ All of it is in [WORKLOG.md](WORKLOG.md). The parts that matter for trusting the
 - [Request a test](https://github.com/jumbokun/doesitrun/issues/new?template=test-my-repo.yml) for your repo, or
   [dispute a result](https://github.com/jumbokun/doesitrun/issues/new?template=dispute-a-result.yml) with evidence.
 - Tested repos can show a badge: `https://img.shields.io/endpoint?url=https://jumbokun.github.io/doesitrun/badge/cpu-gha/OWNER/REPO.json`
-- Everything runs on free GitHub Actions, and the harness and every record are MIT-licensed.
+- The CPU track runs on free GitHub Actions; the GPU track ran on a local RTX 5060. The harness and every record
+  are MIT-licensed.
