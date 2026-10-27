@@ -22,7 +22,8 @@
             "owner 'google-research' is Google org account (Google Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "google/yapf",
@@ -42,7 +43,8 @@
             "owner 'google' is Google org account (Google)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/SkillOpt",
@@ -63,7 +65,8 @@
             "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVIDIA/garak",
@@ -83,7 +86,8 @@
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/JARVIS",
@@ -103,7 +107,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/detr",
@@ -123,7 +128,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/markitdown",
@@ -143,7 +149,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "google/adk-recipes",
@@ -163,7 +170,8 @@
             "owner 'google' is Google org account (Google)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "QwenLM/Qwen3",
@@ -183,7 +191,8 @@
             "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "google/langextract",
@@ -203,7 +212,8 @@
             "owner 'google' is Google org account (Google)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/pyright",
@@ -223,7 +233,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/cascadia-code",
@@ -243,7 +254,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/AnimatedDrawings",
@@ -263,7 +275,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "QwenLM/Qwen3-TTS",
@@ -283,7 +296,8 @@
             "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/demucs",
@@ -303,7 +317,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "Tencent/AI-Infra-Guard",
@@ -323,7 +338,8 @@
             "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "TencentARC/GFPGAN",
@@ -343,7 +359,8 @@
             "owner 'TencentARC' is Tencent org account (ARC Lab)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "modelscope/ClearerVoice-Studio",
@@ -363,7 +380,8 @@
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/vggt",
@@ -383,7 +401,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "google-deepmind/sonnet",
@@ -403,7 +422,8 @@
             "owner 'google-deepmind' is Google org account (Google DeepMind)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/VibeVoice",
@@ -423,7 +443,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "bytedance/MegaTTS3",
@@ -443,7 +464,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "modelscope/ms-swift",
@@ -463,7 +485,8 @@
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "bytedance/piano_transcription",
@@ -483,7 +506,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "modelscope/FunASR",
@@ -503,7 +527,8 @@
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/fairseq",
@@ -523,7 +548,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/models",
@@ -543,7 +569,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/nougat",
@@ -563,7 +590,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleNLP",
@@ -583,7 +611,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "bytedance/GiantMIDI-Piano",
@@ -603,7 +632,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleSeg",
@@ -623,7 +653,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleOCR",
@@ -643,7 +674,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "modelscope/DiffSynth-Studio",
@@ -663,7 +695,8 @@
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "QwenLM/Qwen",
@@ -683,7 +716,8 @@
             "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleX",
@@ -703,7 +737,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "TencentARC/T2I-Adapter",
@@ -723,7 +758,8 @@
             "owner 'TencentARC' is Tencent org account (ARC Lab)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVlabs/stylegan3",
@@ -743,7 +779,8 @@
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVlabs/Sana",
@@ -763,7 +800,8 @@
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "baidu/Unlimited-OCR",
@@ -783,7 +821,8 @@
             "owner 'baidu' is Baidu org account (Baidu)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "ByteDance-Seed/m3-agent",
@@ -803,7 +842,8 @@
             "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/unilm",
@@ -823,7 +863,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/detectron2",
@@ -843,7 +884,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/qlib",
@@ -863,7 +905,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "modelscope/modelscope",
@@ -883,7 +926,8 @@
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "Tencent-Hunyuan/HY-World-2.0",
@@ -903,7 +947,8 @@
             "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "QwenLM/Qwen-Agent",
@@ -923,7 +968,8 @@
             "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "google-deepmind/pysc2",
@@ -943,7 +989,8 @@
             "owner 'google-deepmind' is Google org account (Google DeepMind)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/Swin-Transformer",
@@ -963,7 +1010,8 @@
             "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVlabs/stylegan",
@@ -983,7 +1031,8 @@
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleDetection",
@@ -1003,7 +1052,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "Tencent/tencent-ml-images",
@@ -1023,7 +1073,8 @@
             "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "facebookresearch/Detectron",
@@ -1043,7 +1094,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "Tencent-Hunyuan/Hunyuan3D-2",
@@ -1063,7 +1115,8 @@
             "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "bytedance/Protenix",
@@ -1083,7 +1136,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVIDIA/FastPhotoStyle",
@@ -1103,7 +1157,8 @@
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleGAN",
@@ -1123,7 +1178,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "google-research/timesfm",
@@ -1143,7 +1199,8 @@
             "owner 'google-research' is Google org account (Google Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "Tencent/FaceDetection-DSFD",
@@ -1163,7 +1220,8 @@
             "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleFormers",
@@ -1183,7 +1241,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVlabs/stylegan2",
@@ -1203,7 +1262,8 @@
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "bytedance/Sa2VA",
@@ -1223,7 +1283,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "bytedance/LatentSync",
@@ -1243,7 +1304,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "bytedance/Dolphin",
@@ -1263,7 +1325,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": "inconclusive",
-          "audit_reason": "/work is completely empty in this sandbox: there is no /work/setup.sh, no /work/env.sh, and no /work/Dolphin checkout or hf_model, so the oracle failed at `source /work/env.sh` before Dolphin code ever ran. Since even the installing agent's setup.sh is missing, this looks like the install state was never carried into this sandbox, not like a missed step in the install, and the README demo (demo_page.py) could not be run, so neither the repo nor the oracle's assertions could be checked."
+          "audit_reason": "/work is completely empty in this sandbox: there is no /work/setup.sh, no /work/env.sh, and no /work/Dolphin checkout or hf_model, so the oracle failed at `source /work/env.sh` before Dolphin code ever ran. Since even the installing agent's setup.sh is missing, this looks like the install state was never carried into this sandbox, not like a missed step in the install, and the README demo (demo_page.py) could not be run, so neither the repo nor the oracle's assertions could be checked.",
+          "corrected": false
         },
         {
           "repo": "ByteDance-Seed/Depth-Anything-3",
@@ -1283,7 +1346,8 @@
             "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
           ],
           "audit": "repo_failure",
-          "audit_reason": "The da3 CLI crashes at import with ModuleNotFoundError: No module named 'addict', before any inference happens. src/depth_anything_3/model/da3.py imports addict unconditionally, but pyproject.toml does not list addict as a dependency, so the README's `pip install -e .` cannot give a working CLI. The installer's setup.sh did try to add addict/scikit-learn by hand, but they are not in the venv now, so the install is broken in this sandbox. The oracle's checks are not the cause."
+          "audit_reason": "The da3 CLI crashes at import with ModuleNotFoundError: No module named 'addict', before any inference happens. src/depth_anything_3/model/da3.py imports addict unconditionally, but pyproject.toml does not list addict as a dependency, so the README's `pip install -e .` cannot give a working CLI. The installer's setup.sh did try to add addict/scikit-learn by hand, but they are not in the venv now, so the install is broken in this sandbox. The oracle's checks are not the cause.",
+          "corrected": false
         },
         {
           "repo": "google-research/bert",
@@ -1303,7 +1367,8 @@
             "owner 'google-research' is Google org account (Google Research)"
           ],
           "audit": "repo_failure",
-          "audit_reason": "The oracle stops at its first real step: curl -f gets HTTP 403 AccessDenied for the BERT-Tiny zip. That is the exact checkpoint URL listed in the README (line 48), and other official bert_models URLs also return 403. The installing agent's /work/setup.sh also notes the official GCS zip is gone. The README's documented model download is dead upstream, so the documented demo cannot be reproduced as written. This is not an oracle bug."
+          "audit_reason": "The oracle stops at its first real step: curl -f gets HTTP 403 AccessDenied for the BERT-Tiny zip. That is the exact checkpoint URL listed in the README (line 48), and other official bert_models URLs also return 403. The installing agent's /work/setup.sh also notes the official GCS zip is gone. The README's documented model download is dead upstream, so the documented demo cannot be reproduced as written. This is not an oracle bug.",
+          "corrected": false
         },
         {
           "repo": "google/trax",
@@ -1324,7 +1389,8 @@
             "README mentions 'Google Brain' -> team Google Research (low)"
           ],
           "audit": "repo_failure",
-          "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle."
+          "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle.",
+          "corrected": false
         },
         {
           "repo": "modelscope/FunClip",
@@ -1344,27 +1410,8 @@
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
           "audit": "repo_failure",
-          "audit_reason": "The oracle stopped first because wget isn't installed, but the README's own download step uses wget too. With curl swapped in, stage 1 runs on CPU and writes a good Chinese total.srt. Stage 2 with the README's exact --dest_text then prints 'No period found in the video; no output was generated', so no res.mp4 is made: the video at the README URL doesn't contain that sentence. The installing agent's setup.sh also says this and swaps in a different file (2022云栖大会_片段2.mp4). The README's documented demo does not work as written."
-        },
-        {
-          "repo": "NVIDIA/Megatron-LM",
-          "slug": "nvidia-megatron-lm",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 24.8,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": "repo_failure",
-          "audit_reason": "The oracle passes exactly what the task specifies: a directory holding the four GPT-2 tokenizer files (tokenizer.json, tokenizer_config.json, vocab.json, merges.txt). Megatron's HuggingFaceTokenizer calls AutoTokenizer on that directory, and the installed transformers 4.57.6 can't work out the model type: the HF tokenizer_config.json is only {\"model_max_length\": 1024} and there is no config.json. It only loads when the directory path contains 'gpt2', and the installer's own test used /work/gpt2, which is why it passed there; with transformers 5.x the tokenizer loads but eos_token is None, so --append-eod breaks. The install fails for any directory name the spec allows, so this is the install's fault, not the oracle's."
+          "audit_reason": "The oracle stopped first because wget isn't installed, but the README's own download step uses wget too. With curl swapped in, stage 1 runs on CPU and writes a good Chinese total.srt. Stage 2 with the README's exact --dest_text then prints 'No period found in the video; no output was generated', so no res.mp4 is made: the video at the README URL doesn't contain that sentence. The installing agent's setup.sh also says this and swaps in a different file (2022云栖大会_片段2.mp4). The README's documented demo does not work as written.",
+          "corrected": false
         },
         {
           "repo": "NVlabs/SPADE",
@@ -1384,7 +1431,8 @@
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
           "audit": "repo_failure",
-          "audit_reason": "The oracle stopped at `test -d checkpoints/coco_pretrained` because checkpoints/ is empty. The pretrained-model tarball that README.md line 65 points to on Google Drive (id 12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ) now returns HTTP 404, and gdown can't fetch it either, so the README's documented COCO test demo can't be run. The oracle's check is reasonable; the repo's required download is broken."
+          "audit_reason": "The oracle stopped at `test -d checkpoints/coco_pretrained` because checkpoints/ is empty. The pretrained-model tarball that README.md line 65 points to on Google Drive (id 12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ) now returns HTTP 404, and gdown can't fetch it either, so the README's documented COCO test demo can't be run. The oracle's check is reasonable; the repo's required download is broken.",
+          "corrected": false
         },
         {
           "repo": "Tencent-Hunyuan/Hunyuan3D-1",
@@ -1404,7 +1452,8 @@
             "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
           ],
           "audit": "inconclusive",
-          "audit_reason": "This audit sandbox has no installation at all: /work is empty, with no setup.sh, no env.sh and no Hunyuan3D-1 checkout, so the oracle re-run here died at `source /work/env.sh` before testing anything about the repo. Without the agent's install I can't tell why the original run failed. A fresh clone does hardcode CUDA in the svrm path (svrm/ldm/models/svrm.py:55 `.cuda()`, context_type='cuda'; ops.py `.cuda()`), so a CPU run may well be the repo's fault, but I can't confirm that here."
+          "audit_reason": "This audit sandbox has no installation at all: /work is empty, with no setup.sh, no env.sh and no Hunyuan3D-1 checkout, so the oracle re-run here died at `source /work/env.sh` before testing anything about the repo. Without the agent's install I can't tell why the original run failed. A fresh clone does hardcode CUDA in the svrm path (svrm/ldm/models/svrm.py:55 `.cuda()`, context_type='cuda'; ops.py `.cuda()`), so a CPU run may well be the repo's fault, but I can't confirm that here.",
+          "corrected": false
         },
         {
           "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
@@ -1424,7 +1473,8 @@
             "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
           ],
           "audit": "inconclusive",
-          "audit_reason": "auditor produced no valid AUDIT.json"
+          "audit_reason": "auditor produced no valid AUDIT.json",
+          "corrected": false
         },
         {
           "repo": "bytedance/UI-TARS",
@@ -1444,7 +1494,8 @@
             "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "The installed ui_tars/action_parser.py is identical to the repo's codes/ui_tars/action_parser.py, and the README snippet runs and prints the parsed dict and pyautogui code. For model_type='qwen25vl', the source deliberately treats coordinates as absolute pixels on the smart_resize'd image (1932x1092), so 100/1932=0.0518 and 200/1092=0.183. The oracle instead assumed factor=1000 normalization (0.1, 0.2) and pixels 192/216, which the README never promises for qwen25vl."
+          "audit_reason": "The installed ui_tars/action_parser.py is identical to the repo's codes/ui_tars/action_parser.py, and the README snippet runs and prints the parsed dict and pyautogui code. For model_type='qwen25vl', the source deliberately treats coordinates as absolute pixels on the smart_resize'd image (1932x1092), so 100/1932=0.0518 and 200/1092=0.183. The oracle instead assumed factor=1000 normalization (0.1, 0.2) and pixels 192/216, which the README never promises for qwen25vl.",
+          "corrected": false
         },
         {
           "repo": "facebookresearch/ParlAI",
@@ -1464,7 +1515,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "display_data -t squad downloads SQuAD (dev/train-v1.1.json exist) and prints context, question and indented answer for each example, exits 0, and eval_model reports exs=10 with accuracy 1. ParlAI's display format never includes literal 'text:' prefixes (the only 'labels:' match is the 'hide_labels:' option dump), and the README never promises one. So the oracle's grep for 'text:' fails on output that is actually correct."
+          "audit_reason": "display_data -t squad downloads SQuAD (dev/train-v1.1.json exist) and prints context, question and indented answer for each example, exits 0, and eval_model reports exs=10 with accuracy 1. ParlAI's display format never includes literal 'text:' prefixes (the only 'labels:' match is the 'hide_labels:' option dump), and the README never promises one. So the oracle's grep for 'text:' fails on output that is actually correct.",
+          "corrected": false
         },
         {
           "repo": "facebookresearch/pytorch3d",
@@ -1484,7 +1536,8 @@
             "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "The PyTorch3D pipeline itself worked: the cow mesh loaded, rendered to (1,256,256,4) on CPU, and passed the coverage (0.123) and texture std assertions. The oracle only crashed afterwards at `import matplotlib`, which it used just to save a PNG. matplotlib is an optional extra (setup.py 'all'; INSTALL.md lists it as needed only for tutorials/examples), and the stated goal only required import pytorch3d plus the render pipeline."
+          "audit_reason": "The PyTorch3D pipeline itself worked: the cow mesh loaded, rendered to (1,256,256,4) on CPU, and passed the coverage (0.123) and texture std assertions. The oracle only crashed afterwards at `import matplotlib`, which it used just to save a PNG. matplotlib is an optional extra (setup.py 'all'; INSTALL.md lists it as needed only for tutorials/examples), and the stated goal only required import pytorch3d plus the render pipeline.",
+          "corrected": false
         },
         {
           "repo": "google/python-fire",
@@ -1504,7 +1557,8 @@
             "owner 'google' is Google org account (Google)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "All README demos work: Hello World!, Hello David!, 20, 30, and the trace all print correctly. `python hello.py --help` exits 0 and prints Fire's help page (NAME / SYNOPSIS / FLAGS), but that page never contains the literal word 'usage'. The README only says the command 'Shows usage information', so the oracle's `grep -qi usage` checks for a string Fire doesn't print."
+          "audit_reason": "All README demos work: Hello World!, Hello David!, 20, 30, and the trace all print correctly. `python hello.py --help` exits 0 and prints Fire's help page (NAME / SYNOPSIS / FLAGS), but that page never contains the literal word 'usage'. The README only says the command 'Shows usage information', so the oracle's `grep -qi usage` checks for a string Fire doesn't print.",
+          "corrected": false
         },
         {
           "repo": "microsoft/data-formulator",
@@ -1525,7 +1579,29 @@
             "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "The server, UI and app-config work, and the upload API returns success once the request carries the X-Workspace-Id header. The frontend always sends that header, and the code requires it by design (py-src/data_formulator/workspace_factory.py:135). The oracle's curl calls leave the header out, so the server rejects them; nothing is wrong with the install. The README never documents these internal API calls, let alone says they work without a workspace header."
+          "audit_reason": "The server, UI and app-config work, and the upload API returns success once the request carries the X-Workspace-Id header. The frontend always sends that header, and the code requires it by design (py-src/data_formulator/workspace_factory.py:135). The oracle's curl calls leave the header out, so the server rejects them; nothing is wrong with the install. The README never documents these internal API calls, let alone says they work without a workspace header.",
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/Megatron-LM",
+          "slug": "nvidia-megatron-lm",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 24.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "Corrected on review: the failure comes from our test setup, not Megatron-LM. The README only says --tokenizer-model /path/to/tokenizer.model; our examiner chose GPT-2 files in a directory named 'tok', which transformers 4.57.6 (installed by our agent) cannot resolve without 'gpt2' in the path, while the same files under /…/gpt2 load fine (shown in the audit's own evidence). The test depended on its own environment, which the audit rule defines as an oracle defect.",
+          "corrected": true
         },
         {
           "repo": "NVIDIA/SkillSpector",
@@ -1545,7 +1621,8 @@
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "The malicious scan works and writes a valid 21KB JSON report with 7 issues, versus 0 for the safe fixture. It exits 1 because risk_score is 100, and README 'Exit codes' documents exit 1 as 'Scan completed and risk_score > 50'. The oracle runs under set -e, so it aborts on this documented exit code. It would also have failed later, because it looks for a 'findings' key when the report schema uses 'issues'."
+          "audit_reason": "The malicious scan works and writes a valid 21KB JSON report with 7 issues, versus 0 for the safe fixture. It exits 1 because risk_score is 100, and README 'Exit codes' documents exit 1 as 'Scan completed and risk_score > 50'. The oracle runs under set -e, so it aborts on this documented exit code. It would also have failed later, because it looks for a 'findings' key when the report schema uses 'issues'.",
+          "corrected": false
         },
         {
           "repo": "NVIDIA/warp",
@@ -1565,7 +1642,8 @@
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "The mesh example ran on CPU and wrote a 1.79 MB USD with 6 prims, and the end-time assertion passed. The failure came from the oracle defining a wp.kernel inside `python -c`. Warp has to read kernel source with inspect, and it explicitly rejects code with no source file ('Directly evaluating Warp code defined as a string ... is not supported'). The same kernel saved to a file launches on CPU and gives correct results."
+          "audit_reason": "The mesh example ran on CPU and wrote a 1.79 MB USD with 6 prims, and the end-time assertion passed. The failure came from the oracle defining a wp.kernel inside `python -c`. Warp has to read kernel source with inspect, and it explicitly rejects code with no source file ('Directly evaluating Warp code defined as a string ... is not supported'). The same kernel saved to a file launches on CPU and gives correct results.",
+          "corrected": false
         },
         {
           "repo": "PaddlePaddle/PaddleSpeech",
@@ -1585,7 +1663,8 @@
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "The oracle aborted before testing anything because `wget` is not installed in the sandbox (only curl is). After downloading zh.wav with Python, `paddlespeech asr` printed the expected transcript 我认为跑步最重要的就是给我带来了身体健康, and `paddlespeech tts` wrote a 171044-byte RIFF wav on CPU, so the demo works and the failure comes from the oracle's dependency on its own environment."
+          "audit_reason": "The oracle aborted before testing anything because `wget` is not installed in the sandbox (only curl is). After downloading zh.wav with Python, `paddlespeech asr` printed the expected transcript 我认为跑步最重要的就是给我带来了身体健康, and `paddlespeech tts` wrote a 171044-byte RIFF wav on CPU, so the demo works and the failure comes from the oracle's dependency on its own environment.",
+          "corrected": false
         },
         {
           "repo": "Tencent/PocketFlow",
@@ -1605,7 +1684,8 @@
             "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": "oracle_defect",
-          "audit_reason": "Training and eval work fine: running the oracle's exact commands on a copy of the repo with the local CIFAR-10 data writes models_eval/model.ckpt.*, logs 'model saved to', and eval prints 'accuracy = 3.7280e-01' (37%, well above chance). The oracle's run stalled on its own 900s curl download, which is very slow from this sandbox (about 16MB in 300s). Even if the download finished, its regex captures '3.7280' and drops the 'e-01' exponent, so it reads the accuracy as 0.037 and fails the >0.15 assertion. Both problems are in the oracle, not the repo."
+          "audit_reason": "Training and eval work fine: running the oracle's exact commands on a copy of the repo with the local CIFAR-10 data writes models_eval/model.ckpt.*, logs 'model saved to', and eval prints 'accuracy = 3.7280e-01' (37%, well above chance). The oracle's run stalled on its own 900s curl download, which is very slow from this sandbox (about 16MB in 300s). Even if the download finished, its regex captures '3.7280' and drops the 'e-01' exponent, so it reads the accuracy as 0.037 and fails the >0.15 assertion. Both problems are in the oracle, not the repo.",
+          "corrected": false
         }
       ],
       "companies": [
@@ -1690,6 +1770,23 @@
           ]
         },
         {
+          "company": "NVIDIA",
+          "n": 7,
+          "mean": 67.7,
+          "teams": [
+            {
+              "team": "NVIDIA",
+              "n": 2,
+              "mean": 83.7
+            },
+            {
+              "team": "NVIDIA Research",
+              "n": 5,
+              "mean": 61.2
+            }
+          ]
+        },
+        {
           "company": "Tencent",
           "n": 9,
           "mean": 63.5,
@@ -1708,23 +1805,6 @@
               "team": "Hunyuan",
               "n": 4,
               "mean": 38.9
-            }
-          ]
-        },
-        {
-          "company": "NVIDIA",
-          "n": 8,
-          "mean": 59.2,
-          "teams": [
-            {
-              "team": "NVIDIA Research",
-              "n": 5,
-              "mean": 61.2
-            },
-            {
-              "team": "NVIDIA",
-              "n": 3,
-              "mean": 55.8
             }
           ]
         },
@@ -1767,7 +1847,8 @@
           "attribution_confidence": "none",
           "attribution_evidence": [],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "Leonxlnx/earshot",
@@ -1785,7 +1866,8 @@
           "attribution_confidence": "none",
           "attribution_evidence": [],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVlabs/stylegan2-ada-pytorch",
@@ -1805,7 +1887,8 @@
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "Friedrich-M/UniMate",
@@ -1826,7 +1909,8 @@
             "README affiliation markers: ['Berkeley']"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "jaredpalmer/kev",
@@ -1844,7 +1928,8 @@
           "attribution_confidence": "none",
           "attribution_evidence": [],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "TianyuCodings/NanoJev",
@@ -1864,7 +1949,8 @@
             "paper arXiv:2610.21244 has no affiliation data in OpenAlex"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "GuyTevet/motion-diffusion-model",
@@ -1884,7 +1970,8 @@
             "paper arXiv:2209.14916 has no affiliation data in OpenAlex"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "WongKinYiu/yolov7",
@@ -1904,7 +1991,8 @@
             "paper arXiv:2207.02696 first institution 'Institute of Information Science, Academia Sinica' (facility, OpenAlex)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
@@ -1925,7 +2013,8 @@
             "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "advimman/lama",
@@ -1945,7 +2034,8 @@
             "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "IDEA-Research/GroundingDINO",
@@ -1965,7 +2055,8 @@
             "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
           ],
           "audit": null,
-          "audit_reason": null
+          "audit_reason": null,
+          "corrected": false
         }
       ],
       "companies": [

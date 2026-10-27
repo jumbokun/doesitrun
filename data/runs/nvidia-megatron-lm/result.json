@@ -52,5 +52,15 @@
       "cost_usd": 0.1331386
     },
     "audited": "2026-10-27 04:11:24"
+  },
+  "correction": {
+    "verdict": "oracle_defect",
+    "reason": "Corrected on review: the failure comes from our test setup, not Megatron-LM. The README only says --tokenizer-model /path/to/tokenizer.model; our examiner chose GPT-2 files in a directory named 'tok', which transformers 4.57.6 (installed by our agent) cannot resolve without 'gpt2' in the path, while the same files under /…/gpt2 load fine (shown in the audit's own evidence). The test depended on its own environment, which the audit rule defines as an oracle defect.",
+    "evidence": [
+      "docs/get-started/quickstart.md lines 48-54: --tokenizer-model /path/to/tokenizer.model",
+      "audit evidence_out: 'transformers 4.57.6: FAIL tok ... / gpt2 dir OK 50256'"
+    ],
+    "by": "maintainer review during pre-launch fact-check",
+    "date": "2026-10-27"
   }
 }
