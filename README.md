@@ -15,8 +15,8 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | | |
 |---|---|
 | README demo actually ran (hidden test passed) | **62 / 80**, median agent time 4.2 min; 4 hit the 90-min cap |
-| Agent's installer replays on a fresh machine first try | 59 / 80 |
-| Repo files the agent had to modify to get it running | 30 / 80 repos |
+| Of the 62 that ran: installer replays on a fresh machine | 59 first try, the other 3 after one repair round |
+| Repos where the agent modified at least one of the repo's own files | 30 / 80 (measured with `git diff`) |
 | Top repos not even testable on a plain machine | 34 of 114 examined: GPU or >16 GB (16), paid API key (11), gated model (5), other (2) |
 | Failed hidden tests, after independent audit | 6 genuine repo failures (e.g. BERT's and trax's README model links now 403, SPADE's 404), **9 defective tests** (unscored), 3 inconclusive (stay 0) |
 
@@ -57,18 +57,19 @@ disagreed once (Hunyuan3D-2.1: defect vs inconclusive) — borderline audits are
 
 ```
 README demo ──► agent (Claude Code, ONE tool: `docker exec` into a throwaway container)
-                 │   Ubuntu 24.04 · CUDA 12.8 · RTX 5060 8 GB (Blackwell, sm_120)
+                 │   CPU track: GitHub-hosted Ubuntu runner, 4 vCPU / 16 GB, no GPU
+                 │   GPU track: Ubuntu 24.04 · CUDA 12.8 · RTX 5060 8 GB (Blackwell, sm_120)
                  ▼
             hidden oracle  ── written before the run, copied in only after the agent stops
                  ▼
             replay setup.sh on a FRESH container ──► oracle again
 ```
 
-- **Goal** is the repo's own documented demo (e.g. StyleGAN2-ADA's `generate.py` with its CUDA plugins
-  actually compiled, LaMa's `predict.py` on CUDA). Pass/fail is decided by `oracles/<repo>.sh`, never by
+- **Goal** is the repo's own documented demo (e.g. MarkItDown converting its bundled docx/xlsx/pptx/pdf samples
+  on the CPU track; StyleGAN2-ADA's `generate.py` with its CUDA plugins actually compiled on the GPU track). Pass/fail is decided by `oracles/<repo>.sh`, never by
   the agent's own claim.
 - **Deliverables** from the agent: `setup.sh` (from scratch, non-interactive), `env.sh`, `run.sh` for
-  servers, `NOTES.md`, and a typed `REPORT.json` of every deviation from the README.
+  servers, `NOTES.md`, and (CPU track) a typed `REPORT.json` of every deviation from the README.
 - **Replay**: `setup.sh` runs on a fresh container and the oracle runs again. If that fails, the log goes
   back to the same agent session for one repair round and the repaired installer is replayed again; the
   first failure stays on record. (MDM: not self-contained at first, passed after a 14-minute repair.)
@@ -80,7 +81,7 @@ Scores are only compared within a hardware track.
 | track | hardware | repos | how they were chosen |
 |---|---|---|---|
 | `gpu-rtx5060` | RTX 5060 Laptop 8 GB, local | 11 | batch 1: five 2026 releases; batch 2: six 2020–23 research repos with install complaints |
-| `cpu-gha` | GitHub-hosted runner, 4 vCPU / 16 GB, no GPU | in progress | per company, top 25 Python repos by stars across its official orgs; the first 10 an examiner rules eligible |
+| `cpu-gha` | GitHub-hosted runner, 4 vCPU / 16 GB, no GPU | 80 | per company, top 25 Python repos by stars across its official orgs; the first 10 an examiner rules eligible |
 
 The `cpu-gha` track runs entirely on GitHub Actions ([`exam.yml`](.github/workflows/exam.yml),
 [`probe.yml`](.github/workflows/probe.yml)). An **examiner agent** reads each candidate (no install) and
@@ -91,8 +92,8 @@ verdicts: `data/exams/`; run records: `data/runs/`.
 ## Oracle audits
 
 Examiner-written oracles can be wrong (python-fire's asserted the word "usage" in help output that is
-man-page style). Rule, fixed before any audit ran and applied to every CPU-track repo whose hidden oracle
-failed on the agent's container:
+man-page style). Rule, committed before any audit ran and applied to every CPU-track repo whose hidden oracle
+failed on the agent's container (amended once afterwards, see below and WORKLOG.md):
 
 1. A fresh container replays the agent's `setup.sh`, the unchanged oracle runs under `bash -x`.
 2. An independent **auditor agent** (Opus, `sh` into that container only) reads the oracle, its trace, the
@@ -101,6 +102,8 @@ failed on the agent's container:
    never promised, or depends on its own environment), `inconclusive`.
 3. `oracle_defect` → the repo is **not scored** (neither pass nor fail) and is labelled on the page;
    the oracle and its verdict stay in the record. Nothing is ever flipped to a pass.
+4. *Amendment, made after the batch:* if the agent hit the 90-minute cap, the failure stays 0 whatever the
+   audit says; the auditor was not told about timeouts, and the oracle never had a finished install to judge.
 
 ## Scoring
 
@@ -114,15 +117,16 @@ Replay is shown next to the score but not in it: it grades the installer we prod
 
 ## Who made it
 
-Every repo rolls up to a company and, where knowable, a team (so all of Google's repos form a Google score,
-split into DeepMind, Google Research, …). Evidence, strongest first:
+Every repo rolls up to a company (so all of Google's repos form a Google score). Teams are split **only** where
+separate GitHub org accounts show them (`google-deepmind`, `google-research`, `Tencent-Hunyuan`, …); Microsoft's
+repos all sit under one account, so it has no team split. Company evidence, strongest first:
 
 | confidence | signal |
 |---|---|
 | high | owning GitHub org (`google-deepmind`, `facebookresearch`, `NVlabs`, `microsoft`, …) |
 | medium | company as LICENSE copyright holder or required CLA |
 | medium | author affiliations of the README's arXiv paper, via [OpenAlex](https://openalex.org) |
-| low | README mentions (team names and academia only; a README naming Google may just cite it) |
+| low | README mentions (academia only, never used for teams; a README naming Google may just cite it) |
 
 Rules live in [`orgs.json`](orgs.json); per-repo evidence in [`data/attribution.json`](data/attribution.json).
 
@@ -136,8 +140,10 @@ The agent never touches the host:
 - Containers: no bind mounts, no secrets, `--cap-drop NET_RAW`, `no-new-privileges`, CPU/memory/pid limits.
 - Overriding `host.docker.internal` is **not** enough on Docker Desktop: `192.168.65.254` still reaches
   services bound to the host's `127.0.0.1`. Probe containers use a dedicated bridge whose private-range
-  egress is rejected in the Docker VM's `DOCKER-USER` chain, and [`firewall_check.py`](firewall_check.py)
-  proves it before every batch with host canaries plus a positive control. If the check fails, nothing runs.
+  egress is rejected in the `DOCKER-USER` chain, plus an `INPUT` reject for traffic to the host itself (on a
+  native Linux host the bridge gateway is the host), and cloud metadata and Azure WireServer addresses are
+  blocked. [`firewall_check.py`](firewall_check.py) proves it before every batch with host canaries plus a
+  positive control. If the check fails, nothing runs.
 
 ## Run it yourself
 
@@ -170,9 +176,16 @@ Requires the Claude Code CLI logged in. To add a repo, append it to a repos file
 
 ## Limitations
 
-Small sample, one run per repo, one GPU generation (Blackwell needs recent PyTorch, which penalises old pins),
-8 GB VRAM limits which repos are eligible, and agent time also moves with download speed. Company rows with
-n < 3 are previews of the format, not rankings. Every protocol change is logged in [`WORKLOG.md`](WORKLOG.md).
+- **One run per repo.** Run-to-run variance is not measured yet; treat small gaps as noise.
+- **One agent.** Scores compare repos under the same agent (CPU track: Claude Opus 5.5, pinned; the earlier GPU
+  track ran Opus 5). A different agent would move every score.
+- **AI-written tests.** 9 of 18 failed hidden tests were the test's fault; every failure is audited, and audits
+  of borderline cases are not perfectly stable.
+- **Hardware.** The CPU track judges CUDA-first repos on a path their authors may not prioritise. The GPU track is
+  one 8 GB Blackwell card, which penalises old PyTorch pins.
+- **Selection.** "Top 25 by stars" mixes research code with products. Agent time also moves with download speed.
+
+Every protocol change is logged in [`WORKLOG.md`](WORKLOG.md).
 
 Suggest a repo or dispute a result: open an issue.
 
@@ -187,5 +200,8 @@ Suggest a repo or dispute a result: open an issue.
 **Does it run?** 测的是：一个 GitHub 仓库的 README 演示，到底有多难真正跑起来。
 
 做法是让一个 AI Agent 在隔离的沙箱里照着 README 去装、去跑，由一个事先写好、Agent 看不到的测试来判定成功，
-最后再把 Agent 写的安装脚本放到一台全新的机器上重放一遍。榜单按「谁家的仓库最好复现」汇总到公司和团队
-（比如谷歌下面再分 DeepMind、Google Research）。目前 11 个仓库全部能跑通，但只有 8 个的安装脚本能在新机器上一次复现。
+最后再把 Agent 写的安装脚本放到一台全新的机器上重放一遍。榜单按公司汇总；有独立 GitHub 组织账号的团队
+（比如谷歌下面的 DeepMind、Google Research）再单独拆分。
+
+CPU 赛道测了八家公司各 10 个热门仓库，共 80 个，其中 62 个的 README 演示能跑通。跑通的 62 个里，59 个的安装脚本
+在新机器上一次就能复现，另外 3 个修复一轮后复现。GPU 赛道测了 11 个，全部跑通。
