@@ -169,3 +169,12 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   oracle_defect (oracle PASSED on the audit re-run: first failure environmental — a lenient call under the rule),
   PocketFlow oracle_defect (oracle's CIFAR-10 download at ~56 KB/s cannot finish in its 900 s timeout). Final audit
   tally: repo_failure 6, oracle_defect 10, inconclusive 2. Tencent 57 -> 71 (n=8).
+- 2026-10-27 pre-launch fact-check (every public sentence in README, STORY, site, drafts):
+  verified — all 80 CPU oracles committed before their runs; BERT 34/34 README zip links 403 (repo archived, #1152
+  from 2020); trax gs://trax-ml 403 (archived); SPADE Drive 404 (#175); Depth-Anything-3 imports addict in 14 files,
+  pyproject lists none (#86, PRs #270/#281 open); data-formulator requires X-Workspace-Id (workspace_factory.py:135);
+  SkillSpector exit 1 when risk_score > 50 (README:822); Warp's AGENTS.md says never define kernels in python -c.
+  corrected — replay figures (62 ran: 59 first try + 3 after repair; old 59/80 mixed in never-ran repos; "typical
+  causes" came from the GPU batch); "had to modify" -> modified; stale "in progress", GPU-only diagram/method text,
+  team rule, limitations, Chinese summary; Warp "explicitly refuses" -> docs warn; NVIDIA's mean is NOT mostly the
+  CPU track — two zeros unrelated to CUDA (Megatron-LM tokenizer, SPADE 404). Tracks used different Opus versions.
