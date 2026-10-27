@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Python 3.6 obtained from conda-forge via micromamba (system 3.12 and uv cannot provide <=3.7); uv venv built on it"},
+  {"kind": "dependency_pin", "detail": "tensorflow==1.10.0 (TF>=1.13 removed tensorflow.contrib.lite.python.lite_constants imported by uniform_quantization_tf)"},
+  {"kind": "dependency_pin", "detail": "requirement.txt 'sklearn' replaced by scikit-learn==0.19.2"},
+  {"kind": "dependency_pin", "detail": "pinned numpy 1.14.5, scipy 1.1.0, pandas 0.25.3, pytz, protobuf 3.19.6 for TF 1.10 compatibility; skipped mpi4py"},
+  {"kind": "undocumented_step", "detail": "downloaded/extracted CIFAR-10 binary and created path.conf from template with data_dir_local_cifar10"},
+  {"kind": "gpu_compat", "detail": "no nvidia-smi: get_idle_gpus.py traceback is non-fatal; CUDA_VISIBLE_DEVICES='' set in env.sh for CPU"}
+ ]}

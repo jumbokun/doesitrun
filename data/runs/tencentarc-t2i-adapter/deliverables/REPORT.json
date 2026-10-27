@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Replaced stale diffusers@t2iadapterxl branch (ImportError hf_cache_home with modern huggingface_hub) with released diffusers==0.35.2 plus pinned transformers/accelerate"},
+  {"kind": "dependency_pin", "detail": "Installed CPU torch 2.8.0/torchvision 0.23.0 from PyTorch CPU index and constrained it so controlnet_aux doesn't pull CUDA torch"},
+  {"kind": "system_package", "detail": "apt-get install libgl1 libglib2.0-0 libxcb1 for opencv imported by controlnet_aux"},
+  {"kind": "gpu_compat", "detail": "Removed .to('cuda') and xformers, used bfloat16 instead of float16, 512x512 with 8 steps on CPU"},
+  {"kind": "doc_error", "detail": "README passes misspelled kwarg varient='fp16' to T2IAdapter.from_pretrained; corrected to variant"}
+ ]}

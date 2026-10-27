@@ -1,0 +1,52 @@
+{
+  "slug": "tencent-hunyuan-hunyuan3d-1",
+  "repo": "Tencent-Hunyuan/Hunyuan3D-1",
+  "track": "cpu-gha",
+  "goal": "Get `python main.py --image_prompt ./demos/example_000.png --save_folder <out> --max_faces_num 10000 --use_lite --device cpu` working in /work/Hunyuan3D-1 on CPU only. Download only the needed weights (mvd_lite and svrm from tencent/Hunyuan3D-1 into ./weights, not the 16 GB full set). The run must produce views.jpg and a mesh .obj file in the save folder. Put the environment setup in /work/env.sh.",
+  "check": "The hidden test runs the lite image-to-3D command on a bundled demo image with CPU and reduced steps, then checks that the views image and a non-trivial mesh OBJ with vertices and faces were written.",
+  "started": "2026-10-27 03:27:39",
+  "agent": {
+    "secs": 5400,
+    "timed_out": true,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "f9587cd8-397b-40be-b263-afe4df6a79d1"
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 4,
+    "lines_changed": 20,
+    "files": [
+      {
+        "path": "infer/image_to_views.py",
+        "added": 4,
+        "removed": 2
+      },
+      {
+        "path": "svrm/ldm/models/svrm.py",
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "path": "svrm/ldm/modules/attention.py",
+        "added": 6,
+        "removed": 0
+      },
+      {
+        "path": "svrm/predictor.py",
+        "added": 5,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": false,
+    "note": "no setup.sh delivered"
+  },
+  "finished": "2026-10-27 04:57:50"
+}

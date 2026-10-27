@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Python 2.7 unavailable on Ubuntu 24.04/uv; installed via micromamba conda-forge env"},
+  {"kind": "dependency_pin", "detail": "tensorflow==1.15.0 (1.15.5 has no cp27mu wheel), numpy==1.16.6, protobuf==3.17.3, h5py==2.10.0"},
+  {"kind": "dependency_pin", "detail": "grpcio==1.39.0 with --prefer-binary; newer grpcio source build fails on py2.7"},
+  {"kind": "undocumented_step", "detail": "README gives no install steps for Python/TensorFlow; created env manually"},
+  {"kind": "system_package", "detail": "symlinked /usr/bin/python to py27 interpreter because tfrecord.py shebang is #!/usr/bin/python"}
+ ]}

@@ -1,0 +1,41 @@
+{
+  "slug": "tencentarc-t2i-adapter",
+  "repo": "TencentARC/T2I-Adapter",
+  "track": "cpu-gha",
+  "goal": "Get the README's diffusers quick start working on CPU only (no GPU, so drop .to('cuda') and xformers, use float32 or bfloat16): install diffusers with T2IAdapter/StableDiffusionXLAdapterPipeline support, torch, transformers, accelerate, safetensors, and load TencentARC/t2i-adapter-lineart-sdxl-1.0 with stabilityai/stable-diffusion-xl-base-1.0 and madebyollin/sdxl-vae-fp16-fix. Generate an image from a line-art control image with prompt 'Ice dragon roar, 4k photo' (reduced size such as 512x512 and few steps to finish in time) so the README pipeline code path runs and saves a picture. Models are downloaded automatically from Hugging Face.",
+  "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced.",
+  "started": "2026-10-27 03:26:50",
+  "agent": {
+    "secs": 630,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "f5951e63-1d23-4091-910f-ede8884132d7",
+    "num_turns": 14,
+    "cost_usd": 0.3328032,
+    "is_error": false,
+    "final": "DONE — I rebuilt everything from scratch with `/work/setup.sh` and the README's lineart SDXL adapter pipeline generated `/work/out_lin.png` on CPU at 512x512 in bfloat16 (fp32 also works), after replacing the stale `diffusers@t2iadapterxl` branch, which fails to import, with `diffusers==0.35.2`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 70
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 169,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 111
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:43:32"
+}

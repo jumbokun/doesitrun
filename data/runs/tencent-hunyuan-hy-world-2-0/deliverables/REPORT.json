@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used uv venv with Python 3.11 instead of conda env python=3.11.15"},
+  {"kind": "gpu_compat", "detail": "Installed CPU builds torch==2.7.1+cpu / torchvision==0.22.1+cpu from download.pytorch.org/whl/cpu"},
+  {"kind": "dependency_pin", "detail": "Removed cupy==13.6.0 from requirements.txt (CUDA-only, unused by worldrecon)"},
+  {"kind": "gpu_compat", "detail": "gsplat source builds (bundled gsplat_maskgaussian and git+gsplat) need CUDA_HOME; used PyPI gsplat JIT wheel instead"},
+  {"kind": "code_patch", "detail": "attention.py: made flash_attn import optional and fall back to F.scaled_dot_product_attention on CPU"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 for opencv-python (libGL.so.1 missing)"},
+  {"kind": "undocumented_step", "detail": "skyseg.onnx is downloaded into the CWD at runtime; pre-fetched into repo root and env.sh cds there"}
+ ]}

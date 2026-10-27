@@ -1,0 +1,43 @@
+{
+  "slug": "tencent-hunyuan-hunyuan3d-2-1",
+  "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
+  "track": "cpu-gha",
+  "goal": "Get the shape-generation part of the README Code Usage / demo.py working on CPU only: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2.1', device='cpu', dtype=torch.bfloat16) then pipe(image=assets/demo.png, num_inference_steps=10, octree_resolution=128, num_chunks=20000) must return a trimesh that exports to a .glb. Skip the texture/Paint stage (needs CUDA). Install dependencies so imports from hy3dshape work without a GPU (CPU torch is fine), and the public weights download (only the hunyuan3d-dit-v2-1 subfolder is needed) must be cached so from_pretrained works.",
+  "check": "A hidden script runs CPU shape generation on assets/demo.png and verifies an exported GLB mesh with a plausible number of vertices and faces and non-degenerate extent.",
+  "started": "2026-10-27 03:27:11",
+  "agent": {
+    "secs": 5400,
+    "timed_out": true,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "ce580997-ce77-4b00-8837-34f415fc772a"
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 3600
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 10,
+    "files": [
+      {
+        "path": "hy3dshape/hy3dshape/pipelines.py",
+        "added": 8,
+        "removed": 2
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 111,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 3600
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 06:59:25"
+}

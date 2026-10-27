@@ -706,6 +706,26 @@
           "audit_reason": null
         },
         {
+          "repo": "TencentARC/T2I-Adapter",
+          "slug": "tencentarc-t2i-adapter",
+          "score": 89.5,
+          "why": "10 min, 0 repo files patched",
+          "agent_minutes": 10.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "ARC Lab",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'TencentARC' is Tencent org account (ARC Lab)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "NVlabs/stylegan3",
           "slug": "nvlabs-stylegan3",
           "score": 88.5,
@@ -866,6 +886,26 @@
           "audit_reason": null
         },
         {
+          "repo": "Tencent-Hunyuan/HY-World-2.0",
+          "slug": "tencent-hunyuan-hy-world-2-0",
+          "score": 82.7,
+          "why": "7 min, 1 repo files patched",
+          "agent_minutes": 7.3,
+          "files_patched": 1,
+          "lines_patched": 9,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "QwenLM/Qwen-Agent",
           "slug": "qwenlm-qwen-agent",
           "score": 82.0,
@@ -961,6 +1001,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "Tencent/tencent-ml-images",
+          "slug": "tencent-tencent-ml-images",
+          "score": 74.4,
+          "why": "6 min, 2 repo files patched",
+          "agent_minutes": 5.6,
+          "files_patched": 2,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
           "audit_reason": null
@@ -1081,6 +1141,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "Tencent/FaceDetection-DSFD",
+          "slug": "tencent-facedetection-dsfd",
+          "score": 55.8,
+          "why": "4 min, 5 repo files patched",
+          "agent_minutes": 4.2,
+          "files_patched": 5,
+          "lines_patched": 65,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
           "audit_reason": null
@@ -1307,6 +1387,66 @@
           "audit_reason": "The oracle stopped at `test -d checkpoints/coco_pretrained` because checkpoints/ is empty. The pretrained-model tarball that README.md line 65 points to on Google Drive (id 12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ) now returns HTTP 404, and gdown can't fetch it either, so the README's documented COCO test demo can't be run. The oracle's check is reasonable; the repo's required download is broken."
         },
         {
+          "repo": "Tencent-Hunyuan/Hunyuan3D-1",
+          "slug": "tencent-hunyuan-hunyuan3d-1",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 90.0,
+          "files_patched": 4,
+          "lines_patched": 20,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
+          "slug": "tencent-hunyuan-hunyuan3d-2-1",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 90.0,
+          "files_patched": 1,
+          "lines_patched": 10,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "Tencent/PocketFlow",
+          "slug": "tencent-pocketflow",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 88.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "bytedance/UI-TARS",
           "slug": "bytedance-ui-tars",
           "score": null,
@@ -1499,28 +1639,6 @@
           ]
         },
         {
-          "company": "Tencent",
-          "n": 3,
-          "mean": 89.7,
-          "teams": [
-            {
-              "team": "Tencent",
-              "n": 1,
-              "mean": 98.0
-            },
-            {
-              "team": "ARC Lab",
-              "n": 1,
-              "mean": 98.0
-            },
-            {
-              "team": "Hunyuan",
-              "n": 1,
-              "mean": 73.0
-            }
-          ]
-        },
-        {
           "company": "Alibaba",
           "n": 10,
           "mean": 83.6,
@@ -1590,6 +1708,28 @@
               "team": "NVIDIA",
               "n": 3,
               "mean": 55.8
+            }
+          ]
+        },
+        {
+          "company": "Tencent",
+          "n": 10,
+          "mean": 57.1,
+          "teams": [
+            {
+              "team": "ARC Lab",
+              "n": 2,
+              "mean": 93.8
+            },
+            {
+              "team": "Tencent",
+              "n": 4,
+              "mean": 57.0
+            },
+            {
+              "team": "Hunyuan",
+              "n": 4,
+              "mean": 38.9
             }
           ]
         },

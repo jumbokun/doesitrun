@@ -1,0 +1,13 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.11 instead of README's Python 3.6"},
+  {"kind": "dependency_pin", "detail": "Used CPU torch 2.5.1/torchvision 0.20.1 instead of torch 0.3.1/torchvision 0.2.1; pinned numpy<2"},
+  {"kind": "undocumented_step", "detail": "Installed undocumented deps opencv-python-headless, matplotlib, scipy, pillow"},
+  {"kind": "undocumented_step", "detail": "Downloaded the Google Drive weights with gdown into weights/WIDERFace_DSFD_RES152.pth"},
+  {"kind": "undocumented_step", "detail": "Prefetched torchvision ImageNet resnet152 weights, which face_ssd.py downloads at model build time"},
+  {"kind": "code_patch", "detail": "layers/modules/__init__.py imports multibox_loss, which imports the nonexistent pa_sfd_match; removed that import"},
+  {"kind": "code_patch", "detail": "demo.py imports bbox_vote from widerface_val, whose module-level argparse/net.cuda()/dataset loading break the demo; inlined bbox_vote"},
+  {"kind": "gpu_compat", "detail": "demo.py: net.cuda() only if CUDA is available, torch.load map_location='cpu'"},
+  {"kind": "code_patch", "detail": "Detect old-style autograd.Function became a plain callable; replaced Variable(volatile=True) with torch.no_grad; fixed scores.dim() check to numel()"},
+  {"kind": "code_patch", "detail": "nms: replaced deprecated index_select(out=...) to avoid resize warnings"}
+ ]}
