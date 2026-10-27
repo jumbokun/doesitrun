@@ -160,7 +160,10 @@ def findings(tracks):
     for path in (ROOT / "data" / "runs").glob("*/deliverables/REPORT.json"):
         try:
             rep = json.loads(path.read_text(encoding="utf-8"))
-        except ValueError:
+            track = json.loads((path.parent.parent / "result.json").read_text(encoding="utf-8")).get("track")
+        except (ValueError, OSError):
+            continue
+        if track != "cpu-gha":
             continue
         for iv in rep.get("interventions") or []:
             k = (iv.get("kind") or "other") if isinstance(iv, dict) else "other"
@@ -182,7 +185,7 @@ def findings(tracks):
   <div class="method" style="margin-top:12px">
     <h3>Why top repos were not even testable on a plain machine ({sum(excl.values())} excluded before any run)</h3>
     <ul class="teams">{excl_li}</ul>
-    <h3>What the agent most often had to fix that the README did not say</h3>
+    <h3>What the agent most often had to fix that the README did not say (agent-reported, REPORT.json)</h3>
     <ul class="teams">{kind_li or '<li><span>no REPORT.json yet</span></li>'}</ul>
   </div>
 </section>
