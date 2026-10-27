@@ -1,18 +1,17 @@
-"""Build the reproducibility leaderboard from probe runs.
+"""Build the reproducibility leaderboard from committed run records (data/runs/<slug>/result.json).
 
 Repo score (0-100, higher = easier to get running), objective inputs only:
     0                                   if the agent could not pass the hidden oracle
     100 - min(50, agent_minutes)        effort: 1 point per agent minute
         - min(40, 10 * files_patched)   repo code that had to change (git diff, whitespace ignored)
 Replay on a fresh container is reported next to the score, not in it: it grades the installer we
-produced, not the repo's authors. Its failures are classified from the replay log.
-Company/team scores are means over attributed repos, shown with n; n < 3 is flagged as too few.
+produced, not the repo's authors. Scores from different hardware tracks are never mixed.
+Company/team scores are means over attributed repos per track, shown with n; n < 3 is flagged.
 
-Usage: python leaderboard.py repos.json [repos_b2.json ...]   -> data/leaderboard.json, LEADERBOARD.md
+Usage: python leaderboard.py   -> data/leaderboard.json, LEADERBOARD.md
 """
 import json
 import pathlib
-import re
 import statistics
 import sys
 
@@ -22,21 +21,15 @@ import attribute  # noqa: E402
 
 DATA = ROOT / "data"
 ATTR_CACHE = DATA / "attribution.json"
+TRACK_LABELS = {"cpu-gha": "CPU · GitHub-hosted runner (4 vCPU, 16 GB)",
+                "gpu-rtx5060": "GPU · RTX 5060 Laptop 8 GB"}
 
 
-def classify_replay(rundir, key):
-    r = json.loads((rundir / "result.json").read_text(encoding="utf-8")).get(key)
+def replay_class(res, key):
+    r = res.get(key)
     if not r:
         return "not run"
-    if r.get("oracle", {}).get("pass"):
-        return "pass"
-    log_path = rundir / f"{key}_setup.log"
-    log = log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else ""
-    if re.search(r"network timeout|operation timed out|Read timed out|UV_HTTP_TIMEOUT", log):
-        return "fail: download timeout"
-    if re.search(r"File not found: /work/|No such file or directory: '?/work/", log):
-        return "fail: installer not self-contained"
-    return "fail: other"
+    return r.get("class") or ("pass" if r.get("oracle", {}).get("pass") else "fail: other")
 
 
 def repo_score(res):
@@ -44,74 +37,74 @@ def repo_score(res):
         return 0, "agent could not reproduce"
     minutes = res["agent"]["secs"] / 60
     files = (res.get("repo_diff") or {}).get("files_changed", 0)
-    score = 100 - min(50, minutes) - min(40, 10 * files)
-    return round(score, 1), f"{minutes:.0f} min, {files} repo files patched"
+    return round(100 - min(50, minutes) - min(40, 10 * files), 1), f"{minutes:.0f} min, {files} repo files patched"
 
 
-def main(repo_files):
-    DATA.mkdir(exist_ok=True)
-    cache = json.loads(ATTR_CACHE.read_text(encoding="utf-8")) if ATTR_CACHE.exists() else {}
-    rows = []
-    for rf in repo_files:
-        for cfg in json.loads((ROOT / rf).read_text(encoding="utf-8")):
-            rundir = ROOT / "runs" / cfg["slug"]
-            if not (rundir / "result.json").exists():
-                continue
-            res = json.loads((rundir / "result.json").read_text(encoding="utf-8"))
-            if cfg["repo"] not in cache:
-                cache[cfg["repo"]] = attribute.attribute(cfg["repo"])
-            a = cache[cfg["repo"]]
-            score, why = repo_score(res)
-            diff = res.get("repo_diff") or {}
-            rows.append({
-                "repo": cfg["repo"], "batch": rf, "score": score, "why": why,
-                "agent_minutes": round(res["agent"]["secs"] / 60, 1),
-                "files_patched": diff.get("files_changed"), "lines_patched": diff.get("lines_changed"),
-                "replay": classify_replay(rundir, "replay"),
-                "replay_supplementary": classify_replay(rundir, "replay_supplementary"),
-                "company": a["company"], "team": a["team"], "attribution_confidence": a["confidence"],
-                "attribution_evidence": a["evidence"],
-            })
-    ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8")
-    rows.sort(key=lambda r: -r["score"])
-
+def company_table(rows):
     groups = {}
     for r in rows:
         groups.setdefault(r["company"], {}).setdefault(r["team"], []).append(r["score"])
-    companies = []
+    out = []
     for company, teams in groups.items():
-        all_scores = [s for ss in teams.values() for s in ss]
-        companies.append({"company": company, "n": len(all_scores), "mean": round(statistics.mean(all_scores), 1),
-                          "teams": [{"team": t, "n": len(s), "mean": round(statistics.mean(s), 1)}
-                                    for t, s in sorted(teams.items(), key=lambda kv: -statistics.mean(kv[1]))]})
-    companies.sort(key=lambda c: -c["mean"])
-    (DATA / "leaderboard.json").write_text(json.dumps({"repos": rows, "companies": companies}, indent=2,
-                                                      ensure_ascii=False), encoding="utf-8")
+        scores = [s for ss in teams.values() for s in ss]
+        out.append({"company": company, "n": len(scores), "mean": round(statistics.mean(scores), 1),
+                    "teams": [{"team": t, "n": len(s), "mean": round(statistics.mean(s), 1)}
+                              for t, s in sorted(teams.items(), key=lambda kv: -statistics.mean(kv[1]))]})
+    return sorted(out, key=lambda c: -c["mean"])
 
-    md = ["# Reproducibility leaderboard (v0)", "",
-          "How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent "
-          "(Claude Code, one `docker exec` tool, RTX 5060 8 GB, CUDA 12.8) tries each repo; a hidden, "
-          "pre-registered oracle decides success. Scoring and caveats: see `leaderboard.py` docstring "
-          "and WORKLOG.md.", "",
-          f"**n = {len(rows)} repos. One run each. Too few per company for company claims; "
-          "this table shows the structure, not a verdict.**", "",
-          "## Repos (higher = easier)", "",
-          "| # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |",
-          "|---|---|---|---|---|---|---|"]
-    for i, r in enumerate(rows, 1):
-        replay = r["replay"] + (f" → supplementary: {r['replay_supplementary']}"
-                                if r["replay"] != "pass" and r["replay_supplementary"] != "not run" else "")
-        md.append(f"| {i} | [{r['repo']}](https://github.com/{r['repo']}) | {r['score']} | "
-                  f"{r['agent_minutes']:.0f} min | {r['files_patched']} ({r['lines_patched']} lines) | {replay} | "
-                  f"{r['company']} / {r['team']} ({r['attribution_confidence']}) |")
-    md += ["", "## Companies (mean repo score)", "", "| company | n | mean | teams |", "|---|---|---|---|"]
-    for c in companies:
-        flag = " ⚠ n<3" if c["n"] < 3 else ""
-        teams = "; ".join(f"{t['team']} {t['mean']} (n={t['n']})" for t in c["teams"])
-        md.append(f"| {c['company']}{flag} | {c['n']} | {c['mean']} | {teams} |")
-    (ROOT / "LEADERBOARD.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+
+def main():
+    cache = json.loads(ATTR_CACHE.read_text(encoding="utf-8")) if ATTR_CACHE.exists() else {}
+    tracks = {}
+    for path in sorted((DATA / "runs").glob("*/result.json")):
+        res = json.loads(path.read_text(encoding="utf-8"))
+        if "oracle" not in res or "agent" not in res:
+            continue  # exam-only or incomplete record
+        if res["repo"] not in cache:
+            cache[res["repo"]] = attribute.attribute(res["repo"])
+        a = cache[res["repo"]]
+        score, why = repo_score(res)
+        diff = res.get("repo_diff") or {}
+        tracks.setdefault(res.get("track", "gpu-rtx5060"), []).append({
+            "repo": res["repo"], "slug": res["slug"], "score": score, "why": why,
+            "agent_minutes": round(res["agent"]["secs"] / 60, 1),
+            "files_patched": diff.get("files_changed"), "lines_patched": diff.get("lines_changed"),
+            "replay": replay_class(res, "replay"),
+            "replay_supplementary": replay_class(res, "replay_supplementary"),
+            "replay_after_repair": replay_class(res, "replay_after_repair"),
+            "company": a["company"], "team": a["team"], "attribution_confidence": a["confidence"],
+            "attribution_evidence": a["evidence"],
+        })
+    ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8")
+
+    order = sorted(tracks, key=lambda t: (t != "cpu-gha", t))
+    out = {"tracks": []}
+    md = ["# Reproducibility leaderboard", "",
+          "How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each "
+          "repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never "
+          "mixed. Method: README.md; full notebook: WORKLOG.md.", ""]
+    for t in order:
+        rows = sorted(tracks[t], key=lambda r: -r["score"])
+        companies = company_table(rows)
+        out["tracks"].append({"track": t, "label": TRACK_LABELS.get(t, t), "repos": rows, "companies": companies})
+        md += [f"## {TRACK_LABELS.get(t, t)} — {len(rows)} repos", "",
+               "| # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |",
+               "|---|---|---|---|---|---|---|"]
+        for i, r in enumerate(rows, 1):
+            later = [f"{k}: {r[k]}" for k in ("replay_supplementary", "replay_after_repair")
+                     if r["replay"] != "pass" and r[k] != "not run"]
+            md.append(f"| {i} | [{r['repo']}](https://github.com/{r['repo']}) | {r['score']} | "
+                      f"{r['agent_minutes']:.0f} min | {r['files_patched']} ({r['lines_patched']} lines) | "
+                      f"{'; '.join([r['replay']] + later)} | {r['company']} / {r['team']} ({r['attribution_confidence']}) |")
+        md += ["", "| company | n | mean | teams |", "|---|---|---|---|"]
+        for c in companies:
+            teams = "; ".join(f"{x['team']} {x['mean']} (n={x['n']})" for x in c["teams"])
+            md.append(f"| {c['company']}{' ⚠ n<3' if c['n'] < 3 else ''} | {c['n']} | {c['mean']} | {teams} |")
+        md.append("")
+    (DATA / "leaderboard.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "LEADERBOARD.md").write_text("\n".join(md), encoding="utf-8")
     print("\n".join(md))
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    main()

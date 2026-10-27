@@ -27,10 +27,11 @@ def replay_badge(r):
     first = r["replay"]
     if first == "pass":
         return '<span class="badge pos">replays</span>'
-    later = r.get("replay_supplementary")
-    detail = first + ("" if later in (None, "not run") else f"; retry: {later}")
-    label = "replays on retry" if later == "pass" else "replay failed"
-    return f'<span class="badge {"warn" if later == "pass" else "neg"}" title="{esc(detail)}">{esc(label)}</span>'
+    repaired, retry = r.get("replay_after_repair", "not run"), r.get("replay_supplementary", "not run")
+    detail = "; ".join([first] + [f"{k}: {v}" for k, v in (("retry", retry), ("after repair", repaired)) if v != "not run"])
+    label = ("replays after repair" if repaired == "pass" else "replays on retry" if retry == "pass" else "replay failed")
+    good = "pass" in (repaired, retry)
+    return f'<span class="badge {"warn" if good else "neg"}" title="{esc(detail)}">{esc(label)}</span>'
 
 
 def repo_rows(rows):
@@ -80,10 +81,34 @@ def company_rows(companies):
     return "".join(out)
 
 
+def track_section(t, i):
+    multi = "Most companies have a single repo here. Treat these rows as a preview of the format, not a ranking."
+    few = any(c["n"] < 3 for c in t["companies"])
+    return f"""
+<section id="track-{i}">
+  <div class="overline">{esc(t['label'])}</div>
+  <h2>Repos · {len(t['repos'])}</h2>
+  <div class="sub">Score 0–100, higher = easier to get running. One run per repo.</div>
+  <ol class="board">{repo_rows(t['repos'])}
+  </ol>
+</section>
+<section id="companies-{i}">
+  <div class="overline">{esc(t['label'])}</div>
+  <h2>Companies &amp; teams</h2>
+  <div class="sub">Mean repo score per company, split by team where attribution allows.</div>
+  <ul class="board">{company_rows(t['companies'])}
+  </ul>
+  {f'<div class="caveat">{multi}</div>' if few else ''}
+</section>
+"""
+
+
 def main():
     data = json.loads((ROOT / "data" / "leaderboard.json").read_text(encoding="utf-8"))
-    rows, companies = data["repos"], data["companies"]
+    tracks = data["tracks"]
+    rows = [r for t in tracks for r in t["repos"]]
     ran = [r for r in rows if r["score"] > 0]
+    sections = "".join(track_section(t, i) for i, t in enumerate(tracks))
     replays = sum(r["replay"] == "pass" for r in rows)
     median_min = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
     sha = os.environ.get("GITHUB_SHA", "local")[:7]
@@ -195,7 +220,7 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
 <body>
 <nav class="tabs" aria-label="Sections">
   <a class="brand" href="#top">Does it run?</a>
-  <a href="#repos">Repos</a><a href="#companies">Companies</a><a href="#method">Method</a>
+  <a href="#track-0">Leaderboard</a><a href="#companies-0">Companies</a><a href="#method">Method</a>
 </nav>
 <div class="wrap">
 <header id="top">
@@ -212,22 +237,7 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
   </div>
 </header>
 
-<section id="repos">
-  <h2>Repos</h2>
-  <div class="sub">Score 0–100, higher = easier to get running. One run per repo so far.</div>
-  <ol class="board">{repo_rows(rows)}
-  </ol>
-</section>
-
-<section id="companies">
-  <h2>Companies &amp; teams</h2>
-  <div class="sub">Mean repo score per company, split by team where attribution allows.</div>
-  <ul class="board">{company_rows(companies)}
-  </ul>
-  <div class="caveat">Most companies have a single repo here. Treat these rows as a preview of the
-  format, not a ranking — the next batch samples several repos per company.</div>
-</section>
-
+{sections}
 <section id="method">
   <h2>Method</h2>
   <div class="method">
