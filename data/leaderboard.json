@@ -306,26 +306,6 @@
           "audit_reason": null
         },
         {
-          "repo": "google-research/timesfm",
-          "slug": "google-research-timesfm",
-          "score": 59.2,
-          "why": "1 min, 4 repo files patched",
-          "agent_minutes": 0.8,
-          "files_patched": 4,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-research' is Google org account (Google Research)"
-          ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
           "repo": "google-research/bert",
           "slug": "google-research-bert",
           "score": 0,
@@ -343,7 +323,7 @@
             "owner 'google-research' is Google org account (Google Research)"
           ],
           "audit": "repo_failure",
-          "audit_reason": "The oracle stops at its first real step: curl -f gets HTTP 403 AccessDenied for the BERT-Tiny zip. That is the exact checkpoint URL listed in the README (line 48), and other official bert_models URLs also return 403. The installing agent's /work/setup.sh also notes the official GCS zip is gone. The README's documented model download is dead upstream, so the documented demo cannot be reproduced as written. This is not an oracle bug."
+          "audit_reason": "The oracle stops at its first step: it downloads the BERT-Tiny zip from the exact URL the README links (README.md line 48), and Google Cloud Storage now refuses that request with HTTP 403 AccessDenied, so the documented model can't be fetched. The install also has no usable model as a fallback: /work/models/uncased_L-2_H-128_A-2 holds only vocab.txt with no checkpoint, because setup.sh's conversion script /work/tools/hf_to_tf1_ckpt.py does not exist. The README's demo cannot run here, and the oracle's steps and asserts match what the README documents."
         },
         {
           "repo": "google/trax",
@@ -387,6 +367,26 @@
           "audit_reason": "All README demos work: Hello World!, Hello David!, 20, 30, and the trace all print correctly. `python hello.py --help` exits 0 and prints Fire's help page (NAME / SYNOPSIS / FLAGS), but that page never contains the literal word 'usage'. The README only says the command 'Shows usage information', so the oracle's `grep -qi usage` checks for a string Fire doesn't print."
         },
         {
+          "repo": "google-research/timesfm",
+          "slug": "google-research-timesfm",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.8,
+          "files_patched": 4,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The install and README demo work: re-running the exact oracle in this sandbox prints S1 (12,) (12, 9), MV (3, 24) (3, 24, 9), SCRIPT OK and ORACLE PASS, and my independent run gives a ramp forecast mean of 1.066 (>0.5) and a sine max of 0.98 (<3), so the value checks pass with room to spare. The original failure did not reproduce, so it most likely came from the oracle's environment (e.g. an unauthenticated HF Hub request or network issue at run time) and not from a defect in the repo or install."
+        },
+        {
           "repo": "microsoft/data-formulator",
           "slug": "microsoft-data-formulator",
           "score": null,
@@ -428,8 +428,8 @@
         },
         {
           "company": "Google",
-          "n": 9,
-          "mean": 70.3,
+          "n": 8,
+          "mean": 71.7,
           "teams": [
             {
               "team": "Google",
@@ -443,8 +443,8 @@
             },
             {
               "team": "Google Research",
-              "n": 4,
-              "mean": 39.7
+              "n": 3,
+              "mean": 33.2
             }
           ]
         }
