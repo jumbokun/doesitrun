@@ -1,0 +1,41 @@
+{
+  "slug": "microsoft-jarvis",
+  "repo": "microsoft/JARVIS",
+  "track": "cpu-gha",
+  "goal": "Set up a Python environment so that taskbench/generate_graph.py runs (it needs the click package; install what else the script imports). Run it with --dependency_type resource on a tool library such as taskbench/data_huggingface/tool_desc.json. It must produce a tool graph JSON with nodes and links. Work on a copy of the data directory, because the script writes its output next to the input file name.",
+  "check": "The hidden test runs generate_graph.py on a copy of the bundled tool library and checks that the produced graph has all the nodes and a plausible set of type-consistent links.",
+  "started": "2026-10-27 02:38:15",
+  "agent": {
+    "secs": 41,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "eda065f8-9cc6-4e4b-a595-b7c8aae49193",
+    "num_turns": 6,
+    "cost_usd": 0.127638,
+    "is_error": false,
+    "final": " by replacing \"tools\" with \"graph\" in the input file name. `tool_desc.json` doesn't contain \"tools\", so the graph overwrites the input file. That's why it has to run on a copy.\n- **README example is wrong:** `--tool_desc tool_desc.json` points to a file that doesn't exist in `taskbench/`. You need the full path, e.g. `data_huggingface/tool_desc.json`, and when you give it, `--data_dir` is ignored."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 6,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 0
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:39:26"
+}

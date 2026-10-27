@@ -102,5 +102,88 @@
     "evidence": [
       "owner 'microsoft' is Microsoft org account (Microsoft)"
     ]
+  },
+  "microsoft/cascadia-code": {
+    "repo": "microsoft/cascadia-code",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "microsoft/data-formulator": {
+    "repo": "microsoft/data-formulator",
+    "company": "Microsoft",
+    "team": "Microsoft Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)",
+      "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+    ]
+  },
+  "microsoft/JARVIS": {
+    "repo": "microsoft/JARVIS",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "microsoft/pyright": {
+    "repo": "microsoft/pyright",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "microsoft/qlib": {
+    "repo": "microsoft/qlib",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "microsoft/SkillOpt": {
+    "repo": "microsoft/SkillOpt",
+    "company": "Microsoft",
+    "team": "Microsoft Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)",
+      "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+    ]
+  },
+  "microsoft/Swin-Transformer": {
+    "repo": "microsoft/Swin-Transformer",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "microsoft/unilm": {
+    "repo": "microsoft/unilm",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "microsoft/VibeVoice": {
+    "repo": "microsoft/VibeVoice",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
   }
 }

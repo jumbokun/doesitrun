@@ -1,0 +1,41 @@
+{
+  "slug": "microsoft-skillopt",
+  "repo": "microsoft/SkillOpt",
+  "track": "cpu-gha",
+  "goal": "Install the SkillOpt repo (pip install -e . in /work/SkillOpt) and get the SkillOpt-Sleep mock-backend experiment working: `python -m skillopt_sleep.experiments.run_experiment --persona researcher --assert-improves` must run to completion with no API key. It should report a held-out score lift over several nights and that the gate blocks a harmful edit, ending in a PASS line. Also `--json` output should work.",
+  "check": "The hidden test runs the mock experiment with JSON output and verifies the held-out score improved, the harmful edit was rejected, and the PASS message appears.",
+  "started": "2026-10-27 02:42:05",
+  "agent": {
+    "secs": 38,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "26fd5368-1607-4b22-9174-fdc5faec46e0",
+    "num_turns": 7,
+    "cost_usd": 0.1256138,
+    "is_error": false,
+    "final": "ork/venv`, because Ubuntu 24.04's system Python blocks a plain `pip install`. No code changes or version pins were needed.\n\n**Files are in `/work`:**\n- `setup.sh`\n- `env.sh`\n- `NOTES.md`\n- `REPORT.json`\n\nDONE — after a clean rebuild with `setup.sh`, the experiment runs with no API key, reports a +0.6667 held-out lift, the gate blocks the harmful edit, and it ends in PASS, with `--json` output too."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 3,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 0
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:43:09"
+}

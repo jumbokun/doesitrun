@@ -1,0 +1,47 @@
+{
+  "slug": "microsoft-unilm",
+  "repo": "microsoft/unilm",
+  "track": "cpu-gha",
+  "goal": "In /work/unilm/e5, get mteb_except_retrieval_eval.py running on CPU only with intfloat/e5-small-v2 (install requirements.txt; the script currently calls .cuda()/fp16/autocast, so make it work without a GPU). The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
+  "check": "The hidden test runs that command into a fresh directory and verifies the STS12 result JSON exists with a cosine-similarity Spearman score in the plausible range for e5-small-v2.",
+  "started": "2026-10-27 02:39:43",
+  "agent": {
+    "secs": 228,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "adfedf3d-f23b-4767-8f51-0de717ec60c1",
+    "num_turns": 11,
+    "cost_usd": 0.2424976,
+    "is_error": false,
+    "final": "DONE. After a from-scratch rebuild with `/work/setup.sh` (Python 3.10 venv, CPU-only torch, the script patched to drop its CUDA/fp16/autocast assumptions), the STS dry-run on CPU writes `STS12.json` with a cos-sim Spearman score of 0.762."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 62
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 11,
+    "files": [
+      {
+        "path": "e5/mteb_except_retrieval_eval.py",
+        "added": 8,
+        "removed": 3
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 19,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 69
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:46:23"
+}

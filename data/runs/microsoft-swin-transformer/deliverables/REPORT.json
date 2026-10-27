@@ -1,0 +1,11 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.10 via uv venv instead of conda Python 3.7"},
+  {"kind": "dependency_pin", "detail": "torch 2.4.1 / torchvision 0.19.1 CPU wheels instead of torch 1.8.0 + cudatoolkit 10.2; numpy<2"},
+  {"kind": "dependency_pin", "detail": "opencv-python==4.4.0.46 has no py3.10 wheel; installed opencv-python-headless 4.10.0.84"},
+  {"kind": "gpu_compat", "detail": "Skipped optional CUDA-only fused window_process kernel build"},
+  {"kind": "gpu_compat", "detail": "Patched main.py: CPU device fallback for model/tensors, gloo instead of nccl, no DDP device_ids, no cuda set_device/synchronize/memory stats, AMP off on CPU"},
+  {"kind": "code_patch", "detail": "utils.py: torch.load weights_only=False and GradScaler enabled only with CUDA"},
+  {"kind": "code_patch", "detail": "Clamp LR scheduler steps to >=1 so a train set smaller than the batch size (drop_last) doesn't hit timm assert t_initial > 0 in --eval"},
+  {"kind": "undocumented_step", "detail": "Generated a tiny 2-class ImageFolder dataset (8 images per class per split) for the smoke-test eval"}
+ ]}

@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "other", "detail": "conda not available; used uv venv with Python 3.8 instead of conda create"},
+  {"kind": "doc_error", "detail": "README example --tool_desc tool_desc.json does not exist relative to taskbench/; must pass data_xxx/tool_desc.json (and --data_dir is ignored when --tool_desc given)"},
+  {"kind": "undocumented_step", "detail": "script writes output to tool_file.replace('tools','graph'), which overwrites tool_desc.json in place; run on a copy of the data dir"}
+ ]}

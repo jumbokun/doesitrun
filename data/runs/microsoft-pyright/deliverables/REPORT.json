@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "doc_error", "detail": "Docs say Node 16.x; used Node 24.15.0 (CI version) from nodejs.org tarball since modern deps require newer Node"},
+  {"kind": "undocumented_step", "detail": "pnpm install not documented; installed pnpm@11.21.0 (packageManager field) via npm -g"}
+ ]}

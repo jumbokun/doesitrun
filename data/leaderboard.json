@@ -5,6 +5,47 @@
       "label": "CPU · GitHub-hosted runner (4 vCPU, 16 GB)",
       "repos": [
         {
+          "repo": "microsoft/SkillOpt",
+          "slug": "microsoft-skillopt",
+          "score": 99.4,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/JARVIS",
+          "slug": "microsoft-jarvis",
+          "score": 99.3,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/markitdown",
           "slug": "microsoft-markitdown",
           "score": 98.9,
@@ -20,19 +61,167 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/pyright",
+          "slug": "microsoft-pyright",
+          "score": 98.3,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/cascadia-code",
+          "slug": "microsoft-cascadia-code",
+          "score": 98.2,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/VibeVoice",
+          "slug": "microsoft-vibevoice",
+          "score": 96.8,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/unilm",
+          "slug": "microsoft-unilm",
+          "score": 86.2,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 3.8,
+          "files_patched": 1,
+          "lines_patched": 11,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/qlib",
+          "slug": "microsoft-qlib",
+          "score": 85.6,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 4.4,
+          "files_patched": 1,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/Swin-Transformer",
+          "slug": "microsoft-swin-transformer",
+          "score": 76.8,
+          "why": "3 min, 2 repo files patched",
+          "agent_minutes": 3.1,
+          "files_patched": 2,
+          "lines_patched": 43,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "microsoft/data-formulator",
+          "slug": "microsoft-data-formulator",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 1.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null
         }
       ],
       "companies": [
         {
           "company": "Microsoft",
-          "n": 1,
-          "mean": 98.9,
+          "n": 10,
+          "mean": 84.0,
           "teams": [
             {
               "team": "Microsoft",
-              "n": 1,
-              "mean": 98.9
+              "n": 8,
+              "mean": 92.5
+            },
+            {
+              "team": "Microsoft Research",
+              "n": 2,
+              "mean": 49.7
             }
           ]
         }
@@ -56,7 +245,9 @@
           "company": "Independent",
           "team": "academa-labs",
           "attribution_confidence": "none",
-          "attribution_evidence": []
+          "attribution_evidence": [],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "Leonxlnx/earshot",
@@ -72,7 +263,9 @@
           "company": "Independent",
           "team": "Leonxlnx",
           "attribution_confidence": "none",
-          "attribution_evidence": []
+          "attribution_evidence": [],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "NVlabs/stylegan2-ada-pytorch",
@@ -90,7 +283,9 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "Friedrich-M/UniMate",
@@ -109,7 +304,9 @@
           "attribution_evidence": [
             "paper arXiv:2609.05415 has no affiliation data in OpenAlex",
             "README affiliation markers: ['Berkeley']"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "jaredpalmer/kev",
@@ -125,7 +322,9 @@
           "company": "Independent",
           "team": "jaredpalmer",
           "attribution_confidence": "none",
-          "attribution_evidence": []
+          "attribution_evidence": [],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "TianyuCodings/NanoJev",
@@ -143,7 +342,9 @@
           "attribution_confidence": "none",
           "attribution_evidence": [
             "paper arXiv:2610.21244 has no affiliation data in OpenAlex"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "GuyTevet/motion-diffusion-model",
@@ -161,7 +362,9 @@
           "attribution_confidence": "none",
           "attribution_evidence": [
             "paper arXiv:2209.14916 has no affiliation data in OpenAlex"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "WongKinYiu/yolov7",
@@ -179,7 +382,9 @@
           "attribution_confidence": "medium",
           "attribution_evidence": [
             "paper arXiv:2207.02696 first institution 'Institute of Information Science, Academia Sinica' (facility, OpenAlex)"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
@@ -198,7 +403,9 @@
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)",
             "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "advimman/lama",
@@ -216,7 +423,9 @@
           "attribution_confidence": "medium",
           "attribution_evidence": [
             "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "IDEA-Research/GroundingDINO",
@@ -234,7 +443,9 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
-          ]
+          ],
+          "audit": null,
+          "audit_reason": null
         }
       ],
       "companies": [

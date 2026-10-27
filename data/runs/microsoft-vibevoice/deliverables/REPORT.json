@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Pinned torch==2.8.0/torchaudio==2.8.0; latest torch (2.14) weights_only unpickler rejects BaseModelOutputWithPast in voice preset .pt files"},
+  {"kind": "gpu_compat", "detail": "Used CPU-only torch wheels from download.pytorch.org/whl/cpu and a uv venv instead of the NVIDIA PyTorch docker container"},
+  {"kind": "system_package", "detail": "Installed ffmpeg and libsndfile1 for audio I/O"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded microsoft/VibeVoice-Realtime-0.5B and Qwen/Qwen2.5-0.5B tokenizer into HF_HOME=/work/hf_cache"}
+ ]}

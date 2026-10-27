@@ -1,0 +1,41 @@
+{
+  "slug": "microsoft-pyright",
+  "repo": "microsoft/pyright",
+  "track": "cpu-gha",
+  "goal": "Build the pyright CLI from the cloned source in /work/pyright (pnpm run install:all, then pnpm run build in packages/pyright), as described in docs/build-debug.md. Then `node /work/pyright/packages/pyright/index.js <file.py>` must type-check Python files, report type errors, and with `--outputjson` emit JSON diagnostics. Make sure /work/env.sh puts node and pnpm on PATH.",
+  "check": "The hidden test runs the built pyright CLI on a small Python file with known type errors and a clean file, and verifies the reported errors, the JSON output and the exit codes.",
+  "started": "2026-10-27 02:50:46",
+  "agent": {
+    "secs": 103,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "d3c28f6c-13e2-42f6-b7ea-372fa96d61d5",
+    "num_turns": 8,
+    "cost_usd": 0.13312939999999998,
+    "is_error": false,
+    "final": ", the version pinned in `package.json`.\n- **Pinned commit:** `setup.sh` checks out the commit I built (611afe6, pyright 1.1.414), so a re-run gets the same code.\n- **Environment:** `/work/env.sh` puts node and pnpm on PATH and sets `CI=true`.\n\nOnce Node and pnpm were in place, the documented build steps worked as written. `NOTES.md` and `REPORT.json` list these two fixes as separate interventions."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 34,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 1
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:53:27"
+}

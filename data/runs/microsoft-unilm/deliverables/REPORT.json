@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Created a Python 3.10 venv with uv (the README gives no Python version)"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu"},
+  {"kind": "gpu_compat", "detail": "Patched mteb_except_retrieval_eval.py: fp32 on CPU, conditional .cuda()/move_to_cuda, autocast enabled only with CUDA, batch_size uses max(gpu_count,1) (was 0 on CPU)"},
+  {"kind": "dependency_pin", "detail": "Pinned resolved versions (torch 2.14.1, transformers 5.20.2, datasets 5.1.0, etc.) for reproducibility; none were needed for the fix"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded intfloat/e5-small-v2 and mteb/sts12-sts into the HF cache"}
+ ]}

@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "Installed python3-dev: building qlib's Cython extensions failed with Python.h missing on system Python 3.12"},
+  {"kind": "other", "detail": "Lowered LightGBM num_threads from 20 to 4 in workflow_config_lightgbm_Alpha158.yaml for the 4-CPU sandbox"}
+ ]}

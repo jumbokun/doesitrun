@@ -1,0 +1,47 @@
+{
+  "slug": "microsoft-qlib",
+  "repo": "microsoft/qlib",
+  "track": "cpu-gha",
+  "goal": "Install qlib from /work/qlib, download the CN daily data with `python scripts/get_data.py qlib_data --target_dir ~/.qlib/qlib_data/cn_data --region cn`, then run `qrun examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml` (num_threads may be lowered for 4 CPUs). The workflow must train LightGBM, and print the IC/backtest risk analysis results and save mlruns artifacts.",
+  "check": "The hidden test runs the LightGBM Alpha158 qrun workflow on the downloaded data and verifies the log has IC and backtest analysis results and that saved IC and portfolio report artifacts exist with plausible length and IC.",
+  "started": "2026-10-27 02:28:17",
+  "agent": {
+    "secs": 266,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7852bb8a-b58b-483a-8d2a-e9c6b1ba8e9a",
+    "num_turns": 11,
+    "cost_usd": 0.2564374,
+    "is_error": false,
+    "final": "DONE: qlib installs from source and the downloaded CN data runs the LightGBM Alpha158 `qrun` workflow end to end (IC ≈ 0.047, prints backtest risk analysis, saves `ic.pkl`/`report_normal_1day.pkl` artifacts in mlruns), reproduced from scratch with `/work/setup.sh` after the only README gap (missing `python3-dev`) was fixed."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 78
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 2,
+    "files": [
+      {
+        "path": "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml",
+        "added": 1,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 31,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 82
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:36:17"
+}

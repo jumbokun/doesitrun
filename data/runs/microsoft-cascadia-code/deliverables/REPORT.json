@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used a Python 3.11 venv (uv) since requirements.txt was compiled for 3.11; system has 3.12"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools<81 because fs needs pkg_resources, which is missing from the venv"},
+  {"kind": "doc_error", "detail": "README contains no build instructions; they are only in the external wiki"}
+ ]}

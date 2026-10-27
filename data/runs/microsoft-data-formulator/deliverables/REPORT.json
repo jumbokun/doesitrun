@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Created a Python 3.12 venv with uv (README only says to use a virtual environment) and installed the 0.8.0b1 pre-release that matches the repo"},
+  {"kind": "other", "detail": "Started the server with --dev so it doesn't try to open a browser on a headless machine; run.sh polls / and /api/app-config until ready"},
+  {"kind": "undocumented_step", "detail": "The /api/tables/* endpoints need an X-Workspace-Id request header (any id, created on first use); the README doesn't mention this"}
+ ]}
