@@ -37,6 +37,14 @@ jobs:
         with:
           node-version: "22"
       - run: npm install -g @anthropic-ai/claude-code
+      - name: Check Claude login
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          echo "token length: ${#CLAUDE_CODE_OAUTH_TOKEN}"
+          case "$CLAUDE_CODE_OAUTH_TOKEN" in sk-ant-oat*) echo "token prefix looks like an OAuth token";; *) echo "token prefix unexpected";; esac
+          claude -p "Reply with exactly: OK" --tools "" --output-format json > login.json || true
+          python3 -c "import json; r = json.load(open('login.json')); print('claude says:', r.get('result')); raise SystemExit(1 if r.get('is_error') else 0)"
       - run: docker build -q -t rr-cpu -f base/Dockerfile.cpu base
       - name: Examine
         env:

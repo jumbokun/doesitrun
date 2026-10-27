@@ -189,7 +189,7 @@ def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", bud
             info["session_id"] = ev.get("session_id")
         if ev.get("type") == "result":
             info.update(num_turns=ev.get("num_turns"), cost_usd=ev.get("total_cost_usd"),
-                        final=(ev.get("result") or "")[-400:])
+                        is_error=ev.get("is_error"), final=(ev.get("result") or "")[-400:])
     return info
 
 
@@ -298,6 +298,11 @@ def exam(cand, company):
     try:
         verdict = json.loads(p.stdout)
     except ValueError:
+        if info.get("is_error") or (info.get("num_turns") or 0) < 3 or info.get("timed_out"):
+            # The examiner never really worked (login, rate limit, crash): that is not a verdict on the
+            # repo, so record nothing and stop rather than pre-register a false exclusion.
+            sh(["docker", "rm", "-f", name])
+            raise RuntimeError(f"examiner did not run for {repo}: {info.get('final')!r}")
         verdict = {"eligible": False, "reason": "examiner produced no valid EXAM.json"}
     if verdict.get("eligible"):
         o = sh(["docker", "exec", name, "cat", "/work/oracle.sh"])
