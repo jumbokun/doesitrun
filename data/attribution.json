@@ -591,5 +591,95 @@
     "evidence": [
       "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
     ]
+  },
+  "baidu/Unlimited-OCR": {
+    "repo": "baidu/Unlimited-OCR",
+    "company": "Baidu",
+    "team": "Baidu",
+    "confidence": "high",
+    "evidence": [
+      "owner 'baidu' is Baidu org account (Baidu)"
+    ]
+  },
+  "PaddlePaddle/models": {
+    "repo": "PaddlePaddle/models",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleDetection": {
+    "repo": "PaddlePaddle/PaddleDetection",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleFormers": {
+    "repo": "PaddlePaddle/PaddleFormers",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleGAN": {
+    "repo": "PaddlePaddle/PaddleGAN",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleNLP": {
+    "repo": "PaddlePaddle/PaddleNLP",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleOCR": {
+    "repo": "PaddlePaddle/PaddleOCR",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleSeg": {
+    "repo": "PaddlePaddle/PaddleSeg",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleSpeech": {
+    "repo": "PaddlePaddle/PaddleSpeech",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PaddleX": {
+    "repo": "PaddlePaddle/PaddleX",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
   }
 }

@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "pip and setuptools must be present in the env: paddle imports setuptools and paddlenlp imports pip (created venv with uv --seed, Python 3.10)"},
+  {"kind": "dependency_pin", "detail": "paddlenlp 3.0.0b4 breaks with aistudio-sdk 0.3.x (no aistudio_sdk.hub.download); resolved deps with --exclude-newer 2025-03-20 (aistudio-sdk 0.2.6)"},
+  {"kind": "other", "detail": "installed paddlepaddle==3.0.0 CPU wheel from the paddlepaddle.org.cn CPU index (README just points to the website)"},
+  {"kind": "other", "detail": "used dtype float32 instead of float16 on CPU"}
+ ]}

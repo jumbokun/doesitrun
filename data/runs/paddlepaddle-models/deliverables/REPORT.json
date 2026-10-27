@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dead_link", "detail": "Baidu pip mirror (mirror.baidu.com) returns 403; used PyPI instead"},
+  {"kind": "dependency_pin", "detail": "paddlepaddle==2.3.2 no longer available; used paddlepaddle==2.6.2 (oldest 2.x on PyPI)"},
+  {"kind": "python_version", "detail": "System Python 3.12 has no paddle 2.x wheels; created uv venv with Python 3.9"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 and opencv-python/opencv-contrib-python<4.11 for compatibility with paddle 2.6"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools<70 and pip into the venv (imported at runtime by paddle and paddlenlp)"},
+  {"kind": "dependency_pin", "detail": "Pinned aistudio-sdk==0.2.6 because 0.3.x removed hub.download used by paddlenlp 2.8.1; also pinned paddlenlp 2.8.1/paddlespeech 1.5.0"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 needed by opencv (cv2 import failed with libGL.so.1 missing)"}
+ ]}

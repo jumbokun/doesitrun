@@ -1,0 +1,11 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dead_link", "detail": "README's paddlepaddle index https://mirror.baidu.com/pypi/simple returns 403; installed paddlepaddle==3.3.1 from PyPI"},
+  {"kind": "python_version", "detail": "Python 3.12 fails (onnxoptimizer==0.3.13 via paddle2onnx has no cp312 wheel, needs cmake); used uv-managed Python 3.10"},
+  {"kind": "system_package", "detail": "webrtcvad needs Python headers; avoided by using uv-managed Python 3.10 which ships them (python3-dev otherwise)"},
+  {"kind": "undocumented_step", "detail": "setuptools and pip must be in the env: paddle imports setuptools and paddlenlp imports pip at runtime"},
+  {"kind": "dependency_pin", "detail": "huggingface_hub<0.26 (paddlenlp 2.8.1 imports removed repo_type_and_id_from_hf_id)"},
+  {"kind": "dependency_pin", "detail": "aistudio-sdk==0.2.6 (paddlenlp imports aistudio_sdk.hub.download, removed in 0.3.x)"},
+  {"kind": "dependency_pin", "detail": "datasets<3 (newer datasets requires newer huggingface_hub than paddlenlp tolerates)"},
+  {"kind": "undocumented_step", "detail": "paddlespeech_ctcdecoders is pip-installed at ASR runtime; installed it up front"}
+ ]}

@@ -1,0 +1,41 @@
+{
+  "slug": "paddlepaddle-paddleseg",
+  "repo": "PaddlePaddle/PaddleSeg",
+  "track": "cpu-gha",
+  "goal": "Get PaddleSeg running on CPU: install PaddlePaddle (CPU) and the repo's dependencies, download data/optic_disc_seg (https://paddleseg.bj.bcebos.com/dataset/optic_disc_seg.zip, unzipped into PaddleSeg/data), then make `python tools/train.py --config configs/quick_start/pp_liteseg_optic_disc_512x512_1k.yml` train (a few iterations is enough, e.g. --iters 20 --batch_size 2) and `python tools/predict.py` on data/optic_disc_seg/JPEGImages/H0002.jpg with the saved model produce a segmentation image. /work/env.sh must activate the environment needed.",
+  "check": "The hidden test trains briefly on CPU, runs prediction on an optic-disc image, and verifies that a model checkpoint and non-empty predicted mask images are written.",
+  "started": "2026-10-27 03:02:35",
+  "agent": {
+    "secs": 378,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "0eec3591-f3fc-4d36-a5d2-6eceb05ae43c",
+    "num_turns": 9,
+    "cost_usd": 0.1776334,
+    "is_error": false,
+    "final": "DONE: on a clean rebuild, `setup.sh` gave a CPU PaddlePaddle 2.6.2 environment (Python 3.10, `numpy<2`), and a fresh shell sourcing `env.sh` trained 20 iterations (checkpoint at `output/iter_20/model.pdparams`) and predicted a non-empty two-class mask for H0002.jpg."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 69
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 100,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 68
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:13:11"
+}

@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 libgomp1; cv2 import failed with libGL.so.1 missing"},
+  {"kind": "undocumented_step", "detail": "Created a uv Python 3.12 venv because system pip is externally managed (PEP 668)"},
+  {"kind": "doc_error", "detail": "README has no install steps, only links; used docs/version3.x installation pages. Default model is now PP-OCRv6, not PP-OCRv5"},
+  {"kind": "other", "detail": "Set PADDLE_PDX_CACHE_HOME=/work/paddlex_cache and pre-downloaded the default (v6) and PP-OCRv5 models with a warm-up run"}
+ ]}

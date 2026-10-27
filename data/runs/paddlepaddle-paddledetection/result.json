@@ -1,0 +1,52 @@
+{
+  "slug": "paddlepaddle-paddledetection",
+  "repo": "PaddlePaddle/PaddleDetection",
+  "track": "cpu-gha",
+  "goal": "Get PaddleDetection object detection inference working on CPU. Run tools/infer.py with configs/picodet/picodet_s_320_coco_lcnet.yml, the pretrained picodet_s_320_coco_lcnet weights from paddledet.bj.bcebos.com, on the bundled demo/000000014439.jpg with use_gpu=False, and save the visualized result to an output directory.",
+  "check": "The hidden test runs the detection on a bundled demo image on CPU and verifies a visualized output image is produced and detections were reported.",
+  "started": "2026-10-27 02:40:43",
+  "agent": {
+    "secs": 314,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "8ba292d3-80f0-41e5-8b09-cfc76a1b0902",
+    "num_turns": 17,
+    "cost_usd": 0.3913656,
+    "is_error": false,
+    "final": "DONE: On a clean run of `/work/setup.sh`, PicoDet-S 320 inference on CPU writes the annotated image `/work/output/000000014439.jpg` plus `bbox.json` with 7 detections, after switching to Python 3.10 and paddlepaddle 2.6.2 (2.3.2 is no longer published), adding the libGL system library, pinning `setuptools<80` and patching two bugs in the repo code."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 4
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 3,
+    "files": [
+      {
+        "path": "ppdet/data/source/dataset.py",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "path": "ppdet/utils/visualizer.py",
+        "added": 1,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 53,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 4
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:47:20"
+}

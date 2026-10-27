@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.10 venv via uv; old pins (opencv<=4.6.0.66, librosa 0.8.1, imageio 2.9.0) don't install on system Python 3.12"},
+  {"kind": "dead_link", "detail": "Docs install paddlepaddle from mirror.baidu.com/pypi/simple, which no longer serves it; used PyPI paddlepaddle==2.6.2 CPU"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools<70 because paddle imports setuptools at import time"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 for compatibility with opencv-python 4.6 / librosa 0.8.1"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 so that cv2 can be imported"},
+  {"kind": "code_patch", "detail": "animegan_predictor.py: no_grad + cap inference resolution to 768px max side; full-res CPU forward OOMs (>12GB) / segfaults in Im2Col"}
+ ]}

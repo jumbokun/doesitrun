@@ -1,0 +1,41 @@
+{
+  "slug": "baidu-unlimited-ocr",
+  "repo": "baidu/Unlimited-OCR",
+  "track": "cpu-gha",
+  "goal": "Install the Transformers dependencies from the README (CPU torch is fine) and load baidu/Unlimited-OCR-2 with trust_remote_code on CPU (the README uses .cuda(); the remote code also hardcodes cuda, so it must be made to work on CPU). Then run model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and get correct OCR text back. The model is loaded via AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, torch_dtype=torch.float32) with no explicit .cuda().",
+  "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words.",
+  "started": "2026-10-27 02:27:12",
+  "agent": {
+    "secs": 745,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7acc9822-be8b-4a80-8afb-96624a237049",
+    "num_turns": 19,
+    "cost_usd": 0.5600488,
+    "is_error": false,
+    "final": "og\", \"Invoice number 48213\"). This was confirmed by a clean `setup.sh` run, with the fixes being CPU torch, adding `triton`, and patching out the model's hardcoded `.cuda()` and bfloat16.\n\nOne small flaw: on the first line the model added an extra \"jumps over the lazy dog.\" that isn't in the image. Every expected word is still in the output, and a single inference takes about 2 minutes on 4 cores."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 143
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 52,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 172
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:46:05"
+}

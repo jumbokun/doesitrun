@@ -1,0 +1,41 @@
+{
+  "slug": "paddlepaddle-models",
+  "repo": "PaddlePaddle/models",
+  "track": "cpu-gha",
+  "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies needed by paddlecv, then run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` on CPU. The pretrained inference model is downloaded automatically and the classification result must be produced in the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs it.",
+  "check": "The hidden test runs the classification prediction on the bundled demo image and verifies the output result file contains top-5 class ids, scores and label names, plus a saved output image.",
+  "started": "2026-10-27 03:25:02",
+  "agent": {
+    "secs": 340,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "3c3b016c-082e-4f53-b318-970f742597e7",
+    "num_turns": 18,
+    "cost_usd": 0.40614120000000004,
+    "is_error": false,
+    "final": "lso needs `libgl1` and `libglib2.0-0t64` from apt, which the docs don't mention.\n- **Skipped step:** I left out `python setup.py install`, since `tools/predict.py` finds the repo code without it.\n\n`setup.sh` downloads the model up front by running the prediction once. `env.sh` activates the venv and also changes into `/work/models/paddlecv`. Details are in `/work/NOTES.md` and `/work/REPORT.json`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 9
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 127,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 9
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:33:28"
+}

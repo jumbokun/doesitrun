@@ -1,0 +1,86 @@
+{
+  "slug": "paddlepaddle-paddleformers",
+  "repo": "PaddlePaddle/PaddleFormers",
+  "track": "cpu-gha",
+  "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained(...).generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
+  "check": "The hidden test runs the tokenizer and text-generation snippets and verifies the expected token ids and that generated text is non-empty and extends the prompt.",
+  "started": "2026-10-27 02:49:17",
+  "agent": {
+    "secs": 268,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "553a1ebd-b480-47a3-9098-f343d3d968bf",
+    "num_turns": 31,
+    "cost_usd": 0.6167919999999999,
+    "is_error": false,
+    "final": "t the bfloat16 the snippet asks for.\n\nAs in the README, `generate` returns only the new tokens, not the prompt plus continuation. The output reads as a continuation of the prompt, but if the hidden check looks for the prompt text inside the decoded string, it could fail.\n\n`setup.sh` pins the repo to commit f7fa77f02e and pre-downloads Qwen3-0.6B-Base. `NOTES.md` and `REPORT.json` list each change."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 15
+  },
+  "repo_diff": {
+    "files_changed": 4,
+    "lines_changed": 41,
+    "files": [
+      {
+        "path": "paddleformers/nn/norm.py",
+        "added": 6,
+        "removed": 1
+      },
+      {
+        "path": "paddleformers/transformers/model_utils.py",
+        "added": 8,
+        "removed": 0
+      },
+      {
+        "path": "paddleformers/transformers/qwen2/modeling.py",
+        "added": 13,
+        "removed": 0
+      },
+      {
+        "path": "paddleformers/transformers/qwen3/modeling.py",
+        "added": 13,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 10,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:57:19",
+  "repair": {
+    "secs": 99,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "553a1ebd-b480-47a3-9098-f343d3d968bf",
+    "num_turns": 5,
+    "cost_usd": 0.7454961999999999,
+    "is_error": false,
+    "final": "ned coherent Chinese text.\n- **Docs:** `NOTES.md` now says the patch is written out by `setup.sh` and describes the retries. In `REPORT.json` I only reworded the bfloat16 entry; the list of changes is the same.\n\nThe earlier caveat still applies: as in the README, `generate` returns only the new tokens, not the prompt. If the hidden check looks for the prompt inside the decoded text, it could fail.",
+    "from": "replay"
+  },
+  "replay_after_repair": {
+    "setup_ok": true,
+    "setup_secs": 31,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 15
+    },
+    "class": "pass"
+  }
+}

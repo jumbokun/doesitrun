@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "README documents only CUDA installs; installed CPU paddlepaddle==3.3.1 from paddlepaddle.org.cn/packages/stable/cpu/"},
+  {"kind": "dependency_pin", "detail": "Skipped [paddlefleet] extra: pinned paddlefleet==0.4.0.post20260909+08dd2e727b0 is unpublished and GPU-only"},
+  {"kind": "undocumented_step", "detail": "paddleformers imports pip at runtime; created uv venv with --seed / installed pip"},
+  {"kind": "code_patch", "detail": "qwen2/qwen3 modeling: optional gpt_provider import and fall back to non-fleet *Deprecated CausalLM classes when paddlefleet missing"},
+  {"kind": "code_patch", "detail": "nn/norm.py: skip fused_rms_norm_ext (no CPU kernel) when device is cpu"},
+  {"kind": "code_patch", "detail": "model_utils.from_pretrained: fallback bfloat16/float16 -> float32 on CPU (no bf16 matmul kernel)"}
+ ]}

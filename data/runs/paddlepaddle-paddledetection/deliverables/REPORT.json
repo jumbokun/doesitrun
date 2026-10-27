@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "System Python 3.12 is unsupported (docs say <=3.10); created a Python 3.10 venv with uv"},
+  {"kind": "dependency_pin", "detail": "paddlepaddle==2.3.2 is no longer on PyPI or the tuna mirror; installed paddlepaddle==2.6.2 CPU instead"},
+  {"kind": "system_package", "detail": "Installed libgl1 and libglib2.0-0t64 because opencv-python needs libGL.so.1"},
+  {"kind": "dependency_pin", "detail": "Pinned setuptools<80 because newer setuptools dropped the pkg_resources module that ppdet/model_zoo imports"},
+  {"kind": "code_patch", "detail": "ppdet/data/source/dataset.py ImageFolder._load_images loaded the COCO val annotation file unconditionally; now it loads only when do_eval"},
+  {"kind": "code_patch", "detail": "ppdet/utils/visualizer.py cached simfang.ttf under a literal ./~ dir; added os.path.expanduser and pre-downloaded the font"},
+  {"kind": "other", "detail": "Used 'uv pip install -e .' instead of the deprecated 'python setup.py install'"}
+ ]}

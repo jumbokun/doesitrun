@@ -486,6 +486,26 @@
           "audit_reason": null
         },
         {
+          "repo": "PaddlePaddle/models",
+          "slug": "paddlepaddle-models",
+          "score": 94.3,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 5.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "facebookresearch/nougat",
           "slug": "facebookresearch-nougat",
           "score": 94.1,
@@ -501,6 +521,66 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "PaddlePaddle/PaddleNLP",
+          "slug": "paddlepaddle-paddlenlp",
+          "score": 93.9,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 6.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "PaddlePaddle/PaddleSeg",
+          "slug": "paddlepaddle-paddleseg",
+          "score": 93.7,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 6.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "PaddlePaddle/PaddleOCR",
+          "slug": "paddlepaddle-paddleocr",
+          "score": 92.8,
+          "why": "7 min, 0 repo files patched",
+          "agent_minutes": 7.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null
@@ -546,6 +626,26 @@
           "audit_reason": null
         },
         {
+          "repo": "PaddlePaddle/PaddleX",
+          "slug": "paddlepaddle-paddlex",
+          "score": 89.6,
+          "why": "10 min, 0 repo files patched",
+          "agent_minutes": 10.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "NVlabs/stylegan3",
           "slug": "nvlabs-stylegan3",
           "score": 88.5,
@@ -581,6 +681,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 87.6,
+          "why": "12 min, 0 repo files patched",
+          "agent_minutes": 12.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "Baidu",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'baidu' is Baidu org account (Baidu)"
           ],
           "audit": null,
           "audit_reason": null
@@ -746,6 +866,26 @@
           "audit_reason": null
         },
         {
+          "repo": "PaddlePaddle/PaddleDetection",
+          "slug": "paddlepaddle-paddledetection",
+          "score": 74.8,
+          "why": "5 min, 2 repo files patched",
+          "agent_minutes": 5.2,
+          "files_patched": 2,
+          "lines_patched": 3,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "facebookresearch/Detectron",
           "slug": "facebookresearch-detectron",
           "score": 74.2,
@@ -806,6 +946,26 @@
           "audit_reason": null
         },
         {
+          "repo": "PaddlePaddle/PaddleGAN",
+          "slug": "paddlepaddle-paddlegan",
+          "score": 65.5,
+          "why": "25 min, 1 repo files patched",
+          "agent_minutes": 24.5,
+          "files_patched": 1,
+          "lines_patched": 18,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "google-research/timesfm",
           "slug": "google-research-timesfm",
           "score": 59.2,
@@ -821,6 +981,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "PaddlePaddle/PaddleFormers",
+          "slug": "paddlepaddle-paddleformers",
+          "score": 55.5,
+          "why": "4 min, 4 repo files patched",
+          "agent_minutes": 4.5,
+          "files_patched": 4,
+          "lines_patched": 41,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "pass",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null
@@ -1007,6 +1187,26 @@
           "audit_reason": null
         },
         {
+          "repo": "PaddlePaddle/PaddleSpeech",
+          "slug": "paddlepaddle-paddlespeech",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 17.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "bytedance/UI-TARS",
           "slug": "bytedance-ui-tars",
           "score": null,
@@ -1174,6 +1374,23 @@
               "team": "ModelScope",
               "n": 6,
               "mean": 77.6
+            }
+          ]
+        },
+        {
+          "company": "Baidu",
+          "n": 10,
+          "mean": 74.8,
+          "teams": [
+            {
+              "team": "Baidu",
+              "n": 1,
+              "mean": 87.6
+            },
+            {
+              "team": "PaddlePaddle",
+              "n": 9,
+              "mean": 73.3
             }
           ]
         },

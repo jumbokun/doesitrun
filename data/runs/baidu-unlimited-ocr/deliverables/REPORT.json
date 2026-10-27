@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed torch==2.13.0/torchvision from the PyTorch CPU wheel index instead of the default CUDA build"},
+  {"kind": "dependency_pin", "detail": "Added triton==3.8.0: remote code imports triton at module level, so transformers check_imports fails without it"},
+  {"kind": "code_patch", "detail": "Replaced hardcoded .cuda() on images_seq_mask in modeling_unlimitedocr.py with .to(inputs_embeds.device)"},
+  {"kind": "code_patch", "detail": "Cast image tensors (hardcoded bfloat16) to the model dtype in _uocr_generate so fp32 CPU inference works"},
+  {"kind": "undocumented_step", "detail": "Pinned the model revision, wrote refs/main, and set HF_HUB_OFFLINE=1 so the patched cached remote code is used"}
+ ]}

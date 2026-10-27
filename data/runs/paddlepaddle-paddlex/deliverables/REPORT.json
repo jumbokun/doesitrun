@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "other", "detail": "paddlepaddle 3.3.0 CPU oneDNN executor crashes on PP-OCRv6 det (pir::ArrayAttribute<DoubleAttribute> unsupported); disabled MKLDNN via PADDLE_PDX_ENABLE_MKLDNN_BYDEFAULT=False"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 libgomp1 for opencv/paddle runtime (precautionary)"},
+  {"kind": "undocumented_step", "detail": "README only shows pip install paddlex[base]; installed from clone with -e .[ocr] in a uv Python 3.12 venv"},
+  {"kind": "other", "detail": "Set PADDLE_PDX_MODEL_SOURCE=BOS and PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK=True for deterministic model downloads"}
+ ]}

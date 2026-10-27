@@ -1,0 +1,47 @@
+{
+  "slug": "paddlepaddle-paddlegan",
+  "repo": "PaddlePaddle/PaddleGAN",
+  "track": "cpu-gha",
+  "goal": "Install PaddleGAN (CPU PaddlePaddle plus requirements) so that `python applications/tools/animeganv2.py --input_image docs/imgs/animeganv2_test.jpg --output_path <dir> --cpu` runs from the repo root. It must auto-download the pretrained AnimeGANv2 Hayao weights and write a stylized anime image to the output directory.",
+  "check": "The hidden test runs the AnimeGANv2 CLI on a bundled photo and verifies a valid, non-trivial stylized image is written that differs from the input.",
+  "started": "2026-10-27 03:16:35",
+  "agent": {
+    "secs": 1471,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "9a119455-6183-46a9-86ec-f7ddf64125be",
+    "num_turns": 31,
+    "cost_usd": 0.7198032,
+    "is_error": false,
+    "final": "DONE — after a code patch, the AnimeGANv2 command runs on CPU from a fresh `setup.sh` reproduction, auto-downloads the Hayao weights and writes `anime.png`, which differs clearly from the input and closely matches the repo's reference result."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 12
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 18,
+    "files": [
+      {
+        "path": "ppgan/apps/animegan_predictor.py",
+        "added": 15,
+        "removed": 3
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 43,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 13
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:42:36"
+}

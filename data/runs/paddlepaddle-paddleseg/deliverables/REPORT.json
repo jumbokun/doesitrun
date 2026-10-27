@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used a Python 3.10 uv venv; PaddlePaddle 2.4-2.6 has no wheels for the system Python 3.12"},
+  {"kind": "dependency_pin", "detail": "Installed CPU paddlepaddle==2.6.2 from PyPI instead of the documented paddlepaddle-gpu==2.4.2 from the Tsinghua mirror"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 for compatibility with paddle 2.6 and opencv-python<=4.6.0"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 (opencv runtime) and unzip"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded the PP_STDCNet2 pretrained backbone into ~/.paddleseg/pretrained_model so it is not fetched at train time"}
+ ]}
