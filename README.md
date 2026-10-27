@@ -16,7 +16,7 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | Agent's installer replays on a fresh machine first try | 59 / 80 |
 | Repo files the agent had to modify to get it running | 30 / 80 repos |
 | Top repos not even testable on a plain machine | 34 of 114 examined: GPU or >16 GB (16), paid API key (11), gated model (5), other (2) |
-| Failed hidden tests, after independent audit | 6 genuine repo failures (e.g. BERT's and trax's README model links now 403, SPADE's 404), **8 defective tests** (unscored), 1 inconclusive, 3 audits pending |
+| Failed hidden tests, after independent audit | 6 genuine repo failures (e.g. BERT's and trax's README model links now 403, SPADE's 404), **10 defective tests** (unscored), 2 inconclusive (agent timed out, nothing to audit; stay 0) |
 
 | company (mean score, n) | | best team → worst team |
 |---|---|---|
@@ -26,13 +26,15 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | Baidu | 83 (9) | Baidu 88 · PaddlePaddle 82 |
 | Google | 70 (9) | Google 99 · DeepMind 89 · **Google Research 40** |
 | NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 — a CPU track is hard on CUDA-first repos |
-| Tencent | 57 (10) | ARC Lab 94 · Tencent 57 · **Hunyuan 39** (3 audits pending) |
+| Tencent | 71 (8) | ARC Lab 94 · Tencent 76 · **Hunyuan 52** |
 | ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
 
 **GPU track — 11 repos on an RTX 5060 8 GB:** 11/11 ran, 8/11 installers replayed first try, and every
 2020–23 repo except StyleGAN2-ADA needed its torch pin replaced (no Blackwell kernels).
 
 The live page is the source of truth; this table is a snapshot. One run per repo: treat small gaps as noise.
+"Defective test" includes one lenient call: Hunyuan3D-2.1's test passed on the audit re-run, so its first failure
+was environmental; by the rule it is unscored rather than counted as a pass or a 0.
 
 ## How a run works
 
