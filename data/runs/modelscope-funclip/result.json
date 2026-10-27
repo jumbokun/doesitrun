@@ -43,5 +43,20 @@
     },
     "class": "fail: other"
   },
-  "finished": "2026-10-27 03:33:43"
+  "finished": "2026-10-27 03:33:43",
+  "audit": {
+    "verdict": "repo_failure",
+    "reason": "The oracle stopped first because wget isn't installed, but the README's own download step uses wget too. With curl swapped in, stage 1 runs on CPU and writes a good Chinese total.srt. Stage 2 with the README's exact --dest_text then prints 'No period found in the video; no output was generated', so no res.mp4 is made: the video at the README URL doesn't contain that sentence. The installing agent's setup.sh also says this and swaps in a different file (2022云栖大会_片段2.mp4). The README's documented demo does not work as written.",
+    "evidence_cmd": "oracle script with wget replaced by curl -sSfL (bash /tmp/aud/o.sh)",
+    "evidence_out": "Write total subtitle to .../total.srt ... Recognition successed. ... stage 2: WARNING:root:No period found in the video; no output was generated. ... Save clipped mp4 file to None; stat: cannot statx '.../res.mp4': No such file or directory",
+    "setup_ok": true,
+    "oracle_rerun_pass": false,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 95,
+      "num_turns": 4,
+      "cost_usd": 0.1254912
+    },
+    "audited": "2026-10-27 03:42:22"
+  }
 }

@@ -783,8 +783,8 @@
           "attribution_evidence": [
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
-          "audit": null,
-          "audit_reason": null
+          "audit": "repo_failure",
+          "audit_reason": "The oracle stopped first because wget isn't installed, but the README's own download step uses wget too. With curl swapped in, stage 1 runs on CPU and writes a good Chinese total.srt. Stage 2 with the README's exact --dest_text then prints 'No period found in the video; no output was generated', so no res.mp4 is made: the video at the README URL doesn't contain that sentence. The installing agent's setup.sh also says this and swaps in a different file (2022云栖大会_片段2.mp4). The README's documented demo does not work as written."
         },
         {
           "repo": "bytedance/UI-TARS",
