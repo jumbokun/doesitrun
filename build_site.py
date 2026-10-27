@@ -112,6 +112,71 @@ def exclusions_by_company():
     return out
 
 
+EXCLUSION_KINDS = [  # first match wins; keyword buckets over the examiner's one-sentence reasons
+    ("needs a paid API key or account", r"api key|api_key|credential|account|paid|serper|openai|gemini models"),
+    ("gated model (license / access request)", r"gated|license accept|access request|hf_token|request.*access|terms of use"),
+    # Most reasons cite both a GPU and the model size, so they are one bucket rather than an arbitrary split.
+    ("needs a GPU and/or exceeds 16 GB RAM / 15 GB of downloads",
+     r"\bgpu\b|cuda|vram|too large|\bparameters\b|\d+\s?gb\b|\d+(\.\d+)?b\b|\d+\sgb|bazel"),
+]
+
+
+def exclusion_kind(reason):
+    import re
+    r = (reason or "").lower()
+    return next((k for k, pat in EXCLUSION_KINDS if re.search(pat, r)), "not a runnable project / other")
+
+
+def findings(tracks):
+    """Headline numbers for the CPU track, computed from committed data only."""
+    t = next((x for x in tracks if x["track"] == "cpu-gha"), None)
+    if not t:
+        return ""
+    rows = t["repos"]
+    scored = [r for r in rows if r["score"] is not None]
+    ran = [r for r in scored if r["score"] > 0]
+    defects = [r for r in rows if r["score"] is None]
+    replays = sum(r["replay"] == "pass" for r in rows)
+    med = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
+    excl = {}
+    for path in (ROOT / "data" / "exams").glob("*.json"):
+        e = json.loads(path.read_text(encoding="utf-8"))
+        if not e.get("eligible"):
+            k = exclusion_kind(e.get("reason"))
+            excl[k] = excl.get(k, 0) + 1
+    kinds = {}
+    for path in (ROOT / "data" / "runs").glob("*/deliverables/REPORT.json"):
+        try:
+            rep = json.loads(path.read_text(encoding="utf-8"))
+        except ValueError:
+            continue
+        for iv in rep.get("interventions") or []:
+            k = (iv.get("kind") or "other") if isinstance(iv, dict) else "other"
+            kinds[k] = kinds.get(k, 0) + 1
+    excl_li = "".join(f"<li><span>{esc(k)}</span><span class=\"mono\">{v}</span></li>"
+                      for k, v in sorted(excl.items(), key=lambda kv: -kv[1]))
+    kind_li = "".join(f"<li><span>{esc(k.replace('_', ' '))}</span><span class=\"mono\">{v}</span></li>"
+                      for k, v in sorted(kinds.items(), key=lambda kv: -kv[1])[:8])
+    return f"""
+<section id="findings">
+  <div class="overline">{esc(t['label'])}</div>
+  <h2>What we found</h2>
+  <div class="stats">
+    <div class="stat"><div class="v">{len(ran)}/{len(scored)}</div><div class="l">README demos that ran</div></div>
+    <div class="stat"><div class="v">{replays}/{len(rows)}</div><div class="l">installers replay on a fresh box</div></div>
+    <div class="stat"><div class="v">{med:.0f} min</div><div class="l">median agent time</div></div>
+    <div class="stat"><div class="v">{len(defects)}</div><div class="l">oracle defects, not scored</div></div>
+  </div>
+  <div class="method" style="margin-top:12px">
+    <h3>Why top repos were not even testable on a plain machine ({sum(excl.values())} excluded before any run)</h3>
+    <ul class="teams">{excl_li}</ul>
+    <h3>What the agent most often had to fix that the README did not say</h3>
+    <ul class="teams">{kind_li or '<li><span>no REPORT.json yet</span></li>'}</ul>
+  </div>
+</section>
+"""
+
+
 def track_section(t, i):
     multi = "Most companies have a single repo here. Treat these rows as a preview of the format, not a ranking."
     few = any(c["n"] < 3 for c in t["companies"])
@@ -142,7 +207,7 @@ def main():
     tracks = data["tracks"]
     rows = [r for t in tracks for r in t["repos"]]
     ran = [r for r in rows if (r["score"] or 0) > 0]
-    sections = "".join(track_section(t, i) for i, t in enumerate(tracks))
+    sections = findings(tracks) + "".join(track_section(t, i) for i, t in enumerate(tracks))
     replays = sum(r["replay"] == "pass" for r in rows)
     median_min = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
     sha = os.environ.get("GITHUB_SHA", "local")[:7]
