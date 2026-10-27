@@ -274,8 +274,8 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
 </html>
 """
     OUT.mkdir(exist_ok=True)
-    (OUT / "index.html").write_text(page, encoding="utf-8")
-    (OUT / "leaderboard.json").write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
+    (OUT / "index.html").write_text(page, encoding="utf-8", newline="\n")
+    (OUT / "leaderboard.json").write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     print(f"wrote {OUT / 'index.html'} ({len(rows)} repos)")
 
 

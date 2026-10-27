@@ -27,7 +27,7 @@ for repos_file in sys.argv[1:]:
         res["repo_diff"] = run_probe.repo_diff(name, cfg["dir"])
         res["repo_diff"]["backfilled"] = True
         run_probe.sh(["docker", "stop", name])
-        path.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
+        path.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
         d = res["repo_diff"]
         print(cfg["slug"], d.get("files_changed"), "files /", d.get("lines_changed"), "lines",
               [f["path"] for f in d.get("files", [])][:6], d.get("error", ""))

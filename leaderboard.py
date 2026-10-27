@@ -75,7 +75,7 @@ def main():
             "company": a["company"], "team": a["team"], "attribution_confidence": a["confidence"],
             "attribution_evidence": a["evidence"],
         })
-    ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8")
+    ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
     order = sorted(tracks, key=lambda t: (t != "cpu-gha", t))
     out = {"tracks": []}
@@ -101,8 +101,8 @@ def main():
             teams = "; ".join(f"{x['team']} {x['mean']} (n={x['n']})" for x in c["teams"])
             md.append(f"| {c['company']}{' ⚠ n<3' if c['n'] < 3 else ''} | {c['n']} | {c['mean']} | {teams} |")
         md.append("")
-    (DATA / "leaderboard.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
-    (ROOT / "LEADERBOARD.md").write_text("\n".join(md), encoding="utf-8")
+    (DATA / "leaderboard.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
+    (ROOT / "LEADERBOARD.md").write_text("\n".join(md), encoding="utf-8", newline="\n")
     print("\n".join(md))
 
 

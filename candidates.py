@@ -54,7 +54,7 @@ def main():
         out["companies"][company] = {"orgs": orgs, "target": TARGET_PER_COMPANY, "candidates": picked}
         print(company, len(picked), [r["repo"] for r in picked[:5]], "...")
     (ROOT / "data").mkdir(exist_ok=True)
-    (ROOT / "data" / "candidates.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "data" / "candidates.json").write_text(json.dumps(out, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

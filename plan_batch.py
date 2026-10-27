@@ -35,7 +35,7 @@ def main():
         print(f"{company}: {len(picked)} eligible, {len(excluded)} excluded")
         for x in excluded:
             print("   -", x)
-    (ROOT / "repos_cpu.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8")
+    (ROOT / "repos_cpu.json").write_text(json.dumps(plan, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     print(json.dumps(summary))
 
 

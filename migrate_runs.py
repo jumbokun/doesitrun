@@ -29,7 +29,7 @@ for repos_file in sys.argv[1:]:
             log = rundir / f"{key}_setup.log"
             text = log.read_text(encoding="utf-8", errors="replace") if log.exists() else ""
             r["class"] = run_probe.classify_replay(text, r["oracle"].get("pass"))
-        path.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
+        path.write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
         run_probe.export_run(cfg["slug"])
         print(cfg["slug"], {k: res[k].get("class") for k in ("replay", "replay_supplementary", "replay_after_repair")
                             if res.get(k)})

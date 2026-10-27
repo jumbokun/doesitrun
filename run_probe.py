@@ -126,7 +126,7 @@ def oracle(name, slug, out_path):
         out, ok = p.stdout + p.stderr, p.returncode == 0 and "ORACLE PASS" in p.stdout
     except subprocess.TimeoutExpired:
         out, ok = "oracle timed out", False
-    out_path.write_text(out, encoding="utf-8")
+    out_path.write_text(out, encoding="utf-8", newline="\n")
     return {"pass": ok, "secs": round(time.time() - t0)}
 
 
@@ -153,7 +153,7 @@ def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", bud
     cwd.mkdir(parents=True, exist_ok=True)
     mcp = {"mcpServers": {"box": {"command": sys.executable,
                                   "args": [str(ROOT / "box_mcp.py"), name, str(rundir / "commands.jsonl")]}}}
-    (rundir / "mcp.json").write_text(json.dumps(mcp), encoding="utf-8")
+    (rundir / "mcp.json").write_text(json.dumps(mcp), encoding="utf-8", newline="\n")
     prompt = prompt_text or PROMPT.format(
         repo=cfg["repo"], dir=cfg["dir"], goal=cfg["goal"], check=cfg["check"],
         hw="NVIDIA RTX 5060 Laptop GPU, 8 GB VRAM (Blackwell, sm_120) attached. Another job may be "
@@ -310,7 +310,7 @@ def exam(cand, company):
               "examined": time.strftime("%Y-%m-%d %H:%M:%S"), "examiner": {k: info.get(k) for k in
               ("model", "secs", "num_turns", "cost_usd", "timed_out")}, **verdict}
     out_path.parent.mkdir(parents=True, exist_ok=True)
-    out_path.write_text(json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8")
+    out_path.write_text(json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     return record
 
 
@@ -404,7 +404,7 @@ def replay_and_save(cfg, res, rundir, key="replay"):
             setup_ok, log = p.returncode == 0, p.stdout + p.stderr
         except subprocess.TimeoutExpired:
             setup_ok, log = False, "setup.sh timed out"
-        (rundir / f"{key}_setup.log").write_text(log[-200_000:], encoding="utf-8")
+        (rundir / f"{key}_setup.log").write_text(log[-200_000:], encoding="utf-8", newline="\n")
         res[key] = {"setup_ok": setup_ok, "setup_secs": round(time.time() - t0), "mem": cfg["mem"]}
         res[key]["oracle"] = oracle(replay, slug, rundir / f"{key}_oracle.txt")
         res[key]["class"] = classify_replay(log, res[key]["oracle"]["pass"])
@@ -413,7 +413,7 @@ def replay_and_save(cfg, res, rundir, key="replay"):
         res[key] = {"setup_ok": False, "note": "no setup.sh delivered"}
 
     res["finished"] = time.strftime("%Y-%m-%d %H:%M:%S")
-    (rundir / "result.json").write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8")
+    (rundir / "result.json").write_text(json.dumps(res, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     export_run(slug)
     print(json.dumps(res, ensure_ascii=False), flush=True)
 

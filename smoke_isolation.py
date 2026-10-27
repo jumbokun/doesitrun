@@ -30,7 +30,7 @@ Report exactly what succeeded and what failed. Do not attempt anything destructi
 
 mcp = {"mcpServers": {"box": {"command": sys.executable,
                               "args": [str(ROOT / "box_mcp.py"), name, str(rundir / "commands.jsonl")]}}}
-(rundir / "mcp.json").write_text(json.dumps(mcp), encoding="utf-8")
+(rundir / "mcp.json").write_text(json.dumps(mcp), encoding="utf-8", newline="\n")
 cwd = rundir / "agent_cwd"
 cwd.mkdir(exist_ok=True)
 p = subprocess.run(["claude", "-p", prompt, "--tools", "", "--strict-mcp-config",
@@ -38,7 +38,7 @@ p = subprocess.run(["claude", "-p", prompt, "--tools", "", "--strict-mcp-config"
                     "--permission-mode", "dontAsk", "--setting-sources", "local",
                     "--output-format", "stream-json", "--verbose"],
                    cwd=cwd, capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=900)
-(rundir / "transcript.jsonl").write_text(p.stdout, encoding="utf-8")
+(rundir / "transcript.jsonl").write_text(p.stdout, encoding="utf-8", newline="\n")
 for line in p.stdout.splitlines():
     try:
         ev = json.loads(line)
