@@ -45,7 +45,8 @@ def repo_score(res):
         # The oracle never had a finished install to judge, so no audit can unscore this: not reproduced
         # within the 90-minute budget.
         return 0, "agent hit the time limit before the demo ran"
-    if not res["oracle"]["pass"] and (res.get("audit") or {}).get("verdict") == "oracle_defect":
+    verdict = (res.get("correction") or res.get("audit") or {}).get("verdict")
+    if not res["oracle"]["pass"] and verdict == "oracle_defect":
         return None, "not scored: the pre-registered audit found the hidden oracle defective"
     if not res["oracle"]["pass"]:
         return 0, "agent could not reproduce"
@@ -90,8 +91,11 @@ def main():
             "replay_after_repair": replay_class(res, "replay_after_repair"),
             "company": a["company"], "team": team_of(a), "attribution_confidence": a["confidence"],
             "attribution_evidence": a["evidence"],
-            "audit": (res.get("audit") or {}).get("verdict"),
-            "audit_reason": (res.get("audit") or {}).get("reason"),
+            # A documented correction (dispute upheld with evidence) takes precedence over the audit verdict;
+            # both stay in the record.
+            "audit": (res.get("correction") or res.get("audit") or {}).get("verdict"),
+            "audit_reason": (res.get("correction") or res.get("audit") or {}).get("reason"),
+            "corrected": bool(res.get("correction")),
         })
     ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
