@@ -41,15 +41,15 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 33 | [microsoft/Swin-Transformer](https://github.com/microsoft/Swin-Transformer) | 76.8 | 3 min | 2 (43 lines) | pass | Microsoft / Microsoft (high) |
 | 34 | [facebookresearch/Detectron](https://github.com/facebookresearch/Detectron) | 74.2 | 6 min | 2 (19 lines) | fail: other; replay_after_repair: pass | Meta / FAIR (high) |
 | 35 | [Tencent-Hunyuan/Hunyuan3D-2](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | 73.0 | 17 min | 1 (2 lines) | pass | Tencent / Hunyuan (high) |
-| 36 | [ByteDance-Seed/Depth-Anything-3](https://github.com/ByteDance-Seed/Depth-Anything-3) | 0 | 3 min | 1 (5 lines) | fail: other | ByteDance / Seed (high) |
-| 37 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
-| 38 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
-| 39 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 0 | 14 min | 1 (5 lines) | fail: other | Alibaba / ModelScope (high) |
-| 40 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
-| 41 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 42 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 43 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
-| 44 | [google-research/timesfm](https://github.com/google-research/timesfm) | not scored (oracle defect) | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
+| 36 | [google-research/timesfm](https://github.com/google-research/timesfm) | 59.2 | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
+| 37 | [ByteDance-Seed/Depth-Anything-3](https://github.com/ByteDance-Seed/Depth-Anything-3) | 0 | 3 min | 1 (5 lines) | fail: other | ByteDance / Seed (high) |
+| 38 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
+| 39 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 40 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 0 | 14 min | 1 (5 lines) | fail: other | Alibaba / ModelScope (high) |
+| 41 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
+| 42 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 43 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 44 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
 | 45 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
 
 | company | n | mean | teams |
@@ -58,7 +58,7 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | Meta | 8 | 92.7 | FAIR 92.7 (n=8) |
 | Tencent | 3 | 89.7 | Tencent 98.0 (n=1); ARC Lab 98.0 (n=1); Hunyuan 73.0 (n=1) |
 | Alibaba | 10 | 83.6 | Qwen 92.7 (n=4); ModelScope 77.6 (n=6) |
-| Google | 8 | 71.7 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 33.2 (n=3) |
+| Google | 9 | 70.3 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 39.7 (n=4) |
 | ByteDance ⚠ n<3 | 1 | 0 | Seed 0 (n=1) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos
