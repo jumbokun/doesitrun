@@ -33,7 +33,7 @@ def replay_class(res, key):
 
 
 def repo_score(res):
-    if (res.get("audit") or {}).get("verdict") == "oracle_defect":
+    if not res["oracle"]["pass"] and (res.get("audit") or {}).get("verdict") == "oracle_defect":
         return None, "not scored: the pre-registered audit found the hidden oracle defective"
     if not res["oracle"]["pass"]:
         return 0, "agent could not reproduce"
