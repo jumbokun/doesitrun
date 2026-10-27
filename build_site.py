@@ -360,7 +360,8 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
 <header id="top">
   <div class="overline">GitHub reproducibility leaderboard</div>
   <h1>Does it run?</h1>
-  <p>A sandboxed AI agent gets one tool, a fresh Linux box with an 8&nbsp;GB GPU, and a repo's README.
+  <p>A sandboxed AI agent gets one tool, a fresh Linux box (a CPU-only GitHub runner, or an 8&nbsp;GB GPU on the
+  GPU track) and a repo's README.
   A hidden, pre-registered test decides whether the demo really works. Then we replay the agent's
   installer on a brand-new machine. <a href="{REPO_URL}/blob/main/STORY.md">Read what broke →</a></p>
   <div class="stats">
