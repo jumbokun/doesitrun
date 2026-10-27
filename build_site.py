@@ -105,7 +105,10 @@ TRACK_NOTES = {
     "cpu-gha": ("No GPU on this track. Repos built around CUDA (much of NVIDIA's catalogue, older research code) "
                 "are judged on their CPU path, which their authors often never prioritised - read their scores "
                 "with that in mind. Which repos were eligible was decided by an examiner agent before any run; "
-                "every exclusion and its reason is in data/exams."),
+                "every exclusion and its reason is in data/exams. The examiner also wrote each hidden test; every failed "
+                "test was then audited by an independent agent, and tests found defective (checking something the "
+                "README never promised) leave that repo unscored rather than scored 0. That happened often enough "
+                "that the audit is essential, not a formality."),
     "gpu-rtx5060": ("Local RTX 5060 (Blackwell). Old PyTorch pins have no kernels for it, so 2020-23 repos needed "
                     "a newer stack; that is part of what the score measures."),
 }
