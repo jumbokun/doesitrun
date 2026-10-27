@@ -566,46 +566,6 @@
           "audit_reason": null
         },
         {
-          "repo": "facebookresearch/ParlAI",
-          "slug": "facebookresearch-parlai",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 1.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
-          "repo": "facebookresearch/pytorch3d",
-          "slug": "facebookresearch-pytorch3d",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 9.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
           "repo": "google-research/bert",
           "slug": "google-research-bert",
           "score": 0,
@@ -645,6 +605,46 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle."
+        },
+        {
+          "repo": "facebookresearch/ParlAI",
+          "slug": "facebookresearch-parlai",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 1.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "display_data -t squad downloads SQuAD (dev/train-v1.1.json exist) and prints context, question and indented answer for each example, exits 0, and eval_model reports exs=10 with accuracy 1. ParlAI's display format never includes literal 'text:' prefixes (the only 'labels:' match is the 'hide_labels:' option dump), and the README never promises one. So the oracle's grep for 'text:' fails on output that is actually correct."
+        },
+        {
+          "repo": "facebookresearch/pytorch3d",
+          "slug": "facebookresearch-pytorch3d",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 9.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The PyTorch3D pipeline itself worked: the cow mesh loaded, rendered to (1,256,256,4) on CPU, and passed the coverage (0.123) and texture std assertions. The oracle only crashed afterwards at `import matplotlib`, which it used just to save a PNG. matplotlib is an optional extra (setup.py 'all'; INSTALL.md lists it as needed only for tutorials/examples), and the stated goal only required import pytorch3d plus the render pipeline."
         },
         {
           "repo": "google/python-fire",
@@ -727,6 +727,18 @@
           ]
         },
         {
+          "company": "Meta",
+          "n": 8,
+          "mean": 92.7,
+          "teams": [
+            {
+              "team": "FAIR",
+              "n": 8,
+              "mean": 92.7
+            }
+          ]
+        },
+        {
           "company": "Tencent",
           "n": 3,
           "mean": 89.7,
@@ -745,18 +757,6 @@
               "team": "Hunyuan",
               "n": 1,
               "mean": 73.0
-            }
-          ]
-        },
-        {
-          "company": "Meta",
-          "n": 10,
-          "mean": 74.2,
-          "teams": [
-            {
-              "team": "FAIR",
-              "n": 10,
-              "mean": 74.2
             }
           ]
         },

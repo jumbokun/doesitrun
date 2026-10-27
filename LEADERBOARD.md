@@ -34,10 +34,10 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 26 | [Tencent-Hunyuan/Hunyuan3D-2](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | 73.0 | 17 min | 1 (2 lines) | pass | Tencent / Hunyuan (high) |
 | 27 | [ByteDance-Seed/Depth-Anything-3](https://github.com/ByteDance-Seed/Depth-Anything-3) | 0 | 3 min | 1 (5 lines) | fail: other | ByteDance / Seed (high) |
 | 28 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | 0 | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
-| 29 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | 0 | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 30 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | 0 | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 31 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
-| 32 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 29 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
+| 30 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 31 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 32 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
 | 33 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
 | 34 | [google-research/timesfm](https://github.com/google-research/timesfm) | not scored (oracle defect) | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
 | 35 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
@@ -45,8 +45,8 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | company | n | mean | teams |
 |---|---|---|---|
 | Microsoft | 9 | 93.3 | Microsoft Research 99.4 (n=1); Microsoft 92.5 (n=8) |
+| Meta | 8 | 92.7 | FAIR 92.7 (n=8) |
 | Tencent | 3 | 89.7 | Tencent 98.0 (n=1); ARC Lab 98.0 (n=1); Hunyuan 73.0 (n=1) |
-| Meta | 10 | 74.2 | FAIR 74.2 (n=10) |
 | Google | 8 | 71.7 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 33.2 (n=3) |
 | ByteDance ⚠ n<3 | 2 | 0 | Seed 0 (n=1); ByteDance 0 (n=1) |
 
