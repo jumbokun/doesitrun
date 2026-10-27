@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-ai-infra-guard",
+  "repo": "Tencent/AI-Infra-Guard",
+  "dir": "AI-Infra-Guard",
+  "company": "Tencent",
+  "stars": 7117,
+  "examined": "2026-10-27 02:15:10",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 6,
+    "cost_usd": 0.0558972,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README documents the aig-infra-scan CLI, a Go fingerprint/vulnerability scanner that runs offline on CPU with no API key.",
+  "demo": "Quick Start / infra-scan: aig-infra-scan -t <target> --json -o result.json",
+  "goal": "Get the AI-Infra-Guard infrastructure scanner CLI (aig-infra-scan from infra-scan/, or the Go CLI built from cmd/cli) working so that `aig-infra-scan -t http://127.0.0.1:PORT --lang en --json -o result.json` scans a local HTTP service and reports the detected AI product. The command must be available on PATH (via /work/env.sh) and must use the bundled fingerprint rules from the repo's data/ directory. No LLM/API key is needed.",
+  "check": "The hidden test starts a fake Ollama HTTP service locally, scans it with the CLI, and verifies the output identifies Ollama for that target.",
+  "server": false
+}

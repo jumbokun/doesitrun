@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-deer-flow",
+  "repo": "bytedance/deer-flow",
+  "dir": "deer-flow",
+  "company": "ByteDance",
+  "stars": 84451,
+  "examined": "2026-10-27 02:14:04",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 18,
+    "num_turns": 4,
+    "cost_usd": 0.039272999999999995,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README demo (make setup, web UI, embedded client, TUI) requires a configured LLM provider API key, typically paid, and no model can run usefully on CPU only.",
+  "demo": "Quick Start / make setup",
+  "goal": "",
+  "check": "",
+  "server": false
+}

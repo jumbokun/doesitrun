@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-animate-783a7",
+  "repo": "facebookresearch/AnimatedDrawings",
+  "dir": "AnimatedDrawings",
+  "company": "Meta",
+  "stars": 12809,
+  "examined": "2026-10-27 02:16:12",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 21,
+    "num_turns": 3,
+    "cost_usd": 0.042059,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README offers config-driven rendering examples (export gif/mp4) that run on CPU with software OpenGL (USE_MESA) using bundled characters, no downloads or keys.",
+  "demo": "README 'Export transparent .gif' (render.start with a video_render config) plus Headless Rendering",
+  "goal": "Install AnimatedDrawings (pip install -e .) and make the headless render work on CPU with no display: use a config like examples/config/mvc/export_gif_example.yaml with view USE_MESA: True, and run `from animated_drawings import render; render.start(<config>)`. It must produce an animated video.gif for the bundled character examples/characters/char1 with the dab motion. Put the environment setup in /work/env.sh.",
+  "check": "The hidden test renders an animation of a bundled character headlessly and verifies the output GIF exists, is multi-frame, and has changing frames.",
+  "server": false
+}

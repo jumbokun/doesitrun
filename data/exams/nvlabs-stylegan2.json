@@ -1,0 +1,21 @@
+{
+  "slug": "nvlabs-stylegan2",
+  "repo": "NVlabs/stylegan2",
+  "dir": "stylegan2",
+  "company": "NVIDIA",
+  "stars": 11182,
+  "examined": "2026-10-27 02:18:13",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 4,
+    "cost_usd": 0.054943700000000005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README shows run_generator.py generating images from a downloadable pretrained FFHQ pickle, feasible on CPU if the CUDA custom ops fall back to the reference implementation.",
+  "demo": "Using pre-trained networks: python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0",
+  "goal": "Make `python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0 --result-dir=<dir>` run on a CPU-only machine (no GPU, no nvcc), producing seed0066.png and seed0230.png in a run subdirectory of <dir>. The repo needs TensorFlow 1.x and its custom CUDA ops (fused_bias_act, upfirdn_2d) default to impl='cuda', so a CPU-compatible path must be arranged. The network pickle is downloaded from nvlabs-fi-cdn.nvidia.com.",
+  "check": "The hidden test runs the generate-images command with seeds 66 and 230 and verifies two valid 1024x1024 RGB PNG images were produced that are not blank.",
+  "server": false
+}

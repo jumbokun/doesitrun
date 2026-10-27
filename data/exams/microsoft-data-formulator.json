@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-data-formulator",
+  "repo": "microsoft/data-formulator",
+  "dir": "data-formulator",
+  "company": "Microsoft",
+  "stars": 17609,
+  "examined": "2026-10-27 02:18:26",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 36,
+    "num_turns": 7,
+    "cost_usd": 0.106722,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Data Formulator's local web app (pip install data_formulator; python -m data_formulator) starts on CPU and its data loading/workspace features work without any LLM key.",
+  "demo": "README Get Started, Option 2: pip install data_formulator && python -m data_formulator (web UI at http://localhost:5567)",
+  "goal": "Install Data Formulator from the cloned repo (or pip) and start the web server with `python -m data_formulator` on port 5567 (frontend must be served at /). Provide /work/env.sh and /work/run.sh that start the server in the background and return once it is ready. No LLM API key is needed; the data upload/workspace API must work: uploading a CSV through POST /api/tables/create-table and reading it back through /api/tables/list-tables, get-table and sample-table.",
+  "check": "The hidden test checks that the server serves the web UI and app-config, then uploads a generated CSV as a table and verifies it is listed and returns the correct rows and counts.",
+  "server": true
+}

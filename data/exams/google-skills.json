@@ -1,0 +1,21 @@
+{
+  "slug": "google-skills",
+  "repo": "google/skills",
+  "dir": "skills",
+  "company": "Google",
+  "stars": 21602,
+  "examined": "2026-10-27 02:16:08",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 3,
+    "cost_usd": 0.0276942,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The repo is a collection of markdown Agent Skills (SKILL.md files); its only 'demo' is installing them via a third-party npx CLI into an agent, not a runnable project.",
+  "demo": "README Installation: npx skills add google/skills",
+  "goal": "",
+  "check": "",
+  "server": false
+}

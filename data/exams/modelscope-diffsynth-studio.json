@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-diffsynth-studio",
+  "repo": "modelscope/DiffSynth-Studio",
+  "dir": "DiffSynth-Studio",
+  "company": "Alibaba",
+  "stars": 13309,
+  "examined": "2026-10-27 02:16:35",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 31,
+    "num_turns": 6,
+    "cost_usd": 0.075007,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README links per-model inference examples, and the Stable Diffusion v1.5 text-to-image example is small (~4-5 GB, ungated on ModelScope) and can run on CPU.",
+  "demo": "README Installation + examples/stable_diffusion/model_inference/stable-diffusion-v1-5.py",
+  "goal": "Install DiffSynth-Studio from source (pip install -e .) and run the Stable Diffusion v1.5 text-to-image example, examples/stable_diffusion/model_inference/stable-diffusion-v1-5.py, on CPU only (change rand_device and device from cuda to cpu as needed; fewer inference steps such as 20 are fine). Models download automatically from ModelScope. It must produce a valid 512x512 image from the prompt 'a photo of an astronaut riding a horse on mars'.",
+  "check": "The hidden test runs the SD1.5 pipeline on CPU with its own prompt and checks that a 512x512 non-blank image is written.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuan3d-2",
+  "repo": "Tencent-Hunyuan/Hunyuan3D-2",
+  "dir": "Hunyuan3D-2",
+  "company": "Tencent",
+  "stars": 15206,
+  "examined": "2026-10-27 02:14:29",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 6,
+    "cost_usd": 0.058416,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents image-to-3D shape generation with a small public 0.6B Hunyuan3D-2mini turbo model that can run on CPU without any gated access.",
+  "demo": "README 'Code Usage' (Hunyuan3DDiTFlowMatchingPipeline, image assets/demo.png -> mesh) using the Hunyuan3D-2mini turbo variant",
+  "goal": "Install the project (CPU-only PyTorch, requirements.txt, pip install -e .; the texture/CUDA extensions are not needed) and run shape generation with Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2mini', subfolder='hunyuan3d-dit-v2-mini-turbo', device='cpu', dtype=torch.float32) on assets/demo.png, calling pipeline.enable_flashvdm(). Export the resulting trimesh mesh to a .glb file. Importing hy3dgen.shapegen and loading the model weights from Hugging Face must work on CPU.",
+  "check": "The hidden test runs the mini-turbo shape pipeline on CPU on assets/demo.png and verifies a valid non-degenerate exported GLB mesh.",
+  "server": false
+}

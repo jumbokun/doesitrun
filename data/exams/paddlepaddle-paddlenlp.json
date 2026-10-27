@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddlenlp",
+  "repo": "PaddlePaddle/PaddleNLP",
+  "dir": "PaddleNLP",
+  "company": "Baidu",
+  "stars": 12981,
+  "examined": "2026-10-27 02:15:38",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 5,
+    "cost_usd": 0.0308209,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Quick Start runs Qwen/Qwen2-0.5B text generation, a small model feasible on CPU with no gated access.",
+  "demo": "README_en.md Quick Start: Text generation with large language model",
+  "goal": "Install PaddleNLP (CPU paddlepaddle) so that the README quick-start works: load AutoTokenizer and AutoModelForCausalLM for Qwen/Qwen2-0.5B, tokenize '你好！请自我介绍一下。' with return_tensors='pd', call model.generate(max_length=128) and print the decoded text. float32 may be used instead of float16 on CPU. The python in the environment configured by /work/env.sh must be able to run this script.",
+  "check": "A Python script using the README API generates non-empty Chinese/text output from Qwen/Qwen2-0.5B for the README prompt.",
+  "server": false
+}

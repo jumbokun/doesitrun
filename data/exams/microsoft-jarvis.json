@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-jarvis",
+  "repo": "microsoft/JARVIS",
+  "dir": "JARVIS",
+  "company": "Microsoft",
+  "stars": 25508,
+  "examined": "2026-10-27 02:16:29",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 30,
+    "num_turns": 8,
+    "cost_usd": 0.09828,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The main HuggingGPT demo needs OpenAI/HF keys, but the README's TaskBench 'Construct Your Own Tool Graph' step (generate_graph.py) runs offline on CPU with bundled data.",
+  "demo": "taskbench/README.md, 'Construct Your Own Tool Graph': python generate_graph.py --tool_desc tool_desc.json --dependency_type resource --data_dir data_multimedia",
+  "goal": "Set up a Python environment so that taskbench/generate_graph.py runs (it needs the click package; install what else the script imports). Run it with --dependency_type resource on a tool library such as taskbench/data_huggingface/tool_desc.json. It must produce a tool graph JSON with nodes and links. Work on a copy of the data directory, because the script writes its output next to the input file name.",
+  "check": "The hidden test runs generate_graph.py on a copy of the bundled tool library and checks that the produced graph has all the nodes and a plausible set of type-consistent links.",
+  "server": false
+}

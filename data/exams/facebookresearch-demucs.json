@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-demucs",
+  "repo": "facebookresearch/demucs",
+  "dir": "demucs",
+  "company": "Meta",
+  "stars": 10403,
+  "examined": "2026-10-27 02:17:42",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 15,
+    "num_turns": 3,
+    "cost_usd": 0.0312223,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents a CLI that separates a bundled test.mp3 into stems on CPU with freely downloadable models.",
+  "demo": "README 'Separating tracks' section: demucs PATH_TO_AUDIO_FILE (with --two-stems=vocals)",
+  "goal": "Install demucs from the /work/demucs clone (CPU-only PyTorch) and run the CLI `python3 -m demucs --two-stems=vocals -d cpu -o OUTDIR test.mp3` on the bundled /work/demucs/test.mp3 with the default htdemucs model. It must download the pretrained weights and write separated stem wav files (vocals.wav and no_vocals.wav) under OUTDIR/htdemucs/test/.",
+  "check": "The hidden test runs the separation on the bundled test.mp3 and verifies the stem wav files exist with plausible size and duration.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "google-research-bert",
+  "repo": "google-research/bert",
+  "dir": "bert",
+  "company": "Google",
+  "stars": 40040,
+  "examined": "2026-10-27 02:14:08",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 3,
+    "cost_usd": 0.031421500000000005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents extract_features.py with a downloadable small official BERT-Tiny checkpoint that runs fine on CPU.",
+  "demo": "README 'Using BERT to extract fixed feature vectors (like ELMo)' with extract_features.py, using the BERT-Tiny (uncased_L-2_H-128_A-2) model from the README's smaller-models table",
+  "goal": "Download BERT-Tiny (https://storage.googleapis.com/bert_models/2020_02_20/uncased_L-2_H-128_A-2.zip) and make `python extract_features.py --input_file=... --output_file=out.jsonl --vocab_file --bert_config_file --init_checkpoint --layers=-1,-2 --max_seq_length=128 --batch_size=8` run on CPU in /work/bert on a text file of sentences (including 'a ||| b' pairs), producing a JSON-lines file of per-token layer vectors. Provide /work/env.sh that activates whatever environment is needed (the repo targets TensorFlow 1.x APIs) so that `python` there runs the script.",
+  "check": "The hidden test runs extract_features.py on its own input sentences with BERT-Tiny and checks the output JSONL has the expected tokens ([CLS], wordpieces, [SEP]) and 128-dim vectors for both requested layers.",
+  "server": false
+}

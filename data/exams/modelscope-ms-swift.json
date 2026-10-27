@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-ms-swift",
+  "repo": "modelscope/ms-swift",
+  "dir": "ms-swift",
+  "company": "Alibaba",
+  "stars": 15943,
+  "examined": "2026-10-27 02:15:50",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 20,
+    "num_turns": 4,
+    "cost_usd": 0.050163900000000004,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Quick Start gives a swift sft LoRA + swift infer CLI flow that works on CPU with a 0.5B Qwen variant and public ModelScope assets.",
+  "demo": "README Quick Start: Command Line Interface (swift sft LoRA self-cognition fine-tune, then swift infer --adapters)",
+  "goal": "Install ms-swift from /work/ms-swift and make the README Quick Start CLI work on CPU only: run `swift sft` (LoRA, dataset swift/self-cognition, with the smaller model Qwen/Qwen2.5-0.5B-Instruct, float32, few steps, CUDA_VISIBLE_DEVICES empty) to produce a LoRA checkpoint, then run `swift infer --adapters <checkpoint>` on a jsonl of chat messages and get generated responses. Write /work/env.sh that activates the environment so `swift` is on PATH.",
+  "check": "A LoRA adapter checkpoint is produced by swift sft, and swift infer with that adapter writes non-empty responses for two prompts.",
+  "server": false
+}

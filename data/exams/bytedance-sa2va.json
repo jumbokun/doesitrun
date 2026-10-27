@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-sa2va",
+  "repo": "bytedance/Sa2VA",
+  "dir": "Sa2VA",
+  "company": "ByteDance",
+  "stars": 1693,
+  "examined": "2026-10-27 02:19:31",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 21,
+    "num_turns": 6,
+    "cost_usd": 0.0784078,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Quick Start offers a script demo and the public (ungated) Sa2VA-1B model (~2-3 GB) can run on CPU for a few small frames.",
+  "demo": "projects/sa2va/README.md Quick Start, Option 1: python projects/sa2va/demo/demo.py FOLDER --model_path ByteDance/Sa2VA-1B --work-dir OUT --text ...",
+  "goal": "Get projects/sa2va/demo/demo.py running on CPU with the ByteDance/Sa2VA-1B model (smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir. Note flash_attn and a CUDA GPU are unavailable, so CPU fallbacks may be needed.",
+  "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and mask-overlay images are written to the output directory.",
+  "server": false
+}

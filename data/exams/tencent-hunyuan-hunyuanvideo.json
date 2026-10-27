@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuanvideo",
+  "repo": "Tencent-Hunyuan/HunyuanVideo",
+  "dir": "HunyuanVideo",
+  "company": "Tencent",
+  "stars": 12671,
+  "examined": "2026-10-27 02:14:44",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 3,
+    "cost_usd": 0.0203503,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Inference requires an NVIDIA CUDA GPU with 45-60GB memory and downloads tens of GB of weights (13B transformer plus LLaVA and CLIP encoders), infeasible on CPU-only 16GB RAM.",
+  "demo": "README Single-gpu Inference (python3 sample_video.py)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

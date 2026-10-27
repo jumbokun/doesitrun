@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen3",
+  "repo": "QwenLM/Qwen3",
+  "dir": "Qwen3",
+  "company": "Alibaba",
+  "stars": 27687,
+  "examined": "2026-10-27 02:13:59",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 15,
+    "num_turns": 3,
+    "cost_usd": 0.0358249,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README's Transformers quickstart runs text generation with a Qwen3 model; a small variant (Qwen3-0.6B) is ungated and fits CPU/16GB.",
+  "demo": "README 'Run Qwen3' > Transformers quickstart snippet (AutoModelForCausalLM + apply_chat_template + generate), using Qwen/Qwen3-0.6B instead of the 30B model",
+  "goal": "Get the README Transformers chat-generation snippet working on CPU with the small model Qwen/Qwen3-0.6B (replace the 30B model name). Python with transformers and torch (CPU) must be installed so that `python` can run a script that loads the tokenizer and model, applies the chat template to the prompt 'Give me a short introduction to large language model.', and generates text with model.generate.",
+  "check": "A hidden script runs the README-style snippet with Qwen/Qwen3-0.6B in the prepared environment and checks that it generates non-empty, sensible text about language models.",
+  "server": false
+}

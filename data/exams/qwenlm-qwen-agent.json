@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen-agent",
+  "repo": "QwenLM/Qwen-Agent",
+  "dir": "Qwen-Agent",
+  "company": "Alibaba",
+  "stars": 17215,
+  "examined": "2026-10-27 02:14:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 20,
+    "num_turns": 3,
+    "cost_usd": 0.03937,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Qwen-Agent's README quickstart builds an Assistant agent against an OpenAI-compatible local model service (Ollama), which runs on CPU with a small Qwen model and needs no API key.",
+  "demo": "README Quickstart / Developing Your Own Agent: qwen_agent Assistant with a local OpenAI-compatible model service (Ollama) instead of DashScope",
+  "goal": "Install qwen-agent from the repo (pip install -e ./\"[rag,code_interpreter,mcp]\" or similar). Serve a small Qwen model on CPU through Ollama (use model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and wait until ready. Then a Qwen-Agent Assistant configured with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'} must answer a chat message and its built-in tools (e.g. code_interpreter) must import and work.",
+  "check": "The hidden test checks that the model server answers, that a Qwen-Agent Assistant returns a non-empty reply to a prompt, and that a built-in tool runs and returns the expected result.",
+  "server": true
+}

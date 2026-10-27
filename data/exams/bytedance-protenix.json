@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-protenix",
+  "repo": "bytedance/Protenix",
+  "dir": "Protenix",
+  "company": "ByteDance",
+  "stars": 2088,
+  "examined": "2026-10-27 02:18:16",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 31,
+    "num_turns": 6,
+    "cost_usd": 0.0615946,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README gives a pip-installable `protenix pred` CLI that runs structure prediction from a JSON file with public weights, feasible on CPU for a small protein without MSA.",
+  "demo": "README 'Quick Prediction': protenix pred -i examples/input.json -o ./output -n protenix_base_default_v1.0.0",
+  "goal": "Install Protenix (CPU only, no GPU) so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically; avoid anything needing GPU-only kernels. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
+  "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with plausible atom count and a confidence summary json are produced.",
+  "server": false
+}

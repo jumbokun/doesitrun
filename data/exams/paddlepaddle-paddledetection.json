@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddledetection",
+  "repo": "PaddlePaddle/PaddleDetection",
+  "dir": "PaddleDetection",
+  "company": "Baidu",
+  "stars": 14447,
+  "examined": "2026-10-27 02:15:15",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 3,
+    "cost_usd": 0.0246555,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents tools/infer.py inference with pretrained PP-PicoDet weights, which runs on CPU with small downloads.",
+  "demo": "Quick start / getting started: python tools/infer.py -c configs/picodet/picodet_s_320_coco_lcnet.yml -o weights=https://paddledet.bj.bcebos.com/models/picodet_s_320_coco_lcnet.pdparams --infer_img=demo/000000014439.jpg",
+  "goal": "Get PaddleDetection object detection inference working on CPU. Run tools/infer.py with configs/picodet/picodet_s_320_coco_lcnet.yml, the pretrained picodet_s_320_coco_lcnet weights from paddledet.bj.bcebos.com, on the bundled demo/000000014439.jpg with use_gpu=False, and save the visualized result to an output directory.",
+  "check": "The hidden test runs the detection on a bundled demo image on CPU and verifies a visualized output image is produced and detections were reported.",
+  "server": false
+}

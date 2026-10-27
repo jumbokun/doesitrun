@@ -1,0 +1,21 @@
+{
+  "slug": "tencentarc-instantmesh",
+  "repo": "TencentARC/InstantMesh",
+  "dir": "InstantMesh",
+  "company": "Tencent",
+  "stars": 4578,
+  "examined": "2026-10-27 02:15:44",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 18,
+    "num_turns": 5,
+    "cost_usd": 0.0327781,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README demo (run.py/app.py) hardcodes torch.device('cuda') and uses nvdiffrast RasterizeCudaContext and CUDA-only code paths, so it cannot run on a CPU-only sandbox without substantial source rewrites.",
+  "demo": "Quick start: python run.py configs/instant-mesh-large.yaml examples/hatsune_miku.png --save_video",
+  "goal": "",
+  "check": "",
+  "server": false
+}

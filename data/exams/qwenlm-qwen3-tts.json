@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen3-tts",
+  "repo": "QwenLM/Qwen3-TTS",
+  "dir": "Qwen3-TTS",
+  "company": "Alibaba",
+  "stars": 14030,
+  "examined": "2026-10-27 02:16:04",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 3,
+    "cost_usd": 0.0547214,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Quickstart shows Python CustomVoice inference with a 0.6B public model that can run on CPU in float32.",
+  "demo": "README Quickstart > Python Package Usage > Custom Voice Generate, using Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice on CPU",
+  "goal": "Install the qwen-tts package from the repo and get Qwen3TTSModel.from_pretrained('Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice') running on CPU (device_map='cpu', dtype=torch.float32, no flash_attention). Then call generate_custom_voice with an English text, language='English', speaker='Ryan', and write the result to a wav file with soundfile. The wav must contain real synthesized speech.",
+  "check": "The hidden test runs a short English CustomVoice synthesis on CPU and verifies a valid, non-silent speech wav of plausible duration is written.",
+  "server": false
+}

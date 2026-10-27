@@ -1,0 +1,21 @@
+{
+  "slug": "google-adk-python",
+  "repo": "google/adk-python",
+  "dir": "adk-python",
+  "company": "Google",
+  "stars": 22017,
+  "examined": "2026-10-27 02:15:51",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 21,
+    "num_turns": 4,
+    "cost_usd": 0.026009400000000002,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README demo (adk run, adk web, adk eval) calls Gemini models and needs a Google API key or Vertex credentials.",
+  "demo": "Quick Start / Run Locally (adk run)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

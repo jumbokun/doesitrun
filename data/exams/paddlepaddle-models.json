@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-models",
+  "repo": "PaddlePaddle/models",
+  "dir": "models",
+  "company": "Baidu",
+  "stars": 6931,
+  "examined": "2026-10-27 02:18:15",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 34,
+    "num_turns": 9,
+    "cost_usd": 0.0792792,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The paddlecv subdirectory documents CPU-runnable inference (tools/predict.py) with small pretrained inference models auto-downloaded and no credentials.",
+  "demo": "paddlecv/docs/GETTING_STARTED.md 部署示例: image classification with python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg",
+  "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies needed by paddlecv, then run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` on CPU. The pretrained inference model is downloaded automatically and the classification result must be produced in the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs it.",
+  "check": "The hidden test runs the classification prediction on the bundled demo image and verifies the output result file contains top-5 class ids, scores and label names, plus a saved output image.",
+  "server": false
+}

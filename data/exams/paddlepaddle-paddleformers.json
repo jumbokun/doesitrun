@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddleformers",
+  "repo": "PaddlePaddle/PaddleFormers",
+  "dir": "PaddleFormers",
+  "company": "Baidu",
+  "stars": 12969,
+  "examined": "2026-10-27 02:15:57",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 18,
+    "num_turns": 4,
+    "cost_usd": 0.0697536,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quickstart shows tokenizer and text generation with Qwen/Qwen3-0.6B-Base (~1.2GB, ungated), feasible on CPU.",
+  "demo": "README 快速体验: 使用 tokenizer and 文本生成 (Qwen/Qwen3-0.6B-Base)",
+  "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained(...).generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
+  "check": "The hidden test runs the tokenizer and text-generation snippets and verifies the expected token ids and that generated text is non-empty and extends the prompt.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "nvlabs-stylegan3",
+  "repo": "NVlabs/stylegan3",
+  "dir": "stylegan3",
+  "company": "NVIDIA",
+  "stars": 6947,
+  "examined": "2026-10-27 02:21:21",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 4,
+    "cost_usd": 0.04083780000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quickstart gen_images.py downloads a ~300MB pretrained pickle and generates an image; custom ops have a CPU reference fallback.",
+  "demo": "README 'Using networks from Python' / Quick start: python gen_images.py --outdir=out --trunc=1 --seeds=2 --network=<stylegan3-r-afhqv2-512x512.pkl URL>",
+  "goal": "Get gen_images.py running on CPU only (no GPU) so it downloads the pretrained stylegan3-r-afhqv2-512x512 network from the README URL and writes a generated PNG for seed 2 with --trunc=1 into an output directory. Install whatever dependencies (torch CPU, numpy, click, pillow, scipy, requests, tqdm, etc.) are needed and record the environment in /work/env.sh.",
+  "check": "The hidden test runs gen_images.py with the pretrained AFHQv2 network on a seed and verifies a valid, non-trivial 512x512 PNG is produced.",
+  "server": false
+}

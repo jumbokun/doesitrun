@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-infiniteyou",
+  "repo": "bytedance/InfiniteYou",
+  "dir": "InfiniteYou",
+  "company": "ByteDance",
+  "stars": 2689,
+  "examined": "2026-10-27 02:17:12",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 10,
+    "num_turns": 3,
+    "cost_usd": 0.0223881,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The demo needs the gated FLUX.1-dev base model (~24GB+ download, requires HF account license acceptance) and 16-43GB GPU VRAM.",
+  "demo": "README Inference: python test.py --id_image ./assets/examples/man.jpg",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

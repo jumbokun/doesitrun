@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-personaplex",
+  "repo": "NVIDIA/personaplex",
+  "dir": "personaplex",
+  "company": "NVIDIA",
+  "stars": 11706,
+  "examined": "2026-10-27 02:17:53",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 3,
+    "cost_usd": 0.0270622,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The only model, nvidia/personaplex-7b-v1, is a gated Hugging Face model that needs license acceptance and HF_TOKEN, and the 7B weights are also too large for 16 GB CPU RAM.",
+  "demo": "README Offline Evaluation (python -m moshi.offline)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

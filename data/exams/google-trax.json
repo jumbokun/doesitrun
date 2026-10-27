@@ -1,0 +1,21 @@
+{
+  "slug": "google-trax",
+  "repo": "google/trax",
+  "dir": "trax",
+  "company": "Google",
+  "stars": 8302,
+  "examined": "2026-10-27 02:21:14",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 3,
+    "cost_usd": 0.0452096,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README section 1 runs a pre-trained English-German Transformer translator from public gs://trax-ml weights on CPU.",
+  "demo": "README '1. Run a pre-trained Transformer' python snippet",
+  "goal": "Install trax so that the README's pre-trained Transformer translation snippet works on CPU: build trax.models.Transformer in predict mode, init_from_file gs://trax-ml/models/translation/ende_wmt32k.pkl.gz, tokenize 'It is nice to learn new things today!' with vocab ende_32k.subword, decode with autoregressive_sample (temperature=0.0), detokenize and print the German translation. It should print something like 'Es ist schön, heute neue Dinge zu lernen!'.",
+  "check": "A script running the README translation snippet exits successfully and prints a German translation of the sentence containing expected German words.",
+  "server": false
+}

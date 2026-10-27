@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-tencent-ml-images",
+  "repo": "Tencent/tencent-ml-images",
+  "dir": "tencent-ml-images",
+  "company": "Tencent",
+  "stars": 3063,
+  "examined": "2026-10-27 02:18:10",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 38,
+    "num_turns": 6,
+    "cost_usd": 0.11352300000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README's TFRecord preparation step (data/tfrecord.py) is a concrete CPU-only demo with bundled sample images; the checkpoint demos rely on Google Drive/Baidu links and Python 2.7/TF1.",
+  "demo": "Train > Prepare the TFRecord File (cd data; ./tfrecord.sh, i.e. tfrecord.py -idx -tfs -im -cls 11166 -one True)",
+  "goal": "Get data/tfrecord.py working (the README targets Python 2.7 and TensorFlow 1.x; any environment where the script runs unmodified in behaviour is fine). It must convert the bundled images data/images/im_0..im_3.jpg, listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1'), into a .tfrecords file in the -tfs directory using -im data/images/ -cls 11166 -one True. Each record must contain the image bytes, a 11166-float label vector and the image name.",
+  "check": "The hidden test generates its own index file for the four bundled images, runs tfrecord.py, and checks that the output TFRecord holds 4 records with the expected names, JPEG data and label vectors of plausible size.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-ui-tars",
+  "repo": "bytedance/UI-TARS",
+  "dir": "UI-TARS",
+  "company": "ByteDance",
+  "stars": 11631,
+  "examined": "2026-10-27 02:14:45",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 27,
+    "num_turns": 4,
+    "cost_usd": 0.0388147,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Step 2 gives a CPU-only ui-tars post-processing quickstart that parses a model response into actions and pyautogui code, with no model download or credentials.",
+  "demo": "README 'Step 2: Post Processing' - pip install ui-tars and the Python usage snippet",
+  "goal": "Install the ui-tars package (from the repo's codes/ directory or PyPI) so that `from ui_tars.action_parser import parse_action_to_structure_output, parsing_response_to_pyautogui_code` works. Then run the README usage snippet on the response \"Thought: Click the button\\nAction: click(start_box='(100,200)')\" at 1920x1080, factor=1000, model_type='qwen25vl'. It must print the parsed dict and the generated pyautogui code. Write /work/env.sh so that it activates the environment where this works.",
+  "check": "The hidden test runs the parser on several action strings and checks the parsed action types, scaled coordinates and generated pyautogui code.",
+  "server": false
+}

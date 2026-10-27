@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuanv-08745",
+  "repo": "Tencent-Hunyuan/HunyuanVideo-1.5",
+  "dir": "HunyuanVideo-1.5",
+  "company": "Tencent",
+  "stars": 4580,
+  "examined": "2026-10-27 02:15:25",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 15,
+    "num_turns": 3,
+    "cost_usd": 0.026899700000000006,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The 8.3B video diffusion model needs a GPU (14GB+ VRAM) and its checkpoints plus Qwen2.5-VL text encoder and VAE exceed 15 GB download and 16 GB RAM.",
+  "demo": "README Usage: python generate.py",
+  "goal": "",
+  "check": "",
+  "server": false
+}

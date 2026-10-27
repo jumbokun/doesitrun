@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-xformers",
+  "repo": "facebookresearch/xformers",
+  "dir": "xformers",
+  "company": "Meta",
+  "stars": 10571,
+  "examined": "2026-10-27 02:17:26",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 25,
+    "num_turns": 7,
+    "cost_usd": 0.04210950000000001,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "xFormers' README demos (memory_efficient_attention, llama_inference example) need CUDA kernels/GPU and gated weights; only xformers.info runs on CPU, which is not a meaningful demo.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

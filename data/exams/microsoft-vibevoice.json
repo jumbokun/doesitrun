@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-vibevoice",
+  "repo": "microsoft/VibeVoice",
+  "dir": "VibeVoice",
+  "company": "Microsoft",
+  "stars": 54984,
+  "examined": "2026-10-27 02:14:38",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 26,
+    "num_turns": 5,
+    "cost_usd": 0.0723577,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "VibeVoice-Realtime-0.5B is a small ungated HF model with a documented file-based TTS inference script that can run on CPU.",
+  "demo": "docs/vibevoice-realtime-0.5b.md - Usage: Inference from files (demo/realtime_model_inference_from_file.py)",
+  "goal": "Install the project (pip install -e .) and run `python demo/realtime_model_inference_from_file.py --model_path microsoft/VibeVoice-Realtime-0.5B --txt_path <a text file> --speaker_name Carter --device cpu --output_dir <dir>` so that it downloads the model from Hugging Face and writes a generated .wav file. It must work on CPU only with a short English text input.",
+  "check": "Runs the inference script on a short English text file with speaker Carter on CPU and verifies a non-silent WAV of plausible duration is produced.",
+  "server": false
+}

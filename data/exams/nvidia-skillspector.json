@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-skillspector",
+  "repo": "NVIDIA/SkillSpector",
+  "dir": "SkillSpector",
+  "company": "NVIDIA",
+  "stars": 22228,
+  "examined": "2026-10-27 02:14:04",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 6,
+    "cost_usd": 0.052841299999999994,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "SkillSpector is a CLI static scanner whose README documents `skillspector scan <dir> --no-llm` which runs offline on CPU with no API key.",
+  "demo": "README Quick Start: Installation (from source, make install) and Basic Usage / Output Formats: skillspector scan ./skill/ --no-llm --format json --output report.json",
+  "goal": "Install SkillSpector from the clone at /work/SkillSpector (Python 3.12+, venv/uv, as in README) so that the `skillspector` command works. Then `skillspector scan tests/fixtures/malicious_skill --no-llm --format json --output report.json` and the same for tests/fixtures/safe_skill, plus `--format markdown`, must succeed without any API key. The malicious fixture must yield security findings and more than the safe one. Put the `skillspector` command on PATH via /work/env.sh.",
+  "check": "The hidden test scans a malicious and a safe fixture skill with static analysis only and verifies that valid JSON and Markdown reports are produced, with more findings for the malicious skill.",
+  "server": false
+}

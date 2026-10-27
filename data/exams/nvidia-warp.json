@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-warp",
+  "repo": "NVIDIA/warp",
+  "dir": "warp",
+  "company": "NVIDIA",
+  "stars": 7246,
+  "examined": "2026-10-27 02:21:03",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 24,
+    "num_turns": 5,
+    "cost_usd": 0.0372425,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Warp is pip-installable and its README documents running examples via python -m warp.examples.<subdir>.<example>, which work on CPU.",
+  "demo": "README 'Running Examples': python -m warp.examples.core.example_mesh",
+  "goal": "Install warp-lang with the examples extra (pip install warp-lang[examples], or from the repo clone) so that `python -m warp.examples.core.example_mesh --device cpu --num-frames 20 --stage-path <out>/mesh.usd` runs on CPU and writes a time-sampled USD file. Also a simple custom wp.kernel must launch on the CPU device. Write /work/env.sh so that it activates the environment where python can import warp and pxr.",
+  "check": "The hidden test runs the mesh example on CPU and verifies the USD file is written with animated frames and that a small Warp kernel computes correct results.",
+  "server": false
+}

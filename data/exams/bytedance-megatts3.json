@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-megatts3",
+  "repo": "bytedance/MegaTTS3",
+  "dir": "MegaTTS3",
+  "company": "ByteDance",
+  "stars": 6116,
+  "examined": "2026-10-27 02:16:49",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 5,
+    "cost_usd": 0.061532699999999996,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README gives a CLI inference command with bundled prompt wav/npy files, public non-gated HF checkpoints, and CPU inference is supported.",
+  "demo": "Inference > Command-Line Usage (Standard), English prompt example",
+  "goal": "Install the project per the README (Python 3.10, requirements.txt, PYTHONPATH set to the repo), download the public pretrained checkpoints from Hugging Face ByteDance/MegaTTS3 into /work/MegaTTS3/checkpoints, then run `python tts/infer_cli.py --input_wav assets/English_prompt.wav --input_text '<some English sentence>' --output_dir ./gen --p_w 2.0 --t_w 3.0` on CPU only. It must produce a synthesized speech .wav in the output directory. Put anything needed for activation (venv, env vars) in /work/env.sh.",
+  "check": "The hidden test runs the CLI on CPU with a short English sentence and verifies a non-silent, plausible-length wav file is generated.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-pocketflow",
+  "repo": "Tencent/PocketFlow",
+  "dir": "PocketFlow",
+  "company": "Tencent",
+  "stars": 2915,
+  "examined": "2026-10-27 02:19:34",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 7,
+    "cost_usd": 0.10587189999999999,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The docs show training a model with run_local.sh on CIFAR-10 (public dataset, no keys), and the small LeNet variant can finish a short training run on CPU.",
+  "demo": "Installation/Tutorial docs: ./scripts/run_local.sh nets/lenet_at_cifar10_run.py (full-precision learner on CIFAR-10, local mode)",
+  "goal": "Get PocketFlow's local-mode training working on CPU: running nets/lenet_at_cifar10_run.py (as scripts/run_local.sh does, with path.conf pointing data_dir_local_cifar10 at the CIFAR-10 binary version) with --nb_epochs_rat 0.01 must train the LeNet full-precision learner and save a checkpoint to ./models_eval/model.ckpt. Then `--exec_mode eval` should evaluate the model on the CIFAR-10 test set. You will need a Python and TensorFlow 1.x-compatible environment (the code uses tf.app.flags, tf.layers). Download CIFAR-10 binary from https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz. Put the Python environment setup in /work/env.sh, and /work/run.sh is not needed.",
+  "check": "The hidden test runs a short CPU training of the LeNet CIFAR-10 model through the repo's own entry script, then checks that the checkpoint was written and that the evaluation step prints an accuracy above chance.",
+  "server": false
+}

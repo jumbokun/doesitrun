@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-byteps",
+  "repo": "bytedance/byteps",
+  "dir": "byteps",
+  "company": "ByteDance",
+  "stars": 3719,
+  "examined": "2026-10-27 02:17:02",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 4,
+    "cost_usd": 0.027978000000000003,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "BytePS builds against CUDA/NCCL and its README demos are multi-GPU distributed training benchmarks, which cannot run on a CPU-only sandbox.",
+  "demo": "Quick Start / step-by-step tutorial",
+  "goal": "",
+  "check": "",
+  "server": false
+}

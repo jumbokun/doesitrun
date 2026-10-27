@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-megatron-lm",
+  "repo": "NVIDIA/Megatron-LM",
+  "dir": "Megatron-LM",
+  "company": "NVIDIA",
+  "stars": 18276,
+  "examined": "2026-10-27 02:14:34",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 28,
+    "num_turns": 6,
+    "cost_usd": 0.061263500000000005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The quickstart's Data Preparation section gives a CPU-only tools/preprocess_data.py CLI with an openly downloadable tokenizer, while the GPU training examples are skipped.",
+  "demo": "docs/get-started/quickstart.md 'Data Preparation': python tools/preprocess_data.py (JSONL -> .bin/.idx)",
+  "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir with the GPT-2 tokenizer files> --workers 2 --append-eod` runs on CPU. The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset. The GPT-2 tokenizer (openai-community/gpt2 on Hugging Face, not gated) is downloaded as a directory containing tokenizer.json, tokenizer_config.json, vocab.json and merges.txt.",
+  "check": "Runs the preprocessing CLI on a generated 20-document JSONL and verifies the output files load as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token.",
+  "server": false
+}

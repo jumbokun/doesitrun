@@ -1,0 +1,21 @@
+{
+  "slug": "google-research-harness2",
+  "repo": "google-research/harness2",
+  "dir": "harness2",
+  "company": "Google",
+  "stars": 20175,
+  "examined": "2026-10-27 02:16:26",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 5,
+    "cost_usd": 0.0415697,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README offers a credential-free local `harness2-demo` that runs deterministic editors with real Python executions on CPU.",
+  "demo": "README Install section: uv venv --python 3.12 .venv; uv pip install -e '.[render]'; harness2-demo --output runs/demo --k 2",
+  "goal": "Install harness2 from /work/harness2 in a Python 3.12 uv venv (uv pip install -e '.[render]') and make the `harness2-demo` console command work. Running `harness2-demo --output <dir> --k 2` must complete with exit code 0, reporting all tasks completed and none failed, and write demo.json in the output directory. No model credentials are needed.",
+  "check": "The hidden test runs harness2-demo with a fresh output directory and verifies exit status, the 'Local demo' summary line with 0 failed, and a demo.json with completed tasks and nonzero execution counts.",
+  "server": false
+}

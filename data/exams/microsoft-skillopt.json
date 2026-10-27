@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-skillopt",
+  "repo": "microsoft/SkillOpt",
+  "dir": "SkillOpt",
+  "company": "Microsoft",
+  "stars": 18707,
+  "examined": "2026-10-27 02:17:50",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 38,
+    "num_turns": 8,
+    "cost_usd": 0.0873356,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "SkillOpt-Sleep documents a no-credential deterministic mock-backend experiment that runs on CPU in seconds.",
+  "demo": "docs/sleep/README.md 'Deterministic proof (no API key)': python -m skillopt_sleep.experiments.run_experiment --persona researcher --assert-improves",
+  "goal": "Install the SkillOpt repo (pip install -e . in /work/SkillOpt) and get the SkillOpt-Sleep mock-backend experiment working: `python -m skillopt_sleep.experiments.run_experiment --persona researcher --assert-improves` must run to completion with no API key. It should report a held-out score lift over several nights and that the gate blocks a harmful edit, ending in a PASS line. Also `--json` output should work.",
+  "check": "The hidden test runs the mock experiment with JSON output and verifies the held-out score improved, the harmful edit was rejected, and the PASS message appears.",
+  "server": false
+}

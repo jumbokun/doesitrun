@@ -1,0 +1,21 @@
+{
+  "slug": "tencentarc-t2i-adapter",
+  "repo": "TencentARC/T2I-Adapter",
+  "dir": "T2I-Adapter",
+  "company": "Tencent",
+  "stars": 3796,
+  "examined": "2026-10-27 02:16:40",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 4,
+    "cost_usd": 0.0665398,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README's diffusers quick start runs SDXL T2I-Adapter (lineart) with ungated public HF models (~8GB download), feasible on CPU at reduced resolution/steps.",
+  "demo": "README 'How to Test' > Quick start with diffusers (LineArt adapter, StableDiffusionXLAdapterPipeline)",
+  "goal": "Get the README's diffusers quick start working on CPU only (no GPU, so drop .to('cuda') and xformers, use float32 or bfloat16): install diffusers with T2IAdapter/StableDiffusionXLAdapterPipeline support, torch, transformers, accelerate, safetensors, and load TencentARC/t2i-adapter-lineart-sdxl-1.0 with stabilityai/stable-diffusion-xl-base-1.0 and madebyollin/sdxl-vae-fp16-fix. Generate an image from a line-art control image with prompt 'Ice dragon roar, 4k photo' (reduced size such as 512x512 and few steps to finish in time) so the README pipeline code path runs and saves a picture. Models are downloaded automatically from Hugging Face.",
+  "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced.",
+  "server": false
+}

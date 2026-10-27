@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuanw-67f63",
+  "repo": "Tencent-Hunyuan/HunyuanWorld-1.0",
+  "dir": "HunyuanWorld-1.0",
+  "company": "Tencent",
+  "stars": 2957,
+  "examined": "2026-10-27 02:19:01",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 9,
+    "num_turns": 3,
+    "cost_usd": 0.0249872,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The demo needs the gated FLUX.1-dev model (Hugging Face login/token required) and a 12B diffusion model on CUDA GPU, so it can't run on CPU with 16 GB RAM.",
+  "demo": "Quick Start: demo_panogen.py / demo_scenegen.py",
+  "goal": "",
+  "check": "",
+  "server": false
+}

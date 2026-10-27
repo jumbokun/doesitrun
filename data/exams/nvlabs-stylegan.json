@@ -1,0 +1,21 @@
+{
+  "slug": "nvlabs-stylegan",
+  "repo": "NVlabs/stylegan",
+  "dir": "stylegan",
+  "company": "NVIDIA",
+  "stars": 14409,
+  "examined": "2026-10-27 02:17:40",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 35,
+    "num_turns": 4,
+    "cost_usd": 0.053244200000000005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README's pretrained_example.py loads the public FFHQ StyleGAN generator and generates one 1024x1024 image; inference is feasible on CPU (TF1 code may need CPU/NHWC patching).",
+  "demo": "README 'Using pre-trained networks': python pretrained_example.py",
+  "goal": "Get `python pretrained_example.py` in /work/stylegan to run on CPU only: it downloads the pre-trained FFHQ generator pickle (Google Drive id 1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ, ~300MB), prints the Gs layer table, and writes results/example.png. The code targets TensorFlow 1.x and Python 3.6/3.7, so you may need a compatible environment and CPU workarounds (e.g. NCHW convolutions). Put activation of the environment in /work/env.sh.",
+  "check": "Running pretrained_example.py exits successfully and produces a valid 1024x1024 RGB PNG that is not blank.",
+  "server": false
+}

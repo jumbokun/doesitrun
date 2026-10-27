@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-ernie",
+  "repo": "PaddlePaddle/ERNIE",
+  "dir": "ERNIE",
+  "company": "Baidu",
+  "stars": 7742,
+  "examined": "2026-10-27 02:17:40",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 6,
+    "cost_usd": 0.0606746,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README's runnable demos (ERNIEKit SFT needing a 1x80G GPU with bf16/flash-attn, and FastDeploy inference/serving) target GPUs, and the cookbook demos need an ERNIE Bot API key, so nothing plausibly completes on CPU only.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

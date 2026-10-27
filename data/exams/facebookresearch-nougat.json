@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-nougat",
+  "repo": "facebookresearch/nougat",
+  "dir": "nougat",
+  "company": "Meta",
+  "stars": 10088,
+  "examined": "2026-10-27 02:18:07",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 25,
+    "num_turns": 3,
+    "cost_usd": 0.0415354,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents a `nougat` CLI that runs the small 0.1.0-small model (~1GB download from GitHub releases, no auth) on a PDF, feasible on CPU for one page.",
+  "demo": "README 'Get prediction for a PDF' > CLI: nougat path/to/file.pdf -o output_directory",
+  "goal": "Install nougat-ocr from /work/nougat so the `nougat` command works on CPU (resolve any dependency version conflicts, e.g. transformers/albumentations/pypdfium2 pins). Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
+  "check": "Runs the nougat CLI on a generated one-page text PDF and checks that a non-empty .mmd output file is produced containing recognizable words from the page.",
+  "server": false
+}

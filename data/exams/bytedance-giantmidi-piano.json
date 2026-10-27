@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-giantmidi-piano",
+  "repo": "bytedance/GiantMIDI-Piano",
+  "dir": "GiantMIDI-Piano",
+  "company": "ByteDance",
+  "stars": 1900,
+  "examined": "2026-10-27 02:19:09",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 40,
+    "num_turns": 7,
+    "cost_usd": 0.08679850000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README's transcription step (audios_to_midis.py transcribe_piano) runs on CPU on a short audio clip with an automatically downloaded checkpoint.",
+  "demo": "README 'Transcribe audios to MIDI files': python3 audios_to_midis.py transcribe_piano",
+  "goal": "Install the dependencies (PyTorch CPU, requirements.txt, piano_transcription_inference, librosa, ffmpeg) and make `python3 audios_to_midis.py transcribe_piano --workspace=... --mp3s_dir=<dir with an mp3 named after the first catalogue entry in resources/full_music_pieces_youtube_similarity_pianosoloprob_split.csv> --midis_dir=<out> --begin_index=0 --end_index=1` run on CPU and write a .mid file. YouTube downloading is not required; the mp3 is supplied. The transcription checkpoint is downloaded automatically by the library.",
+  "check": "A short synthetic mp3 named after catalogue entry 0 is transcribed on CPU and the resulting .mid file is a valid MIDI file containing notes.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-seed-m3-agent",
+  "repo": "ByteDance-Seed/m3-agent",
+  "dir": "m3-agent",
+  "company": "ByteDance",
+  "stars": 1466,
+  "examined": "2026-10-27 02:20:32",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 27,
+    "num_turns": 7,
+    "cost_usd": 0.0819286,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README's memory-graph visualization step runs on CPU from a public, ungated M3-Bench memory graph pickle (robot.tar.gz, 2.4 GB), with no API calls needed.",
+  "demo": "README > Run Locally > Memorization > step 6 Memory Graph Visualization (python visualization.py --mem_path data/memory_graphs/robot/bedroom_01.pkl --clip_id 1)",
+  "goal": "Get `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1` working in /work/m3-agent. Download the pre-built memory graph from the public HF dataset ByteDance-Seed/M3-Bench (memory_graphs/robot.tar.gz, 2.4 GB) and extract bedroom_01.pkl. Install only the dependencies needed; do not download the large models or run GPU steps. configs/api_config.json has empty values, and importing mmagent may fail on them, so you may need dummy values; no real API key is required. The script must print the memory of clip 1 (episodic/semantic nodes, faces, voices).",
+  "check": "The hidden test extracts bedroom_01.pkl from the dataset archive, runs visualization.py on clip 1, and checks the output contains the 'Clip 1 Memory' header with episodic/semantic memory lines.",
+  "server": false
+}

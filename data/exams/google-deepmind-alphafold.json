@@ -1,0 +1,21 @@
+{
+  "slug": "google-deepmind-alphafold",
+  "repo": "google-deepmind/alphafold",
+  "dir": "alphafold",
+  "company": "Google",
+  "stars": 14914,
+  "examined": "2026-10-27 02:16:47",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 11,
+    "num_turns": 3,
+    "cost_usd": 0.016285,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README inference demo needs about 556 GB of downloads (2.62 TB unzipped) of genetic databases plus an NVIDIA GPU, far beyond the CPU-only and 15 GB limits.",
+  "demo": "README: Running AlphaFold (docker/run_docker.py)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

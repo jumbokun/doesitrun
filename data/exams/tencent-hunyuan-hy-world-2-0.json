@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hy-world-2-0",
+  "repo": "Tencent-Hunyuan/HY-World-2.0",
+  "dir": "HY-World-2.0",
+  "company": "Tencent",
+  "stars": 2771,
+  "examined": "2026-10-27 02:20:13",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 37,
+    "num_turns": 8,
+    "cost_usd": 0.09849530000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The WorldMirror 2.0 CLI reconstructs 3D from bundled example images with a public ~1.2B model (a few GB), and the code falls back to CPU.",
+  "demo": "README 'Code Usage — WorldMirror 2.0' CLI: python -m hyworld2.worldrecon.pipeline --input_path path/to/images",
+  "goal": "Get `python -m hyworld2.worldrecon.pipeline --input_path examples/worldrecon/realistic/Desk --output_path <dir> --target_size 518` running on CPU only (no GPU, no flash-attn/CUDA available; the public tencent/HY-World-2.0 weights, subfolder HY-WorldMirror-2.0, download automatically). It must finish and write depth maps, normal maps, camera_params.json, points.ply and gaussians.ply under <dir>/<case>/<timestamp>/. Any source patching needed for CPU is allowed.",
+  "check": "The hidden test runs the WorldMirror CLI on the bundled Desk images with a small target size and verifies that the depth, normal, camera_params.json, points.ply and gaussians.ply outputs exist with plausible content.",
+  "server": false
+}

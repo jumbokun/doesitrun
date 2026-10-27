@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-facedetection-dsfd",
+  "repo": "Tencent/FaceDetection-DSFD",
+  "dir": "FaceDetection-DSFD",
+  "company": "Tencent",
+  "stars": 2975,
+  "examined": "2026-10-27 02:18:52",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 41,
+    "num_turns": 6,
+    "cost_usd": 0.0631645,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README demo.py detects faces in a bundled image using a pretrained DSFD checkpoint downloadable from Google Drive; the original code hard-codes CUDA but is small to patch for CPU.",
+  "demo": "Getting Started > Evaluation step 3: python demo.py (default image data/worlds-largest-selfie.jpg)",
+  "goal": "Get `python demo.py` working on CPU only: download the DSFD WIDER FACE weights (Google Drive file id 1WeXlNYsM6dMP3xQQELI-4gxhwKUQxc3-) to weights/WIDERFace_DSFD_RES152.pth, and patch/adapt the code as needed (e.g. the hard-coded net.cuda()). Run it with --img_root ./data/worlds-largest-selfie.jpg and a --save_folder (with trailing slash) so it writes an annotated detection image.",
+  "check": "The hidden test runs demo.py on the bundled selfie image with a fresh output folder and verifies a non-trivial annotated image output is produced and the process exits successfully.",
+  "server": false
+}

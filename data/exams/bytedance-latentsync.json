@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-latentsync",
+  "repo": "bytedance/LatentSync",
+  "dir": "LatentSync",
+  "company": "ByteDance",
+  "stars": 6195,
+  "examined": "2026-10-27 02:16:33",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 20,
+    "num_turns": 4,
+    "cost_usd": 0.05526350000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README offers a CLI inference script (inference.sh) with bundled demo assets and public non-gated HF checkpoints (~5GB), though the code hardcodes CUDA and needs CPU patching.",
+  "demo": "Inference > Command Line Interface: ./inference.sh (scripts.inference with assets/demo1_video.mp4 + demo1_audio.wav)",
+  "goal": "Get LatentSync's CLI inference (python -m scripts.inference, as in inference.sh with configs/unet/stage2_512.yaml and checkpoints/latentsync_unet.pt downloaded from ByteDance/LatentSync-1.6) to produce a lip-synced video on CPU only from a short clip of assets/demo1_video.mp4 and assets/demo1_audio.wav. The code hardcodes cuda in places, so it must be made to run on CPU (float32). It must accept --video_path, --audio_path, --video_out_path, --inference_steps and --guidance_scale as in inference.sh.",
+  "check": "Running the inference CLI on a 1.6-second clip of the demo video/audio produces an output mp4 with sensible size, resolution, frame count and an audio track.",
+  "server": false
+}

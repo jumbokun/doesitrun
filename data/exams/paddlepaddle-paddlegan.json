@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddlegan",
+  "repo": "PaddlePaddle/PaddleGAN",
+  "dir": "PaddleGAN",
+  "company": "Baidu",
+  "stars": 8044,
+  "examined": "2026-10-27 02:17:21",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 8,
+    "cost_usd": 0.06965990000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "PaddleGAN documents a pretrained AnimeGANv2 CLI demo (small weights, CPU-capable) with no credentials needed.",
+  "demo": "docs/en_US/tutorials/animegan.md: python applications/tools/animeganv2.py --input_image <img> --cpu",
+  "goal": "Install PaddleGAN (CPU PaddlePaddle plus requirements) so that `python applications/tools/animeganv2.py --input_image docs/imgs/animeganv2_test.jpg --output_path <dir> --cpu` runs from the repo root. It must auto-download the pretrained AnimeGANv2 Hayao weights and write a stylized anime image to the output directory.",
+  "check": "The hidden test runs the AnimeGANv2 CLI on a bundled photo and verifies a valid, non-trivial stylized image is written that differs from the input.",
+  "server": false
+}

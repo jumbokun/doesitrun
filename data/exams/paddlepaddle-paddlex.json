@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddlex",
+  "repo": "PaddlePaddle/PaddleX",
+  "dir": "PaddleX",
+  "company": "Baidu",
+  "stars": 6283,
+  "examined": "2026-10-27 02:18:39",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 4,
+    "cost_usd": 0.055452100000000004,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Quick Start CLI runs the OCR pipeline with small PP-OCRv5 models that work on CPU.",
+  "demo": "README Quick Start > CLI Usage: paddlex --pipeline OCR ...",
+  "goal": "Install PaddlePaddle (CPU) and PaddleX from the repo clone (with the OCR extras needed), then run the README OCR command: `paddlex --pipeline OCR --input <image> --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False --save_path <dir> --device cpu`. It must download the models, recognize text in a local image with printed English text, print the result with rec_texts, and save result image/JSON files to the save path.",
+  "check": "The hidden test runs the OCR CLI on a generated image of printed text on CPU and verifies the saved output files and that the recognized text contains the expected words.",
+  "server": false
+}

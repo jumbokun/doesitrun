@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-cascadia-code",
+  "repo": "microsoft/cascadia-code",
+  "dir": "cascadia-code",
+  "company": "Microsoft",
+  "stars": 27946,
+  "examined": "2026-10-27 02:15:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 5,
+    "cost_usd": 0.0560062,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The repo is a font project whose build.py compiles the Cascadia Code UFO sources to TTF fonts on CPU in minutes with only pip dependencies.",
+  "demo": "Build instructions (README links to wiki 'Modifying Cascadia Code'; build.py with requirements.txt)",
+  "goal": "Install the Python dependencies from requirements.txt (a virtualenv is fine) and run `python build.py -P -NF -M -I` from the repo root. This must compile the sources/ UFO designspace into the variable font build/ttf/CascadiaCode.ttf (or a similarly named CascadiaCode*.ttf). The build must finish without errors.",
+  "check": "The hidden test rebuilds the font from scratch and checks that the produced variable TTF exists, is a valid font named Cascadia Code, and contains the expected glyphs and OpenType layout tables.",
+  "server": false
+}

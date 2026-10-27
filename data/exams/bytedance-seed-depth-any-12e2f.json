@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-seed-depth-any-12e2f",
+  "repo": "ByteDance-Seed/Depth-Anything-3",
+  "dir": "Depth-Anything-3",
+  "company": "ByteDance",
+  "stars": 6580,
+  "examined": "2026-10-27 02:15:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 21,
+    "num_turns": 6,
+    "cost_usd": 0.0658825,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents a `da3 auto` CLI on bundled example images; the small Apache-2.0 DA3-SMALL variant runs on CPU with ungated HF weights.",
+  "demo": "Quick Start > Basic Usage: `da3 auto assets/examples/SOH --export-format glb --model-dir depth-anything/DA3-SMALL` (CLI, without backend)",
+  "goal": "Install the project (CPU-only torch is fine; gsplat/xformers are not needed) so the `da3` CLI works. Then run `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <dir> --model-dir depth-anything/DA3-SMALL` on CPU; the model weights download from Hugging Face automatically (no token needed). It must finish and write the exported results (results.npz and a .glb) into the export dir. Put any environment activation in /work/env.sh.",
+  "check": "The hidden test runs the da3 CLI on the bundled SOH images with DA3-SMALL on CPU and verifies the exported npz has depth arrays of the right shape for 2 images and that a non-trivial GLB file exists.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-clearervoice-studio",
+  "repo": "modelscope/ClearerVoice-Studio",
+  "dir": "ClearerVoice-Studio",
+  "company": "Alibaba",
+  "stars": 4581,
+  "examined": "2026-10-27 02:18:37",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 33,
+    "num_turns": 4,
+    "cost_usd": 0.056542999999999996,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "ClearVoice README/demo.py runs pretrained speech enhancement on bundled sample wavs; the small FRCRN_SE_16K model works on CPU with ungated downloads.",
+  "demo": "clearvoice/README + clearvoice/demo.py: ClearVoice(task='speech_enhancement', model_names=['FRCRN_SE_16K']) on samples/input.wav",
+  "goal": "Install ClearVoice's dependencies and, from /work/ClearerVoice-Studio/clearvoice, run the speech enhancement demo using the FRCRN_SE_16K model on samples/input.wav (python API: ClearVoice(task='speech_enhancement', model_names=['FRCRN_SE_16K']), call it with input_path='samples/input.wav', online_write=False, then .write(output, output_path=...)). The pretrained checkpoint must download automatically and an enhanced wav must be produced on CPU.",
+  "check": "The hidden test runs the FRCRN_SE_16K speech enhancement on the bundled samples/input.wav and verifies a non-silent 16 kHz output wav of the expected length is written.",
+  "server": false
+}

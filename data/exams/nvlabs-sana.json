@@ -1,0 +1,21 @@
+{
+  "slug": "nvlabs-sana",
+  "repo": "NVlabs/Sana",
+  "dir": "Sana",
+  "company": "NVIDIA",
+  "stars": 9662,
+  "examined": "2026-10-27 02:19:16",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 18,
+    "num_turns": 4,
+    "cost_usd": 0.0483585,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README's diffusers SanaPipeline example runs with the ungated small Sana 600M 512px checkpoint on CPU in minutes (~10GB download).",
+  "demo": "README 'Inference with diffusers' (SanaPipeline), using the smaller Sana_600M_512px_diffusers variant on CPU",
+  "goal": "Make the README diffusers SanaPipeline example work on CPU: load Efficient-Large-Model/Sana_600M_512px_diffusers (ungated) with torch_dtype=torch.bfloat16 on device cpu, and generate a 512x512 image for the prompt 'a cyberpunk cat with a neon sign that says \"Sana\"' with guidance_scale=4.5 and a small number of steps (e.g. 8), saving it as a PNG. Install the needed packages (torch CPU, recent diffusers, transformers, etc.) into the environment set up by /work/env.sh.",
+  "check": "A hidden script runs the SanaPipeline on CPU with that model and prompt and verifies a valid, non-blank 512x512 PNG is produced.",
+  "server": false
+}

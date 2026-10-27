@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-pasa",
+  "repo": "bytedance/pasa",
+  "dir": "pasa",
+  "company": "ByteDance",
+  "stars": 1671,
+  "examined": "2026-10-27 02:19:39",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.0280747,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The demo needs a serper.dev Google Search API key (account/credential) and two 7B model checkpoints (~30 GB) that are impractical on CPU.",
+  "demo": "README Run Locally / python run_paper_agent.py",
+  "goal": "",
+  "check": "",
+  "server": false
+}

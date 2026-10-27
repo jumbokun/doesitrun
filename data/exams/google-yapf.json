@@ -1,0 +1,21 @@
+{
+  "slug": "google-yapf",
+  "repo": "google/yapf",
+  "dir": "yapf",
+  "company": "Google",
+  "stars": 13989,
+  "examined": "2026-10-27 02:17:02",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 3,
+    "cost_usd": 0.0343834,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "YAPF is a CPU-only Python formatter CLI with a documented usage section and no external requirements.",
+  "demo": "README Installation/Usage: yapf CLI (yapf file.py, --diff, -i)",
+  "goal": "Install YAPF from the cloned repo (or run it via PYTHONPATH) so the `yapf` CLI works. Format a badly formatted Python file with `yapf file.py`, `yapf --diff file.py` and `yapf -i file.py`, and with `--style google`. Output must be properly PEP8-formatted code.",
+  "check": "The hidden test formats a messy Python file and verifies the reformatted output, the diff and its non-zero exit code, in-place rewriting, and idempotence.",
+  "server": false
+}

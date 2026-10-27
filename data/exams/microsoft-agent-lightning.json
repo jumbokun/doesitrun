@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-agent-lightning",
+  "repo": "microsoft/agent-lightning",
+  "dir": "agent-lightning",
+  "company": "Microsoft",
+  "stars": 18817,
+  "examined": "2026-10-27 02:17:12",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 4,
+    "cost_usd": 0.0438592,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README example (Quick Start Calc-X, GSM8K, etc.) requires the verl/vLLM GPU stack (A100, CUDA 13) for GRPO training, plus a Google Drive dataset download, so it cannot run on CPU only.",
+  "demo": "Quick Start: examples/calc_x/run_local.sh",
+  "goal": "",
+  "check": "",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "google-deepmind-sonnet",
+  "repo": "google-deepmind/sonnet",
+  "dir": "sonnet",
+  "company": "Google",
+  "stars": 9978,
+  "examined": "2026-10-27 02:20:09",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 139,
+    "num_turns": 4,
+    "cost_usd": 0.0487136,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Sonnet is a pip-installable TensorFlow library whose README shows module usage and examples/simple_mnist.py trains an MNIST convnet on CPU in minutes with a ~100MB public dataset.",
+  "demo": "README Installation/Using existing modules + examples/simple_mnist.py",
+  "goal": "Install TensorFlow and Sonnet (dm-sonnet, from the repo clone or PyPI, plus tensorflow-datasets and absl-py as needed) so that `import sonnet as snt` works and the README snippets (snt.Sequential MLP with snt.Linear, custom snt.Module with snt.once) run. Then `python examples/simple_mnist.py` must run on CPU to completion, downloading MNIST via tensorflow_datasets and printing five '[Epoch N] train loss ... test acc ...%' lines.",
+  "check": "The hidden test runs README-style Sonnet module snippets and then examples/simple_mnist.py, verifying five epoch lines are printed and the final test accuracy exceeds 90%.",
+  "server": false
+}

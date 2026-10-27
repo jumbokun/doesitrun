@@ -1,0 +1,21 @@
+{
+  "slug": "baidu-unlimited-ocr",
+  "repo": "baidu/Unlimited-OCR",
+  "dir": "Unlimited-OCR",
+  "company": "Baidu",
+  "stars": 28571,
+  "examined": "2026-10-27 02:14:59",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 39,
+    "num_turns": 6,
+    "cost_usd": 0.0779991,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README's Transformers section runs single-page OCR inference with an ungated MIT 6.7GB HF model, feasible on CPU with small device changes.",
+  "demo": "README > Inference > Transformers (model.infer single-page)",
+  "goal": "Install the Transformers dependencies from the README (CPU torch is fine) and load baidu/Unlimited-OCR-2 with trust_remote_code on CPU (the README uses .cuda(); the remote code also hardcodes cuda, so it must be made to work on CPU). Then run model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and get correct OCR text back. The model is loaded via AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, torch_dtype=torch.float32) with no explicit .cuda().",
+  "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words.",
+  "server": false
+}

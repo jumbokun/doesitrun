@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuani-26574",
+  "repo": "Tencent-Hunyuan/HunyuanImage-3.0",
+  "dir": "HunyuanImage-3.0",
+  "company": "Tencent",
+  "stars": 3295,
+  "examined": "2026-10-27 02:17:31",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 3,
+    "cost_usd": 0.0171668,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "All variants are 80B-parameter MoE models (hundreds of GB of weights) requiring multiple 80GB GPUs, impossible on CPU/16GB RAM/<15GB download.",
+  "demo": "README text-to-image inference",
+  "goal": "",
+  "check": "",
+  "server": false
+}

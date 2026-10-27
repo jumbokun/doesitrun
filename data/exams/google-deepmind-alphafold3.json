@@ -1,0 +1,21 @@
+{
+  "slug": "google-deepmind-alphafold3",
+  "repo": "google-deepmind/alphafold3",
+  "dir": "alphafold3",
+  "company": "Google",
+  "stars": 8687,
+  "examined": "2026-10-27 02:20:21",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 11,
+    "num_turns": 3,
+    "cost_usd": 0.0156309,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Inference requires model parameters that must be requested from Google under terms of use (access gate), plus a GPU and ~600GB genetic databases.",
+  "demo": "README Installation and Running AlphaFold 3",
+  "goal": "",
+  "check": "",
+  "server": false
+}

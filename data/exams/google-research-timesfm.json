@@ -1,0 +1,21 @@
+{
+  "slug": "google-research-timesfm",
+  "repo": "google-research/timesfm",
+  "dir": "timesfm",
+  "company": "Google",
+  "stars": 34788,
+  "examined": "2026-10-27 02:15:06",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 33,
+    "num_turns": 8,
+    "cost_usd": 0.086494,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README shows TimesFM 3.0 Python forecasting examples using the ungated google/timesfm-3.0-pytorch (~1.3GB) checkpoint, which runs on CPU.",
+  "demo": "README 'Code Examples: TimesFM 3.0' sections 1 (univariate) and 2 (multivariate with covariates), with device='cpu'",
+  "goal": "Install timesfm with the torch extra from /work/timesfm (pip install -e .[torch]; CPU-only torch is fine) and run the README TimesFM 3.0 examples with device changed from 'cuda' to 'cpu'. The checkpoint google/timesfm-3.0-pytorch must download from Hugging Face without a token. Both the univariate example (two series, horizon 12, forecast shape (12,) and quantiles (12,9)) and the multivariate covariate example (3 variates, forecast (3,24), quantiles (3,24,9)) must run via `from timesfm3 import TimesFM3Evaluator, ModelConfig`. Write /work/env.sh so that `python` runs with the dependencies installed.",
+  "check": "Runs the README univariate and multivariate-with-covariates forecasts on CPU and verifies output shapes, finiteness and sensible forecast values.",
+  "server": false
+}

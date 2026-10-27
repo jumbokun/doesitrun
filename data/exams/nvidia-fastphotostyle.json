@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-fastphotostyle",
+  "repo": "NVIDIA/FastPhotoStyle",
+  "dir": "FastPhotoStyle",
+  "company": "NVIDIA",
+  "stars": 11171,
+  "examined": "2026-10-27 02:18:43",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 29,
+    "num_turns": 7,
+    "cost_usd": 0.07962689999999999,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "TUTORIAL Example 1 runs demo.py photorealistic style transfer with a bundled 33MB checkpoint; --cuda 0 and --fast (OpenCV guided filter) allow CPU-only operation on small images.",
+  "demo": "TUTORIAL.md Example 1 / README: python demo.py --fast --output_image_path results/example1.png (run with --cuda 0)",
+  "goal": "Get `python demo.py --cuda 0 --fast --no_post --content_image_path A --style_image_path B --output_image_path OUT` working on CPU only, using the bundled PhotoWCTModels/photo_wct.pth, on small PNG content and style images. The repo targets old PyTorch/CUDA and imports cupy at module load (smooth_filter.py), so the code and environment must be adapted to run without a GPU. It must write a stylized image of the same size as the content image.",
+  "check": "The hidden test runs demo.py on CPU with generated content and style images and verifies a non-blank output image of the content image's size that differs from the content.",
+  "server": false
+}

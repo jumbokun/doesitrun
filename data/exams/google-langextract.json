@@ -1,0 +1,21 @@
+{
+  "slug": "google-langextract",
+  "repo": "google/langextract",
+  "dir": "langextract",
+  "company": "Google",
+  "stars": 39047,
+  "examined": "2026-10-27 02:14:32",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 24,
+    "num_turns": 4,
+    "cost_usd": 0.0572213,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README's Ollama section runs LangExtract with local gemma2:2b (about 1.6 GB) on CPU with no API key.",
+  "demo": "README 'Using Local LLMs with Ollama' plus Quick Start extraction and visualization, with model_id gemma2:2b at http://localhost:11434",
+  "goal": "Install langextract from source (pip install -e .) and Ollama, pull gemma2:2b, and serve it on localhost:11434. Create /work/run.sh to start the Ollama server and block until it is ready (the model must be pulled). Create /work/env.sh to activate the Python environment. Then the README Romeo and Juliet example must run through lx.extract(model_id='gemma2:2b', model_url='http://localhost:11434') on the text 'Lady Juliet gazed longingly at the stars, her heart aching for Romeo'. Saving results to JSONL and generating the visualization HTML must also work.",
+  "check": "A script calls lx.extract against the local Ollama server, then checks that it returns at least one extraction with grounded text, and that the JSONL and visualization HTML files are written.",
+  "server": true
+}

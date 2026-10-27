@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen",
+  "repo": "QwenLM/Qwen",
+  "dir": "Qwen",
+  "company": "Alibaba",
+  "stars": 21953,
+  "examined": "2026-10-27 02:14:17",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 5,
+    "cost_usd": 0.0380247,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quickstart chat inference has a small official variant (Qwen-1.8B-Chat, open on Hugging Face) that runs on CPU.",
+  "demo": "README Quickstart / Using Transformers, CLI demo cli_demo.py with Qwen/Qwen-1_8B-Chat",
+  "goal": "Get `python cli_demo.py -c Qwen/Qwen-1_8B-Chat --cpu-only` working in /work/Qwen on CPU (install requirements.txt; the pinned transformers range <4.38 matters). It must load the Qwen-1.8B-Chat model from Hugging Face and answer a prompt typed on stdin, such as 'What is the capital of France?', then exit on ':q'. Write /work/env.sh that activates the environment (it is sourced by the test).",
+  "check": "The test pipes a question about the capital of France into the CLI demo on CPU and verifies the reply mentions Paris and the process exits cleanly.",
+  "server": false
+}

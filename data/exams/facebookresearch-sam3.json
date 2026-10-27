@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-sam3",
+  "repo": "facebookresearch/sam3",
+  "dir": "sam3",
+  "company": "Meta",
+  "stars": 12114,
+  "examined": "2026-10-27 02:16:37",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 24,
+    "num_turns": 5,
+    "cost_usd": 0.037502900000000006,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "SAM 3 checkpoints are gated on Hugging Face (facebook/sam3 returns 401; README requires access request and hf auth login), and the README also requires a CUDA GPU.",
+  "demo": "README Getting Started / Basic Usage",
+  "goal": "",
+  "check": "",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "nvlabs-spade",
+  "repo": "NVlabs/SPADE",
+  "dir": "SPADE",
+  "company": "NVIDIA",
+  "stars": 7718,
+  "examined": "2026-10-27 02:20:39",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 4,
+    "cost_usd": 0.042561499999999995,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents test.py with pretrained COCO-Stuff model on bundled sample images, runnable on CPU with --gpu_ids -1.",
+  "demo": "Generating Images Using Pretrained Model (python test.py --name coco_pretrained --dataset_mode coco --dataroot datasets/coco_stuff --gpu_ids -1)",
+  "goal": "Install dependencies (including the sync_batchnorm package per README), download the pretrained checkpoints tarball linked in the README and extract it so that /work/SPADE/checkpoints/coco_pretrained exists. Then run test.py with --name coco_pretrained --dataset_mode coco --dataroot datasets/coco_stuff --gpu_ids -1 on the bundled sample COCO-Stuff images so it generates synthesized images on CPU.",
+  "check": "Running the pretrained COCO model on the bundled sample data on CPU produces at least two non-trivial synthesized image files in the results directory.",
+  "server": false
+}

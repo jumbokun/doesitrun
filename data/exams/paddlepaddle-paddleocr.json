@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddleocr",
+  "repo": "PaddlePaddle/PaddleOCR",
+  "dir": "PaddleOCR",
+  "company": "Baidu",
+  "stars": 91720,
+  "examined": "2026-10-27 02:14:20",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 38,
+    "num_turns": 5,
+    "cost_usd": 0.0474303,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quick start offers a `paddleocr ocr` CLI using small PP-OCRv5 models that run on CPU with a few hundred MB of downloads.",
+  "demo": "docs/quick_start.en.md / README: install paddlepaddle (CPU) + paddleocr, run `paddleocr ocr -i <image>`",
+  "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI work on CPU. It must download the default PP-OCRv5 models and run text detection and recognition on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
+  "check": "Runs the paddleocr OCR CLI on a freshly generated image with known English text and verifies the saved JSON contains the recognized words and a visualization image is written.",
+  "server": false
+}

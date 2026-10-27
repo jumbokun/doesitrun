@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-seed-veomni",
+  "repo": "ByteDance-Seed/VeOmni",
+  "dir": "VeOmni",
+  "company": "ByteDance",
+  "stars": 2265,
+  "examined": "2026-10-27 02:17:44",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 7,
+    "cost_usd": 0.09341590000000001,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README's only runnable demo is Qwen3-8B/30B FSDP2 training via train.sh (flash-attn, CUDA/NPU), and VeOmni's distributed backend selection raises an error on CPU-only machines, with model downloads far above the limits.",
+  "demo": "README Quick Start -> docs/examples/qwen3.md: bash train.sh tasks/train_text.py configs/text/qwen3.yaml",
+  "goal": "",
+  "check": "",
+  "server": false
+}

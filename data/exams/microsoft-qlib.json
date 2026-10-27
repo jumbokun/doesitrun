@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-qlib",
+  "repo": "microsoft/qlib",
+  "dir": "qlib",
+  "company": "Microsoft",
+  "stars": 49734,
+  "examined": "2026-10-27 02:15:02",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 7,
+    "cost_usd": 0.06641040000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README documents downloading public Qlib CN data and running LightGBM Alpha158 via qrun, which is CPU-friendly and needs no credentials.",
+  "demo": "README 'Auto Quant Research Workflow': qrun examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml (after scripts/get_data.py qlib_data)",
+  "goal": "Install qlib from /work/qlib, download the CN daily data with `python scripts/get_data.py qlib_data --target_dir ~/.qlib/qlib_data/cn_data --region cn`, then run `qrun examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml` (num_threads may be lowered for 4 CPUs). The workflow must train LightGBM, and print the IC/backtest risk analysis results and save mlruns artifacts.",
+  "check": "The hidden test runs the LightGBM Alpha158 qrun workflow on the downloaded data and verifies the log has IC and backtest analysis results and that saved IC and portfolio report artifacts exist with plausible length and IC.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuan3d-2-1",
+  "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
+  "dir": "Hunyuan3D-2.1",
+  "company": "Tencent",
+  "stars": 4287,
+  "examined": "2026-10-27 02:16:17",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 6,
+    "cost_usd": 0.0638703,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README code usage shows image-to-3D shape generation with public Hunyuan3D-2.1 weights (~7.4GB fp16 shape checkpoint), which can plausibly run on CPU with reduced steps/resolution.",
+  "demo": "README 'Code Usage' - Hunyuan3DDiTFlowMatchingPipeline shape generation on assets/demo.png (shape stage of demo.py only, no texture)",
+  "goal": "Get the shape-generation part of the README Code Usage / demo.py working on CPU only: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2.1', device='cpu', dtype=torch.bfloat16) then pipe(image=assets/demo.png, num_inference_steps=10, octree_resolution=128, num_chunks=20000) must return a trimesh that exports to a .glb. Skip the texture/Paint stage (needs CUDA). Install dependencies so imports from hy3dshape work without a GPU (CPU torch is fine), and the public weights download (only the hunyuan3d-dit-v2-1 subfolder is needed) must be cached so from_pretrained works.",
+  "check": "A hidden script runs CPU shape generation on assets/demo.png and verifies an exported GLB mesh with a plausible number of vertices and faces and non-degenerate extent.",
+  "server": false
+}

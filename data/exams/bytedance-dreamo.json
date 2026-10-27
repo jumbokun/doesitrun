@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-dreamo",
+  "repo": "bytedance/DreamO",
+  "dir": "DreamO",
+  "company": "ByteDance",
+  "stars": 1650,
+  "examined": "2026-10-27 02:19:52",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 4,
+    "cost_usd": 0.032834800000000004,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "DreamO requires the gated black-forest-labs/FLUX.1-dev base model (~24GB+, license/account gate) and is a 12B model impractical on CPU.",
+  "demo": "Quick Inference / python app.py",
+  "goal": "",
+  "check": "",
+  "server": false
+}

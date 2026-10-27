@@ -1,0 +1,21 @@
+{
+  "slug": "google-adk-recipes",
+  "repo": "google/adk-recipes",
+  "dir": "adk-recipes",
+  "company": "Google",
+  "stars": 10539,
+  "examined": "2026-10-27 02:17:50",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 47,
+    "num_turns": 9,
+    "cost_usd": 0.1346285,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "core/python/ambient-expense-agent has a local ADK backend with a Pub/Sub trigger whose under-$100 auto-approve path needs no LLM call, so it runs on CPU with only a placeholder API key.",
+  "demo": "core/python/ambient-expense-agent README 'Install and run' (make install && make dev) and 'Try it out' (curl to /apps/expense_agent/trigger/pubsub with amount 45)",
+  "goal": "In /work/adk-recipes/core/python/ambient-expense-agent, install the project (Python 3.11/3.12, uv sync) and start the backend (python expense_agent/fast_api_app.py) listening on http://localhost:8080. Use a placeholder GOOGLE_API_KEY (e.g. dummy) and MODEL_NAME=gemini-3.5-flash since no real key is needed for the under-$100 path. Then POST the README's base64 Pub/Sub payload with amount 45 to /apps/expense_agent/trigger/pubsub and get a successful response. /work/run.sh must start the server and wait until ready; /work/env.sh must activate the environment.",
+  "check": "The hidden test starts the server via run.sh, posts a $45 expense Pub/Sub trigger and checks that the app is listed and the response is HTTP 200 with status success.",
+  "server": true
+}

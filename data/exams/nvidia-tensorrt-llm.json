@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-tensorrt-llm",
+  "repo": "NVIDIA/TensorRT-LLM",
+  "dir": "TensorRT-LLM",
+  "company": "NVIDIA",
+  "stars": 14956,
+  "examined": "2026-10-27 02:17:04",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 145,
+    "num_turns": 3,
+    "cost_usd": 0.046031,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "TensorRT-LLM's quickstart (LLM API / trtllm-serve) requires an NVIDIA GPU with CUDA kernels and cannot run on a CPU-only sandbox.",
+  "demo": "README Quick Start: LLM API / trtllm-serve",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

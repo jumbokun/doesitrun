@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-funclip",
+  "repo": "modelscope/FunClip",
+  "dir": "FunClip",
+  "company": "Alibaba",
+  "stars": 6460,
+  "examined": "2026-10-27 02:18:02",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 35,
+    "num_turns": 7,
+    "cost_usd": 0.1004842,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README section C offers a CLI (videoclipper.py stage 1 recognize, stage 2 clip) using public ~2GB Paraformer models from ModelScope that run on CPU without any key.",
+  "demo": "README 'C. Use FunClip in command line' (python funclip/videoclipper.py --stage 1 / --stage 2)",
+  "goal": "Get FunClip's command-line demo working: download the example video examples/2022云栖大会_片段.mp4 (URL in README section C), then run `python funclip/videoclipper.py --stage 1 --file examples/2022云栖大会_片段.mp4 --output_dir ./output` to produce the recognition result and output/total.srt. Then run stage 2 with --dest_text '我们把它跟乡村振兴去结合起来，利用我们的设计的能力' --start_ost 0 --end_ost 100 --output_file ./output/res.mp4 to produce a clipped video and its SRT. Both stages must complete on CPU.",
+  "check": "The hidden test runs both CLI stages on the example video and verifies the full SRT contains recognized Chinese text and the clipped mp4 and its SRT exist with a plausible short duration.",
+  "server": false
+}

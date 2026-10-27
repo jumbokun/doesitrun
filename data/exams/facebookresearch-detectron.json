@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-detectron",
+  "repo": "facebookresearch/Detectron",
+  "dir": "Detectron",
+  "company": "Meta",
+  "stars": 26350,
+  "examined": "2026-10-27 02:15:14",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 4,
+    "cost_usd": 0.044902000000000004,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "GETTING_STARTED.md shows tools/infer_simple.py running a pretrained Mask R-CNN on bundled demo images, with a public weights URL and no credentials; feasible on CPU if Caffe2 is built.",
+  "demo": "GETTING_STARTED.md > Inference with Pretrained Models > Directory of Image Files (tools/infer_simple.py)",
+  "goal": "Get `python tools/infer_simple.py --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml --output-dir <dir> --image-ext jpg --wts <model_final.pkl URL from GETTING_STARTED.md> demo` working on CPU only in /work/Detectron (Caffe2-based; you will need to make it run without a GPU). It must produce a visualization file per demo image (PDF by default; --output-ext jpg also acceptable). Write /work/env.sh (activates the environment needed to run it).",
+  "check": "The hidden test runs infer_simple.py on a bundled demo image with the Mask R-CNN weights and verifies that a non-trivial visualization output file is produced.",
+  "server": false
+}

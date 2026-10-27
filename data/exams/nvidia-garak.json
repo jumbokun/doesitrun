@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-garak",
+  "repo": "NVIDIA/garak",
+  "dir": "garak",
+  "company": "NVIDIA",
+  "stars": 9716,
+  "examined": "2026-10-27 02:18:57",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 4,
+    "cost_usd": 0.033130599999999996,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "garak is a CLI LLM vulnerability scanner whose README documents running probes against built-in test generators with no GPU or API key.",
+  "demo": "README usage: python -m garak --list_probes and a scan with a test generator (-t test.Repeat -p test.Test)",
+  "goal": "Install garak from the cloned repo so that `python -m garak --list_probes` works. Then run `python -m garak -t test.Repeat -p test.Test -d always.Pass --report_prefix <somedir>/run`; the scan must complete and write a report .jsonl file.",
+  "check": "The hidden test checks that the probe list is printed and that a scan run writes a non-empty report JSONL containing attempt entries for the test.Test probe.",
+  "server": false
+}

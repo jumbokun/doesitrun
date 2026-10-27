@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-apex",
+  "repo": "NVIDIA/apex",
+  "dir": "apex",
+  "company": "NVIDIA",
+  "stars": 9002,
+  "examined": "2026-10-27 02:19:34",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 6,
+    "cost_usd": 0.065735,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Apex's examples and tests (DCGAN/ImageNet, fused optimizers, FusedLayerNorm, MLP) require CUDA extensions and a GPU; there is no CPU-runnable demo.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

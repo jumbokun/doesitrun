@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuan3d-1",
+  "repo": "Tencent-Hunyuan/Hunyuan3D-1",
+  "dir": "Hunyuan3D-1",
+  "company": "Tencent",
+  "stars": 3500,
+  "examined": "2026-10-27 02:17:13",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 33,
+    "num_turns": 9,
+    "cost_usd": 0.0790269,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README offers a lite image-to-3D CLI (main.py --use_lite) with bundled demo images; lite weights are about 6 GB and the device is a flag, so CPU is plausible.",
+  "demo": "README Inference: image to 3D, lite pipeline (scripts/image_to_3d_lite.sh)",
+  "goal": "Get `python main.py --image_prompt ./demos/example_000.png --save_folder <out> --max_faces_num 10000 --use_lite --device cpu` working in /work/Hunyuan3D-1 on CPU only. Download only the needed weights (mvd_lite and svrm from tencent/Hunyuan3D-1 into ./weights, not the 16 GB full set). The run must produce views.jpg and a mesh .obj file in the save folder. Put the environment setup in /work/env.sh.",
+  "check": "The hidden test runs the lite image-to-3D command on a bundled demo image with CPU and reduced steps, then checks that the views image and a non-trivial mesh OBJ with vertices and faces were written.",
+  "server": false
+}

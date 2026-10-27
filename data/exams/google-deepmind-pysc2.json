@@ -1,0 +1,21 @@
+{
+  "slug": "google-deepmind-pysc2",
+  "repo": "google-deepmind/pysc2",
+  "dir": "pysc2",
+  "company": "Google",
+  "stars": 8332,
+  "examined": "2026-10-27 02:20:54",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 9,
+    "cost_usd": 0.071075,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README runs a random agent on a StarCraft II map via python -m pysc2.bin.agent; the free Linux headless SC2 binary and maps download publicly (EULA password only), CPU-only.",
+  "demo": "README 'Run an agent': python -m pysc2.bin.agent --map CollectMineralShards (with mini_games maps)",
+  "goal": "Install pysc2, download the Linux StarCraft II headless build (Blizzard s2client-proto downloads, ~4GB, extract to ~/StarCraftII or set SC2PATH) and the mini_games maps (pysc2 v1.2 release mini_games.zip) into the SC2 Maps dir. Then run `python -m pysc2.bin.agent --map CollectMineralShards --norender --max_episodes 1 --max_agent_steps 200` so the random agent plays and finishes without error, and make env.sh export SC2PATH if non-default.",
+  "check": "The hidden test runs the random agent headless on the CollectMineralShards map for a short episode and checks it completes and reports a score.",
+  "server": false
+}

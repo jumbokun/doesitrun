@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-vggt",
+  "repo": "facebookresearch/vggt",
+  "dir": "vggt",
+  "company": "Meta",
+  "stars": 14564,
+  "examined": "2026-10-27 02:15:51",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 18,
+    "num_turns": 5,
+    "cost_usd": 0.043479300000000005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quick-start runs VGGT-1B (ungated, ~5GB) inference on bundled example images, feasible on CPU with a few images.",
+  "demo": "README 'Quick Start' Python snippet (VGGT.from_pretrained + load_and_preprocess_images + model(images))",
+  "goal": "Get the README quick-start working on CPU: load facebook/VGGT-1B via VGGT.from_pretrained, preprocess several images from /work/vggt/examples/kitchen/images with load_and_preprocess_images, and run model(images) to obtain camera pose encodings, depth maps and point maps. Note the snippet's CUDA-only dtype line must be adapted for CPU (use float32). Make /work/env.sh activate an environment where this works.",
+  "check": "A hidden script runs the model on 4 bundled kitchen images on CPU and checks output tensor shapes, finiteness, and that unprojected 3D points are produced and saved.",
+  "server": false
+}

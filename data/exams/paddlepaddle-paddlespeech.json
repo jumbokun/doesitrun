@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddlespeech",
+  "repo": "PaddlePaddle/PaddleSpeech",
+  "dir": "PaddleSpeech",
+  "company": "Baidu",
+  "stars": 12698,
+  "examined": "2026-10-27 02:16:17",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 4,
+    "cost_usd": 0.034005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quickstart offers CPU-capable paddlespeech asr/tts CLI with small pretrained models auto-downloaded.",
+  "demo": "README Quick Start: paddlespeech asr and paddlespeech tts CLI",
+  "goal": "Install PaddleSpeech from the repo clone (CPU paddlepaddle) so the `paddlespeech` CLI works. Download https://paddlespeech.cdn.bcebos.com/PaddleAudio/zh.wav and run `paddlespeech asr --lang zh --input zh.wav`, which must print the Chinese transcript. Also run `paddlespeech tts --input \"你好，欢迎使用百度飞桨深度学习框架！\" --output output.wav` which must produce a valid wav file. Both must work on CPU.",
+  "check": "The hidden test runs the asr CLI on zh.wav expecting the correct transcript, and the tts CLI expecting a valid non-trivial WAV file.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-detr",
+  "repo": "facebookresearch/detr",
+  "dir": "detr",
+  "company": "Meta",
+  "stars": 15351,
+  "examined": "2026-10-27 02:15:32",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 3,
+    "cost_usd": 0.0402106,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README offers torch.hub pretrained DETR R50 inference that runs on CPU with a ~160MB checkpoint and no credentials.",
+  "demo": "Model Zoo: torch.hub.load('facebookresearch/detr:main','detr_resnet50',pretrained=True) inference",
+  "goal": "Get the repo's DETR R50 pretrained model loading via torch.hub (the repo at /work/detr may be used as a local hub source) and run CPU inference on an image such as a COCO photo of two cats on a couch with remotes. The model must output 100 queries with logits of shape (1,100,92) and boxes, and post-processing must yield confident detections of cats and remotes.",
+  "check": "The hidden test loads the pretrained detr_resnet50 on a COCO image and verifies output shapes and that cats and a remote are detected with score above 0.9.",
+  "server": false
+}

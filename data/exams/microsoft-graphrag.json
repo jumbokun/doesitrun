@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-graphrag",
+  "repo": "microsoft/graphrag",
+  "dir": "graphrag",
+  "company": "Microsoft",
+  "stars": 36454,
+  "examined": "2026-10-27 02:15:32",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 29,
+    "num_turns": 5,
+    "cost_usd": 0.037086299999999996,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README quickstart (graphrag init/index/query) requires an OpenAI or Azure OpenAI API key for LLM calls, which is a paid credential gate.",
+  "demo": "docs/get_started.md CLI quickstart (graphrag index / graphrag query)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

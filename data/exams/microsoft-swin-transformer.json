@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-swin-transformer",
+  "repo": "microsoft/Swin-Transformer",
+  "dir": "Swin-Transformer",
+  "company": "Microsoft",
+  "stars": 16091,
+  "examined": "2026-10-27 02:18:49",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 5,
+    "cost_usd": 0.0551415,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README/get_started.md gives an evaluation command for pretrained Swin-T that can run on CPU with a small ImageFolder dataset, no credentials needed.",
+  "demo": "get_started.md Evaluation: python -m torch.distributed.run --nproc_per_node 1 main.py --eval --cfg configs/swin/swin_tiny_patch4_window7_224.yaml --resume swin_tiny_patch4_window7_224.pth --data-path <imagenet>",
+  "goal": "Get the Swin-T ImageNet-1K evaluation from get_started.md working on CPU only (the code assumes CUDA/NCCL so it needs CPU adaptation). Download the pretrained swin_tiny_patch4_window7_224.pth from the README Model Zoo link and run main.py --eval with configs/swin/swin_tiny_patch4_window7_224.yaml on a small ImageFolder-style dataset (data-path/train and data-path/val with class subfolders, e.g. a few generated images). It must finish and print the 'Accuracy of the network on the N test images' line.",
+  "check": "A hidden test generates a tiny ImageFolder dataset, downloads the Swin-T checkpoint, runs the eval command via torch.distributed.run on one process, and checks the log reports accuracy over all 16 test images.",
+  "server": false
+}

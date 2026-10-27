@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen3-coder",
+  "repo": "QwenLM/Qwen3-Coder",
+  "dir": "Qwen3-Coder",
+  "company": "Alibaba",
+  "stars": 16838,
+  "examined": "2026-10-27 02:15:29",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 30,
+    "num_turns": 4,
+    "cost_usd": 0.040697899999999995,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every official Qwen3-Coder model in the README is 30B-480B parameters (smallest ~30B-A3B, 60GB bf16 / ~30GB FP8), exceeding the 15 GB download and 16 GB RAM CPU-only limits.",
+  "demo": "README Quick Start - Chat with Qwen3-Coder (transformers)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

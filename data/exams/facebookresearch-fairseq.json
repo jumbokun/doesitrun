@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-fairseq",
+  "repo": "facebookresearch/fairseq",
+  "dir": "fairseq",
+  "company": "Meta",
+  "stars": 32213,
+  "examined": "2026-10-27 02:14:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 38,
+    "num_turns": 3,
+    "cost_usd": 0.0321598,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "examples/roberta README shows pretrained RoBERTa base loading, fill_mask and feature extraction, runnable on CPU with a ~700MB public download.",
+  "demo": "examples/roberta/README.md - Example usage (RobertaModel.from_pretrained, fill_mask, encode, extract_features)",
+  "goal": "Install fairseq from /work/fairseq (editable) so that `from fairseq.models.roberta import RobertaModel` works on CPU. Download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, extract it, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt'), and run m.fill_mask('The capital of France is <mask>.', topk=3), m.encode and m.extract_features. Write /work/env.sh that activates the environment (it is sourced before python is run).",
+  "check": "A hidden script loads the roberta.base model, checks fill_mask returns 3 filled predictions including Paris, that encode gives the expected token ids, and that extracted features have shape (1,5,768).",
+  "server": false
+}

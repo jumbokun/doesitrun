@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-funasr",
+  "repo": "modelscope/FunASR",
+  "dir": "FunASR",
+  "company": "Alibaba",
+  "stars": 20828,
+  "examined": "2026-10-27 02:14:38",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 20,
+    "num_turns": 5,
+    "cost_usd": 0.0408233,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Quick Start offers a CPU SenseVoiceSmall + FSMN-VAD + CAM++ pipeline with small models from ModelScope, no keys needed.",
+  "demo": "README Quick Start > FunASR toolkit and pipelines > SenseVoiceSmall CPU example (AutoModel with iic/SenseVoiceSmall, fsmn-vad, cam++, device=cpu)",
+  "goal": "Install FunASR from the repo and make the README SenseVoiceSmall CPU example work: AutoModel(model='iic/SenseVoiceSmall', vad_model='fsmn-vad', spk_model='cam++', device='cpu') then model.generate(input=<wav>, batch_size_s=300), printing per-segment start time, speaker id and text from result[0]['sentence_info']. It must run on CPU with the repo file runtime/funasr_api/asr_example.wav as input (models download from ModelScope).",
+  "check": "A Python script using the README API on a bundled wav file produces non-empty transcribed Chinese text with at least one speaker-labelled segment.",
+  "server": false
+}

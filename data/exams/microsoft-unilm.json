@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-unilm",
+  "repo": "microsoft/unilm",
+  "dir": "unilm",
+  "company": "Microsoft",
+  "stars": 22237,
+  "examined": "2026-10-27 02:16:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 27,
+    "num_turns": 6,
+    "cost_usd": 0.0659257,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "E5 README offers an MTEB evaluation command with the small public intfloat/e5-small-v2 model; a single small STS task is feasible on CPU, though the script hardcodes CUDA and must be adapted.",
+  "demo": "unilm/e5 README, 'Evaluate on the MTEB Benchmark' (scripts/eval_mteb_except_retrieval.sh intfloat/e5-small-v2), restricted via --dry-run to the STS12 task",
+  "goal": "In /work/unilm/e5, get mteb_except_retrieval_eval.py running on CPU only with intfloat/e5-small-v2 (install requirements.txt; the script currently calls .cuda()/fp16/autocast, so make it work without a GPU). The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
+  "check": "The hidden test runs that command into a fresh directory and verifies the STS12 result JSON exists with a cosine-similarity Spearman score in the plausible range for e5-small-v2.",
+  "server": false
+}

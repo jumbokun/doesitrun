@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-detectron2",
+  "repo": "facebookresearch/detectron2",
+  "dir": "detectron2",
+  "company": "Meta",
+  "stars": 34952,
+  "examined": "2026-10-27 02:14:19",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 4,
+    "cost_usd": 0.0344743,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "GETTING_STARTED.md gives a demo.py CPU inference command with a public model-zoo checkpoint (~170MB), no credentials.",
+  "demo": "GETTING_STARTED.md 'Inference Demo with Pre-trained Models' (demo/demo.py with mask_rcnn_R_50_FPN_3x)",
+  "goal": "Install detectron2 (CPU-only PyTorch build) so that `cd demo && python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input <image.jpg> --output <dir> --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl MODEL.DEVICE cpu` runs and writes a visualized image with predicted instance masks. Put the needed environment activation in /work/env.sh.",
+  "check": "The hidden test runs the demo on a COCO photo and verifies an annotated output image of the same size, visibly differing from the input, is written.",
+  "server": false
+}

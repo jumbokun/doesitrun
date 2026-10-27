@@ -1,0 +1,21 @@
+{
+  "slug": "google-python-fire",
+  "repo": "google/python-fire",
+  "dir": "python-fire",
+  "company": "Google",
+  "stars": 28231,
+  "examined": "2026-10-27 02:15:29",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 3,
+    "cost_usd": 0.0286174,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Python Fire's README shows small CLI examples (hello.py, calculator.py) that run trivially on CPU.",
+  "demo": "README Basic Usage: fire.Fire on a function and on a class",
+  "goal": "Install python-fire from the cloned repo so that `import fire` works. Then create hello.py and calculator.py exactly as in the README Basic Usage section and run `python hello.py`, `python hello.py --name=David`, `python hello.py --help`, `python calculator.py double 10` and `python calculator.py double --number=15`. Also the repo's examples (e.g. examples/cipher) should run as CLIs.",
+  "check": "The hidden test writes the README example scripts itself, runs them with the installed fire and checks the printed outputs (Hello World!, Hello David!, 20, 30, help text).",
+  "server": false
+}

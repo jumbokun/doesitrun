@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-pytorch3d",
+  "repo": "facebookresearch/pytorch3d",
+  "dir": "pytorch3d",
+  "company": "Meta",
+  "stars": 9990,
+  "examined": "2026-10-27 02:18:28",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 20,
+    "num_turns": 4,
+    "cost_usd": 0.041957,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The 'Render textured meshes' tutorial runs on CPU with a cow mesh bundled in the repo.",
+  "demo": "README Tutorials: Render textured meshes (docs/tutorials/render_textured_meshes.ipynb)",
+  "goal": "Install PyTorch3D (CPU build) from the /work/pytorch3d clone so that `import pytorch3d` works. Then the tutorial's core pipeline must work on CPU: load docs/tutorials/data/cow_mesh/cow.obj with pytorch3d.io.load_objs_as_meshes, and render it with a FoVPerspectiveCameras + MeshRasterizer + SoftPhongShader + PointLights MeshRenderer to an RGBA image.",
+  "check": "A hidden script loads the bundled cow mesh, renders it on CPU, and checks the image shape and that it contains non-background textured pixels.",
+  "server": false
+}

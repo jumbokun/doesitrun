@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-modelscope",
+  "repo": "modelscope/modelscope",
+  "dir": "modelscope",
+  "company": "Alibaba",
+  "stars": 9190,
+  "examined": "2026-10-27 02:16:53",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 3,
+    "cost_usd": 0.0253246,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quickstart shows a small CPU-friendly word-segmentation pipeline with a public ~400MB model.",
+  "demo": "README 'Quick tour' / pipeline word-segmentation example",
+  "goal": "Install modelscope with the dependencies needed for NLP pipelines, then run in Python: from modelscope.pipelines import pipeline; p = pipeline('word-segmentation', model='damo/nlp_structbert_word-segmentation_chinese-base'); p('今天天气不错，适合出去游玩'). It must download the model from ModelScope and print a space-segmented Chinese result on CPU.",
+  "check": "A Python script runs the word-segmentation pipeline on the README sentence and checks the segmented tokens are sensible and reconstruct the input.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-piano-transcription",
+  "repo": "bytedance/piano_transcription",
+  "dir": "piano_transcription",
+  "company": "ByteDance",
+  "stars": 2017,
+  "examined": "2026-10-27 02:18:28",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 3,
+    "cost_usd": 0.035646899999999995,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README shows pip-installable piano_transcription_inference snippet that transcribes resources/cut_liszt.mp3 to MIDI, feasible on CPU with a ~165MB checkpoint.",
+  "demo": "README 'Piano transcription using pretrained model'",
+  "goal": "Install piano_transcription_inference and run the README Python snippet with device='cpu' on resources/cut_liszt.mp3 in the repo, producing a MIDI file via transcriptor.transcribe(audio, out.mid). The pretrained checkpoint must be downloaded automatically or manually, and the MIDI must contain real transcribed notes. /work/env.sh must activate whatever environment makes `python` able to import piano_transcription_inference.",
+  "check": "The hidden test runs the README snippet on CPU on the bundled mp3 and verifies a valid MIDI file with a plausible number of notes is written.",
+  "server": false
+}

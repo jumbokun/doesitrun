@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-trae-agent",
+  "repo": "bytedance/trae-agent",
+  "dir": "trae-agent",
+  "company": "ByteDance",
+  "stars": 12155,
+  "examined": "2026-10-27 02:14:17",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 3,
+    "cost_usd": 0.0208234,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README demo (trae-cli run) needs an LLM provider API key; the only keyless path (Ollama with a local model) is unreliable for tool-calling agent runs on CPU.",
+  "demo": "Quick Start: trae-cli run \"Create a hello world Python script\"",
+  "goal": "",
+  "check": "",
+  "server": false
+}

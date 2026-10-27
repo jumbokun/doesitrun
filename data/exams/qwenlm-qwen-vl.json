@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen-vl",
+  "repo": "QwenLM/Qwen-VL",
+  "dir": "Qwen-VL",
+  "company": "Alibaba",
+  "stars": 6728,
+  "examined": "2026-10-27 02:17:26",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 6,
+    "cost_usd": 0.038723099999999996,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README's only CPU-capable demo needs Qwen-VL-Chat weights of about 19.3 GB, over the 15 GB download limit, and the smaller Int4 variant requires a GPU (AutoGPTQ).",
+  "demo": "README Quickstart: Qwen-VL-Chat inference with transformers",
+  "goal": "",
+  "check": "",
+  "server": false
+}

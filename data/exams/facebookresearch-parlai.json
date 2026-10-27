@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-parlai",
+  "repo": "facebookresearch/ParlAI",
+  "dir": "ParlAI",
+  "company": "Meta",
+  "stars": 10616,
+  "examined": "2026-10-27 02:17:01",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 4,
+    "cost_usd": 0.0356195,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README shows `parlai display_data -t squad`, a small CPU-only dataset download and display.",
+  "demo": "README 'Examples': parlai display_data -t squad",
+  "goal": "Install ParlAI from the clone so the `parlai` CLI works on CPU. Then `parlai display_data -t squad -n 5` must download SQuAD and print examples with text and labels. `parlai eval_model -m repeat_label -t integration_tests -dt valid -ne 10` must also run and report metrics.",
+  "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks that examples with text and labels are printed and the data files exist. It then runs a small eval_model and checks that metrics are reported.",
+  "server": false
+}

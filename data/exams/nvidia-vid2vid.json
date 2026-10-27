@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-vid2vid",
+  "repo": "NVIDIA/vid2vid",
+  "dir": "vid2vid",
+  "company": "NVIDIA",
+  "stars": 8700,
+  "examined": "2026-10-27 02:19:49",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 4,
+    "cost_usd": 0.0380706,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README demo requires an NVIDIA GPU: the code hardcodes .cuda() calls and compiles FlowNet2 CUDA extensions on PyTorch 0.4. The models and datasets also come from Google Drive.",
+  "demo": "Testing (scripts/street/test_g1_1024.sh)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

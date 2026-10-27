@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-pyright",
+  "repo": "microsoft/pyright",
+  "dir": "pyright",
+  "company": "Microsoft",
+  "stars": 15704,
+  "examined": "2026-10-27 02:19:16",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 26,
+    "num_turns": 4,
+    "cost_usd": 0.0392565,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Pyright is a Node.js CLI type checker that builds from source and runs on CPU with no credentials.",
+  "demo": "docs/build-debug.md 'Building the CLI' plus docs/command-line.md: run pyright CLI on a Python file",
+  "goal": "Build the pyright CLI from the cloned source in /work/pyright (pnpm run install:all, then pnpm run build in packages/pyright), as described in docs/build-debug.md. Then `node /work/pyright/packages/pyright/index.js <file.py>` must type-check Python files, report type errors, and with `--outputjson` emit JSON diagnostics. Make sure /work/env.sh puts node and pnpm on PATH.",
+  "check": "The hidden test runs the built pyright CLI on a small Python file with known type errors and a clean file, and verifies the reported errors, the JSON output and the exit codes.",
+  "server": false
+}

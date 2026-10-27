@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-dolphin",
+  "repo": "bytedance/Dolphin",
+  "dir": "Dolphin",
+  "company": "ByteDance",
+  "stars": 9066,
+  "examined": "2026-10-27 02:15:37",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 24,
+    "num_turns": 6,
+    "cost_usd": 0.053802100000000005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README gives page-level inference commands with bundled demo images and a public (ungated) Dolphin-v2 3B model that can run on CPU.",
+  "demo": "README Inference > Page-level Parsing: python demo_page.py --model_path ./hf_model --save_dir ./results --input_path ./demo/page_imgs/page_1.png",
+  "goal": "Install the dependencies, download the ByteDance/Dolphin-v2 model into /work/Dolphin/hf_model, and run `python demo_page.py --model_path ./hf_model --save_dir <dir> --input_path ./demo/page_imgs/page_1.png` on CPU. It must finish and write the parsed JSON and Markdown results for the page. /work/env.sh must make the right python environment available.",
+  "check": "The hidden test runs page-level parsing on a bundled demo image and verifies that non-trivial JSON and Markdown output files with parsed text are produced.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-monolith",
+  "repo": "bytedance/monolith",
+  "dir": "monolith",
+  "company": "ByteDance",
+  "stars": 9287,
+  "examined": "2026-10-27 02:15:12",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 27,
+    "num_turns": 5,
+    "cost_usd": 0.043746099999999996,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The only runnable path is a Bazel 3.1.0 source build of a large TensorFlow-based C++/custom-op tree (bazel run //monolith/native_training:demo), which is unlikely to finish on 4 CPUs within 2 hours, and no prebuilt package is offered.",
+  "demo": "README Quick start: bazel run //monolith/native_training:demo",
+  "goal": "",
+  "check": "",
+  "server": false
+}

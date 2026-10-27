@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-isaac-gr00t",
+  "repo": "NVIDIA/Isaac-GR00T",
+  "dir": "Isaac-GR00T",
+  "company": "NVIDIA",
+  "stars": 8270,
+  "examined": "2026-10-27 02:20:22",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 32,
+    "num_turns": 3,
+    "cost_usd": 0.0346264,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every GR00T checkpoint needs the gated Hugging Face model nvidia/Cosmos-Reason2-2B (account/token required), and inference targets a GPU with 16GB+ VRAM.",
+  "demo": "README Inference",
+  "goal": "",
+  "check": "",
+  "server": false
+}
