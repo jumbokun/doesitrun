@@ -1123,48 +1123,8 @@
           "attribution_evidence": [
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
-          "repo": "NVIDIA/SkillSpector",
-          "slug": "nvidia-skillspector",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
-          "repo": "NVIDIA/warp",
-          "slug": "nvidia-warp",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null
+          "audit": "repo_failure",
+          "audit_reason": "The oracle passes exactly what the task specifies: a directory holding the four GPT-2 tokenizer files (tokenizer.json, tokenizer_config.json, vocab.json, merges.txt). Megatron's HuggingFaceTokenizer calls AutoTokenizer on that directory, and the installed transformers 4.57.6 can't work out the model type: the HF tokenizer_config.json is only {\"model_max_length\": 1024} and there is no config.json. It only loads when the directory path contains 'gpt2', and the installer's own test used /work/gpt2, which is why it passed there; with transformers 5.x the tokenizer loads but eos_token is None, so --append-eod breaks. The install fails for any directory name the spec allows, so this is the install's fault, not the oracle's."
         },
         {
           "repo": "NVlabs/SPADE",
@@ -1183,8 +1143,8 @@
           "attribution_evidence": [
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
-          "audit": null,
-          "audit_reason": null
+          "audit": "repo_failure",
+          "audit_reason": "The oracle stopped at `test -d checkpoints/coco_pretrained` because checkpoints/ is empty. The pretrained-model tarball that README.md line 65 points to on Google Drive (id 12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ) now returns HTTP 404, and gdown can't fetch it either, so the README's documented COCO test demo can't be run. The oracle's check is reasonable; the repo's required download is broken."
         },
         {
           "repo": "bytedance/UI-TARS",
@@ -1286,6 +1246,46 @@
           ],
           "audit": "oracle_defect",
           "audit_reason": "The server, UI and app-config work, and the upload API returns success once the request carries the X-Workspace-Id header. The frontend always sends that header, and the code requires it by design (py-src/data_formulator/workspace_factory.py:135). The oracle's curl calls leave the header out, so the server rejects them; nothing is wrong with the install. The README never documents these internal API calls, let alone says they work without a workspace header."
+        },
+        {
+          "repo": "NVIDIA/SkillSpector",
+          "slug": "nvidia-skillspector",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The malicious scan works and writes a valid 21KB JSON report with 7 issues, versus 0 for the safe fixture. It exits 1 because risk_score is 100, and README 'Exit codes' documents exit 1 as 'Scan completed and risk_score > 50'. The oracle runs under set -e, so it aborts on this documented exit code. It would also have failed later, because it looks for a 'findings' key when the report schema uses 'issues'."
+        },
+        {
+          "repo": "NVIDIA/warp",
+          "slug": "nvidia-warp",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The mesh example ran on CPU and wrote a 1.79 MB USD with 6 prims, and the end-time assertion passed. The failure came from the oracle defining a wp.kernel inside `python -c`. Warp has to read kernel source with inspect, and it explicitly rejects code with no source file ('Directly evaluating Warp code defined as a string ... is not supported'). The same kernel saved to a file launches on CPU and gives correct results."
         },
         {
           "repo": "PaddlePaddle/PaddleSpeech",
@@ -1418,8 +1418,8 @@
         },
         {
           "company": "NVIDIA",
-          "n": 10,
-          "mean": 47.4,
+          "n": 8,
+          "mean": 59.2,
           "teams": [
             {
               "team": "NVIDIA Research",
@@ -1428,8 +1428,8 @@
             },
             {
               "team": "NVIDIA",
-              "n": 5,
-              "mean": 33.5
+              "n": 3,
+              "mean": 55.8
             }
           ]
         },

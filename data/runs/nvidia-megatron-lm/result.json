@@ -37,5 +37,20 @@
     },
     "class": "fail: other"
   },
-  "finished": "2026-10-27 03:33:23"
+  "finished": "2026-10-27 03:33:23",
+  "audit": {
+    "verdict": "repo_failure",
+    "reason": "The oracle passes exactly what the task specifies: a directory holding the four GPT-2 tokenizer files (tokenizer.json, tokenizer_config.json, vocab.json, merges.txt). Megatron's HuggingFaceTokenizer calls AutoTokenizer on that directory, and the installed transformers 4.57.6 can't work out the model type: the HF tokenizer_config.json is only {\"model_max_length\": 1024} and there is no config.json. It only loads when the directory path contains 'gpt2', and the installer's own test used /work/gpt2, which is why it passed there; with transformers 5.x the tokenizer loads but eos_token is None, so --append-eod breaks. The install fails for any directory name the spec allows, so this is the install's fault, not the oracle's.",
+    "evidence_cmd": "source /work/env.sh; python -I -c \"from transformers import AutoTokenizer; AutoTokenizer.from_pretrained('/tmp/a1/tok')\"  (same 4 files copied to /tmp/a1/gpt2 load fine)",
+    "evidence_out": "transformers 4.57.6: FAIL tok Unrecognized model in /tmp/a1/tok. Should have a `model_type` key in its config. / gpt2 dir OK 50256 / transformers 5.21.0: eos_token None",
+    "setup_ok": true,
+    "oracle_rerun_pass": false,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 45,
+      "num_turns": 6,
+      "cost_usd": 0.1331386
+    },
+    "audited": "2026-10-27 04:11:24"
+  }
 }
