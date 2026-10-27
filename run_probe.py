@@ -147,6 +147,8 @@ def repo_diff(name, repo_dir):
             "lines_changed": sum(f["added"] + f["removed"] for f in files), "files": files}
 
 
+INFRA_ERROR = re.compile(r"usage limit|rate limit|Not logged in|overloaded|API Error|credit balance|"
+                         r"Please run /login|503|529|timed out waiting", re.I)
 AGENT_MODEL = os.environ.get("RR_MODEL", "claude-opus-5-5")        # pinned: model changes agent time/success
 EXAM_MODEL = os.environ.get("RR_EXAM_MODEL", "claude-sonnet-5-5")   # examiner only reads code
 
@@ -238,6 +240,11 @@ def probe(cfg):
 
     start_container(name, cfg)
     res["agent"] = run_agent(cfg, name, rundir)
+    if res["agent"].get("is_error") and INFRA_ERROR.search(res["agent"].get("final") or ""):
+        # Rate limit, login or API outage is not the repo being hard: record nothing, fail the job,
+        # and let the run be dispatched again.
+        sh(["docker", "rm", "-f", name])
+        raise RuntimeError(f"agent infrastructure failure for {cfg['repo']}: {res['agent'].get('final')!r}")
     res["oracle"] = oracle(name, slug, rundir / "oracle.txt")
 
     deliv = rundir / "deliverables"
