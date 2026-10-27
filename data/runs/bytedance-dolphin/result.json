@@ -1,0 +1,37 @@
+{
+  "slug": "bytedance-dolphin",
+  "repo": "bytedance/Dolphin",
+  "track": "cpu-gha",
+  "goal": "Install the dependencies, download the ByteDance/Dolphin-v2 model into /work/Dolphin/hf_model, and run `python demo_page.py --model_path ./hf_model --save_dir <dir> --input_path ./demo/page_imgs/page_1.png` on CPU. It must finish and write the parsed JSON and Markdown results for the page. /work/env.sh must make the right python environment available.",
+  "check": "The hidden test runs page-level parsing on a bundled demo image and verifies that non-trivial JSON and Markdown output files with parsed text are produced.",
+  "started": "2026-10-27 03:26:46",
+  "agent": {
+    "secs": 5400,
+    "timed_out": true,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7067913b-49cf-48fd-b78f-bc55384e8888"
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 5,
+    "files": [
+      {
+        "path": "demo_page.py",
+        "added": 3,
+        "removed": 2
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": false,
+    "note": "no setup.sh delivered"
+  },
+  "finished": "2026-10-27 04:56:58"
+}

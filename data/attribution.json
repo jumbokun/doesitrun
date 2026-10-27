@@ -681,5 +681,77 @@
     "evidence": [
       "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
     ]
+  },
+  "bytedance/Dolphin": {
+    "repo": "bytedance/Dolphin",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
+  },
+  "bytedance/GiantMIDI-Piano": {
+    "repo": "bytedance/GiantMIDI-Piano",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
+  },
+  "bytedance/LatentSync": {
+    "repo": "bytedance/LatentSync",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
+  },
+  "bytedance/MegaTTS3": {
+    "repo": "bytedance/MegaTTS3",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
+  },
+  "bytedance/piano_transcription": {
+    "repo": "bytedance/piano_transcription",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
+  },
+  "bytedance/Protenix": {
+    "repo": "bytedance/Protenix",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
+  },
+  "bytedance/Sa2VA": {
+    "repo": "bytedance/Sa2VA",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
+  },
+  "ByteDance-Seed/m3-agent": {
+    "repo": "ByteDance-Seed/m3-agent",
+    "company": "ByteDance",
+    "team": "Seed",
+    "confidence": "high",
+    "evidence": [
+      "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
+    ]
   }
 }

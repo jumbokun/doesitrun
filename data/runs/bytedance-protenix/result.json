@@ -1,0 +1,52 @@
+{
+  "slug": "bytedance-protenix",
+  "repo": "bytedance/Protenix",
+  "track": "cpu-gha",
+  "goal": "Install Protenix (CPU only, no GPU) so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically; avoid anything needing GPU-only kernels. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
+  "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with plausible atom count and a confidence summary json are produced.",
+  "started": "2026-10-27 03:26:51",
+  "agent": {
+    "secs": 583,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "c29bf5b7-7065-40a3-92ed-925584ddc927",
+    "num_turns": 23,
+    "cost_usd": 0.5466732000000001,
+    "is_error": false,
+    "final": "failed run looked like success. It now switches to the plain PyTorch kernels when no GPU is found (`runner/inference.py`), so your command works with no extra flags.\n- **Limit:** the bundled `examples/input.json` (about 800 residues) gets killed for running out of memory with 15 GB of RAM. Small proteins like the test case are fine.\n\nFiles are in /work:\n- setup.sh\n- env.sh\n- NOTES.md\n- REPORT.json"
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 72
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 15,
+    "files": [
+      {
+        "path": "protenix/model/triangular/layers.py",
+        "added": 5,
+        "removed": 1
+      },
+      {
+        "path": "runner/inference.py",
+        "added": 9,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 206,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 67
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:42:41"
+}

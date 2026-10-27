@@ -1,0 +1,47 @@
+{
+  "slug": "bytedance-sa2va",
+  "repo": "bytedance/Sa2VA",
+  "track": "cpu-gha",
+  "goal": "Get projects/sa2va/demo/demo.py running on CPU with the ByteDance/Sa2VA-1B model (smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir. Note flash_attn and a CUDA GPU are unavailable, so CPU fallbacks may be needed.",
+  "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and mask-overlay images are written to the output directory.",
+  "started": "2026-10-27 03:37:52",
+  "agent": {
+    "secs": 4759,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "80b03424-d720-4302-a8f8-52b23f05f04f",
+    "num_turns": 55,
+    "cost_usd": 1.4328854000000002,
+    "is_error": false,
+    "final": "DONE — I rebuilt everything from scratch with `/work/setup.sh`, then ran the patched `demo.py` on CPU with `ByteDance/Sa2VA-1B` and 5 frames from `gf_exp1.mp4`; it printed `Sure, the segmentation result is [SEG].` and wrote 5 mask-overlay images to the `--work-dir`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 130
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 39,
+    "files": [
+      {
+        "path": "projects/sa2va/demo/demo.py",
+        "added": 35,
+        "removed": 4
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 30,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 148
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 05:02:40"
+}

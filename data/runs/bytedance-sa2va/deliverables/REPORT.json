@@ -1,0 +1,14 @@
+{
+  "readme_path_worked_as_written": false,
+  "interventions": [
+    {"kind": "gpu_compat", "detail": "Removed flash_attn from demo requirements and installed CPU wheels of torch 2.3.1/torchvision 0.18.1 (Python 3.11 uv venv)"},
+    {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 because mmengine pulls in non-headless opencv-python, which needs libGL.so.1"},
+    {"kind": "code_patch", "detail": "demo.py: drop flash_attn from transformers' remote-code import check so the hub model loads without flash_attn"},
+    {"kind": "code_patch", "detail": "demo.py: only pass processor= to predict_forward when not None (Sa2VA-1B remote code has no processor argument)"},
+    {"kind": "gpu_compat", "detail": "demo.py: on CPU, no-op Tensor.cuda/Module.cuda and force SAM2 init_state device/storage_device to cpu"},
+    {"kind": "gpu_compat", "detail": "demo.py: on CPU, load in fp32 with low_cpu_mem_usage and force preparing_for_generation torch_dtype=float32 (CPU bf16 ~160x slower)"},
+    {"kind": "code_patch", "detail": "demo.py: run predict_forward under torch.inference_mode() to avoid OOM from autograd state in SAM2"},
+    {"kind": "code_patch", "detail": "demo.py: cap the mask visualization loop at len(pred_masks) because the model predicts masks for at most 5 frames"},
+    {"kind": "undocumented_step", "detail": "Pre-download ByteDance/Sa2VA-1B at a pinned revision into the HF cache; env.sh sets HF_HUB_OFFLINE=1"}
+  ]
+}

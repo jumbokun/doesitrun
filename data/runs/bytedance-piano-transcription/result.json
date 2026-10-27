@@ -1,0 +1,41 @@
+{
+  "slug": "bytedance-piano-transcription",
+  "repo": "bytedance/piano_transcription",
+  "track": "cpu-gha",
+  "goal": "Install piano_transcription_inference and run the README Python snippet with device='cpu' on resources/cut_liszt.mp3 in the repo, producing a MIDI file via transcriptor.transcribe(audio, out.mid). The pretrained checkpoint must be downloaded automatically or manually, and the MIDI must contain real transcribed notes. /work/env.sh must activate whatever environment makes `python` able to import piano_transcription_inference.",
+  "check": "The hidden test runs the README snippet on CPU on the bundled mp3 and verifies a valid MIDI file with a plausible number of notes is written.",
+  "started": "2026-10-27 03:28:23",
+  "agent": {
+    "secs": 256,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "de20642e-8e2e-4432-8dde-636925f4459e",
+    "num_turns": 9,
+    "cost_usd": 0.1644142,
+    "is_error": false,
+    "final": "DONE — The README snippet now runs on CPU and transcribes `resources/cut_liszt.mp3` into a MIDI file with 508 notes. I re-ran `setup.sh` and the transcription in this sandbox, but not yet on a fresh container. To get there I added `audioread`, pinned `librosa==0.9.2`, installed `ffmpeg`/`wget` and CPU-only torch, and had `setup.sh` download the checkpoint."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 32
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 85,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 34
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:35:31"
+}

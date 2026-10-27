@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Skipped README setup.sh (sudo pip torch/flash-attn/insightface); venv with only requirements.txt, versions pinned in setup.sh"},
+  {"kind": "code_patch", "detail": "mmagent/__init__.py: wrap face_processing/voice_processing imports in try/except since they load insightface and ERes2NetV2 checkpoint at import time"},
+  {"kind": "undocumented_step", "detail": "Download memory_graphs/robot.tar.gz from HF dataset ByteDance-Seed/M3-Bench and extract bedroom_01.pkl into data/memory_graphs/robot/"}
+ ]}

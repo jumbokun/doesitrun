@@ -426,6 +426,26 @@
           "audit_reason": null
         },
         {
+          "repo": "bytedance/MegaTTS3",
+          "slug": "bytedance-megatts3",
+          "score": 96.0,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "modelscope/ms-swift",
           "slug": "modelscope-ms-swift",
           "score": 95.8,
@@ -441,6 +461,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "bytedance/piano_transcription",
+          "slug": "bytedance-piano-transcription",
+          "score": 95.7,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
           "audit_reason": null
@@ -541,6 +581,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "bytedance/GiantMIDI-Piano",
+          "slug": "bytedance-giantmidi-piano",
+          "score": 93.8,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 6.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
           "audit_reason": null
@@ -701,6 +761,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "ByteDance-Seed/m3-agent",
+          "slug": "bytedance-seed-m3-agent",
+          "score": 87.1,
+          "why": "3 min, 1 repo files patched",
+          "agent_minutes": 2.9,
+          "files_patched": 1,
+          "lines_patched": 8,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "Seed",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
           ],
           "audit": null,
           "audit_reason": null
@@ -926,6 +1006,26 @@
           "audit_reason": null
         },
         {
+          "repo": "bytedance/Protenix",
+          "slug": "bytedance-protenix",
+          "score": 70.3,
+          "why": "10 min, 2 repo files patched",
+          "agent_minutes": 9.7,
+          "files_patched": 2,
+          "lines_patched": 15,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "NVIDIA/FastPhotoStyle",
           "slug": "nvidia-fastphotostyle",
           "score": 68.0,
@@ -1021,6 +1121,66 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "bytedance/Sa2VA",
+          "slug": "bytedance-sa2va",
+          "score": 40,
+          "why": "79 min, 1 repo files patched",
+          "agent_minutes": 79.3,
+          "files_patched": 1,
+          "lines_patched": 39,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "bytedance/LatentSync",
+          "slug": "bytedance-latentsync",
+          "score": 10,
+          "why": "90 min, 5 repo files patched",
+          "agent_minutes": 90.0,
+          "files_patched": 5,
+          "lines_patched": 23,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "bytedance/Dolphin",
+          "slug": "bytedance-dolphin",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 90.0,
+          "files_patched": 1,
+          "lines_patched": 5,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
           "audit_reason": null
@@ -1435,13 +1595,18 @@
         },
         {
           "company": "ByteDance",
-          "n": 1,
-          "mean": 0,
+          "n": 9,
+          "mean": 54.8,
           "teams": [
             {
+              "team": "ByteDance",
+              "n": 7,
+              "mean": 58.0
+            },
+            {
               "team": "Seed",
-              "n": 1,
-              "mean": 0
+              "n": 2,
+              "mean": 43.5
             }
           ]
         }

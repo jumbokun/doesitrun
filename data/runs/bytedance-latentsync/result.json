@@ -1,0 +1,63 @@
+{
+  "slug": "bytedance-latentsync",
+  "repo": "bytedance/LatentSync",
+  "track": "cpu-gha",
+  "goal": "Get LatentSync's CLI inference (python -m scripts.inference, as in inference.sh with configs/unet/stage2_512.yaml and checkpoints/latentsync_unet.pt downloaded from ByteDance/LatentSync-1.6) to produce a lip-synced video on CPU only from a short clip of assets/demo1_video.mp4 and assets/demo1_audio.wav. The code hardcodes cuda in places, so it must be made to run on CPU (float32). It must accept --video_path, --audio_path, --video_out_path, --inference_steps and --guidance_scale as in inference.sh.",
+  "check": "Running the inference CLI on a 1.6-second clip of the demo video/audio produces an output mp4 with sensible size, resolution, frame count and an audio track.",
+  "started": "2026-10-27 03:27:40",
+  "agent": {
+    "secs": 5400,
+    "timed_out": true,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7e8f4b17-c15c-40e1-9380-6306a55feda1"
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2486
+  },
+  "repo_diff": {
+    "files_changed": 5,
+    "lines_changed": 23,
+    "files": [
+      {
+        "path": "latentsync/models/unet.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "latentsync/pipelines/lipsync_pipeline.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "latentsync/utils/face_detector.py",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "path": "latentsync/utils/image_processor.py",
+        "added": 2,
+        "removed": 4
+      },
+      {
+        "path": "scripts/inference.py",
+        "added": 6,
+        "removed": 2
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 122,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2520
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 06:23:28"
+}

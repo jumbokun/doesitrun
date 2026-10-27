@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "librosa not in requirements; pinned librosa==0.9.2 because newer librosa breaks piano_transcription_inference.load_audio (librosa.core.audio removed)"},
+  {"kind": "dependency_pin", "detail": "installed audioread (and mido) explicitly; piano_transcription_inference imports audioread but it is no longer pulled in transitively"},
+  {"kind": "system_package", "detail": "apt install ffmpeg (mp3 decoding) and libsndfile1"},
+  {"kind": "system_package", "detail": "wget needed by piano_transcription_inference auto checkpoint download; checkpoint pre-downloaded with curl instead"},
+  {"kind": "undocumented_step", "detail": "importing dataset.py downloads nltk punkt/tagger data at runtime; pre-triggered in setup.sh"},
+  {"kind": "python_version", "detail": "used uv venv on Python 3.12 with PyTorch CPU wheel from download.pytorch.org"}
+ ]}

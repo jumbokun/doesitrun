@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "openai-whisper==20240930 sdist needs pkg_resources at build time; pinned setuptools<81 as a build constraint"},
+  {"kind": "gpu_compat", "detail": "Installed torch/torchaudio 2.6.0 CPU wheels from download.pytorch.org/whl/cpu for CPU-only machine"},
+  {"kind": "undocumented_step", "detail": "Checkpoint download not scripted in README; used huggingface_hub snapshot_download into ./checkpoints"},
+  {"kind": "system_package", "detail": "apt install ffmpeg libsndfile1 for audio I/O (only mentioned in Dockerfile/Windows notes)"},
+  {"kind": "other", "detail": "Used uv venv with Python 3.10 instead of conda (conda not available)"}
+ ]}
