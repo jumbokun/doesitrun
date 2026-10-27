@@ -146,7 +146,8 @@ def findings(tracks):
         return ""
     rows = t["repos"]
     scored = [r for r in rows if r["score"] is not None]
-    ran = [r for r in scored if r["score"] > 0]
+    ran = [r for r in rows if r["score"] is not None and r["score"] > 0]
+    ran_replay = sum(r["replay"] == "pass" for r in ran)
     defects = [r for r in rows if r["score"] is None]
     replays = sum(r["replay"] == "pass" for r in rows)
     med = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
@@ -177,8 +178,8 @@ def findings(tracks):
   <div class="overline">{esc(t['label'])}</div>
   <h2>What we found</h2>
   <div class="stats">
-    <div class="stat"><div class="v">{len(ran)}/{len(scored)}</div><div class="l">README demos that ran</div></div>
-    <div class="stat"><div class="v">{replays}/{len(rows)}</div><div class="l">installers replay on a fresh box</div></div>
+    <div class="stat"><div class="v">{len(ran)}/{len(rows)}</div><div class="l">README demos that ran</div></div>
+    <div class="stat"><div class="v">{ran_replay}/{len(ran)}</div><div class="l">of those, installers replay first try</div></div>
     <div class="stat"><div class="v">{med:.0f} min</div><div class="l">median agent time</div></div>
     <div class="stat"><div class="v">{len(defects)}</div><div class="l">oracle defects, not scored</div></div>
   </div>
@@ -242,7 +243,7 @@ def main():
     rows = [r for t in tracks for r in t["repos"]]
     ran = [r for r in rows if (r["score"] or 0) > 0]
     sections = findings(tracks) + "".join(track_section(t, i) for i, t in enumerate(tracks))
-    replays = sum(r["replay"] == "pass" for r in rows)
+    replays = sum(r["replay"] == "pass" for r in ran)
     median_min = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
     sha = os.environ.get("GITHUB_SHA", "local")[:7]
     built = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
@@ -368,7 +369,7 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
     <div class="stat"><div class="v">{len(rows)}</div><div class="l">repos tested</div></div>
     <div class="stat"><div class="v">{len(ran)}/{len(rows)}</div><div class="l">got running</div></div>
     <div class="stat"><div class="v">{median_min:.0f} min</div><div class="l">median agent time</div></div>
-    <div class="stat"><div class="v">{replays}/{len(rows)}</div><div class="l">installer replays first try</div></div>
+    <div class="stat"><div class="v">{replays}/{len(ran)}</div><div class="l">of those, installers replay first try</div></div>
   </div>
 </header>
 
@@ -378,11 +379,15 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
   <div class="method">
     <h3>The run</h3>
     <ul>
-      <li>Agent: Claude Code with a single tool, <code>docker exec</code> into a throwaway container
-        (Ubuntu 24.04, CUDA 12.8, RTX 5060 8&nbsp;GB). No host access; private networks firewalled off.</li>
+      <li>Agent: Claude Code (Opus 5.5 pinned on the CPU track; Opus 5 on the earlier GPU track) with a single tool, <code>docker exec</code> into a throwaway container:
+        a CPU-only GitHub-hosted runner (4 vCPU, 16&nbsp;GB) on the CPU track, an RTX 5060 8&nbsp;GB on the GPU track.
+        No host access; private networks and cloud metadata firewalled off. 90 minutes per repo.</li>
       <li>Goal: the repo's own README demo. Success is decided by a hidden script written before the run
         and copied in only after the agent stops.</li>
-      <li>Replay: the agent's <code>setup.sh</code> is run on a fresh container to see if the install is shareable.</li>
+      <li>Replay: the agent's <code>setup.sh</code> is run on a fresh container to see if the install is shareable;
+        if it fails, the agent gets one repair round.</li>
+      <li>Audit (CPU track): every failed hidden test is reviewed by an independent agent; a defective test leaves
+        the repo unscored. A run that hit the 90-minute limit stays 0.</li>
     </ul>
     <h3>The score</h3>
     <ul>
@@ -392,11 +397,13 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
     </ul>
     <h3>Who made it</h3>
     <ul>
-      <li>Company and team come from, in order: the owning GitHub org (high), LICENSE copyright or CLA (medium),
-        the linked paper's author affiliations via OpenAlex (medium), README mentions (low). Hover the tag for evidence.</li>
+      <li>Company comes from, in order: the owning GitHub org (high), LICENSE copyright or CLA (medium), the linked
+        paper's author affiliations via OpenAlex (medium). Teams are split only where separate GitHub org accounts
+        show them. Hover the tag for evidence.</li>
     </ul>
-    <div class="caveat">Small sample, one run each, one GPU generation (Blackwell needs recent PyTorch, which
-      penalises old pins). Agent time also moves with download speed. Scores are a signal, not a verdict.</div>
+    <div class="caveat">One run per repo, one pinned agent, AI-written tests (audited), and hardware that favours
+      some repos (no GPU on the CPU track; one Blackwell card on the GPU track, which penalises old PyTorch pins).
+      Agent time also moves with download speed. Scores are a signal, not a verdict.</div>
   </div>
 </section>
 
