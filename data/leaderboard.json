@@ -542,28 +542,8 @@
           "attribution_evidence": [
             "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
           ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
-          "repo": "bytedance/UI-TARS",
-          "slug": "bytedance-ui-tars",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
-          ],
-          "audit": null,
-          "audit_reason": null
+          "audit": "repo_failure",
+          "audit_reason": "The da3 CLI crashes at import with ModuleNotFoundError: No module named 'addict', before any inference happens. src/depth_anything_3/model/da3.py imports addict unconditionally, but pyproject.toml does not list addict as a dependency, so the README's `pip install -e .` cannot give a working CLI. The installer's setup.sh did try to add addict/scikit-learn by hand, but they are not in the venv now, so the install is broken in this sandbox. The oracle's checks are not the cause."
         },
         {
           "repo": "google-research/bert",
@@ -605,6 +585,26 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle."
+        },
+        {
+          "repo": "bytedance/UI-TARS",
+          "slug": "bytedance-ui-tars",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The installed ui_tars/action_parser.py is identical to the repo's codes/ui_tars/action_parser.py, and the README snippet runs and prints the parsed dict and pyautogui code. For model_type='qwen25vl', the source deliberately treats coordinates as absolute pixels on the smart_resize'd image (1932x1092), so 100/1932=0.0518 and 200/1092=0.183. The oracle instead assumed factor=1000 normalization (0.1, 0.2) and pixels 192/216, which the README never promises for qwen25vl."
         },
         {
           "repo": "facebookresearch/ParlAI",
@@ -784,16 +784,11 @@
         },
         {
           "company": "ByteDance",
-          "n": 2,
+          "n": 1,
           "mean": 0,
           "teams": [
             {
               "team": "Seed",
-              "n": 1,
-              "mean": 0
-            },
-            {
-              "team": "ByteDance",
               "n": 1,
               "mean": 0
             }

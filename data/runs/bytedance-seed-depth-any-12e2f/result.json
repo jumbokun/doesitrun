@@ -43,5 +43,20 @@
     },
     "class": "fail: other"
   },
-  "finished": "2026-10-27 02:35:59"
+  "finished": "2026-10-27 02:35:59",
+  "audit": {
+    "verdict": "repo_failure",
+    "reason": "The da3 CLI crashes at import with ModuleNotFoundError: No module named 'addict', before any inference happens. src/depth_anything_3/model/da3.py imports addict unconditionally, but pyproject.toml does not list addict as a dependency, so the README's `pip install -e .` cannot give a working CLI. The installer's setup.sh did try to add addict/scikit-learn by hand, but they are not in the venv now, so the install is broken in this sandbox. The oracle's checks are not the cause.",
+    "evidence_cmd": "source /work/env.sh; python -c 'import addict'; grep -n addict /work/Depth-Anything-3/pyproject.toml",
+    "evidence_out": "ModuleNotFoundError: No module named 'addict' (and no addict entry in pyproject.toml dependencies)",
+    "setup_ok": false,
+    "oracle_rerun_pass": false,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 23,
+      "num_turns": 5,
+      "cost_usd": 0.0857796
+    },
+    "audited": "2026-10-27 03:27:42"
+  }
 }
