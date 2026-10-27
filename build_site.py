@@ -34,6 +34,14 @@ def replay_badge(r):
     return f'<span class="badge {"warn" if good else "neg"}" title="{esc(detail)}">{esc(label)}</span>'
 
 
+def why_failed(r):
+    """One line from the audit for repos that genuinely failed (the evidence readers will want)."""
+    if r.get("audit") != "repo_failure" or not r.get("audit_reason"):
+        return ""
+    text = r["audit_reason"].split(". ")[0].rstrip(".")
+    return f'<div class="why">{esc(text[:260])}{"…" if len(text) > 260 else ""}.</div>'
+
+
 def score_cell(r):
     if r["score"] is None:
         return (f'<div class="score"><span class="badge warn" title="{esc(r.get("audit_reason") or "")}">'
@@ -60,6 +68,7 @@ def repo_rows(rows):
           <a class="repo" href="https://github.com/{esc(r['repo'])}" rel="noopener">
             <span class="owner">{esc(owner)}/</span>{esc(name)}</a>
           <div class="meta">{org}{tag}</div>
+          {why_failed(r)}
           <div class="facts">
             <span class="mono">{r['agent_minutes']:.0f} min</span>
             <span class="mono">{r['files_patched']} files patched</span>
@@ -266,6 +275,7 @@ ol, ul {{ list-style:none; }}
 .conf {{ font:500 10px/1 var(--sans); letter-spacing:.4px; text-transform:uppercase; padding:3px 5px; border-radius:4px;
   color:var(--text-tertiary); border:1px solid var(--border-strong); cursor:help; }}
 .conf-high {{ color:var(--text-secondary); }}
+.why {{ font-size:12px; color:var(--neg); margin-top:6px; line-height:1.45; }}
 .facts {{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px; font-size:12px; color:var(--text-tertiary); }}
 .badge {{ font:600 10px/1 var(--sans); letter-spacing:.4px; text-transform:uppercase; padding:4px 7px; border-radius:4px; }}
 .badge.pos {{ color:var(--pos); background:var(--pos-bg); border:1px solid rgba(0,212,170,.2); }}
