@@ -120,3 +120,17 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   Local folder is still `repo-run-probe/` under web3work (renaming it would break running jobs' paths).
 - 2026-10-27: harness now gives every container uv/pip/HF timeouts+retries (measurement hygiene for the
   ranking) and records an objective repo_diff; backfilled for all 11 runs (5/11 patched repo code).
+- 2026-10-27: repair round validated on MDM (14 min repair, then fresh-container replay PASS). Records now
+  self-contained in data/runs (track, goal/check, replay class); leaderboard ranks per hardware track.
+- 2026-10-27: user wants nothing on the local machine and no paid servers → CPU track on free GitHub-hosted
+  runners (public repo). Firewall ported to native Linux: INPUT reject for the probe bridge (container→host via
+  bridge gateway bypasses DOCKER-USER) + Azure WireServer 168.63.129.16 blocked. Claude subscription token is a
+  repo secret (user set it; never passed through chat). Acceptable-use risk of testing third-party repos on
+  Actions noted to the user.
+- 2026-10-27: batch 3 pre-registered: data/candidates.json = top 25 Python repos by stars per company across
+  official orgs (Google, Meta, Microsoft, NVIDIA, Alibaba, Tencent, ByteDance, Baidu; 200 candidates); examiner
+  agent screens in star order until 10 eligible per company and writes goal + hidden oracle, committed before
+  probes run. PROTOCOL CHANGE vs batches 1-2: oracles are now examiner-written (spot-checked), not hand-written.
+- 2026-10-27: housekeeping — history rebuilt before push: LF normalization (.gitattributes), write_text pinned to
+  LF, the repair round split out of the firewall commit it had been swept into, and .gitignore "runs/" fixed to
+  "/runs/" (it was silently ignoring data/runs).
