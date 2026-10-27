@@ -51,17 +51,17 @@
   "finished": "2026-10-27 04:57:50",
   "audit": {
     "verdict": "inconclusive",
-    "reason": "The sandbox contains no install at all: /work is empty, so /work/setup.sh, /work/env.sh and /work/Hunyuan3D-1 are all missing, and nothing similar exists anywhere else on the filesystem. The oracle stopped at `source /work/env.sh` before running any repo code. With no repo or environment here, there is no way to tell whether the README demo works, so neither the repo nor the oracle can be blamed.",
-    "evidence_cmd": "ls -la /work/ /work/Hunyuan3D-1; find / -maxdepth 4 -name env.sh -o -name 'Hunyuan3D*'",
-    "evidence_out": "/work/: total 8 (empty); ls: cannot access '/work/Hunyuan3D-1': No such file or directory; find: no results",
+    "reason": "This audit sandbox has no installation at all: /work is empty, with no setup.sh, no env.sh and no Hunyuan3D-1 checkout, so the oracle re-run here died at `source /work/env.sh` before testing anything about the repo. Without the agent's install I can't tell why the original run failed. A fresh clone does hardcode CUDA in the svrm path (svrm/ldm/models/svrm.py:55 `.cuda()`, context_type='cuda'; ops.py `.cuda()`), so a CPU run may well be the repo's fault, but I can't confirm that here.",
+    "evidence_cmd": "ls -la /work; ls /work/Hunyuan3D-1; grep -rn '.cuda()' /tmp/h3d/svrm",
+    "evidence_out": "/work: empty (total 8); ls: cannot access '/work/Hunyuan3D-1': No such file or directory; svrm/ldm/models/svrm.py:55: ).cuda()  svrm/ldm/utils/ops.py:368: .cuda().float()",
     "setup_ok": false,
     "oracle_rerun_pass": false,
     "auditor": {
       "model": "claude-opus-5-5",
-      "secs": 17,
-      "num_turns": 4,
-      "cost_usd": 0.0360594
+      "secs": 24,
+      "num_turns": 5,
+      "cost_usd": 0.0718168
     },
-    "audited": "2026-10-27 07:03:44"
+    "audited": "2026-10-27 07:03:43"
   }
 }
