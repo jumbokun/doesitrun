@@ -38,6 +38,19 @@ A run whose agent hit the 90-minute cap stays 0 whatever its audit says (the tes
 judge). Three Tencent failures were audited twice by mistake; both verdicts are kept in the records, and they
 disagreed once (Hunyuan3D-2.1: defect vs inconclusive) — borderline audits are not perfectly stable.
 
+## Get your repo tested, or dispute a result
+
+- **Request a test:** open a [“Test my repo” issue](https://github.com/jumbokun/doesitrun/issues/new?template=test-my-repo.yml).
+- **Think a result is wrong?** Open a [“Dispute a result” issue](https://github.com/jumbokun/doesitrun/issues/new?template=dispute-a-result.yml)
+  with evidence. Corrections are made in the open and logged in [`WORKLOG.md`](WORKLOG.md).
+- **Badge for your README** (tested repos only):
+
+  ```markdown
+  ![does it run?](https://img.shields.io/endpoint?url=https://jumbokun.github.io/doesitrun/badge/cpu-gha/OWNER/REPO.json)
+  ```
+
+  ![example](https://img.shields.io/endpoint?url=https://jumbokun.github.io/doesitrun/badge/cpu-gha/microsoft/markitdown.json)
+
 ## How a run works
 
 ```
