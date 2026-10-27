@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Pinned protobuf<=3.20.3; protobuf 7.x cannot import the pre-generated s2clientprotocol _pb2 modules"},
+  {"kind": "code_patch", "detail": "HEAD commit 0df53d3 forwards extra_ports to subprocess.Popen (TypeError); patched sc_process._launch to drop it"},
+  {"kind": "python_version", "detail": "Used Python 3.11 venv via uv instead of the system 3.12 (setup.py supports up to 3.11); precautionary, 3.12 untested"},
+  {"kind": "system_package", "detail": "Installed unzip to extract the password-protected (EULA password) SC2 Linux zip"}
+ ]}

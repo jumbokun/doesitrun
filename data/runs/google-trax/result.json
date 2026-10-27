@@ -1,0 +1,47 @@
+{
+  "slug": "google-trax",
+  "repo": "google/trax",
+  "track": "cpu-gha",
+  "goal": "Install trax so that the README's pre-trained Transformer translation snippet works on CPU: build trax.models.Transformer in predict mode, init_from_file gs://trax-ml/models/translation/ende_wmt32k.pkl.gz, tokenize 'It is nice to learn new things today!' with vocab ende_32k.subword, decode with autoregressive_sample (temperature=0.0), detokenize and print the German translation. It should print something like 'Es ist schön, heute neue Dinge zu lernen!'.",
+  "check": "A script running the README translation snippet exits successfully and prints a German translation of the sentence containing expected German words.",
+  "started": "2026-10-27 02:47:30",
+  "agent": {
+    "secs": 492,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "b5af41d0-688c-43ba-b664-130d8658e34b",
+    "num_turns": 37,
+    "cost_usd": 0.9042448,
+    "is_error": false,
+    "final": " as expected without trained weights. If Google makes the bucket public again, the snippet should work as written in this environment.\n\n`setup.sh` still tries to download the checkpoint and only warns if it's blocked. I've run it again on this sandbox, but not on a fresh container.\n\nFiles are in /work:\n- setup.sh\n- env.sh\n- NOTES.md\n- REPORT.json (`readme_path_worked_as_written: false`, 4 entries)"
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 13
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 6,
+    "files": [
+      {
+        "path": "trax/data/tf_inputs.py",
+        "added": 6,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 24,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 20
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:57:01"
+}

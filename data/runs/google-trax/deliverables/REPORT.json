@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "code_patch", "detail": "trax/data/tf_inputs.py imports tf.estimator, removed in TF>=2.16; fall back to 'train'/'eval' ModeKeys strings"},
+  {"kind": "dependency_pin", "detail": "pin jax==jaxlib==0.7.2: jax 0.12 removed the jax_pmap_shmap_merge flag that trax/optimizers/trainer.py sets"},
+  {"kind": "undocumented_step", "detail": "install tensorflow explicitly (setup.py lists it only as an extra) and install trax from the repo so the patch applies"},
+  {"kind": "dead_link", "detail": "gs://trax-ml (ende_wmt32k.pkl.gz checkpoint and ende_32k.subword vocab) returns 403 to anonymous callers and no public mirror exists; the vocab can be swapped for the repo's testdata/vocab.translate_ende_wmt32k.32768.subwords, but the weights can't be replaced, so the snippet can't run"}
+ ]}

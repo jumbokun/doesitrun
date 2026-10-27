@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "doc_error", "detail": "README curl uses plain `base64`, which wraps at 76 chars on Linux and makes invalid JSON (422); used `base64 -w0`"},
+  {"kind": "undocumented_step", "detail": "Created .env with placeholder GOOGLE_API_KEY=dummy and MODEL_NAME=gemini-3.5-flash (MODEL_NAME only in .env.example)"}
+ ]}

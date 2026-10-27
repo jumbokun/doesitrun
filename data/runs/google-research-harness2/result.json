@@ -1,0 +1,41 @@
+{
+  "slug": "google-research-harness2",
+  "repo": "google-research/harness2",
+  "track": "cpu-gha",
+  "goal": "Install harness2 from /work/harness2 in a Python 3.12 uv venv (uv pip install -e '.[render]') and make the `harness2-demo` console command work. Running `harness2-demo --output <dir> --k 2` must complete with exit code 0, reporting all tasks completed and none failed, and write demo.json in the output directory. No model credentials are needed.",
+  "check": "The hidden test runs harness2-demo with a fresh output directory and verifies exit status, the 'Local demo' summary line with 0 failed, and a demo.json with completed tasks and nonzero execution counts.",
+  "started": "2026-10-27 02:36:59",
+  "agent": {
+    "secs": 23,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "35042dd5-047b-4889-911f-32c2f8fda8c1",
+    "num_turns": 5,
+    "cost_usd": 0.072021,
+    "is_error": false,
+    "final": "DONE — The README install steps worked exactly as written: `harness2-demo --output <dir> --k 2` exits 0, prints \"Local demo: 2 tasks completed; 0 failed.\", and writes `demo.json` with 28 executions. I also deleted the clone, rebuilt it with `/work/setup.sh` and reran the demo with the same result; `NOTES.md` and `REPORT.json` record no changes needed."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 2,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:37:49"
+}

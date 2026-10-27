@@ -1,0 +1,41 @@
+{
+  "slug": "google-yapf",
+  "repo": "google/yapf",
+  "track": "cpu-gha",
+  "goal": "Install YAPF from the cloned repo (or run it via PYTHONPATH) so the `yapf` CLI works. Format a badly formatted Python file with `yapf file.py`, `yapf --diff file.py` and `yapf -i file.py`, and with `--style google`. Output must be properly PEP8-formatted code.",
+  "check": "The hidden test formats a messy Python file and verifies the reformatted output, the diff and its non-zero exit code, in-place rewriting, and idempotence.",
+  "started": "2026-10-27 02:37:22",
+  "agent": {
+    "secs": 23,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "b5898ef5-4183-4387-9ee2-6fc76850b4ba",
+    "num_turns": 4,
+    "cost_usd": 0.0616214,
+    "is_error": false,
+    "final": " on a messy file myself. The README's bare `pip install` doesn't work on Ubuntu 24.04, because the system Python refuses system-wide pip installs, so a venv was needed. Plain formatting and `-i` gave PEP8 output, `--style google` worked, `--diff` exited with code 1 when there were changes, and a second run changed nothing (exit 0). `setup.sh`, `env.sh`, `NOTES.md` and `REPORT.json` are in `/work`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 6,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 0
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:38:13"
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "google-adk-recipes",
+  "repo": "google/adk-recipes",
+  "track": "cpu-gha",
+  "goal": "In /work/adk-recipes/core/python/ambient-expense-agent, install the project (Python 3.11/3.12, uv sync) and start the backend (python expense_agent/fast_api_app.py) listening on http://localhost:8080. Use a placeholder GOOGLE_API_KEY (e.g. dummy) and MODEL_NAME=gemini-3.5-flash since no real key is needed for the under-$100 path. Then POST the README's base64 Pub/Sub payload with amount 45 to /apps/expense_agent/trigger/pubsub and get a successful response. /work/run.sh must start the server and wait until ready; /work/env.sh must activate the environment.",
+  "check": "The hidden test starts the server via run.sh, posts a $45 expense Pub/Sub trigger and checks that the app is listed and the response is HTTP 200 with status success.",
+  "started": "2026-10-27 02:41:16",
+  "agent": {
+    "secs": 80,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "4cbb5499-01fe-44c0-b0df-dbc0090d6c3b",
+    "num_turns": 9,
+    "cost_usd": 0.2074338,
+    "is_error": false,
+    "final": "DONE — I wiped the clone and ran `setup.sh` again from scratch; after that, `env.sh` and `run.sh` started the backend on :8080, `/list-apps` listed `expense_agent`, and the $45 Pub/Sub trigger returned HTTP 200 `{\"status\":\"success\"}`, but the README's own curl command fails on Linux (HTTP 422) unless you change `base64` to `base64 -w0`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 10,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:43:16"
+}

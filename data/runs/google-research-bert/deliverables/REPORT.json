@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "TF 1.x needs Python <=3.7; uv has no 3.7, so created a conda-forge python=3.7 env via micromamba"},
+  {"kind": "dependency_pin", "detail": "requirements.txt 'tensorflow>=1.11' resolves to TF2 (no tf.contrib); pinned tensorflow==1.15.5, protobuf==3.20.3, numpy<1.19, h5py<3"},
+  {"kind": "dead_link", "detail": "storage.googleapis.com/bert_models/2020_02_20/uncased_L-2_H-128_A-2.zip returns 403; used huggingface.co/google/bert_uncased_L-2_H-128_A-2 (pinned, sha256-checked)"},
+  {"kind": "undocumented_step", "detail": "Converted HF safetensors weights to a TF1 bert_model.ckpt + bert_config.json with modeling.py variable names (tools/hf_to_tf1_ckpt.py)"}
+ ]}

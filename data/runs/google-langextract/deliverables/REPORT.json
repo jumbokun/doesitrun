@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Installed Ollama via official install.sh (README only links ollama.com)"},
+  {"kind": "system_package", "detail": "apt install zstd, which the Ollama installer needs to extract its .tar.zst bundle"},
+  {"kind": "undocumented_step", "detail": "No systemd in container: start 'ollama serve' manually with nohup before 'ollama pull'"},
+  {"kind": "other", "detail": "Created a uv venv at /work/venv (Python 3.12) for pip install -e ."}
+ ]}

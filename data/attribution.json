@@ -185,5 +185,96 @@
     "evidence": [
       "owner 'microsoft' is Microsoft org account (Microsoft)"
     ]
+  },
+  "google/adk-recipes": {
+    "repo": "google/adk-recipes",
+    "company": "Google",
+    "team": "Google",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)"
+    ]
+  },
+  "google-deepmind/pysc2": {
+    "repo": "google-deepmind/pysc2",
+    "company": "Google",
+    "team": "Google DeepMind",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-deepmind' is Google org account (Google DeepMind)"
+    ]
+  },
+  "google-deepmind/sonnet": {
+    "repo": "google-deepmind/sonnet",
+    "company": "Google",
+    "team": "Google DeepMind",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-deepmind' is Google org account (Google DeepMind)"
+    ]
+  },
+  "google/langextract": {
+    "repo": "google/langextract",
+    "company": "Google",
+    "team": "Google",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)"
+    ]
+  },
+  "google/python-fire": {
+    "repo": "google/python-fire",
+    "company": "Google",
+    "team": "Google",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)"
+    ]
+  },
+  "google-research/bert": {
+    "repo": "google-research/bert",
+    "company": "Google",
+    "team": "Google Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-research' is Google org account (Google Research)"
+    ]
+  },
+  "google-research/harness2": {
+    "repo": "google-research/harness2",
+    "company": "Google",
+    "team": "Google Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-research' is Google org account (Google Research)"
+    ]
+  },
+  "google-research/timesfm": {
+    "repo": "google-research/timesfm",
+    "company": "Google",
+    "team": "Google Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-research' is Google org account (Google Research)"
+    ]
+  },
+  "google/trax": {
+    "repo": "google/trax",
+    "company": "Google",
+    "team": "Google Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)",
+      "README mentions 'Google Brain' -> team Google Research (low)"
+    ]
+  },
+  "google/yapf": {
+    "repo": "google/yapf",
+    "company": "Google",
+    "team": "Google",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)"
+    ]
   }
 }

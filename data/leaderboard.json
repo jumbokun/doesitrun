@@ -5,6 +5,46 @@
       "label": "CPU · GitHub-hosted runner (4 vCPU, 16 GB)",
       "repos": [
         {
+          "repo": "google-research/harness2",
+          "slug": "google-research-harness2",
+          "score": 99.6,
+          "why": "0 min, 0 repo files patched",
+          "agent_minutes": 0.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "google/yapf",
+          "slug": "google-yapf",
+          "score": 99.6,
+          "why": "0 min, 0 repo files patched",
+          "agent_minutes": 0.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/SkillOpt",
           "slug": "microsoft-skillopt",
           "score": 99.4,
@@ -66,6 +106,46 @@
           "audit_reason": null
         },
         {
+          "repo": "google/adk-recipes",
+          "slug": "google-adk-recipes",
+          "score": 98.7,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "google/langextract",
+          "slug": "google-langextract",
+          "score": 98.3,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/pyright",
           "slug": "microsoft-pyright",
           "score": 98.3,
@@ -101,6 +181,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "google-deepmind/sonnet",
+          "slug": "google-deepmind-sonnet",
+          "score": 97.3,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 2.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
           ],
           "audit": null,
           "audit_reason": null
@@ -166,6 +266,26 @@
           "audit_reason": null
         },
         {
+          "repo": "google-deepmind/pysc2",
+          "slug": "google-deepmind-pysc2",
+          "score": 80.3,
+          "why": "10 min, 1 repo files patched",
+          "agent_minutes": 9.7,
+          "files_patched": 1,
+          "lines_patched": 1,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/Swin-Transformer",
           "slug": "microsoft-swin-transformer",
           "score": 76.8,
@@ -181,6 +301,87 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "google-research/timesfm",
+          "slug": "google-research-timesfm",
+          "score": 59.2,
+          "why": "1 min, 4 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 4,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "google/python-fire",
+          "slug": "google-python-fire",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 0.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "google-research/bert",
+          "slug": "google-research-bert",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 2.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "google/trax",
+          "slug": "google-trax",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 8.2,
+          "files_patched": 1,
+          "lines_patched": 6,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)",
+            "README mentions 'Google Brain' -> team Google Research (low)"
           ],
           "audit": null,
           "audit_reason": null
@@ -222,6 +423,28 @@
               "team": "Microsoft Research",
               "n": 2,
               "mean": 49.7
+            }
+          ]
+        },
+        {
+          "company": "Google",
+          "n": 10,
+          "mean": 63.3,
+          "teams": [
+            {
+              "team": "Google DeepMind",
+              "n": 2,
+              "mean": 88.8
+            },
+            {
+              "team": "Google",
+              "n": 4,
+              "mean": 74.2
+            },
+            {
+              "team": "Google Research",
+              "n": 4,
+              "mean": 39.7
             }
           ]
         }

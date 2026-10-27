@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu and used device='cpu' instead of 'cuda' (no GPU)."},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded google/timesfm-3.0-pytorch checkpoint into HF_HOME=/work/hf_cache in setup.sh; env.sh exports HF_HOME."}
+ ]}

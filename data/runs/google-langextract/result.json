@@ -1,0 +1,41 @@
+{
+  "slug": "google-langextract",
+  "repo": "google/langextract",
+  "track": "cpu-gha",
+  "goal": "Install langextract from source (pip install -e .) and Ollama, pull gemma2:2b, and serve it on localhost:11434. Create /work/run.sh to start the Ollama server and block until it is ready (the model must be pulled). Create /work/env.sh to activate the Python environment. Then the README Romeo and Juliet example must run through lx.extract(model_id='gemma2:2b', model_url='http://localhost:11434') on the text 'Lady Juliet gazed longingly at the stars, her heart aching for Romeo'. Saving results to JSONL and generating the visualization HTML must also work.",
+  "check": "A script calls lx.extract against the local Ollama server, then checks that it returns at least one extraction with grounded text, and that the JSONL and visualization HTML files are written.",
+  "started": "2026-10-27 02:27:18",
+  "agent": {
+    "secs": 102,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "09f5a683-264e-46ab-b1d4-2f5fde0b1d18",
+    "num_turns": 9,
+    "cost_usd": 0.1742256,
+    "is_error": false,
+    "final": "DONE: the README's Romeo and Juliet example runs through `lx.extract(model_id='gemma2:2b', model_url='http://localhost:11434')` against a local Ollama server, returning 3 grounded extractions (\"Lady Juliet\", \"gazed longingly\", \"Romeo\") and writing the JSONL and HTML files; I haven't re-run `setup.sh` on a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 11
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 29,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 13
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:30:18"
+}

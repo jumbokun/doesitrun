@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "doc_error", "detail": "README says `python setup.py install` but setup.py no longer exists; installed via `pip install .` (pyproject.toml) instead"},
+  {"kind": "undocumented_step", "detail": "Created a venv (/work/.venv via uv) since Ubuntu 24.04 system python is PEP 668 externally-managed"}
+ ]}

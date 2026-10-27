@@ -1,0 +1,62 @@
+{
+  "slug": "google-research-timesfm",
+  "repo": "google-research/timesfm",
+  "track": "cpu-gha",
+  "goal": "Install timesfm with the torch extra from /work/timesfm (pip install -e .[torch]; CPU-only torch is fine) and run the README TimesFM 3.0 examples with device changed from 'cuda' to 'cpu'. The checkpoint google/timesfm-3.0-pytorch must download from Hugging Face without a token. Both the univariate example (two series, horizon 12, forecast shape (12,) and quantiles (12,9)) and the multivariate covariate example (3 variates, forecast (3,24), quantiles (3,24,9)) must run via `from timesfm3 import TimesFM3Evaluator, ModelConfig`. Write /work/env.sh so that `python` runs with the dependencies installed.",
+  "check": "Runs the README univariate and multivariate-with-covariates forecasts on CPU and verifies output shapes, finiteness and sensible forecast values.",
+  "started": "2026-10-27 02:32:52",
+  "agent": {
+    "secs": 47,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "58495d55-d562-4427-8e28-349f63d3cda1",
+    "num_turns": 6,
+    "cost_usd": 0.14281280000000002,
+    "is_error": false,
+    "final": "DONE — I followed the README's install steps and they worked. With the device set to 'cpu', both TimesFM 3.0 examples ran: the univariate one returned forecasts of shape (12,) and quantiles of (12,9), and the covariate one returned (3,24) and (3,24,9), with finite, sensible values; I haven't re-run `setup.sh` on a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 4,
+    "lines_changed": 0,
+    "files": [
+      {
+        "path": "timesfm-forecasting/examples/anomaly-detection/output/anomaly_detection.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "timesfm-forecasting/examples/covariates-forecasting/output/covariates_data.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "timesfm-forecasting/examples/global-temperature/output/forecast_animation.gif",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "timesfm-forecasting/examples/global-temperature/output/forecast_visualization.png",
+        "added": 0,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 16,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 4
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:34:27"
+}

@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Installed tensorflow-datasets (needed by examples/simple_mnist.py, not in README install steps)"},
+  {"kind": "dependency_pin", "detail": "Added missing importlib_resources required by tensorflow-datasets 4.9.10 import"},
+  {"kind": "other", "detail": "Created a uv venv (Python 3.12) and pinned tensorflow==2.21.0, tensorflow-probability==0.25.0, tensorflow-datasets==4.9.10"}
+ ]}
