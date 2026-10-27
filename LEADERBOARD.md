@@ -25,11 +25,11 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 17 | [google/python-fire](https://github.com/google/python-fire) | 0 | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
 | 18 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
 | 19 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
-| 20 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | 0 | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
+| 20 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
-| Microsoft | 10 | 84.0 | Microsoft 92.5 (n=8); Microsoft Research 49.7 (n=2) |
+| Microsoft | 9 | 93.3 | Microsoft Research 99.4 (n=1); Microsoft 92.5 (n=8) |
 | Google | 10 | 63.3 | Google DeepMind 88.8 (n=2); Google 74.2 (n=4); Google Research 39.7 (n=4) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos
