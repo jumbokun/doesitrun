@@ -82,8 +82,13 @@ jobs:
             cp -n "$d"data/exams/*.json data/exams/ 2>/dev/null || true
             cp -n "$d"oracles/*.sh oracles/ 2>/dev/null || true
           done
+          if ! ls data/exams/*.json >/dev/null 2>&1; then
+            echo "No examiner verdicts were produced; nothing to pre-register." | tee plan.txt
+            echo "NO_VERDICTS=1" >> "$GITHUB_ENV"; exit 0
+          fi
           python plan_batch.py | tee plan.txt
       - name: Commit pre-registration
+        if: env.NO_VERDICTS != '1'
         run: |
           git config user.name "doesitrun-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
