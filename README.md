@@ -18,13 +18,13 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | Top repos not even testable on a plain machine | 34 of 114 examined: GPU or >16 GB (16), paid API key (11), gated model (5), other (2) |
 | Failed hidden tests, after independent audit | 6 genuine repo failures (e.g. BERT's and trax's README model links now 403, SPADE's 404), **9 defective tests** (unscored), 3 inconclusive (stay 0) |
 
-| company (mean score, n) | | best team → worst team |
+| company (mean score, n) | | teams (split only where GitHub org accounts show it) |
 |---|---|---|
-| Microsoft | 93 (9) | MSR 99 · Microsoft 92 |
+| Microsoft | 93 (9) | one org account; no reliable team split |
 | Meta | 93 (8) | FAIR 93 |
 | Alibaba | 84 (10) | Qwen 93 · ModelScope 78 |
 | Baidu | 83 (9) | Baidu 88 · PaddlePaddle 82 |
-| Google | 70 (9) | Google 99 · DeepMind 89 · **Google Research 40** |
+| Google | 70 (9) | DeepMind 89 · Google 74 · Google Research 53 |
 | NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 — a CPU track is hard on CUDA-first repos |
 | Tencent | 64 (9) | ARC Lab 94 · Tencent 76 · **Hunyuan 39** |
 | ByteDance | 55 (9) | ByteDance 58 · Seed 44 |

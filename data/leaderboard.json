@@ -56,7 +56,7 @@
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Microsoft",
-          "team": "Microsoft Research",
+          "team": "Microsoft",
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)",
@@ -1317,7 +1317,7 @@
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Google",
-          "team": "Google Research",
+          "team": "Google",
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'google' is Google org account (Google)",
@@ -1518,7 +1518,7 @@
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Microsoft",
-          "team": "Microsoft Research",
+          "team": "Microsoft",
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)",
@@ -1615,14 +1615,9 @@
           "mean": 93.3,
           "teams": [
             {
-              "team": "Microsoft Research",
-              "n": 1,
-              "mean": 99.4
-            },
-            {
               "team": "Microsoft",
-              "n": 8,
-              "mean": 92.5
+              "n": 9,
+              "mean": 93.3
             }
           ]
         },
@@ -1678,19 +1673,19 @@
           "mean": 70.3,
           "teams": [
             {
-              "team": "Google",
-              "n": 3,
-              "mean": 98.9
-            },
-            {
               "team": "Google DeepMind",
               "n": 2,
               "mean": 88.8
             },
             {
-              "team": "Google Research",
+              "team": "Google",
               "n": 4,
-              "mean": 39.7
+              "mean": 74.2
+            },
+            {
+              "team": "Google Research",
+              "n": 3,
+              "mean": 52.9
             }
           ]
         },
@@ -1923,7 +1918,7 @@
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Microsoft",
-          "team": "Microsoft Research",
+          "team": "Microsoft",
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)",
@@ -2041,7 +2036,7 @@
           "mean": 43.0,
           "teams": [
             {
-              "team": "Microsoft Research",
+              "team": "Microsoft",
               "n": 1,
               "mean": 43.0
             }
