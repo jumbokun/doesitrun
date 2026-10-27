@@ -165,3 +165,7 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   (Google Research 40), NVIDIA 59, Tencent 57 (Hunyuan 39), ByteDance 55. One run per repo.
 - Open: run-to-run variance (2+ runs per repo), examiner oracle quality (8 defects among ~18 failures), GPU track at
   scale (needs a GPU host; GCP $300 credit requires a paid upgrade), REPORT.json kinds are agent-reported.
+- 2026-10-27: last three audits — Hunyuan3D-1 inconclusive (agent timed out, empty install; stays 0), Hunyuan3D-2.1
+  oracle_defect (oracle PASSED on the audit re-run: first failure environmental — a lenient call under the rule),
+  PocketFlow oracle_defect (oracle's CIFAR-10 download at ~56 KB/s cannot finish in its 900 s timeout). Final audit
+  tally: repo_failure 6, oracle_defect 10, inconclusive 2. Tencent 57 -> 71 (n=8).
