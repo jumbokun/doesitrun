@@ -148,3 +148,11 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   at 5 parallel. The 4 jobs in flight at cancel time were rerun from scratch.
 - 2026-10-27: auto-audit dispatcher (local script, polls every 3 min) sends each committed CPU failure to the audit
   exactly once. First version broke on a Git Bash vs Windows /tmp path and dispatched one empty run (cancelled).
+- 2026-10-27 INCIDENT: the broken first dispatcher sent an audit with slugs="" (run 40441957458); GitHub substituted
+  the default "[]" = all repos, so it began auditing all 80 incl. passing ones until cancelled. Its collect committed
+  an audit of google-research/timesfm (oracle had PASSED; the leaderboard then silently dropped it as
+  oracle_defect) and a duplicate BERT audit. Restored both records (fca5e35) and added guards: audit refuses passed
+  runs, scoring only honours oracle_defect on a failed oracle, audit mode requires an explicit non-empty list.
+- 2026-10-27: audit verdicts so far — oracle_defect: python-fire, data-formulator, ParlAI, pytorch3d, UI-TARS;
+  repo_failure: BERT, trax (GCS 403), Depth-Anything-3 (missing `addict` dependency). Roughly half of oracle failures
+  are examiner defects: examiner-written oracles are not reliable enough to score without the audit.
