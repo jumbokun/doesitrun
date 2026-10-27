@@ -178,3 +178,13 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   causes" came from the GPU batch); "had to modify" -> modified; stale "in progress", GPU-only diagram/method text,
   team rule, limitations, Chinese summary; Warp "explicitly refuses" -> docs warn; NVIDIA's mean is NOT mostly the
   CPU track — two zeros unrelated to CUDA (Megatron-LM tokenizer, SPADE 404). Tracks used different Opus versions.
+- 2026-10-27 CORRECTION (user asked: are the failures really theirs?): re-verified every upheld failure at the source.
+  Theirs, verified independently of our setup — BERT and trax (GCS: "Anonymous caller does not have
+  storage.objects.get access"; a public-bucket control returns 206 from the same network), SPADE (Drive "page not
+  found", from a German residential IP and from GitHub's US runners), Depth-Anything-3 (14 files import addict,
+  pyproject lists none), FunClip (README pairs its stage-2 sentence with a video that doesn't contain it; the phrase
+  is in 片段2.mp4 from the same Space, recognised by the same ASR model). NOT theirs — Megatron-LM: README only says
+  --tokenizer-model /path/to/tokenizer.model; our examiner chose GPT-2 files in a dir named 'tok', which the agent's
+  transformers 4.57.6 cannot resolve (same files under .../gpt2 load). Recorded a correction (oracle_defect) in its
+  run record, original audit kept; scoring honours corrections. NVIDIA 59 -> 68 (n=7). The previous entry's
+  "two zeros unrelated to CUDA" is superseded: NVIDIA now has one zero (SPADE).
