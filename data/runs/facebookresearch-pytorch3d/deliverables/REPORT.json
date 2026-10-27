@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "No conda in the image; used a uv venv on system Python 3.12 instead of the documented conda python=3.9 env"},
+  {"kind": "doc_error", "detail": "The conda commands install pytorch 1.13/cuda 11.6, which contradicts the supported PyTorch 2.1-2.4.1 range; installed CPU torch 2.4.1 + torchvision 0.19.1"},
+  {"kind": "system_package", "detail": "apt-get install python3-dev (Python.h missing during the C++ extension build)"},
+  {"kind": "undocumented_step", "detail": "pip install -e . needs --no-build-isolation (with setuptools/wheel/ninja preinstalled) so the build can import torch"},
+  {"kind": "gpu_compat", "detail": "Set PYTORCH3D_FORCE_NO_CUDA=1 so only the CPU extension is built even though the CUDA toolkit is present"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 as a precaution for torch 2.4.1 (not tested without it)"}
+ ]}

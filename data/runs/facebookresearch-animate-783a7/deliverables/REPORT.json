@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used uv-managed Python 3.8 venv instead of conda (conda not available)"},
+  {"kind": "system_package", "detail": "Installed libosmesa6/libosmesa6-dev (and libgl1, libglib2.0-0) required for USE_MESA headless rendering"},
+  {"kind": "undocumented_step", "detail": "Created char1+dab config with view USE_MESA: True since the bundled gif example uses char3 and no view section"}
+ ]}

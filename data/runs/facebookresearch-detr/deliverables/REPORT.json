@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "other", "detail": "Used a uv venv (Python 3.12) with CPU torch 2.8.0/torchvision 0.23.0 instead of the README's conda env; installed only the hub deps, not cocoapi/panopticapi/onnx"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded the DETR R50 checkpoint and the ImageNet ResNet-50 backbone weights into TORCH_HOME and fetched the COCO test image"}
+ ]}

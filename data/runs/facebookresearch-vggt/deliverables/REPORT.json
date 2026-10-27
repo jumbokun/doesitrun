@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "doc_error", "detail": "README clone URL uses SSH (git@github.com), which requires keys; used https clone"},
+  {"kind": "gpu_compat", "detail": "Installed torch 2.3.1 / torchvision 0.18.1 from the PyTorch CPU wheel index instead of default CUDA builds"},
+  {"kind": "gpu_compat", "detail": "Quick-start dtype line calls torch.cuda.get_device_capability() which fails on CPU; used torch.float32 and no CUDA autocast"},
+  {"kind": "undocumented_step", "detail": "Installed repo editable (pip install -e . --no-deps) / set PYTHONPATH so `import vggt` works outside the repo dir"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded facebook/VGGT-1B weights into HF_HOME=/work/hf_cache during setup and exported HF_HOME in env.sh"}
+ ]}

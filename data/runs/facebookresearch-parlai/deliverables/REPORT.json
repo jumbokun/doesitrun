@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "python3.8 not available on Ubuntu 24.04; created venv with uv-managed CPython 3.8"},
+  {"kind": "gpu_compat", "detail": "installed torch==2.0.0+cpu / torchvision / torchtext from the PyTorch CPU wheel index"},
+  {"kind": "dependency_pin", "detail": "constrained tokenizers<0.21 (pulled by unpinned litellm) since 0.21 sdist fails to build on py3.8"},
+  {"kind": "dependency_pin", "detail": "installed scikit-learn==1.3.2, commented out in requirements.txt but imported at CLI startup"}
+ ]}

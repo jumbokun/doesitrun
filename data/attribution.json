@@ -276,5 +276,95 @@
     "evidence": [
       "owner 'google' is Google org account (Google)"
     ]
+  },
+  "facebookresearch/AnimatedDrawings": {
+    "repo": "facebookresearch/AnimatedDrawings",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/demucs": {
+    "repo": "facebookresearch/demucs",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/Detectron": {
+    "repo": "facebookresearch/Detectron",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/detectron2": {
+    "repo": "facebookresearch/detectron2",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/detr": {
+    "repo": "facebookresearch/detr",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/fairseq": {
+    "repo": "facebookresearch/fairseq",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/nougat": {
+    "repo": "facebookresearch/nougat",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/ParlAI": {
+    "repo": "facebookresearch/ParlAI",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/pytorch3d": {
+    "repo": "facebookresearch/pytorch3d",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "facebookresearch/vggt": {
+    "repo": "facebookresearch/vggt",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
   }
 }

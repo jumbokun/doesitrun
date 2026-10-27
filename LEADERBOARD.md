@@ -2,7 +2,7 @@
 
 How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never mixed. Method: README.md; full notebook: WORKLOG.md.
 
-## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 20 repos
+## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 30 repos
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
 |---|---|---|---|---|---|---|
@@ -10,26 +10,37 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 2 | [google/yapf](https://github.com/google/yapf) | 99.6 | 0 min | 0 (0 lines) | pass | Google / Google (high) |
 | 3 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 99.4 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft Research (high) |
 | 4 | [microsoft/JARVIS](https://github.com/microsoft/JARVIS) | 99.3 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 5 | [microsoft/markitdown](https://github.com/microsoft/markitdown) | 98.9 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 6 | [google/adk-recipes](https://github.com/google/adk-recipes) | 98.7 | 1 min | 0 (0 lines) | pass | Google / Google (high) |
-| 7 | [google/langextract](https://github.com/google/langextract) | 98.3 | 2 min | 0 (0 lines) | pass | Google / Google (high) |
-| 8 | [microsoft/pyright](https://github.com/microsoft/pyright) | 98.3 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 9 | [microsoft/cascadia-code](https://github.com/microsoft/cascadia-code) | 98.2 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 10 | [google-deepmind/sonnet](https://github.com/google-deepmind/sonnet) | 97.3 | 3 min | 0 (0 lines) | pass | Google / Google DeepMind (high) |
-| 11 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 96.8 | 3 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 12 | [microsoft/unilm](https://github.com/microsoft/unilm) | 86.2 | 4 min | 1 (11 lines) | pass | Microsoft / Microsoft (high) |
-| 13 | [microsoft/qlib](https://github.com/microsoft/qlib) | 85.6 | 4 min | 1 (2 lines) | pass | Microsoft / Microsoft (high) |
-| 14 | [google-deepmind/pysc2](https://github.com/google-deepmind/pysc2) | 80.3 | 10 min | 1 (1 lines) | pass | Google / Google DeepMind (high) |
-| 15 | [microsoft/Swin-Transformer](https://github.com/microsoft/Swin-Transformer) | 76.8 | 3 min | 2 (43 lines) | pass | Microsoft / Microsoft (high) |
-| 16 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
-| 17 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
-| 18 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
-| 19 | [google-research/timesfm](https://github.com/google-research/timesfm) | not scored (oracle defect) | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
-| 20 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
+| 5 | [facebookresearch/detr](https://github.com/facebookresearch/detr) | 99.1 | 1 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 6 | [microsoft/markitdown](https://github.com/microsoft/markitdown) | 98.9 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 7 | [google/adk-recipes](https://github.com/google/adk-recipes) | 98.7 | 1 min | 0 (0 lines) | pass | Google / Google (high) |
+| 8 | [google/langextract](https://github.com/google/langextract) | 98.3 | 2 min | 0 (0 lines) | pass | Google / Google (high) |
+| 9 | [microsoft/pyright](https://github.com/microsoft/pyright) | 98.3 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 10 | [microsoft/cascadia-code](https://github.com/microsoft/cascadia-code) | 98.2 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 11 | [facebookresearch/AnimatedDrawings](https://github.com/facebookresearch/AnimatedDrawings) | 98.1 | 2 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 12 | [facebookresearch/demucs](https://github.com/facebookresearch/demucs) | 98.0 | 2 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 13 | [facebookresearch/vggt](https://github.com/facebookresearch/vggt) | 97.4 | 3 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 14 | [google-deepmind/sonnet](https://github.com/google-deepmind/sonnet) | 97.3 | 3 min | 0 (0 lines) | pass | Google / Google DeepMind (high) |
+| 15 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 96.8 | 3 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 16 | [facebookresearch/fairseq](https://github.com/facebookresearch/fairseq) | 94.9 | 5 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 17 | [facebookresearch/nougat](https://github.com/facebookresearch/nougat) | 94.1 | 6 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 18 | [microsoft/unilm](https://github.com/microsoft/unilm) | 86.2 | 4 min | 1 (11 lines) | pass | Microsoft / Microsoft (high) |
+| 19 | [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2) | 86.0 | 4 min | 1 (4 lines) | pass | Meta / FAIR (high) |
+| 20 | [microsoft/qlib](https://github.com/microsoft/qlib) | 85.6 | 4 min | 1 (2 lines) | pass | Microsoft / Microsoft (high) |
+| 21 | [google-deepmind/pysc2](https://github.com/google-deepmind/pysc2) | 80.3 | 10 min | 1 (1 lines) | pass | Google / Google DeepMind (high) |
+| 22 | [microsoft/Swin-Transformer](https://github.com/microsoft/Swin-Transformer) | 76.8 | 3 min | 2 (43 lines) | pass | Microsoft / Microsoft (high) |
+| 23 | [facebookresearch/Detectron](https://github.com/facebookresearch/Detectron) | 74.2 | 6 min | 2 (19 lines) | fail: other; replay_after_repair: pass | Meta / FAIR (high) |
+| 24 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | 0 | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 25 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | 0 | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 26 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
+| 27 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 28 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
+| 29 | [google-research/timesfm](https://github.com/google-research/timesfm) | not scored (oracle defect) | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
+| 30 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
 | Microsoft | 9 | 93.3 | Microsoft Research 99.4 (n=1); Microsoft 92.5 (n=8) |
+| Meta | 10 | 74.2 | FAIR 74.2 (n=10) |
 | Google | 8 | 71.7 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 33.2 (n=3) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos

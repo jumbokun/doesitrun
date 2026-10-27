@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-parlai",
+  "repo": "facebookresearch/ParlAI",
+  "track": "cpu-gha",
+  "goal": "Install ParlAI from the clone so the `parlai` CLI works on CPU. Then `parlai display_data -t squad -n 5` must download SQuAD and print examples with text and labels. `parlai eval_model -m repeat_label -t integration_tests -dt valid -ne 10` must also run and report metrics.",
+  "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks that examples with text and labels are printed and the data files exist. It then runs a small eval_model and checks that metrics are reported.",
+  "started": "2026-10-27 02:51:05",
+  "agent": {
+    "secs": 98,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "85c9fd4e-fcba-4f02-84eb-ad0eee232574",
+    "num_turns": 8,
+    "cost_usd": 0.1741542,
+    "is_error": false,
+    "final": "` 0.21, which has no Python 3.8 build and failed to compile, so I capped it.\n- **`scikit-learn==1.3.2`:** it's commented out in `requirements.txt`, but the CLI imports it at startup and crashed without it.\n\nMy rerun reused packages already in `uv`'s download cache, so it didn't re-download everything as a truly fresh container will.\n\nFiles are in /work:\n- setup.sh\n- env.sh\n- NOTES.md\n- REPORT.json"
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 4
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 24,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 4
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:53:36"
+}

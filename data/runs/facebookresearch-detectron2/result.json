@@ -1,0 +1,47 @@
+{
+  "slug": "facebookresearch-detectron2",
+  "repo": "facebookresearch/detectron2",
+  "track": "cpu-gha",
+  "goal": "Install detectron2 (CPU-only PyTorch build) so that `cd demo && python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input <image.jpg> --output <dir> --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl MODEL.DEVICE cpu` runs and writes a visualized image with predicted instance masks. Put the needed environment activation in /work/env.sh.",
+  "check": "The hidden test runs the demo on a COCO photo and verifies an annotated output image of the same size, visibly differing from the input, is written.",
+  "started": "2026-10-27 02:27:38",
+  "agent": {
+    "secs": 241,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "00756108-6490-46a7-a783-38862b3dbe24",
+    "num_turns": 12,
+    "cost_usd": 0.22561520000000002,
+    "is_error": false,
+    "final": "r:** if `--output` names a folder that doesn't exist yet, the original demo saves a file called `<folder>.png` instead. I added a patch that creates the folder in that case. Existing folders and explicit file names behave as before.\n\n`setup.sh` also downloads the model weights ahead of time and saves a sample image to `/work/sample/input.jpg`. `env.sh`, `NOTES.md` and `REPORT.json` are in `/work`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 4,
+    "files": [
+      {
+        "path": "demo/demo.py",
+        "added": 3,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 48,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 8
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:33:03"
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-demucs",
+  "repo": "facebookresearch/demucs",
+  "track": "cpu-gha",
+  "goal": "Install demucs from the /work/demucs clone (CPU-only PyTorch) and run the CLI `python3 -m demucs --two-stems=vocals -d cpu -o OUTDIR test.mp3` on the bundled /work/demucs/test.mp3 with the default htdemucs model. It must download the pretrained weights and write separated stem wav files (vocals.wav and no_vocals.wav) under OUTDIR/htdemucs/test/.",
+  "check": "The hidden test runs the separation on the bundled test.mp3 and verifies the stem wav files exist with plausible size and duration.",
+  "started": "2026-10-27 02:56:12",
+  "agent": {
+    "secs": 122,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "0e19c183-5ca3-4e38-95d0-35a6152b7824",
+    "num_turns": 10,
+    "cost_usd": 0.16396840000000001,
+    "is_error": false,
+    "final": "DONE: `/work/setup.sh` sets up demucs on CPU (Python 3.11 venv, torch 2.0.1 and torchaudio 2.0.2, `numpy<2`, `setuptools<81`, ffmpeg) and downloads the htdemucs weights; the CLI run then wrote `vocals.wav` and `no_vocals.wav` (each 20.0 s, the same length as `test.mp3`) under `OUTDIR/htdemucs/test/`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 14
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 30,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 14
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:59:35"
+}

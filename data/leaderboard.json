@@ -86,6 +86,26 @@
           "audit_reason": null
         },
         {
+          "repo": "facebookresearch/detr",
+          "slug": "facebookresearch-detr",
+          "score": 99.1,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/markitdown",
           "slug": "microsoft-markitdown",
           "score": 98.9,
@@ -186,6 +206,66 @@
           "audit_reason": null
         },
         {
+          "repo": "facebookresearch/AnimatedDrawings",
+          "slug": "facebookresearch-animate-783a7",
+          "score": 98.1,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "facebookresearch/demucs",
+          "slug": "facebookresearch-demucs",
+          "score": 98.0,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 2.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "facebookresearch/vggt",
+          "slug": "facebookresearch-vggt",
+          "score": 97.4,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 2.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "google-deepmind/sonnet",
           "slug": "google-deepmind-sonnet",
           "score": 97.3,
@@ -226,6 +306,46 @@
           "audit_reason": null
         },
         {
+          "repo": "facebookresearch/fairseq",
+          "slug": "facebookresearch-fairseq",
+          "score": 94.9,
+          "why": "5 min, 0 repo files patched",
+          "agent_minutes": 5.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "facebookresearch/nougat",
+          "slug": "facebookresearch-nougat",
+          "score": 94.1,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 5.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/unilm",
           "slug": "microsoft-unilm",
           "score": 86.2,
@@ -241,6 +361,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "facebookresearch/detectron2",
+          "slug": "facebookresearch-detectron2",
+          "score": 86.0,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 4.0,
+          "files_patched": 1,
+          "lines_patched": 4,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
           "audit_reason": null
@@ -301,6 +441,66 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "facebookresearch/Detectron",
+          "slug": "facebookresearch-detectron",
+          "score": 74.2,
+          "why": "6 min, 2 repo files patched",
+          "agent_minutes": 5.8,
+          "files_patched": 2,
+          "lines_patched": 19,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "pass",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "facebookresearch/ParlAI",
+          "slug": "facebookresearch-parlai",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 1.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "facebookresearch/pytorch3d",
+          "slug": "facebookresearch-pytorch3d",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 9.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
           "audit_reason": null
@@ -423,6 +623,18 @@
               "team": "Microsoft",
               "n": 8,
               "mean": 92.5
+            }
+          ]
+        },
+        {
+          "company": "Meta",
+          "n": 10,
+          "mean": 74.2,
+          "teams": [
+            {
+              "team": "FAIR",
+              "n": 10,
+              "mean": 74.2
             }
           ]
         },

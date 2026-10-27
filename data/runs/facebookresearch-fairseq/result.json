@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-fairseq",
+  "repo": "facebookresearch/fairseq",
+  "track": "cpu-gha",
+  "goal": "Install fairseq from /work/fairseq (editable) so that `from fairseq.models.roberta import RobertaModel` works on CPU. Download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, extract it, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt'), and run m.fill_mask('The capital of France is <mask>.', topk=3), m.encode and m.extract_features. Write /work/env.sh that activates the environment (it is sourced before python is run).",
+  "check": "A hidden script loads the roberta.base model, checks fill_mask returns 3 filled predictions including Paris, that encode gives the expected token ids, and that extracted features have shape (1,5,768).",
+  "started": "2026-10-27 02:27:31",
+  "agent": {
+    "secs": 305,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "18029b45-ba28-434c-becb-a62c643f60ba",
+    "num_turns": 8,
+    "cost_usd": 0.1403664,
+    "is_error": false,
+    "final": "DONE: I wiped the environment and ran `/work/setup.sh` from scratch. It installed fairseq on CPU with Python 3.10, CPU-only torch 2.5.1, `numpy<2` and the undeclared `requests`, and RoBERTa-base then predicted Paris first (90%), gave the expected encode ids and returned features of shape (1,5,768)."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 10
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 138,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 10
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:35:37"
+}

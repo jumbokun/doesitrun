@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-nougat",
+  "repo": "facebookresearch/nougat",
+  "track": "cpu-gha",
+  "goal": "Install nougat-ocr from /work/nougat so the `nougat` command works on CPU (resolve any dependency version conflicts, e.g. transformers/albumentations/pypdfium2 pins). Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
+  "check": "Runs the nougat CLI on a generated one-page text PDF and checks that a non-empty .mmd output file is produced containing recognizable words from the page.",
+  "started": "2026-10-27 02:57:09",
+  "agent": {
+    "secs": 353,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7c362621-f718-4f7c-a4a7-55a02b6f7a6b",
+    "num_turns": 8,
+    "cost_usd": 0.22794260000000005,
+    "is_error": false,
+    "final": "DONE — With a Python 3.10 venv, CPU-only torch and `pypdfium2==4.30.0` (5.x removed `render`, which broke the plain README install), `nougat some.pdf -o outdir --no-skipping -p 1` wrote a .mmd with the page's exact text, and still did after a full `setup.sh` re-run."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 112
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 28,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 115
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:07:39"
+}

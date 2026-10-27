@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "pip install -e needs --no-build-isolation because setup.py imports torch"},
+  {"kind": "system_package", "detail": "python3-dev (Python.h) needed to compile C++ extensions; also ninja-build, libgl1, libglib2.0-0"},
+  {"kind": "dependency_pin", "detail": "Installed CPU torch/torchvision from download.pytorch.org/whl/cpu and opencv-python-headless for the demo"},
+  {"kind": "gpu_compat", "detail": "Set FORCE_CUDA=0 and an empty CUDA_HOME so the build stays CPU-only despite the CUDA toolkit in the image"},
+  {"kind": "code_patch", "detail": "demo/demo.py imported vision.fair.detectron2.demo.predictor (internal path); changed to 'from predictor import'"},
+  {"kind": "code_patch", "detail": "demo/demo.py: create --output dir if it doesn't exist and has no extension (upstream writes <dir>.png)"}
+ ]}

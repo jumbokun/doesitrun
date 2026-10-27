@@ -1,0 +1,76 @@
+{
+  "slug": "facebookresearch-detectron",
+  "repo": "facebookresearch/Detectron",
+  "track": "cpu-gha",
+  "goal": "Get `python tools/infer_simple.py --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml --output-dir <dir> --image-ext jpg --wts <model_final.pkl URL from GETTING_STARTED.md> demo` working on CPU only in /work/Detectron (Caffe2-based; you will need to make it run without a GPU). It must produce a visualization file per demo image (PDF by default; --output-ext jpg also acceptable). Write /work/env.sh (activates the environment needed to run it).",
+  "check": "The hidden test runs infer_simple.py on a bundled demo image with the Mask R-CNN weights and verifies that a non-trivial visualization output file is produced.",
+  "started": "2026-10-27 02:36:09",
+  "agent": {
+    "secs": 349,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "a23b3b61-4a30-4a41-9c63-bb7d5e446f72",
+    "num_turns": 17,
+    "cost_usd": 0.3900084,
+    "is_error": false,
+    "final": "ml 5.3.1 instead of the 3.12 that `requirements.txt` asks for.\n- **Weights:** `setup.sh` downloads `model_final.pkl` to `/work/models` and pre-fills Detectron's download cache, so `--wts <URL>` doesn't download the file again. That form still needs internet for its checksum check.\n\n`env.sh`, `NOTES.md` and `REPORT.json` are in `/work`. Sourcing `env.sh` also changes directory to `/work/Detectron`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 23
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 19,
+    "files": [
+      {
+        "path": "detectron/utils/c2.py",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "path": "detectron/utils/env.py",
+        "added": 14,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 6,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 1
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:48:10",
+  "repair": {
+    "secs": 238,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "a23b3b61-4a30-4a41-9c63-bb7d5e446f72",
+    "num_turns": 5,
+    "cost_usd": 0.5266206,
+    "is_error": false,
+    "final": "up.sh` and `env.sh` out of `/work` and cleared the uv and Detectron download caches. Then I ran `setup.sh` (exit 0, no retries needed) and ran the target command with the weights URL and `--output-ext jpg`. It wrote one JPG per demo image, about 150–220 KB each, and the Cython extensions were built.\n\n`NOTES.md` and `REPORT.json` are updated, with a new entry for the embedded patch and the retries.",
+    "from": "replay"
+  },
+  "replay_after_repair": {
+    "setup_ok": true,
+    "setup_secs": 38,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 24
+    },
+    "class": "pass"
+  }
+}

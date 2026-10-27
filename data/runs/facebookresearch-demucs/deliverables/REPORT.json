@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used uv-managed Python 3.11 venv because torchaudio<2.1 has no Python 3.12 wheels"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch==2.0.1/torchaudio==2.0.2 from download.pytorch.org/whl/cpu"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 for torch 2.0.x ABI compatibility"},
+  {"kind": "dependency_pin", "detail": "Pinned setuptools<81 since torch 2.0.x imports pkg_resources"},
+  {"kind": "system_package", "detail": "apt-get install ffmpeg to decode mp3 input"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded htdemucs weights via demucs.pretrained.get_model from outside /work to avoid the repo dir shadowing the package"}
+ ]}

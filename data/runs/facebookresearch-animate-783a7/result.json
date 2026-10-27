@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-animate-783a7",
+  "repo": "facebookresearch/AnimatedDrawings",
+  "track": "cpu-gha",
+  "goal": "Install AnimatedDrawings (pip install -e .) and make the headless render work on CPU with no display: use a config like examples/config/mvc/export_gif_example.yaml with view USE_MESA: True, and run `from animated_drawings import render; render.start(<config>)`. It must produce an animated video.gif for the bundled character examples/characters/char1 with the dab motion. Put the environment setup in /work/env.sh.",
+  "check": "The hidden test renders an animation of a bundled character headlessly and verifies the output GIF exists, is multi-frame, and has changing frames.",
+  "started": "2026-10-27 02:51:19",
+  "agent": {
+    "secs": 114,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "168c8248-e999-4620-8614-9c49e7265cb8",
+    "num_turns": 7,
+    "cost_usd": 0.1562942,
+    "is_error": false,
+    "final": "DONE: The headless OSMesa render of char1 with the dab motion works on CPU and writes a 339-frame `video.gif` whose frames change; the only extras were a uv Python 3.8 venv in place of conda, the `libosmesa6` system package, and a new config `examples/config/mvc/export_gif_char1_mesa.yaml` with `USE_MESA: True`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 32
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 17,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 34
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:54:57"
+}

@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.10 venv via uv; hydra-core 1.0.7/omegaconf 2.0.6 pinned by fairseq do not work on Python 3.12"},
+  {"kind": "dependency_pin", "detail": "Preinstalled CPU-only torch==2.5.1/torchaudio==2.5.1 from the PyTorch CPU index"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2"},
+  {"kind": "dependency_pin", "detail": "Installed undeclared dependency 'requests', needed by gpt2 BPE download in file_utils.cached_path"}
+ ]}

@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-vggt",
+  "repo": "facebookresearch/vggt",
+  "track": "cpu-gha",
+  "goal": "Get the README quick-start working on CPU: load facebook/VGGT-1B via VGGT.from_pretrained, preprocess several images from /work/vggt/examples/kitchen/images with load_and_preprocess_images, and run model(images) to obtain camera pose encodings, depth maps and point maps. Note the snippet's CUDA-only dtype line must be adapted for CPU (use float32). Make /work/env.sh activate an environment where this works.",
+  "check": "A hidden script runs the model on 4 bundled kitchen images on CPU and checks output tensor shapes, finiteness, and that unprojected 3D points are produced and saved.",
+  "started": "2026-10-27 02:42:06",
+  "agent": {
+    "secs": 158,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "261af13e-8323-4cad-af8d-50d6b4d4dd08",
+    "num_turns": 6,
+    "cost_usd": 0.1489124,
+    "is_error": false,
+    "final": "DONE: the CPU quick-start works. With `/work/env.sh` sourced, VGGT-1B ran in float32 on 4 kitchen images in about 85 seconds and produced pose encodings, depth maps and point maps, all finite and the right shapes. The unprojected 3D points were also produced and saved."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 78
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 36,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 88
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:48:28"
+}

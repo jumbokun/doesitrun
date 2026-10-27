@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-detr",
+  "repo": "facebookresearch/detr",
+  "track": "cpu-gha",
+  "goal": "Get the repo's DETR R50 pretrained model loading via torch.hub (the repo at /work/detr may be used as a local hub source) and run CPU inference on an image such as a COCO photo of two cats on a couch with remotes. The model must output 100 queries with logits of shape (1,100,92) and boxes, and post-processing must yield confident detections of cats and remotes.",
+  "check": "The hidden test loads the pretrained detr_resnet50 on a COCO image and verifies output shapes and that cats and a remote are detected with score above 0.9.",
+  "started": "2026-10-27 02:37:22",
+  "agent": {
+    "secs": 55,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "958609f6-5968-47c0-a403-6c90281cf995",
+    "num_turns": 6,
+    "cost_usd": 0.1431038,
+    "is_error": false,
+    "final": "er the repo was already cloned. I used a uv environment with CPU-only torch 2.8.0 and torchvision 0.23.0 instead of the README's conda setup, and installed only what the hub model needs. `setup.sh` also downloads the DETR checkpoint, the ResNet-50 backbone weights and the test image (`/work/data/cats.jpg`) ahead of time. `NOTES.md` and `REPORT.json` record these as the two changes from the README."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 13,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 5
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:39:02"
+}

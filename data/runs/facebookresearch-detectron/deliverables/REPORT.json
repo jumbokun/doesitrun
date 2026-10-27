@@ -1,0 +1,41 @@
+{
+ "readme_path_worked_as_written": false,
+ "interventions": [
+  {
+   "kind": "python_version",
+   "detail": "Used Python 3.8 (uv venv) instead of Python 2"
+  },
+  {
+   "kind": "gpu_compat",
+   "detail": "Used torch==1.7.1+cpu wheel, which bundles caffe2 and a CPU libcaffe2_detectron_ops.so, instead of a CUDA Caffe2 source build"
+  },
+  {
+   "kind": "code_patch",
+   "detail": "env.py: fall back to CPU libcaffe2_detectron_ops.so when the _gpu ops lib is absent"
+  },
+  {
+   "kind": "gpu_compat",
+   "detail": "c2.py: CudaDevice returns a CPU DeviceOption when no CUDA devices exist"
+  },
+  {
+   "kind": "code_patch",
+   "detail": "env.py: yaml_load uses yaml.UnsafeLoader so the cfg embedded in model_final.pkl loads with newer PyYAML"
+  },
+  {
+   "kind": "dependency_pin",
+   "detail": "numpy<1.20, protobuf<3.21, matplotlib<3.4, opencv-python-headless<4.6, pyyaml 5.3.1 instead of 3.12"
+  },
+  {
+   "kind": "dependency_pin",
+   "detail": "pycocotools from pip instead of the cocoapi make install"
+  },
+  {
+   "kind": "undocumented_step",
+   "detail": "Ran python setup.py develop directly because make adds --user inside a venv"
+  },
+  {
+   "kind": "undocumented_step",
+   "detail": "setup.sh embeds the CPU patch as a heredoc and wraps network steps in retries so it runs on a fresh container"
+  }
+ ]
+}
