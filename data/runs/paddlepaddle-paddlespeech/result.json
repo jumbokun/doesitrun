@@ -37,5 +37,20 @@
     },
     "class": "fail: other"
   },
-  "finished": "2026-10-27 03:21:59"
+  "finished": "2026-10-27 03:21:59",
+  "audit": {
+    "verdict": "oracle_defect",
+    "reason": "The oracle aborted before testing anything because `wget` is not installed in the sandbox (only curl is). After downloading zh.wav with Python, `paddlespeech asr` printed the expected transcript 我认为跑步最重要的就是给我带来了身体健康, and `paddlespeech tts` wrote a 171044-byte RIFF wav on CPU, so the demo works and the failure comes from the oracle's dependency on its own environment.",
+    "evidence_cmd": "which wget curl; paddlespeech asr --lang zh --input zh.wav --device cpu; paddlespeech tts --input '你好，欢迎使用百度飞桨深度学习框架！' --output /tmp/aud/out.wav --device cpu; ls -l out.wav",
+    "evidence_out": "/usr/bin/curl (no wget); 我认为跑步最重要的就是给我带来了身体健康; out.wav 171044 bytes, header RIFF",
+    "setup_ok": true,
+    "oracle_rerun_pass": false,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 43,
+      "num_turns": 4,
+      "cost_usd": 0.052774600000000005
+    },
+    "audited": "2026-10-27 04:01:28"
+  }
 }

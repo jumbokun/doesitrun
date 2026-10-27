@@ -1187,26 +1187,6 @@
           "audit_reason": null
         },
         {
-          "repo": "PaddlePaddle/PaddleSpeech",
-          "slug": "paddlepaddle-paddlespeech",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 17.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
           "repo": "bytedance/UI-TARS",
           "slug": "bytedance-ui-tars",
           "score": null,
@@ -1306,6 +1286,26 @@
           ],
           "audit": "oracle_defect",
           "audit_reason": "The server, UI and app-config work, and the upload API returns success once the request carries the X-Workspace-Id header. The frontend always sends that header, and the code requires it by design (py-src/data_formulator/workspace_factory.py:135). The oracle's curl calls leave the header out, so the server rejects them; nothing is wrong with the install. The README never documents these internal API calls, let alone says they work without a workspace header."
+        },
+        {
+          "repo": "PaddlePaddle/PaddleSpeech",
+          "slug": "paddlepaddle-paddlespeech",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 17.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The oracle aborted before testing anything because `wget` is not installed in the sandbox (only curl is). After downloading zh.wav with Python, `paddlespeech asr` printed the expected transcript 我认为跑步最重要的就是给我带来了身体健康, and `paddlespeech tts` wrote a 171044-byte RIFF wav on CPU, so the demo works and the failure comes from the oracle's dependency on its own environment."
         }
       ],
       "companies": [
@@ -1379,8 +1379,8 @@
         },
         {
           "company": "Baidu",
-          "n": 10,
-          "mean": 74.8,
+          "n": 9,
+          "mean": 83.1,
           "teams": [
             {
               "team": "Baidu",
@@ -1389,8 +1389,8 @@
             },
             {
               "team": "PaddlePaddle",
-              "n": 9,
-              "mean": 73.3
+              "n": 8,
+              "mean": 82.5
             }
           ]
         },
