@@ -217,6 +217,25 @@ def track_section(t, i):
 """
 
 
+def write_badges(tracks):
+    """shields.io endpoint JSON per repo and track: _site/badge/<track>/<owner>/<repo>.json.
+    Embed: https://img.shields.io/endpoint?url=https://jumbokun.github.io/doesitrun/badge/<track>/<owner>/<repo>.json"""
+    for t in tracks:
+        short = "CPU" if t["track"] == "cpu-gha" else "GPU"
+        for r in t["repos"]:
+            if r["score"] is None:
+                msg, color = f"{short} · not scored", "lightgrey"
+            elif r["score"] == 0:
+                msg, color = f"{short} · did not run", "red"
+            else:
+                msg = f"{short} · {r['score']:.0f}/100"
+                color = "brightgreen" if r["score"] >= 75 else "yellow" if r["score"] >= 50 else "orange"
+            path = OUT / "badge" / t["track"] / (r["repo"] + ".json")
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(json.dumps({"schemaVersion": 1, "label": "does it run?", "message": msg, "color": color,
+                                         "cacheSeconds": 86400}).encode("utf-8"))
+
+
 def main():
     data = json.loads((ROOT / "data" / "leaderboard.json").read_text(encoding="utf-8"))
     tracks = data["tracks"]
@@ -389,6 +408,7 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
 </html>
 """
     OUT.mkdir(exist_ok=True)
+    write_badges(tracks)
     (OUT / "index.html").write_text(page, encoding="utf-8", newline="\n")
     (OUT / "leaderboard.json").write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
     print(f"wrote {OUT / 'index.html'} ({len(rows)} repos)")
