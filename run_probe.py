@@ -147,7 +147,12 @@ def repo_diff(name, repo_dir):
             "lines_changed": sum(f["added"] + f["removed"] for f in files), "files": files}
 
 
-def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", budget=AGENT_BUDGET_SEC, prompt_text=None):
+AGENT_MODEL = os.environ.get("RR_MODEL", "claude-opus-5-5")        # pinned: model changes agent time/success
+EXAM_MODEL = os.environ.get("RR_EXAM_MODEL", "claude-sonnet-5-5")   # examiner only reads code
+
+
+def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", budget=AGENT_BUDGET_SEC, prompt_text=None,
+              model=None):
     """Run the headless agent; with resume=(session_id, message) continue that same session."""
     cwd = rundir / "agent_cwd"
     cwd.mkdir(parents=True, exist_ok=True)
@@ -162,6 +167,7 @@ def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", bud
         run_clause=RUN_SERVER if cfg["server"] else RUN_NONE)
     head = ["claude", "-p", prompt] if resume is None else ["claude", "-p", resume[1], "--resume", resume[0]]
     args = head + [
+            "--model", model or AGENT_MODEL,
             "--tools", "",                      # no built-in tools at all (no host Bash/Read/Write/Web)
             "--strict-mcp-config", "--mcp-config", str(rundir / "mcp.json"),
             "--allowedTools", "mcp__box__sh",
@@ -292,7 +298,7 @@ def exam(cand, company):
     rundir.mkdir(parents=True, exist_ok=True)
     cfg = {"slug": slug, "repo": repo, "dir": repo.split("/")[1], "gpu": False, "mem": "6g"}
     start_container(name, cfg)
-    info = run_agent(cfg, name, rundir, budget=EXAM_BUDGET_SEC,
+    info = run_agent(cfg, name, rundir, budget=EXAM_BUDGET_SEC, model=EXAM_MODEL,
                      prompt_text=EXAM_PROMPT.format(repo=repo, dir=cfg["dir"]))
     p = sh(["docker", "exec", name, "cat", "/work/EXAM.json"])
     try:
