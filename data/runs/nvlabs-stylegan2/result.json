@@ -1,0 +1,67 @@
+{
+  "slug": "nvlabs-stylegan2",
+  "repo": "NVlabs/stylegan2",
+  "track": "cpu-gha",
+  "goal": "Make `python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0 --result-dir=<dir>` run on a CPU-only machine (no GPU, no nvcc), producing seed0066.png and seed0230.png in a run subdirectory of <dir>. The repo needs TensorFlow 1.x and its custom CUDA ops (fused_bias_act, upfirdn_2d) default to impl='cuda', so a CPU-compatible path must be arranged. The network pickle is downloaded from nvlabs-fi-cdn.nvidia.com.",
+  "check": "The hidden test runs the generate-images command with seeds 66 and 230 and verifies two valid 1024x1024 RGB PNG images were produced that are not blank.",
+  "started": "2026-10-27 02:38:17",
+  "agent": {
+    "secs": 379,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "37e04d39-3138-40ca-8571-d262ecdd412e",
+    "num_turns": 32,
+    "cost_usd": 0.677768,
+    "is_error": false,
+    "final": "DONE: after a from-scratch run of `/work/setup.sh` (Python 3.7 + `tensorflow-cpu` 1.15 + a CPU patch), the `generate-images` command produced valid 1024x1024 RGB face images `seed0066.png` and `seed0230.png` in about 20 s on CPU."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 20
+  },
+  "repo_diff": {
+    "files_changed": 5,
+    "lines_changed": 31,
+    "files": [
+      {
+        "path": "dnnlib/tflib/__init__.py",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "path": "dnnlib/tflib/ops/fused_bias_act.py",
+        "added": 3,
+        "removed": 1
+      },
+      {
+        "path": "dnnlib/tflib/ops/upfirdn_2d.py",
+        "added": 15,
+        "removed": 7
+      },
+      {
+        "path": "dnnlib/tflib/tfutil.py",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "path": "pretrained_networks.py",
+        "added": 2,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 40,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 21
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:46:20"
+}

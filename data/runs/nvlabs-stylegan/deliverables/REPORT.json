@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Installed Python 3.7 via micromamba/conda-forge because the system has 3.12 and uv no longer provides 3.6/3.7"},
+  {"kind": "dependency_pin", "detail": "Installed tensorflow==1.15.5 (no tensorflow-cpu 1.15.5 wheel) with numpy==1.18.5, protobuf==3.20.3, h5py<3"},
+  {"kind": "undocumented_step", "detail": "Installed pillow and requests manually; the repo has no requirements file"},
+  {"kind": "dead_link", "detail": "dnnlib open_url caches Google Drive's virus-scan HTML page instead of the pickle; downloaded with gdown and placed in cache/<md5(url)>_*.pkl"},
+  {"kind": "gpu_compat", "detail": "Added allow_soft_placement=True in dnnlib/tflib/tfutil.py so ops pinned to /gpu:0 fall back to CPU"},
+  {"kind": "code_patch", "detail": "Added dnnlib/tflib/cpu_compat.py NCHW->NHWC wrappers and made network.py __setstate__ rewrite the pickle-embedded network source to use them when no GPU is present"}
+ ]}

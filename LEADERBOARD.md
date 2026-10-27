@@ -2,55 +2,65 @@
 
 How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never mixed. Method: README.md; full notebook: WORKLOG.md.
 
-## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 45 repos
+## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 55 repos
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
 |---|---|---|---|---|---|---|
 | 1 | [google-research/harness2](https://github.com/google-research/harness2) | 99.6 | 0 min | 0 (0 lines) | pass | Google / Google Research (high) |
 | 2 | [google/yapf](https://github.com/google/yapf) | 99.6 | 0 min | 0 (0 lines) | pass | Google / Google (high) |
 | 3 | [microsoft/SkillOpt](https://github.com/microsoft/SkillOpt) | 99.4 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft Research (high) |
-| 4 | [microsoft/JARVIS](https://github.com/microsoft/JARVIS) | 99.3 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 5 | [facebookresearch/detr](https://github.com/facebookresearch/detr) | 99.1 | 1 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 6 | [microsoft/markitdown](https://github.com/microsoft/markitdown) | 98.9 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 7 | [google/adk-recipes](https://github.com/google/adk-recipes) | 98.7 | 1 min | 0 (0 lines) | pass | Google / Google (high) |
-| 8 | [QwenLM/Qwen3](https://github.com/QwenLM/Qwen3) | 98.6 | 1 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
-| 9 | [google/langextract](https://github.com/google/langextract) | 98.3 | 2 min | 0 (0 lines) | pass | Google / Google (high) |
-| 10 | [microsoft/pyright](https://github.com/microsoft/pyright) | 98.3 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 11 | [microsoft/cascadia-code](https://github.com/microsoft/cascadia-code) | 98.2 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 12 | [facebookresearch/AnimatedDrawings](https://github.com/facebookresearch/AnimatedDrawings) | 98.1 | 2 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 13 | [QwenLM/Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS) | 98.1 | 2 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
-| 14 | [facebookresearch/demucs](https://github.com/facebookresearch/demucs) | 98.0 | 2 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 15 | [Tencent/AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard) | 98.0 | 2 min | 0 (0 lines) | pass | Tencent / Tencent (high) |
-| 16 | [TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN) | 98.0 | 2 min | 0 (0 lines) | pass | Tencent / ARC Lab (high) |
-| 17 | [modelscope/ClearerVoice-Studio](https://github.com/modelscope/ClearerVoice-Studio) | 97.8 | 2 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 18 | [facebookresearch/vggt](https://github.com/facebookresearch/vggt) | 97.4 | 3 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 19 | [google-deepmind/sonnet](https://github.com/google-deepmind/sonnet) | 97.3 | 3 min | 0 (0 lines) | pass | Google / Google DeepMind (high) |
-| 20 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 96.8 | 3 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 21 | [modelscope/ms-swift](https://github.com/modelscope/ms-swift) | 95.8 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 22 | [modelscope/FunASR](https://github.com/modelscope/FunASR) | 95.5 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 23 | [facebookresearch/fairseq](https://github.com/facebookresearch/fairseq) | 94.9 | 5 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 24 | [facebookresearch/nougat](https://github.com/facebookresearch/nougat) | 94.1 | 6 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 25 | [modelscope/DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio) | 92.5 | 8 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 26 | [QwenLM/Qwen](https://github.com/QwenLM/Qwen) | 92.1 | 8 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
-| 27 | [microsoft/unilm](https://github.com/microsoft/unilm) | 86.2 | 4 min | 1 (11 lines) | pass | Microsoft / Microsoft (high) |
-| 28 | [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2) | 86.0 | 4 min | 1 (4 lines) | pass | Meta / FAIR (high) |
-| 29 | [microsoft/qlib](https://github.com/microsoft/qlib) | 85.6 | 4 min | 1 (2 lines) | pass | Microsoft / Microsoft (high) |
-| 30 | [modelscope/modelscope](https://github.com/modelscope/modelscope) | 83.9 | 6 min | 1 (3 lines) | pass | Alibaba / ModelScope (high) |
-| 31 | [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent) | 82.0 | 8 min | 1 (68 lines) | pass | Alibaba / Qwen (high) |
-| 32 | [google-deepmind/pysc2](https://github.com/google-deepmind/pysc2) | 80.3 | 10 min | 1 (1 lines) | pass | Google / Google DeepMind (high) |
-| 33 | [microsoft/Swin-Transformer](https://github.com/microsoft/Swin-Transformer) | 76.8 | 3 min | 2 (43 lines) | pass | Microsoft / Microsoft (high) |
-| 34 | [facebookresearch/Detectron](https://github.com/facebookresearch/Detectron) | 74.2 | 6 min | 2 (19 lines) | fail: other; replay_after_repair: pass | Meta / FAIR (high) |
-| 35 | [Tencent-Hunyuan/Hunyuan3D-2](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | 73.0 | 17 min | 1 (2 lines) | pass | Tencent / Hunyuan (high) |
-| 36 | [google-research/timesfm](https://github.com/google-research/timesfm) | 59.2 | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
-| 37 | [ByteDance-Seed/Depth-Anything-3](https://github.com/ByteDance-Seed/Depth-Anything-3) | 0 | 3 min | 1 (5 lines) | fail: other | ByteDance / Seed (high) |
-| 38 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
-| 39 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
-| 40 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 0 | 14 min | 1 (5 lines) | fail: other | Alibaba / ModelScope (high) |
-| 41 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
-| 42 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 43 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 44 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
-| 45 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
+| 4 | [NVIDIA/garak](https://github.com/NVIDIA/garak) | 99.4 | 1 min | 0 (0 lines) | pass | NVIDIA / NVIDIA (high) |
+| 5 | [microsoft/JARVIS](https://github.com/microsoft/JARVIS) | 99.3 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 6 | [facebookresearch/detr](https://github.com/facebookresearch/detr) | 99.1 | 1 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 7 | [microsoft/markitdown](https://github.com/microsoft/markitdown) | 98.9 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 8 | [google/adk-recipes](https://github.com/google/adk-recipes) | 98.7 | 1 min | 0 (0 lines) | pass | Google / Google (high) |
+| 9 | [QwenLM/Qwen3](https://github.com/QwenLM/Qwen3) | 98.6 | 1 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
+| 10 | [google/langextract](https://github.com/google/langextract) | 98.3 | 2 min | 0 (0 lines) | pass | Google / Google (high) |
+| 11 | [microsoft/pyright](https://github.com/microsoft/pyright) | 98.3 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 12 | [microsoft/cascadia-code](https://github.com/microsoft/cascadia-code) | 98.2 | 2 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 13 | [facebookresearch/AnimatedDrawings](https://github.com/facebookresearch/AnimatedDrawings) | 98.1 | 2 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 14 | [QwenLM/Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS) | 98.1 | 2 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
+| 15 | [facebookresearch/demucs](https://github.com/facebookresearch/demucs) | 98.0 | 2 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 16 | [Tencent/AI-Infra-Guard](https://github.com/Tencent/AI-Infra-Guard) | 98.0 | 2 min | 0 (0 lines) | pass | Tencent / Tencent (high) |
+| 17 | [TencentARC/GFPGAN](https://github.com/TencentARC/GFPGAN) | 98.0 | 2 min | 0 (0 lines) | pass | Tencent / ARC Lab (high) |
+| 18 | [modelscope/ClearerVoice-Studio](https://github.com/modelscope/ClearerVoice-Studio) | 97.8 | 2 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 19 | [facebookresearch/vggt](https://github.com/facebookresearch/vggt) | 97.4 | 3 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 20 | [google-deepmind/sonnet](https://github.com/google-deepmind/sonnet) | 97.3 | 3 min | 0 (0 lines) | pass | Google / Google DeepMind (high) |
+| 21 | [microsoft/VibeVoice](https://github.com/microsoft/VibeVoice) | 96.8 | 3 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 22 | [modelscope/ms-swift](https://github.com/modelscope/ms-swift) | 95.8 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 23 | [modelscope/FunASR](https://github.com/modelscope/FunASR) | 95.5 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 24 | [facebookresearch/fairseq](https://github.com/facebookresearch/fairseq) | 94.9 | 5 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 25 | [facebookresearch/nougat](https://github.com/facebookresearch/nougat) | 94.1 | 6 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 26 | [modelscope/DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio) | 92.5 | 8 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 27 | [QwenLM/Qwen](https://github.com/QwenLM/Qwen) | 92.1 | 8 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
+| 28 | [NVlabs/stylegan3](https://github.com/NVlabs/stylegan3) | 88.5 | 2 min | 1 (2 lines) | pass | NVIDIA / NVIDIA Research (high) |
+| 29 | [NVlabs/Sana](https://github.com/NVlabs/Sana) | 88.1 | 12 min | 0 (0 lines) | pass | NVIDIA / NVIDIA Research (high) |
+| 30 | [microsoft/unilm](https://github.com/microsoft/unilm) | 86.2 | 4 min | 1 (11 lines) | pass | Microsoft / Microsoft (high) |
+| 31 | [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2) | 86.0 | 4 min | 1 (4 lines) | pass | Meta / FAIR (high) |
+| 32 | [microsoft/qlib](https://github.com/microsoft/qlib) | 85.6 | 4 min | 1 (2 lines) | pass | Microsoft / Microsoft (high) |
+| 33 | [modelscope/modelscope](https://github.com/modelscope/modelscope) | 83.9 | 6 min | 1 (3 lines) | pass | Alibaba / ModelScope (high) |
+| 34 | [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent) | 82.0 | 8 min | 1 (68 lines) | pass | Alibaba / Qwen (high) |
+| 35 | [google-deepmind/pysc2](https://github.com/google-deepmind/pysc2) | 80.3 | 10 min | 1 (1 lines) | pass | Google / Google DeepMind (high) |
+| 36 | [microsoft/Swin-Transformer](https://github.com/microsoft/Swin-Transformer) | 76.8 | 3 min | 2 (43 lines) | pass | Microsoft / Microsoft (high) |
+| 37 | [NVlabs/stylegan](https://github.com/NVlabs/stylegan) | 75.9 | 4 min | 2 (4 lines) | pass | NVIDIA / NVIDIA Research (high) |
+| 38 | [facebookresearch/Detectron](https://github.com/facebookresearch/Detectron) | 74.2 | 6 min | 2 (19 lines) | fail: other; replay_after_repair: pass | Meta / FAIR (high) |
+| 39 | [Tencent-Hunyuan/Hunyuan3D-2](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | 73.0 | 17 min | 1 (2 lines) | pass | Tencent / Hunyuan (high) |
+| 40 | [NVIDIA/FastPhotoStyle](https://github.com/NVIDIA/FastPhotoStyle) | 68.0 | 2 min | 3 (13 lines) | fail: other; replay_after_repair: pass | NVIDIA / NVIDIA (high) |
+| 41 | [google-research/timesfm](https://github.com/google-research/timesfm) | 59.2 | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
+| 42 | [NVlabs/stylegan2](https://github.com/NVlabs/stylegan2) | 53.7 | 6 min | 5 (31 lines) | pass | NVIDIA / NVIDIA Research (high) |
+| 43 | [ByteDance-Seed/Depth-Anything-3](https://github.com/ByteDance-Seed/Depth-Anything-3) | 0 | 3 min | 1 (5 lines) | fail: other | ByteDance / Seed (high) |
+| 44 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
+| 45 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 46 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 0 | 14 min | 1 (5 lines) | fail: other | Alibaba / ModelScope (high) |
+| 47 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | 0 | 25 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 48 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | 0 | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 49 | [NVIDIA/warp](https://github.com/NVIDIA/warp) | 0 | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 50 | [NVlabs/SPADE](https://github.com/NVlabs/SPADE) | 0 | 10 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA Research (high) |
+| 51 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
+| 52 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 53 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 54 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
+| 55 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
@@ -59,6 +69,7 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | Tencent | 3 | 89.7 | Tencent 98.0 (n=1); ARC Lab 98.0 (n=1); Hunyuan 73.0 (n=1) |
 | Alibaba | 10 | 83.6 | Qwen 92.7 (n=4); ModelScope 77.6 (n=6) |
 | Google | 9 | 70.3 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 39.7 (n=4) |
+| NVIDIA | 10 | 47.4 | NVIDIA Research 61.2 (n=5); NVIDIA 33.5 (n=5) |
 | ByteDance ⚠ n<3 | 1 | 0 | Seed 0 (n=1) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos

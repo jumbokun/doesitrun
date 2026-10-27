@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu before `uv pip install -e .`"},
+  {"kind": "dependency_pin", "detail": "Installed triton: megatron.core imports it unconditionally (moe/ops/paged_stash.py), not pulled by CPU torch"},
+  {"kind": "undocumented_step", "detail": "Installed transformers (needed by HuggingFaceTokenizer, only in training extra)"},
+  {"kind": "dependency_pin", "detail": "Pinned transformers<5: 5.x loads GPT-2 tokenizer with eos_token=None, so --append-eod crashes the worker and the main process hangs"},
+  {"kind": "undocumented_step", "detail": "Downloaded GPT-2 tokenizer files (tokenizer.json, tokenizer_config.json, vocab.json, merges.txt) to /work/gpt2 via curl"}
+ ]}

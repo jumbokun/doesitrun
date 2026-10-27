@@ -1,0 +1,11 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.12 uv venv instead of Anaconda3/Python 3.5"},
+  {"kind": "dependency_pin", "detail": "CPU-only torch 2.5.1/torchvision 0.20.1 from the PyTorch CPU index instead of pytorch 0.4.0+cuda91"},
+  {"kind": "dependency_pin", "detail": "opencv-contrib-python-headless 4.10 (for cv2.ximgproc) instead of conda menpo opencv3; numpy<2.3"},
+  {"kind": "gpu_compat", "detail": "Skipped cupy, pynvrtc and scikit-umfpack (GPU-only / not needed with --fast --no_post)"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 for OpenCV"},
+  {"kind": "gpu_compat", "detail": "smooth_filter.py: moved cupy/pynvrtc imports from module level into smooth_local_affine()"},
+  {"kind": "gpu_compat", "detail": "demo.py: torch.load with map_location='cpu'"},
+  {"kind": "code_patch", "detail": "process_stylization.py: resize output back to original content size (in-place thumbnail bug); upsample->interpolate"}
+ ]}

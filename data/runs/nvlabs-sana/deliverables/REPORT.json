@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "README has no install instructions for the diffusers path; created uv venv and installed diffusers, transformers, accelerate, sentencepiece, protobuf"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu and replaced device 'cuda' with 'cpu' for pipe.to() and torch.Generator"}
+ ]}

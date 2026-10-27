@@ -66,6 +66,26 @@
           "audit_reason": null
         },
         {
+          "repo": "NVIDIA/garak",
+          "slug": "nvidia-garak",
+          "score": 99.4,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/JARVIS",
           "slug": "microsoft-jarvis",
           "score": 99.3,
@@ -526,6 +546,46 @@
           "audit_reason": null
         },
         {
+          "repo": "NVlabs/stylegan3",
+          "slug": "nvlabs-stylegan3",
+          "score": 88.5,
+          "why": "1 min, 1 repo files patched",
+          "agent_minutes": 1.5,
+          "files_patched": 1,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "NVlabs/Sana",
+          "slug": "nvlabs-sana",
+          "score": 88.1,
+          "why": "12 min, 0 repo files patched",
+          "agent_minutes": 11.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "microsoft/unilm",
           "slug": "microsoft-unilm",
           "score": 86.2,
@@ -666,6 +726,26 @@
           "audit_reason": null
         },
         {
+          "repo": "NVlabs/stylegan",
+          "slug": "nvlabs-stylegan",
+          "score": 75.9,
+          "why": "4 min, 2 repo files patched",
+          "agent_minutes": 4.1,
+          "files_patched": 2,
+          "lines_patched": 4,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "facebookresearch/Detectron",
           "slug": "facebookresearch-detectron",
           "score": 74.2,
@@ -706,6 +786,26 @@
           "audit_reason": null
         },
         {
+          "repo": "NVIDIA/FastPhotoStyle",
+          "slug": "nvidia-fastphotostyle",
+          "score": 68.0,
+          "why": "2 min, 3 repo files patched",
+          "agent_minutes": 2.0,
+          "files_patched": 3,
+          "lines_patched": 13,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "pass",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "google-research/timesfm",
           "slug": "google-research-timesfm",
           "score": 59.2,
@@ -721,6 +821,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "NVlabs/stylegan2",
+          "slug": "nvlabs-stylegan2",
+          "score": 53.7,
+          "why": "6 min, 5 repo files patched",
+          "agent_minutes": 6.3,
+          "files_patched": 5,
+          "lines_patched": 31,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
           ],
           "audit": null,
           "audit_reason": null
@@ -805,6 +925,86 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The oracle stopped first because wget isn't installed, but the README's own download step uses wget too. With curl swapped in, stage 1 runs on CPU and writes a good Chinese total.srt. Stage 2 with the README's exact --dest_text then prints 'No period found in the video; no output was generated', so no res.mp4 is made: the video at the README URL doesn't contain that sentence. The installing agent's setup.sh also says this and swaps in a different file (2022云栖大会_片段2.mp4). The README's documented demo does not work as written."
+        },
+        {
+          "repo": "NVIDIA/Megatron-LM",
+          "slug": "nvidia-megatron-lm",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 24.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "NVIDIA/SkillSpector",
+          "slug": "nvidia-skillspector",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 0.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "NVIDIA/warp",
+          "slug": "nvidia-warp",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "NVlabs/SPADE",
+          "slug": "nvlabs-spade",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 9.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "bytedance/UI-TARS",
@@ -996,6 +1196,23 @@
               "team": "Google Research",
               "n": 4,
               "mean": 39.7
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "n": 10,
+          "mean": 47.4,
+          "teams": [
+            {
+              "team": "NVIDIA Research",
+              "n": 5,
+              "mean": 61.2
+            },
+            {
+              "team": "NVIDIA",
+              "n": 5,
+              "mean": 33.5
             }
           ]
         },

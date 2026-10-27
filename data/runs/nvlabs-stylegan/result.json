@@ -1,0 +1,52 @@
+{
+  "slug": "nvlabs-stylegan",
+  "repo": "NVlabs/stylegan",
+  "track": "cpu-gha",
+  "goal": "Get `python pretrained_example.py` in /work/stylegan to run on CPU only: it downloads the pre-trained FFHQ generator pickle (Google Drive id 1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ, ~300MB), prints the Gs layer table, and writes results/example.png. The code targets TensorFlow 1.x and Python 3.6/3.7, so you may need a compatible environment and CPU workarounds (e.g. NCHW convolutions). Put activation of the environment in /work/env.sh.",
+  "check": "Running pretrained_example.py exits successfully and produces a valid 1024x1024 RGB PNG that is not blank.",
+  "started": "2026-10-27 02:30:04",
+  "agent": {
+    "secs": 247,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "836d736f-4c6f-4450-a9ac-dda385922400",
+    "num_turns": 28,
+    "cost_usd": 0.5600979999999999,
+    "is_error": false,
+    "final": "DONE: running `/work/setup.sh` from scratch on the CPU-only machine sets up Python 3.7 and TensorFlow 1.15, fetches the model with gdown and patches the code for CPU, and then `pretrained_example.py` prints the layer table and writes a 1024x1024 RGB face to `results/example.png`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 10
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 4,
+    "files": [
+      {
+        "path": "dnnlib/tflib/network.py",
+        "added": 2,
+        "removed": 1
+      },
+      {
+        "path": "dnnlib/tflib/tfutil.py",
+        "added": 1,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 38,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 10
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:35:33"
+}

@@ -1,0 +1,4 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "other", "detail": "Created a uv virtualenv at /work/.venv for the pip install (system python is PEP 668 externally managed)"}
+ ]}

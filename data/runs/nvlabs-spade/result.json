@@ -1,0 +1,41 @@
+{
+  "slug": "nvlabs-spade",
+  "repo": "NVlabs/SPADE",
+  "track": "cpu-gha",
+  "goal": "Install dependencies (including the sync_batchnorm package per README), download the pretrained checkpoints tarball linked in the README and extract it so that /work/SPADE/checkpoints/coco_pretrained exists. Then run test.py with --name coco_pretrained --dataset_mode coco --dataroot datasets/coco_stuff --gpu_ids -1 on the bundled sample COCO-Stuff images so it generates synthesized images on CPU.",
+  "check": "Running the pretrained COCO model on the bundled sample data on CPU produces at least two non-trivial synthesized image files in the results directory.",
+  "started": "2026-10-27 03:35:38",
+  "agent": {
+    "secs": 588,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "3c7e5854-dbdb-49fe-9787-8c0c5312c4e6",
+    "num_turns": 37,
+    "cost_usd": 0.9008782,
+    "is_error": false,
+    "final": "code 1 and a clear error, because that download fails.\n- **Other files:** `/work/env.sh` activates the environment and moves into the repo. `/work/NOTES.md` and `/work/REPORT.json` record the dead link and the Python/torch version changes.\n- **To finish:** If you get the original `checkpoints.tar.gz` from another source, extract it into `/work/SPADE/checkpoints/` and run the command from the task."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 5,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 03:45:55"
+}

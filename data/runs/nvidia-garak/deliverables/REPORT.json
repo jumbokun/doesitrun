@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "other", "detail": "conda not available; used uv venv with Python 3.12 instead of conda env"},
+  {"kind": "gpu_compat", "detail": "installed CPU-only torch from download.pytorch.org/whl/cpu to avoid CUDA wheels on CPU-only host"}
+ ]}

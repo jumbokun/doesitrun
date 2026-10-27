@@ -501,5 +501,95 @@
     "evidence": [
       "owner 'QwenLM' is Alibaba org account (Qwen)"
     ]
+  },
+  "NVIDIA/FastPhotoStyle": {
+    "repo": "NVIDIA/FastPhotoStyle",
+    "company": "NVIDIA",
+    "team": "NVIDIA",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+    ]
+  },
+  "NVIDIA/garak": {
+    "repo": "NVIDIA/garak",
+    "company": "NVIDIA",
+    "team": "NVIDIA",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+    ]
+  },
+  "NVIDIA/Megatron-LM": {
+    "repo": "NVIDIA/Megatron-LM",
+    "company": "NVIDIA",
+    "team": "NVIDIA",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+    ]
+  },
+  "NVIDIA/SkillSpector": {
+    "repo": "NVIDIA/SkillSpector",
+    "company": "NVIDIA",
+    "team": "NVIDIA",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+    ]
+  },
+  "NVIDIA/warp": {
+    "repo": "NVIDIA/warp",
+    "company": "NVIDIA",
+    "team": "NVIDIA",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+    ]
+  },
+  "NVlabs/Sana": {
+    "repo": "NVlabs/Sana",
+    "company": "NVIDIA",
+    "team": "NVIDIA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+    ]
+  },
+  "NVlabs/SPADE": {
+    "repo": "NVlabs/SPADE",
+    "company": "NVIDIA",
+    "team": "NVIDIA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+    ]
+  },
+  "NVlabs/stylegan": {
+    "repo": "NVlabs/stylegan",
+    "company": "NVIDIA",
+    "team": "NVIDIA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+    ]
+  },
+  "NVlabs/stylegan2": {
+    "repo": "NVlabs/stylegan2",
+    "company": "NVIDIA",
+    "team": "NVIDIA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+    ]
+  },
+  "NVlabs/stylegan3": {
+    "repo": "NVlabs/stylegan3",
+    "company": "NVIDIA",
+    "team": "NVIDIA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+    ]
   }
 }

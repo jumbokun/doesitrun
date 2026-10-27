@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "TF 1.15 needs Python <=3.7; uv no longer ships 3.7, so a conda-forge Python 3.7 is created via a static micromamba binary"},
+  {"kind": "dependency_pin", "detail": "tensorflow-cpu==1.15.0 (only TF1 CPU wheel on PyPI), numpy==1.16.6, protobuf==3.20.3, h5py==2.10.0, plus Dockerfile pins scipy==1.3.3 requests==2.22.0 Pillow==6.2.1"},
+  {"kind": "gpu_compat", "detail": "fused_bias_act/upfirdn_2d default impl switched from 'cuda' to 'ref' when TF is built without CUDA (no nvcc needed)"},
+  {"kind": "gpu_compat", "detail": "allow_soft_placement=True in tfutil session config so Network.run()'s hard-coded /gpu:0 falls back to CPU"},
+  {"kind": "code_patch", "detail": "new dnnlib/tflib/cpu_compat.py wraps tf.nn.conv2d/conv2d_transpose to run NCHW as NHWC since TF CPU kernels only support NHWC"},
+  {"kind": "other", "detail": "pickle download cache made absolute via STYLEGAN2_CACHE_DIR and FFHQ config-f pickle pre-downloaded in setup.sh"}
+ ]}

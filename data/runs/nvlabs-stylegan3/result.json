@@ -1,0 +1,47 @@
+{
+  "slug": "nvlabs-stylegan3",
+  "repo": "NVlabs/stylegan3",
+  "track": "cpu-gha",
+  "goal": "Get gen_images.py running on CPU only (no GPU) so it downloads the pretrained stylegan3-r-afhqv2-512x512 network from the README URL and writes a generated PNG for seed 2 with --trunc=1 into an output directory. Install whatever dependencies (torch CPU, numpy, click, pillow, scipy, requests, tqdm, etc.) are needed and record the environment in /work/env.sh.",
+  "check": "The hidden test runs gen_images.py with the pretrained AFHQv2 network on a seed and verifies a valid, non-trivial 512x512 PNG is produced.",
+  "started": "2026-10-27 03:39:57",
+  "agent": {
+    "secs": 89,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "781a4ed4-9bf6-4ded-87fb-ed74fb3c43b9",
+    "num_turns": 8,
+    "cost_usd": 0.15010719999999997,
+    "is_error": false,
+    "final": "DONE. `gen_images.py` now runs on CPU with the README's AFHQv2 network and writes a real 512x512 PNG for seed 2 with `--trunc=1`, in about 27 seconds. This took a one-line patch to fall back from CUDA to CPU, Python 3.10 with CPU-only torch 2.2.2 and `numpy<2`, and `setuptools<70` for a missing `pkg_resources` import. I tested `setup.sh` by re-running it in this sandbox, not on a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 48
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 2,
+    "files": [
+      {
+        "path": "gen_images.py",
+        "added": 1,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 8,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 50
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:43:34"
+}

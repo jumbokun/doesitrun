@@ -1,0 +1,41 @@
+{
+  "slug": "nvidia-megatron-lm",
+  "repo": "NVIDIA/Megatron-LM",
+  "track": "cpu-gha",
+  "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir with the GPT-2 tokenizer files> --workers 2 --append-eod` runs on CPU. The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset. The GPT-2 tokenizer (openai-community/gpt2 on Hugging Face, not gated) is downloaded as a directory containing tokenizer.json, tokenizer_config.json, vocab.json and merges.txt.",
+  "check": "Runs the preprocessing CLI on a generated 20-document JSONL and verifies the output files load as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token.",
+  "started": "2026-10-27 02:27:40",
+  "agent": {
+    "secs": 1488,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "d9b97e20-8142-4d54-8303-08c0a0b8ff8d",
+    "num_turns": 21,
+    "cost_usd": 0.3995704,
+    "is_error": false,
+    "final": "DONE: after a from-scratch `setup.sh` run, the preprocessing command (with CPU torch, triton, and transformers pinned below 5, since 5.x drops GPT-2's EOD token and makes the run hang) wrote 20 documents that load with `IndexedDataset`, decode back to the original text, and end with the EOD token (50256)."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 1200
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 33,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 1200
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 03:33:23"
+}

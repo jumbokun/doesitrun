@@ -1,0 +1,41 @@
+{
+  "slug": "nvidia-skillspector",
+  "repo": "NVIDIA/SkillSpector",
+  "track": "cpu-gha",
+  "goal": "Install SkillSpector from the clone at /work/SkillSpector (Python 3.12+, venv/uv, as in README) so that the `skillspector` command works. Then `skillspector scan tests/fixtures/malicious_skill --no-llm --format json --output report.json` and the same for tests/fixtures/safe_skill, plus `--format markdown`, must succeed without any API key. The malicious fixture must yield security findings and more than the safe one. Put the `skillspector` command on PATH via /work/env.sh.",
+  "check": "The hidden test scans a malicious and a safe fixture skill with static analysis only and verifies that valid JSON and Markdown reports are produced, with more findings for the malicious skill.",
+  "started": "2026-10-27 02:26:46",
+  "agent": {
+    "secs": 53,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "935908f4-2929-4467-bf31-4c6fb77cf9d4",
+    "num_turns": 6,
+    "cost_usd": 0.10251740000000001,
+    "is_error": false,
+    "final": "eates the venv and runs `make install`.\n- `env.sh` — activates the venv so `skillspector` is on PATH.\n- `NOTES.md` — says the README worked as written and explains the exit code.\n- `REPORT.json` — `readme_path_worked_as_written: true` and no interventions.\n\nDONE — following the README as written worked, and the malicious fixture gets 7 findings versus 0 for the safe one, in both JSON and Markdown."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 8,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 3
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:28:14"
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "nvidia-garak",
+  "repo": "NVIDIA/garak",
+  "track": "cpu-gha",
+  "goal": "Install garak from the cloned repo so that `python -m garak --list_probes` works. Then run `python -m garak -t test.Repeat -p test.Test -d always.Pass --report_prefix <somedir>/run`; the scan must complete and write a report .jsonl file.",
+  "check": "The hidden test checks that the probe list is printed and that a scan run writes a non-empty report JSONL containing attempt entries for the test.Test probe.",
+  "started": "2026-10-27 02:55:07",
+  "agent": {
+    "secs": 35,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "f5e6b011-f8ab-48cf-918d-fd73302a6776",
+    "num_turns": 5,
+    "cost_usd": 0.0732492,
+    "is_error": false,
+    "final": "DONE: garak is installed from the clone into a uv venv at `/work/venv` (conda isn't in the image, so I used that instead of the README's conda step), `python -m garak --list_probes` prints the probe list, and the test.Repeat/test.Test/always.Pass scan finished and wrote `run.report.jsonl` with 16 attempt entries."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 8,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:56:17"
+}

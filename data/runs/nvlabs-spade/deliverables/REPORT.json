@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dead_link", "detail": "README Google Drive link for checkpoints.tar.gz (id 12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ) returns HTTP 404; no public mirror found (HF, GitHub, Kaggle, ModelScope, archive.org); upstream issue #175 unresolved"},
+  {"kind": "python_version", "detail": "Used Python 3.12 venv instead of documented Python 3.6"},
+  {"kind": "dependency_pin", "detail": "Installed CPU-only torch/torchvision from the PyTorch CPU wheel index (torch 2.14) instead of PyTorch 1.0; code ran unmodified"}
+ ]}

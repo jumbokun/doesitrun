@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Patched gen_images.py: torch.device('cuda') -> cuda if available else cpu"},
+  {"kind": "python_version", "detail": "Used uv venv with Python 3.10 instead of the conda environment.yml"},
+  {"kind": "dependency_pin", "detail": "Installed CPU torch 2.2.2 from download.pytorch.org/whl/cpu and numpy<2 in place of pytorch 1.9.1/cudatoolkit 11.1"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools<70 because torch_utils/ops/conv2d_gradfix.py imports pkg_resources"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded the network pickle into DNNLIB_CACHE_DIR=/work/cache/dnnlib, set in env.sh"}
+ ]}

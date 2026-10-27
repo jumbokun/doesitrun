@@ -1,0 +1,81 @@
+{
+  "slug": "nvidia-fastphotostyle",
+  "repo": "NVIDIA/FastPhotoStyle",
+  "track": "cpu-gha",
+  "goal": "Get `python demo.py --cuda 0 --fast --no_post --content_image_path A --style_image_path B --output_image_path OUT` working on CPU only, using the bundled PhotoWCTModels/photo_wct.pth, on small PNG content and style images. The repo targets old PyTorch/CUDA and imports cupy at module load (smooth_filter.py), so the code and environment must be adapted to run without a GPU. It must write a stylized image of the same size as the content image.",
+  "check": "The hidden test runs demo.py on CPU with generated content and style images and verifies a non-blank output image of the content image's size that differs from the content.",
+  "started": "2026-10-27 02:48:39",
+  "agent": {
+    "secs": 119,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7e82dbac-4a7b-4dd4-b2a0-a3d7af2ed84c",
+    "num_turns": 11,
+    "cost_usd": 0.31669980000000003,
+    "is_error": false,
+    "final": "DONE — `demo.py --cuda 0 --fast --no_post` now runs on CPU and writes a stylized image the same size as the content image; I tested this after rebuilding everything from scratch with `/work/setup.sh` (it rebuilds the venv and runs `/work/tools/patch_cpu.py`; `env.sh`, `NOTES.md` and `REPORT.json` are also in `/work`), using 200×150 and 1100×1000 PNG content images."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 3,
+    "lines_changed": 13,
+    "files": [
+      {
+        "path": "demo.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "process_stylization.py",
+        "added": 5,
+        "removed": 2
+      },
+      {
+        "path": "smooth_filter.py",
+        "added": 2,
+        "removed": 2
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 14,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 7
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:52:45",
+  "repair": {
+    "secs": 37,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7e82dbac-4a7b-4dd4-b2a0-a3d7af2ed84c",
+    "num_turns": 3,
+    "cost_usd": 0.4110572,
+    "is_error": false,
+    "final": "DONE — `setup.sh` is now self-contained: it writes the CPU patch script itself and retries the network steps, and in a `/work` holding only `setup.sh`, `env.sh`, `NOTES.md` and `REPORT.json` it rebuilt everything and `demo.py --cuda 0 --fast --no_post` produced a stylized 200×150 output matching the content image's size.",
+    "from": "replay"
+  },
+  "replay_after_repair": {
+    "setup_ok": true,
+    "setup_secs": 16,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 6
+    },
+    "class": "pass"
+  }
+}
