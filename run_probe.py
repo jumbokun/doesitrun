@@ -379,6 +379,8 @@ def audit(cfg, res):
     """Pre-registered oracle audit: fresh replay of the agent's installer, unchanged oracle under bash -x,
     independent auditor ruling. Stored as res["audit"]; never changes the original oracle result."""
     slug = cfg["slug"]
+    if res["oracle"]["pass"]:
+        raise RuntimeError(f"refusing to audit {slug}: its oracle passed; only failed runs are audited")
     name, rundir = f"rr-a-{slug}", RUNS / f"audit-{slug}"
     rundir.mkdir(parents=True, exist_ok=True)
     deliv = DATA_RUNS / slug / "deliverables"
