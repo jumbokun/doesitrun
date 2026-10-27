@@ -1,0 +1,118 @@
+name: Probe repos
+
+# Stage 2: for each pre-registered repo, a sandboxed agent gets the README demo running; the hidden
+# oracle judges; setup.sh is replayed on a fresh container (one repair round if it fails). The collect
+# job commits the records, rebuilds the leaderboard and redeploys the site.
+on:
+  workflow_dispatch:
+    inputs:
+      repos_file:
+        description: "Run list"
+        default: "repos_cpu.json"
+      slugs:
+        description: "JSON list of slugs to run; [] = all in the run list"
+        default: "[]"
+      max_parallel:
+        description: "Concurrent agent jobs (subscription rate limits)"
+        default: "3"
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      slugs: ${{ steps.p.outputs.slugs }}
+    steps:
+      - uses: actions/checkout@v7
+      - id: p
+        env:
+          SLUGS: ${{ inputs.slugs }}
+          REPOS_FILE: ${{ inputs.repos_file }}
+        run: |
+          python3 - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os
+          want = json.loads(os.environ["SLUGS"])
+          slugs = [c["slug"] for c in json.load(open(os.environ["REPOS_FILE"])) if not want or c["slug"] in want]
+          print("slugs=" + json.dumps(slugs))
+          PY
+
+  probe:
+    needs: plan
+    if: needs.plan.outputs.slugs != '[]'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: ${{ fromJSON(inputs.max_parallel) }}
+      matrix:
+        slug: ${{ fromJSON(needs.plan.outputs.slugs) }}
+    steps:
+      - name: Free runner disk
+        run: sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL && df -h /
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "22"
+      - run: npm install -g @anthropic-ai/claude-code
+      - run: docker build -q -t rr-cpu -f base/Dockerfile.cpu base
+      - name: Probe
+        env:
+          RR_IMAGE: rr-cpu
+          RR_TRACK: cpu-gha
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          REPOS_FILE: ${{ inputs.repos_file }}
+          SLUG: ${{ matrix.slug }}
+        run: python run_probe.py "--repos=$REPOS_FILE" "$SLUG"
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: run-${{ matrix.slug }}
+          path: data/runs/${{ matrix.slug }}/
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: logs-${{ matrix.slug }}
+          path: runs/${{ matrix.slug }}/
+          retention-days: 30
+
+  collect:
+    needs: probe
+    if: always() && needs.probe.result != 'skipped'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: run-*
+          path: _runs
+      - name: Merge run records, rebuild leaderboard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for d in _runs/run-*/; do
+            slug=$(basename "$d"); slug=${slug#run-}
+            mkdir -p "data/runs/$slug" && cp -r "$d". "data/runs/$slug/"
+          done
+          python leaderboard.py > /dev/null
+      - name: Commit and redeploy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "doesitrun-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/runs data/leaderboard.json data/attribution.json LEADERBOARD.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Record probe results ($(ls _runs | wc -l) repos)"
+          git pull --rebase -q origin main
+          git push -q origin HEAD:main
+          # Pushes made with GITHUB_TOKEN do not trigger workflows; dispatch the site build explicitly.
+          gh workflow run pages.yml --ref main
