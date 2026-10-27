@@ -122,7 +122,7 @@ def oracle(name, slug, out_path):
         sh(["docker", "cp", str(ROOT / "oracles" / f), f"{name}:/oracle/{f}"])
     t0 = time.time()
     try:
-        p = sh(["docker", "exec", "-w", "/work", name, "bash", f"/oracle/{slug}.sh"], timeout=ORACLE_SEC)
+        p = sh(["docker", "exec", "-w", "/work", name, "bash", "-x", f"/oracle/{slug}.sh"], timeout=ORACLE_SEC)
         out, ok = p.stdout + p.stderr, p.returncode == 0 and "ORACLE PASS" in p.stdout
     except subprocess.TimeoutExpired:
         out, ok = "oracle timed out", False
