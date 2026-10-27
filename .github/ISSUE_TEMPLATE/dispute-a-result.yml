@@ -1,0 +1,30 @@
+name: Dispute a result
+description: A score, audit verdict or attribution looks wrong
+title: "Dispute: owner/repo"
+labels: ["dispute"]
+body:
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      placeholder: owner/repo
+    validations:
+      required: true
+  - type: dropdown
+    id: what
+    attributes:
+      label: What is wrong?
+      options:
+        - The demo does run; the result says it doesn't
+        - The hidden test checks something the README never promised
+        - Company or team attribution
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Commands and output, a link, or the README section. Corrections are logged in WORKLOG.md.
+    validations:
+      required: true

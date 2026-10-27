@@ -1,0 +1,30 @@
+name: Test my repo
+description: Ask for a repository to be run through Does it run?
+title: "Test: owner/repo"
+labels: ["test-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A sandboxed agent will try your README's demo on a CPU-only GitHub runner (4 vCPU, 16 GB RAM, no GPU,
+        <2 h, <15 GB of downloads, no API keys or gated models). An examiner first decides eligibility and writes
+        a hidden test; every failure is independently audited. Results go public on the leaderboard.
+  - type: input
+    id: repo
+    attributes:
+      label: Repository
+      placeholder: owner/repo
+    validations:
+      required: true
+  - type: textarea
+    id: demo
+    attributes:
+      label: Which README demo should work?
+      description: Section name or command. Leave empty to let the examiner pick the primary one.
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Before you submit
+      options:
+        - label: The demo runs on CPU and needs no paid API key, account or gated model.
+          required: true
