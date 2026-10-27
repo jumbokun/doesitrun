@@ -34,10 +34,14 @@ jobs:
         env:
           SLUGS: ${{ inputs.slugs }}
           REPOS_FILE: ${{ inputs.repos_file }}
+          MODE: ${{ inputs.mode }}
         run: |
           python3 - <<'PY' >> "$GITHUB_OUTPUT"
           import json, os
-          want = json.loads(os.environ["SLUGS"])
+          want = json.loads(os.environ["SLUGS"] or "null")
+          if os.environ.get("MODE") == "audit" and not want:
+              raise SystemExit("audit mode needs an explicit, non-empty slug list")
+          want = want or []
           slugs = [c["slug"] for c in json.load(open(os.environ["REPOS_FILE"])) if not want or c["slug"] in want]
           print("slugs=" + json.dumps(slugs))
           PY
