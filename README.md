@@ -18,7 +18,7 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | Of the 62 that ran: installer replays on a fresh machine | 59 first try, the other 3 after one repair round |
 | Repos where the agent modified at least one of the repo's own files | 30 / 80 (measured with `git diff`) |
 | Top repos not even testable on a plain machine | 34 of 114 examined: GPU or >16 GB (16), paid API key (11), gated model (5), other (2) |
-| Failed hidden tests, after independent audit | 6 genuine repo failures (e.g. BERT's and trax's README model links now 403, SPADE's 404), **9 defective tests** (unscored), 3 inconclusive (stay 0) |
+| The 18 failed hidden tests, after audit and review | **5 upstream problems, each verified independently** (BERT's and trax's README model links 403, SPADE's 404, Depth-Anything-3's undeclared dependency, FunClip's README example pairing a sentence with the wrong video), **10 defective tests** (unscored), 3 agent timeouts (stay 0) |
 
 | company (mean score, n) | | teams (split only where GitHub org accounts show it) |
 |---|---|---|
@@ -27,7 +27,7 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | Alibaba | 84 (10) | Qwen 93 · ModelScope 78 |
 | Baidu | 83 (9) | Baidu 88 · PaddlePaddle 82 |
 | Google | 70 (9) | DeepMind 89 · Google 74 · Google Research 53 |
-| NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 — two 0s unrelated to CUDA (Megatron-LM's tokenizer, SPADE's 404 link) |
+| NVIDIA | 68 (7) | NVIDIA 84 · NVIDIA Research 61 — includes SPADE's 0 (dead model link) |
 | Tencent | 64 (9) | ARC Lab 94 · Tencent 76 · **Hunyuan 39** |
 | ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
 
@@ -104,6 +104,9 @@ failed on the agent's container (amended once afterwards, see below and WORKLOG.
    the oracle and its verdict stay in the record. Nothing is ever flipped to a pass.
 4. *Amendment, made after the batch:* if the agent hit the 90-minute cap, the failure stays 0 whatever the
    audit says; the auditor was not told about timeouts, and the oracle never had a finished install to judge.
+5. *Corrections:* a verdict can be corrected on review with evidence, the same way an upheld dispute is applied.
+   The correction and the original audit both stay in the record. One so far: NVIDIA/Megatron-LM, whose failure
+   came from our examiner's test setup (a tokenizer directory name), not from Megatron-LM.
 
 ## Scoring
 
@@ -179,8 +182,8 @@ Requires the Claude Code CLI logged in. To add a repo, append it to a repos file
 - **One run per repo.** Run-to-run variance is not measured yet; treat small gaps as noise.
 - **One agent.** Scores compare repos under the same agent (CPU track: Claude Opus 5.5, pinned; the earlier GPU
   track ran Opus 5). A different agent would move every score.
-- **AI-written tests.** 9 of 18 failed hidden tests were the test's fault; every failure is audited, and audits
-  of borderline cases are not perfectly stable.
+- **AI-written tests.** 10 of 18 failed hidden tests were the test's fault; every failure is audited, audits of
+  borderline cases are not perfectly stable, and one audit was corrected on review (Megatron-LM, see below).
 - **Hardware.** The CPU track judges CUDA-first repos on a path their authors may not prioritise. The GPU track is
   one 8 GB Blackwell card, which penalises old PyTorch pins.
 - **Selection.** "Top 25 by stars" mixes research code with products. Agent time also moves with download speed.
