@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used uv venv with Python 3.10 instead of conda python=3.8"},
+  {"kind": "undocumented_step", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu before modelscope[nlp]"},
+  {"kind": "dependency_pin", "detail": "Pre-installed transformers==4.48.3 and huggingface-hub==0.25.* required by the model repo's requirements.txt (runtime pip auto-install fails in pip-less venv)"},
+  {"kind": "code_patch", "detail": "TokenClassificationPipeline now forwards trust_remote_code to Pipeline.__init__; otherwise the trusted damo model with allow_remote=true is refused"}
+ ]}

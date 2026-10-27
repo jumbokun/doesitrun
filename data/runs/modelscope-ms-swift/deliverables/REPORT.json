@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "torch not in requirements; installed CPU torch/torchvision via uv --torch-backend=cpu"},
+  {"kind": "gpu_compat", "detail": "Ran Quick Start on CPU: CUDA_VISIBLE_DEVICES empty, float32, 0.5B model, max_steps 5, dataloader_num_workers 0"},
+  {"kind": "undocumented_step", "detail": "Used swift infer --val_dataset <jsonl> --result_path for non-interactive batch inference"}
+ ]}

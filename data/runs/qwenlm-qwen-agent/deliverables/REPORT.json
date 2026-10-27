@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Installed undeclared runtime deps soundfile (utils/utils.py) and tqdm (tools/python_executor.py); import qwen_agent fails without them"},
+  {"kind": "code_patch", "detail": "code_interpreter requires Docker (unavailable in sandbox, no CAP_SYS_ADMIN); patched it to fall back to a local Jupyter kernel subprocess (QWEN_AGENT_CODE_INTERPRETER_LOCAL=1)"},
+  {"kind": "dependency_pin", "detail": "Installed the code_interpreter Docker image's packages (ipykernel, matplotlib, pandas, seaborn, sympy, openpyxl) into the venv so the kernel init code runs locally"},
+  {"kind": "code_patch", "detail": "CodeInterpreter.call crashed with TypeError on dict params despite Union[str, dict] signature; made it accept dicts"},
+  {"kind": "undocumented_step", "detail": "Installed Ollama via official install script (needs apt zstd), pulled qwen3:1.7b and started ollama serve; README only links to external Qwen2 docs"}
+ ]}

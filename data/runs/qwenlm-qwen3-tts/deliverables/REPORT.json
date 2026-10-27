@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "other", "detail": "Used uv venv with Python 3.12 instead of conda (conda not available)"},
+  {"kind": "dependency_pin", "detail": "Installed torch/torchaudio 2.8.0 CPU wheels from download.pytorch.org/whl/cpu since torch is not declared and default pulls CUDA build"},
+  {"kind": "system_package", "detail": "apt install sox libsox-fmt-all libsndfile1 ffmpeg for python sox/soundfile"},
+  {"kind": "gpu_compat", "detail": "Load with device_map='cpu', dtype=float32 and no flash_attention_2 instead of README's cuda/bf16/flash-attn example"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded model and tokenizer via hf download into HF_HOME=/work/hf_cache exported in env.sh"}
+ ]}

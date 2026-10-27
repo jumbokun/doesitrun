@@ -411,5 +411,95 @@
     "evidence": [
       "owner 'TencentARC' is Tencent org account (ARC Lab)"
     ]
+  },
+  "modelscope/ClearerVoice-Studio": {
+    "repo": "modelscope/ClearerVoice-Studio",
+    "company": "Alibaba",
+    "team": "ModelScope",
+    "confidence": "high",
+    "evidence": [
+      "owner 'modelscope' is Alibaba org account (ModelScope)"
+    ]
+  },
+  "modelscope/DiffSynth-Studio": {
+    "repo": "modelscope/DiffSynth-Studio",
+    "company": "Alibaba",
+    "team": "ModelScope",
+    "confidence": "high",
+    "evidence": [
+      "owner 'modelscope' is Alibaba org account (ModelScope)"
+    ]
+  },
+  "modelscope/FunASR": {
+    "repo": "modelscope/FunASR",
+    "company": "Alibaba",
+    "team": "ModelScope",
+    "confidence": "high",
+    "evidence": [
+      "owner 'modelscope' is Alibaba org account (ModelScope)"
+    ]
+  },
+  "modelscope/FunClip": {
+    "repo": "modelscope/FunClip",
+    "company": "Alibaba",
+    "team": "ModelScope",
+    "confidence": "high",
+    "evidence": [
+      "owner 'modelscope' is Alibaba org account (ModelScope)"
+    ]
+  },
+  "modelscope/modelscope": {
+    "repo": "modelscope/modelscope",
+    "company": "Alibaba",
+    "team": "ModelScope",
+    "confidence": "high",
+    "evidence": [
+      "owner 'modelscope' is Alibaba org account (ModelScope)"
+    ]
+  },
+  "modelscope/ms-swift": {
+    "repo": "modelscope/ms-swift",
+    "company": "Alibaba",
+    "team": "ModelScope",
+    "confidence": "high",
+    "evidence": [
+      "owner 'modelscope' is Alibaba org account (ModelScope)"
+    ]
+  },
+  "QwenLM/Qwen": {
+    "repo": "QwenLM/Qwen",
+    "company": "Alibaba",
+    "team": "Qwen",
+    "confidence": "high",
+    "evidence": [
+      "owner 'QwenLM' is Alibaba org account (Qwen)"
+    ]
+  },
+  "QwenLM/Qwen-Agent": {
+    "repo": "QwenLM/Qwen-Agent",
+    "company": "Alibaba",
+    "team": "Qwen",
+    "confidence": "high",
+    "evidence": [
+      "owner 'QwenLM' is Alibaba org account (Qwen)"
+    ]
+  },
+  "QwenLM/Qwen3": {
+    "repo": "QwenLM/Qwen3",
+    "company": "Alibaba",
+    "team": "Qwen",
+    "confidence": "high",
+    "evidence": [
+      "owner 'QwenLM' is Alibaba org account (Qwen)"
+    ]
+  },
+  "QwenLM/Qwen3-TTS": {
+    "repo": "QwenLM/Qwen3-TTS",
+    "company": "Alibaba",
+    "team": "Qwen",
+    "confidence": "high",
+    "evidence": [
+      "owner 'QwenLM' is Alibaba org account (Qwen)"
+    ]
   }
 }

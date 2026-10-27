@@ -1,0 +1,41 @@
+{
+  "slug": "qwenlm-qwen3",
+  "repo": "QwenLM/Qwen3",
+  "track": "cpu-gha",
+  "goal": "Get the README Transformers chat-generation snippet working on CPU with the small model Qwen/Qwen3-0.6B (replace the 30B model name). Python with transformers and torch (CPU) must be installed so that `python` can run a script that loads the tokenizer and model, applies the chat template to the prompt 'Give me a short introduction to large language model.', and generates text with model.generate.",
+  "check": "A hidden script runs the README-style snippet with Qwen/Qwen3-0.6B in the prepared environment and checks that it generates non-empty, sensible text about language models.",
+  "started": "2026-10-27 02:27:31",
+  "agent": {
+    "secs": 85,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "f1d3d20a-bda2-49eb-b80c-96eb370cc023",
+    "num_turns": 6,
+    "cost_usd": 0.1101076,
+    "is_error": false,
+    "final": "DONE: The README chat snippet, with the model switched to Qwen/Qwen3-0.6B, runs on CPU and printed a sensible introduction to large language models, after installing `accelerate`, which the README never mentions but its `device_map=\"auto\"` line needs."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 11
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 13,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 17
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:29:58"
+}

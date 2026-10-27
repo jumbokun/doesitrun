@@ -1,0 +1,41 @@
+{
+  "slug": "qwenlm-qwen3-tts",
+  "repo": "QwenLM/Qwen3-TTS",
+  "track": "cpu-gha",
+  "goal": "Install the qwen-tts package from the repo and get Qwen3TTSModel.from_pretrained('Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice') running on CPU (device_map='cpu', dtype=torch.float32, no flash_attention). Then call generate_custom_voice with an English text, language='English', speaker='Ryan', and write the result to a wav file with soundfile. The wav must contain real synthesized speech.",
+  "check": "The hidden test runs a short English CustomVoice synthesis on CPU and verifies a valid, non-silent speech wav of plausible duration is written.",
+  "started": "2026-10-27 02:54:34",
+  "agent": {
+    "secs": 112,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "3168a3b7-6bae-4293-b5a1-666ad1311a46",
+    "num_turns": 6,
+    "cost_usd": 0.134607,
+    "is_error": false,
+    "final": "DONE: on CPU (float32, no flash-attn), the 0.6B CustomVoice model wrote a 4.7-second, non-silent 24 kHz wav for an English sentence with speaker Ryan, using a uv Python 3.12 venv with CPU torch, sox/libsndfile and pre-downloaded weights (I didn't listen to it, and `setup.sh` has only been run here, not yet on a fresh container)."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 46
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 44,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 39
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:58:56"
+}

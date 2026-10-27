@@ -1,0 +1,47 @@
+{
+  "slug": "modelscope-funclip",
+  "repo": "modelscope/FunClip",
+  "track": "cpu-gha",
+  "goal": "Get FunClip's command-line demo working: download the example video examples/2022云栖大会_片段.mp4 (URL in README section C), then run `python funclip/videoclipper.py --stage 1 --file examples/2022云栖大会_片段.mp4 --output_dir ./output` to produce the recognition result and output/total.srt. Then run stage 2 with --dest_text '我们把它跟乡村振兴去结合起来，利用我们的设计的能力' --start_ost 0 --end_ost 100 --output_file ./output/res.mp4 to produce a clipped video and its SRT. Both stages must complete on CPU.",
+  "check": "The hidden test runs both CLI stages on the example video and verifies the full SRT contains recognized Chinese text and the clipped mp4 and its SRT exist with a plausible short duration.",
+  "started": "2026-10-27 03:14:14",
+  "agent": {
+    "secs": 851,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "e02d0560-4019-4614-be43-ada23143d858",
+    "num_turns": 23,
+    "cost_usd": 0.5091068000000001,
+    "is_error": false,
+    "final": "verything else followed the documented Linux CPU recipe (Python 3.12 venv, CPU builds of torch/torchaudio 2.10.0, then `requirements.txt`), and it worked as written.\n\nFiles are in `/work`:\n- `setup.sh`\n- `env.sh`\n- `NOTES.md`\n- `REPORT.json`\n\nDONE — both CLI stages run on CPU from a clean setup, after swapping in the example video that contains the README's clip text and patching two stage-2 bugs."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 5,
+    "files": [
+      {
+        "path": "funclip/videoclipper.py",
+        "added": 5,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 295,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 03:33:43"
+}

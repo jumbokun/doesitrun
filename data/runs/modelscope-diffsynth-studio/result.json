@@ -1,0 +1,41 @@
+{
+  "slug": "modelscope-diffsynth-studio",
+  "repo": "modelscope/DiffSynth-Studio",
+  "track": "cpu-gha",
+  "goal": "Install DiffSynth-Studio from source (pip install -e .) and run the Stable Diffusion v1.5 text-to-image example, examples/stable_diffusion/model_inference/stable-diffusion-v1-5.py, on CPU only (change rand_device and device from cuda to cpu as needed; fewer inference steps such as 20 are fine). Models download automatically from ModelScope. It must produce a valid 512x512 image from the prompt 'a photo of an astronaut riding a horse on mars'.",
+  "check": "The hidden test runs the SD1.5 pipeline on CPU with its own prompt and checks that a 512x512 non-blank image is written.",
+  "started": "2026-10-27 03:00:13",
+  "agent": {
+    "secs": 449,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "fe0c4d22-09e6-4329-8809-8fb276f79d60",
+    "num_turns": 6,
+    "cost_usd": 0.1331102,
+    "is_error": false,
+    "final": "pipeline looks for models at the relative path `./models`, so if the hidden test runs from another folder it may try to download the models again.\n- **README result:** the install worked as written. The example didn't run as written on CPU because it hardcodes CUDA. The other two changes were the CPU torch wheels and downloading the models in advance. All three are in `NOTES.md` and `REPORT.json`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 154
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 374,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 162
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:19:34"
+}

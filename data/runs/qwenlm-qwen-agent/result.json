@@ -1,0 +1,47 @@
+{
+  "slug": "qwenlm-qwen-agent",
+  "repo": "QwenLM/Qwen-Agent",
+  "track": "cpu-gha",
+  "goal": "Install qwen-agent from the repo (pip install -e ./\"[rag,code_interpreter,mcp]\" or similar). Serve a small Qwen model on CPU through Ollama (use model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and wait until ready. Then a Qwen-Agent Assistant configured with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'} must answer a chat message and its built-in tools (e.g. code_interpreter) must import and work.",
+  "check": "The hidden test checks that the model server answers, that a Qwen-Agent Assistant returns a non-empty reply to a prompt, and that a built-in tool runs and returns the expected result.",
+  "started": "2026-10-27 02:42:37",
+  "agent": {
+    "secs": 477,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "72d710fb-9e39-4ead-976b-72bd79bded3d",
+    "num_turns": 23,
+    "cost_usd": 0.548139,
+    "is_error": false,
+    "final": "e README's install path needed two undeclared dependencies (`soundfile`, `tqdm`) plus a patch so `code_interpreter` falls back to a local, unsandboxed Jupyter kernel when Docker is missing, as it is in this sandbox; after wiping the venv and repo and re-running `setup.sh`, `run.sh` served `qwen3:1.7b` through Ollama, the Assistant replied, and `code_interpreter` correctly returned 123*456 = 56088."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 9
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 68,
+    "files": [
+      {
+        "path": "qwen_agent/tools/code_interpreter.py",
+        "added": 67,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 33,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 17
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:51:58"
+}

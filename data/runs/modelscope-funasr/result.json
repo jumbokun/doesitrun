@@ -1,0 +1,41 @@
+{
+  "slug": "modelscope-funasr",
+  "repo": "modelscope/FunASR",
+  "track": "cpu-gha",
+  "goal": "Install FunASR from the repo and make the README SenseVoiceSmall CPU example work: AutoModel(model='iic/SenseVoiceSmall', vad_model='fsmn-vad', spk_model='cam++', device='cpu') then model.generate(input=<wav>, batch_size_s=300), printing per-segment start time, speaker id and text from result[0]['sentence_info']. It must run on CPU with the repo file runtime/funasr_api/asr_example.wav as input (models download from ModelScope).",
+  "check": "A Python script using the README API on a bundled wav file produces non-empty transcribed Chinese text with at least one speaker-labelled segment.",
+  "started": "2026-10-27 02:32:45",
+  "agent": {
+    "secs": 269,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "aa239b21-cf9d-4246-b13c-50e075ab8dd8",
+    "num_turns": 7,
+    "cost_usd": 0.166169,
+    "is_error": false,
+    "final": "e log. That's expected: segments are split by voice detection rather than by punctuation.\n\n`REPORT.json` marks the README path as working and lists no interventions. `NOTES.md` explains the optional choices above.\n\nDONE — the README SenseVoiceSmall + fsmn-vad + cam++ CPU example ran on the bundled wav and printed Chinese text with a speaker label, including after rerunning `setup.sh` from scratch."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 14
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 136,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 13
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:40:18"
+}

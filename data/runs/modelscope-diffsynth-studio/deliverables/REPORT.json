@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Installed CPU-only torch/torchvision from download.pytorch.org/whl/cpu in a uv Python 3.12 venv before pip install -e ."},
+  {"kind": "gpu_compat", "detail": "Example hardcodes rand_device='cuda'; made CPU copy with rand_device='cpu', device='cpu', 20 steps"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded SD1.5 text_encoder/unet/vae/tokenizer from ModelScope into ./models and run from repo root (relative model path)"}
+ ]}

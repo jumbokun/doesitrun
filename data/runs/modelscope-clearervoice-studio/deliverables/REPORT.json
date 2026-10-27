@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch/torchaudio/torchvision wheels from download.pytorch.org/whl/cpu (pinned 2.14.1/2.11.0/0.29.1) for the GPU-less box"},
+  {"kind": "undocumented_step", "detail": "Created a uv Python 3.12 virtualenv at /work/venv for the install"}
+ ]}

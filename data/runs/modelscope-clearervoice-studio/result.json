@@ -1,0 +1,41 @@
+{
+  "slug": "modelscope-clearervoice-studio",
+  "repo": "modelscope/ClearerVoice-Studio",
+  "track": "cpu-gha",
+  "goal": "Install ClearVoice's dependencies and, from /work/ClearerVoice-Studio/clearvoice, run the speech enhancement demo using the FRCRN_SE_16K model on samples/input.wav (python API: ClearVoice(task='speech_enhancement', model_names=['FRCRN_SE_16K']), call it with input_path='samples/input.wav', online_write=False, then .write(output, output_path=...)). The pretrained checkpoint must download automatically and an enhanced wav must be produced on CPU.",
+  "check": "The hidden test runs the FRCRN_SE_16K speech enhancement on the bundled samples/input.wav and verifies a non-silent 16 kHz output wav of the expected length is written.",
+  "started": "2026-10-27 03:22:24",
+  "agent": {
+    "secs": 130,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "d6172fe2-34c7-4430-b9a9-523d6f0ec8e2",
+    "num_turns": 8,
+    "cost_usd": 0.14292140000000003,
+    "is_error": false,
+    "final": "DONE: I wiped the environment and re-ran `/work/setup.sh` from scratch; the README's `pip install --editable .` path worked as written, downloading the FRCRN_SE_16K checkpoint automatically and writing a non-silent 16 kHz output wav on CPU with the same length as `samples/input.wav` (38363 samples)."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 72,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 5
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:26:19"
+}

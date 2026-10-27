@@ -146,6 +146,26 @@
           "audit_reason": null
         },
         {
+          "repo": "QwenLM/Qwen3",
+          "slug": "qwenlm-qwen3",
+          "score": 98.6,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "google/langextract",
           "slug": "google-langextract",
           "score": 98.3,
@@ -226,6 +246,26 @@
           "audit_reason": null
         },
         {
+          "repo": "QwenLM/Qwen3-TTS",
+          "slug": "qwenlm-qwen3-tts",
+          "score": 98.1,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "facebookresearch/demucs",
           "slug": "facebookresearch-demucs",
           "score": 98.0,
@@ -281,6 +321,26 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'TencentARC' is Tencent org account (ARC Lab)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "modelscope/ClearerVoice-Studio",
+          "slug": "modelscope-clearervoice-studio",
+          "score": 97.8,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 2.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
           "audit": null,
           "audit_reason": null
@@ -346,6 +406,46 @@
           "audit_reason": null
         },
         {
+          "repo": "modelscope/ms-swift",
+          "slug": "modelscope-ms-swift",
+          "score": 95.8,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "modelscope/FunASR",
+          "slug": "modelscope-funasr",
+          "score": 95.5,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "facebookresearch/fairseq",
           "slug": "facebookresearch-fairseq",
           "score": 94.9,
@@ -381,6 +481,46 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "modelscope/DiffSynth-Studio",
+          "slug": "modelscope-diffsynth-studio",
+          "score": 92.5,
+          "why": "7 min, 0 repo files patched",
+          "agent_minutes": 7.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "QwenLM/Qwen",
+          "slug": "qwenlm-qwen",
+          "score": 92.1,
+          "why": "8 min, 0 repo files patched",
+          "agent_minutes": 7.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
           "audit_reason": null
@@ -441,6 +581,46 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "modelscope/modelscope",
+          "slug": "modelscope-modelscope",
+          "score": 83.9,
+          "why": "6 min, 1 repo files patched",
+          "agent_minutes": 6.1,
+          "files_patched": 1,
+          "lines_patched": 3,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "QwenLM/Qwen-Agent",
+          "slug": "qwenlm-qwen-agent",
+          "score": 82.0,
+          "why": "8 min, 1 repo files patched",
+          "agent_minutes": 8.0,
+          "files_patched": 1,
+          "lines_patched": 68,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
           "audit_reason": null
@@ -585,6 +765,26 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle."
+        },
+        {
+          "repo": "modelscope/FunClip",
+          "slug": "modelscope-funclip",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 14.2,
+          "files_patched": 1,
+          "lines_patched": 5,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null
         },
         {
           "repo": "bytedance/UI-TARS",
@@ -757,6 +957,23 @@
               "team": "Hunyuan",
               "n": 1,
               "mean": 73.0
+            }
+          ]
+        },
+        {
+          "company": "Alibaba",
+          "n": 10,
+          "mean": 83.6,
+          "teams": [
+            {
+              "team": "Qwen",
+              "n": 4,
+              "mean": 92.7
+            },
+            {
+              "team": "ModelScope",
+              "n": 6,
+              "mean": 77.6
             }
           ]
         },

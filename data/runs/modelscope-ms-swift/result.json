@@ -1,0 +1,41 @@
+{
+  "slug": "modelscope-ms-swift",
+  "repo": "modelscope/ms-swift",
+  "track": "cpu-gha",
+  "goal": "Install ms-swift from /work/ms-swift and make the README Quick Start CLI work on CPU only: run `swift sft` (LoRA, dataset swift/self-cognition, with the smaller model Qwen/Qwen2.5-0.5B-Instruct, float32, few steps, CUDA_VISIBLE_DEVICES empty) to produce a LoRA checkpoint, then run `swift infer --adapters <checkpoint>` on a jsonl of chat messages and get generated responses. Write /work/env.sh that activates the environment so `swift` is on PATH.",
+  "check": "A LoRA adapter checkpoint is produced by swift sft, and swift infer with that adapter writes non-empty responses for two prompts.",
+  "started": "2026-10-27 02:47:24",
+  "agent": {
+    "secs": 249,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "6be8b7f8-4a5b-4e02-8258-29f84ba0958d",
+    "num_turns": 6,
+    "cost_usd": 0.15282040000000002,
+    "is_error": false,
+    "final": "DONE — `swift sft` on CPU produced a LoRA checkpoint at /work/checkpoint, and `swift infer --adapters /work/checkpoint` wrote non-empty answers for both test prompts to /work/infer_result.jsonl. I ran setup.sh twice, but only in this sandbox, not in a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 77
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 167,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 83
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 02:57:21"
+}

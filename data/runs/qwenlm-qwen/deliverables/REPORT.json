@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "requirements.txt omits torch; installed CPU torch==2.2.2 from the PyTorch CPU index"},
+  {"kind": "dependency_pin", "detail": "pinned numpy<2 to work with torch 2.2 / transformers 4.37"},
+  {"kind": "python_version", "detail": "used a uv-managed Python 3.10 venv instead of the system Python 3.12"},
+  {"kind": "dead_link", "detail": "Qwen/Qwen-1_8B-Chat no longer downloads from Hugging Face (401); fetched the official ModelScope copy into ./Qwen/Qwen-1_8B-Chat so the -c argument resolves locally"},
+  {"kind": "other", "detail": "env.sh sets HF_HUB_OFFLINE/TRANSFORMERS_OFFLINE and cd's to /work/Qwen so the local checkpoint path is used"}
+ ]}

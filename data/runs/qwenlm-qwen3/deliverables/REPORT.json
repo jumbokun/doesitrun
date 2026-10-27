@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "README gives no install commands; created uv venv and installed torch (CPU wheel) + transformers>=4.51.0"},
+  {"kind": "dependency_pin", "detail": "Installed accelerate, required by device_map=\"auto\" in the snippet (ValueError otherwise)"},
+  {"kind": "gpu_compat", "detail": "Used CPU-only torch wheel from download.pytorch.org/whl/cpu since no GPU"},
+  {"kind": "other", "detail": "Replaced Qwen3-30B-A3B-Instruct-2507 with Qwen/Qwen3-0.6B and pre-downloaded it to HF_HOME=/work/hf_cache"}
+ ]}

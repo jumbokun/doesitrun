@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "wget not present in base image; used curl to download the example video"},
+  {"kind": "doc_error", "detail": "README example video URL (2022云栖大会_片段.mp4) does not contain the README dest_text; used 2022云栖大会_片段2.mp4 from the same HF Space saved under the README filename"},
+  {"kind": "code_patch", "detail": "videoclipper.py runner stage 2: set audio_clipper.lang = lang to fix AttributeError 'VideoClipper' object has no attribute 'lang'"},
+  {"kind": "code_patch", "detail": "videoclipper.py runner stage 2: rename the _no0-suffixed clip to the requested --output_file (res.mp4)"},
+  {"kind": "undocumented_step", "detail": "setup.sh pre-downloads the ModelScope ASR/VAD/punc/spk models so verification doesn't depend on first-run download"}
+ ]}

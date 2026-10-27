@@ -1,0 +1,47 @@
+{
+  "slug": "modelscope-modelscope",
+  "repo": "modelscope/modelscope",
+  "track": "cpu-gha",
+  "goal": "Install modelscope with the dependencies needed for NLP pipelines, then run in Python: from modelscope.pipelines import pipeline; p = pipeline('word-segmentation', model='damo/nlp_structbert_word-segmentation_chinese-base'); p('今天天气不错，适合出去游玩'). It must download the model from ModelScope and print a space-segmented Chinese result on CPU.",
+  "check": "A Python script runs the word-segmentation pipeline on the README sentence and checks the segmented tokens are sensible and reconstruct the input.",
+  "started": "2026-10-27 03:01:38",
+  "agent": {
+    "secs": 366,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "752b4405-dcf7-4e51-8022-c56a10699e4b",
+    "num_turns": 16,
+    "cost_usd": 0.33624020000000004,
+    "is_error": false,
+    "final": "ion_pipeline.py`) never passed that decision on to the model loader. My patch passes it through; the security check itself is unchanged.\n\nFiles are in `/work`:\n- `setup.sh` (with the patch built in)\n- `env.sh`\n- `NOTES.md`\n- `REPORT.json`\n\nDONE — the pipeline downloads the model from ModelScope and segments the sentence correctly on CPU, and a from-scratch rerun of `setup.sh` gave the same result."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 16
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 3,
+    "files": [
+      {
+        "path": "modelscope/pipelines/nlp/token_classification_pipeline.py",
+        "added": 2,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 163,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 16
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-27 03:11:21"
+}
