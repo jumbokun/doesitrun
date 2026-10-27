@@ -33,5 +33,20 @@
     "setup_ok": false,
     "note": "no setup.sh delivered"
   },
-  "finished": "2026-10-27 04:56:58"
+  "finished": "2026-10-27 04:56:58",
+  "audit": {
+    "verdict": "inconclusive",
+    "reason": "/work is completely empty in this sandbox: there is no /work/setup.sh, no /work/env.sh, and no /work/Dolphin checkout or hf_model, so the oracle failed at `source /work/env.sh` before Dolphin code ever ran. Since even the installing agent's setup.sh is missing, this looks like the install state was never carried into this sandbox, not like a missed step in the install, and the README demo (demo_page.py) could not be run, so neither the repo nor the oracle's assertions could be checked.",
+    "evidence_cmd": "ls -la /work/; ls /work/Dolphin; cat /work/setup.sh",
+    "evidence_out": "total 8 (only . and ..); ls: cannot access '/work/Dolphin': No such file or directory; setup.sh absent",
+    "setup_ok": false,
+    "oracle_rerun_pass": false,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 14,
+      "num_turns": 4,
+      "cost_usd": 0.0676162
+    },
+    "audited": "2026-10-27 06:29:11"
+  }
 }
