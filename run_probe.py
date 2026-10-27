@@ -346,6 +346,72 @@ def exam_company(company):
               flush=True)
 
 
+AUDIT_PROMPT = """You are an independent AUDITOR in a reproducibility benchmark. Another agent installed {repo} in
+this sandbox (Ubuntu, CPU only) with /work/setup.sh; the project is at /work/{dir} and `source /work/env.sh`
+activates its environment. A hidden test written beforehand by an examiner (the "oracle") then FAILED on
+that agent's machine. Decide whether that failure is the repo's / install's fault or the oracle's.
+
+What the oracle was meant to verify: {check}
+Goal the installing agent was given: {goal}
+
+Oracle script:
+```
+{oracle}
+```
+Oracle re-run in this sandbox under bash -x (last part of output):
+```
+{trace}
+```
+Use the `sh` tool to investigate: read the README and docs, run the relevant commands yourself after
+`source /work/env.sh`. Only create scratch files under /tmp; do not change the repo or the environment.
+
+Rule exactly one verdict:
+- "repo_failure": the README's documented demo does not work here (install broken, crash, wrong output).
+- "oracle_defect": the demo works as the README documents it, but the oracle asserts something the README
+  never promised, depends on its own environment, or has a bug.
+- "inconclusive": you cannot tell.
+Write /work/AUDIT.json: {{"verdict": "...", "reason": "2-3 sentences with the decisive evidence",
+ "evidence_cmd": "the command you ran", "evidence_out": "its short output"}}
+When done, reply with one line: DONE."""
+
+
+def audit(cfg, res):
+    """Pre-registered oracle audit: fresh replay of the agent's installer, unchanged oracle under bash -x,
+    independent auditor ruling. Stored as res["audit"]; never changes the original oracle result."""
+    slug = cfg["slug"]
+    name, rundir = f"rr-a-{slug}", RUNS / f"audit-{slug}"
+    rundir.mkdir(parents=True, exist_ok=True)
+    deliv = DATA_RUNS / slug / "deliverables"
+    start_container(name, cfg)
+    for f in ("setup.sh", "env.sh", "run.sh"):
+        if (deliv / f).exists():
+            sh(["docker", "cp", str(deliv / f), f"{name}:/work/{f}"])
+    try:
+        p = sh(["docker", "exec", "-w", "/work", name, "bash", "/work/setup.sh"], timeout=REPLAY_SETUP_SEC)
+        setup_ok = p.returncode == 0
+    except subprocess.TimeoutExpired:
+        setup_ok = False
+    rerun = oracle(name, slug, rundir / "audit_oracle.txt")
+    trace = (rundir / "audit_oracle.txt").read_text(encoding="utf-8", errors="replace")[-5000:]
+    prompt = AUDIT_PROMPT.format(repo=cfg["repo"], dir=cfg["dir"], check=cfg["check"], goal=cfg["goal"],
+                                 oracle=(ROOT / "oracles" / f"{slug}.sh").read_text(encoding="utf-8"), trace=trace)
+    info = run_agent(cfg, name, rundir, budget=EXAM_BUDGET_SEC, prompt_text=prompt)
+    if info.get("is_error") and INFRA_ERROR.search(info.get("final") or ""):
+        sh(["docker", "rm", "-f", name])
+        raise RuntimeError(f"auditor infrastructure failure for {cfg['repo']}: {info.get('final')!r}")
+    out = sh(["docker", "exec", name, "cat", "/work/AUDIT.json"])
+    try:
+        verdict = json.loads(out.stdout)
+    except ValueError:
+        verdict = {"verdict": "inconclusive", "reason": "auditor produced no valid AUDIT.json"}
+    sh(["docker", "rm", "-f", name])
+    res["audit"] = {**verdict, "setup_ok": setup_ok, "oracle_rerun_pass": rerun["pass"],
+                    "auditor": {k: info.get(k) for k in ("model", "secs", "num_turns", "cost_usd")},
+                    "audited": time.strftime("%Y-%m-%d %H:%M:%S")}
+    (DATA_RUNS / slug / "result.json").write_bytes(json.dumps(res, indent=2, ensure_ascii=False).encode("utf-8"))
+    print(slug, res["audit"]["verdict"], "-", res["audit"].get("reason"), flush=True)
+
+
 REPAIR_BUDGET_SEC = 30 * 60
 REPAIR_PROMPT = """Your /work/setup.sh was just replayed as root on a FRESH container of the same base image,
 with ONLY /work/setup.sh, /work/env.sh and /work/run.sh (if any) copied in, and the check failed.
@@ -449,9 +515,12 @@ if __name__ == "__main__":
         for company in args[1:]:
             exam_company(company)
         sys.exit(0)
-    mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary", "--repair") else None
+    mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary", "--repair", "--audit") else None
     cfgs = {c["slug"]: c for c in json.loads((ROOT / repos_file).read_text(encoding="utf-8"))}
     for slug in args:
+        if mode == "--audit":
+            audit(cfgs[slug], json.loads((DATA_RUNS / slug / "result.json").read_text(encoding="utf-8")))
+            continue
         if mode == "--repair":
             # Retro-apply the repair round to an existing run whose protocol replay failed.
             rundir = RUNS / slug
