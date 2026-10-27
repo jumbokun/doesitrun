@@ -16,6 +16,7 @@ import time
 
 ROOT = pathlib.Path(__file__).resolve().parent
 RUNS = ROOT / "runs"
+DATA = ROOT / "data"
 IMAGE = os.environ.get("RR_IMAGE", "rr-base")  # rr-base (CUDA, local GPU) or rr-cpu (CI runners)
 AGENT_BUDGET_SEC = 90 * 60
 REPLAY_SETUP_SEC = 90 * 60
@@ -146,14 +147,14 @@ def repo_diff(name, repo_dir):
             "lines_changed": sum(f["added"] + f["removed"] for f in files), "files": files}
 
 
-def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", budget=AGENT_BUDGET_SEC):
+def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", budget=AGENT_BUDGET_SEC, prompt_text=None):
     """Run the headless agent; with resume=(session_id, message) continue that same session."""
     cwd = rundir / "agent_cwd"
     cwd.mkdir(parents=True, exist_ok=True)
     mcp = {"mcpServers": {"box": {"command": sys.executable,
                                   "args": [str(ROOT / "box_mcp.py"), name, str(rundir / "commands.jsonl")]}}}
     (rundir / "mcp.json").write_text(json.dumps(mcp), encoding="utf-8")
-    prompt = PROMPT.format(
+    prompt = prompt_text or PROMPT.format(
         repo=cfg["repo"], dir=cfg["dir"], goal=cfg["goal"], check=cfg["check"],
         hw="NVIDIA RTX 5060 Laptop GPU, 8 GB VRAM (Blackwell, sm_120) attached. Another job may be "
            "using part of the same GPU at the same time; if you hit a CUDA out-of-memory error, retry." if cfg["gpu"]
@@ -243,6 +244,87 @@ def probe(cfg):
     replay_and_save(cfg, res, rundir)
     if res["oracle"]["pass"] and not res["replay"].get("oracle", {}).get("pass"):
         repair_and_replay(cfg, res, rundir, "replay")
+
+
+EXAM_BUDGET_SEC = 20 * 60
+EXAM_PROMPT = """You are the EXAMINER for a reproducibility benchmark. Later, another agent will try to get this
+repository's README demo running in a sandbox like yours; it will be judged by a hidden test that YOU write now.
+You work in a disposable Linux sandbox through the `sh` tool: Ubuntu 24.04, 4 vCPU, 16 GB RAM, NO GPU, internet.
+
+Clone https://github.com/{repo} to /work/{dir} and read its README, docs and code. You may run quick commands
+to inspect, but do NOT install the project or run the demo end to end. Finish within 15 minutes.
+
+The repo is ELIGIBLE only if all of these hold:
+- The README (or docs it links) shows a concrete way to run something: demo, example, inference, CLI, quickstart.
+- That demo can plausibly complete on CPU only, 16 GB RAM, under 2 hours, downloading under 15 GB.
+- It needs no paid API key, account, credential or license gate (e.g. gated Hugging Face models).
+- It is a runnable project, not a list, course, paper-only or docs repository.
+Choose the most representative demo within these limits: prefer the README's primary example; a smaller
+official model variant is fine if the README offers one.
+
+Write /work/EXAM.json:
+{{"eligible": true or false, "reason": "one sentence", "demo": "which README section / command",
+  "goal": "2-4 sentences for the other agent: exactly what must work, naming the command(s) and inputs",
+  "check": "one sentence telling the other agent what the hidden test verifies, without implementation detail",
+  "server": true or false}}
+
+If eligible, also write /work/oracle.sh, the hidden test. Contract:
+- Starts with `set -e`, `source /work/env.sh`, `cd /work/{dir}`.
+- If "server" is true: run `timeout 1500 bash /work/run.sh` first (it starts the server and waits until ready),
+  then query it.
+- Run the demo on inputs the oracle controls (files bundled in the repo, or inputs it generates itself),
+  writing outputs to a fresh directory under /tmp. Wrap long commands in `timeout`.
+- Verify concrete evidence (output file exists with plausible size/shape, expected text in output, HTTP 200
+  with expected fields). An exit code alone is not enough when output can be inspected.
+- Depends only on the repo clone, /work/env.sh and /work/run.sh - nothing else the other agent writes.
+- Prints `ORACLE PASS` as its last line only on success.
+Do not run oracle.sh yourself (the project is not installed here). When done, reply with one line: DONE."""
+
+
+def exam(cand, company):
+    """Screen one candidate and, if eligible, pre-register its goal and hidden oracle."""
+    slug, repo = cand["slug"], cand["repo"]
+    out_path = DATA / "exams" / f"{slug}.json"
+    if out_path.exists():
+        return json.loads(out_path.read_text(encoding="utf-8"))
+    name = f"rr-x-{slug}"
+    rundir = RUNS / f"exam-{slug}"
+    rundir.mkdir(parents=True, exist_ok=True)
+    cfg = {"slug": slug, "repo": repo, "dir": repo.split("/")[1], "gpu": False, "mem": "6g"}
+    start_container(name, cfg)
+    info = run_agent(cfg, name, rundir, budget=EXAM_BUDGET_SEC,
+                     prompt_text=EXAM_PROMPT.format(repo=repo, dir=cfg["dir"]))
+    p = sh(["docker", "exec", name, "cat", "/work/EXAM.json"])
+    try:
+        verdict = json.loads(p.stdout)
+    except ValueError:
+        verdict = {"eligible": False, "reason": "examiner produced no valid EXAM.json"}
+    if verdict.get("eligible"):
+        o = sh(["docker", "exec", name, "cat", "/work/oracle.sh"])
+        if o.returncode or "ORACLE PASS" not in o.stdout:
+            verdict.update(eligible=False, reason="examiner produced no valid oracle.sh")
+        else:
+            (ROOT / "oracles" / f"{slug}.sh").write_bytes(o.stdout.replace("\r\n", "\n").encode("utf-8"))
+    sh(["docker", "rm", "-f", name])
+    record = {"slug": slug, "repo": repo, "dir": cfg["dir"], "company": company, "stars": cand.get("stars"),
+              "examined": time.strftime("%Y-%m-%d %H:%M:%S"), "examiner": {k: info.get(k) for k in
+              ("model", "secs", "num_turns", "cost_usd", "timed_out")}, **verdict}
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(record, indent=2, ensure_ascii=False), encoding="utf-8")
+    return record
+
+
+def exam_company(company):
+    """Screen candidates in star order until the pre-registered target is eligible (resumable)."""
+    spec = json.loads((DATA / "candidates.json").read_text(encoding="utf-8"))["companies"][company]
+    eligible = 0
+    for cand in spec["candidates"]:
+        if eligible >= spec["target"]:
+            break
+        rec = exam(cand, company)
+        eligible += bool(rec.get("eligible"))
+        print(company, cand["repo"], "ELIGIBLE" if rec.get("eligible") else "excluded: " + str(rec.get("reason")),
+              flush=True)
 
 
 REPAIR_BUDGET_SEC = 30 * 60
@@ -344,6 +426,10 @@ if __name__ == "__main__":
     repos_file = "repos.json"
     if args and args[0].startswith("--repos="):
         repos_file = args.pop(0).split("=", 1)[1]
+    if args and args[0] == "--exam-company":
+        for company in args[1:]:
+            exam_company(company)
+        sys.exit(0)
     mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary", "--repair") else None
     cfgs = {c["slug"]: c for c in json.loads((ROOT / repos_file).read_text(encoding="utf-8"))}
     for slug in args:
