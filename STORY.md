@@ -17,8 +17,8 @@ Tencent, ByteDance and Baidu, on free GitHub Actions runners (4 vCPU, 16 GB RAM,
 - **Official download links rot.** All 34 model links in [google-research/bert](https://github.com/google-research/bert)'s
   README return HTTP 403; so does the bucket [google/trax](https://github.com/google/trax)'s README loads from; the
   pretrained models for [NVlabs/SPADE](https://github.com/NVlabs/SPADE) are a Google Drive 404.
-- **The AI-written tests were wrong about half the time.** Of 18 failures, 9 turned out to be the hidden test's fault,
-  not the repo's. Without an independent audit, 9 repos would have been scored 0 unfairly.
+- **The AI-written tests were wrong more than half the time.** Of 18 failures, 10 turned out to be the hidden test's
+  fault, not the repo's. Without an independent audit and review, 10 repos would have been scored 0 unfairly.
 
 ## How a run works
 
@@ -60,7 +60,7 @@ wheel downloads and on helper files the agent never packaged.)
 
 ## The tests were the weakest link
 
-I expected the examiner's hidden tests to be the reliable part. They weren't. Some of the 9 defects:
+I expected the examiner's hidden tests to be the reliable part. They weren't. Some of the 10 defects:
 
 - **python-fire:** the test grepped the `--help` output for "usage". Fire prints man-page style help
   (NAME / SYNOPSIS) and never uses that word.
@@ -70,8 +70,10 @@ I expected the examiner's hidden tests to be the reliable part. They weren't. So
   reads kernel source with `inspect`, which fails for code with no source file.
 - **NVIDIA/SkillSpector:** the scanner exits 1 when it finds a risk, as documented. The test treated that as a crash.
 
-The auditor isn't a rubber stamp: it ruled BERT, trax, SPADE and Depth-Anything-3 genuine failures, each with a command
-and its output as evidence. It isn't perfectly stable either. Three repos were audited twice by mistake, and the two
+The auditor isn't a rubber stamp: it ruled BERT, trax, SPADE, Depth-Anything-3 and FunClip genuine failures, each with a
+command and its output as evidence (FunClip's README example asks to clip a sentence that is in a different example
+video). It also got one wrong in Megatron-LM's disfavour: the failure came from our examiner's test, which put the
+tokenizer files in a directory whose name the installed transformers couldn't resolve, so I corrected it on review. It isn't perfectly stable either. Three repos were audited twice by mistake, and the two
 verdicts disagreed once.
 
 ## The table
@@ -86,12 +88,11 @@ CPU track, mean score (number scored). Teams are split only where separate GitHu
 | Baidu | 83 (9) | Baidu 88 · PaddlePaddle 82 |
 | Google | 70 (9) | DeepMind 89 · Google 74 · Google Research 53 |
 | Tencent | 64 (9) | ARC Lab 94 · Tencent 76 · Hunyuan 39 |
-| NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 |
+| NVIDIA | 68 (7) | NVIDIA 84 · NVIDIA Research 61 |
 | ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
 
-Read it with care. Each repo ran once. NVIDIA's mean is pulled down mostly by two zeros that have nothing to do with
-CUDA (Megatron-LM's tokenizer fails to load with current transformers; SPADE's pretrained models are a 404). Porting
-CUDA-first StyleGAN-era code to CPU cost it points too. And "top 25 by stars" mixes research dumps with polished
+Read it with care. Each repo ran once. NVIDIA's mean includes one zero (SPADE's pretrained models are a 404) and
+points lost to patching StyleGAN-era code, partly to make CUDA-first code run on CPU. And "top 25 by stars" mixes research dumps with polished
 products. The interesting part is less the order than *why* things fail.
 
 ## What I got wrong along the way
