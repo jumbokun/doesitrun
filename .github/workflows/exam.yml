@@ -12,6 +12,9 @@ on:
       max_parallel:
         description: "Concurrent examiner jobs (subscription rate limits)"
         default: "3"
+      target:
+        description: "Override eligible-per-company target (smoke runs only; empty = pre-registered 10)"
+        default: ""
 
 permissions:
   contents: write
@@ -42,6 +45,7 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           GH_TOKEN: ${{ github.token }}
           COMPANY: ${{ matrix.company }}
+          RR_EXAM_TARGET: ${{ inputs.target }}
         run: python run_probe.py --exam-company "$COMPANY"
       - uses: actions/upload-artifact@v7
         if: always()

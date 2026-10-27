@@ -317,9 +317,10 @@ def exam(cand, company):
 def exam_company(company):
     """Screen candidates in star order until the pre-registered target is eligible (resumable)."""
     spec = json.loads((DATA / "candidates.json").read_text(encoding="utf-8"))["companies"][company]
+    target = int(os.environ.get("RR_EXAM_TARGET") or spec["target"])  # smaller only for smoke runs
     eligible = 0
     for cand in spec["candidates"]:
-        if eligible >= spec["target"]:
+        if eligible >= target:
             break
         rec = exam(cand, company)
         eligible += bool(rec.get("eligible"))
