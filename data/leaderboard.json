@@ -466,6 +466,46 @@
           "audit_reason": null
         },
         {
+          "repo": "ByteDance-Seed/Depth-Anything-3",
+          "slug": "bytedance-seed-depth-any-12e2f",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 3.0,
+          "files_patched": 1,
+          "lines_patched": 5,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "Seed",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "bytedance/UI-TARS",
+          "slug": "bytedance-ui-tars",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "facebookresearch/ParlAI",
           "slug": "facebookresearch-parlai",
           "score": 0,
@@ -657,6 +697,23 @@
               "team": "Google Research",
               "n": 3,
               "mean": 33.2
+            }
+          ]
+        },
+        {
+          "company": "ByteDance",
+          "n": 2,
+          "mean": 0,
+          "teams": [
+            {
+              "team": "Seed",
+              "n": 1,
+              "mean": 0
+            },
+            {
+              "team": "ByteDance",
+              "n": 1,
+              "mean": 0
             }
           ]
         }

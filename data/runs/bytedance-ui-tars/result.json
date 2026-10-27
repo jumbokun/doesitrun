@@ -1,0 +1,41 @@
+{
+  "slug": "bytedance-ui-tars",
+  "repo": "bytedance/UI-TARS",
+  "track": "cpu-gha",
+  "goal": "Install the ui-tars package (from the repo's codes/ directory or PyPI) so that `from ui_tars.action_parser import parse_action_to_structure_output, parsing_response_to_pyautogui_code` works. Then run the README usage snippet on the response \"Thought: Click the button\\nAction: click(start_box='(100,200)')\" at 1920x1080, factor=1000, model_type='qwen25vl'. It must print the parsed dict and the generated pyautogui code. Write /work/env.sh so that it activates the environment where this works.",
+  "check": "The hidden test runs the parser on several action strings and checks the parsed action types, scaled coordinates and generated pyautogui code.",
+  "started": "2026-10-27 02:28:18",
+  "agent": {
+    "secs": 36,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "97e9de4e-2f68-4b5c-bcf5-84f8ed05a9b8",
+    "num_turns": 7,
+    "cost_usd": 0.09450199999999999,
+    "is_error": false,
+    "final": "DONE: I installed ui-tars from `codes/` into a uv venv at `/work/.venv`, and the README snippet printed the parsed dict and `pyautogui.click(99.379, 197.802, button='left')`; the repo's own tests pass and the README path worked as written."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 3,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:29:18"
+}

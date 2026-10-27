@@ -2,7 +2,7 @@
 
 How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never mixed. Method: README.md; full notebook: WORKLOG.md.
 
-## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 30 repos
+## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 32 repos
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
 |---|---|---|---|---|---|---|
@@ -29,19 +29,22 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 21 | [google-deepmind/pysc2](https://github.com/google-deepmind/pysc2) | 80.3 | 10 min | 1 (1 lines) | pass | Google / Google DeepMind (high) |
 | 22 | [microsoft/Swin-Transformer](https://github.com/microsoft/Swin-Transformer) | 76.8 | 3 min | 2 (43 lines) | pass | Microsoft / Microsoft (high) |
 | 23 | [facebookresearch/Detectron](https://github.com/facebookresearch/Detectron) | 74.2 | 6 min | 2 (19 lines) | fail: other; replay_after_repair: pass | Meta / FAIR (high) |
-| 24 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | 0 | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 25 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | 0 | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 26 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
-| 27 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
-| 28 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
-| 29 | [google-research/timesfm](https://github.com/google-research/timesfm) | not scored (oracle defect) | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
-| 30 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
+| 24 | [ByteDance-Seed/Depth-Anything-3](https://github.com/ByteDance-Seed/Depth-Anything-3) | 0 | 3 min | 1 (5 lines) | fail: other | ByteDance / Seed (high) |
+| 25 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | 0 | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
+| 26 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | 0 | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 27 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | 0 | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 28 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
+| 29 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google Research (high) |
+| 30 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
+| 31 | [google-research/timesfm](https://github.com/google-research/timesfm) | not scored (oracle defect) | 1 min | 4 (0 lines) | pass | Google / Google Research (high) |
+| 32 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
 | Microsoft | 9 | 93.3 | Microsoft Research 99.4 (n=1); Microsoft 92.5 (n=8) |
 | Meta | 10 | 74.2 | FAIR 74.2 (n=10) |
 | Google | 8 | 71.7 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 33.2 (n=3) |
+| ByteDance ⚠ n<3 | 2 | 0 | Seed 0 (n=1); ByteDance 0 (n=1) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos
 

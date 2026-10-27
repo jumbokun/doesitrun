@@ -366,5 +366,23 @@
     "evidence": [
       "owner 'facebookresearch' is Meta org account (FAIR)"
     ]
+  },
+  "ByteDance-Seed/Depth-Anything-3": {
+    "repo": "ByteDance-Seed/Depth-Anything-3",
+    "company": "ByteDance",
+    "team": "Seed",
+    "confidence": "high",
+    "evidence": [
+      "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
+    ]
+  },
+  "bytedance/UI-TARS": {
+    "repo": "bytedance/UI-TARS",
+    "company": "ByteDance",
+    "team": "ByteDance",
+    "confidence": "high",
+    "evidence": [
+      "owner 'bytedance' is ByteDance org account (ByteDance)"
+    ]
   }
 }

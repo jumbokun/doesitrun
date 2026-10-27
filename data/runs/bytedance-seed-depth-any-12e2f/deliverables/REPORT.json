@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Dropped hard dependency xformers (CUDA-only, optional at runtime) via uv override"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch/torchvision from download.pytorch.org/whl/cpu"},
+  {"kind": "dependency_pin", "detail": "Installed undeclared runtime deps addict and scikit-learn"},
+  {"kind": "code_patch", "detail": "CLI defaults to device cuda; patched InferenceService to fall back to CPU when CUDA unavailable"},
+  {"kind": "system_package", "detail": "Installed libgl1/libglib2.0-0/libgomp1 etc. for opencv/open3d"}
+ ]}

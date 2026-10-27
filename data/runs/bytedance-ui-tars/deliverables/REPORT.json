@@ -1,0 +1,4 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Installed pillow and matplotlib (dev-only deps) so codes/tests/inference_test.py imports; not needed for the parser itself"}
+ ]}

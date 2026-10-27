@@ -1,0 +1,47 @@
+{
+  "slug": "bytedance-seed-depth-any-12e2f",
+  "repo": "ByteDance-Seed/Depth-Anything-3",
+  "track": "cpu-gha",
+  "goal": "Install the project (CPU-only torch is fine; gsplat/xformers are not needed) so the `da3` CLI works. Then run `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <dir> --model-dir depth-anything/DA3-SMALL` on CPU; the model weights download from Hugging Face automatically (no token needed). It must finish and write the exported results (results.npz and a .glb) into the export dir. Put any environment activation in /work/env.sh.",
+  "check": "The hidden test runs the da3 CLI on the bundled SOH images with DA3-SMALL on CPU and verifies the exported npz has depth arrays of the right shape for 2 images and that a non-trivial GLB file exists.",
+  "started": "2026-10-27 02:31:59",
+  "agent": {
+    "secs": 183,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "8cd11514-dcf0-4718-b5c9-b448cd0caebb",
+    "num_turns": 12,
+    "cost_usd": 0.25645320000000005,
+    "is_error": false,
+    "final": "e-ran `setup.sh`), `da3 auto` on the two SOH images with DA3-SMALL finished on CPU in about 10 seconds. It wrote `results.npz` with depth arrays of shape (2, 280, 504) and a 2 MB `scene.glb`. Getting there took CPU-only torch, dropping xformers, adding two undeclared dependencies (addict, scikit-learn), and patching the CLI so it falls back to CPU instead of failing on its default `--device cuda`."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 5,
+    "files": [
+      {
+        "path": "src/depth_anything_3/services/inference_service.py",
+        "added": 5,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 23,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 7
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-10-27 02:35:59"
+}
