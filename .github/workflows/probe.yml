@@ -107,26 +107,26 @@ jobs:
           pattern: run-*
           path: _runs
           merge-multiple: true
-      - name: Merge run records, rebuild leaderboard
+      - name: Merge run records, rebuild leaderboard, commit (retry on concurrent pushes)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           n=$(ls _runs/data/runs 2>/dev/null | wc -l)
           echo "run records downloaded: $n"
-          [ "$n" -gt 0 ] || { echo "no run records"; exit 1; }
-          cp -r _runs/data/runs/. data/runs/
-          echo "N_RUNS=$n" >> "$GITHUB_ENV"
-          python leaderboard.py > /dev/null
-      - name: Commit and redeploy
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
+          [ "$n" -gt 0 ] || { echo "no run records"; exit 0; }
           git config user.name "doesitrun-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/runs data/leaderboard.json data/attribution.json LEADERBOARD.md
-          git diff --cached --quiet && exit 0
-          git commit -m "Record probe results ($N_RUNS repos)"
-          git pull --rebase -q origin main
-          git push -q origin HEAD:main
+          # Several company batches finish independently and all regenerate the same leaderboard
+          # files, so always rebuild on top of the latest main instead of rebasing generated output.
+          for attempt in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            cp -r _runs/data/runs/. data/runs/
+            python leaderboard.py > /dev/null
+            git add data/runs data/leaderboard.json data/attribution.json LEADERBOARD.md
+            git diff --cached --quiet && { echo "nothing new"; exit 0; }
+            git commit -q -m "Record probe results ($n repos)"
+            if git push -q origin HEAD:main; then echo "pushed on attempt $attempt"; break; fi
+            sleep $((attempt * 10))
+          done
           # Pushes made with GITHUB_TOKEN do not trigger workflows; dispatch the site build explicitly.
           gh workflow run pages.yml --ref main
