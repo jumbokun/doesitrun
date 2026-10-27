@@ -65,7 +65,7 @@ jobs:
       - uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: exam-logs-${{ matrix.company }}
+          name: logs-exam-${{ matrix.company }}
           path: runs/
           retention-days: 30
 
@@ -82,14 +82,12 @@ jobs:
         with:
           pattern: exam-*
           path: _exam
+          merge-multiple: true
       - name: Merge verdicts and oracles, plan the run list
         run: |
           mkdir -p data/exams oracles
-          for d in _exam/exam-*/; do
-            case "$d" in *exam-logs-*) continue;; esac
-            cp -n "$d"data/exams/*.json data/exams/ 2>/dev/null || true
-            cp -n "$d"oracles/*.sh oracles/ 2>/dev/null || true
-          done
+          cp -n _exam/data/exams/*.json data/exams/ 2>/dev/null || true
+          cp -n _exam/oracles/*.sh oracles/ 2>/dev/null || true
           if ! ls data/exams/*.json >/dev/null 2>&1; then
             echo "No examiner verdicts were produced; nothing to pre-register." | tee plan.txt
             echo "NO_VERDICTS=1" >> "$GITHUB_ENV"; exit 0
