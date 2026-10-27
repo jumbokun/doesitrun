@@ -1,0 +1,70 @@
+{
+  "slug": "groundingdino",
+  "repo": "IDEA-Research/GroundingDINO",
+  "started": "2026-10-26 13:00:31",
+  "agent": {
+    "secs": 2854,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 36,
+    "cost_usd": 1.6080044999999998,
+    "final": "rmed: `import groundingdino._C` works standalone (even outside the repo), the CUDA MSDA kernel executes on sm_120, and the GPU demo on `.asset/cat_dog.jpeg` with `cat . dog .` writes `pred.jpg` with correct cat/dog boxes (logits 0.82 / 0.57).\n\nDONE — GroundingDINO installs with its CUDA extension compiled for sm_120 and the README GPU demo produces pred.jpg, reproduced from a clean `setup.sh` run."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 15
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 217,
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: download timeout"
+  },
+  "finished": "2026-10-26 16:27:36",
+  "replay_invalidated": [
+    {
+      "setup_ok": false,
+      "setup_secs": 739,
+      "oracle": {
+        "pass": false,
+        "secs": 32
+      }
+    }
+  ],
+  "replay_supplementary": {
+    "setup_ok": true,
+    "setup_secs": 510,
+    "mem": "4g",
+    "oracle": {
+      "pass": true,
+      "secs": 11
+    },
+    "class": "pass"
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 5,
+    "files": [
+      {
+        "path": "groundingdino/__init__.py",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "path": "groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cuda.cu",
+        "added": 2,
+        "removed": 2
+      }
+    ],
+    "backfilled": true
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Install GroundingDINO per its README WITH its CUDA extension compiled (so `from groundingdino import _C` works — the README warns about `NameError: name '_C' is not defined`), download the Swin-T OGC weights into weights/, and make the README GPU demo `demo/inference_on_a_image.py` work on .asset/cat_dog.jpeg.",
+  "check": "imports `groundingdino._C`, then runs demo/inference_on_a_image.py with groundingdino/config/GroundingDINO_SwinT_OGC.py and weights/groundingdino_swint_ogc.pth on .asset/cat_dog.jpeg with text 'cat . dog .' on the GPU (no --cpu-only) and requires pred.jpg"
+}

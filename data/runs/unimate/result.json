@@ -1,0 +1,39 @@
+{
+  "slug": "unimate",
+  "repo": "Friedrich-M/UniMate",
+  "started": "2026-10-26 11:26:52",
+  "agent": {
+    "secs": 1657,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 29,
+    "cost_usd": 1.1951165000000004,
+    "final": "ee breakages (cu124 wheels have no `sm_120` kernels and fail with \"no kernel image is available\"; no conda in the image; the text encoder isn't in the README's download step) and what I deliberately left out (`bpy`, `clip`).\n\nDONE — the README's 2b command runs on the bundled `unitree_go2` asset and writes a (60, 18, 12) motion `.npy` plus FK mp4/T-pose png and manifests, with no dataset download."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 38
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 567,
+    "oracle": {
+      "pass": true,
+      "secs": 67
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-26 12:05:57",
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": [],
+    "backfilled": true
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Get the README's Inference path '2b. Animate your own rigged asset' working with the bundled assets/examples/unitree_go2 asset: download the released checkpoint into outputs/unimate_uniml3d_f60_v3 as the README shows, then `python -m unimate.inference.sample --exp_dir outputs/unimate_uniml3d_f60_v3 --asset assets/examples/unitree_go2 --prompt \"An object trots forward.\"` must write motion output. The 88 GB dataset is NOT needed and must not be downloaded. Mesh driving (run_animate_motion.sh) is not required.",
+  "check": "runs that sample command from /work/UniMate with --output_dir pointing to a fresh directory and requires at least one output file"
+}

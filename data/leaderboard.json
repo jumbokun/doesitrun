@@ -1,284 +1,301 @@
 {
-  "repos": [
+  "tracks": [
     {
-      "repo": "academa-labs/manimgx",
-      "batch": "repos.json",
-      "score": 94.1,
-      "why": "6 min, 0 repo files patched",
-      "agent_minutes": 5.9,
-      "files_patched": 0,
-      "lines_patched": 0,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "Independent",
-      "team": "academa-labs",
-      "attribution_confidence": "none",
-      "attribution_evidence": []
-    },
-    {
-      "repo": "Leonxlnx/earshot",
-      "batch": "repos.json",
-      "score": 77.9,
-      "why": "22 min, 0 repo files patched",
-      "agent_minutes": 22.1,
-      "files_patched": 0,
-      "lines_patched": 0,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "Independent",
-      "team": "Leonxlnx",
-      "attribution_confidence": "none",
-      "attribution_evidence": []
-    },
-    {
-      "repo": "NVlabs/stylegan2-ada-pytorch",
-      "batch": "repos_b2.json",
-      "score": 77.1,
-      "why": "23 min, 0 repo files patched",
-      "agent_minutes": 22.9,
-      "files_patched": 0,
-      "lines_patched": 0,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "NVIDIA",
-      "team": "NVIDIA Research",
-      "attribution_confidence": "high",
-      "attribution_evidence": [
-        "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-      ]
-    },
-    {
-      "repo": "Friedrich-M/UniMate",
-      "batch": "repos.json",
-      "score": 72.4,
-      "why": "28 min, 0 repo files patched",
-      "agent_minutes": 27.6,
-      "files_patched": 0,
-      "lines_patched": 0,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "Academia",
-      "team": "Berkeley",
-      "attribution_confidence": "low",
-      "attribution_evidence": [
-        "paper arXiv:2609.05415 has no affiliation data in OpenAlex",
-        "README affiliation markers: ['Berkeley']"
-      ]
-    },
-    {
-      "repo": "jaredpalmer/kev",
-      "batch": "repos.json",
-      "score": 69.1,
-      "why": "31 min, 0 repo files patched",
-      "agent_minutes": 30.9,
-      "files_patched": 0,
-      "lines_patched": 0,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "Independent",
-      "team": "jaredpalmer",
-      "attribution_confidence": "none",
-      "attribution_evidence": []
-    },
-    {
-      "repo": "TianyuCodings/NanoJev",
-      "batch": "repos.json",
-      "score": 66.9,
-      "why": "33 min, 0 repo files patched",
-      "agent_minutes": 33.1,
-      "files_patched": 0,
-      "lines_patched": 0,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "Independent",
-      "team": "TianyuCodings",
-      "attribution_confidence": "none",
-      "attribution_evidence": [
-        "paper arXiv:2610.21244 has no affiliation data in OpenAlex"
-      ]
-    },
-    {
-      "repo": "GuyTevet/motion-diffusion-model",
-      "batch": "repos_b2.json",
-      "score": 58.5,
-      "why": "31 min, 1 repo files patched",
-      "agent_minutes": 31.5,
-      "files_patched": 1,
-      "lines_patched": 5,
-      "replay": "fail: installer not self-contained",
-      "replay_supplementary": "fail: download timeout",
-      "company": "Independent",
-      "team": "GuyTevet",
-      "attribution_confidence": "none",
-      "attribution_evidence": [
-        "paper arXiv:2209.14916 has no affiliation data in OpenAlex"
-      ]
-    },
-    {
-      "repo": "WongKinYiu/yolov7",
-      "batch": "repos_b2.json",
-      "score": 54.0,
-      "why": "16 min, 3 repo files patched",
-      "agent_minutes": 16.0,
-      "files_patched": 3,
-      "lines_patched": 6,
-      "replay": "fail: download timeout",
-      "replay_supplementary": "pass",
-      "company": "Academia",
-      "team": "Institute of Information Science, Academia Sinica",
-      "attribution_confidence": "medium",
-      "attribution_evidence": [
-        "paper arXiv:2207.02696 first institution 'Institute of Information Science, Academia Sinica' (facility, OpenAlex)"
-      ]
-    },
-    {
-      "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
-      "batch": "repos_b2.json",
-      "score": 43.0,
-      "why": "37 min, 2 repo files patched",
-      "agent_minutes": 37.0,
-      "files_patched": 2,
-      "lines_patched": 8,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "Microsoft",
-      "team": "Microsoft Research",
-      "attribution_confidence": "high",
-      "attribution_evidence": [
-        "owner 'microsoft' is Microsoft org account (Microsoft)",
-        "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-      ]
-    },
-    {
-      "repo": "advimman/lama",
-      "batch": "repos_b2.json",
-      "score": 39.0,
-      "why": "21 min, 4 repo files patched",
-      "agent_minutes": 21.0,
-      "files_patched": 4,
-      "lines_patched": 57,
-      "replay": "pass",
-      "replay_supplementary": "not run",
-      "company": "Samsung",
-      "team": "Samsung AI Center",
-      "attribution_confidence": "medium",
-      "attribution_evidence": [
-        "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
-      ]
-    },
-    {
-      "repo": "IDEA-Research/GroundingDINO",
-      "batch": "repos_b2.json",
-      "score": 32.4,
-      "why": "48 min, 2 repo files patched",
-      "agent_minutes": 47.6,
-      "files_patched": 2,
-      "lines_patched": 5,
-      "replay": "fail: download timeout",
-      "replay_supplementary": "pass",
-      "company": "IDEA",
-      "team": "IDEA Research",
-      "attribution_confidence": "high",
-      "attribution_evidence": [
-        "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
-      ]
-    }
-  ],
-  "companies": [
-    {
-      "company": "NVIDIA",
-      "n": 1,
-      "mean": 77.1,
-      "teams": [
+      "track": "gpu-rtx5060",
+      "label": "GPU · RTX 5060 Laptop 8 GB",
+      "repos": [
         {
-          "team": "NVIDIA Research",
-          "n": 1,
-          "mean": 77.1
-        }
-      ]
-    },
-    {
-      "company": "Independent",
-      "n": 5,
-      "mean": 73.3,
-      "teams": [
-        {
+          "repo": "academa-labs/manimgx",
+          "slug": "manimgx",
+          "score": 94.1,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 5.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
           "team": "academa-labs",
-          "n": 1,
-          "mean": 94.1
+          "attribution_confidence": "none",
+          "attribution_evidence": []
         },
         {
+          "repo": "Leonxlnx/earshot",
+          "slug": "earshot",
+          "score": 77.9,
+          "why": "22 min, 0 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
           "team": "Leonxlnx",
-          "n": 1,
-          "mean": 77.9
+          "attribution_confidence": "none",
+          "attribution_evidence": []
         },
         {
-          "team": "jaredpalmer",
-          "n": 1,
-          "mean": 69.1
+          "repo": "NVlabs/stylegan2-ada-pytorch",
+          "slug": "stylegan2ada",
+          "score": 77.1,
+          "why": "23 min, 0 repo files patched",
+          "agent_minutes": 22.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ]
         },
         {
-          "team": "TianyuCodings",
-          "n": 1,
-          "mean": 66.9
-        },
-        {
-          "team": "GuyTevet",
-          "n": 1,
-          "mean": 58.5
-        }
-      ]
-    },
-    {
-      "company": "Academia",
-      "n": 2,
-      "mean": 63.2,
-      "teams": [
-        {
+          "repo": "Friedrich-M/UniMate",
+          "slug": "unimate",
+          "score": 72.4,
+          "why": "28 min, 0 repo files patched",
+          "agent_minutes": 27.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Academia",
           "team": "Berkeley",
-          "n": 1,
-          "mean": 72.4
+          "attribution_confidence": "low",
+          "attribution_evidence": [
+            "paper arXiv:2609.05415 has no affiliation data in OpenAlex",
+            "README affiliation markers: ['Berkeley']"
+          ]
         },
         {
+          "repo": "jaredpalmer/kev",
+          "slug": "kev",
+          "score": 69.1,
+          "why": "31 min, 0 repo files patched",
+          "agent_minutes": 30.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
+          "team": "jaredpalmer",
+          "attribution_confidence": "none",
+          "attribution_evidence": []
+        },
+        {
+          "repo": "TianyuCodings/NanoJev",
+          "slug": "nanojev",
+          "score": 66.9,
+          "why": "33 min, 0 repo files patched",
+          "agent_minutes": 33.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
+          "team": "TianyuCodings",
+          "attribution_confidence": "none",
+          "attribution_evidence": [
+            "paper arXiv:2610.21244 has no affiliation data in OpenAlex"
+          ]
+        },
+        {
+          "repo": "GuyTevet/motion-diffusion-model",
+          "slug": "mdm",
+          "score": 58.5,
+          "why": "31 min, 1 repo files patched",
+          "agent_minutes": 31.5,
+          "files_patched": 1,
+          "lines_patched": 5,
+          "replay": "fail: installer not self-contained",
+          "replay_supplementary": "fail: download timeout",
+          "replay_after_repair": "pass",
+          "company": "Independent",
+          "team": "GuyTevet",
+          "attribution_confidence": "none",
+          "attribution_evidence": [
+            "paper arXiv:2209.14916 has no affiliation data in OpenAlex"
+          ]
+        },
+        {
+          "repo": "WongKinYiu/yolov7",
+          "slug": "yolov7",
+          "score": 54.0,
+          "why": "16 min, 3 repo files patched",
+          "agent_minutes": 16.0,
+          "files_patched": 3,
+          "lines_patched": 6,
+          "replay": "fail: download timeout",
+          "replay_supplementary": "pass",
+          "replay_after_repair": "not run",
+          "company": "Academia",
           "team": "Institute of Information Science, Academia Sinica",
-          "n": 1,
-          "mean": 54.0
-        }
-      ]
-    },
-    {
-      "company": "Microsoft",
-      "n": 1,
-      "mean": 43.0,
-      "teams": [
+          "attribution_confidence": "medium",
+          "attribution_evidence": [
+            "paper arXiv:2207.02696 first institution 'Institute of Information Science, Academia Sinica' (facility, OpenAlex)"
+          ]
+        },
         {
+          "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+          "slug": "oldphotos",
+          "score": 43.0,
+          "why": "37 min, 2 repo files patched",
+          "agent_minutes": 37.0,
+          "files_patched": 2,
+          "lines_patched": 8,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
           "team": "Microsoft Research",
-          "n": 1,
-          "mean": 43.0
-        }
-      ]
-    },
-    {
-      "company": "Samsung",
-      "n": 1,
-      "mean": 39.0,
-      "teams": [
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ]
+        },
         {
+          "repo": "advimman/lama",
+          "slug": "lama",
+          "score": 39.0,
+          "why": "21 min, 4 repo files patched",
+          "agent_minutes": 21.0,
+          "files_patched": 4,
+          "lines_patched": 57,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Samsung",
           "team": "Samsung AI Center",
-          "n": 1,
-          "mean": 39.0
-        }
-      ]
-    },
-    {
-      "company": "IDEA",
-      "n": 1,
-      "mean": 32.4,
-      "teams": [
+          "attribution_confidence": "medium",
+          "attribution_evidence": [
+            "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
+          ]
+        },
         {
+          "repo": "IDEA-Research/GroundingDINO",
+          "slug": "groundingdino",
+          "score": 32.4,
+          "why": "48 min, 2 repo files patched",
+          "agent_minutes": 47.6,
+          "files_patched": 2,
+          "lines_patched": 5,
+          "replay": "fail: download timeout",
+          "replay_supplementary": "pass",
+          "replay_after_repair": "not run",
+          "company": "IDEA",
           "team": "IDEA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
+          ]
+        }
+      ],
+      "companies": [
+        {
+          "company": "NVIDIA",
           "n": 1,
-          "mean": 32.4
+          "mean": 77.1,
+          "teams": [
+            {
+              "team": "NVIDIA Research",
+              "n": 1,
+              "mean": 77.1
+            }
+          ]
+        },
+        {
+          "company": "Independent",
+          "n": 5,
+          "mean": 73.3,
+          "teams": [
+            {
+              "team": "academa-labs",
+              "n": 1,
+              "mean": 94.1
+            },
+            {
+              "team": "Leonxlnx",
+              "n": 1,
+              "mean": 77.9
+            },
+            {
+              "team": "jaredpalmer",
+              "n": 1,
+              "mean": 69.1
+            },
+            {
+              "team": "TianyuCodings",
+              "n": 1,
+              "mean": 66.9
+            },
+            {
+              "team": "GuyTevet",
+              "n": 1,
+              "mean": 58.5
+            }
+          ]
+        },
+        {
+          "company": "Academia",
+          "n": 2,
+          "mean": 63.2,
+          "teams": [
+            {
+              "team": "Berkeley",
+              "n": 1,
+              "mean": 72.4
+            },
+            {
+              "team": "Institute of Information Science, Academia Sinica",
+              "n": 1,
+              "mean": 54.0
+            }
+          ]
+        },
+        {
+          "company": "Microsoft",
+          "n": 1,
+          "mean": 43.0,
+          "teams": [
+            {
+              "team": "Microsoft Research",
+              "n": 1,
+              "mean": 43.0
+            }
+          ]
+        },
+        {
+          "company": "Samsung",
+          "n": 1,
+          "mean": 39.0,
+          "teams": [
+            {
+              "team": "Samsung AI Center",
+              "n": 1,
+              "mean": 39.0
+            }
+          ]
+        },
+        {
+          "company": "IDEA",
+          "n": 1,
+          "mean": 32.4,
+          "teams": [
+            {
+              "team": "IDEA Research",
+              "n": 1,
+              "mean": 32.4
+            }
+          ]
         }
       ]
     }

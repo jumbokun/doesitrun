@@ -1,0 +1,180 @@
+{
+  "repo": "https://github.com/GuyTevet/motion-diffusion-model",
+  "commit": "ef8edce6a53c6ab19e53b4d4dcf15bc0bc60a778",
+  "goal": "README text-to-motion path: python -m sample.generate --text_prompt ... -> results.npy + stick-figure mp4",
+  "status": "success",
+  "goal_reached": true,
+  "deliverables": {
+    "setup_sh": "/work/setup.sh",
+    "env_sh": "/work/env.sh",
+    "run_sh": null,
+    "notes": "/work/NOTES.md",
+    "self_contained": true,
+    "idempotent": true
+  },
+  "verified": {
+    "command": "python -m sample.generate --model_path save/humanml_enc_512_50steps/model000750000.pt --text_prompt \"the person walked forward and is picking up his toolbox.\" --device 0 --output_dir <fresh>",
+    "cwd": "/work/motion-diffusion-model",
+    "checkpoint": "save/humanml_enc_512_50steps/model000750000.pt",
+    "outputs": [
+      "results.npy",
+      "results.txt",
+      "results_len.txt",
+      "sample00_rep00.mp4 ... sample05_rep02.mp4 (18 files)",
+      "samples_00_to_02.mp4",
+      "samples_03_to_05.mp4"
+    ],
+    "runtime_sec": 136,
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU (sm_120)",
+    "peak_vram_gb": 1.4,
+    "oom_retries": 0,
+    "runs": [
+      {
+        "root": "/work/motion-diffusion-model",
+        "result": "pass"
+      },
+      {
+        "root": "/scratch/mdm",
+        "note": "setup.sh replayed alone from an isolated prefix",
+        "result": "pass"
+      }
+    ]
+  },
+  "environment": {
+    "documented": "conda environment.yml: python 3.7, pytorch 1.7.1, cudatoolkit 11.0",
+    "used": "uv venv, python 3.10.22, torch 2.11.0+cu128, torchvision 0.26.0+cu128, numpy 1.26.4",
+    "reason": "no torch 1.7.1 / cu11 build supports sm_120 Blackwell; conda is not in the image",
+    "apt_packages_added": [
+      "ffmpeg",
+      "unzip"
+    ]
+  },
+  "code_patch": {
+    "files_changed": 1,
+    "lines_added": 5,
+    "lines_removed": 0,
+    "files": [
+      "sample/generate.py"
+    ],
+    "why": "upstream never writes the README-documented sample##_rep##.mp4 files; only the combined grid videos"
+  },
+  "data_patch": {
+    "files_changed": 1,
+    "files": [
+      "body_models/smpl/SMPL_NEUTRAL.pkl"
+    ],
+    "why": "chumpy-pickled arrays are unreadable with numpy>=1.24; rewritten as plain numpy arrays"
+  },
+  "downloads": [
+    {
+      "what": "SMPL body model",
+      "source": "google drive via prepare/download_smpl_files.sh",
+      "size_mb": 35,
+      "required": true
+    },
+    {
+      "what": "HumanML3D texts + Mean/Std/test split",
+      "source": "github.com/EricGuo5513/HumanML3D",
+      "size_mb": 12,
+      "required": true
+    },
+    {
+      "what": "humanml-encoder-512-50steps checkpoint",
+      "source": "google drive (gdown)",
+      "size_mb": 197,
+      "required": true
+    },
+    {
+      "what": "CLIP ViT-B/32",
+      "source": "openaipublic.azureedge.net",
+      "size_mb": 338,
+      "required": true
+    },
+    {
+      "what": "glove",
+      "source": "google drive via prepare/download_glove.sh",
+      "size_mb": 10,
+      "required": false
+    },
+    {
+      "what": "T2M evaluators (t2m + kit)",
+      "source": "google drive via prepare/download_t2m_evaluators.sh",
+      "size_mb": 1450,
+      "required": false
+    }
+  ],
+  "blockers": [
+    {
+      "id": 1,
+      "symptom": "no torch build for sm_120",
+      "where": "environment.yml",
+      "fix": "python 3.10 venv + torch 2.11.0+cu128",
+      "severity": "blocking"
+    },
+    {
+      "id": 2,
+      "symptom": "prepare/*.sh download then 'unzip: command not found' and delete the zip",
+      "where": "image / prepare/*.sh",
+      "fix": "apt-get install unzip ffmpeg",
+      "severity": "blocking"
+    },
+    {
+      "id": 3,
+      "symptom": "prepare/*.sh exit 0 after a failed download",
+      "where": "prepare/*.sh",
+      "fix": "retry on missing output files, not exit status",
+      "severity": "robustness"
+    },
+    {
+      "id": 4,
+      "symptom": "gdown: unrecognized arguments: --fuzzy",
+      "where": "prepare/download_glove.sh, prepare/download_t2m_evaluators.sh",
+      "fix": "pin gdown==5.2.0",
+      "severity": "blocking"
+    },
+    {
+      "id": 5,
+      "symptom": "import spacy -> ModuleNotFoundError: click (resolver picks typer-slim)",
+      "where": "spacy 3.7.5 deps",
+      "fix": "pin typer==0.9.4, click==8.1.8, weasel==0.4.1",
+      "severity": "blocking"
+    },
+    {
+      "id": 6,
+      "symptom": "ModuleNotFoundError: joblib",
+      "where": "utils/sampler_util.py vs environment.yml",
+      "fix": "add joblib",
+      "severity": "blocking"
+    },
+    {
+      "id": 7,
+      "symptom": "ModuleNotFoundError: chumpy while smplx loads SMPL_NEUTRAL.pkl",
+      "where": "model/smpl.py -> smplx",
+      "fix": "rewrite the pickle without chumpy objects",
+      "severity": "blocking"
+    },
+    {
+      "id": 8,
+      "symptom": "README-promised sample##_rep##.mp4 never written",
+      "where": "sample/generate.py",
+      "fix": "5-line patch writing each clip",
+      "severity": "cosmetic"
+    }
+  ],
+  "replay_failures_fixed": [
+    {
+      "attempt": 1,
+      "error": "error: File not found: /work/requirements.txt",
+      "cause": "setup.sh referenced sibling files (requirements.txt, tools/, patches/) that the replay does not copy",
+      "fix": "setup.sh now writes all helper files itself via heredocs into $MDM_ROOT/.setup/, retries every download, and resumes/validates the checkpoint zip",
+      "retested": "isolated prefix /scratch/isolated with MDM_ROOT=/scratch/mdm, setup 5.5 min, generate produced results.npy + 20 mp4s"
+    }
+  ],
+  "readme_followed": true,
+  "deviations_from_readme": [
+    "venv/pip instead of conda environment.yml (no sm_120 wheels in the pinned stack)",
+    "one 5-line edit to sample/generate.py to emit the documented per-sample mp4s",
+    "SMPL_NEUTRAL.pkl rewritten without chumpy",
+    "glove + T2M evaluators treated as optional (eval-only)"
+  ]
+}

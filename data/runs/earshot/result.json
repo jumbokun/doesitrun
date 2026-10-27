@@ -1,0 +1,39 @@
+{
+  "slug": "earshot",
+  "repo": "Leonxlnx/earshot",
+  "started": "2026-10-26 09:46:19",
+  "agent": {
+    "secs": 1326,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 24,
+    "cost_usd": 0.9755955000000002,
+    "final": " a deleted checkout + purged pip cache), `env.sh`, `NOTES.md`, and the working `/work/earshot` install. Final check in a clean environment returned exit 0 with both models loaded from cache.\n\nDONE — the README's CPU install path worked as written once ffmpeg/python3-venv were installed, and `python -m earshot doctor --load` exits 0 with CLAP `16c8cc3` and AST `f826b80` loaded from the local cache."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 9
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 411,
+    "oracle": {
+      "pass": true,
+      "secs": 14
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-26 10:16:11",
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": [],
+    "backfilled": true
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Install earshot per its README (CPU only) so that `python -m earshot doctor --load`, run from the repo directory, succeeds with both models loaded.",
+  "check": "runs `python -m earshot doctor --load` from /work/earshot and requires exit code 0"
+}

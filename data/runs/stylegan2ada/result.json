@@ -1,0 +1,39 @@
+{
+  "slug": "stylegan2ada",
+  "repo": "NVlabs/stylegan2-ada-pytorch",
+  "started": "2026-10-26 13:00:45",
+  "agent": {
+    "secs": 1374,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 17,
+    "cost_usd": 0.788097,
+    "final": "was re-tested end-to-end after wiping the venv, the repo clone, and the uv/dnnlib/torch-extension caches.\n\nDONE — no repo source changes were needed; swapping the README's Python 3.7/PyTorch 1.7.1 stack for Python 3.11 + torch 2.8.0+cu128 lets NVCC build `bias_act_plugin` and `upfirdn2d_plugin` for sm_120, and the verified run emits 1024x1024 `seed0085.png`/`seed0265.png` with no fallback warning."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 19
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 773,
+    "oracle": {
+      "pass": true,
+      "secs": 9
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-26 13:37:17",
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": [],
+    "backfilled": true
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Make the README's `python generate.py --outdir=out --trunc=1 --seeds=85,265 --network=https://nvlabs-fi-cdn.nvidia.com/stylegan2-ada-pytorch/pretrained/metfaces.pkl` work on the GPU WITH the custom CUDA plugins (bias_act, upfirdn2d) actually compiling — a run that prints 'Falling back to slow reference implementation' does not count.",
+  "check": "runs that generate.py command (seeds 85,265) and requires 1024x1024 seed0085.png and seed0265.png with no plugin-fallback warning in the output"
+}

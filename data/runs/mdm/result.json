@@ -1,0 +1,83 @@
+{
+  "slug": "mdm",
+  "repo": "GuyTevet/motion-diffusion-model",
+  "started": "2026-10-26 15:44:35",
+  "agent": {
+    "secs": 1888,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 61,
+    "cost_usd": 3.1268200000000013,
+    "final": ".sh`, `NOTES.md`. The documented generate command was run end-to-end on the primary checkout and on a second root rebuilt from scratch by `setup.sh`, producing `results.npy` plus 20 valid h264 mp4s each time.\n\nDONE — text-to-motion generation works from the pinned checkpoint `save/humanml_enc_512_50steps/model000750000.pt` on the sm_120 GPU, with setup reproduced from scratch via `/work/setup.sh`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 104
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 46,
+    "mem": "4g",
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: installer not self-contained"
+  },
+  "finished": "2026-10-27 02:38:08",
+  "notes": [
+    "replay_supplementary: added undelivered files ['patches', 'requirements.txt', 'tools']",
+    "replay_after_repair: added undelivered files ['patches', 'requirements.txt', 'tools']"
+  ],
+  "replay_supplementary": {
+    "setup_ok": false,
+    "setup_secs": 187,
+    "mem": "4g",
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: download timeout"
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 5,
+    "files": [
+      {
+        "path": "sample/generate.py",
+        "added": 5,
+        "removed": 0
+      }
+    ],
+    "backfilled": true
+  },
+  "repair": {
+    "secs": 863,
+    "timed_out": false,
+    "model": "claude-opus-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "2a44b569-eed5-4d81-b898-6c4c6065969c",
+    "num_turns": 14,
+    "cost_usd": 2.2946234999999997,
+    "final": "tion there (`/work/verify-final`: `results.npy`, 18 `sample##_rep##.mp4`, 2 grid mp4s).\n- `NOTES.md` updated with the replay failure/fix; `REPORT.json` written (status, verified command, blockers, 5-line/1-file code patch, downloads).\n\nDONE — setup.sh is now fully self-contained and reproduced the working text-to-motion path from an isolated prefix, with the prompt generating results.npy and mp4s.",
+    "from": "replay"
+  },
+  "replay_after_repair": {
+    "setup_ok": true,
+    "setup_secs": 898,
+    "mem": "4g",
+    "oracle": {
+      "pass": true,
+      "secs": 127
+    },
+    "class": "pass"
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Get the README text-to-motion path working: environment, the text-to-motion dependencies and data the README requires, and one HumanML3D text-to-motion checkpoint placed under ./save/ (e.g. save/humanml_.../model*.pt), so that `python -m sample.generate --model_path <that checkpoint> --text_prompt \"the person walked forward and is picking up his toolbox.\"` produces results.npy and the stick-figure mp4.",
+  "check": "picks the first save/humanml*/model*.pt, runs sample.generate with --device 0 and that text prompt into a fresh --output_dir, and requires results.npy and an mp4"
+}

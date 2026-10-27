@@ -1,0 +1,39 @@
+{
+  "slug": "kev",
+  "repo": "jaredpalmer/kev",
+  "started": "2026-10-26 09:37:10",
+  "agent": {
+    "secs": 1856,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 34,
+    "cost_usd": 1.4742729999999997,
+    "final": "265), `escalate: 0.556`, `frustration: 1.23`, 127–264 ms warm. GPU memory goes 1.1 GB idle → 5.0 GB served. The README's TypeSafe SDK snippet also runs unchanged. Server is left stopped and the GPU idle so the verifier's `run.sh` produces the memory rise itself.\n\nDONE — Kev-0.8B serves the README ticket on the RTX 5060 at localhost:8009 via the documented path, reproduced from a clean `/work/kev`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 51
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 827,
+    "oracle": {
+      "pass": true,
+      "secs": 49
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-26 10:23:56",
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": [],
+    "backfilled": true
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Run a Kev model server locally ON THE GPU (it is an 8 GB laptop GPU, so pick the Kev variant/dtype that fits) on port 8009, so that the README's example curl ticket to localhost:8009/v1/systemone returns answers.",
+  "check": "runs /work/run.sh, then sends the README's example ticket to localhost:8009/v1/systemone, requires a valid department choice, and requires GPU memory use to have risen (CPU fallback fails)"
+}

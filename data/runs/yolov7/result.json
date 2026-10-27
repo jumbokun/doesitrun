@@ -1,0 +1,75 @@
+{
+  "slug": "yolov7",
+  "repo": "WongKinYiu/yolov7",
+  "started": "2026-10-26 13:37:17",
+  "agent": {
+    "secs": 961,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 22,
+    "cost_usd": 0.7452780000000002,
+    "final": "rom the source image).\n- `/work/NOTES.md` — the four breakages: README's install path is a 2021 NGC torch-1.9 image (no sm_120 kernels → torch 2.11.0+cu128), `torch.load` `weights_only=True` rejecting `yolov7.pt`, `libgl1-mesa-glx` gone on 24.04, and numpy pinned to 1.x.\n\nDONE — detect.py runs on `--device 0` and reports 5 horses with the annotated image saved, reproduced from scratch by setup.sh."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 29
+  },
+  "replay": {
+    "setup_ok": false,
+    "setup_secs": 249,
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: download timeout"
+  },
+  "finished": "2026-10-26 16:33:45",
+  "replay_invalidated": [
+    {
+      "setup_ok": false,
+      "setup_secs": 411,
+      "oracle": {
+        "pass": false,
+        "secs": 32
+      }
+    }
+  ],
+  "replay_supplementary": {
+    "setup_ok": true,
+    "setup_secs": 356,
+    "mem": "4g",
+    "oracle": {
+      "pass": true,
+      "secs": 8
+    },
+    "class": "pass"
+  },
+  "repo_diff": {
+    "files_changed": 3,
+    "lines_changed": 6,
+    "files": [
+      {
+        "path": "models/experimental.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "utils/datasets.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "utils/general.py",
+        "added": 1,
+        "removed": 1
+      }
+    ],
+    "backfilled": true
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Install yolov7 and the yolov7.pt weights (in the repo root) so that the README image demo `python detect.py --weights yolov7.pt --conf 0.25 --img-size 640 --source inference/images/horses.jpg` runs on the GPU (--device 0).",
+  "check": "runs that detect.py command with --device 0 and requires horse detections in the log and the annotated horses.jpg"
+}

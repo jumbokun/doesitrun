@@ -1,0 +1,50 @@
+{
+  "slug": "oldphotos",
+  "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+  "started": "2026-10-26 14:17:39",
+  "agent": {
+    "secs": 2217,
+    "timed_out": false,
+    "model": "claude-opus-5[1m]",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "num_turns": 35,
+    "cost_usd": 1.2394755,
+    "final": "h`, `/work/env.sh`, `/work/NOTES.md`), the fresh-prefix re-run of `setup.sh` reproduced the whole setup, and the target command produced 4/4 blended results in `final_output/`.\n\nDONE — the full pipeline restores all four `old_w_scratch` images after adding `python3-dev` for the dlib build, cu128 torch for sm_120, and a one-line dtype fix in the stage-4 blending code that modern scikit-image broke."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 45
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 934,
+    "oracle": {
+      "pass": true,
+      "secs": 45
+    },
+    "class": "pass"
+  },
+  "finished": "2026-10-26 15:11:48",
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 8,
+    "files": [
+      {
+        "path": "Face_Detection/align_warp_back_multiple_dlib.py",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "path": "Face_Detection/align_warp_back_multiple_dlib_HR.py",
+        "added": 2,
+        "removed": 2
+      }
+    ],
+    "backfilled": true
+  },
+  "track": "gpu-rtx5060",
+  "goal": "Follow the README Installation (Synchronized-BatchNorm copies, dlib landmark model, face and global checkpoints, requirements) so that the Full Pipeline `python run.py --input_folder <abs path to test_images/old_w_scratch> --output_folder <dir> --GPU 0 --with_scratch` restores every bundled scratched test image.",
+  "check": "runs that exact command on test_images/old_w_scratch with --GPU 0 --with_scratch and requires final_output/ to contain one result per input image"
+}
