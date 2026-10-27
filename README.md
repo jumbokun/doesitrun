@@ -31,9 +31,24 @@ README demo ──► agent (Claude Code, ONE tool: `docker exec` into a throwaw
   the agent's own claim.
 - **Deliverables** from the agent: `setup.sh` (from scratch, non-interactive), `env.sh`, `run.sh` for
   servers, `NOTES.md`, and a typed `REPORT.json` of every deviation from the README.
-- **Replay**: `setup.sh` runs on a fresh container and the oracle runs again. A failed replay stays
-  recorded as a failure. (Being evaluated: feeding the failed replay log back to the same agent session
-  for one repair round.)
+- **Replay**: `setup.sh` runs on a fresh container and the oracle runs again. If that fails, the log goes
+  back to the same agent session for one repair round and the repaired installer is replayed again; the
+  first failure stays on record. (MDM: not self-contained at first, passed after a 14-minute repair.)
+
+## Tracks and batches
+
+Scores are only compared within a hardware track.
+
+| track | hardware | repos | how they were chosen |
+|---|---|---|---|
+| `gpu-rtx5060` | RTX 5060 Laptop 8 GB, local | 11 | batch 1: five 2026 releases; batch 2: six 2020–23 research repos with install complaints |
+| `cpu-gha` | GitHub-hosted runner, 4 vCPU / 16 GB, no GPU | in progress | per company, top 25 Python repos by stars across its official orgs; the first 10 an examiner rules eligible |
+
+The `cpu-gha` track runs entirely on GitHub Actions ([`exam.yml`](.github/workflows/exam.yml),
+[`probe.yml`](.github/workflows/probe.yml)). An **examiner agent** reads each candidate (no install) and
+either excludes it with a reason or writes the goal and hidden oracle; those are committed *before* any
+probe runs, so the commit history is the pre-registration. Candidate pool: [`data/candidates.json`](data/candidates.json);
+verdicts: `data/exams/`; run records: `data/runs/`.
 
 ## Scoring
 
@@ -74,15 +89,15 @@ The agent never touches the host:
 
 ## Run it yourself
 
-Tested on Windows 11 + Docker Desktop (WSL2 backend) with an NVIDIA GPU; the firewall step uses
-Docker Desktop's VM.
+Locally: Windows 11 + Docker Desktop (WSL2) with an NVIDIA GPU. On CI: GitHub-hosted Ubuntu runners
+(`RR_IMAGE=rr-cpu`). The firewall works on both and is re-proven before every batch.
 
 ```bash
 docker build -t rr-base base
 python firewall_check.py                        # must print FIREWALL OK
 python run_probe.py manimgx                     # one repo from repos.json
 python run_probe.py --repos=repos_b2.json lama  # another target list
-python leaderboard.py repos.json repos_b2.json  # -> data/leaderboard.json, LEADERBOARD.md
+python leaderboard.py                           # data/runs -> data/leaderboard.json, LEADERBOARD.md
 python build_site.py                            # -> _site/index.html (CI does this on push)
 ```
 
@@ -93,7 +108,7 @@ Requires the Claude Code CLI logged in. To add a repo, append it to a repos file
 
 | path | what |
 |---|---|
-| `run_probe.py` | harness: container → agent → oracle → fresh-container replay |
+| `run_probe.py` | harness: examiner, container → agent → oracle → replay → repair → replay |
 | `box_mcp.py` | the agent's single tool |
 | `oracles/` | pre-registered pass criteria |
 | `repos.json`, `repos_b2.json` | targets and goals per batch |
