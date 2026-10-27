@@ -1,6 +1,44 @@
 {
   "tracks": [
     {
+      "track": "cpu-gha",
+      "label": "CPU · GitHub-hosted runner (4 vCPU, 16 GB)",
+      "repos": [
+        {
+          "repo": "microsoft/markitdown",
+          "slug": "microsoft-markitdown",
+          "score": 98.9,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ]
+        }
+      ],
+      "companies": [
+        {
+          "company": "Microsoft",
+          "n": 1,
+          "mean": 98.9,
+          "teams": [
+            {
+              "team": "Microsoft",
+              "n": 1,
+              "mean": 98.9
+            }
+          ]
+        }
+      ]
+    },
+    {
       "track": "gpu-rtx5060",
       "label": "GPU · RTX 5060 Laptop 8 GB",
       "repos": [

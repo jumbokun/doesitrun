@@ -93,5 +93,14 @@
     "evidence": [
       "paper arXiv:2209.14916 has no affiliation data in OpenAlex"
     ]
+  },
+  "microsoft/markitdown": {
+    "repo": "microsoft/markitdown",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
   }
 }

@@ -2,6 +2,16 @@
 
 How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never mixed. Method: README.md; full notebook: WORKLOG.md.
 
+## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 1 repos
+
+| # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
+|---|---|---|---|---|---|---|
+| 1 | [microsoft/markitdown](https://github.com/microsoft/markitdown) | 98.9 | 1 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+
+| company | n | mean | teams |
+|---|---|---|---|
+| Microsoft ⚠ n<3 | 1 | 98.9 | Microsoft 98.9 (n=1) |
+
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
