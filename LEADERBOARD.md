@@ -76,16 +76,16 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 68 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | 0 | 25 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
 | 69 | [NVlabs/SPADE](https://github.com/NVlabs/SPADE) | 0 | 10 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA Research (high) |
 | 70 | [Tencent-Hunyuan/Hunyuan3D-1](https://github.com/Tencent-Hunyuan/Hunyuan3D-1) | 0 | 90 min | 4 (20 lines) | fail: other | Tencent / Hunyuan (high) |
-| 71 | [Tencent-Hunyuan/Hunyuan3D-2.1](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1) | 0 | 90 min | 1 (10 lines) | fail: other | Tencent / Hunyuan (high) |
-| 72 | [Tencent/PocketFlow](https://github.com/Tencent/PocketFlow) | 0 | 88 min | 0 (0 lines) | fail: other | Tencent / Tencent (high) |
-| 73 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
-| 74 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 75 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 76 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
-| 77 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
-| 78 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
-| 79 | [NVIDIA/warp](https://github.com/NVIDIA/warp) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
-| 80 | [PaddlePaddle/PaddleSpeech](https://github.com/PaddlePaddle/PaddleSpeech) | not scored (oracle defect) | 17 min | 0 (0 lines) | fail: other | Baidu / PaddlePaddle (high) |
+| 71 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
+| 72 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 73 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 74 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
+| 75 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft Research (high) |
+| 76 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 77 | [NVIDIA/warp](https://github.com/NVIDIA/warp) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 78 | [PaddlePaddle/PaddleSpeech](https://github.com/PaddlePaddle/PaddleSpeech) | not scored (oracle defect) | 17 min | 0 (0 lines) | fail: other | Baidu / PaddlePaddle (high) |
+| 79 | [Tencent-Hunyuan/Hunyuan3D-2.1](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1) | not scored (oracle defect) | 90 min | 1 (10 lines) | fail: other | Tencent / Hunyuan (high) |
+| 80 | [Tencent/PocketFlow](https://github.com/Tencent/PocketFlow) | not scored (oracle defect) | 88 min | 0 (0 lines) | fail: other | Tencent / Tencent (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
@@ -93,9 +93,9 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | Meta | 8 | 92.7 | FAIR 92.7 (n=8) |
 | Alibaba | 10 | 83.6 | Qwen 92.7 (n=4); ModelScope 77.6 (n=6) |
 | Baidu | 9 | 83.1 | Baidu 87.6 (n=1); PaddlePaddle 82.5 (n=8) |
+| Tencent | 8 | 71.4 | ARC Lab 93.8 (n=2); Tencent 76.1 (n=3); Hunyuan 51.9 (n=3) |
 | Google | 9 | 70.3 | Google 98.9 (n=3); Google DeepMind 88.8 (n=2); Google Research 39.7 (n=4) |
 | NVIDIA | 8 | 59.2 | NVIDIA Research 61.2 (n=5); NVIDIA 55.8 (n=3) |
-| Tencent | 10 | 57.1 | ARC Lab 93.8 (n=2); Tencent 57.0 (n=4); Hunyuan 38.9 (n=4) |
 | ByteDance | 9 | 54.8 | ByteDance 58.0 (n=7); Seed 43.5 (n=2) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos

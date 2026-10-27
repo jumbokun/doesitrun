@@ -39,5 +39,20 @@
     },
     "class": "fail: other"
   },
-  "finished": "2026-10-27 06:59:25"
+  "finished": "2026-10-27 06:59:25",
+  "audit": {
+    "verdict": "oracle_defect",
+    "reason": "When I re-ran the oracle in this sandbox, it went all the way to 'ORACLE PASS': CPU shape generation finished, a 1.41 MB GLB was exported, and the mesh has 39232 vertices, 78476 faces and extent about [1.26, 1.98, 1.16], which clears every threshold. So the README demo works with this install. The earlier failure on the installing agent's machine most likely came from that machine (CPU/memory or time limits during the long CPU run), not from the repo or the install. Its log was not available, so this cause is inferred.",
+    "evidence_cmd": "source /work/env.sh; python -I -c \"import trimesh;m=trimesh.load('/tmp/oracle_out.WsxvtU/shape.glb',force='mesh');print(len(m.vertices),len(m.faces),m.bounds[1]-m.bounds[0])\"",
+    "evidence_out": "39232 78476 [1.26398557 1.98314124 1.16096538]; oracle re-run: glb size 1413308 ... ORACLE PASS",
+    "setup_ok": true,
+    "oracle_rerun_pass": true,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 18,
+      "num_turns": 4,
+      "cost_usd": 0.08024980000000001
+    },
+    "audited": "2026-10-27 07:26:08"
+  }
 }

@@ -1403,48 +1403,8 @@
           "attribution_evidence": [
             "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
           ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
-          "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
-          "slug": "tencent-hunyuan-hunyuan3d-2-1",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 90.0,
-          "files_patched": 1,
-          "lines_patched": 10,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": null,
-          "audit_reason": null
-        },
-        {
-          "repo": "Tencent/PocketFlow",
-          "slug": "tencent-pocketflow",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 88.5,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
-          ],
-          "audit": null,
-          "audit_reason": null
+          "audit": "inconclusive",
+          "audit_reason": "The sandbox contains no install at all: /work is empty, so /work/setup.sh, /work/env.sh and /work/Hunyuan3D-1 are all missing, and nothing similar exists anywhere else on the filesystem. The oracle stopped at `source /work/env.sh` before running any repo code. With no repo or environment here, there is no way to tell whether the README demo works, so neither the repo nor the oracle can be blamed."
         },
         {
           "repo": "bytedance/UI-TARS",
@@ -1606,6 +1566,46 @@
           ],
           "audit": "oracle_defect",
           "audit_reason": "The oracle aborted before testing anything because `wget` is not installed in the sandbox (only curl is). After downloading zh.wav with Python, `paddlespeech asr` printed the expected transcript 我认为跑步最重要的就是给我带来了身体健康, and `paddlespeech tts` wrote a 171044-byte RIFF wav on CPU, so the demo works and the failure comes from the oracle's dependency on its own environment."
+        },
+        {
+          "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
+          "slug": "tencent-hunyuan-hunyuan3d-2-1",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 90.0,
+          "files_patched": 1,
+          "lines_patched": 10,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "When I re-ran the oracle in this sandbox, it went all the way to 'ORACLE PASS': CPU shape generation finished, a 1.41 MB GLB was exported, and the mesh has 39232 vertices, 78476 faces and extent about [1.26, 1.98, 1.16], which clears every threshold. So the README demo works with this install. The earlier failure on the installing agent's machine most likely came from that machine (CPU/memory or time limits during the long CPU run), not from the repo or the install. Its log was not available, so this cause is inferred."
+        },
+        {
+          "repo": "Tencent/PocketFlow",
+          "slug": "tencent-pocketflow",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 88.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The oracle stopped at its own CIFAR-10 download: curl from cs.toronto.edu runs at ~56 KB/s here, so the 170 MB file cannot finish inside its 900 s timeout (my 300 s attempt got only 17 MB). Run directly with the CIFAR-10 binary data, the repo trains LeNet, saves models_eval/model.ckpt and prints 'model saved to'; eval then prints 'accuracy = 3.8120e-01' (38%, well above chance). The oracle's accuracy regex also has a bug: it captures only '3.8120' from scientific notation, divides by 100 to get 0.038, and would fail anyway."
         }
       ],
       "companies": [
@@ -1673,6 +1673,28 @@
           ]
         },
         {
+          "company": "Tencent",
+          "n": 8,
+          "mean": 71.4,
+          "teams": [
+            {
+              "team": "ARC Lab",
+              "n": 2,
+              "mean": 93.8
+            },
+            {
+              "team": "Tencent",
+              "n": 3,
+              "mean": 76.1
+            },
+            {
+              "team": "Hunyuan",
+              "n": 3,
+              "mean": 51.9
+            }
+          ]
+        },
+        {
           "company": "Google",
           "n": 9,
           "mean": 70.3,
@@ -1708,28 +1730,6 @@
               "team": "NVIDIA",
               "n": 3,
               "mean": 55.8
-            }
-          ]
-        },
-        {
-          "company": "Tencent",
-          "n": 10,
-          "mean": 57.1,
-          "teams": [
-            {
-              "team": "ARC Lab",
-              "n": 2,
-              "mean": 93.8
-            },
-            {
-              "team": "Tencent",
-              "n": 4,
-              "mean": 57.0
-            },
-            {
-              "team": "Hunyuan",
-              "n": 4,
-              "mean": 38.9
             }
           ]
         },
