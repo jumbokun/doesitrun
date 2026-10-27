@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Built the wheel from source (scripts/publish_pypi.py build infra) instead of pip install from PyPI, so the repo's data/ rules are bundled"},
+  {"kind": "system_package", "detail": "Installed Go 1.23.12 toolchain from go.dev; needed to compile cmd/cli, not mentioned in README"},
+  {"kind": "dependency_pin", "detail": "Installed python 'build', setuptools and wheel in a uv venv (Python 3.12), which the build script needs"}
+ ]}

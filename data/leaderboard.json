@@ -246,6 +246,46 @@
           "audit_reason": null
         },
         {
+          "repo": "Tencent/AI-Infra-Guard",
+          "slug": "tencent-ai-infra-guard",
+          "score": 98.0,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 2.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
+          "repo": "TencentARC/GFPGAN",
+          "slug": "tencentarc-gfpgan",
+          "score": 98.0,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 2.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "ARC Lab",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'TencentARC' is Tencent org account (ARC Lab)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "facebookresearch/vggt",
           "slug": "facebookresearch-vggt",
           "score": 97.4,
@@ -466,6 +506,26 @@
           "audit_reason": null
         },
         {
+          "repo": "Tencent-Hunyuan/Hunyuan3D-2",
+          "slug": "tencent-hunyuan-hunyuan3d-2",
+          "score": 73.0,
+          "why": "17 min, 1 repo files patched",
+          "agent_minutes": 17.0,
+          "files_patched": 1,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+          ],
+          "audit": null,
+          "audit_reason": null
+        },
+        {
           "repo": "ByteDance-Seed/Depth-Anything-3",
           "slug": "bytedance-seed-depth-any-12e2f",
           "score": 0,
@@ -663,6 +723,28 @@
               "team": "Microsoft",
               "n": 8,
               "mean": 92.5
+            }
+          ]
+        },
+        {
+          "company": "Tencent",
+          "n": 3,
+          "mean": 89.7,
+          "teams": [
+            {
+              "team": "Tencent",
+              "n": 1,
+              "mean": 98.0
+            },
+            {
+              "team": "ARC Lab",
+              "n": 1,
+              "mean": 98.0
+            },
+            {
+              "team": "Hunyuan",
+              "n": 1,
+              "mean": 73.0
             }
           ]
         },

@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Installed CPU-only torch/torchvision from download.pytorch.org/whl/cpu into a uv venv (Python 3.12)"},
+  {"kind": "dependency_pin", "detail": "transformers>=4.48,<5: transformers 5.x renamed Dinov2 modules so conditioner checkpoint keys don't match"},
+  {"kind": "dependency_pin", "detail": "diffusers<0.36 (and huggingface_hub<1): latest diffusers imports resolve_revision missing from hub<1 required by transformers 4.x"},
+  {"kind": "code_patch", "detail": "enable_flashvdm() reloads turbo VAE in default fp16; pass dtype=self.dtype in hy3dgen/shapegen/pipelines.py to fix Float/Half mismatch on CPU"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 libgomp1 for opencv/pymeshlab"},
+  {"kind": "undocumented_step", "detail": "Pre-download HF mini-turbo DiT+VAE weights to HF_HOME=/work/hf_cache and rembg model to U2NET_HOME=/work/u2net"}
+ ]}

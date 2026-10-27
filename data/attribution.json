@@ -384,5 +384,32 @@
     "evidence": [
       "owner 'bytedance' is ByteDance org account (ByteDance)"
     ]
+  },
+  "Tencent/AI-Infra-Guard": {
+    "repo": "Tencent/AI-Infra-Guard",
+    "company": "Tencent",
+    "team": "Tencent",
+    "confidence": "high",
+    "evidence": [
+      "owner 'Tencent' is Tencent org account (Tencent)"
+    ]
+  },
+  "Tencent-Hunyuan/Hunyuan3D-2": {
+    "repo": "Tencent-Hunyuan/Hunyuan3D-2",
+    "company": "Tencent",
+    "team": "Hunyuan",
+    "confidence": "high",
+    "evidence": [
+      "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+    ]
+  },
+  "TencentARC/GFPGAN": {
+    "repo": "TencentARC/GFPGAN",
+    "company": "Tencent",
+    "team": "ARC Lab",
+    "confidence": "high",
+    "evidence": [
+      "owner 'TencentARC' is Tencent org account (ARC Lab)"
+    ]
   }
 }

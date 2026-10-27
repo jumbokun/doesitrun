@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used a Python 3.10 uv venv instead of system Python 3.12 (old basicsr/facexlib incompatible)"},
+  {"kind": "dependency_pin", "detail": "Pinned CPU torch==2.0.1 / torchvision==0.15.2 because basicsr imports torchvision.transforms.functional_tensor (removed in 0.17)"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 and opencv-python<4.11 for compatibility with basicsr/facexlib"},
+  {"kind": "undocumented_step", "detail": "Installed basicsr etc. with --no-build-isolation since setup.py imports torch; used pip install -e . instead of setup.py develop"},
+  {"kind": "system_package", "detail": "Installed libgl1 and libglib2.0-0 for OpenCV"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded GFPGANv1.3 and facexlib/RealESRGAN weights in setup.sh"}
+ ]}
