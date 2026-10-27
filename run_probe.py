@@ -139,7 +139,8 @@ def repo_diff(name, repo_dir):
             "lines_changed": sum(f["added"] + f["removed"] for f in files), "files": files}
 
 
-def run_agent(cfg, name, rundir):
+def run_agent(cfg, name, rundir, resume=None, transcript="transcript.jsonl", budget=AGENT_BUDGET_SEC):
+    """Run the headless agent; with resume=(session_id, message) continue that same session."""
     cwd = rundir / "agent_cwd"
     cwd.mkdir(parents=True, exist_ok=True)
     mcp = {"mcpServers": {"box": {"command": sys.executable,
@@ -151,7 +152,8 @@ def run_agent(cfg, name, rundir):
            "using part of the same GPU at the same time; if you hit a CUDA out-of-memory error, retry." if cfg["gpu"]
         else "No GPU. CPU only.",
         run_clause=RUN_SERVER if cfg["server"] else RUN_NONE)
-    args = ["claude", "-p", prompt,
+    head = ["claude", "-p", prompt] if resume is None else ["claude", "-p", resume[1], "--resume", resume[0]]
+    args = head + [
             "--tools", "",                      # no built-in tools at all (no host Bash/Read/Write/Web)
             "--strict-mcp-config", "--mcp-config", str(rundir / "mcp.json"),
             "--allowedTools", "mcp__box__sh",
@@ -159,16 +161,16 @@ def run_agent(cfg, name, rundir):
             "--setting-sources", "local",       # empty cwd: no user hooks/plugins/settings
             "--output-format", "stream-json", "--verbose"]
     t0 = time.time()
-    with open(rundir / "transcript.jsonl", "w", encoding="utf-8") as tf:
+    with open(rundir / transcript, "w", encoding="utf-8") as tf:
         proc = subprocess.Popen(args, cwd=cwd, stdout=tf, stderr=subprocess.STDOUT)
         try:
-            proc.wait(timeout=AGENT_BUDGET_SEC)
+            proc.wait(timeout=budget)
             timed_out = False
         except subprocess.TimeoutExpired:
             proc.kill()
             timed_out = True
     info = {"secs": round(time.time() - t0), "timed_out": timed_out}
-    for line in (rundir / "transcript.jsonl").read_text(encoding="utf-8", errors="replace").splitlines():
+    for line in (rundir / transcript).read_text(encoding="utf-8", errors="replace").splitlines():
         try:
             ev = json.loads(line)
         except ValueError:
@@ -176,6 +178,7 @@ def run_agent(cfg, name, rundir):
         if ev.get("type") == "system" and ev.get("subtype") == "init":
             info["model"] = ev.get("model")
             info["tools"] = ev.get("tools")
+            info["session_id"] = ev.get("session_id")
         if ev.get("type") == "result":
             info.update(num_turns=ev.get("num_turns"), cost_usd=ev.get("total_cost_usd"),
                         final=(ev.get("result") or "")[-400:])
@@ -201,6 +204,60 @@ def probe(cfg):
     sh(["docker", "stop", name])  # keep for inspection; frees CPU/GPU
 
     replay_and_save(cfg, res, rundir)
+    if res["oracle"]["pass"] and not res["replay"].get("oracle", {}).get("pass"):
+        repair_and_replay(cfg, res, rundir, "replay")
+
+
+REPAIR_BUDGET_SEC = 30 * 60
+REPAIR_PROMPT = """Your /work/setup.sh was just replayed as root on a FRESH container of the same base image,
+with ONLY /work/setup.sh, /work/env.sh and /work/run.sh (if any) copied in, and the check failed.
+Last part of that replay's output:
+```
+{tail}
+```
+Fix the deliverables so they work from that state: setup.sh must be fully self-contained (anything it
+needs - requirements files, patches, helper scripts - must be written by setup.sh itself, e.g. with
+heredocs, or downloaded) and robust to slow or flaky downloads. Re-test setup.sh from a scratch prefix
+in this container with nothing else from /work available to it. Update NOTES.md and REPORT.json.
+When done, reply with one line: DONE or GAVE_UP, and a one-sentence reason."""
+
+
+def repair_and_replay(cfg, res, rundir, failed_key):
+    """One repair round: feed the failed fresh-container replay back to the SAME agent session, then
+    replay again under key replay_after_repair. The first-pass replay result and deliverables are kept."""
+    name = f"rr-{cfg['slug']}"
+    log_path = rundir / f"{failed_key}_setup.log"
+    tail = log_path.read_text(encoding="utf-8", errors="replace")[-4000:] if log_path.exists() else ""
+    oracle_path = rundir / f"{failed_key}_oracle.txt"
+    if oracle_path.exists():
+        tail += "\n--- check output ---\n" + oracle_path.read_text(encoding="utf-8", errors="replace")[-1500:]
+    session = res["agent"].get("session_id") or first_session_id(rundir)
+    deliv = rundir / "deliverables"
+    first = rundir / "deliverables_first_pass"
+    if not first.exists():
+        first.mkdir()
+        for f in deliv.iterdir():
+            if f.is_file():
+                (first / f.name).write_bytes(f.read_bytes())
+    sh(["docker", "start", name])
+    res["repair"] = run_agent(cfg, name, rundir, resume=(session, REPAIR_PROMPT.format(tail=tail)),
+                              transcript="transcript_repair.jsonl", budget=REPAIR_BUDGET_SEC)
+    res["repair"]["from"] = failed_key
+    for f in ("setup.sh", "env.sh", "run.sh", "NOTES.md", "REPORT.json"):
+        sh(["docker", "cp", f"{name}:/work/{f}", str(deliv / f)])
+    sh(["docker", "stop", name])
+    replay_and_save(cfg, res, rundir, key="replay_after_repair")
+
+
+def first_session_id(rundir):
+    for line in (rundir / "transcript.jsonl").read_text(encoding="utf-8", errors="replace").splitlines():
+        try:
+            ev = json.loads(line)
+        except ValueError:
+            continue
+        if ev.get("session_id"):
+            return ev["session_id"]
+    raise RuntimeError("no session id in transcript")
 
 
 def replay_and_save(cfg, res, rundir, key="replay"):
@@ -248,10 +305,15 @@ if __name__ == "__main__":
     repos_file = "repos.json"
     if args and args[0].startswith("--repos="):
         repos_file = args.pop(0).split("=", 1)[1]
-    mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary") else None
+    mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary", "--repair") else None
     cfgs = {c["slug"]: c for c in json.loads((ROOT / repos_file).read_text(encoding="utf-8"))}
     for slug in args:
-        if mode == "--replay-supplementary":
+        if mode == "--repair":
+            # Retro-apply the repair round to an existing run whose protocol replay failed.
+            rundir = RUNS / slug
+            res = json.loads((rundir / "result.json").read_text(encoding="utf-8"))
+            repair_and_replay(cfgs[slug], res, rundir, "replay")
+        elif mode == "--replay-supplementary":
             rundir = RUNS / slug
             res = json.loads((rundir / "result.json").read_text(encoding="utf-8"))
             replay_and_save(cfgs[slug], res, rundir, key="replay_supplementary")
