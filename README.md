@@ -5,15 +5,34 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 
 **Live leaderboard → https://jumbokun.github.io/doesitrun/**
 
+### Results so far (2026-10-27)
+
+**CPU track — 80 repos, 10 from each of Google, Meta, Microsoft, NVIDIA, Alibaba, Tencent, ByteDance, Baidu**
+(GitHub-hosted runner, no GPU; chosen by a pre-registered rule from each company's 25 most-starred Python repos):
+
 | | |
 |---|---|
-| Repos tested | 11 (batch 1: five 2026 releases; batch 2: six 2020–23 research repos) |
-| Got running | 11 / 11 on the agent's own machine, median 28 min, none hit the 90 min cap |
-| Installer replays first try | 8 / 11 on a fresh machine |
-| Repo code had to be patched | 5 / 11 (every 2020–23 repo except StyleGAN2-ADA) |
+| README demo actually ran (hidden test passed) | **62 / 80**, median agent time 4.2 min; 4 hit the 90-min cap |
+| Agent's installer replays on a fresh machine first try | 59 / 80 |
+| Repo files the agent had to modify to get it running | 30 / 80 repos |
+| Top repos not even testable on a plain machine | 34 of 114 examined: GPU or >16 GB (16), paid API key (11), gated model (5), other (2) |
+| Failed hidden tests, after independent audit | 6 genuine repo failures (e.g. BERT's and trax's README model links now 403, SPADE's 404), **8 defective tests** (unscored), 1 inconclusive, 3 audits pending |
 
-Getting old research code to run is now within reach of a general agent. The weak link has moved:
-*"works in my container"* is not yet *a shareable installer*.
+| company (mean score, n) | | best team → worst team |
+|---|---|---|
+| Microsoft | 93 (9) | MSR 99 · Microsoft 92 |
+| Meta | 93 (8) | FAIR 93 |
+| Alibaba | 84 (10) | Qwen 93 · ModelScope 78 |
+| Baidu | 83 (9) | Baidu 88 · PaddlePaddle 82 |
+| Google | 70 (9) | Google 99 · DeepMind 89 · **Google Research 40** |
+| NVIDIA | 59 (8) | NVIDIA Research 61 · NVIDIA 56 — a CPU track is hard on CUDA-first repos |
+| Tencent | 57 (10) | ARC Lab 94 · Tencent 57 · **Hunyuan 39** (3 audits pending) |
+| ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
+
+**GPU track — 11 repos on an RTX 5060 8 GB:** 11/11 ran, 8/11 installers replayed first try, and every
+2020–23 repo except StyleGAN2-ADA needed its torch pin replaced (no Blackwell kernels).
+
+The live page is the source of truth; this table is a snapshot. One run per repo: treat small gaps as noise.
 
 ## How a run works
 
