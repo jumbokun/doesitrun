@@ -33,6 +33,10 @@ def replay_class(res, key):
 
 
 def repo_score(res):
+    if not res["oracle"]["pass"] and res["agent"].get("timed_out"):
+        # The oracle never had a finished install to judge, so no audit can unscore this: not reproduced
+        # within the 90-minute budget.
+        return 0, "agent hit the time limit before the demo ran"
     if not res["oracle"]["pass"] and (res.get("audit") or {}).get("verdict") == "oracle_defect":
         return None, "not scored: the pre-registered audit found the hidden oracle defective"
     if not res["oracle"]["pass"]:
