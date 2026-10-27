@@ -134,3 +134,8 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
 - 2026-10-27: housekeeping — history rebuilt before push: LF normalization (.gitattributes), write_text pinned to
   LF, the repair round split out of the firewall commit it had been swept into, and .gitignore "runs/" fixed to
   "/runs/" (it was silently ignoring data/runs).
+- 2026-10-27: full CPU batch dispatched (79 repos, 8 company workflows x 2 parallel). Early check found
+  python-fire scored 0 by an ORACLE DEFECT: the examiner asserted `grep -qi usage` on Fire's help, which is
+  man-page style (NAME/SYNOPSIS); under set -e it exited silently with 0 bytes. Reproduced locally.
+  PROTOCOL ADDITION (committed before implementing or running it): oracle audits — see README "Oracle audits".
+  Oracles now run with bash -x. BERT's failure is genuine (setup.sh needs an undelivered tools/ file; a 403).

@@ -50,6 +50,20 @@ either excludes it with a reason or writes the goal and hidden oracle; those are
 probe runs, so the commit history is the pre-registration. Candidate pool: [`data/candidates.json`](data/candidates.json);
 verdicts: `data/exams/`; run records: `data/runs/`.
 
+## Oracle audits
+
+Examiner-written oracles can be wrong (python-fire's asserted the word "usage" in help output that is
+man-page style). Rule, fixed before any audit ran and applied to every CPU-track repo whose hidden oracle
+failed on the agent's container:
+
+1. A fresh container replays the agent's `setup.sh`, the unchanged oracle runs under `bash -x`.
+2. An independent **auditor agent** (Opus, `sh` into that container only) reads the oracle, its trace, the
+   goal it was meant to check and the repo's README, and rules one of:
+   `repo_failure` (install/demo genuinely broken), `oracle_defect` (the oracle asserts something the README
+   never promised, or depends on its own environment), `inconclusive`.
+3. `oracle_defect` → the repo is **not scored** (neither pass nor fail) and is labelled on the page;
+   the oracle and its verdict stay in the record. Nothing is ever flipped to a pass.
+
 ## Scoring
 
 ```
