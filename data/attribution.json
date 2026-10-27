@@ -1,0 +1,97 @@
+{
+  "academa-labs/manimgx": {
+    "repo": "academa-labs/manimgx",
+    "company": "Independent",
+    "team": "academa-labs",
+    "confidence": "none",
+    "evidence": []
+  },
+  "Leonxlnx/earshot": {
+    "repo": "Leonxlnx/earshot",
+    "company": "Independent",
+    "team": "Leonxlnx",
+    "confidence": "none",
+    "evidence": []
+  },
+  "jaredpalmer/kev": {
+    "repo": "jaredpalmer/kev",
+    "company": "Independent",
+    "team": "jaredpalmer",
+    "confidence": "none",
+    "evidence": []
+  },
+  "TianyuCodings/NanoJev": {
+    "repo": "TianyuCodings/NanoJev",
+    "company": "Independent",
+    "team": "TianyuCodings",
+    "confidence": "none",
+    "evidence": [
+      "paper arXiv:2610.21244 has no affiliation data in OpenAlex"
+    ]
+  },
+  "Friedrich-M/UniMate": {
+    "repo": "Friedrich-M/UniMate",
+    "company": "Academia",
+    "team": "Berkeley",
+    "confidence": "low",
+    "evidence": [
+      "paper arXiv:2609.05415 has no affiliation data in OpenAlex",
+      "README affiliation markers: ['Berkeley']"
+    ]
+  },
+  "IDEA-Research/GroundingDINO": {
+    "repo": "IDEA-Research/GroundingDINO",
+    "company": "IDEA",
+    "team": "IDEA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
+    ]
+  },
+  "microsoft/Bringing-Old-Photos-Back-to-Life": {
+    "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+    "company": "Microsoft",
+    "team": "Microsoft Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)",
+      "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+    ]
+  },
+  "advimman/lama": {
+    "repo": "advimman/lama",
+    "company": "Samsung",
+    "team": "Samsung AI Center",
+    "confidence": "medium",
+    "evidence": [
+      "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
+    ]
+  },
+  "NVlabs/stylegan2-ada-pytorch": {
+    "repo": "NVlabs/stylegan2-ada-pytorch",
+    "company": "NVIDIA",
+    "team": "NVIDIA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+    ]
+  },
+  "WongKinYiu/yolov7": {
+    "repo": "WongKinYiu/yolov7",
+    "company": "Academia",
+    "team": "Institute of Information Science, Academia Sinica",
+    "confidence": "medium",
+    "evidence": [
+      "paper arXiv:2207.02696 first institution 'Institute of Information Science, Academia Sinica' (facility, OpenAlex)"
+    ]
+  },
+  "GuyTevet/motion-diffusion-model": {
+    "repo": "GuyTevet/motion-diffusion-model",
+    "company": "Independent",
+    "team": "GuyTevet",
+    "confidence": "none",
+    "evidence": [
+      "paper arXiv:2209.14916 has no affiliation data in OpenAlex"
+    ]
+  }
+}
