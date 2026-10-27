@@ -113,3 +113,10 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   download retries / a local wheel+model cache, and a mandatory fresh-container replay before publishing.
 - That strengthens the shared-cache thesis: pay the 20–60 min agent run once per repo, ship a replay-verified
   installer plus cached artifacts, so the user's install doesn't depend on PyPI/NVIDIA CDN luck.
+- 2026-10-27: moved out of the web3work monorepo into its own repo (format-patch --relative + git am,
+  tree hash identical), renamed to **doesitrun**, made public (history audited first: no secrets, no
+  personal paths). Leaderboard v0 + attribution + static site; GitHub Pages via Actions on push to
+  data/ or the renderer → https://jumbokun.github.io/doesitrun/ . Checked live at 390/1280 px.
+  Local folder is still `repo-run-probe/` under web3work (renaming it would break running jobs' paths).
+- 2026-10-27: harness now gives every container uv/pip/HF timeouts+retries (measurement hygiene for the
+  ranking) and records an objective repo_diff; backfilled for all 11 runs (5/11 patched repo code).
