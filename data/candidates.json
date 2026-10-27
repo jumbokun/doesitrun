@@ -1,0 +1,1683 @@
+{
+  "rule": [
+    "Rule (fixed before any exam or run): per company, the top CANDIDATES_PER_COMPANY Python repos by stars",
+    "across its official GitHub org accounts, forks excluded. The examiner then screens them in star order",
+    "and the first TARGET_PER_COMPANY judged eligible are probed; every exclusion is recorded with a reason."
+  ],
+  "companies": {
+    "Google": {
+      "orgs": [
+        "google-research",
+        "google-deepmind",
+        "google"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": true,
+          "description": "TensorFlow code and pre-trained models for BERT",
+          "pushed": "2024-07-23T23:39:41Z",
+          "repo": "google-research/bert",
+          "stars": 40040,
+          "slug": "google-research-bert"
+        },
+        {
+          "archived": false,
+          "description": "A Python library for extracting structured information from unstructured text using LLMs with precise source grounding and interactive visualization.",
+          "pushed": "2026-10-17T07:27:52Z",
+          "repo": "google/langextract",
+          "stars": 39047,
+          "slug": "google-langextract"
+        },
+        {
+          "archived": false,
+          "description": "TimesFM (Time Series Foundation Model) is a pretrained time-series foundation model developed by Google Research for time-series forecasting.",
+          "pushed": "2026-09-29T19:36:25Z",
+          "repo": "google-research/timesfm",
+          "stars": 34788,
+          "slug": "google-research-timesfm"
+        },
+        {
+          "archived": false,
+          "description": "Python Fire is a library for automatically generating command line interfaces (CLIs) from absolutely any Python object.",
+          "pushed": "2026-07-01T08:19:02Z",
+          "repo": "google/python-fire",
+          "stars": 28231,
+          "slug": "google-python-fire"
+        },
+        {
+          "archived": false,
+          "description": "An open-source, code-first Python toolkit for building, evaluating, and deploying sophisticated AI agents with flexibility and control.",
+          "pushed": "2026-10-26T23:33:16Z",
+          "repo": "google/adk-python",
+          "stars": 22017,
+          "slug": "google-adk-python"
+        },
+        {
+          "archived": false,
+          "description": "Agent Skills for Google products and technologies",
+          "pushed": "2026-10-26T20:19:29Z",
+          "repo": "google/skills",
+          "stars": 21602,
+          "slug": "google-skills"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2026-10-14T02:22:51Z",
+          "repo": "google-research/harness2",
+          "stars": 20175,
+          "slug": "google-research-harness2"
+        },
+        {
+          "archived": false,
+          "description": "ARTEMIS turns natural-language instructions into reliable Android automation. It automates end-to-end workflows, captures logs, and integrates seamlessly with AI coding assistants such as Antigravity, Codex, and Claude Code.  It also achieves 99%+ success rate on AndroidWorld Benchmark.",
+          "pushed": "2026-10-01T21:37:15Z",
+          "repo": "google/artemis",
+          "stars": 15036,
+          "slug": "google-artemis"
+        },
+        {
+          "archived": false,
+          "description": "Open source code for AlphaFold 2.",
+          "pushed": "2026-04-22T17:58:21Z",
+          "repo": "google-deepmind/alphafold",
+          "stars": 14914,
+          "slug": "google-deepmind-alphafold"
+        },
+        {
+          "archived": false,
+          "description": "A formatter for Python files",
+          "pushed": "2026-10-23T16:02:16Z",
+          "repo": "google/yapf",
+          "stars": 13989,
+          "slug": "google-yapf"
+        },
+        {
+          "archived": false,
+          "description": "A collection of agent recipes, reference patterns, and vertical plugins built with Agent Development Kit (ADK)",
+          "pushed": "2026-10-26T15:23:56Z",
+          "repo": "google/adk-recipes",
+          "stars": 10539,
+          "slug": "google-adk-recipes"
+        },
+        {
+          "archived": false,
+          "description": "TensorFlow-based neural network library",
+          "pushed": "2026-10-20T10:41:21Z",
+          "repo": "google-deepmind/sonnet",
+          "stars": 9978,
+          "slug": "google-deepmind-sonnet"
+        },
+        {
+          "archived": false,
+          "description": "AlphaFold 3 inference pipeline.",
+          "pushed": "2026-10-23T13:17:30Z",
+          "repo": "google-deepmind/alphafold3",
+          "stars": 8687,
+          "slug": "google-deepmind-alphafold3"
+        },
+        {
+          "archived": false,
+          "description": "StarCraft II Learning Environment",
+          "pushed": "2024-07-23T16:54:42Z",
+          "repo": "google-deepmind/pysc2",
+          "stars": 8332,
+          "slug": "google-deepmind-pysc2"
+        },
+        {
+          "archived": true,
+          "description": "Trax — Deep Learning with Clear Code and Speed",
+          "pushed": "2025-09-26T14:37:32Z",
+          "repo": "google/trax",
+          "stars": 8302,
+          "slug": "google-trax"
+        },
+        {
+          "archived": true,
+          "description": "Diff Match Patch is a high-performance library in multiple languages that manipulates plain text.",
+          "pushed": "2024-05-22T22:13:22Z",
+          "repo": "google/diff-match-patch",
+          "stars": 8132,
+          "slug": "google-diff-match-patch"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2026-09-04T09:49:34Z",
+          "repo": "google-deepmind/weathernext",
+          "stars": 7724,
+          "slug": "google-deepmind-weathernext"
+        },
+        {
+          "archived": true,
+          "description": "A library to generate LaTeX expression from Python code.",
+          "pushed": "2025-02-13T01:27:01Z",
+          "repo": "google/latexify_py",
+          "stars": 7611,
+          "slug": "google-latexify-py"
+        },
+        {
+          "archived": false,
+          "description": "arXiv LaTeX Cleaner: Easily clean the LaTeX code of your paper to submit to arXiv",
+          "pushed": "2026-03-27T21:04:20Z",
+          "repo": "google-research/arxiv-latex-cleaner",
+          "stars": 7114,
+          "slug": "google-research-arxiv-la-b23d9"
+        },
+        {
+          "archived": false,
+          "description": "Code for the paper \"Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer\"",
+          "pushed": "2026-10-12T19:32:28Z",
+          "repo": "google-research/text-to-text-transfer-transformer",
+          "stars": 6561,
+          "slug": "google-research-text-to-25965"
+        },
+        {
+          "archived": false,
+          "description": "The CLI and skills that turn any coding assistant into an expert at creating, evaluating, and deploying AI agents on Google Cloud.",
+          "pushed": "2026-10-20T13:03:52Z",
+          "repo": "google/agents-cli",
+          "stars": 6182,
+          "slug": "google-agents-cli"
+        },
+        {
+          "archived": false,
+          "description": "Gemma open-weight LLM library, from Google DeepMind",
+          "pushed": "2026-10-15T10:25:42Z",
+          "repo": "google-deepmind/gemma",
+          "stars": 5816,
+          "slug": "google-deepmind-gemma"
+        },
+        {
+          "archived": true,
+          "description": "The official PyTorch implementation of Google's Gemma models",
+          "pushed": "2025-05-30T20:45:51Z",
+          "repo": "google/gemma_pytorch",
+          "stars": 5709,
+          "slug": "google-gemma-pytorch"
+        },
+        {
+          "archived": false,
+          "description": "Scalable fuzzing infrastructure.",
+          "pushed": "2026-10-26T20:03:31Z",
+          "repo": "google/clusterfuzz",
+          "stars": 5623,
+          "slug": "google-clusterfuzz"
+        },
+        {
+          "archived": true,
+          "description": "A general-purpose encoder-decoder framework for Tensorflow",
+          "pushed": "2020-10-15T08:00:39Z",
+          "repo": "google/seq2seq",
+          "stars": 5620,
+          "slug": "google-seq2seq"
+        }
+      ]
+    },
+    "Meta": {
+      "orgs": [
+        "facebookresearch"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Detectron2 is a platform for object detection, segmentation and other visual recognition tasks.",
+          "pushed": "2026-10-20T11:05:59Z",
+          "repo": "facebookresearch/detectron2",
+          "stars": 34952,
+          "slug": "facebookresearch-detectron2"
+        },
+        {
+          "archived": true,
+          "description": "Facebook AI Research Sequence-to-Sequence Toolkit written in Python.",
+          "pushed": "2025-09-30T11:16:06Z",
+          "repo": "facebookresearch/fairseq",
+          "stars": 32213,
+          "slug": "facebookresearch-fairseq"
+        },
+        {
+          "archived": true,
+          "description": "FAIR's research platform for object detection research, implementing popular algorithms like Mask R-CNN and RetinaNet.",
+          "pushed": "2023-11-20T09:13:34Z",
+          "repo": "facebookresearch/Detectron",
+          "stars": 26350,
+          "slug": "facebookresearch-detectron"
+        },
+        {
+          "archived": true,
+          "description": "End-to-End Object Detection with Transformers",
+          "pushed": "2024-03-12T15:58:25Z",
+          "repo": "facebookresearch/detr",
+          "stars": 15351,
+          "slug": "facebookresearch-detr"
+        },
+        {
+          "archived": false,
+          "description": "[CVPR 2025 Best Paper Award] VGGT: Visual Geometry Grounded Transformer",
+          "pushed": "2026-05-19T03:39:39Z",
+          "repo": "facebookresearch/vggt",
+          "stars": 14564,
+          "slug": "facebookresearch-vggt"
+        },
+        {
+          "archived": true,
+          "description": "Code to accompany \"A Method for Animating Children's Drawings of the Human Figure\"",
+          "pushed": "2025-09-03T17:35:20Z",
+          "repo": "facebookresearch/AnimatedDrawings",
+          "stars": 12809,
+          "slug": "facebookresearch-animate-783a7"
+        },
+        {
+          "archived": false,
+          "description": "The repository provides code for running inference and finetuning with the Meta Segment Anything Model 3 (SAM 3), links for downloading the trained model checkpoints, and example notebooks that show how to use the model.",
+          "pushed": "2026-10-23T19:51:06Z",
+          "repo": "facebookresearch/sam3",
+          "stars": 12114,
+          "slug": "facebookresearch-sam3"
+        },
+        {
+          "archived": true,
+          "description": "A framework for training and evaluating AI models on a variety of openly available dialogue datasets.",
+          "pushed": "2026-07-30T21:27:52Z",
+          "repo": "facebookresearch/ParlAI",
+          "stars": 10616,
+          "slug": "facebookresearch-parlai"
+        },
+        {
+          "archived": false,
+          "description": "Hackable and optimized Transformers building blocks, supporting a composable construction.",
+          "pushed": "2026-10-09T16:40:37Z",
+          "repo": "facebookresearch/xformers",
+          "stars": 10571,
+          "slug": "facebookresearch-xformers"
+        },
+        {
+          "archived": true,
+          "description": "Code for the paper Hybrid Spectrogram and Waveform Source Separation",
+          "pushed": "2024-04-24T20:25:19Z",
+          "repo": "facebookresearch/demucs",
+          "stars": 10403,
+          "slug": "facebookresearch-demucs"
+        },
+        {
+          "archived": false,
+          "description": "Implementation of Nougat Neural Optical Understanding for Academic Documents",
+          "pushed": "2025-02-21T16:38:00Z",
+          "repo": "facebookresearch/nougat",
+          "stars": 10088,
+          "slug": "facebookresearch-nougat"
+        },
+        {
+          "archived": false,
+          "description": "PyTorch3D is FAIR's library of reusable components for deep learning with 3D data",
+          "pushed": "2026-10-19T22:26:24Z",
+          "repo": "facebookresearch/pytorch3d",
+          "stars": 9990,
+          "slug": "facebookresearch-pytorch3d"
+        },
+        {
+          "archived": true,
+          "description": "High-Resolution 3D Human Digitization from A Single Image.",
+          "pushed": "2024-08-19T14:38:14Z",
+          "repo": "facebookresearch/pifuhd",
+          "stars": 9723,
+          "slug": "facebookresearch-pifuhd"
+        },
+        {
+          "archived": true,
+          "description": "Fast, modular reference implementation of Instance Segmentation and Object Detection algorithms in PyTorch.",
+          "pushed": "2023-02-16T04:01:32Z",
+          "repo": "facebookresearch/maskrcnn-benchmark",
+          "stars": 9360,
+          "slug": "facebookresearch-maskrcn-5a3dd"
+        },
+        {
+          "archived": false,
+          "description": "ImageBind One Embedding Space to Bind Them All",
+          "pushed": "2025-11-21T21:48:14Z",
+          "repo": "facebookresearch/ImageBind",
+          "stars": 9078,
+          "slug": "facebookresearch-imagebind"
+        },
+        {
+          "archived": true,
+          "description": "Official PyTorch Implementation of \"Scalable Diffusion Models with Transformers\"",
+          "pushed": "2024-05-31T13:04:15Z",
+          "repo": "facebookresearch/DiT",
+          "stars": 8676,
+          "slug": "facebookresearch-dit"
+        },
+        {
+          "archived": true,
+          "description": "PyTorch implementation of MAE https//arxiv.org/abs/2111.06377",
+          "pushed": "2024-07-23T18:15:40Z",
+          "repo": "facebookresearch/mae",
+          "stars": 8360,
+          "slug": "facebookresearch-mae"
+        },
+        {
+          "archived": true,
+          "description": "PyTorch code for Vision Transformers training with the Self-Supervised learning method DINO",
+          "pushed": "2024-07-03T16:21:59Z",
+          "repo": "facebookresearch/dino",
+          "stars": 7610,
+          "slug": "facebookresearch-dino"
+        },
+        {
+          "archived": false,
+          "description": "SAM 3D Objects",
+          "pushed": "2026-06-02T21:16:44Z",
+          "repo": "facebookresearch/sam-3d-objects",
+          "stars": 7577,
+          "slug": "facebookresearch-sam-3d-3ef21"
+        },
+        {
+          "archived": false,
+          "description": "PySlowFast: video understanding codebase from FAIR for reproducing state-of-the-art video models.",
+          "pushed": "2026-03-16T11:07:10Z",
+          "repo": "facebookresearch/SlowFast",
+          "stars": 7437,
+          "slug": "facebookresearch-slowfast"
+        },
+        {
+          "archived": true,
+          "description": "Repo for external large-scale work",
+          "pushed": "2024-04-27T22:15:40Z",
+          "repo": "facebookresearch/metaseq",
+          "stars": 6544,
+          "slug": "facebookresearch-metaseq"
+        },
+        {
+          "archived": false,
+          "description": "Kats, a kit to analyze time series data, a lightweight, easy-to-use, generalizable, and extendable framework to perform time series analysis, from understanding the key statistics and characteristics, detecting change points and anomalies, to forecasting future trends. ",
+          "pushed": "2026-10-19T21:31:00Z",
+          "repo": "facebookresearch/Kats",
+          "stars": 6504,
+          "slug": "facebookresearch-kats"
+        },
+        {
+          "archived": true,
+          "description": "Code release for ConvNeXt model",
+          "pushed": "2023-01-08T14:23:08Z",
+          "repo": "facebookresearch/ConvNeXt",
+          "stars": 6409,
+          "slug": "facebookresearch-convnext"
+        },
+        {
+          "archived": true,
+          "description": "A natural language modeling framework based on PyTorch",
+          "pushed": "2022-10-17T19:55:31Z",
+          "repo": "facebookresearch/pytext",
+          "stars": 6289,
+          "slug": "facebookresearch-pytext"
+        },
+        {
+          "archived": false,
+          "description": "A modular framework for vision & language multimodal research from Facebook AI Research (FAIR)",
+          "pushed": "2026-10-06T20:36:42Z",
+          "repo": "facebookresearch/mmf",
+          "stars": 5637,
+          "slug": "facebookresearch-mmf"
+        }
+      ]
+    },
+    "Microsoft": {
+      "orgs": [
+        "microsoft"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Python tool for converting files and office documents to Markdown.",
+          "pushed": "2026-10-23T17:04:06Z",
+          "repo": "microsoft/markitdown",
+          "stars": 192387,
+          "slug": "microsoft-markitdown"
+        },
+        {
+          "archived": false,
+          "description": "A programming framework for agentic AI",
+          "pushed": "2026-10-16T16:14:37Z",
+          "repo": "microsoft/autogen",
+          "stars": 61576,
+          "slug": "microsoft-autogen"
+        },
+        {
+          "archived": false,
+          "description": "Open-Source Frontier Voice AI",
+          "pushed": "2026-10-08T05:29:29Z",
+          "repo": "microsoft/VibeVoice",
+          "stars": 54984,
+          "slug": "microsoft-vibevoice"
+        },
+        {
+          "archived": false,
+          "description": "Qlib is an AI-oriented Quant investment platform that aims to use AI tech to empower Quant Research, from exploring ideas to implementing productions. Qlib supports diverse ML modeling paradigms, including supervised learning, market dynamics modeling, and RL, and is now equipped with https://github.com/microsoft/RD-Agent to automate R&D process.",
+          "pushed": "2026-10-22T06:22:15Z",
+          "repo": "microsoft/qlib",
+          "stars": 49734,
+          "slug": "microsoft-qlib"
+        },
+        {
+          "archived": false,
+          "description": "A modular graph-based Retrieval-Augmented Generation (RAG) system",
+          "pushed": "2026-10-26T07:23:59Z",
+          "repo": "microsoft/graphrag",
+          "stars": 36454,
+          "slug": "microsoft-graphrag"
+        },
+        {
+          "archived": false,
+          "description": "This is a fun, new monospaced font that includes programming ligatures and is designed to enhance the modern look and feel of the Windows Terminal.",
+          "pushed": "2025-03-06T03:26:32Z",
+          "repo": "microsoft/cascadia-code",
+          "stars": 27946,
+          "slug": "microsoft-cascadia-code"
+        },
+        {
+          "archived": false,
+          "description": "JARVIS, a system to connect LLMs with ML community. Paper: https://arxiv.org/pdf/2303.17580.pdf",
+          "pushed": "2025-07-29T13:44:13Z",
+          "repo": "microsoft/JARVIS",
+          "stars": 25508,
+          "slug": "microsoft-jarvis"
+        },
+        {
+          "archived": false,
+          "description": "Large-scale Self-supervised Pre-training Across Tasks, Languages, and Modalities",
+          "pushed": "2026-09-21T03:27:00Z",
+          "repo": "microsoft/unilm",
+          "stars": 22237,
+          "slug": "microsoft-unilm"
+        },
+        {
+          "archived": false,
+          "description": "The absolute trainer to light up AI agents.",
+          "pushed": "2026-10-20T02:25:57Z",
+          "repo": "microsoft/agent-lightning",
+          "stars": 18817,
+          "slug": "microsoft-agent-lightning"
+        },
+        {
+          "archived": false,
+          "description": "SkillOpt is a text-space optimizer that trains reusable natural-language skills for frozen LLM agents through trajectory-driven edits, validation-gated updates, and deployable best_skill.md artifacts.",
+          "pushed": "2026-10-25T21:19:21Z",
+          "repo": "microsoft/SkillOpt",
+          "stars": 18707,
+          "slug": "microsoft-skillopt"
+        },
+        {
+          "archived": false,
+          "description": "🪄 Data Formulator is an interactive AI-powered data analysis system makes it easy to connect, explore and visualize data.",
+          "pushed": "2026-10-27T01:26:26Z",
+          "repo": "microsoft/data-formulator",
+          "stars": 17609,
+          "slug": "microsoft-data-formulator"
+        },
+        {
+          "archived": true,
+          "description": "This is an official implementation for \"Swin Transformer: Hierarchical Vision Transformer using Shifted Windows\".",
+          "pushed": "2024-07-24T17:09:57Z",
+          "repo": "microsoft/Swin-Transformer",
+          "stars": 16091,
+          "slug": "microsoft-swin-transformer"
+        },
+        {
+          "archived": false,
+          "description": "Static Type Checker for Python",
+          "pushed": "2026-10-26T21:20:29Z",
+          "repo": "microsoft/pyright",
+          "stars": 15704,
+          "slug": "microsoft-pyright"
+        },
+        {
+          "archived": true,
+          "description": "Bringing Old Photo Back to Life (CVPR 2020 oral)",
+          "pushed": "2023-10-26T08:06:57Z",
+          "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+          "stars": 15699,
+          "slug": "microsoft-bringing-old-p-d40b2"
+        },
+        {
+          "archived": false,
+          "description": "Python version of the Playwright testing and automation library.",
+          "pushed": "2026-10-26T12:46:47Z",
+          "repo": "microsoft/playwright-python",
+          "stars": 15067,
+          "slug": "microsoft-playwright-python"
+        },
+        {
+          "archived": false,
+          "description": "Research and development (R&D) is crucial for the enhancement of industrial productivity, especially in the AI era, where the core aspects of R&D are mainly focused on data and models. We are committed to automating these high-value generic R&D processes through R&D-Agent, which lets AI drive data-driven AI. 🔗https://aka.ms/RD-Agent-Tech-Report",
+          "pushed": "2026-10-21T16:01:22Z",
+          "repo": "microsoft/RD-Agent",
+          "stars": 15066,
+          "slug": "microsoft-rd-agent"
+        },
+        {
+          "archived": true,
+          "description": "An open source AutoML toolkit for automate machine learning lifecycle, including feature engineering, neural architecture search, model compression and hyper-parameter tuning.",
+          "pushed": "2024-07-03T10:55:10Z",
+          "repo": "microsoft/nni",
+          "stars": 14366,
+          "slug": "microsoft-nni"
+        },
+        {
+          "archived": false,
+          "description": "A framework for building, orchestrating and deploying AI agents and multi-agent workflows with support for Python and .NET.",
+          "pushed": "2026-10-26T20:47:29Z",
+          "repo": "microsoft/agent-framework",
+          "stars": 14331,
+          "slug": "microsoft-agent-framework"
+        },
+        {
+          "archived": false,
+          "description": "Official repo for paper \"Structured 3D Latents for Scalable and Versatile 3D Generation\" (CVPR'25 Spotlight).",
+          "pushed": "2026-06-26T07:27:56Z",
+          "repo": "microsoft/TRELLIS",
+          "stars": 14116,
+          "slug": "microsoft-trellis"
+        },
+        {
+          "archived": false,
+          "description": "Code for loralib, an implementation of \"LoRA: Low-Rank Adaptation of Large Language Models\"",
+          "pushed": "2024-12-17T03:55:52Z",
+          "repo": "microsoft/LoRA",
+          "stars": 13879,
+          "slug": "microsoft-lora"
+        },
+        {
+          "archived": false,
+          "description": "Native and Compact Structured Latents for 3D Generation",
+          "pushed": "2026-07-10T12:34:32Z",
+          "repo": "microsoft/TRELLIS.2",
+          "stars": 12481,
+          "slug": "microsoft-trellis-2"
+        },
+        {
+          "archived": false,
+          "description": "Build high-quality LLM apps - from prototyping, testing to production deployment and monitoring.",
+          "pushed": "2026-10-25T07:28:27Z",
+          "repo": "microsoft/promptflow",
+          "stars": 11257,
+          "slug": "microsoft-promptflow"
+        },
+        {
+          "archived": false,
+          "description": "A collection of familiar, friendly, and modern emoji from Microsoft",
+          "pushed": "2026-08-24T23:53:34Z",
+          "repo": "microsoft/fluentui-emoji",
+          "stars": 10183,
+          "slug": "microsoft-fluentui-emoji"
+        },
+        {
+          "archived": false,
+          "description": "MagenticLite is an experimental agent that works across the browser and local file system",
+          "pushed": "2026-09-23T23:43:21Z",
+          "repo": "microsoft/magentic-ui",
+          "stars": 10102,
+          "slug": "microsoft-magentic-ui"
+        },
+        {
+          "archived": false,
+          "description": "UFO³: Weaving the Digital Agent Galaxy",
+          "pushed": "2026-10-23T19:53:30Z",
+          "repo": "microsoft/UFO",
+          "stars": 10094,
+          "slug": "microsoft-ufo"
+        }
+      ]
+    },
+    "NVIDIA": {
+      "orgs": [
+        "NVlabs",
+        "NVIDIA"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, and supply-chain risks in Claude Code, Codex, and MCP skills before you install them.",
+          "pushed": "2026-10-23T09:40:29Z",
+          "repo": "NVIDIA/SkillSpector",
+          "stars": 22228,
+          "slug": "nvidia-skillspector"
+        },
+        {
+          "archived": false,
+          "description": "Ongoing research training transformer models at scale",
+          "pushed": "2026-10-27T01:27:06Z",
+          "repo": "NVIDIA/Megatron-LM",
+          "stars": 18276,
+          "slug": "nvidia-megatron-lm"
+        },
+        {
+          "archived": false,
+          "description": "TensorRT LLM provides users with an easy-to-use Python API to define Large Language Models (LLMs) and supports state-of-the-art optimizations to perform inference efficiently on NVIDIA GPUs. TensorRT LLM also contains components to create Python and C++ runtimes that orchestrate the inference execution in a performant way.",
+          "pushed": "2026-10-27T01:15:18Z",
+          "repo": "NVIDIA/TensorRT-LLM",
+          "stars": 14956,
+          "slug": "nvidia-tensorrt-llm"
+        },
+        {
+          "archived": false,
+          "description": "StyleGAN - Official TensorFlow Implementation",
+          "pushed": "2024-04-10T08:30:29Z",
+          "repo": "NVlabs/stylegan",
+          "stars": 14409,
+          "slug": "nvlabs-stylegan"
+        },
+        {
+          "archived": false,
+          "description": "PersonaPlex code.",
+          "pushed": "2026-03-02T16:07:10Z",
+          "repo": "NVIDIA/personaplex",
+          "stars": 11706,
+          "slug": "nvidia-personaplex"
+        },
+        {
+          "archived": false,
+          "description": "StyleGAN2 - Official TensorFlow Implementation",
+          "pushed": "2024-05-18T15:55:42Z",
+          "repo": "NVlabs/stylegan2",
+          "stars": 11182,
+          "slug": "nvlabs-stylegan2"
+        },
+        {
+          "archived": false,
+          "description": "Style transfer, deep learning, feature transform",
+          "pushed": "2023-06-07T07:40:31Z",
+          "repo": "NVIDIA/FastPhotoStyle",
+          "stars": 11171,
+          "slug": "nvidia-fastphotostyle"
+        },
+        {
+          "archived": false,
+          "description": "the LLM vulnerability scanner",
+          "pushed": "2026-10-23T14:24:38Z",
+          "repo": "NVIDIA/garak",
+          "stars": 9716,
+          "slug": "nvidia-garak"
+        },
+        {
+          "archived": false,
+          "description": "SANA: Efficient High-Resolution Image Synthesis with Linear Diffusion Transformer",
+          "pushed": "2026-10-23T16:06:06Z",
+          "repo": "NVlabs/Sana",
+          "stars": 9662,
+          "slug": "nvlabs-sana"
+        },
+        {
+          "archived": false,
+          "description": "A PyTorch Extension:  Tools for easy mixed precision and distributed training in Pytorch",
+          "pushed": "2026-10-26T22:05:28Z",
+          "repo": "NVIDIA/apex",
+          "stars": 9002,
+          "slug": "nvidia-apex"
+        },
+        {
+          "archived": false,
+          "description": "Pytorch implementation of our method for high-resolution (e.g. 2048x1024) photorealistic video-to-video translation.",
+          "pushed": "2022-05-17T05:09:30Z",
+          "repo": "NVIDIA/vid2vid",
+          "stars": 8700,
+          "slug": "nvidia-vid2vid"
+        },
+        {
+          "archived": false,
+          "description": "NVIDIA Isaac GR00T N1.7 -  A Foundation Model for Generalist Robots.",
+          "pushed": "2026-10-22T21:49:58Z",
+          "repo": "NVIDIA/Isaac-GR00T",
+          "stars": 8270,
+          "slug": "nvidia-isaac-gr00t"
+        },
+        {
+          "archived": false,
+          "description": "Semantic Image Synthesis with SPADE",
+          "pushed": "2023-08-07T10:52:48Z",
+          "repo": "NVlabs/SPADE",
+          "stars": 7718,
+          "slug": "nvlabs-spade"
+        },
+        {
+          "archived": false,
+          "description": "A Python framework for GPU-accelerated simulation, robotics, and machine learning.",
+          "pushed": "2026-10-26T22:13:33Z",
+          "repo": "NVIDIA/warp",
+          "stars": 7246,
+          "slug": "nvidia-warp"
+        },
+        {
+          "archived": false,
+          "description": "Official PyTorch implementation of StyleGAN3",
+          "pushed": "2023-09-12T17:04:25Z",
+          "repo": "NVlabs/stylegan3",
+          "stars": 6947,
+          "slug": "nvlabs-stylegan3"
+        },
+        {
+          "archived": false,
+          "description": "Synthesizing and manipulating 2048x1024 images with conditional GANs",
+          "pushed": "2024-11-04T18:13:20Z",
+          "repo": "NVIDIA/pix2pixHD",
+          "stars": 6927,
+          "slug": "nvidia-pix2pixhd"
+        },
+        {
+          "archived": false,
+          "description": "A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.",
+          "pushed": "2026-10-27T01:15:25Z",
+          "repo": "NVIDIA/Model-Optimizer",
+          "stars": 5445,
+          "slug": "nvidia-model-optimizer"
+        },
+        {
+          "archived": false,
+          "description": "NVIDIA cuML: GPU-Accelerated Machine Learning",
+          "pushed": "2026-10-27T01:26:45Z",
+          "repo": "NVIDIA/cuml",
+          "stars": 5310,
+          "slug": "nvidia-cuml"
+        },
+        {
+          "archived": false,
+          "description": "Official implementation of \"Neuralangelo: High-Fidelity Neural Surface Reconstruction\" (CVPR 2023)",
+          "pushed": "2024-04-14T21:29:12Z",
+          "repo": "NVlabs/neuralangelo",
+          "stars": 4615,
+          "slug": "nvlabs-neuralangelo"
+        },
+        {
+          "archived": false,
+          "description": "StyleGAN2-ADA - Official PyTorch implementation",
+          "pushed": "2024-05-10T18:13:37Z",
+          "repo": "NVlabs/stylegan2-ada-pytorch",
+          "stars": 4496,
+          "slug": "nvlabs-stylegan2-ada-pytorch"
+        },
+        {
+          "archived": false,
+          "description": "Flickr-Faces-HQ Dataset (FFHQ)",
+          "pushed": "2022-11-18T17:43:03Z",
+          "repo": "NVlabs/ffhq-dataset",
+          "stars": 4202,
+          "slug": "nvlabs-ffhq-dataset"
+        },
+        {
+          "archived": false,
+          "description": "NVIDIA's Deep Imagination Team's PyTorch Library",
+          "pushed": "2022-11-29T10:24:50Z",
+          "repo": "NVlabs/imaginaire",
+          "stars": 4081,
+          "slug": "nvlabs-imaginaire"
+        },
+        {
+          "archived": false,
+          "description": "VILA is a family of state-of-the-art vision language models (VLMs) for diverse multimodal AI tasks across the edge, data center, and cloud.",
+          "pushed": "2026-03-12T01:04:00Z",
+          "repo": "NVlabs/VILA",
+          "stars": 3867,
+          "slug": "nvlabs-vila"
+        },
+        {
+          "archived": false,
+          "description": "Welcome to GR00T Whole-Body Control (WBC)! This is a unified platform for developing and deploying advanced humanoid controllers. This includes: Decoupled WBC models used in NVIDIA Isaac-Gr00t, Gr00t N1.5 and N1.6 and GEAR-SONIC ",
+          "pushed": "2026-10-26T23:31:28Z",
+          "repo": "NVlabs/GR00T-WholeBodyControl",
+          "stars": 3827,
+          "slug": "nvlabs-gr00t-wholebodycontrol"
+        },
+        {
+          "archived": false,
+          "description": "Agent Skills for NVIDIA products — install into Claude Code, Codex, and other coding agents to run Physical AI, robotics, simulation, CUDA, and RAG workflows end to end.",
+          "pushed": "2026-10-27T01:28:24Z",
+          "repo": "NVIDIA/skills",
+          "stars": 3748,
+          "slug": "nvidia-skills"
+        }
+      ]
+    },
+    "Alibaba": {
+      "orgs": [
+        "QwenLM",
+        "alibaba",
+        "modelscope",
+        "alibaba-damo-academy"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Qwen3 is the large language model series developed by Qwen team, Alibaba Cloud.",
+          "pushed": "2026-01-09T03:05:47Z",
+          "repo": "QwenLM/Qwen3",
+          "stars": 27687,
+          "slug": "qwenlm-qwen3"
+        },
+        {
+          "archived": false,
+          "description": "The official repo of Qwen (通义千问) chat & pretrained large language model proposed by Alibaba Cloud.",
+          "pushed": "2026-03-05T13:55:17Z",
+          "repo": "QwenLM/Qwen",
+          "stars": 21953,
+          "slug": "qwenlm-qwen"
+        },
+        {
+          "archived": false,
+          "description": "Open-source speech recognition toolkit for training, inference, streaming ASR, VAD, punctuation, speaker diarization pipelines, and OpenAI-compatible/MCP serving.",
+          "pushed": "2026-10-22T17:56:34Z",
+          "repo": "modelscope/FunASR",
+          "stars": 20828,
+          "slug": "modelscope-funasr"
+        },
+        {
+          "archived": false,
+          "description": "Agent framework and applications built upon Qwen>=3.0, featuring Function Calling, MCP, Code Interpreter, RAG, Chrome extension, etc.",
+          "pushed": "2026-03-04T08:15:07Z",
+          "repo": "QwenLM/Qwen-Agent",
+          "stars": 17215,
+          "slug": "qwenlm-qwen-agent"
+        },
+        {
+          "archived": false,
+          "description": "Qwen3-Coder is the code version of Qwen3, the large language model series developed by Qwen team.",
+          "pushed": "2026-03-24T08:22:10Z",
+          "repo": "QwenLM/Qwen3-Coder",
+          "stars": 16838,
+          "slug": "qwenlm-qwen3-coder"
+        },
+        {
+          "archived": false,
+          "description": "Use PEFT or Full-parameter to CPT/SFT/DPO/GRPO 600+ LLMs (Qwen3.8, DeepSeek-V4, GLM-5.1, InternLM3, Llama4, ...) and 300+ MLLMs (Qwen3-VL, Qwen3-Omni, InternVL3.5, Ovis2.5, GLM5.3, Gemma4, Llava, Phi4, ...) (AAAI 2025).",
+          "pushed": "2026-10-26T13:19:35Z",
+          "repo": "modelscope/ms-swift",
+          "stars": 15943,
+          "slug": "modelscope-ms-swift"
+        },
+        {
+          "archived": false,
+          "description": "Qwen3-TTS is an open-source series of TTS models developed by the Qwen team at Alibaba Cloud, supporting stable, expressive, and streaming speech generation, free-form voice design, and vivid voice cloning.",
+          "pushed": "2026-03-17T06:38:41Z",
+          "repo": "QwenLM/Qwen3-TTS",
+          "stars": 14030,
+          "slug": "qwenlm-qwen3-tts"
+        },
+        {
+          "archived": false,
+          "description": "Enjoy the magic of Diffusion models!",
+          "pushed": "2026-10-26T06:43:50Z",
+          "repo": "modelscope/DiffSynth-Studio",
+          "stars": 13309,
+          "slug": "modelscope-diffsynth-studio"
+        },
+        {
+          "archived": false,
+          "description": "ModelScope: bring the notion of Model-as-a-Service to life.",
+          "pushed": "2026-10-23T09:55:42Z",
+          "repo": "modelscope/modelscope",
+          "stars": 9190,
+          "slug": "modelscope-modelscope"
+        },
+        {
+          "archived": false,
+          "description": "Qwen-Image is a powerful image generation foundation model capable of complex text rendering and precise image editing.",
+          "pushed": "2026-02-10T07:37:37Z",
+          "repo": "QwenLM/Qwen-Image",
+          "stars": 8431,
+          "slug": "qwenlm-qwen-image"
+        },
+        {
+          "archived": false,
+          "description": "The official repo of Qwen-VL (通义千问-VL) chat & pretrained large vision language model proposed by Alibaba Cloud.",
+          "pushed": "2024-08-07T02:37:06Z",
+          "repo": "QwenLM/Qwen-VL",
+          "stars": 6728,
+          "slug": "qwenlm-qwen-vl"
+        },
+        {
+          "archived": false,
+          "description": "FunASR-powered video transcription, subtitle generation, and LLM-assisted clipping tool with a local Gradio UI.",
+          "pushed": "2026-10-08T05:36:48Z",
+          "repo": "modelscope/FunClip",
+          "stars": 6460,
+          "slug": "modelscope-funclip"
+        },
+        {
+          "archived": false,
+          "description": "An AI-Powered Speech Processing Toolkit and Open Source SOTA Pretrained Models, Supporting Speech Enhancement, Separation, and Target Speaker Extraction, etc.",
+          "pushed": "2025-08-14T08:26:31Z",
+          "repo": "modelscope/ClearerVoice-Studio",
+          "stars": 4581,
+          "slug": "modelscope-clearervoice-studio"
+        },
+        {
+          "archived": false,
+          "description": "MS-Agent: a lightweight framework to empower agentic execution of complex tasks",
+          "pushed": "2026-10-26T08:30:31Z",
+          "repo": "modelscope/ms-agent",
+          "stars": 4417,
+          "slug": "modelscope-ms-agent"
+        },
+        {
+          "archived": false,
+          "description": "Qwen3-ASR is an open-source series of ASR models developed by the Qwen team at Alibaba Cloud, supporting stable multilingual speech/music/song recognition, language detection and timestamp prediction.",
+          "pushed": "2026-06-26T08:20:17Z",
+          "repo": "QwenLM/Qwen3-ASR",
+          "stars": 3772,
+          "slug": "qwenlm-qwen3-asr"
+        },
+        {
+          "archived": false,
+          "description": "A streamlined and customizable framework for efficient large model (LLM, VLM, AIGC) evaluation and performance benchmarking.",
+          "pushed": "2026-10-26T14:33:08Z",
+          "repo": "modelscope/evalscope",
+          "stars": 3594,
+          "slug": "modelscope-evalscope"
+        },
+        {
+          "archived": false,
+          "description": "An Efficient and User-Friendly Scaling Library for Reinforcement Learning with Large Language Models",
+          "pushed": "2026-10-27T01:33:27Z",
+          "repo": "alibaba/ROLL",
+          "stars": 3438,
+          "slug": "alibaba-roll"
+        },
+        {
+          "archived": false,
+          "description": "A Repository for Single- and Multi-modal Speaker Verification, Speaker Recognition and Speaker Diarization",
+          "pushed": "2025-12-08T07:20:17Z",
+          "repo": "modelscope/3D-Speaker",
+          "stars": 3198,
+          "slug": "modelscope-3d-speaker"
+        },
+        {
+          "archived": false,
+          "description": "Make any agent harness multimodal-native.",
+          "pushed": "2026-10-23T08:05:51Z",
+          "repo": "QwenLM/Qwen-MM-Plugins",
+          "stars": 3149,
+          "slug": "qwenlm-qwen-mm-plugins"
+        },
+        {
+          "archived": false,
+          "description": " tidevice can be used to communicate with iPhone device",
+          "pushed": "2025-11-21T02:50:53Z",
+          "repo": "alibaba/tidevice",
+          "stars": 2604,
+          "slug": "alibaba-tidevice"
+        },
+        {
+          "archived": false,
+          "description": "A framework for large scale recommendation algorithms.",
+          "pushed": "2026-04-15T02:02:32Z",
+          "repo": "alibaba/EasyRec",
+          "stars": 2361,
+          "slug": "alibaba-easyrec"
+        },
+        {
+          "archived": false,
+          "description": "EasyNLP: A Comprehensive and Easy-to-use NLP Toolkit",
+          "pushed": "2024-11-27T07:51:25Z",
+          "repo": "alibaba/EasyNLP",
+          "stars": 2188,
+          "slug": "alibaba-easynlp"
+        },
+        {
+          "archived": false,
+          "description": "Qwen-Image-Layered: Layered Decomposition for Inherent Editablity",
+          "pushed": "2025-12-31T11:40:35Z",
+          "repo": "QwenLM/Qwen-Image-Layered",
+          "stars": 2151,
+          "slug": "qwenlm-qwen-image-layered"
+        },
+        {
+          "archived": false,
+          "description": "The official repo of Qwen2-Audio chat & pretrained large audio language model proposed by Alibaba Cloud.",
+          "pushed": "2025-04-21T08:50:49Z",
+          "repo": "QwenLM/Qwen2-Audio",
+          "stars": 2101,
+          "slug": "qwenlm-qwen2-audio"
+        },
+        {
+          "archived": false,
+          "description": "Qwen's most powerful open-source image generation model",
+          "pushed": "2026-10-14T10:08:25Z",
+          "repo": "QwenLM/Qwen-Image-2.1",
+          "stars": 2077,
+          "slug": "qwenlm-qwen-image-2-1"
+        }
+      ]
+    },
+    "Tencent": {
+      "orgs": [
+        "Tencent",
+        "TencentARC",
+        "Tencent-Hunyuan"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "GFPGAN aims at developing Practical Algorithms for Real-world Face Restoration.",
+          "pushed": "2024-07-26T18:44:02Z",
+          "repo": "TencentARC/GFPGAN",
+          "stars": 37705,
+          "slug": "tencentarc-gfpgan"
+        },
+        {
+          "archived": false,
+          "description": "High-Resolution 3D Assets Generation with Large Scale Hunyuan3D Diffusion Models.",
+          "pushed": "2025-10-28T09:58:12Z",
+          "repo": "Tencent-Hunyuan/Hunyuan3D-2",
+          "stars": 15206,
+          "slug": "tencent-hunyuan-hunyuan3d-2"
+        },
+        {
+          "archived": false,
+          "description": "HunyuanVideo: A Systematic Framework For Large Video Generation Model",
+          "pushed": "2026-10-08T08:57:37Z",
+          "repo": "Tencent-Hunyuan/HunyuanVideo",
+          "stars": 12671,
+          "slug": "tencent-hunyuan-hunyuanvideo"
+        },
+        {
+          "archived": false,
+          "description": "A full-stack AI Red Teaming platform securing AI ecosystems via Agent Scan, Skills Scan, MCP scan, AI Infra scan and LLM jailbreak evaluation.",
+          "pushed": "2026-10-27T01:33:53Z",
+          "repo": "Tencent/AI-Infra-Guard",
+          "stars": 7117,
+          "slug": "tencent-ai-infra-guard"
+        },
+        {
+          "archived": false,
+          "description": "HunyuanVideo-1.5: A leading lightweight video generation model",
+          "pushed": "2026-04-10T06:14:59Z",
+          "repo": "Tencent-Hunyuan/HunyuanVideo-1.5",
+          "stars": 4580,
+          "slug": "tencent-hunyuan-hunyuanv-08745"
+        },
+        {
+          "archived": false,
+          "description": "InstantMesh: Efficient 3D Mesh Generation from a Single Image with Sparse-view Large Reconstruction Models",
+          "pushed": "2025-01-03T09:09:13Z",
+          "repo": "TencentARC/InstantMesh",
+          "stars": 4578,
+          "slug": "tencentarc-instantmesh"
+        },
+        {
+          "archived": false,
+          "description": "From Images to High-Fidelity 3D Assets with Production-Ready PBR Material",
+          "pushed": "2025-10-17T10:10:07Z",
+          "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
+          "stars": 4287,
+          "slug": "tencent-hunyuan-hunyuan3d-2-1"
+        },
+        {
+          "archived": false,
+          "description": "T2I-Adapter",
+          "pushed": "2024-06-21T20:51:36Z",
+          "repo": "TencentARC/T2I-Adapter",
+          "stars": 3796,
+          "slug": "tencentarc-t2i-adapter"
+        },
+        {
+          "archived": false,
+          "description": "Tencent Hunyuan3D-1.0: A Unified Framework for Text-to-3D and Image-to-3D Generation",
+          "pushed": "2025-11-19T07:07:41Z",
+          "repo": "Tencent-Hunyuan/Hunyuan3D-1",
+          "stars": 3500,
+          "slug": "tencent-hunyuan-hunyuan3d-1"
+        },
+        {
+          "archived": false,
+          "description": "HunyuanImage-3.0: A Powerful Native Multimodal Model for Image Generation",
+          "pushed": "2026-06-23T13:12:44Z",
+          "repo": "Tencent-Hunyuan/HunyuanImage-3.0",
+          "stars": 3295,
+          "slug": "tencent-hunyuan-hunyuani-26574"
+        },
+        {
+          "archived": false,
+          "description": "Largest multi-label image database; ResNet-101 model; 80.73% top-1 acc on ImageNet",
+          "pushed": "2022-04-20T07:00:12Z",
+          "repo": "Tencent/tencent-ml-images",
+          "stars": 3063,
+          "slug": "tencent-tencent-ml-images"
+        },
+        {
+          "archived": false,
+          "description": "腾讯优图高精度双分支人脸检测器",
+          "pushed": "2025-11-13T03:22:53Z",
+          "repo": "Tencent/FaceDetection-DSFD",
+          "stars": 2975,
+          "slug": "tencent-facedetection-dsfd"
+        },
+        {
+          "archived": false,
+          "description": "Generating Immersive, Explorable, and Interactive 3D Worlds from Words or Pixels with Hunyuan3D World Model",
+          "pushed": "2026-04-15T17:27:25Z",
+          "repo": "Tencent-Hunyuan/HunyuanWorld-1.0",
+          "stars": 2957,
+          "slug": "tencent-hunyuan-hunyuanw-67f63"
+        },
+        {
+          "archived": false,
+          "description": "An Automatic Model Compression (AutoMC) framework for developing smaller and faster AI applications.",
+          "pushed": "2023-03-31T22:23:33Z",
+          "repo": "Tencent/PocketFlow",
+          "stars": 2915,
+          "slug": "tencent-pocketflow"
+        },
+        {
+          "archived": false,
+          "description": "HY-World 2.0: A Multi-Modal World Model for Reconstructing, Generating, and Simulating 3D Worlds",
+          "pushed": "2026-08-12T16:15:12Z",
+          "repo": "Tencent-Hunyuan/HY-World-2.0",
+          "stars": 2771,
+          "slug": "tencent-hunyuan-hy-world-2-0"
+        },
+        {
+          "archived": false,
+          "description": "High-Quality Human Motion Video Generation with Confidence-aware Pose Guidance",
+          "pushed": "2025-11-18T06:29:12Z",
+          "repo": "Tencent/MimicMotion",
+          "stars": 2682,
+          "slug": "tencent-mimicmotion"
+        },
+        {
+          "archived": false,
+          "description": "HY-Motion model for 3D human motion or 3D character animation generation. ",
+          "pushed": "2026-07-18T15:13:36Z",
+          "repo": "Tencent-Hunyuan/HY-Motion-1.0",
+          "stars": 2630,
+          "slug": "tencent-hunyuan-hy-motion-1-0"
+        },
+        {
+          "archived": false,
+          "description": "[SIGGRAPH 2026] Pixal3D: Pixel-Aligned 3D Generation from Images",
+          "pushed": "2026-09-01T12:28:49Z",
+          "repo": "TencentARC/Pixal3D",
+          "stars": 2533,
+          "slug": "tencentarc-pixal3d"
+        },
+        {
+          "archived": false,
+          "description": "Many studies have shown that the performance on deep learning is significantly affected by volume of training data. The MedicalNet project provides a series of 3D-ResNet pre-trained models and relative code.",
+          "pushed": "2026-10-13T09:10:26Z",
+          "repo": "Tencent/MedicalNet",
+          "stars": 2276,
+          "slug": "tencent-medicalnet"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2025-12-16T12:32:46Z",
+          "repo": "Tencent-Hunyuan/HunyuanVideo-Avatar",
+          "stars": 2185,
+          "slug": "tencent-hunyuan-hunyuanv-0b4f3"
+        },
+        {
+          "archived": false,
+          "description": "HunyuanOCR-1.5: Making Lightweight OCR VLMs Faster and Better",
+          "pushed": "2026-09-24T07:48:50Z",
+          "repo": "Tencent-Hunyuan/HunyuanOCR",
+          "stars": 2058,
+          "slug": "tencent-hunyuan-hunyuanocr"
+        },
+        {
+          "archived": false,
+          "description": "单阶段通用目标检测器",
+          "pushed": "2025-07-02T06:11:06Z",
+          "repo": "Tencent/ObjectDetection-OneStageDet",
+          "stars": 1977,
+          "slug": "tencent-objectdetection-928a1"
+        },
+        {
+          "archived": false,
+          "description": "An Open-source Neural Hierarchical Multi-label Text Classification Toolkit",
+          "pushed": "2025-11-18T08:56:25Z",
+          "repo": "Tencent/NeuralNLP-NeuralClassifier",
+          "stars": 1922,
+          "slug": "tencent-neuralnlp-neural-d7f41"
+        },
+        {
+          "archived": false,
+          "description": "Static Code Analysis - 静态代码分析",
+          "pushed": "2025-11-03T03:15:24Z",
+          "repo": "Tencent/CodeAnalysis",
+          "stars": 1850,
+          "slug": "tencent-codeanalysis"
+        },
+        {
+          "archived": false,
+          "description": "HunyuanVideo-I2V: A Customizable Image-to-Video Model based on HunyuanVideo",
+          "pushed": "2026-04-07T06:13:09Z",
+          "repo": "Tencent-Hunyuan/HunyuanVideo-I2V",
+          "stars": 1850,
+          "slug": "tencent-hunyuan-hunyuanv-a7972"
+        }
+      ]
+    },
+    "ByteDance": {
+      "orgs": [
+        "bytedance",
+        "ByteDance-Seed"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+          "pushed": "2026-10-27T01:01:11Z",
+          "repo": "bytedance/deer-flow",
+          "stars": 84451,
+          "slug": "bytedance-deer-flow"
+        },
+        {
+          "archived": false,
+          "description": "Trae Agent is an LLM-based agent for general purpose software engineering tasks.",
+          "pushed": "2026-02-05T11:21:00Z",
+          "repo": "bytedance/trae-agent",
+          "stars": 12155,
+          "slug": "bytedance-trae-agent"
+        },
+        {
+          "archived": false,
+          "description": "Pioneering Automated GUI Interaction with Native Agents",
+          "pushed": "2026-01-27T04:57:26Z",
+          "repo": "bytedance/UI-TARS",
+          "stars": 11631,
+          "slug": "bytedance-ui-tars"
+        },
+        {
+          "archived": true,
+          "description": "A Lightweight Recommendation System",
+          "pushed": "2025-10-13T02:39:09Z",
+          "repo": "bytedance/monolith",
+          "stars": 9287,
+          "slug": "bytedance-monolith"
+        },
+        {
+          "archived": false,
+          "description": "The official repo for “Dolphin: Document Image Parsing via Heterogeneous Anchor Prompting”, ACL, 2025.",
+          "pushed": "2026-03-25T06:34:12Z",
+          "repo": "bytedance/Dolphin",
+          "stars": 9066,
+          "slug": "bytedance-dolphin"
+        },
+        {
+          "archived": false,
+          "description": "Depth Anything 3",
+          "pushed": "2026-07-27T06:07:26Z",
+          "repo": "ByteDance-Seed/Depth-Anything-3",
+          "stars": 6580,
+          "slug": "bytedance-seed-depth-any-12e2f"
+        },
+        {
+          "archived": false,
+          "description": "Open-source unified multimodal model",
+          "pushed": "2026-05-04T17:01:02Z",
+          "repo": "ByteDance-Seed/Bagel",
+          "stars": 6201,
+          "slug": "bytedance-seed-bagel"
+        },
+        {
+          "archived": false,
+          "description": "Taming Stable Diffusion for Lip Sync!",
+          "pushed": "2025-06-20T07:36:58Z",
+          "repo": "bytedance/LatentSync",
+          "stars": 6195,
+          "slug": "bytedance-latentsync"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2026-06-15T11:26:48Z",
+          "repo": "bytedance/MegaTTS3",
+          "stars": 6116,
+          "slug": "bytedance-megatts3"
+        },
+        {
+          "archived": true,
+          "description": "A high performance and generic framework for distributed DNN training",
+          "pushed": "2023-10-03T18:02:27Z",
+          "repo": "bytedance/byteps",
+          "stars": 3719,
+          "slug": "bytedance-byteps"
+        },
+        {
+          "archived": false,
+          "description": "🔥 [ICCV 2025 Highlight] InfiniteYou: Flexible Photo Recrafting While Preserving Your Identity",
+          "pushed": "2025-08-22T21:07:45Z",
+          "repo": "bytedance/InfiniteYou",
+          "stars": 2689,
+          "slug": "bytedance-infiniteyou"
+        },
+        {
+          "archived": false,
+          "description": "VeOmni: Scaling Any Modality Model Training with Model-Centric Distributed Recipe Zoo",
+          "pushed": "2026-10-27T00:56:39Z",
+          "repo": "ByteDance-Seed/VeOmni",
+          "stars": 2265,
+          "slug": "bytedance-seed-veomni"
+        },
+        {
+          "archived": false,
+          "description": "Toward High-Accuracy Open-Source Biomolecular Structure Prediction.",
+          "pushed": "2026-09-21T07:04:06Z",
+          "repo": "bytedance/Protenix",
+          "stars": 2088,
+          "slug": "bytedance-protenix"
+        },
+        {
+          "archived": true,
+          "description": null,
+          "pushed": "2023-08-18T16:41:03Z",
+          "repo": "bytedance/piano_transcription",
+          "stars": 2017,
+          "slug": "bytedance-piano-transcription"
+        },
+        {
+          "archived": true,
+          "description": null,
+          "pushed": "2022-04-17T19:47:19Z",
+          "repo": "bytedance/GiantMIDI-Piano",
+          "stars": 1900,
+          "slug": "bytedance-giantmidi-piano"
+        },
+        {
+          "archived": false,
+          "description": "Official Repo For Pixel-LLM Codebase: Sa2VA (T-PAMI-26), SAMTok (CVPR-26), VRT (Arxiv-25), SaSaSa2VA (1-st solution for LSVOS)",
+          "pushed": "2026-10-27T01:32:18Z",
+          "repo": "bytedance/Sa2VA",
+          "stars": 1693,
+          "slug": "bytedance-sa2va"
+        },
+        {
+          "archived": false,
+          "description": "PaSa -- an advanced paper search agent powered by large language models. It can autonomously make a series of decisions, including invoking search tools, reading papers, and selecting relevant references, to ultimately obtain comprehensive and accurate results for complex scholarly queries.",
+          "pushed": "2025-05-27T11:09:11Z",
+          "repo": "bytedance/pasa",
+          "stars": 1671,
+          "slug": "bytedance-pasa"
+        },
+        {
+          "archived": false,
+          "description": "[SIGGRAPH Asia 2025] DreamO: A Unified Framework for Image Customization",
+          "pushed": "2025-08-14T11:46:35Z",
+          "repo": "bytedance/DreamO",
+          "stars": 1650,
+          "slug": "bytedance-dreamo"
+        },
+        {
+          "archived": false,
+          "description": "Distributed Compiler and Optimized Parallel Kernels",
+          "pushed": "2026-09-18T07:07:53Z",
+          "repo": "ByteDance-Seed/Triton-distributed",
+          "stars": 1573,
+          "slug": "bytedance-seed-triton-di-9bbdd"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2026-02-12T06:03:56Z",
+          "repo": "ByteDance-Seed/m3-agent",
+          "stars": 1466,
+          "slug": "bytedance-seed-m3-agent"
+        },
+        {
+          "archived": false,
+          "description": "Repo for SeedVR2 (ICLR2026) & SeedVR (CVPR2025 Highlight)",
+          "pushed": "2026-01-27T06:02:24Z",
+          "repo": "ByteDance-Seed/SeedVR",
+          "stars": 1418,
+          "slug": "bytedance-seed-seedvr"
+        },
+        {
+          "archived": true,
+          "description": null,
+          "pushed": "2024-04-18T06:24:38Z",
+          "repo": "bytedance/music_source_separation",
+          "stars": 1384,
+          "slug": "bytedance-music-source-s-c7e7a"
+        },
+        {
+          "archived": false,
+          "description": "[ICCV 2025] 🔥🔥  UNO: A Universal Customization Method for Both Single and Multi-Subject Conditioning",
+          "pushed": "2025-09-12T08:09:52Z",
+          "repo": "bytedance/UNO",
+          "stars": 1363,
+          "slug": "bytedance-uno"
+        },
+        {
+          "archived": false,
+          "description": "A 3B-active-parameter native unified multimodal model for image and video understanding, generation, and editing.",
+          "pushed": "2026-07-14T13:17:31Z",
+          "repo": "bytedance/Lance",
+          "stars": 1361,
+          "slug": "bytedance-lance"
+        },
+        {
+          "archived": false,
+          "description": "Bernini is a unified framework for video generation and editing that combines an MLLM-based semantic planner with a DiT-based renderer.",
+          "pushed": "2026-08-13T12:11:19Z",
+          "repo": "bytedance/Bernini",
+          "stars": 1341,
+          "slug": "bytedance-bernini"
+        }
+      ]
+    },
+    "Baidu": {
+      "orgs": [
+        "PaddlePaddle",
+        "baidu"
+      ],
+      "target": 10,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Turn any PDF or image document into structured data for your AI. A powerful, lightweight OCR toolkit that bridges the gap between images/PDFs and LLMs. Supports 100+ languages.",
+          "pushed": "2026-09-16T03:31:50Z",
+          "repo": "PaddlePaddle/PaddleOCR",
+          "stars": 91720,
+          "slug": "paddlepaddle-paddleocr"
+        },
+        {
+          "archived": false,
+          "description": "Unlimited OCR Works: Welcome the Era of One-shot Long-horizon Parsing.",
+          "pushed": "2026-10-27T00:04:20Z",
+          "repo": "baidu/Unlimited-OCR",
+          "stars": 28571,
+          "slug": "baidu-unlimited-ocr"
+        },
+        {
+          "archived": false,
+          "description": "Object Detection toolkit based on PaddlePaddle. It supports object detection, instance segmentation, multiple object tracking and real-time multi-person keypoint detection.",
+          "pushed": "2026-05-28T07:28:31Z",
+          "repo": "PaddlePaddle/PaddleDetection",
+          "stars": 14447,
+          "slug": "paddlepaddle-paddledetection"
+        },
+        {
+          "archived": false,
+          "description": "Easy-to-use and powerful LLM and SLM library with awesome model zoo.",
+          "pushed": "2026-05-23T02:54:28Z",
+          "repo": "PaddlePaddle/PaddleNLP",
+          "stars": 12981,
+          "slug": "paddlepaddle-paddlenlp"
+        },
+        {
+          "archived": false,
+          "description": "PaddleFormers is an easy-to-use library of pre-trained large language model zoo based on PaddlePaddle.",
+          "pushed": "2026-10-21T16:28:58Z",
+          "repo": "PaddlePaddle/PaddleFormers",
+          "stars": 12969,
+          "slug": "paddlepaddle-paddleformers"
+        },
+        {
+          "archived": false,
+          "description": "Easy-to-use Speech Toolkit including Self-Supervised Learning model, SOTA/Streaming ASR with punctuation, Streaming TTS with text frontend, Speaker Verification System, End-to-End Speech Translation and Keyword Spotting. Won NAACL2022 Best Demo Award.",
+          "pushed": "2026-08-12T01:07:51Z",
+          "repo": "PaddlePaddle/PaddleSpeech",
+          "stars": 12698,
+          "slug": "paddlepaddle-paddlespeech"
+        },
+        {
+          "archived": false,
+          "description": "Easy-to-use image segmentation library with awesome pre-trained model zoo, supporting wide-range of practical tasks in Semantic Segmentation, Interactive Segmentation, Panoptic Segmentation, Image Matting, 3D Segmentation, etc.",
+          "pushed": "2026-02-05T16:49:17Z",
+          "repo": "PaddlePaddle/PaddleSeg",
+          "stars": 9418,
+          "slug": "paddlepaddle-paddleseg"
+        },
+        {
+          "archived": false,
+          "description": "PaddlePaddle GAN library, including lots of interesting applications like First-Order motion transfer,  Wav2Lip, picture repair, image editing, photo2cartoon, image style transfer, GPEN, and so on.",
+          "pushed": "2024-07-03T15:05:24Z",
+          "repo": "PaddlePaddle/PaddleGAN",
+          "stars": 8044,
+          "slug": "paddlepaddle-paddlegan"
+        },
+        {
+          "archived": false,
+          "description": "The official repository for ERNIE 4.5 and ERNIEKit – its industrial-grade development toolkit based on PaddlePaddle.",
+          "pushed": "2026-07-24T21:37:38Z",
+          "repo": "PaddlePaddle/ERNIE",
+          "stars": 7742,
+          "slug": "paddlepaddle-ernie"
+        },
+        {
+          "archived": false,
+          "description": "Officially maintained, supported by PaddlePaddle, including CV, NLP, Speech, Rec, TS, big models and so on.",
+          "pushed": "2025-01-15T17:54:36Z",
+          "repo": "PaddlePaddle/models",
+          "stars": 6931,
+          "slug": "paddlepaddle-models"
+        },
+        {
+          "archived": false,
+          "description": "All-in-One Development Tool based on PaddlePaddle",
+          "pushed": "2026-10-20T09:48:57Z",
+          "repo": "PaddlePaddle/PaddleX",
+          "stars": 6283,
+          "slug": "paddlepaddle-paddlex"
+        },
+        {
+          "archived": false,
+          "description": "A treasure chest for visual classification and recognition powered by PaddlePaddle",
+          "pushed": "2026-10-22T08:44:57Z",
+          "repo": "PaddlePaddle/PaddleClas",
+          "stars": 5853,
+          "slug": "paddlepaddle-paddleclas"
+        },
+        {
+          "archived": false,
+          "description": "Recommendation Algorithm大规模推荐算法库，包含推荐系统经典及最新算法LR、Wide&Deep、DSSM、TDM、MIND、Word2Vec、Bert4Rec、DeepWalk、SSR、AITM，DSIN，SIGN，IPREC、GRU4Rec、Youtube_dnn、NCF、GNN、FM、FFM、DeepFM、DCN、DIN、DIEN、DLRM、MMOE、PLE、ESMM、ESCMM, MAML、xDeepFM、DeepFEFM、NFM、AFM、RALM、DMR、GateNet、NAML、DIFM、Deep Crossing、PNN、BST、AutoInt、FGCNN、FLEN、Fibinet、ListWise、DeepRec、ENSFM，TiSAS，AutoFIS等，包含经典推荐系统数据集criteo 、movielens等",
+          "pushed": "2025-04-02T03:22:59Z",
+          "repo": "PaddlePaddle/PaddleRec",
+          "stars": 4087,
+          "slug": "paddlepaddle-paddlerec"
+        },
+        {
+          "archived": false,
+          "description": "High-performance Inference and Deployment Toolkit for LLMs and VLMs based on PaddlePaddle",
+          "pushed": "2026-09-24T14:17:31Z",
+          "repo": "PaddlePaddle/FastDeploy",
+          "stars": 3724,
+          "slug": "paddlepaddle-fastdeploy"
+        },
+        {
+          "archived": false,
+          "description": "A high-performance distributed training framework for Reinforcement Learning ",
+          "pushed": "2026-09-30T08:21:48Z",
+          "repo": "PaddlePaddle/PARL",
+          "stars": 3458,
+          "slug": "paddlepaddle-parl"
+        },
+        {
+          "archived": false,
+          "description": "Baidu's open-source Sentiment Analysis System.",
+          "pushed": "2024-08-20T16:16:48Z",
+          "repo": "baidu/Senta",
+          "stars": 2017,
+          "slug": "baidu-senta"
+        },
+        {
+          "archived": false,
+          "description": "novel deep learning research works with PaddlePaddle",
+          "pushed": "2024-08-16T02:42:22Z",
+          "repo": "PaddlePaddle/Research",
+          "stars": 1770,
+          "slug": "paddlepaddle-research"
+        },
+        {
+          "archived": false,
+          "description": "Awesome video understanding toolkits based on PaddlePaddle. It supports video data annotation tools, lightweight RGB and skeleton based action recognition model, practical applications for video tagging and sport action detection.",
+          "pushed": "2025-02-12T06:53:52Z",
+          "repo": "PaddlePaddle/PaddleVideo",
+          "stars": 1704,
+          "slug": "paddlepaddle-paddlevideo"
+        },
+        {
+          "archived": false,
+          "description": "PaddleSlim is an open-source library for deep model compression and architecture search.",
+          "pushed": "2026-01-04T09:30:21Z",
+          "repo": "PaddlePaddle/PaddleSlim",
+          "stars": 1611,
+          "slug": "paddlepaddle-paddleslim"
+        },
+        {
+          "archived": false,
+          "description": "Paddle Graph Learning (PGL) is an efficient and flexible graph learning framework based on PaddlePaddle",
+          "pushed": "2023-12-11T05:15:14Z",
+          "repo": "PaddlePaddle/PGL",
+          "stars": 1584,
+          "slug": "paddlepaddle-pgl"
+        },
+        {
+          "archived": false,
+          "description": "Baseline Systems of DuReader Dataset",
+          "pushed": "2022-05-26T09:30:46Z",
+          "repo": "baidu/DuReader",
+          "stars": 1181,
+          "slug": "baidu-dureader"
+        },
+        {
+          "archived": false,
+          "description": "Bio-Computing Platform Featuring Large-Scale Representation Learning and Multi-Task Deep Learning “螺旋桨”生物计算工具集",
+          "pushed": "2026-03-31T05:01:26Z",
+          "repo": "PaddlePaddle/PaddleHelix",
+          "stars": 1123,
+          "slug": "paddlepaddle-paddlehelix"
+        },
+        {
+          "archived": false,
+          "description": "百度开源的依存句法分析系统",
+          "pushed": "2023-02-05T03:09:55Z",
+          "repo": "baidu/DDParser",
+          "stars": 1001,
+          "slug": "baidu-ddparser"
+        },
+        {
+          "archived": false,
+          "description": "CUP, common useful python-lib.  (Currently, Most popular python lib in baidu).  Python 开发底层库, 涵盖util、service(threadpool/generator/executor/cache等等)、logging、monitoring、增强型配置 等等库支持",
+          "pushed": "2026-06-26T02:50:03Z",
+          "repo": "baidu/CUP",
+          "stars": 949,
+          "slug": "baidu-cup"
+        },
+        {
+          "archived": false,
+          "description": "🚀 RocketQA, dense retrieval for information retrieval and question answering, including both Chinese and English state-of-the-art models. ",
+          "pushed": "2023-12-19T08:08:35Z",
+          "repo": "PaddlePaddle/RocketQA",
+          "stars": 784,
+          "slug": "paddlepaddle-rocketqa"
+        }
+      ]
+    }
+  }
+}
