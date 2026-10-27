@@ -117,7 +117,7 @@ EXCLUSION_KINDS = [  # first match wins; keyword buckets over the examiner's one
     ("gated model (license / access request)", r"gated|license accept|access request|hf_token|request.*access|terms of use"),
     # Most reasons cite both a GPU and the model size, so they are one bucket rather than an arbitrary split.
     ("needs a GPU and/or exceeds 16 GB RAM / 15 GB of downloads",
-     r"\bgpu\b|cuda|vram|too large|\bparameters\b|\d+\s?gb\b|\d+(\.\d+)?b\b|\d+\sgb|bazel"),
+     r"\bgpu\b|cuda|vram|too large|\bparameters\b|\d+\s?gb\b|\d+(\.\d+)?b\b"),
 ]
 
 
