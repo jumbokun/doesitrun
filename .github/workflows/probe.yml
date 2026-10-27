@@ -15,6 +15,9 @@ on:
       max_parallel:
         description: "Concurrent agent jobs (subscription rate limits)"
         default: "3"
+      mode:
+        description: "probe = run repos; audit = pre-registered oracle audit of failed runs"
+        default: "probe"
 
 permissions:
   contents: write
@@ -76,7 +79,10 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           REPOS_FILE: ${{ inputs.repos_file }}
           SLUG: ${{ matrix.slug }}
-        run: python run_probe.py "--repos=$REPOS_FILE" "$SLUG"
+          MODE: ${{ inputs.mode }}
+        run: |
+          if [ "$MODE" = "audit" ]; then python run_probe.py "--repos=$REPOS_FILE" --audit "$SLUG"
+          else python run_probe.py "--repos=$REPOS_FILE" "$SLUG"; fi
       - uses: actions/upload-artifact@v7
         if: always()
         with:
@@ -124,7 +130,7 @@ jobs:
             python leaderboard.py > /dev/null
             git add data/runs data/leaderboard.json data/attribution.json LEADERBOARD.md
             git diff --cached --quiet && { echo "nothing new"; exit 0; }
-            git commit -q -m "Record probe results ($n repos)"
+            git commit -q -m "Record ${{ inputs.mode }} results ($n repos)"
             if git push -q origin HEAD:main; then echo "pushed on attempt $attempt"; break; fi
             sleep $((attempt * 10))
           done
