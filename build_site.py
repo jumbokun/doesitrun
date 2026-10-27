@@ -64,10 +64,14 @@ def repo_rows(rows):
     return "".join(out)
 
 
-def company_rows(companies):
+def company_rows(companies, excl=None):
     out = []
     for c in companies:
         warn = '<span class="badge warn">n&lt;3 · not a verdict</span>' if c["n"] < 3 else ""
+        x = (excl or {}).get(c["company"])
+        if x and x["excluded"]:
+            warn += (f'<span class="n" title="Candidates the examiner ruled out before any run: paid API keys, '
+                     f'gated models, too large for CPU, GPU-only.">{x["excluded"]} excluded</span>')
         teams = "".join(f'<li><span>{esc(t["team"])}</span><span class="mono">{t["mean"]:.0f}'
                         f'<span class="n"> n={t["n"]}</span></span></li>' for t in c["teams"])
         out.append(f"""
@@ -81,14 +85,37 @@ def company_rows(companies):
     return "".join(out)
 
 
+TRACK_NOTES = {
+    "cpu-gha": ("No GPU on this track. Repos built around CUDA (much of NVIDIA's catalogue, older research code) "
+                "are judged on their CPU path, which their authors often never prioritised - read their scores "
+                "with that in mind. Which repos were eligible was decided by an examiner agent before any run; "
+                "every exclusion and its reason is in data/exams."),
+    "gpu-rtx5060": ("Local RTX 5060 (Blackwell). Old PyTorch pins have no kernels for it, so 2020-23 repos needed "
+                    "a newer stack; that is part of what the score measures."),
+}
+
+
+def exclusions_by_company():
+    """Count examiner exclusions per company (API keys, gated models, too big, GPU-only, ...)."""
+    out = {}
+    for path in (ROOT / "data" / "exams").glob("*.json"):
+        e = json.loads(path.read_text(encoding="utf-8"))
+        c = out.setdefault(e.get("company", "?"), {"excluded": 0, "eligible": 0})
+        c["eligible" if e.get("eligible") else "excluded"] += 1
+    return out
+
+
 def track_section(t, i):
     multi = "Most companies have a single repo here. Treat these rows as a preview of the format, not a ranking."
     few = any(c["n"] < 3 for c in t["companies"])
+    note = TRACK_NOTES.get(t["track"], "")
+    excl = exclusions_by_company() if t["track"] == "cpu-gha" else {}
     return f"""
 <section id="track-{i}">
   <div class="overline">{esc(t['label'])}</div>
   <h2>Repos · {len(t['repos'])}</h2>
   <div class="sub">Score 0–100, higher = easier to get running. One run per repo.</div>
+  {f'<div class="caveat" style="margin:0 0 12px">{esc(note)}</div>' if note else ''}
   <ol class="board">{repo_rows(t['repos'])}
   </ol>
 </section>
@@ -96,7 +123,7 @@ def track_section(t, i):
   <div class="overline">{esc(t['label'])}</div>
   <h2>Companies &amp; teams</h2>
   <div class="sub">Mean repo score per company, split by team where attribution allows.</div>
-  <ul class="board">{company_rows(t['companies'])}
+  <ul class="board">{company_rows(t['companies'], excl)}
   </ul>
   {f'<div class="caveat">{multi}</div>' if few else ''}
 </section>
