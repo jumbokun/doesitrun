@@ -354,7 +354,7 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
 <body>
 <nav class="tabs" aria-label="Sections">
   <a class="brand" href="#top">Does it run?</a>
-  <a href="#track-0">Leaderboard</a><a href="#companies-0">Companies</a><a href="#method">Method</a>
+  <a href="#track-0">Leaderboard</a><a href="#companies-0">Companies</a><a href="#method">Method</a><a href="{REPO_URL}/blob/main/STORY.md">Story</a>
 </nav>
 <div class="wrap">
 <header id="top">
@@ -362,7 +362,7 @@ nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none;
   <h1>Does it run?</h1>
   <p>A sandboxed AI agent gets one tool, a fresh Linux box with an 8&nbsp;GB GPU, and a repo's README.
   A hidden, pre-registered test decides whether the demo really works. Then we replay the agent's
-  installer on a brand-new machine.</p>
+  installer on a brand-new machine. <a href="{REPO_URL}/blob/main/STORY.md">Read what broke →</a></p>
   <div class="stats">
     <div class="stat"><div class="v">{len(rows)}</div><div class="l">repos tested</div></div>
     <div class="stat"><div class="v">{len(ran)}/{len(rows)}</div><div class="l">got running</div></div>

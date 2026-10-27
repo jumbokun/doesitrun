@@ -3,7 +3,7 @@
 **How hard is it to get a GitHub repo's README demo actually running?**
 A sandboxed AI agent tries, a hidden test decides, and the agent's installer is replayed on a brand-new machine.
 
-**Live leaderboard → https://jumbokun.github.io/doesitrun/**
+**Live leaderboard → https://jumbokun.github.io/doesitrun/** · **The story: [what broke](STORY.md)**
 
 ### Results so far (2026-10-27)
 
