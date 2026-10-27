@@ -99,7 +99,7 @@ def start_container(name, cfg):
     ensure_network_and_firewall()
     sh(["docker", "rm", "-f", name])
     args = ["docker", "run", "-d", "--name", name, "--network", NET,
-            "--cpus", "12", "--memory", cfg["mem"], "--pids-limit", "4096", "--shm-size", "4g",
+            "--cpus", str(min(12, os.cpu_count() or 1)), "--memory", cfg["mem"], "--pids-limit", "4096", "--shm-size", "4g",
             "--cap-drop", "NET_RAW", "--security-opt", "no-new-privileges",
             # Containers must not reach services on the host machine.
             "--add-host", "host.docker.internal:127.0.0.1",
