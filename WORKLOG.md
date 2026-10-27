@@ -156,3 +156,12 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
 - 2026-10-27: audit verdicts so far — oracle_defect: python-fire, data-formulator, ParlAI, pytorch3d, UI-TARS;
   repo_failure: BERT, trax (GCS 403), Depth-Anything-3 (missing `addict` dependency). Roughly half of oracle failures
   are examiner defects: examiner-written oracles are not reliable enough to score without the audit.
+- 2026-10-27 08:0x: CPU batch complete — 80/80 records. 62/80 oracles passed; 59/80 first replays passed; median agent
+  4.2 min; 4 hit the 90-min cap (incl. ByteDance Dolphin: no setup.sh, audit "inconclusive", stays 0). Audits:
+  repo_failure 6 (BERT/trax GCS 403, SPADE Drive 404, Depth-Anything-3 missing dependency, FunClip, Megatron-LM
+  tokenizer), oracle_defect 8 (fire, data-formulator, ParlAI, pytorch3d, UI-TARS, SkillSpector, warp,
+  PaddleSpeech), inconclusive 1, pending 3 (Tencent Hunyuan3D-1, Hunyuan3D-2.1, PocketFlow; run 40464509343 will
+  commit and redeploy on its own). Company means (CPU): Microsoft 93, Meta 93, Alibaba 84, Baidu 83, Google 70
+  (Google Research 40), NVIDIA 59, Tencent 57 (Hunyuan 39), ByteDance 55. One run per repo.
+- Open: run-to-run variance (2+ runs per repo), examiner oracle quality (8 defects among ~18 failures), GPU track at
+  scale (needs a GPU host; GCP $300 credit requires a paid upgrade), REPORT.json kinds are agent-reported.
