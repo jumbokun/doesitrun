@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "slug": "microsoft-markitdown",
+    "repo": "microsoft/markitdown",
+    "dir": "markitdown",
+    "company": "Microsoft",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install markitdown from the cloned source with its optional dependencies (pip install -e 'packages/markitdown[all]' in a venv). Then the `markitdown` CLI must convert the sample files packages/markitdown/tests/test_files/test.docx, test.xlsx, test.pptx and test.pdf to Markdown, both with `-o out.md` and via stdout redirect. Write /work/env.sh so that sourcing it makes the `markitdown` command available on PATH.",
+    "check": "The hidden test converts the bundled docx, xlsx, pptx and pdf samples with the markitdown CLI and checks the Markdown output contains the expected headings and known text strings."
+  }
+]

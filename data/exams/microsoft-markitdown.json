@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-markitdown",
+  "repo": "microsoft/markitdown",
+  "dir": "markitdown",
+  "company": "Microsoft",
+  "stars": 192387,
+  "examined": "2026-10-27 02:01:22",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 27,
+    "num_turns": 7,
+    "cost_usd": 0.0685869,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "MarkItDown is a lightweight Python CLI with a README usage section, runs on CPU with small downloads and needs no API key.",
+  "demo": "README Installation + Usage > Command-Line (markitdown file -o out.md)",
+  "goal": "Install markitdown from the cloned source with its optional dependencies (pip install -e 'packages/markitdown[all]' in a venv). Then the `markitdown` CLI must convert the sample files packages/markitdown/tests/test_files/test.docx, test.xlsx, test.pptx and test.pdf to Markdown, both with `-o out.md` and via stdout redirect. Write /work/env.sh so that sourcing it makes the `markitdown` command available on PATH.",
+  "check": "The hidden test converts the bundled docx, xlsx, pptx and pdf samples with the markitdown CLI and checks the Markdown output contains the expected headings and known text strings.",
+  "server": false
+}
