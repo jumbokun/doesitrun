@@ -1678,6 +1678,572 @@
           "slug": "paddlepaddle-rocketqa"
         }
       ]
+    },
+    "OpenAI": {
+      "orgs": [
+        "openai"
+      ],
+      "target": 3,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Robust Speech Recognition via Large-Scale Weak Supervision",
+          "pushed": "2026-08-31T17:19:19Z",
+          "repo": "openai/whisper",
+          "stars": 112659,
+          "slug": "openai-whisper"
+        },
+        {
+          "archived": true,
+          "description": "A toolkit for developing and comparing reinforcement learning algorithms.",
+          "pushed": "2026-03-26T23:13:27Z",
+          "repo": "openai/gym",
+          "stars": 37235,
+          "slug": "openai-gym"
+        },
+        {
+          "archived": false,
+          "description": "The official Python library for the OpenAI API",
+          "pushed": "2026-11-13T08:01:20Z",
+          "repo": "openai/openai-python",
+          "stars": 32143,
+          "slug": "openai-openai-python"
+        },
+        {
+          "archived": false,
+          "description": "A lightweight, powerful framework for multi-agent workflows",
+          "pushed": "2026-11-13T20:16:53Z",
+          "repo": "openai/openai-agents-python",
+          "stars": 30656,
+          "slug": "openai-openai-agents-python"
+        },
+        {
+          "archived": false,
+          "description": "Skills Catalog for Codex",
+          "pushed": "2026-10-28T17:31:41Z",
+          "repo": "openai/skills",
+          "stars": 28722,
+          "slug": "openai-skills"
+        },
+        {
+          "archived": true,
+          "description": "Code for the paper \"Language Models are Unsupervised Multitask Learners\"",
+          "pushed": "2024-08-14T10:50:53Z",
+          "repo": "openai/gpt-2",
+          "stars": 25015,
+          "slug": "openai-gpt-2"
+        },
+        {
+          "archived": false,
+          "description": "Educational framework exploring ergonomic, lightweight multi-agent orchestration. Managed by OpenAI Solution team.",
+          "pushed": "2026-04-15T17:10:28Z",
+          "repo": "openai/swarm",
+          "stars": 22135,
+          "slug": "openai-swarm"
+        },
+        {
+          "archived": true,
+          "description": "The ChatGPT Retrieval Plugin lets you easily find personal or work documents by asking questions in natural language.",
+          "pushed": "2024-07-04T22:00:16Z",
+          "repo": "openai/chatgpt-retrieval-plugin",
+          "stars": 21282,
+          "slug": "openai-chatgpt-retrieval-0cac5"
+        },
+        {
+          "archived": false,
+          "description": "gpt-oss-120b and gpt-oss-20b are two open-weight language models by OpenAI",
+          "pushed": "2026-10-29T16:42:13Z",
+          "repo": "openai/gpt-oss",
+          "stars": 20531,
+          "slug": "openai-gpt-oss"
+        },
+        {
+          "archived": false,
+          "description": "Evals is a framework for evaluating LLMs and LLM systems, and an open-source registry of benchmarks.",
+          "pushed": "2026-04-14T15:29:57Z",
+          "repo": "openai/evals",
+          "stars": 19739,
+          "slug": "openai-evals"
+        },
+        {
+          "archived": false,
+          "description": "tiktoken is a fast BPE tokeniser for use with OpenAI's models.",
+          "pushed": "2026-11-08T08:48:20Z",
+          "repo": "openai/tiktoken",
+          "stars": 19658,
+          "slug": "openai-tiktoken"
+        },
+        {
+          "archived": false,
+          "description": "OpenAI Baselines: high-quality implementations of reinforcement learning algorithms",
+          "pushed": "2024-08-01T21:31:33Z",
+          "repo": "openai/baselines",
+          "stars": 16778,
+          "slug": "openai-baselines"
+        },
+        {
+          "archived": false,
+          "description": "Generate 3D objects conditioned on text or images",
+          "pushed": "2024-06-22T19:19:14Z",
+          "repo": "openai/shap-e",
+          "stars": 12267,
+          "slug": "openai-shap-e"
+        },
+        {
+          "archived": false,
+          "description": "An educational resource to help anyone learn deep reinforcement learning.",
+          "pushed": "2024-08-05T03:30:30Z",
+          "repo": "openai/spinningup",
+          "stars": 12040,
+          "slug": "openai-spinningup"
+        },
+        {
+          "archived": true,
+          "description": "PyTorch package for the discrete VAE used for DALL·E.",
+          "pushed": "2024-01-31T15:42:28Z",
+          "repo": "openai/DALL-E",
+          "stars": 10803,
+          "slug": "openai-dall-e"
+        },
+        {
+          "archived": true,
+          "description": "Code for the paper \"Jukebox: A Generative Model for Music\"",
+          "pushed": "2024-06-19T05:14:24Z",
+          "repo": "openai/jukebox",
+          "stars": 8028,
+          "slug": "openai-jukebox"
+        },
+        {
+          "archived": true,
+          "description": "Universe: a software platform for measuring and training an AI's general intelligence across the world's supply of games, websites and other applications.",
+          "pushed": "2018-04-05T18:58:15Z",
+          "repo": "openai/universe",
+          "stars": 7492,
+          "slug": "openai-universe"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2024-07-02T11:26:50Z",
+          "repo": "openai/guided-diffusion",
+          "stars": 7447,
+          "slug": "openai-guided-diffusion"
+        },
+        {
+          "archived": false,
+          "description": "Point cloud diffusion for 3D model synthesis",
+          "pushed": "2024-07-04T19:05:34Z",
+          "repo": "openai/point-e",
+          "stars": 6903,
+          "slug": "openai-point-e"
+        },
+        {
+          "archived": false,
+          "description": "Demo of a customer service use case implemented with the OpenAI Agents SDK",
+          "pushed": "2025-12-18T07:58:03Z",
+          "repo": "openai/openai-cs-agents-demo",
+          "stars": 6611,
+          "slug": "openai-openai-cs-agents-demo"
+        },
+        {
+          "archived": true,
+          "description": "Official repo for consistency models.",
+          "pushed": "2024-03-22T06:56:31Z",
+          "repo": "openai/consistency_models",
+          "stars": 6483,
+          "slug": "openai-consistency-models"
+        },
+        {
+          "archived": false,
+          "description": "Train the smallest LM you can that fits in 16MB. Best model wins!",
+          "pushed": "2026-10-22T23:34:20Z",
+          "repo": "openai/parameter-golf",
+          "stars": 5203,
+          "slug": "openai-parameter-golf"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2026-04-22T22:16:18Z",
+          "repo": "openai/simple-evals",
+          "stars": 4704,
+          "slug": "openai-simple-evals"
+        },
+        {
+          "archived": true,
+          "description": null,
+          "pushed": "2024-03-19T07:03:15Z",
+          "repo": "openai/grok",
+          "stars": 4268,
+          "slug": "openai-grok"
+        },
+        {
+          "archived": true,
+          "description": "Get a ChatGPT plugin up and running in under 5 minutes!",
+          "pushed": "2024-01-30T23:23:11Z",
+          "repo": "openai/plugins-quickstart",
+          "stars": 4227,
+          "slug": "openai-plugins-quickstart"
+        }
+      ],
+      "registered": "2026-11-13"
+    },
+    "Amazon": {
+      "orgs": [
+        "amazon-science",
+        "awslabs",
+        "aws"
+      ],
+      "target": 3,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Universal Command Line Interface for Amazon Web Services",
+          "pushed": "2026-11-13T20:13:41Z",
+          "repo": "aws/aws-cli",
+          "stars": 17361,
+          "slug": "aws-aws-cli"
+        },
+        {
+          "archived": false,
+          "description": "Python Serverless Microframework for AWS",
+          "pushed": "2026-11-11T15:41:19Z",
+          "repo": "aws/chalice",
+          "stars": 11062,
+          "slug": "aws-chalice"
+        },
+        {
+          "archived": false,
+          "description": "Open source MCP Servers for AWS",
+          "pushed": "2026-11-13T20:16:30Z",
+          "repo": "awslabs/mcp",
+          "stars": 9915,
+          "slug": "awslabs-mcp"
+        },
+        {
+          "archived": false,
+          "description": "The AWS Serverless Application Model (AWS SAM) transform is a AWS CloudFormation macro that transforms SAM templates into CloudFormation templates.",
+          "pushed": "2026-11-12T23:01:22Z",
+          "repo": "aws/serverless-application-model",
+          "stars": 9587,
+          "slug": "aws-serverless-applicati-760d5"
+        },
+        {
+          "archived": false,
+          "description": "An integrated shell for working with the AWS CLI.",
+          "pushed": "2024-12-16T22:48:37Z",
+          "repo": "awslabs/aws-shell",
+          "stars": 7333,
+          "slug": "awslabs-aws-shell"
+        },
+        {
+          "archived": false,
+          "description": "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM",
+          "pushed": "2026-11-13T20:03:46Z",
+          "repo": "aws/aws-sam-cli",
+          "stars": 6745,
+          "slug": "aws-aws-sam-cli"
+        },
+        {
+          "archived": false,
+          "description": "Chronos: Pretrained Models for Time Series Forecasting",
+          "pushed": "2026-10-05T14:25:02Z",
+          "repo": "amazon-science/chronos-forecasting",
+          "stars": 6298,
+          "slug": "amazon-science-chronos-f-714a0"
+        },
+        {
+          "archived": false,
+          "description": "Probabilistic time series modeling in Python",
+          "pushed": "2026-10-13T12:42:28Z",
+          "repo": "awslabs/gluonts",
+          "stars": 5260,
+          "slug": "awslabs-gluonts"
+        },
+        {
+          "archived": false,
+          "description": "pandas on AWS - Easy integration with Athena, Glue, Redshift, Timestream, Neptune, OpenSearch, QuickSight, Chime, CloudWatchLogs, DynamoDB, EMR, SecretManager, PostgreSQL, MySQL, SQLServer and S3 (Parquet, CSV, JSON and EXCEL).",
+          "pushed": "2026-11-13T18:09:41Z",
+          "repo": "aws/aws-sdk-pandas",
+          "stars": 4125,
+          "slug": "aws-aws-sdk-pandas"
+        },
+        {
+          "archived": false,
+          "description": "Official implementation for \"Multimodal Chain-of-Thought Reasoning in Language Models\" (stay tuned and more will be updated)",
+          "pushed": "2024-06-12T13:50:10Z",
+          "repo": "amazon-science/mm-cot",
+          "stars": 3984,
+          "slug": "amazon-science-mm-cot"
+        },
+        {
+          "archived": false,
+          "description": "Amazon Bedrock Agentcore accelerates AI agents into production with the scale, reliability, and security, critical to real-world deployment.",
+          "pushed": "2026-11-13T17:54:46Z",
+          "repo": "awslabs/agentcore-samples",
+          "stars": 3527,
+          "slug": "awslabs-agentcore-samples"
+        },
+        {
+          "archived": false,
+          "description": "Official, AWS-supported MCP servers, skills, and plugins to help AI agents build on AWS",
+          "pushed": "2026-11-13T20:20:57Z",
+          "repo": "aws/agent-toolkit-for-aws",
+          "stars": 3487,
+          "slug": "aws-agent-toolkit-for-aws"
+        },
+        {
+          "archived": false,
+          "description": "Amazon Redshift Utils contains utilities, scripts and view which are useful in a Redshift environment",
+          "pushed": "2026-11-12T08:57:11Z",
+          "repo": "awslabs/amazon-redshift-utils",
+          "stars": 2800,
+          "slug": "awslabs-amazon-redshift-utils"
+        },
+        {
+          "archived": false,
+          "description": "A library for training and deploying machine learning models on Amazon SageMaker",
+          "pushed": "2026-11-13T14:44:06Z",
+          "repo": "aws/sagemaker-python-sdk",
+          "stars": 2272,
+          "slug": "aws-sagemaker-python-sdk"
+        },
+        {
+          "archived": false,
+          "description": "A best practices guide for day 2 operations, including operational excellence, security, reliability, performance efficiency, and cost optimization.",
+          "pushed": "2026-11-04T16:36:20Z",
+          "repo": "aws/aws-eks-best-practices",
+          "stars": 2166,
+          "slug": "aws-aws-eks-best-practices"
+        },
+        {
+          "archived": false,
+          "description": "Hands on labs and code to help you learn, measure, and build using architectural best practices.",
+          "pushed": "2026-01-14T16:20:40Z",
+          "repo": "awslabs/aws-well-architected-labs",
+          "stars": 2151,
+          "slug": "awslabs-aws-well-archite-a65aa"
+        },
+        {
+          "archived": false,
+          "description": "A registry of publicly available datasets on AWS",
+          "pushed": "2026-11-13T19:20:20Z",
+          "repo": "awslabs/open-data-registry",
+          "stars": 1834,
+          "slug": "awslabs-open-data-registry"
+        },
+        {
+          "archived": false,
+          "description": "[Node, Python, Java] Repository of sample Custom Rules for AWS Config. ",
+          "pushed": "2026-10-06T19:17:00Z",
+          "repo": "awslabs/aws-config-rules",
+          "stars": 1742,
+          "slug": "awslabs-aws-config-rules"
+        },
+        {
+          "archived": false,
+          "description": "Multi-agent orchestration for AI coding CLIs — Claude Code, Kiro, Codex, and more, coordinated in isolated tmux sessions",
+          "pushed": "2026-11-13T12:48:31Z",
+          "repo": "awslabs/cli-agent-orchestrator",
+          "stars": 1553,
+          "slug": "awslabs-cli-agent-orchestrator"
+        },
+        {
+          "archived": false,
+          "description": "Tools and sample code provided by AWS Premium Support.",
+          "pushed": "2026-09-15T16:05:38Z",
+          "repo": "awslabs/aws-support-tools",
+          "stars": 1509,
+          "slug": "awslabs-aws-support-tools"
+        },
+        {
+          "archived": false,
+          "description": null,
+          "pushed": "2024-07-10T01:35:09Z",
+          "repo": "amazon-science/patchcore-inspection",
+          "stars": 1443,
+          "slug": "amazon-science-patchcore-83071"
+        },
+        {
+          "archived": false,
+          "description": "High performance, easy-to-use, and scalable package for learning large-scale knowledge graph embeddings.",
+          "pushed": "2026-07-06T18:22:51Z",
+          "repo": "awslabs/dgl-ke",
+          "stars": 1336,
+          "slug": "awslabs-dgl-ke"
+        },
+        {
+          "archived": false,
+          "description": "Sequence-to-sequence framework with a focus on Neural Machine Translation based on PyTorch",
+          "pushed": "2024-10-24T08:18:17Z",
+          "repo": "awslabs/sockeye",
+          "stars": 1214,
+          "slug": "awslabs-sockeye"
+        },
+        {
+          "archived": false,
+          "description": " One stop shop for running AI/ML on AWS.",
+          "pushed": "2026-11-13T19:55:26Z",
+          "repo": "aws/deep-learning-containers",
+          "stars": 1202,
+          "slug": "aws-deep-learning-containers"
+        },
+        {
+          "archived": false,
+          "description": "RAGChecker: A Fine-grained Framework For Diagnosing RAG",
+          "pushed": "2024-12-13T13:24:41Z",
+          "repo": "amazon-science/RAGChecker",
+          "stars": 1137,
+          "slug": "amazon-science-ragchecker"
+        }
+      ],
+      "registered": "2026-11-13"
+    },
+    "Apple": {
+      "orgs": [
+        "apple",
+        "ml-explore"
+      ],
+      "target": 3,
+      "candidates": [
+        {
+          "archived": false,
+          "description": "Examples in the MLX framework",
+          "pushed": "2026-04-06T18:56:05Z",
+          "repo": "ml-explore/mlx-examples",
+          "stars": 9065,
+          "slug": "ml-explore-mlx-examples"
+        },
+        {
+          "archived": false,
+          "description": "Run LLMs with MLX",
+          "pushed": "2026-11-06T11:23:26Z",
+          "repo": "ml-explore/mlx-lm",
+          "stars": 7650,
+          "slug": "ml-explore-mlx-lm"
+        },
+        {
+          "archived": false,
+          "description": "Core ML tools contain supporting tools for Core ML model conversion, editing, and validation.",
+          "pushed": "2026-09-30T16:18:33Z",
+          "repo": "apple/coremltools",
+          "stars": 5452,
+          "slug": "apple-coremltools"
+        },
+        {
+          "archived": false,
+          "description": "An Extensible Deep Learning Library",
+          "pushed": "2026-07-08T21:26:38Z",
+          "repo": "apple/axlearn",
+          "stars": 2384,
+          "slug": "apple-axlearn"
+        },
+        {
+          "archived": false,
+          "description": "Python bindings for access to the on-device model at the core of Apple Intelligence through the Foundation Models framework",
+          "pushed": "2026-11-11T00:58:45Z",
+          "repo": "apple/python-apple-fm-sdk",
+          "stars": 1386,
+          "slug": "apple-python-apple-fm-sdk"
+        },
+        {
+          "archived": true,
+          "description": "The Calendar and Contacts Server.",
+          "pushed": "2020-02-12T17:54:53Z",
+          "repo": "apple/ccs-calendarserver",
+          "stars": 507,
+          "slug": "apple-ccs-calendarserver"
+        },
+        {
+          "archived": false,
+          "description": "The Python server library for the App Store Server API and App Store Server Notifications.",
+          "pushed": "2026-10-26T02:03:24Z",
+          "repo": "apple/app-store-server-library-python",
+          "stars": 268,
+          "slug": "apple-app-store-server-l-eeba5"
+        },
+        {
+          "archived": false,
+          "description": "Bridges PyTorch and Core AI. Convert existing models to Core AI IR, or author new ones from PyTorch via composite ops, custom op lowerings, and inline Metal GPU kernels.",
+          "pushed": "2026-11-11T22:25:40Z",
+          "repo": "apple/coreai-torch",
+          "stars": 183,
+          "slug": "apple-coreai-torch"
+        },
+        {
+          "archived": false,
+          "description": "A library for PyTorch model compression and optimizations for deployment via Core AI on Apple silicon.",
+          "pushed": "2026-11-13T18:36:36Z",
+          "repo": "apple/coreai-optimization",
+          "stars": 158,
+          "slug": "apple-coreai-optimization"
+        },
+        {
+          "archived": false,
+          "description": "A Python toolkit for analyzing machine learning models and datasets.",
+          "pushed": "2026-09-25T17:38:34Z",
+          "repo": "apple/dnikit",
+          "stars": 79,
+          "slug": "apple-dnikit"
+        },
+        {
+          "archived": true,
+          "description": "Python iCalendar library used by CalendarServer",
+          "pushed": "2024-02-24T17:26:32Z",
+          "repo": "apple/ccs-pycalendar",
+          "stars": 73,
+          "slug": "apple-ccs-pycalendar"
+        },
+        {
+          "archived": true,
+          "description": "CalDAV/CardDAV Testing Framework used by CalendarServer",
+          "pushed": "2024-02-24T17:24:16Z",
+          "repo": "apple/ccs-caldavtester",
+          "stars": 63,
+          "slug": "apple-ccs-caldavtester"
+        },
+        {
+          "archived": false,
+          "description": "A Python client library for the Apple Ads Platform API",
+          "pushed": "2026-10-13T14:52:49Z",
+          "repo": "apple/apple-ads-platform-api-python",
+          "stars": 34,
+          "slug": "apple-apple-ads-platform-c5151"
+        },
+        {
+          "archived": true,
+          "description": "Python Framework for macOS APIs used by CalendarServer",
+          "pushed": "2017-02-27T21:32:24Z",
+          "repo": "apple/ccs-pyosxframeworks",
+          "stars": 27,
+          "slug": "apple-ccs-pyosxframeworks"
+        },
+        {
+          "archived": true,
+          "description": "Twisted SecureTransport library used by CalendarServer",
+          "pushed": "2017-02-27T21:30:42Z",
+          "repo": "apple/ccs-pysecuretransport",
+          "stars": 23,
+          "slug": "apple-ccs-pysecuretransport"
+        },
+        {
+          "archived": true,
+          "description": "Extensions to Twisted used by CalendarServer",
+          "pushed": "2019-05-08T16:01:07Z",
+          "repo": "apple/ccs-twistedextensions",
+          "stars": 18,
+          "slug": "apple-ccs-twistedextensions"
+        },
+        {
+          "archived": false,
+          "description": "Test your matchmaking rules before running your game using a Python 3 script to execute the App Store Connect APIs.",
+          "pushed": "2026-10-21T00:18:01Z",
+          "repo": "apple/game-center-tools",
+          "stars": 11,
+          "slug": "apple-game-center-tools"
+        }
+      ],
+      "registered": "2026-11-13"
     }
   }
 }

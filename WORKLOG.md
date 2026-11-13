@@ -188,3 +188,7 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   transformers 4.57.6 cannot resolve (same files under .../gpt2 load). Recorded a correction (oracle_defect) in its
   run record, original audit kept; scoring honours corrections. NVIDIA 59 -> 68 (n=7). The previous entry's
   "two zeros unrelated to CUDA" is superseded: NVIDIA now has one zero (SPADE).
+- 2026-11-13: batch 4 pre-registered with `candidates.py --add OpenAI Amazon Apple --target 3` (same rule: top 25
+  Python repos by stars across official orgs, examiner screens in star order; target 3 per company, so company
+  means sit at n=3). The 8 batch-3 companies are byte-identical in data/candidates.json. Orgs: OpenAI = openai;
+  Amazon = amazon-science, awslabs, aws; Apple = apple, ml-explore (Apple has only 17 eligible-by-search repos).
