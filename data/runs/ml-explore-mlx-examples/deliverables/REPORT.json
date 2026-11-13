@@ -1,0 +1,4 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Installed mlx[cpu] extra (mlx-cpu) because plain mlx on Linux lacks libmlx.so"}
+ ]}

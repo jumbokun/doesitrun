@@ -816,5 +816,68 @@
     "evidence": [
       "owner 'TencentARC' is Tencent org account (ARC Lab)"
     ]
+  },
+  "apple/coremltools": {
+    "repo": "apple/coremltools",
+    "company": "Apple",
+    "team": "Apple",
+    "confidence": "high",
+    "evidence": [
+      "owner 'apple' is Apple org account (Apple)"
+    ]
+  },
+  "awslabs/mcp": {
+    "repo": "awslabs/mcp",
+    "company": "Amazon",
+    "team": "AWS Labs",
+    "confidence": "high",
+    "evidence": [
+      "owner 'awslabs' is Amazon org account (AWS Labs)"
+    ]
+  },
+  "ml-explore/mlx-examples": {
+    "repo": "ml-explore/mlx-examples",
+    "company": "Apple",
+    "team": "MLX",
+    "confidence": "high",
+    "evidence": [
+      "owner 'ml-explore' is Apple org account (MLX)"
+    ]
+  },
+  "ml-explore/mlx-lm": {
+    "repo": "ml-explore/mlx-lm",
+    "company": "Apple",
+    "team": "MLX",
+    "confidence": "high",
+    "evidence": [
+      "owner 'ml-explore' is Apple org account (MLX)"
+    ]
+  },
+  "openai/gpt-2": {
+    "repo": "openai/gpt-2",
+    "company": "OpenAI",
+    "team": "OpenAI",
+    "confidence": "high",
+    "evidence": [
+      "owner 'openai' is OpenAI org account (OpenAI)"
+    ]
+  },
+  "openai/gym": {
+    "repo": "openai/gym",
+    "company": "OpenAI",
+    "team": "OpenAI",
+    "confidence": "high",
+    "evidence": [
+      "owner 'openai' is OpenAI org account (OpenAI)"
+    ]
+  },
+  "openai/whisper": {
+    "repo": "openai/whisper",
+    "company": "OpenAI",
+    "team": "OpenAI",
+    "confidence": "high",
+    "evidence": [
+      "owner 'openai' is OpenAI org account (OpenAI)"
+    ]
   }
 }

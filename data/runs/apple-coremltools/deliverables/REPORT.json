@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Pinned torch==2.7.1 CPU wheel (coremltools 9.0 supports torch<=2.8.0)"},
+  {"kind": "dependency_pin", "detail": "Pinned scikit-learn==1.5.1; newer versions are rejected by coremltools (_SKLEARN_MAX_VERSION) and disable the sklearn converter"},
+  {"kind": "python_version", "detail": "Used a Python 3.12 venv via uv"}
+ ]}

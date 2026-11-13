@@ -1,0 +1,41 @@
+{
+  "slug": "apple-coremltools",
+  "repo": "apple/coremltools",
+  "track": "cpu-gha",
+  "goal": "Install coremltools (from the clone or pip) with PyTorch and scikit-learn, using a Python/torch combination that coremltools supports and that works on Linux x86 CPU. Then make this work: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors on Linux.",
+  "check": "A hidden script converts a small conv/linear torch model to an mlprogram package and a sklearn model, then checks the saved files and model spec contents.",
+  "started": "2026-11-13 20:48:34",
+  "agent": {
+    "secs": 60,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "c9afd01d-ad8e-4970-9722-403f92aae6b0",
+    "num_turns": 6,
+    "cost_usd": 0.1100456,
+    "is_error": false,
+    "final": "DONE: `/work/setup.sh` now reproduces the whole setup, with coremltools 9.0, CPU torch 2.7.1 and scikit-learn 1.5.1 pinned in a Python 3.12 venv. After a fresh rebuild, my test traced and converted a conv+linear model to a saved `.mlpackage` with input `x`, and converted and saved a LinearRegression."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 21,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 20:50:22"
+}

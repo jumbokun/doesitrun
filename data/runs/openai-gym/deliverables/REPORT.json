@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 because gym 0.26.2 uses np.bool8, which NumPy 2.0 removed and which crashed env.step()"},
+  {"kind": "python_version", "detail": "Used a uv-managed Python 3.10 venv (README supports 3.7-3.10) instead of the system Python 3.12"},
+  {"kind": "undocumented_step", "detail": "Installed the cloned repo in editable mode (pip install -e /work/gym) instead of pip install gym from PyPI, so the cloned version is the one imported"}
+ ]}

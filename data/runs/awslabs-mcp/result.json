@@ -1,0 +1,41 @@
+{
+  "slug": "awslabs-mcp",
+  "repo": "awslabs/mcp",
+  "track": "cpu-gha",
+  "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation. Calling read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown.",
+  "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, calls read_documentation on a Lambda docs page and verifies that substantial Lambda-related text comes back.",
+  "started": "2026-11-13 20:43:54",
+  "agent": {
+    "secs": 36,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "ded4d03d-23ba-46e4-9dd3-3e4b7004e5f6",
+    "num_turns": 5,
+    "cost_usd": 0.0954506,
+    "is_error": false,
+    "final": "DONE — I deleted the venv and reran `/work/setup.sh` (the repo clone was reused, not re-cloned). The rebuilt server started over stdio both as the CLI and via `python -m`, listed `read_documentation` and `search_documentation`, and returned the Lambda welcome page as markdown (\"# What is AWS Lambda? ...\")."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 5,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 20:45:02"
+}

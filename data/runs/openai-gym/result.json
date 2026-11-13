@@ -1,0 +1,41 @@
+{
+  "slug": "openai-gym",
+  "repo": "openai/gym",
+  "track": "cpu-gha",
+  "goal": "Make the README API example work: import gym, create CartPole-v1, reset with seed=42, and run 1000 steps with random actions from env.action_space.sample(), resetting on terminated or truncated, then env.close(). The installed gym must be this cloned repo's version (5-tuple step API), and it must run without errors in a working Python environment set up via /work/env.sh.",
+  "check": "A script running the README loop completes without error, with observations of the expected shape and at least one episode termination observed.",
+  "started": "2026-11-13 20:37:42",
+  "agent": {
+    "secs": 36,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "a674bad0-1d79-48ab-a6e7-161f5b85857e",
+    "num_turns": 6,
+    "cost_usd": 0.1161838,
+    "is_error": false,
+    "final": "DONE — I rebuilt the venv from scratch with `setup.sh` and the README loop then ran 1000 steps without errors: it imported the cloned gym 0.26.2 (5-tuple step API), every observation had shape (4,), and 44 episodes ended. The fixes were a Python 3.10 venv and a `numpy<2` pin, because NumPy 2 removed `np.bool8`, which gym calls in `env.step()`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 4,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 0
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 20:38:44"
+}
