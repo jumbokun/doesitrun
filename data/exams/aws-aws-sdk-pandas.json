@@ -1,0 +1,21 @@
+{
+  "slug": "aws-aws-sdk-pandas",
+  "repo": "aws/aws-sdk-pandas",
+  "dir": "aws-sdk-pandas",
+  "company": "Amazon",
+  "stars": 4125,
+  "examined": "2026-11-13 23:20:12",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.038762200000000004,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README Quick Start only runs against real AWS services (S3, Athena, Redshift, Timestream) and needs an AWS account and credentials.",
+  "demo": "README Quick Start",
+  "goal": "",
+  "check": "",
+  "server": false
+}

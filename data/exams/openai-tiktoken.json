@@ -1,0 +1,21 @@
+{
+  "slug": "openai-tiktoken",
+  "repo": "openai/tiktoken",
+  "dir": "tiktoken",
+  "company": "OpenAI",
+  "stars": 19659,
+  "examined": "2026-11-13 23:27:04",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 10,
+    "num_turns": 3,
+    "cost_usd": 0.0275479,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README quickstart is a pure-Python tokeniser demo that runs on CPU, needing only a Rust build and a public BPE vocab download (no key).",
+  "demo": "README top quickstart: tiktoken.get_encoding('o200k_base') encode/decode round trip and encoding_for_model('gpt-4o')",
+  "goal": "Install tiktoken from the /work/tiktoken clone (it builds a Rust extension) so that `import tiktoken` works. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. Also cl100k_base should work.",
+  "check": "The hidden test runs Python that encodes and decodes text with several encodings and checks exact token ids and round trips.",
+  "server": false
+}

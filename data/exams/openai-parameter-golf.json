@@ -1,0 +1,21 @@
+{
+  "slug": "openai-parameter-golf",
+  "repo": "openai/parameter-golf",
+  "dir": "parameter-golf",
+  "company": "OpenAI",
+  "stars": 5203,
+  "examined": "2026-11-13 23:27:23",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 18,
+    "num_turns": 7,
+    "cost_usd": 0.082707,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README demos need an Apple-Silicon MLX run or CUDA GPUs, and the smoke run always evaluates the full ~62M-token validation split twice, which would take hours on 4 CPU cores.",
+  "demo": "Getting Started: train_gpt_mlx.py smoke run / train_gpt.py via torchrun",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

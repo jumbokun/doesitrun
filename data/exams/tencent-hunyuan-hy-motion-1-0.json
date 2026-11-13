@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hy-motion-1-0",
+  "repo": "Tencent-Hunyuan/HY-Motion-1.0",
+  "dir": "HY-Motion-1.0",
+  "company": "Tencent",
+  "stars": 2669,
+  "examined": "2026-11-13 23:24:31",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 5,
+    "cost_usd": 0.0578973,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Inference requires the Qwen3-8B text encoder (~16 GB bf16 download, plus CLIP and model weights), exceeding the 15 GB download limit and 16 GB RAM on CPU.",
+  "demo": "Code Usage (CLI): python3 local_infer.py --model_path ckpts/tencent/HY-Motion-1.0-Lite",
+  "goal": "",
+  "check": "",
+  "server": false
+}

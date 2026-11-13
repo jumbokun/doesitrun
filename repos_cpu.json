@@ -110,6 +110,61 @@
     "check": "A script running the README translation snippet exits successfully and prints a German translation of the sentence containing expected German words."
   },
   {
+    "slug": "google-deepmind-weathernext",
+    "repo": "google-deepmind/weathernext",
+    "dir": "weathernext",
+    "company": "Google",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the weathernext package (pip install from the repo, with its jax/haiku/xarray_jax dependencies) so that the notebook's core flow works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-01.nc from the public bucket dm_graphcast, then run an autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Use the GPU attention setting (attention_type 'triblockdiag_mha') if the CPU needs it. Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
+    "check": "A standalone script re-runs the Mini-model 2-member ensemble rollout on the sample data and checks the predictions are finite, physically plausible 2m temperatures with ensemble spread and writes a NetCDF output."
+  },
+  {
+    "slug": "google-research-arxiv-la-b23d9",
+    "repo": "google-research/arxiv-latex-cleaner",
+    "dir": "arxiv-latex-cleaner",
+    "company": "Google",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install arxiv-latex-cleaner (from the repo clone or pip) so that `arxiv_latex_cleaner <folder> --resize_images --im_size 100 --images_allowlist='{\"images/im2_included.jpg\":50}'` (or `python -m arxiv_latex_cleaner`) runs on a copy of test_data/tex and produces the <folder>_arXiv output directory. Comments must be stripped, unused files/images removed, and images resized.",
+    "check": "The hidden test runs the cleaner on a copy of the bundled sample LaTeX project and inspects the output folder for removed comments, removed unused/aux files, kept used files and resized images."
+  },
+  {
+    "slug": "google-agents-cli",
+    "repo": "google/agents-cli",
+    "dir": "agents-cli",
+    "company": "Google",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install google-agents-cli from the cloned repo (or PyPI) so the `agents-cli` command works (Python 3.11+, uv available). Then `agents-cli create caveman-agent -y --skip-checks -o <some dir>` must scaffold a complete ADK Python agent project (pyproject.toml, app/agent.py defining root_agent) without any API key or Google Cloud login. Make `agents-cli` available on PATH via /work/env.sh.",
+    "check": "The hidden test runs `agents-cli create` into a fresh directory and verifies the generated project files (pyproject.toml, app/agent.py with root_agent) exist and are valid."
+  },
+  {
+    "slug": "google-deepmind-gemma",
+    "repo": "google-deepmind/gemma",
+    "dir": "gemma",
+    "company": "Google",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the gemma package from the clone at /work/gemma with JAX for CPU, and make a text-only chat work with the official ChatSampler API. Use model gm.nn.Gemma3_270M() with params from gm.ckpts.load_params(gm.ckpts.CheckpointPath.GEMMA3_270M_IT), which downloads from the public gs://gemma-data bucket. Then call sampler.chat('What is the capital of France?') and get a sensible text answer. Put whatever environment activation is needed in /work/env.sh.",
+    "check": "A Python script using gm.nn.Gemma3_270M, load_params(GEMMA3_270M_IT) and ChatSampler.chat generates a non-empty text answer to a factual question, and a second multi-turn call also returns text."
+  },
+  {
+    "slug": "google-clusterfuzz",
+    "repo": "google/clusterfuzz",
+    "dir": "clusterfuzz",
+    "company": "Google",
+    "gpu": false,
+    "mem": "12g",
+    "server": true,
+    "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install deps as needed, with local datastore emulator, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
+    "check": "The hidden test starts the server via run.sh and verifies http://localhost:9000/ and /login return HTTP 200 with ClusterFuzz page content."
+  },
+  {
     "slug": "facebookresearch-detectron2",
     "repo": "facebookresearch/detectron2",
     "dir": "detectron2",
@@ -218,6 +273,17 @@
     "server": false,
     "goal": "Install PyTorch3D (CPU build) from the /work/pytorch3d clone so that `import pytorch3d` works. Then the tutorial's core pipeline must work on CPU: load docs/tutorials/data/cow_mesh/cow.obj with pytorch3d.io.load_objs_as_meshes, and render it with a FoVPerspectiveCameras + MeshRasterizer + SoftPhongShader + PointLights MeshRenderer to an RGBA image.",
     "check": "A hidden script loads the bundled cow mesh, renders it on CPU, and checks the image shape and that it contains non-background textured pixels."
+  },
+  {
+    "slug": "facebookresearch-kats",
+    "repo": "facebookresearch/Kats",
+    "dir": "Kats",
+    "company": "Meta",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install Kats (pip install kats or from the clone; a compatible Python/dependency set is needed) so that the three README snippets run from /work/Kats: ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
+    "check": "A hidden script runs all three snippets from the repo root and verifies a 30-row forecast, a detected change point near the simulated shift, and a populated feature dict."
   },
   {
     "slug": "microsoft-markitdown",
@@ -330,6 +396,39 @@
     "check": "The hidden test runs the built pyright CLI on a small Python file with known type errors and a clean file, and verifies the reported errors, the JSON output and the exit codes."
   },
   {
+    "slug": "microsoft-playwright-python",
+    "repo": "microsoft/playwright-python",
+    "dir": "playwright-python",
+    "company": "Microsoft",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the playwright-python package from the repo clone and download the browsers (e.g. `playwright install --with-deps chromium`). Run the README sync example, at least with Chromium launched headless, so that it opens a page and writes a screenshot PNG. Make `python` (via /work/env.sh) able to `import playwright` and launch Chromium.",
+    "check": "A script run with the environment launches headless Chromium, loads a local page, and produces a valid screenshot PNG and the expected page title and text."
+  },
+  {
+    "slug": "microsoft-agent-framework",
+    "repo": "microsoft/agent-framework",
+    "dir": "agent-framework",
+    "company": "Microsoft",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the Python agent-framework package (pip install agent-framework, or from the repo's python/ packages) so that `python python/samples/03-workflows/_start-here/step1_executors_and_edges.py` runs from the repo root. It must print the two workflow outputs ['DLROW OLLEH'] and ['!!!DLROW OLLEH'] with final state IDLE. The sample needs no API key or external service.",
+    "check": "The sample's printed outputs match the expected reversed/uppercased strings, and importing its workflow builder on a new input gives the correct transformed result."
+  },
+  {
+    "slug": "microsoft-promptflow",
+    "repo": "microsoft/promptflow",
+    "dir": "promptflow",
+    "company": "Microsoft",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install promptflow and promptflow-tools so the `pf` CLI works. Then run the flow examples/flows/standard/conditional-flow-for-if-else both with `pf flow test --flow <dir> --inputs question=\"What is Prompt flow?\"` and as a batch run with `pf run create --flow <dir> --data <dir>/data.jsonl`. Both must complete successfully without any API key or connection.",
+    "check": "The hidden test runs the flow through the pf CLI on its own inputs, both single test and batch run, and checks the outputs contain the expected answers."
+  },
+  {
     "slug": "nvidia-skillspector",
     "repo": "NVIDIA/SkillSpector",
     "dir": "SkillSpector",
@@ -438,6 +537,28 @@
     "server": false,
     "goal": "Get gen_images.py running on CPU only (no GPU) so it downloads the pretrained stylegan3-r-afhqv2-512x512 network from the README URL and writes a generated PNG for seed 2 with --trunc=1 into an output directory. Install whatever dependencies (torch CPU, numpy, click, pillow, scipy, requests, tqdm, etc.) are needed and record the environment in /work/env.sh.",
     "check": "The hidden test runs gen_images.py with the pretrained AFHQv2 network on a seed and verifies a valid, non-trivial 512x512 PNG is produced."
+  },
+  {
+    "slug": "nvidia-model-optimizer",
+    "repo": "NVIDIA/Model-Optimizer",
+    "dir": "Model-Optimizer",
+    "company": "NVIDIA",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install nvidia-modelopt from the cloned repo (CPU-only torch, plus transformers) so that `import modelopt.torch.quantization as mtq` works. Then run post-training quantization: take a small Hugging Face causal LM (e.g. a tiny randomly initialised LlamaForCausalLM), call mtq.quantize(model, mtq.INT8_DEFAULT_CFG, forward_loop) with a calibration forward loop on CPU, and confirm the model has calibrated TensorQuantizer modules and still produces finite logits.",
+    "check": "A hidden script quantizes a small Llama model with INT8_DEFAULT_CFG on CPU and verifies quantizers were inserted and calibrated and that outputs are finite and slightly different from the original."
+  },
+  {
+    "slug": "nvlabs-gr00t-wholebodycontrol",
+    "repo": "NVlabs/GR00T-WholeBodyControl",
+    "dir": "GR00T-WholeBodyControl",
+    "company": "NVIDIA",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. The script uses the hparams.yaml/skeleton/stats files under motionbricks/out/motionbricks_vqvae/version_1 and synthetic data; the large LFS checkpoints are not needed. Provide /work/env.sh that activates the environment.",
+    "check": "Running the VQVAE synthetic-data training for 20 steps on CPU exits successfully, logs the start banner and 'Training complete.' with no traceback."
   },
   {
     "slug": "qwenlm-qwen3",
@@ -550,6 +671,28 @@
     "check": "The hidden test runs the FRCRN_SE_16K speech enhancement on the bundled samples/input.wav and verifies a non-silent 16 kHz output wav of the expected length is written."
   },
   {
+    "slug": "modelscope-evalscope",
+    "repo": "modelscope/evalscope",
+    "dir": "evalscope",
+    "company": "Alibaba",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install evalscope (Python >= 3.11) and make `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and the GSM8K dataset fetched. It must accept a `--work-dir <dir>` option for outputs and finish by writing an evaluation report.",
+    "check": "The hidden test runs the local-model GSM8K evaluation with limit 5 into a fresh output directory and verifies that a report file with a GSM8K score and 5 evaluated samples was produced."
+  },
+  {
+    "slug": "qwenlm-qwen-mm-plugins",
+    "repo": "QwenLM/Qwen-MM-Plugins",
+    "dir": "Qwen-MM-Plugins",
+    "company": "Alibaba",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Get the `core` capability's MCP server (python3 src/capabilities/core/qwen_mm_plugins_core, or qwen-mm-plugins-core with the [viz] extra) running over stdio in native mode with no API key. It must answer tools/list and execute save_view (render page 1 of tests/assets/sample.pdf to PNG), crop, visualize (tests/assets/sample.csv) and read_image. Install the base deps plus the viz extras (pypdfium2, pandas, matplotlib etc.) into the python that /work/env.sh puts on PATH.",
+    "check": "A JSON-RPC stdio client starts the core server, lists its tools, renders a PDF page to a PNG, crops it to the expected size, visualizes a CSV with expected text, and reads an image back."
+  },
+  {
     "slug": "tencentarc-gfpgan",
     "repo": "TencentARC/GFPGAN",
     "dir": "GFPGAN",
@@ -658,6 +801,28 @@
     "server": false,
     "goal": "Get `python -m hyworld2.worldrecon.pipeline --input_path examples/worldrecon/realistic/Desk --output_path <dir> --target_size 518` running on CPU only (no GPU, no flash-attn/CUDA available; the public tencent/HY-World-2.0 weights, subfolder HY-WorldMirror-2.0, download automatically). It must finish and write depth maps, normal maps, camera_params.json, points.ply and gaussians.ply under <dir>/<case>/<timestamp>/. Any source patching needed for CPU is allowed.",
     "check": "The hidden test runs the WorldMirror CLI on the bundled Desk images with a small target size and verifies that the depth, normal, camera_params.json, points.ply and gaussians.ply outputs exist with plausible content."
+  },
+  {
+    "slug": "tencent-medicalnet",
+    "repo": "Tencent/MedicalNet",
+    "dir": "MedicalNet",
+    "company": "Tencent",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. The code was written for old PyTorch, nibabel and scipy, so it may need compatibility fixes for the installed library versions. Do not use the Google Drive pretrained weights.",
+    "check": "Running train.py --ci_test on CPU exits successfully, logs at least one finite loss value and prints 'Finished training'."
+  },
+  {
+    "slug": "tencent-hunyuan-hunyuanocr",
+    "repo": "Tencent-Hunyuan/HunyuanOCR",
+    "dir": "HunyuanOCR",
+    "company": "Tencent",
+    "gpu": false,
+    "mem": "12g",
+    "server": true,
+    "goal": "Build upstream llama.cpp on CPU, download tencent/HunyuanOCR from Hugging Face (exclude v1.0/*, skip DFlash), convert to hyocr-f16.gguf and mmproj-hyocr-f16.gguf via convert_hf_to_gguf.py, and serve with llama-server (section 4.1: port 8080, --alias HYVL, --jinja, -fa on, modest ctx-size). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
+    "check": "The hidden test sends a generated image containing text to the server's chat completions endpoint and verifies the response is HTTP 200 and contains the text in the image."
   },
   {
     "slug": "bytedance-ui-tars",
@@ -880,6 +1045,28 @@
     "check": "The hidden test runs the OCR CLI on a generated image of printed text on CPU and verifies the saved output files and that the recognized text contains the expected words."
   },
   {
+    "slug": "paddlepaddle-paddleclas",
+    "repo": "PaddlePaddle/PaddleClas",
+    "dir": "PaddleClas",
+    "company": "Baidu",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install PaddleClas (paddlepaddle CPU plus the paddleclas package/CLI from the repo at /work/PaddleClas) so that `paddleclas --model_name=ResNet50 --infer_imgs=docs/images/inference_deployment/whl_demo.jpg` run from /work/PaddleClas downloads the pretrained inference model and prints the top-5 predictions. The Python API `PaddleClas(model_name='ResNet50').predict(path)` must work too.",
+    "check": "The CLI and the Python API both classify the bundled demo image, with the top-1 prediction being class id 8 'hen' at high confidence."
+  },
+  {
+    "slug": "paddlepaddle-parl",
+    "repo": "PaddlePaddle/PARL",
+    "dir": "PARL",
+    "company": "Baidu",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install PARL's dependencies (paddlepaddle CPU, gym, pygame, parl from the /work/PARL clone or pip) so that `python train.py` in /work/PARL/examples/QuickStart runs to completion on CPU. It trains a CartPole-v1 agent for 1000 episodes (option --max_episodes), logs periodic 'Test reward' lines, and saves ./model.ckpt. Make sure env.sh activates the working environment.",
+    "check": "The hidden test runs the QuickStart training in a fresh directory and verifies it finishes, saves a non-empty model checkpoint, and logs test rewards showing the agent learned (reaching at least 100)."
+  },
+  {
     "slug": "openai-whisper",
     "repo": "openai/whisper",
     "dir": "whisper",
@@ -911,6 +1098,28 @@
     "server": false,
     "goal": "Get the GPT-2 small (124M) model downloaded into /work/gpt-2/models/124M via download_model.py and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims); write /work/env.sh that activates it.",
     "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text."
+  },
+  {
+    "slug": "openai-gpt-oss",
+    "repo": "openai/gpt-oss",
+    "dir": "gpt-oss",
+    "company": "OpenAI",
+    "gpu": false,
+    "mem": "12g",
+    "server": true,
+    "goal": "Install Ollama, pull gpt-oss:20b and make the Ollama server run it on CPU. Write /work/run.sh that starts the Ollama server (listening on 127.0.0.1:11434), pulls gpt-oss:20b if missing and waits until the server is ready; also write /work/env.sh (sets any PATH/env needed, e.g. so `ollama` is found). The model must answer a chat prompt such as 'What is 2+2?' through the server.",
+    "check": "The hidden test starts the server via run.sh, sends a short chat request to the gpt-oss:20b model over HTTP and checks for a 200 response with a non-empty generated answer."
+  },
+  {
+    "slug": "openai-tiktoken",
+    "repo": "openai/tiktoken",
+    "dir": "tiktoken",
+    "company": "OpenAI",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install tiktoken from the /work/tiktoken clone (it builds a Rust extension) so that `import tiktoken` works. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. Also cl100k_base should work.",
+    "check": "The hidden test runs Python that encodes and decodes text with several encodings and checks exact token ids and round trips."
   },
   {
     "slug": "aws-aws-cli",
@@ -946,6 +1155,83 @@
     "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, calls read_documentation on a Lambda docs page and verifies that substantial Lambda-related text comes back."
   },
   {
+    "slug": "aws-serverless-applicati-760d5",
+    "repo": "aws/serverless-application-model",
+    "dir": "serverless-application-model",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the SAM transform (samtranslator and its dependencies, boto3 included) from the repo. Save the README's Getting started template (AWS::Serverless::Function with nodejs24.x InlineCode) as a file. Run `python bin/sam-translate.py translate --template-file=<file> --output-template=<out.json>` and produce the transformed CloudFormation JSON, with an AWS::Lambda::Function and an IAM role. Dummy AWS credentials and region env vars may be needed, and no real AWS access is needed.",
+    "check": "The output JSON exists and contains a Lambda Function resource with the expected handler and inline code, plus a generated IAM role resource."
+  },
+  {
+    "slug": "aws-aws-sam-cli",
+    "repo": "aws/aws-sam-cli",
+    "dir": "aws-sam-cli",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install aws-sam-cli from the cloned repo so the `sam` command works. Then `sam init --no-interactive` with the hello-world template, Zip package type and the machine's Python runtime must create a project, and `sam build` inside it must produce .aws-sam/build with the built template and function code. No AWS credentials or Docker are available or needed.",
+    "check": "The hidden test generates a Hello World app with sam init, runs sam build, and checks that the build output template and function code exist."
+  },
+  {
+    "slug": "amazon-science-chronos-f-714a0",
+    "repo": "amazon-science/chronos-forecasting",
+    "dir": "chronos-forecasting",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the chronos-forecasting package from the repo clone (plus pandas with pyarrow) so that `from chronos import Chronos2Pipeline` works. Then load amazon/chronos-2 with device_map='cpu' and run pipeline.predict_df on a long-format DataFrame (columns id, timestamp, target) with prediction_length=24 and quantile_levels=[0.1,0.5,0.9]. The README's electricity_price parquet example is the reference; it must produce a forecast DataFrame with predictions and quantile columns. Provide /work/env.sh that activates the environment so `python` can import chronos.",
+    "check": "The hidden test runs a CPU forecast on a synthetic multi-series dataset and verifies the output has the right shape, the quantile columns, finite values and ordered quantiles."
+  },
+  {
+    "slug": "awslabs-gluonts",
+    "repo": "awslabs/gluonts",
+    "dir": "gluonts",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install gluonts with torch support (pip install \"gluonts[torch]\" or from the clone) so the README Simple Example works on CPU. It must train DeepAREstimator(prediction_length=12, freq monthly, max_epochs small) on a monthly PandasDataset split with gluonts.dataset.split, then produce forecasts via model.predict(test_data.input) and plot them (use a headless matplotlib backend). Write /work/env.sh that activates the environment where python can import gluonts and torch.",
+    "check": "A Python script using the README's DeepAR flow on a locally generated monthly series trains, yields 3 finite 12-step probabilistic forecasts and saves a plot image."
+  },
+  {
+    "slug": "awslabs-amazon-redshift-utils",
+    "repo": "awslabs/amazon-redshift-utils",
+    "dir": "amazon-redshift-utils",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the dependencies for src/ManifestGenerator (boto3 per its requirements.txt) and make manifestgen.py run in CSV input mode. Given a CSV with header file_name,file_size and S3 URL rows, run `./manifestgen.py --prefix=<out>/OUTFILE --num=4 --csv --input-file=<csv>`. It must write OUTFILE-000.json to OUTFILE-003.json, with the entries split across them. No AWS credentials are needed. Put the environment setup in /work/env.sh so that python3 can import boto3.",
+    "check": "The hidden test generates a CSV of S3 file URLs and sizes, runs the generator for 4 manifests, and checks that the manifest JSON files are valid and together contain every non-empty entry once, with the correct sizes."
+  },
+  {
+    "slug": "awslabs-aws-support-tools",
+    "repo": "awslabs/aws-support-tools",
+    "dir": "aws-support-tools",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Get EBS/VolumeLimitCalculator/volume_Limit_calculator.sh running as the README describes (needs the bc package installed). It reads answers from stdin (volume type, then size/IOPS/throughput) and prints the maximum available IOPS and throughput. It must work for gp3, io2 and st1 inputs fed via stdin.",
+    "check": "The hidden test pipes several volume configurations into the script and checks the printed IOPS and throughput figures match the expected values."
+  },
+  {
+    "slug": "aws-deep-learning-containers",
+    "repo": "aws/deep-learning-containers",
+    "dir": "deep-learning-containers",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": true,
+    "goal": "Get the llama.cpp CPU server from the README-linked docs/llama-cpp/deployment/ec2.md serving ggml-org/Qwen2.5-0.5B-Instruct-GGUF (qwen2.5-0.5b-instruct-q4_0.gguf, --ctx-size 4096) on port 8080 on CPU. The public.ecr.aws/deep-learning-containers/llama-cpp:server-cpu-v1 image is the documented route; if Docker is unavailable, an equivalent llama-server (llama.cpp) build with the same model is acceptable. /work/run.sh must start the server in the background and return only once http://localhost:8080/health is ready; /v1/chat/completions must then answer a chat request.",
+    "check": "The hidden test starts the server via run.sh, then checks that /health returns 200 and a chat completion request on localhost:8080 returns HTTP 200 with a non-empty assistant message that is relevant to the question asked."
+  },
+  {
     "slug": "ml-explore-mlx-examples",
     "repo": "ml-explore/mlx-examples",
     "dir": "mlx-examples",
@@ -977,5 +1263,60 @@
     "server": false,
     "goal": "Install coremltools (from the clone or pip) with PyTorch and scikit-learn, using a Python/torch combination that coremltools supports and that works on Linux x86 CPU. Then make this work: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors on Linux.",
     "check": "A hidden script converts a small conv/linear torch model to an mlprogram package and a sklearn model, then checks the saved files and model spec contents."
+  },
+  {
+    "slug": "apple-app-store-server-l-eeba5",
+    "repo": "apple/app-store-server-library-python",
+    "dir": "app-store-server-library-python",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8 and tests/resources/mock_signed_data/testNotification, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification via verify_and_decode_notification, and make PromotionalOfferSignatureCreator produce a signature. No Apple credentials or network API calls are needed.",
+    "check": "A Python script imports the library, creates a promotional offer signature that verifies against the test key, and decodes the bundled test notification as type TEST."
+  },
+  {
+    "slug": "apple-coreai-torch",
+    "repo": "apple/coreai-torch",
+    "dir": "coreai-torch",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install coreai-torch from the cloned repo (coreai-core==1.0.0b3 and torch come from PyPI; Python >=3.11 is required, CPU-only torch is fine). Then run the quickstart pipeline on CPU: export a small nn.Module with torch.export, run_decompositions(get_decomp_table()), convert with TorchConverter().add_exported_program(...).to_coreai(), save_asset to an .aimodel, load the executable and run function 'main' via coreai.runtime.NDArray. The Core AI output must match PyTorch. Put the environment setup in /work/env.sh (activating it must make `python` import coreai_torch).",
+    "check": "A script converts, compiles and runs a small MLP through Core AI and checks that the output matches PyTorch within 1e-4."
+  },
+  {
+    "slug": "apple-coreai-optimization",
+    "repo": "apple/coreai-optimization",
+    "dir": "coreai-optimization",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install coreai-opt (pip install coreai-opt or from source, Python>=3.11, CPU torch) and run the README Usage snippet: build the small Sequential model, Quantizer(model, QuantizerConfig.presets.w8()), prepare(example_inputs) and finalize(). It must run without errors and the prepared model must give a finite (1,10) output close to the original model's.",
+    "check": "A script runs the README quantization flow on a small model and verifies finalize succeeds and the quantized model's output is finite, correctly shaped and close to the float output."
+  },
+  {
+    "slug": "apple-dnikit",
+    "repo": "apple/dnikit",
+    "dir": "dnikit",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(pipeline(StubProducer({...numpy responses...}), ...), threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, and the repo's src/dnikit/tests/test_duplicates.py must pass with pytest.",
+    "check": "Runs Duplicates on synthetic responses with planted near-duplicates and verifies clusters are found (more in the more-duplicated response), then runs the repo's duplicates unit tests."
+  },
+  {
+    "slug": "apple-game-center-tools",
+    "repo": "apple/game-center-tools",
+    "dir": "game-center-tools",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Get scripts/genrulesinput.py in /work/game-center-tools running (it needs the Python 'requests' module). Feed it via stdin the JSON [{\"secondsInQueue\":20,\"skill\":1},{\"secondsInQueue\":10,\"skill\":50},[{\"skill\":20},{\"skill\":30}]] and it must print the generated matchmaking input JSON with requests and players. Make /work/env.sh set up the environment so python3 scripts/genrulesinput.py works.",
+    "check": "The hidden test pipes the README example into the script and checks the output JSON has 3 requests, 4 players and the expected skill values."
   }
 ]

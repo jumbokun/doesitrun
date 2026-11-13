@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-evalscope",
+  "repo": "modelscope/evalscope",
+  "dir": "evalscope",
+  "company": "Alibaba",
+  "stars": 3691,
+  "examined": "2026-11-13 23:22:14",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 3,
+    "cost_usd": 0.030341399999999998,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Quick Start Method 2 evaluates a 0.5B local model on GSM8K with --limit 5, feasible on CPU with small downloads and no keys.",
+  "demo": "README Quick Start, Method 2: Evaluate a Local Model (evalscope eval)",
+  "goal": "Install evalscope (Python >= 3.11) and make `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and the GSM8K dataset fetched. It must accept a `--work-dir <dir>` option for outputs and finish by writing an evaluation report.",
+  "check": "The hidden test runs the local-model GSM8K evaluation with limit 5 into a fresh output directory and verifies that a report file with a GSM8K score and 5 evaluated samples was produced.",
+  "server": false
+}

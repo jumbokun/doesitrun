@@ -1,0 +1,21 @@
+{
+  "slug": "aws-aws-sam-cli",
+  "repo": "aws/aws-sam-cli",
+  "dir": "aws-sam-cli",
+  "company": "Amazon",
+  "stars": 6745,
+  "examined": "2026-11-13 23:19:36",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 3,
+    "cost_usd": 0.0374309,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "SAM CLI is a pip-installable CLI whose README quickstart (sam init / sam build) runs locally on CPU without AWS credentials.",
+  "demo": "README Get Started: Hello World app via `sam init` then `sam build`",
+  "goal": "Install aws-sam-cli from the cloned repo so the `sam` command works. Then `sam init --no-interactive` with the hello-world template, Zip package type and the machine's Python runtime must create a project, and `sam build` inside it must produce .aws-sam/build with the built template and function code. No AWS credentials or Docker are available or needed.",
+  "check": "The hidden test generates a Hello World app with sam init, runs sam build, and checks that the build output template and function code exist.",
+  "server": false
+}

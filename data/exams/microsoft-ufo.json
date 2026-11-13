@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-ufo",
+  "repo": "microsoft/UFO",
+  "dir": "UFO",
+  "company": "Microsoft",
+  "stars": 10205,
+  "examined": "2026-11-13 23:20:53",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 7,
+    "num_turns": 3,
+    "cost_usd": 0.0268292,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README demos are LLM-driven Windows GUI/multi-device agents that need an LLM API key (OpenAI/Azure) and a Windows desktop, so they can't run on CPU-only Linux without credentials.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

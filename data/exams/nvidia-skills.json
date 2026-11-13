@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-skills",
+  "repo": "NVIDIA/skills",
+  "dir": "skills",
+  "company": "NVIDIA",
+  "stars": 3971,
+  "examined": "2026-11-13 23:25:36",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 11,
+    "num_turns": 3,
+    "cost_usd": 0.029085700000000003,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The repo is a mirrored catalog of markdown agent skills; its only 'demo' is installing skill files via the third-party npx skills CLI, with no runnable project or inference of its own.",
+  "demo": "README Quickstart (npx skills add nvidia/skills)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

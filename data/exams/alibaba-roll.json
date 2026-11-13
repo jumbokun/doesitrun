@@ -1,0 +1,21 @@
+{
+  "slug": "alibaba-roll",
+  "repo": "alibaba/ROLL",
+  "dir": "ROLL",
+  "company": "Alibaba",
+  "stars": 3456,
+  "examined": "2026-11-13 23:22:30",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 15,
+    "num_turns": 3,
+    "cost_usd": 0.0254645,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "ROLL is a GPU-oriented distributed RL training framework (Ray, vLLM/SGLang, Megatron/DeepSpeed, CUDA docker images) whose README examples all need GPUs and multi-GB models, so no demo plausibly completes on CPU only.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

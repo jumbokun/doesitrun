@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-aws-config-rules",
+  "repo": "awslabs/aws-config-rules",
+  "dir": "aws-config-rules",
+  "company": "Amazon",
+  "stars": 1742,
+  "examined": "2026-11-13 23:22:00",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 6,
+    "cost_usd": 0.061949,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README's only demo is deploying rules to an AWS account via 'rdk deploy' or the Lambda/Config console, which requires AWS credentials; the repo is a collection of sample rules, not a locally runnable app.",
+  "demo": "README 'Deploy one of the Config rules of this repo' (rdk deploy NAME_OF_THE_RULE)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

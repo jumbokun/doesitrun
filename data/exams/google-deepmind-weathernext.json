@@ -1,0 +1,21 @@
+{
+  "slug": "google-deepmind-weathernext",
+  "repo": "google-deepmind/weathernext",
+  "dir": "weathernext",
+  "company": "Google",
+  "stars": 7742,
+  "examined": "2026-11-13 23:22:21",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 38,
+    "num_turns": 10,
+    "cost_usd": 0.14123070000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README quick start (wn2_demo notebook) runs the 1-degree WeatherNextCyclones_Mini model with public anonymous GCS weights (226 MB) and sample HRES data, feasible on CPU.",
+  "demo": "README 'Quick Start Guide' - docs/weathernext2/wn2_demo.ipynb (WeatherNextCyclones_Mini, 1.0 degree data)",
+  "goal": "Install the weathernext package (pip install from the repo, with its jax/haiku/xarray_jax dependencies) so that the notebook's core flow works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-01.nc from the public bucket dm_graphcast, then run an autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Use the GPU attention setting (attention_type 'triblockdiag_mha') if the CPU needs it. Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
+  "check": "A standalone script re-runs the Mini-model 2-member ensemble rollout on the sample data and checks the predictions are finite, physically plausible 2m temperatures with ensemble spread and writes a NetCDF output.",
+  "server": false
+}

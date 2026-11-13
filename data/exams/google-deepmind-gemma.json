@@ -1,0 +1,21 @@
+{
+  "slug": "google-deepmind-gemma",
+  "repo": "google-deepmind/gemma",
+  "dir": "gemma",
+  "company": "Google",
+  "stars": 5846,
+  "examined": "2026-11-13 23:23:31",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 7,
+    "cost_usd": 0.05814670000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README shows a ChatSampler demo; Gemma checkpoints are public on gs://gemma-data (no login) and a small 270M variant runs on CPU via JAX.",
+  "demo": "README Examples: gm.text.ChatSampler with gm.ckpts.load_params (using the small Gemma3 270M IT variant instead of Gemma 4 E4B)",
+  "goal": "Install the gemma package from the clone at /work/gemma with JAX for CPU, and make a text-only chat work with the official ChatSampler API. Use model gm.nn.Gemma3_270M() with params from gm.ckpts.load_params(gm.ckpts.CheckpointPath.GEMMA3_270M_IT), which downloads from the public gs://gemma-data bucket. Then call sampler.chat('What is the capital of France?') and get a sensible text answer. Put whatever environment activation is needed in /work/env.sh.",
+  "check": "A Python script using gm.nn.Gemma3_270M, load_params(GEMMA3_270M_IT) and ChatSampler.chat generates a non-empty text answer to a factual question, and a second multi-turn call also returns text.",
+  "server": false
+}

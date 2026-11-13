@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-amazon-redshift-utils",
+  "repo": "awslabs/amazon-redshift-utils",
+  "dir": "amazon-redshift-utils",
+  "company": "Amazon",
+  "stars": 2800,
+  "examined": "2026-11-13 23:21:05",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 6,
+    "cost_usd": 0.06907070000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The Manifest Generator utility has a CSV input mode that runs fully offline on CPU with only boto3 needed.",
+  "demo": "src/ManifestGenerator/README.md, 'CSV Input' mode: ./manifestgen.py --prefix=OUTFILE --num=4 --csv --input-file=INPUT.csv",
+  "goal": "Install the dependencies for src/ManifestGenerator (boto3 per its requirements.txt) and make manifestgen.py run in CSV input mode. Given a CSV with header file_name,file_size and S3 URL rows, run `./manifestgen.py --prefix=<out>/OUTFILE --num=4 --csv --input-file=<csv>`. It must write OUTFILE-000.json to OUTFILE-003.json, with the entries split across them. No AWS credentials are needed. Put the environment setup in /work/env.sh so that python3 can import boto3.",
+  "check": "The hidden test generates a CSV of S3 file URLs and sizes, runs the generator for 4 manifests, and checks that the manifest JSON files are valid and together contain every non-empty entry once, with the correct sizes.",
+  "server": false
+}

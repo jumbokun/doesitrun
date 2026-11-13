@@ -1,0 +1,21 @@
+{
+  "slug": "tencentarc-pixal3d",
+  "repo": "TencentARC/Pixal3D",
+  "dir": "Pixal3D",
+  "company": "Tencent",
+  "stars": 2634,
+  "examined": "2026-11-13 23:24:41",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 10,
+    "num_turns": 4,
+    "cost_usd": 0.030108700000000002,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Inference requires a CUDA GPU (TRELLIS.2 CUDA stack, natten, o_voxel, hard-coded .cuda() calls) and large multi-model weights, so it cannot run on CPU only.",
+  "demo": "Usage > Inference: python inference.py --image assets/images/0_img.png --output ./output.glb",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

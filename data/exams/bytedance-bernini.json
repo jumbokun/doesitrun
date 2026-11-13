@@ -1,0 +1,21 @@
+{
+  "slug": "bytedance-bernini",
+  "repo": "bytedance/Bernini",
+  "dir": "Bernini",
+  "company": "ByteDance",
+  "stars": 1362,
+  "examined": "2026-11-13 23:26:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 5,
+    "cost_usd": 0.0640966,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Smallest official model (Bernini-R-1.3B-Diffusers) is ~29 GB to download and inference scripts hard-code CUDA devices (torch.device('cuda:0')), so no CPU-only demo within limits.",
+  "demo": "docs/bernini_r.md Run: python infer_single_gpu.py --config pretrained_models/Bernini-R-Diffusers --case assets/testcases/t2i/t2i.json",
+  "goal": "",
+  "check": "",
+  "server": false
+}

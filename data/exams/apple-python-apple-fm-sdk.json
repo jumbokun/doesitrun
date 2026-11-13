@@ -1,0 +1,21 @@
+{
+  "slug": "apple-python-apple-fm-sdk",
+  "repo": "apple/python-apple-fm-sdk",
+  "dir": "python-apple-fm-sdk",
+  "company": "Apple",
+  "stars": 1386,
+  "examined": "2026-11-13 23:19:10",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.0287481,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The SDK needs macOS 26 with Apple Intelligence and the on-device system model via Swift/Xcode, so no demo can run on Linux CPU.",
+  "demo": "README Basic usage",
+  "goal": "",
+  "check": "",
+  "server": false
+}

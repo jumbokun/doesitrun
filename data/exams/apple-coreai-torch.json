@@ -1,0 +1,21 @@
+{
+  "slug": "apple-coreai-torch",
+  "repo": "apple/coreai-torch",
+  "dir": "coreai-torch",
+  "company": "Apple",
+  "stars": 183,
+  "examined": "2026-11-13 23:19:49",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 21,
+    "num_turns": 7,
+    "cost_usd": 0.07012650000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The docs quickstart converts a PyTorch model to Core AI IR, compiles it and runs inference locally; a manylinux coreai-core wheel exists, and no keys or gated downloads are needed.",
+  "demo": "docs/getting-started/quickstart.ipynb (Define, Export, Decompose, Convert, Compile and Run) plus README Usage",
+  "goal": "Install coreai-torch from the cloned repo (coreai-core==1.0.0b3 and torch come from PyPI; Python >=3.11 is required, CPU-only torch is fine). Then run the quickstart pipeline on CPU: export a small nn.Module with torch.export, run_decompositions(get_decomp_table()), convert with TorchConverter().add_exported_program(...).to_coreai(), save_asset to an .aimodel, load the executable and run function 'main' via coreai.runtime.NDArray. The Core AI output must match PyTorch. Put the environment setup in /work/env.sh (activating it must make `python` import coreai_torch).",
+  "check": "A script converts, compiles and runs a small MLP through Core AI and checks that the output matches PyTorch within 1e-4.",
+  "server": false
+}

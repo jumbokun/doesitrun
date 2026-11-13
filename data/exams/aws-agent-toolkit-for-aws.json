@@ -1,0 +1,21 @@
+{
+  "slug": "aws-agent-toolkit-for-aws",
+  "repo": "aws/agent-toolkit-for-aws",
+  "dir": "agent-toolkit-for-aws",
+  "company": "Amazon",
+  "stars": 3488,
+  "examined": "2026-11-13 23:20:45",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.029829300000000003,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The repo is a collection of agent plugins, skills and markdown rules whose setup needs AWS accounts/credentials and a coding agent, so it has no standalone CPU-runnable demo.",
+  "demo": "none",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-agentcore-samples",
+  "repo": "awslabs/agentcore-samples",
+  "dir": "agentcore-samples",
+  "company": "Amazon",
+  "stars": 3527,
+  "examined": "2026-11-13 23:20:36",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 3,
+    "cost_usd": 0.0236743,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every sample is an Amazon Bedrock AgentCore deployment or agent that needs an AWS account, credentials and Bedrock model access, with no CPU-only offline demo.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

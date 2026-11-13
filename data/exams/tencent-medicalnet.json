@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-medicalnet",
+  "repo": "Tencent/MedicalNet",
+  "dir": "MedicalNet",
+  "company": "Tencent",
+  "stars": 2283,
+  "examined": "2026-11-13 23:25:04",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 7,
+    "cost_usd": 0.0896124,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The repo bundles a toy MRBrainS18 volume and train.py has a --ci_test CPU mode that trains a tiny 3D-ResNet10 for one epoch with no downloads.",
+  "demo": "Demo section: python train.py (run in its CPU-only CI form via --ci_test on toy_data)",
+  "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. The code was written for old PyTorch, nibabel and scipy, so it may need compatibility fixes for the installed library versions. Do not use the Google Drive pretrained weights.",
+  "check": "Running train.py --ci_test on CPU exits successfully, logs at least one finite loss value and prints 'Finished training'.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "google-agents-cli",
+  "repo": "google/agents-cli",
+  "dir": "agents-cli",
+  "company": "Google",
+  "stars": 6347,
+  "examined": "2026-11-13 23:23:12",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 20,
+    "num_turns": 8,
+    "cost_usd": 0.0627297,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "agents-cli is a pip/uvx-installable CLI whose scaffolding command (create) runs offline on CPU without any API key.",
+  "demo": "README Get Started / CLI Commands: `agents-cli create <name> -y`",
+  "goal": "Install google-agents-cli from the cloned repo (or PyPI) so the `agents-cli` command works (Python 3.11+, uv available). Then `agents-cli create caveman-agent -y --skip-checks -o <some dir>` must scaffold a complete ADK Python agent project (pyproject.toml, app/agent.py defining root_agent) without any API key or Google Cloud login. Make `agents-cli` available on PATH via /work/env.sh.",
+  "check": "The hidden test runs `agents-cli create` into a fresh directory and verifies the generated project files (pyproject.toml, app/agent.py with root_agent) exist and are valid.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-aws-support-tools",
+  "repo": "awslabs/aws-support-tools",
+  "dir": "aws-support-tools",
+  "company": "Amazon",
+  "stars": 1509,
+  "examined": "2026-11-13 23:22:32",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 6,
+    "cost_usd": 0.0717907,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "EBS VolumeLimitCalculator is a self-contained bash script with a documented run command that works offline on CPU.",
+  "demo": "EBS/VolumeLimitCalculator/Readme.md: install bc, chmod +x and run ./volume_Limit_calculator.sh",
+  "goal": "Get EBS/VolumeLimitCalculator/volume_Limit_calculator.sh running as the README describes (needs the bc package installed). It reads answers from stdin (volume type, then size/IOPS/throughput) and prints the maximum available IOPS and throughput. It must work for gp3, io2 and st1 inputs fed via stdin.",
+  "check": "The hidden test pipes several volume configurations into the script and checks the printed IOPS and throughput figures match the expected values.",
+  "server": false
+}

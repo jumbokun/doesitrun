@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-open-data-registry",
+  "repo": "awslabs/open-data-registry",
+  "dir": "open-data-registry",
+  "company": "Amazon",
+  "stars": 1834,
+  "examined": "2026-11-13 23:21:43",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 5,
+    "cost_usd": 0.029806399999999997,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The repo is a registry of dataset YAML metadata; its README documents the metadata format and has no runnable demo, CLI or quickstart.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

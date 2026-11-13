@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-fluentui-emoji",
+  "repo": "microsoft/fluentui-emoji",
+  "dir": "fluentui-emoji",
+  "company": "Microsoft",
+  "stars": 10219,
+  "examined": "2026-11-13 23:20:36",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 3,
+    "cost_usd": 0.014229599999999998,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README is only an asset collection with contact info and no demo, CLI or quickstart.",
+  "demo": "",
+  "goal": "",
+  "check": "",
+  "server": false
+}

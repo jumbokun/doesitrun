@@ -1,0 +1,21 @@
+{
+  "slug": "aws-aws-eks-best-practices",
+  "repo": "aws/aws-eks-best-practices",
+  "dir": "aws-eks-best-practices",
+  "company": "Amazon",
+  "stars": 2166,
+  "examined": "2026-11-13 23:21:23",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.0159185,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The repo is a documentation repository for EKS best practices, with no runnable demo in the README and no usable CPU-only workflow without an AWS account.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

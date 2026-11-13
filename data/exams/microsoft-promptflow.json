@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-promptflow",
+  "repo": "microsoft/promptflow",
+  "dir": "promptflow",
+  "company": "Microsoft",
+  "stars": 11266,
+  "examined": "2026-11-13 23:20:19",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 6,
+    "cost_usd": 0.0573011,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The promptflow `pf` CLI can run the keyless conditional-flow-for-if-else example (pure Python nodes) on CPU, though the README's chatbot quickstart needs an OpenAI key.",
+  "demo": "README Quick Start CLI (`pf flow test` / pf CLI), using examples/flows/standard/conditional-flow-for-if-else which needs no API key",
+  "goal": "Install promptflow and promptflow-tools so the `pf` CLI works. Then run the flow examples/flows/standard/conditional-flow-for-if-else both with `pf flow test --flow <dir> --inputs question=\"What is Prompt flow?\"` and as a batch run with `pf run create --flow <dir> --data <dir>/data.jsonl`. Both must complete successfully without any API key or connection.",
+  "check": "The hidden test runs the flow through the pf CLI on its own inputs, both single test and batch run, and checks the outputs contain the expected answers.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-mmf",
+  "repo": "facebookresearch/mmf",
+  "dir": "mmf",
+  "company": "Meta",
+  "stars": 5633,
+  "examined": "2026-11-13 23:27:20",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 9,
+    "cost_usd": 0.06468860000000001,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README only links to docs, and the docs' quickstart (mmf_run/mmf_predict on TextVQA) auto-downloads a 48.6 GB features archive; the other tutorials use Hateful Memes, which needs a manual license-gated download.",
+  "demo": "website/docs/getting_started/quickstart.md (mmf_run / mmf_predict textvqa m4c)",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

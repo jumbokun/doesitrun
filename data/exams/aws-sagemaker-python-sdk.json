@@ -1,0 +1,21 @@
+{
+  "slug": "aws-sagemaker-python-sdk",
+  "repo": "aws/sagemaker-python-sdk",
+  "dir": "sagemaker-python-sdk",
+  "company": "Amazon",
+  "stars": 2272,
+  "examined": "2026-11-13 23:21:14",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.0238298,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README demos (ModelTrainer, ModelBuilder deploy) need an AWS account, IAM role, S3 and SageMaker instances, so they can't run offline on CPU without credentials.",
+  "demo": "README Training/Inference Experience",
+  "goal": "",
+  "check": "",
+  "server": false
+}

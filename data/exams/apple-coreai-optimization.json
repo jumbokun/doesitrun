@@ -1,0 +1,21 @@
+{
+  "slug": "apple-coreai-optimization",
+  "repo": "apple/coreai-optimization",
+  "dir": "coreai-optimization",
+  "company": "Apple",
+  "stars": 159,
+  "examined": "2026-11-13 23:20:03",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 4,
+    "cost_usd": 0.0374005,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Usage snippet quantizes a small PyTorch model with coreai_opt on CPU, no gated resources.",
+  "demo": "README 'Getting started > Usage' INT8 weight-only quantization snippet",
+  "goal": "Install coreai-opt (pip install coreai-opt or from source, Python>=3.11, CPU torch) and run the README Usage snippet: build the small Sequential model, Quantizer(model, QuantizerConfig.presets.w8()), prepare(example_inputs) and finalize(). It must run without errors and the prepared model must give a finite (1,10) output close to the original model's.",
+  "check": "A script runs the README quantization flow on a small model and verifies finalize succeeds and the quantized model's output is finite, correctly shaped and close to the float output.",
+  "server": false
+}

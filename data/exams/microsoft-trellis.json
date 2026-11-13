@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-trellis",
+  "repo": "microsoft/TRELLIS",
+  "dir": "TRELLIS",
+  "company": "Microsoft",
+  "stars": 14264,
+  "examined": "2026-11-13 23:19:54",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 7,
+    "num_turns": 3,
+    "cost_usd": 0.0195303,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "README requires an NVIDIA GPU with 16GB+ VRAM; the pipeline uses CUDA-only components (spconv, flash-attn, CUDA-compiled rasterizers, pipeline.cuda()) and cannot plausibly run on CPU only.",
+  "demo": "Minimal Example (example.py)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

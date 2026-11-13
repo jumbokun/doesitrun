@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-fastdeploy",
+  "repo": "PaddlePaddle/FastDeploy",
+  "dir": "FastDeploy",
+  "company": "Baidu",
+  "stars": 3723,
+  "examined": "2026-11-13 23:25:31",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 10,
+    "num_turns": 4,
+    "cost_usd": 0.0335541,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "FastDeploy's quickstart requires an NVIDIA GPU (CUDA>=12.3) or other accelerator hardware; no CPU-only path is documented.",
+  "demo": "docs/get_started/quick_start.md (ERNIE-4.5-0.3B-Paddle api_server)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "facebookresearch-kats",
+  "repo": "facebookresearch/Kats",
+  "dir": "Kats",
+  "company": "Meta",
+  "stars": 6514,
+  "examined": "2026-11-13 23:26:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 11,
+    "num_turns": 3,
+    "cost_usd": 0.0418232,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Kats README gives pure-Python CPU examples (Prophet forecast, CUSUM detection, TsFeatures) on bundled data.",
+  "demo": "README 'Examples': Forecasting, Detection, TSFeatures",
+  "goal": "Install Kats (pip install kats or from the clone; a compatible Python/dependency set is needed) so that the three README snippets run from /work/Kats: ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
+  "check": "A hidden script runs all three snippets from the repo root and verifies a 30-row forecast, a detected change point near the simulated shift, and a populated feature dict.",
+  "server": false
+}

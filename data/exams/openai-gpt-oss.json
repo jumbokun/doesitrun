@@ -1,0 +1,21 @@
+{
+  "slug": "openai-gpt-oss",
+  "repo": "openai/gpt-oss",
+  "dir": "gpt-oss",
+  "company": "OpenAI",
+  "stars": 20531,
+  "examined": "2026-11-13 23:26:53",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 3,
+    "cost_usd": 0.038618400000000004,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README offers Ollama for gpt-oss-20b (~13 GB MXFP4 download, no gating) which can run on CPU within 16 GB RAM, though tight.",
+  "demo": "README 'Ollama' section: ollama pull gpt-oss:20b; ollama run gpt-oss:20b",
+  "goal": "Install Ollama, pull gpt-oss:20b and make the Ollama server run it on CPU. Write /work/run.sh that starts the Ollama server (listening on 127.0.0.1:11434), pulls gpt-oss:20b if missing and waits until the server is ready; also write /work/env.sh (sets any PATH/env needed, e.g. so `ollama` is found). The model must answer a chat prompt such as 'What is 2+2?' through the server.",
+  "check": "The hidden test starts the server via run.sh, sends a short chat request to the gpt-oss:20b model over HTTP and checks for a 200 response with a non-empty generated answer.",
+  "server": true
+}

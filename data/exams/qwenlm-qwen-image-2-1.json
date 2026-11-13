@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen-image-2-1",
+  "repo": "QwenLM/Qwen-Image-2.1",
+  "dir": "Qwen-Image-2.1",
+  "company": "Alibaba",
+  "stars": 2210,
+  "examined": "2026-11-13 23:23:16",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 11,
+    "num_turns": 5,
+    "cost_usd": 0.0500833,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every official checkpoint (Qwen-Image-2.1 and Turbo) needs about 32 GB of downloads (7B DiT plus a 17 GB text encoder), which is over the 15 GB limit, and CPU-only inference at 2048px is impractical.",
+  "demo": "README Quick Start (diffusers QwenImage21Pipeline, Turbo 8-step)",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-agent-framework",
+  "repo": "microsoft/agent-framework",
+  "dir": "agent-framework",
+  "company": "Microsoft",
+  "stars": 14664,
+  "examined": "2026-11-13 23:19:47",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 6,
+    "cost_usd": 0.06193560000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README's Azure quickstart needs credentials, but the repo ships offline Python workflow samples that run on CPU with no keys.",
+  "demo": "python/samples/03-workflows/_start-here/step1_executors_and_edges.py (Python workflows sample, installed via `pip install agent-framework`)",
+  "goal": "Install the Python agent-framework package (pip install agent-framework, or from the repo's python/ packages) so that `python python/samples/03-workflows/_start-here/step1_executors_and_edges.py` runs from the repo root. It must print the two workflow outputs ['DLROW OLLEH'] and ['!!!DLROW OLLEH'] with final state IDLE. The sample needs no API key or external service.",
+  "check": "The sample's printed outputs match the expected reversed/uppercased strings, and importing its workflow builder on a new input gives the correct transformed result.",
+  "server": false
+}

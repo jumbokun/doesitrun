@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-playwright-python",
+  "repo": "microsoft/playwright-python",
+  "dir": "playwright-python",
+  "company": "Microsoft",
+  "stars": 15107,
+  "examined": "2026-11-13 23:19:18",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 3,
+    "cost_usd": 0.0280626,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README example drives headless browsers with the Python API and screenshots a page, feasible on CPU with browser downloads of a few hundred MB.",
+  "demo": "README 'Example' section (sync_playwright script that launches a browser, goes to a page, saves a screenshot)",
+  "goal": "Install the playwright-python package from the repo clone and download the browsers (e.g. `playwright install --with-deps chromium`). Run the README sync example, at least with Chromium launched headless, so that it opens a page and writes a screenshot PNG. Make `python` (via /work/env.sh) able to `import playwright` and launch Chromium.",
+  "check": "A script run with the environment launches headless Chromium, loads a local page, and produces a valid screenshot PNG and the expected page title and text.",
+  "server": false
+}

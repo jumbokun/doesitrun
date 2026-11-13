@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-rd-agent",
+  "repo": "microsoft/RD-Agent",
+  "dir": "RD-Agent",
+  "company": "Microsoft",
+  "stars": 15361,
+  "examined": "2026-11-13 23:19:26",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.0244451,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README demo (rdagent fin_factor, fin_quant, data_science, etc.) requires a paid LLM API key (OpenAI/Azure/DeepSeek) and Docker.",
+  "demo": "Quick start: rdagent fin_factor",
+  "goal": "",
+  "check": "",
+  "server": false
+}

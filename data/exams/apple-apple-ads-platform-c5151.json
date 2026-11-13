@@ -1,0 +1,21 @@
+{
+  "slug": "apple-apple-ads-platform-c5151",
+  "repo": "apple/apple-ads-platform-api-python",
+  "dir": "apple-ads-platform-api-python",
+  "company": "Apple",
+  "stars": 34,
+  "examined": "2026-11-13 23:20:34",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 3,
+    "cost_usd": 0.0265583,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README only shows client construction against the Apple Ads Platform API, which needs Apple Ads credentials (client id, team id, key id, private key) and a live account.",
+  "demo": "Getting Started / Client Construction",
+  "goal": "",
+  "check": "",
+  "server": false
+}

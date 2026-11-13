@@ -1,0 +1,21 @@
+{
+  "slug": "modelscope-ms-agent",
+  "repo": "modelscope/ms-agent",
+  "dir": "ms-agent",
+  "company": "Alibaba",
+  "stars": 4427,
+  "examined": "2026-11-13 23:21:59",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 10,
+    "num_turns": 3,
+    "cost_usd": 0.025105,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README quickstart (ms-agent run / Python SDK / WebUI) calls a hosted LLM and needs a ModelScope API key tied to an account.",
+  "demo": "README Quickstart: ms-agent run --query ...",
+  "goal": "",
+  "check": "",
+  "server": false
+}

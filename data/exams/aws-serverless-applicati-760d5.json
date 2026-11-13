@@ -1,0 +1,21 @@
+{
+  "slug": "aws-serverless-applicati-760d5",
+  "repo": "aws/serverless-application-model",
+  "dir": "serverless-application-model",
+  "company": "Amazon",
+  "stars": 9586,
+  "examined": "2026-11-13 23:19:22",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 19,
+    "num_turns": 6,
+    "cost_usd": 0.0545698,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README's getting-started SAM template can be transformed to CloudFormation locally on CPU via bin/sam-translate.py with no cloud account.",
+  "demo": "README 'Getting started' template transformed with bin/sam-translate.py translate",
+  "goal": "Install the SAM transform (samtranslator and its dependencies, boto3 included) from the repo. Save the README's Getting started template (AWS::Serverless::Function with nodejs24.x InlineCode) as a file. Run `python bin/sam-translate.py translate --template-file=<file> --output-template=<out.json>` and produce the transformed CloudFormation JSON, with an AWS::Lambda::Function and an IAM role. Dummy AWS credentials and region env vars may be needed, and no real AWS access is needed.",
+  "check": "The output JSON exists and contains a Lambda Function resource with the expected handler and inline code, plus a generated IAM role resource.",
+  "server": false
+}

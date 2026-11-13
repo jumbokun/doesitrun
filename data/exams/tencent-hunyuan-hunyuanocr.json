@@ -1,0 +1,21 @@
+{
+  "slug": "tencent-hunyuan-hunyuanocr",
+  "repo": "Tencent-Hunyuan/HunyuanOCR",
+  "dir": "HunyuanOCR",
+  "company": "Tencent",
+  "stars": 2079,
+  "examined": "2026-11-13 23:25:28",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 4,
+    "cost_usd": 0.0616996,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README offers a CPU llama.cpp GGUF deployment of the ~1B HunyuanOCR model with an OpenAI-compatible server, no gated weights.",
+  "demo": "docs/llama_cpp.md (linked from README): build llama.cpp, download tencent/HunyuanOCR, convert to GGUF, run llama-server base model only",
+  "goal": "Build upstream llama.cpp on CPU, download tencent/HunyuanOCR from Hugging Face (exclude v1.0/*, skip DFlash), convert to hyocr-f16.gguf and mmproj-hyocr-f16.gguf via convert_hf_to_gguf.py, and serve with llama-server (section 4.1: port 8080, --alias HYVL, --jinja, -fa on, modest ctx-size). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
+  "check": "The hidden test sends a generated image containing text to the server's chat completions endpoint and verifies the response is HTTP 200 and contains the text in the image.",
+  "server": true
+}

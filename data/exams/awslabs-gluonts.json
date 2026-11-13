@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-gluonts",
+  "repo": "awslabs/gluonts",
+  "dir": "gluonts",
+  "company": "Amazon",
+  "stars": 5260,
+  "examined": "2026-11-13 23:20:03",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 14,
+    "num_turns": 3,
+    "cost_usd": 0.0407609,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README Simple Example trains a small DeepAR model on AirPassengers and forecasts, easily CPU-only with no credentials.",
+  "demo": "README 'Simple Example' (DeepAREstimator on airpassengers with PandasDataset)",
+  "goal": "Install gluonts with torch support (pip install \"gluonts[torch]\" or from the clone) so the README Simple Example works on CPU. It must train DeepAREstimator(prediction_length=12, freq monthly, max_epochs small) on a monthly PandasDataset split with gluonts.dataset.split, then produce forecasts via model.predict(test_data.input) and plot them (use a headless matplotlib backend). Write /work/env.sh that activates the environment where python can import gluonts and torch.",
+  "check": "A Python script using the README's DeepAR flow on a locally generated monthly series trains, yields 3 finite 12-step probabilistic forecasts and saves a plot image.",
+  "server": false
+}

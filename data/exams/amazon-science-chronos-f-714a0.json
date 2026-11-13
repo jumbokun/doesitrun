@@ -1,0 +1,21 @@
+{
+  "slug": "amazon-science-chronos-f-714a0",
+  "repo": "amazon-science/chronos-forecasting",
+  "dir": "chronos-forecasting",
+  "company": "Amazon",
+  "stars": 6299,
+  "examined": "2026-11-13 23:19:49",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 3,
+    "cost_usd": 0.0460365,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README shows a Chronos-2 predict_df forecasting example; the 120M model runs fine on CPU and is ungated on Hugging Face.",
+  "demo": "README > Usage > Forecasting (Chronos2Pipeline.from_pretrained('amazon/chronos-2').predict_df)",
+  "goal": "Install the chronos-forecasting package from the repo clone (plus pandas with pyarrow) so that `from chronos import Chronos2Pipeline` works. Then load amazon/chronos-2 with device_map='cpu' and run pipeline.predict_df on a long-format DataFrame (columns id, timestamp, target) with prediction_length=24 and quantile_levels=[0.1,0.5,0.9]. The README's electricity_price parquet example is the reference; it must produce a forecast DataFrame with predictions and quantile columns. Provide /work/env.sh that activates the environment so `python` can import chronos.",
+  "check": "The hidden test runs a CPU forecast on a synthetic multi-series dataset and verifies the output has the right shape, the quantile columns, finite values and ordered quantiles.",
+  "server": false
+}

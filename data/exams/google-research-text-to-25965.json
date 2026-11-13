@@ -1,0 +1,21 @@
+{
+  "slug": "google-research-text-to-25965",
+  "repo": "google-research/text-to-text-transfer-transformer",
+  "dir": "text-to-text-transfer-transformer",
+  "company": "Google",
+  "stars": 6565,
+  "examined": "2026-11-13 23:22:51",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 4,
+    "cost_usd": 0.051070199999999996,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README usage example (train, fine-tune, eval, decode) uses t5_mesh_transformer with Cloud TPU and GCS bucket flags and needs GCP setup, and the only easy quickstart is a TPU Colab notebook, so there is no demo that runs on CPU alone.",
+  "demo": "README Usage: Training / Fine-tuning / Decoding with t5_mesh_transformer",
+  "goal": "",
+  "check": "",
+  "server": false
+}

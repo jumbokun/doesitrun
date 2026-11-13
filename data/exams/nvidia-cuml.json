@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-cuml",
+  "repo": "NVIDIA/cuml",
+  "dir": "cuml",
+  "company": "NVIDIA",
+  "stars": 5321,
+  "examined": "2026-11-13 23:24:33",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 11,
+    "num_turns": 5,
+    "cost_usd": 0.0294693,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "cuML is a CUDA-only GPU library whose README demos (cuml DBSCAN, cuml.accel) need an NVIDIA GPU and cannot run on a CPU-only sandbox.",
+  "demo": "README: Use the GPU-native cuml API (DBSCAN example)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

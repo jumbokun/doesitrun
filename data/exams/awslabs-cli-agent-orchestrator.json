@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-cli-agent-orchestrator",
+  "repo": "awslabs/cli-agent-orchestrator",
+  "dir": "cli-agent-orchestrator",
+  "company": "Amazon",
+  "stars": 1553,
+  "examined": "2026-11-13 23:22:14",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 13,
+    "num_turns": 5,
+    "cost_usd": 0.05585400000000001,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The README's primary demo (cao launch --agents code_supervisor) needs a separately installed and authenticated provider CLI (Kiro, Claude Code, Codex and others) backed by a paid account or API key.",
+  "demo": "README 'First supervisor launch'",
+  "goal": "",
+  "check": "",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "qwenlm-qwen-mm-plugins",
+  "repo": "QwenLM/Qwen-MM-Plugins",
+  "dir": "Qwen-MM-Plugins",
+  "company": "Alibaba",
+  "stars": 3205,
+  "examined": "2026-11-13 23:23:05",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 34,
+    "num_turns": 10,
+    "cost_usd": 0.1420883,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README's core plugin runs as a local MCP stdio server that reads, renders and crops local files with no API key or GPU.",
+  "demo": "README 'Install' manual Skill + MCP setup and 'Try it' (core plugin): run the qwen-mm-plugins-core MCP server (src/capabilities/core/qwen_mm_plugins_core) and use its tools on local files",
+  "goal": "Get the `core` capability's MCP server (python3 src/capabilities/core/qwen_mm_plugins_core, or qwen-mm-plugins-core with the [viz] extra) running over stdio in native mode with no API key. It must answer tools/list and execute save_view (render page 1 of tests/assets/sample.pdf to PNG), crop, visualize (tests/assets/sample.csv) and read_image. Install the base deps plus the viz extras (pypdfium2, pandas, matplotlib etc.) into the python that /work/env.sh puts on PATH.",
+  "check": "A JSON-RPC stdio client starts the core server, lists its tools, renders a PDF page to a PNG, crops it to the expected size, visualizes a CSV with expected text, and reads an image back.",
+  "server": false
+}

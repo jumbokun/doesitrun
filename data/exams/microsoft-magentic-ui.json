@@ -1,0 +1,21 @@
+{
+  "slug": "microsoft-magentic-ui",
+  "repo": "microsoft/magentic-ui",
+  "dir": "magentic-ui",
+  "company": "Microsoft",
+  "stars": 10117,
+  "examined": "2026-11-13 23:20:45",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 8,
+    "num_turns": 4,
+    "cost_usd": 0.0322351,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "The demo needs two GPU-hosted OpenAI-compatible model endpoints (MagenticBrain and Fara 9B) that are paid or need a GPU, plus a Quicksand VM sandbox, so it can't run on CPU only without paid services.",
+  "demo": "README Quick start: magentic-ui --port 8081",
+  "goal": "",
+  "check": "",
+  "server": false
+}

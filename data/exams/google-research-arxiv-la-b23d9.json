@@ -1,0 +1,21 @@
+{
+  "slug": "google-research-arxiv-la-b23d9",
+  "repo": "google-research/arxiv-latex-cleaner",
+  "dir": "arxiv-latex-cleaner",
+  "company": "Google",
+  "stars": 7139,
+  "examined": "2026-11-13 23:22:37",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 15,
+    "num_turns": 6,
+    "cost_usd": 0.0540692,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Pure-Python CLI with bundled sample LaTeX project in test_data that runs in seconds on CPU.",
+  "demo": "README 'Example call' / Usage: arxiv_latex_cleaner /path/to/latex --resize_images --im_size ...",
+  "goal": "Install arxiv-latex-cleaner (from the repo clone or pip) so that `arxiv_latex_cleaner <folder> --resize_images --im_size 100 --images_allowlist='{\"images/im2_included.jpg\":50}'` (or `python -m arxiv_latex_cleaner`) runs on a copy of test_data/tex and produces the <folder>_arXiv output directory. Comments must be stripped, unused files/images removed, and images resized.",
+  "check": "The hidden test runs the cleaner on a copy of the bundled sample LaTeX project and inspects the output folder for removed comments, removed unused/aux files, kept used files and resized images.",
+  "server": false
+}

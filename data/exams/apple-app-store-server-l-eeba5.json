@@ -1,0 +1,21 @@
+{
+  "slug": "apple-app-store-server-l-eeba5",
+  "repo": "apple/app-store-server-library-python",
+  "dir": "app-store-server-library-python",
+  "company": "Apple",
+  "stars": 268,
+  "examined": "2026-11-13 23:19:27",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 5,
+    "cost_usd": 0.05606629999999999,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Pure-Python library whose README Usage examples (signed-data verification, promotional offer signatures) run offline on CPU using bundled test keys/certs with no Apple account needed.",
+  "demo": "README Usage: 'Verification Usage' (SignedDataVerifier) and 'Promotional Offer Signature Creation'",
+  "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8 and tests/resources/mock_signed_data/testNotification, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification via verify_and_decode_notification, and make PromotionalOfferSignatureCreator produce a signature. No Apple credentials or network API calls are needed.",
+  "check": "A Python script imports the library, creates a promotional offer signature that verifies against the test key, and decodes the bundled test notification as type TEST.",
+  "server": false
+}

@@ -1,0 +1,21 @@
+{
+  "slug": "paddlepaddle-paddleclas",
+  "repo": "PaddlePaddle/PaddleClas",
+  "dir": "PaddleClas",
+  "company": "Baidu",
+  "stars": 5863,
+  "examined": "2026-11-13 23:25:20",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 18,
+    "num_turns": 6,
+    "cost_usd": 0.0389016,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The wheel/CLI quickstart classifies an image with a pretrained ResNet50 on CPU with a small download.",
+  "demo": "docs/en/inference_deployment/whl_deploy_en.md section 2.1 (ImageNet1k models): paddleclas --model_name=ResNet50 --infer_imgs=...",
+  "goal": "Install PaddleClas (paddlepaddle CPU plus the paddleclas package/CLI from the repo at /work/PaddleClas) so that `paddleclas --model_name=ResNet50 --infer_imgs=docs/images/inference_deployment/whl_demo.jpg` run from /work/PaddleClas downloads the pretrained inference model and prints the top-5 predictions. The Python API `PaddleClas(model_name='ResNet50').predict(path)` must work too.",
+  "check": "The CLI and the Python API both classify the bundled demo image, with the top-1 prediction being class id 8 'hen' at high confidence.",
+  "server": false
+}

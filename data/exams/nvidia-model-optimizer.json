@@ -1,0 +1,21 @@
+{
+  "slug": "nvidia-model-optimizer",
+  "repo": "NVIDIA/Model-Optimizer",
+  "dir": "Model-Optimizer",
+  "company": "NVIDIA",
+  "stars": 5601,
+  "examined": "2026-11-13 23:24:21",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 21,
+    "num_turns": 5,
+    "cost_usd": 0.067275,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "ModelOpt's documented PTQ Python API (mtq.quantize with INT8_DEFAULT_CFG and a calibration loop) runs on CPU with a tiny model and no gated downloads.",
+  "demo": "README Install + Post Training Quantization guide (modelopt.torch.quantization mtq.quantize)",
+  "goal": "Install nvidia-modelopt from the cloned repo (CPU-only torch, plus transformers) so that `import modelopt.torch.quantization as mtq` works. Then run post-training quantization: take a small Hugging Face causal LM (e.g. a tiny randomly initialised LlamaForCausalLM), call mtq.quantize(model, mtq.INT8_DEFAULT_CFG, forward_loop) with a calibration forward loop on CPU, and confirm the model has calibrated TensorQuantizer modules and still produces finite logits.",
+  "check": "A hidden script quantizes a small Llama model with INT8_DEFAULT_CFG on CPU and verifies quantizers were inserted and calibrated and that outputs are finite and slightly different from the original.",
+  "server": false
+}

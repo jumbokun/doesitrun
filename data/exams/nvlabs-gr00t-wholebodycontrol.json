@@ -1,0 +1,21 @@
+{
+  "slug": "nvlabs-gr00t-wholebodycontrol",
+  "repo": "NVlabs/GR00T-WholeBodyControl",
+  "dir": "GR00T-WholeBodyControl",
+  "company": "NVIDIA",
+  "stars": 3914,
+  "examined": "2026-11-13 23:25:23",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 47,
+    "num_turns": 7,
+    "cost_usd": 0.0990925,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "MotionBricks subproject ships synthetic-data training scripts that read configs from the repo and can run a few steps on CPU with no gated resources.",
+  "demo": "motionbricks/README.md Training section: python scripts/train_vqvae.py (synthetic data)",
+  "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. The script uses the hparams.yaml/skeleton/stats files under motionbricks/out/motionbricks_vqvae/version_1 and synthetic data; the large LFS checkpoints are not needed. Provide /work/env.sh that activates the environment.",
+  "check": "Running the VQVAE synthetic-data training for 20 steps on CPU exits successfully, logs the start banner and 'Training complete.' with no traceback.",
+  "server": false
+}

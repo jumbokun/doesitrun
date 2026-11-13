@@ -1,0 +1,21 @@
+{
+  "slug": "google-clusterfuzz",
+  "repo": "google/clusterfuzz",
+  "dir": "clusterfuzz",
+  "company": "Google",
+  "stars": 5634,
+  "examined": "2026-11-13 23:23:49",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 5,
+    "cost_usd": 0.040489399999999995,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Docs describe a local ClusterFuzz instance (butler.py run_server --bootstrap) that runs on CPU with local emulators and no credentials.",
+  "demo": "docs/getting-started/local_instance.md: python butler.py run_server --bootstrap",
+  "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install deps as needed, with local datastore emulator, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
+  "check": "The hidden test starts the server via run.sh and verifies http://localhost:9000/ and /login return HTTP 200 with ClusterFuzz page content.",
+  "server": true
+}
