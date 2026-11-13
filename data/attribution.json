@@ -879,5 +879,14 @@
     "evidence": [
       "owner 'openai' is OpenAI org account (OpenAI)"
     ]
+  },
+  "aws/chalice": {
+    "repo": "aws/chalice",
+    "company": "Amazon",
+    "team": "AWS",
+    "confidence": "high",
+    "evidence": [
+      "owner 'aws' is Amazon org account (AWS)"
+    ]
   }
 }

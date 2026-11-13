@@ -1,0 +1,41 @@
+{
+  "slug": "aws-chalice",
+  "repo": "aws/chalice",
+  "track": "cpu-gha",
+  "goal": "Install chalice from the repo clone and make the quickstart work offline: `chalice new-project helloworld` then `chalice local --port 8000` inside that project (no AWS deploy, no credentials). Write /work/run.sh so it creates the project at /work/helloworld (if missing), starts `chalice local --port 8000` in the background (nohup), and waits until http://127.0.0.1:8000/ responds. Write /work/env.sh to activate the environment where chalice is installed.",
+  "check": "A fresh new-project is scaffolded in a temp dir, and the local server on port 8000 returns HTTP 200 with the JSON {\"hello\": \"world\"} for GET /.",
+  "started": "2026-11-13 21:26:43",
+  "agent": {
+    "secs": 49,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7eb31b1d-8188-4f8f-bc15-3b279e1a0965",
+    "num_turns": 5,
+    "cost_usd": 0.08614559999999999,
+    "is_error": false,
+    "final": " it.\n- **`run.sh`:** it binds the server to `127.0.0.1` and waits up to 60 seconds for it to respond. If the server doesn't come up, it prints `/work/server.log` and exits 1.\n\n`REPORT.json` records `readme_path_worked_as_written: true` with no interventions, and `NOTES.md` mentions the Python version difference.\n\nFiles are in `/work`:\n- `setup.sh`\n- `env.sh`\n- `run.sh`\n- `NOTES.md`\n- `REPORT.json`"
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 10,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 21:28:05"
+}

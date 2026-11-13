@@ -153,6 +153,27 @@
           "corrected": false
         },
         {
+          "repo": "aws/chalice",
+          "slug": "aws-chalice",
+          "score": 99.2,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "facebookresearch/detr",
           "slug": "facebookresearch-detr",
           "score": 99.1,
@@ -1838,13 +1859,18 @@
       "companies": [
         {
           "company": "Amazon",
-          "n": 1,
-          "mean": 99.4,
+          "n": 2,
+          "mean": 99.3,
           "teams": [
             {
               "team": "AWS Labs",
               "n": 1,
               "mean": 99.4
+            },
+            {
+              "team": "AWS",
+              "n": 1,
+              "mean": 99.2
             }
           ]
         },
