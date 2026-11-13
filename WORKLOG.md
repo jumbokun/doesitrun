@@ -192,3 +192,10 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   Python repos by stars across official orgs, examiner screens in star order; target 3 per company, so company
   means sit at n=3). The 8 batch-3 companies are byte-identical in data/candidates.json. Orgs: OpenAI = openai;
   Amazon = amazon-science, awslabs, aws; Apple = apple, ml-explore (Apple has only 17 eligible-by-search repos).
+- 2026-11-13: batch 4 done (exam run 43502192102, probe run 43502833032). 9/9 oracles passed, 9/9 first replays
+  passed, no audits needed. OpenAI skipped openai-python, openai-agents-python (README: API key) and skills (Codex
+  account). Means: Amazon 99.1, Apple 86.1 (mlx-lm 60.7: 29 min on CPU, agent cast weights to fp32 for speed;
+  README says Apple silicon), OpenAI 85.2 (gpt-2 57.3: TF1.12 needs Python<=3.6, agent ported 4 files to
+  tf.compat.v1). The firewall pre-check refused aws-cli twice and chalice once with internet_ok=False (curl -m 4
+  to pypi/hf returned 000); reruns passed. Refusals record nothing. Oracles read before probing: aws-cli's goal
+  says "v2" but the default branch is v1; its oracle only checks "aws-cli/", so no effect.

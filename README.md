@@ -31,6 +31,14 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 | Tencent | 64 (9) | ARC Lab 94 · Tencent 76 · **Hunyuan 39** |
 | ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
 
+**Batch 4 (2026-11-13) — 9 more repos, 3 each from OpenAI, Amazon and Apple,** same rule with a target of 3
+per company (the 8 companies above were not re-queried): **9 / 9 ran**, all 9 installers replayed first try.
+Means: Amazon 99 (3), Apple 86 (3), OpenAI 85 (3). The examiner skipped 3 OpenAI repos whose READMEs state they
+need an OpenAI API key or a Codex account. openai/gpt-2 (archived, pins TensorFlow 1.12) ran only after the agent
+ported 4 files to TF2's compat API; ml-explore/mlx-lm describes itself as Apple-silicon software, and on Linux CPU
+it took 29 minutes. Two aws-cli and one chalice attempts were refused by the pre-run firewall check (no internet
+from the sandbox at that moment) and rerun; refused attempts record nothing.
+
 **GPU track — 11 repos on an RTX 5060 8 GB:** 11/11 ran, 8/11 installers replayed first try. All six
 2020–23 repos needed a newer PyTorch than they pin (old pins have no Blackwell kernels), and five of the six
 also needed patches to their own code.
@@ -81,7 +89,7 @@ Scores are only compared within a hardware track.
 | track | hardware | repos | how they were chosen |
 |---|---|---|---|
 | `gpu-rtx5060` | RTX 5060 Laptop 8 GB, local | 11 | batch 1: five 2026 releases; batch 2: six 2020–23 research repos with install complaints |
-| `cpu-gha` | GitHub-hosted runner, 4 vCPU / 16 GB, no GPU | 80 | per company, top 25 Python repos by stars across its official orgs; the first 10 an examiner rules eligible |
+| `cpu-gha` | GitHub-hosted runner, 4 vCPU / 16 GB, no GPU | 89 | per company, top 25 Python repos by stars across its official orgs; the first 10 an examiner rules eligible (batch 4 companies: the first 3) |
 
 The `cpu-gha` track runs entirely on GitHub Actions ([`exam.yml`](.github/workflows/exam.yml),
 [`probe.yml`](.github/workflows/probe.yml)). An **examiner agent** reads each candidate (no install) and
