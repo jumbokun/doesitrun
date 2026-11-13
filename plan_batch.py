@@ -9,6 +9,7 @@ import json
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent
+ACTIVE = ROOT / "data" / "active.json"
 
 
 def main():
@@ -31,6 +32,17 @@ def main():
                              "goal": e["goal"], "check": e["check"]})
             elif not e.get("eligible"):
                 excluded.append(f"{c['repo']}: {e.get('reason')}")
+        # The maintained set (data/active.json) has no per-company cap: every eligible repo in it runs.
+        active = json.loads(ACTIVE.read_text(encoding="utf-8"))["companies"].get(company, []) if ACTIVE.exists() else []
+        cand_by_slug = {c["slug"]: c for c in spec["candidates"]}
+        for a in active:
+            e = exams.get(a["slug"])
+            if (e and e.get("eligible") and a["slug"] not in picked
+                    and (ROOT / "oracles" / f"{a['slug']}.sh").exists()):
+                picked.append(a["slug"])
+                plan.append({"slug": a["slug"], "repo": cand_by_slug[a["slug"]]["repo"], "dir": e["dir"],
+                             "company": company, "gpu": False, "mem": "12g", "server": bool(e.get("server")),
+                             "goal": e["goal"], "check": e["check"]})
         summary[company] = {"eligible": len(picked), "excluded": len(excluded)}
         print(f"{company}: {len(picked)} eligible, {len(excluded)} excluded")
         for x in excluded:

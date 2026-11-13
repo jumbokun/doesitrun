@@ -346,6 +346,15 @@ def exam_company(company):
               flush=True)
 
 
+def exam_active(company):
+    """Screen every repo in the pre-registered maintained set (data/active.json); no per-company cap.
+    Repos examined in an earlier batch keep that verdict (exam() returns the stored record)."""
+    for cand in json.loads((DATA / "active.json").read_text(encoding="utf-8"))["companies"][company]:
+        rec = exam(cand, company)
+        print(company, cand["repo"], "ELIGIBLE" if rec.get("eligible") else "excluded: " + str(rec.get("reason")),
+              flush=True)
+
+
 AUDIT_PROMPT = """You are an independent AUDITOR in a reproducibility benchmark. Another agent installed {repo} in
 this sandbox (Ubuntu, CPU only) with /work/setup.sh; the project is at /work/{dir} and `source /work/env.sh`
 activates its environment. A hidden test written beforehand by an examiner (the "oracle") then FAILED on
@@ -516,6 +525,10 @@ if __name__ == "__main__":
     if args and args[0] == "--exam-company":
         for company in args[1:]:
             exam_company(company)
+        sys.exit(0)
+    if args and args[0] == "--exam-active":
+        for company in args[1:]:
+            exam_active(company)
         sys.exit(0)
     mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary", "--repair", "--audit") else None
     cfgs = {c["slug"]: c for c in json.loads((ROOT / repos_file).read_text(encoding="utf-8"))}

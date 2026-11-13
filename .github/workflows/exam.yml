@@ -15,6 +15,9 @@ on:
       target:
         description: "Override eligible-per-company target (smoke runs only; empty = pre-registered 10)"
         default: ""
+      set:
+        description: "top = first N eligible per company (candidates.json); active = every repo in data/active.json"
+        default: "top"
 
 permissions:
   contents: write
@@ -54,7 +57,10 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           COMPANY: ${{ matrix.company }}
           RR_EXAM_TARGET: ${{ inputs.target }}
-        run: python run_probe.py --exam-company "$COMPANY"
+          EXAM_SET: ${{ inputs.set }}
+        run: |
+          if [ "$EXAM_SET" = "active" ]; then python run_probe.py --exam-active "$COMPANY"
+          else python run_probe.py --exam-company "$COMPANY"; fi
       - uses: actions/upload-artifact@v7
         if: always()
         with:
