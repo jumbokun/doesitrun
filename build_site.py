@@ -109,6 +109,10 @@ TRACK_NOTES = {
                 "test was then audited by an independent agent, and tests found defective (checking something the "
                 "README never promised) leave that repo unscored rather than scored 0. That happened often enough "
                 "that the audit is essential, not a formality."),
+    "cpu-gha-maintained": ("The same CPU runs, limited to repos that GitHub reported not archived and pushed to "
+                           "in the 92 days before the set was registered (data/active.json). Archived or quiet "
+                           "repos are often unmaintained on purpose, so they are left out of this view. A push "
+                           "to any branch counts, bots included."),
     "gpu-rtx5060": ("Local RTX 5060 (Blackwell). Old PyTorch pins have no kernels for it, so 2020-23 repos needed "
                     "a newer stack; that is part of what the score measures."),
 }
@@ -222,6 +226,8 @@ def write_badges(tracks):
     """shields.io endpoint JSON per repo and track: _site/badge/<track>/<owner>/<repo>.json.
     Embed: https://img.shields.io/endpoint?url=https://jumbokun.github.io/doesitrun/badge/<track>/<owner>/<repo>.json"""
     for t in tracks:
+        if t.get("view_of"):
+            continue  # a filtered view of another track: its badges are that track's
         short = "CPU" if t["track"] == "cpu-gha" else "GPU"
         for r in t["repos"]:
             if r["score"] is None:

@@ -21,6 +21,7 @@ import attribute  # noqa: E402
 
 DATA = ROOT / "data"
 ATTR_CACHE = DATA / "attribution.json"
+MAINTAINED = "cpu-gha-maintained"
 TRACK_LABELS = {"cpu-gha": "CPU · GitHub-hosted runner (4 vCPU, 16 GB)",
                 "gpu-rtx5060": "GPU · RTX 5060 Laptop 8 GB"}
 
@@ -100,6 +101,15 @@ def main():
     ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
     order = sorted(tracks, key=lambda t: (t != "cpu-gha", t))
+    labels = dict(TRACK_LABELS)
+    active_path = DATA / "active.json"
+    if "cpu-gha" in tracks and active_path.exists():
+        # A view, not a new track: the CPU rows whose repo is in the pre-registered maintained set.
+        active = json.loads(active_path.read_text(encoding="utf-8"))
+        slugs = {a["slug"] for v in active["companies"].values() for a in v}
+        tracks[MAINTAINED] = [r for r in tracks["cpu-gha"] if r["slug"] in slugs]
+        labels[MAINTAINED] = f"CPU · maintained repos only (not archived, pushed since {active['pushed_since']})"
+        order.insert(0, MAINTAINED)
     out = {"tracks": []}
     md = ["# Reproducibility leaderboard", "",
           "How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each "
@@ -108,8 +118,9 @@ def main():
     for t in order:
         rows = sorted(tracks[t], key=lambda r: (r["score"] is None, -(r["score"] or 0)))
         companies = company_table(rows)
-        out["tracks"].append({"track": t, "label": TRACK_LABELS.get(t, t), "repos": rows, "companies": companies})
-        md += [f"## {TRACK_LABELS.get(t, t)} — {len(rows)} repos", "",
+        out["tracks"].append({"track": t, "label": labels.get(t, t), "repos": rows, "companies": companies,
+                              **({"view_of": "cpu-gha"} if t == MAINTAINED else {})})
+        md += [f"## {labels.get(t, t)} — {len(rows)} repos", "",
                "| # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |",
                "|---|---|---|---|---|---|---|"]
         for i, r in enumerate(rows, 1):
