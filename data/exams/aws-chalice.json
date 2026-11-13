@@ -1,0 +1,21 @@
+{
+  "slug": "aws-chalice",
+  "repo": "aws/chalice",
+  "dir": "chalice",
+  "company": "Amazon",
+  "stars": 11062,
+  "examined": "2026-11-13 20:32:36",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 15,
+    "num_turns": 3,
+    "cost_usd": 0.0308003,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Chalice CLI quickstart can create a project and serve it locally with `chalice local` on CPU without AWS credentials.",
+  "demo": "README Quickstart: chalice new-project, then run the app locally with chalice local",
+  "goal": "Install chalice from the repo clone and make the quickstart work offline: `chalice new-project helloworld` then `chalice local --port 8000` inside that project (no AWS deploy, no credentials). Write /work/run.sh so it creates the project at /work/helloworld (if missing), starts `chalice local --port 8000` in the background (nohup), and waits until http://127.0.0.1:8000/ responds. Write /work/env.sh to activate the environment where chalice is installed.",
+  "check": "A fresh new-project is scaffolded in a temp dir, and the local server on port 8000 returns HTTP 200 with the JSON {\"hello\": \"world\"} for GET /.",
+  "server": true
+}

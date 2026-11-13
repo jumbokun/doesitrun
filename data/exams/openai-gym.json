@@ -1,0 +1,21 @@
+{
+  "slug": "openai-gym",
+  "repo": "openai/gym",
+  "dir": "gym",
+  "company": "OpenAI",
+  "stars": 37235,
+  "examined": "2026-11-13 20:31:52",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 3,
+    "cost_usd": 0.0294946,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README shows a CartPole-v1 random-agent loop that runs trivially on CPU with no credentials.",
+  "demo": "README 'API' section: gym.make('CartPole-v1') random-action loop",
+  "goal": "Make the README API example work: import gym, create CartPole-v1, reset with seed=42, and run 1000 steps with random actions from env.action_space.sample(), resetting on terminated or truncated, then env.close(). The installed gym must be this cloned repo's version (5-tuple step API), and it must run without errors in a working Python environment set up via /work/env.sh.",
+  "check": "A script running the README loop completes without error, with observations of the expected shape and at least one episode termination observed.",
+  "server": false
+}

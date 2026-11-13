@@ -1,0 +1,21 @@
+{
+  "slug": "awslabs-mcp",
+  "repo": "awslabs/mcp",
+  "dir": "mcp",
+  "company": "Amazon",
+  "stars": 9915,
+  "examined": "2026-11-13 20:33:00",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 23,
+    "num_turns": 5,
+    "cost_usd": 0.05580280000000001,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The AWS Documentation MCP server (src/aws-documentation-mcp-server) runs on CPU over stdio and needs no AWS credentials, only public internet access to docs.aws.amazon.com.",
+  "demo": "README -> src/aws-documentation-mcp-server (AWS Documentation MCP Server): install and start the stdio server, then call its read_documentation tool",
+  "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation. Calling read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown.",
+  "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, calls read_documentation on a Lambda docs page and verifies that substantial Lambda-related text comes back.",
+  "server": false
+}

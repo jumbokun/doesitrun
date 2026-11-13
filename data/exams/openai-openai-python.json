@@ -1,0 +1,21 @@
+{
+  "slug": "openai-openai-python",
+  "repo": "openai/openai-python",
+  "dir": "openai-python",
+  "company": "OpenAI",
+  "stars": 32143,
+  "examined": "2026-11-13 20:32:00",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 7,
+    "num_turns": 3,
+    "cost_usd": 0.0185588,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README usage example calls the hosted OpenAI API and requires a paid OPENAI_API_KEY; the repo is only an API client library with no local model or offline demo.",
+  "demo": "README Usage (client.responses.create)",
+  "goal": "",
+  "check": "",
+  "server": false
+}

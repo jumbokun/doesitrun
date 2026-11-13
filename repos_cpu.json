@@ -878,5 +878,104 @@
     "server": false,
     "goal": "Install PaddlePaddle (CPU) and PaddleX from the repo clone (with the OCR extras needed), then run the README OCR command: `paddlex --pipeline OCR --input <image> --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False --save_path <dir> --device cpu`. It must download the models, recognize text in a local image with printed English text, print the result with rec_texts, and save result image/JSON files to the save path.",
     "check": "The hidden test runs the OCR CLI on a generated image of printed text on CPU and verifies the saved output files and that the recognized text contains the expected words."
+  },
+  {
+    "slug": "openai-whisper",
+    "repo": "openai/whisper",
+    "dir": "whisper",
+    "company": "OpenAI",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the whisper package so the `whisper` CLI works (ffmpeg is required). Then run `whisper tests/jfk.flac --model tiny.en --device cpu --fp16 False --output_dir <dir> --output_format all` from the repo root. It must download the model and write jfk.txt, jfk.srt and jfk.json with the transcript. Ensure /work/env.sh activates the environment where `whisper` is on PATH.",
+    "check": "The hidden test runs the CLI on the bundled JFK audio and checks that the output files exist and that the transcript contains the expected famous quote."
+  },
+  {
+    "slug": "openai-gym",
+    "repo": "openai/gym",
+    "dir": "gym",
+    "company": "OpenAI",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Make the README API example work: import gym, create CartPole-v1, reset with seed=42, and run 1000 steps with random actions from env.action_space.sample(), resetting on terminated or truncated, then env.close(). The installed gym must be this cloned repo's version (5-tuple step API), and it must run without errors in a working Python environment set up via /work/env.sh.",
+    "check": "A script running the README loop completes without error, with observations of the expected shape and at least one episode termination observed."
+  },
+  {
+    "slug": "openai-gpt-2",
+    "repo": "openai/gpt-2",
+    "dir": "gpt-2",
+    "company": "OpenAI",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Get the GPT-2 small (124M) model downloaded into /work/gpt-2/models/124M via download_model.py and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims); write /work/env.sh that activates it.",
+    "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text."
+  },
+  {
+    "slug": "aws-aws-cli",
+    "repo": "aws/aws-cli",
+    "dir": "aws-cli",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run. `aws configure set/get` must work with a temporary config. `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton. No AWS credentials are needed.",
+    "check": "The hidden test checks that aws reports its version, that configure values round-trip through a temporary config file, and that a generated CLI skeleton is valid JSON containing expected keys."
+  },
+  {
+    "slug": "aws-chalice",
+    "repo": "aws/chalice",
+    "dir": "chalice",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": true,
+    "goal": "Install chalice from the repo clone and make the quickstart work offline: `chalice new-project helloworld` then `chalice local --port 8000` inside that project (no AWS deploy, no credentials). Write /work/run.sh so it creates the project at /work/helloworld (if missing), starts `chalice local --port 8000` in the background (nohup), and waits until http://127.0.0.1:8000/ responds. Write /work/env.sh to activate the environment where chalice is installed.",
+    "check": "A fresh new-project is scaffolded in a temp dir, and the local server on port 8000 returns HTTP 200 with the JSON {\"hello\": \"world\"} for GET /."
+  },
+  {
+    "slug": "awslabs-mcp",
+    "repo": "awslabs/mcp",
+    "dir": "mcp",
+    "company": "Amazon",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation. Calling read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown.",
+    "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, calls read_documentation on a Lambda docs page and verifies that substantial Lambda-related text comes back."
+  },
+  {
+    "slug": "ml-explore-mlx-examples",
+    "repo": "ml-explore/mlx-examples",
+    "dir": "mlx-examples",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Get the MNIST example in /work/mlx-examples/mnist running on CPU. Install its requirements (mlx, numpy) and make `python main.py` in that directory download MNIST and train the MLP for all 10 epochs, printing a test accuracy line per epoch. Write /work/env.sh, which activates the environment so that `python` runs the demo.",
+    "check": "Running main.py on CPU completes 10 epochs and prints per-epoch test accuracy that ends above 0.90."
+  },
+  {
+    "slug": "ml-explore-mlx-lm",
+    "repo": "ml-explore/mlx-lm",
+    "dir": "mlx-lm",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install mlx-lm from /work/mlx-lm (with an mlx CPU backend on Linux, e.g. mlx[cpu]) so that `mlx_lm.generate --prompt \"How tall is Mt Everest?\" --max-tokens 64` runs on CPU using the default model mlx-community/Llama-3.2-3B-Instruct-4bit and prints a generated answer. The Python API load/generate with the same model must also work. Put needed environment activation in /work/env.sh.",
+    "check": "The hidden test runs the CLI generate command and the Python API on the default model and checks that non-empty, sensible generated text about Everest is produced."
+  },
+  {
+    "slug": "apple-coremltools",
+    "repo": "apple/coremltools",
+    "dir": "coremltools",
+    "company": "Apple",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install coremltools (from the clone or pip) with PyTorch and scikit-learn, using a Python/torch combination that coremltools supports and that works on Linux x86 CPU. Then make this work: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors on Linux.",
+    "check": "A hidden script converts a small conv/linear torch model to an mlprogram package and a sklearn model, then checks the saved files and model spec contents."
   }
 ]

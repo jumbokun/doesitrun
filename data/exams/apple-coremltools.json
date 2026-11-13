@@ -1,0 +1,21 @@
+{
+  "slug": "apple-coremltools",
+  "repo": "apple/coremltools",
+  "dir": "coremltools",
+  "company": "Apple",
+  "stars": 5452,
+  "examined": "2026-11-13 20:32:37",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 22,
+    "num_turns": 4,
+    "cost_usd": 0.0427408,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "coremltools is a pip-installable converter whose documented PyTorch conversion workflow runs on CPU-only Linux with a tiny model.",
+  "demo": "README Install + Guide 'Converting from PyTorch' (ct.convert on a traced torch model, save .mlpackage)",
+  "goal": "Install coremltools (from the clone or pip) with PyTorch and scikit-learn, using a Python/torch combination that coremltools supports and that works on Linux x86 CPU. Then make this work: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors on Linux.",
+  "check": "A hidden script converts a small conv/linear torch model to an mlprogram package and a sklearn model, then checks the saved files and model spec contents.",
+  "server": false
+}

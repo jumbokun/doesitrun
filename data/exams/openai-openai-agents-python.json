@@ -1,0 +1,21 @@
+{
+  "slug": "openai-openai-agents-python",
+  "repo": "openai/openai-agents-python",
+  "dir": "openai-agents-python",
+  "company": "OpenAI",
+  "stars": 30656,
+  "examined": "2026-11-13 20:32:10",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 9,
+    "num_turns": 3,
+    "cost_usd": 0.0269276,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Every README demo (text, sandbox, realtime, voice agent) requires a paid OPENAI_API_KEY to call OpenAI models.",
+  "demo": "README 'Run your first agents'",
+  "goal": "n/a",
+  "check": "n/a",
+  "server": false
+}

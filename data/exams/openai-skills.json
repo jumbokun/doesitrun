@@ -1,0 +1,21 @@
+{
+  "slug": "openai-skills",
+  "repo": "openai/skills",
+  "dir": "skills",
+  "company": "OpenAI",
+  "stars": 28722,
+  "examined": "2026-11-13 20:32:18",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 7,
+    "num_turns": 3,
+    "cost_usd": 0.019162400000000003,
+    "timed_out": false
+  },
+  "eligible": false,
+  "reason": "Deprecated catalog of Codex agent skills whose only README usage is installing them via $skill-installer inside Codex, which needs an OpenAI account, not a standalone runnable demo.",
+  "demo": "none",
+  "goal": "",
+  "check": "",
+  "server": false
+}

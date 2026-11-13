@@ -1,0 +1,21 @@
+{
+  "slug": "openai-gpt-2",
+  "repo": "openai/gpt-2",
+  "dir": "gpt-2",
+  "company": "OpenAI",
+  "stars": 25015,
+  "examined": "2026-11-13 20:32:34",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 16,
+    "num_turns": 3,
+    "cost_usd": 0.0408174,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "README/DEVELOPERS.md give runnable GPT-2 sample generation scripts with a freely downloadable 124M model that runs on CPU.",
+  "demo": "DEVELOPERS.md: download_model.py 124M, then Unconditional and Conditional sample generation",
+  "goal": "Get the GPT-2 small (124M) model downloaded into /work/gpt-2/models/124M via download_model.py and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims); write /work/env.sh that activates it.",
+  "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text.",
+  "server": false
+}

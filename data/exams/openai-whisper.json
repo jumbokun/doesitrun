@@ -1,0 +1,21 @@
+{
+  "slug": "openai-whisper",
+  "repo": "openai/whisper",
+  "dir": "whisper",
+  "company": "OpenAI",
+  "stars": 112659,
+  "examined": "2026-11-13 20:31:40",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 12,
+    "num_turns": 3,
+    "cost_usd": 0.0312298,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "Whisper README shows a CLI transcription command that runs on CPU with a small model and bundled audio, with no credentials.",
+  "demo": "README 'Command-line usage': whisper audio.flac --model <size>",
+  "goal": "Install the whisper package so the `whisper` CLI works (ffmpeg is required). Then run `whisper tests/jfk.flac --model tiny.en --device cpu --fp16 False --output_dir <dir> --output_format all` from the repo root. It must download the model and write jfk.txt, jfk.srt and jfk.json with the transcript. Ensure /work/env.sh activates the environment where `whisper` is on PATH.",
+  "check": "The hidden test runs the CLI on the bundled JFK audio and checks that the output files exist and that the transcript contains the expected famous quote.",
+  "server": false
+}

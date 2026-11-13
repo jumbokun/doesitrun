@@ -1,0 +1,21 @@
+{
+  "slug": "aws-aws-cli",
+  "repo": "aws/aws-cli",
+  "dir": "aws-cli",
+  "company": "Amazon",
+  "stars": 17361,
+  "examined": "2026-11-13 20:32:21",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 29,
+    "num_turns": 3,
+    "cost_usd": 0.030478100000000004,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The README describes the aws CLI, and its offline commands (version, configure, skeleton generation) run on CPU with no account.",
+  "demo": "Installation from source (CLI dev version) and Getting Started: aws --version, aws configure, aws <service> <command> --generate-cli-skeleton",
+  "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run. `aws configure set/get` must work with a temporary config. `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton. No AWS credentials are needed.",
+  "check": "The hidden test checks that aws reports its version, that configure values round-trip through a temporary config file, and that a generated CLI skeleton is valid JSON containing expected keys.",
+  "server": false
+}

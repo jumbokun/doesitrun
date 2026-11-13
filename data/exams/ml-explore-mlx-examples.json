@@ -1,0 +1,21 @@
+{
+  "slug": "ml-explore-mlx-examples",
+  "repo": "ml-explore/mlx-examples",
+  "dir": "mlx-examples",
+  "company": "Apple",
+  "stars": 9065,
+  "examined": "2026-11-13 20:31:58",
+  "examiner": {
+    "model": "claude-sonnet-5-5",
+    "secs": 17,
+    "num_turns": 4,
+    "cost_usd": 0.032738500000000004,
+    "timed_out": false
+  },
+  "eligible": true,
+  "reason": "The MNIST example is a small CPU-default MLX training demo with a tiny dataset download and no credentials.",
+  "demo": "README.md -> mnist/README.md: pip install -r requirements.txt; python main.py",
+  "goal": "Get the MNIST example in /work/mlx-examples/mnist running on CPU. Install its requirements (mlx, numpy) and make `python main.py` in that directory download MNIST and train the MLP for all 10 epochs, printing a test accuracy line per epoch. Write /work/env.sh, which activates the environment so that `python` runs the demo.",
+  "check": "Running main.py on CPU completes 10 epochs and prints per-epoch test accuracy that ends above 0.90.",
+  "server": false
+}
