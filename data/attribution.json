@@ -888,5 +888,14 @@
     "evidence": [
       "owner 'aws' is Amazon org account (AWS)"
     ]
+  },
+  "aws/aws-cli": {
+    "repo": "aws/aws-cli",
+    "company": "Amazon",
+    "team": "AWS",
+    "confidence": "high",
+    "evidence": [
+      "owner 'aws' is Amazon org account (AWS)"
+    ]
   }
 }

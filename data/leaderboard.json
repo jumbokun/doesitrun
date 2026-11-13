@@ -258,6 +258,27 @@
           "corrected": false
         },
         {
+          "repo": "aws/aws-cli",
+          "slug": "aws-aws-cli",
+          "score": 98.7,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "google/adk-recipes",
           "slug": "google-adk-recipes",
           "score": 98.7,
@@ -1859,8 +1880,8 @@
       "companies": [
         {
           "company": "Amazon",
-          "n": 2,
-          "mean": 99.3,
+          "n": 3,
+          "mean": 99.1,
           "teams": [
             {
               "team": "AWS Labs",
@@ -1869,8 +1890,8 @@
             },
             {
               "team": "AWS",
-              "n": 1,
-              "mean": 99.2
+              "n": 2,
+              "mean": 99.0
             }
           ]
         },

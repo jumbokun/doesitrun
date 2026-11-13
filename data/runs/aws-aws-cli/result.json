@@ -1,0 +1,41 @@
+{
+  "slug": "aws-aws-cli",
+  "repo": "aws/aws-cli",
+  "track": "cpu-gha",
+  "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run. `aws configure set/get` must work with a temporary config. `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton. No AWS credentials are needed.",
+  "check": "The hidden test checks that aws reports its version, that configure values round-trip through a temporary config file, and that a generated CLI skeleton is valid JSON containing expected keys.",
+  "started": "2026-11-13 21:32:58",
+  "agent": {
+    "secs": 77,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "972b42b9-e656-40e8-852e-650d7092058e",
+    "num_turns": 6,
+    "cost_usd": 0.08581839999999999,
+    "is_error": false,
+    "final": "DONE — I installed AWS CLI v2.40.3 from the `v2` checkout using the README's pip steps inside a venv (the only change, since Ubuntu 24.04's system Python blocks bare `pip install`), and `aws --version`, the `aws configure set/get` round-trip with a temp config, and the JSON skeleton all worked when I tested them by hand; `setup.sh` has not yet been re-run on a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 46,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 21:35:27"
+}
