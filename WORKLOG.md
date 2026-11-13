@@ -199,3 +199,7 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   tf.compat.v1). The firewall pre-check refused aws-cli twice and chalice once with internet_ok=False (curl -m 4
   to pypi/hf returned 000); reruns passed. Refusals record nothing. Oracles read before probing: aws-cli's goal
   says "v2" but the default branch is v1; its oracle only checks "aws-cli/", so no effect.
+- 2026-11-14: PROTOCOL ADDITION (user: count only maintained repos). data/active.json pre-registers every candidate
+  (all 11 companies, top 25 each) that GitHub reports not archived and pushed since 2026-08-14 (92 days): 117 of
+  267. The examiner screens all of them with no per-company cap; 59 already have verdicts (39 probed, 20 excluded),
+  58 are new. pushed_at counts any branch push, bots included, so "maintained" is a loose reading.
