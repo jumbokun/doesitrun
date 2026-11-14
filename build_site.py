@@ -1,18 +1,31 @@
-"""Render data/leaderboard.json into a static page at _site/index.html (GitHub Pages).
+"""Render data/leaderboard.json into a static site at _site/ (GitHub Pages).
+
+index.html  - the leaderboard: one track at a time (tabs), repos or companies, filters. Little prose.
+method.html - how a run works, scoring, attribution, every repo not tested and why, caveats.
+badge/...   - shields.io endpoint JSON per repo.
 
 Pure stdlib, reads only committed data: CI needs no Docker, GPU, network or secrets.
-Design follows the web3work DESIGN.md tokens (dark-native, mono numbers, semantic colors only).
+Design follows the web3work DESIGN.md tokens (dark-native, Inter + JetBrains Mono for figures,
+semantic colours only); layout follows the common leaderboard pattern (Terminal-Bench, SWE-bench):
+title, one sentence, then the table, with the method on its own page.
 """
 import datetime
 import html
 import json
 import os
 import pathlib
+import re
 import statistics
 
 ROOT = pathlib.Path(__file__).resolve().parent
 OUT = ROOT / "_site"
 REPO_URL = "https://github.com/jumbokun/doesitrun"
+
+TRACK_TABS = {  # short tab name, one-line note under the tabs
+    "cpu-gha-maintained": ("Maintained", "Repos not archived and pushed to since {pushed_since}. CPU-only GitHub runner, 4 vCPU, 16 GB."),
+    "cpu-gha": ("All CPU", "Every CPU run, including archived and quiet repos. CPU-only GitHub runner, 4 vCPU, 16 GB."),
+    "gpu-rtx5060": ("GPU", "Earlier pilot on one RTX 5060 laptop GPU (8 GB). Old PyTorch pins have no kernels for it."),
+}
 
 
 def esc(s):
@@ -23,203 +36,178 @@ def tone(score):
     return "pos" if score >= 75 else "warn" if score >= 50 else "neg"
 
 
-def replay_badge(r):
+def load_json(p):
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def patched_paths(slug):
+    """Repo files whose content the agent changed (same rule as leaderboard.patched)."""
+    p = ROOT / "data" / "runs" / slug / "result.json"
+    if not p.exists():
+        return []
+    files = (load_json(p).get("repo_diff") or {}).get("files", [])
+    return [f["path"] for f in files if f["added"] + f["removed"] > 0]
+
+
+def mins(m):
+    return f"{m:.1f}" if m < 10 else f"{m:.0f}"
+
+
+def status(r):
+    """One of: ran, ran-patched, failed, unscored."""
+    if r["score"] is None:
+        return "unscored"
+    if r["score"] == 0:
+        return "failed"
+    return "ran-patched" if r["files_patched"] else "ran"
+
+
+CHECK = '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+CROSS = '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 4.5l7 7M11.5 4.5l-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
+
+
+def replay_cell(r):
     first = r["replay"]
+    if r["score"] in (None, 0):
+        return '<span class="dim">–</span>'
     if first == "pass":
-        return '<span class="badge pos">replays</span>'
+        return '<span class="ok" title="The install script worked again on a fresh machine, first try">'+CHECK+'<span class="sr">yes</span></span>'
     repaired, retry = r.get("replay_after_repair", "not run"), r.get("replay_supplementary", "not run")
-    detail = "; ".join([first] + [f"{k}: {v}" for k, v in (("retry", retry), ("after repair", repaired)) if v != "not run"])
-    label = ("replays after repair" if repaired == "pass" else "replays on retry" if retry == "pass" else "replay failed")
-    good = "pass" in (repaired, retry)
-    return f'<span class="badge {"warn" if good else "neg"}" title="{esc(detail)}">{esc(label)}</span>'
-
-
-def why_failed(r):
-    """One line from the audit for repos that genuinely failed (the evidence readers will want)."""
-    if r.get("audit") != "repo_failure" or not r.get("audit_reason"):
-        return ""
-    text = r["audit_reason"].split(". ")[0].rstrip(".")
-    return f'<div class="why">{esc(text[:260])}{"…" if len(text) > 260 else ""}.</div>'
+    if "pass" in (repaired, retry):
+        return f'<span class="warn" title="{esc(first)}; worked after {"a repair round" if repaired == "pass" else "a retry"}">'+CHECK+'<span class="sr">after a retry</span></span>'
+    return f'<span class="neg" title="{esc(first)}">'+CROSS+'<span class="sr">no</span></span>'
 
 
 def score_cell(r):
     if r["score"] is None:
-        return (f'<div class="score"><span class="badge warn" title="{esc(r.get("audit_reason") or "")}">'
-                f'oracle defect · not scored</span></div>')
-    return f"""<div class="score {tone(r['score'])}">
-          <span class="mono num">{r['score']:.0f}</span>
-          <span class="bar"><span style="width:{max(2, r['score']):.0f}%"></span></span>
-        </div>"""
+        return ('<td class="score"><span class="dim" title="The hidden test itself was found defective, so this run '
+                f'is not scored. {esc(r.get("audit_reason") or "")}">n/a</span></td>')
+    s = r["score"]
+    return (f'<td class="score {tone(s)}"><span class="num">{s:.1f}</span>'
+            f'<span class="bar" aria-hidden="true"><i style="width:{max(2, s):.0f}%"></i></span></td>')
 
 
-def repo_rows(rows):
-    out = []
-    for i, r in enumerate(rows, 1):
+def repo_table(t):
+    rows = []
+    for i, r in enumerate(t["repos"], 1):
         owner, name = r["repo"].split("/", 1)
-        conf = r["attribution_confidence"]
-        redundant = r["team"] in (r["company"], None, owner)
-        org = esc(r["company"]) + ("" if redundant else f" · {esc(r['team'])}")
-        tag = "" if conf == "none" else (f'<span class="conf conf-{esc(conf)}" title="'
-                                         f'{esc("; ".join(r["attribution_evidence"]))}">{esc(conf)}</span>')
-        out.append(f"""
-      <li class="row">
-        <span class="rank mono">{i}</span>
-        <div class="who">
-          <a class="repo" href="https://github.com/{esc(r['repo'])}" rel="noopener">
-            <span class="owner">{esc(owner)}/</span>{esc(name)}</a>
-          <div class="meta">{org}{tag}</div>
-          {why_failed(r)}
-          <div class="facts">
-            <span class="mono">{r['agent_minutes']:.0f} min</span>
-            <span class="mono">{r['files_patched']} files patched</span>
-            {replay_badge(r)}
-          </div>
-        </div>
-        {score_cell(r)}
-      </li>""")
-    return "".join(out)
+        st = status(r)
+        files = patched_paths(r["slug"]) if r["files_patched"] else []
+        changed = (f'<span class="chg" title="{esc(", ".join(files))}">{r["files_patched"]}</span>'
+                   if r["files_patched"] else '<span class="dim">0</span>')
+        note = ""
+        if st == "failed" and r.get("audit_reason"):
+            note = f'<div class="note neg">{esc(r["audit_reason"].split(". ")[0][:180])}</div>'
+        elif files:
+            note = f'<div class="note">Changed: {esc(", ".join(files[:3]))}{" …" if len(files) > 3 else ""}</div>'
+        team = "" if r["team"] in (r["company"], None, owner) else f' · {esc(r["team"])}'
+        rows.append(f"""
+<tr data-st="{st}" data-q="{esc((r['repo'] + ' ' + r['company'] + ' ' + (r['team'] or '')).lower())}">
+  <td class="rank">{i}</td>
+  <td class="repo"><a href="https://github.com/{esc(r['repo'])}" rel="noopener"><span class="owner">{esc(owner)}/</span>{esc(name)}</a>
+    <div class="sub">{esc(r['company'])}{team}<span class="m-only"> · {mins(r['agent_minutes'])} min</span></div>{note}</td>
+  {score_cell(r)}
+  <td class="num d-only">{mins(r['agent_minutes'])}<span class="unit"> min</span></td>
+  <td class="num d-only">{changed}</td>
+  <td class="num d-only">{replay_cell(r)}</td>
+  <td class="num d-only"><a class="log" href="{REPO_URL}/tree/main/data/runs/{esc(r['slug'])}" rel="noopener" title="Run record: result, install script, agent notes">log</a></td>
+</tr>""")
+    return f"""
+<table class="board">
+  <thead><tr><th class="rank">#</th><th>Repo</th><th class="score" title="100 − agent minutes (max 50) − 10 per repo file changed (max 40); 0 if it never ran">Score</th>
+    <th class="num d-only">Agent time</th><th class="num d-only" title="Repo files whose content had to change">Files changed</th>
+    <th class="num d-only" title="The install script works again on a fresh machine">Replays</th><th class="num d-only">Run</th></tr></thead>
+  <tbody>{''.join(rows)}</tbody>
+</table>"""
 
 
-def company_rows(companies, excl=None):
-    out = []
-    for c in companies:
-        warn = '<span class="badge warn">n&lt;3 · not a verdict</span>' if c["n"] < 3 else ""
-        x = (excl or {}).get(c["company"])
-        if x and x["excluded"]:
-            warn += (f'<span class="n" title="Candidates the examiner ruled out before any run: paid API keys, '
-                     f'gated models, too large for CPU, GPU-only.">{x["excluded"]} excluded</span>')
-        teams = "".join(f'<li><span>{esc(t["team"])}</span><span class="mono">{t["mean"]:.0f}'
-                        f'<span class="n"> n={t["n"]}</span></span></li>' for t in c["teams"])
-        out.append(f"""
-      <li class="company">
-        <div class="chead">
-          <span class="cname">{esc(c['company'])}</span>{warn}
-          <span class="mono cscore {tone(c['mean'])}">{c['mean']:.0f}<span class="n"> n={c['n']}</span></span>
-        </div>
-        <ul class="teams">{teams}</ul>
-      </li>""")
-    return "".join(out)
+def company_table(t):
+    rows = []
+    for i, c in enumerate(t["companies"], 1):
+        repos = [r for r in t["repos"] if r["company"] == c["company"]]
+        ran = sum(1 for r in repos if (r["score"] or 0) > 0)
+        teams = " · ".join(f'{esc(x["team"])} <span class="mono">{x["mean"]:.0f}</span>' for x in c["teams"]) \
+            if len(c["teams"]) > 1 else ""
+        small = ' <span class="flag" title="Fewer than 3 repos: not a verdict on the company">few repos</span>' if c["n"] < 3 else ""
+        rows.append(f"""
+<tr>
+  <td class="rank">{i}</td>
+  <td class="repo"><span class="cname">{esc(c['company'])}</span>{small}{f'<div class="sub">{teams}</div>' if teams else ''}</td>
+  <td class="score {tone(c['mean'])}"><span class="num">{c['mean']:.1f}</span><span class="bar" aria-hidden="true"><i style="width:{max(2, c['mean']):.0f}%"></i></span></td>
+  <td class="num">{ran}<span class="unit">/{len(repos)}</span></td>
+</tr>""")
+    return f"""
+<table class="board">
+  <thead><tr><th class="rank">#</th><th>Company</th><th class="score">Mean score</th><th class="num">Ran</th></tr></thead>
+  <tbody>{''.join(rows)}</tbody>
+</table>"""
 
 
-TRACK_NOTES = {
-    "cpu-gha": ("No GPU on this track. Repos built around CUDA (much of NVIDIA's catalogue, older research code) "
-                "are judged on their CPU path, which their authors often never prioritised - read their scores "
-                "with that in mind. Which repos were eligible was decided by an examiner agent before any run; "
-                "every exclusion and its reason is in data/exams. The examiner also wrote each hidden test; every failed "
-                "test was then audited by an independent agent, and tests found defective (checking something the "
-                "README never promised) leave that repo unscored rather than scored 0. That happened often enough "
-                "that the audit is essential, not a formality."),
-    "cpu-gha-maintained": ("The same CPU runs, limited to repos that GitHub reported not archived and pushed to "
-                           "in the 92 days before the set was registered (data/active.json). Archived or quiet "
-                           "repos are often unmaintained on purpose, so they are left out of this view. A push "
-                           "to any branch counts, bots included."),
-    "gpu-rtx5060": ("Local RTX 5060 (Blackwell). Old PyTorch pins have no kernels for it, so 2020-23 repos needed "
-                    "a newer stack; that is part of what the score measures."),
-}
+def exams():
+    return [load_json(p) for p in sorted((ROOT / "data" / "exams").glob("*.json"))]
 
 
-def exclusions_by_company():
-    """Count examiner exclusions per company (API keys, gated models, too big, GPU-only, ...)."""
-    out = {}
-    for path in (ROOT / "data" / "exams").glob("*.json"):
-        e = json.loads(path.read_text(encoding="utf-8"))
-        c = out.setdefault(e.get("company", "?"), {"excluded": 0, "eligible": 0})
-        c["eligible" if e.get("eligible") else "excluded"] += 1
+def active_slugs():
+    p = ROOT / "data" / "active.json"
+    if not p.exists():
+        return None, None
+    a = load_json(p)
+    return {x["slug"] for v in a["companies"].values() for x in v}, a.get("pushed_since")
+
+
+def not_tested(track, all_exams):
+    """Exams ruled out before any run, for the tracks that come from exams."""
+    if track == "gpu-rtx5060":
+        return []
+    out = [e for e in all_exams if not e.get("eligible")]
+    if track == "cpu-gha-maintained":
+        act, _ = active_slugs()
+        out = [e for e in out if e["slug"] in (act or set())]
     return out
 
 
-EXCLUSION_KINDS = [  # first match wins; keyword buckets over the examiner's one-sentence reasons
-    ("needs a paid API key or account", r"api key|api_key|credential|account|paid|serper|openai|gemini models"),
-    ("gated model (license / access request)", r"gated|license accept|access request|hf_token|request.*access|terms of use"),
-    # Most reasons cite both a GPU and the model size, so they are one bucket rather than an arbitrary split.
-    ("needs a GPU and/or exceeds 16 GB RAM / 15 GB of downloads",
-     r"\bgpu\b|cuda|vram|too large|\bparameters\b|\d+\s?gb\b|\d+(\.\d+)?b\b"),
-]
-
-
-def exclusion_kind(reason):
-    import re
-    r = (reason or "").lower()
-    return next((k for k, pat in EXCLUSION_KINDS if re.search(pat, r)), "not a runnable project / other")
-
-
-def findings(tracks):
-    """Headline numbers for the CPU track, computed from committed data only."""
-    t = next((x for x in tracks if x["track"] == "cpu-gha"), None)
-    if not t:
-        return ""
+def track_panel(t, idx, all_exams, pushed_since):
     rows = t["repos"]
-    scored = [r for r in rows if r["score"] is not None]
-    ran = [r for r in rows if r["score"] is not None and r["score"] > 0]
-    ran_replay = sum(r["replay"] == "pass" for r in ran)
-    defects = [r for r in rows if r["score"] is None]
-    replays = sum(r["replay"] == "pass" for r in rows)
+    ran = [r for r in rows if (r["score"] or 0) > 0]
+    patched = sum(1 for r in ran if r["files_patched"])
     med = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
-    excl = {}
-    for path in (ROOT / "data" / "exams").glob("*.json"):
-        e = json.loads(path.read_text(encoding="utf-8"))
-        if not e.get("eligible"):
-            k = exclusion_kind(e.get("reason"))
-            excl[k] = excl.get(k, 0) + 1
-    kinds = {}
-    for path in (ROOT / "data" / "runs").glob("*/deliverables/REPORT.json"):
-        try:
-            rep = json.loads(path.read_text(encoding="utf-8"))
-            track = json.loads((path.parent.parent / "result.json").read_text(encoding="utf-8")).get("track")
-        except (ValueError, OSError):
-            continue
-        if track != "cpu-gha":
-            continue
-        for iv in rep.get("interventions") or []:
-            k = (iv.get("kind") or "other") if isinstance(iv, dict) else "other"
-            kinds[k] = kinds.get(k, 0) + 1
-    excl_li = "".join(f"<li><span>{esc(k)}</span><span class=\"mono\">{v}</span></li>"
-                      for k, v in sorted(excl.items(), key=lambda kv: -kv[1]))
-    kind_li = "".join(f"<li><span>{esc(k.replace('_', ' '))}</span><span class=\"mono\">{v}</span></li>"
-                      for k, v in sorted(kinds.items(), key=lambda kv: -kv[1])[:8])
+    first = sum(1 for r in ran if r["replay"] == "pass")
+    failed = sum(1 for r in rows if r["score"] == 0)
+    unscored = sum(1 for r in rows if r["score"] is None)
+    nt = not_tested(t["track"], all_exams)
+    _, note = TRACK_TABS.get(t["track"], (t["track"], t["label"]))
+    note = note.format(pushed_since=pushed_since or "")
+    chips = [("all", f"All {len(rows)}"), ("ran-patched", f"Code changed {patched}")]
+    if failed:
+        chips.append(("failed", f"Did not run {failed}"))
+    if unscored:
+        chips.append(("unscored", f"Not scored {unscored}"))
+    chip_html = "".join(f'<button type="button" class="chip{" on" if k == "all" else ""}" data-f="{k}">{esc(v)}</button>'
+                        for k, v in chips)
+    nt_line = (f'<p class="after">{len(nt)} more repos were not tested because their README says they need a GPU, a paid API '
+               f'key, a cloud account or a gated model, or there is no runnable demo. '
+               f'<a href="method.html#not-tested">See the list</a></p>') if nt else ""
     return f"""
-<section id="findings">
-  <div class="overline">{esc(t['label'])}</div>
-  <h2>What we found</h2>
-  <div class="stats">
-    <div class="stat"><div class="v">{len(ran)}/{len(rows)}</div><div class="l">README demos that ran</div></div>
-    <div class="stat"><div class="v">{ran_replay}/{len(ran)}</div><div class="l">of those, installers replay first try</div></div>
-    <div class="stat"><div class="v">{med:.0f} min</div><div class="l">median agent time</div></div>
-    <div class="stat"><div class="v">{len(defects)}</div><div class="l">oracle defects, not scored</div></div>
+<section class="track" id="t-{esc(t['track'])}" data-track="{esc(t['track'])}"{'' if idx == 0 else ' hidden'}>
+  <p class="finding"><b class="mono">{len(ran)}/{len(rows)}</b> README demos ran
+    <span class="sep">·</span> median <b class="mono">{med:.0f} min</b>
+    <span class="sep">·</span> <b class="mono">{patched}</b> needed changes to the repo's code
+    <span class="sep">·</span> <b class="mono">{first}/{len(ran)}</b> installs replay on a fresh machine</p>
+  <p class="tnote">{esc(note)}</p>
+  <div class="view" data-view="repos">
+    <div class="tools">
+      <div class="chips" role="group" aria-label="Filter">{chip_html}</div>
+      <input class="search" type="search" placeholder="Filter repos or companies" aria-label="Filter repos or companies">
+    </div>
+    {repo_table(t)}
+    <p class="empty" hidden>No repos match.</p>
+    {nt_line}
   </div>
-  <div class="method" style="margin-top:12px">
-    <h3>Why top repos were not even testable on a plain machine ({sum(excl.values())} excluded before any run)</h3>
-    <ul class="teams">{excl_li}</ul>
-    <h3>What the agent most often had to fix that the README did not say (agent-reported, REPORT.json)</h3>
-    <ul class="teams">{kind_li or '<li><span>no REPORT.json yet</span></li>'}</ul>
+  <div class="view" data-view="companies" hidden>
+    {company_table(t)}
+    <p class="after">Mean of the repo scores per company. Teams are split only where GitHub org accounts show them.</p>
   </div>
-</section>
-"""
-
-
-def track_section(t, i):
-    multi = "Most companies have a single repo here. Treat these rows as a preview of the format, not a ranking."
-    few = any(c["n"] < 3 for c in t["companies"])
-    note = TRACK_NOTES.get(t["track"], "")
-    excl = exclusions_by_company() if t["track"] == "cpu-gha" else {}
-    return f"""
-<section id="track-{i}">
-  <div class="overline">{esc(t['label'])}</div>
-  <h2>Repos · {len(t['repos'])}</h2>
-  <div class="sub">Score 0–100, higher = easier to get running. One run per repo.</div>
-  {f'<div class="caveat" style="margin:0 0 12px">{esc(note)}</div>' if note else ''}
-  <ol class="board">{repo_rows(t['repos'])}
-  </ol>
-</section>
-<section id="companies-{i}">
-  <div class="overline">{esc(t['label'])}</div>
-  <h2>Companies &amp; teams</h2>
-  <div class="sub">Mean repo score per company, split by team where attribution allows.</div>
-  <ul class="board">{company_rows(t['companies'], excl)}
-  </ul>
-  {f'<div class="caveat">{multi}</div>' if few else ''}
-</section>
-"""
+</section>"""
 
 
 def write_badges(tracks):
@@ -243,189 +231,310 @@ def write_badges(tracks):
                                          "cacheSeconds": 86400}).encode("utf-8"))
 
 
-def main():
-    data = json.loads((ROOT / "data" / "leaderboard.json").read_text(encoding="utf-8"))
-    tracks = data["tracks"]
-    rows = [r for t in tracks for r in t["repos"]]
-    ran = [r for r in rows if (r["score"] or 0) > 0]
-    sections = findings(tracks) + "".join(track_section(t, i) for i, t in enumerate(tracks))
-    replays = sum(r["replay"] == "pass" for r in ran)
-    median_min = statistics.median(r["agent_minutes"] for r in rows) if rows else 0
+EXCLUSION_KINDS = [  # first match wins; keyword buckets over the examiner's one-sentence reasons
+    ("Paid API key or account", r"api key|api_key|credential|account|paid|serper|openai|gemini models"),
+    ("Gated model", r"gated|license accept|access request|hf_token|request.*access|terms of use"),
+    ("GPU, or too big for 16 GB RAM / 15 GB download", r"\bgpu\b|cuda|vram|too large|\bparameters\b|\d+\s?gb\b|\d+(\.\d+)?b\b|docker"),
+]
+
+
+def exclusion_kind(reason):
+    r = (reason or "").lower()
+    return next((k for k, pat in EXCLUSION_KINDS if re.search(pat, r)), "No runnable demo / other")
+
+
+CSS = """
+:root {
+  --bg-base:#0a0b0d; --bg-panel:#111214; --bg-surface:#1a1b1f; --bg-hover:#222329; --bg-inset:#0e0f11;
+  --ink:#f0f1f3; --ink-2:#a0a4ab; --ink-3:#868a92; --ink-4:#5c5f66;
+  --pos:#00d4aa; --neg:#ff4757; --warn:#ffb347; --accent:#5b7fff; --accent-bg:rgba(91,127,255,.12);
+  --line:rgba(255,255,255,.06); --line-2:rgba(255,255,255,.10);
+  --mono:"JetBrains Mono","SF Mono",Consolas,monospace; --sans:Inter,-apple-system,system-ui,sans-serif;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg-base); color:var(--ink-2); font:400 14px/1.5 var(--sans); -webkit-font-smoothing:antialiased;
+  padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+.wrap { max-width:1040px; margin:0 auto; padding:0 16px; }
+.mono, .num, .score .num, .rank { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+.top { display:flex; align-items:center; gap:8px; height:56px; }
+.brand { display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:600; }
+.brand svg { width:20px; height:20px; }
+.links { display:none; margin-left:auto; gap:4px; }
+.links a { color:var(--ink-2); padding:8px 12px; border-radius:8px; font-weight:500; }
+.links a:hover { color:var(--ink); background:var(--bg-hover); text-decoration:none; }
+h1 { font:600 32px/1.1 var(--sans); letter-spacing:-.8px; color:var(--ink); margin:16px 0 8px; }
+.lede { color:var(--ink-2); max-width:640px; font-size:15px; }
+.lede a { white-space:nowrap; }
+.switch { margin-top:24px; display:flex; flex-direction:column; gap:12px; }
+.tabs { display:flex; gap:4px; border-bottom:1px solid var(--line); overflow-x:auto; }
+.tabs button { background:none; border:0; color:var(--ink-3); font:500 14px/1 var(--sans); padding:14px 12px; min-height:44px;
+  border-bottom:2px solid transparent; margin-bottom:-1px; cursor:pointer; white-space:nowrap; }
+.tabs button .n { font-family:var(--mono); font-size:12px; margin-left:6px; color:var(--ink-3); }
+.tabs button:hover { color:var(--ink); }
+.tabs button[aria-selected="true"] { color:var(--ink); border-bottom-color:var(--accent); }
+
+.seg { display:flex; align-self:flex-start; background:var(--bg-panel); border:1px solid var(--line); border-radius:8px; padding:2px; }
+.seg button { background:none; border:0; color:var(--ink-3); font:500 13px/1 var(--sans); padding:8px 12px; border-radius:6px; cursor:pointer; min-height:36px; }
+.seg button[aria-pressed="true"] { background:var(--bg-hover); color:var(--ink); }
+.finding { margin-top:16px; color:var(--ink-2); font-size:15px; }
+.finding b { color:var(--ink); font-weight:600; }
+.finding .sep { color:var(--ink-3); margin:0 4px; }
+.tnote { margin-top:4px; font-size:13px; color:var(--ink-3); }
+.tools { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:16px 0 12px; }
+.chips { display:flex; flex-wrap:wrap; gap:6px; }
+.chip { background:var(--bg-panel); border:1px solid var(--line); color:var(--ink-2); font:500 13px/1 var(--sans);
+  padding:8px 12px; border-radius:999px; cursor:pointer; min-height:36px; }
+.chip:hover { border-color:var(--line-2); color:var(--ink); }
+.chip.on { background:var(--accent-bg); border-color:rgba(91,127,255,.35); color:var(--ink); }
+.search { flex:1 1 200px; min-width:0; background:var(--bg-inset); border:1px solid var(--line); border-radius:8px; color:var(--ink);
+  font:400 14px/1 var(--sans); padding:10px 12px; min-height:40px; }
+.search::placeholder { color:var(--ink-3); }
+.search:focus { outline:none; border-color:rgba(91,127,255,.4); }
+table.board { table-layout:fixed; width:100%; border-collapse:collapse; background:var(--bg-panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+.board th { text-align:left; font:500 13px/1 var(--sans); color:var(--ink-3); padding:12px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }
+.board td { padding:12px 12px; border-top:1px solid rgba(255,255,255,.04); vertical-align:top; }
+.board tbody tr:first-child td { border-top:0; }
+.board tbody tr:hover td { background:rgba(255,255,255,.02); }
+.board .rank { width:32px; color:var(--ink-3); font-size:13px; text-align:right; padding-right:4px; }
+.board .num { text-align:right; color:var(--ink-2); white-space:nowrap; }
+.board th.num, .board th.score { text-align:right; }
+.unit { color:var(--ink-3); font-size:12px; }
+.repo a { color:var(--ink); font-weight:500; word-break:break-word; }
+.repo .owner { color:var(--ink-3); font-weight:400; }
+.cname { color:var(--ink); font-weight:500; }
+.sub { font-size:13px; color:var(--ink-3); margin-top:2px; }
+.sub .mono { color:var(--ink-2); }
+.note { font-size:13px; color:var(--ink-2); margin-top:4px; max-width:520px; overflow-wrap:anywhere; }
+.note.neg { color:var(--neg); }
+.score { width:88px; text-align:right; white-space:nowrap; }
+.score .num { font-size:16px; font-weight:600; color:var(--ink); }
+.score .bar { display:block; height:3px; background:var(--bg-inset); border-radius:2px; margin:8px 0 0 auto; width:72px; overflow:hidden; }
+.score .bar i { display:block; height:100%; border-radius:2px; background:var(--ink-3); }
+.score.pos .bar i { background:var(--pos); } .score.warn .bar i { background:var(--warn); } .score.neg .bar i { background:var(--neg); }
+.score.warn .num { color:var(--warn); } .score.neg .num { color:var(--neg); }
+.ic { width:16px; height:16px; vertical-align:-3px; }
+.sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
+.ok { color:var(--pos); } .warn { color:var(--warn); } .neg { color:var(--neg); } .dim { color:var(--ink-3); }
+.chg { color:var(--warn); cursor:help; }
+.flag { font-size:12px; color:var(--warn); margin-left:6px; }
+.log { font-family:var(--sans); }
+.after { font-size:13px; color:var(--ink-3); margin-top:12px; }
+.empty { padding:24px 0; color:var(--ink-3); }
+.d-only { display:none; }
+footer { margin:48px 0 24px; font-size:12px; color:var(--ink-3); display:flex; gap:16px; flex-wrap:wrap; }
+nav.bottom { position:fixed; left:0; right:0; bottom:0; display:flex; height:calc(56px + env(safe-area-inset-bottom));
+  padding-bottom:env(safe-area-inset-bottom); background:var(--bg-panel); border-top:1px solid var(--line); z-index:10; }
+nav.bottom { padding-left:12px; padding-right:12px; }
+nav.bottom a { flex:1; display:flex; align-items:center; justify-content:center; color:var(--ink-3); font-weight:500; font-size:13px; }
+nav.bottom a[aria-current] { color:var(--accent); }
+.prose { max-width:720px; }
+.prose h2 { font:600 18px/1.3 var(--sans); color:var(--ink); margin:40px 0 8px; letter-spacing:-.3px; }
+.prose p, .prose li { margin:8px 0; }
+.prose ul { padding-left:18px; }
+.prose code { font-family:var(--mono); font-size:12px; background:var(--bg-inset); border:1px solid var(--line); border-radius:4px; padding:1px 5px; color:var(--ink); }
+.prose table { margin-top:12px; }
+@media (min-width:768px) {
+  body { padding-bottom:0; }
+  .wrap { padding:0 24px; }
+  .links { display:flex; }
+  nav.bottom { display:none; }
+  h1 { font-size:40px; letter-spacing:-1px; margin-top:32px; }
+  .d-only { display:table-cell; }
+  .m-only { display:none; }
+  .board td, .board th { padding:12px 16px; }
+  table.board { table-layout:auto; }
+  .board .rank { width:44px; }
+  .score { width:120px; }
+  .switch { flex-direction:row; align-items:flex-end; border-bottom:1px solid var(--line); }
+  .switch .tabs { border-bottom:0; flex:1; }
+  .seg { align-self:center; }
+}
+"""
+
+JS = """
+(function () {
+  var tabs = document.querySelectorAll('.tabs [data-track]');
+  var seg = document.querySelectorAll('.seg [data-v]');
+  var view = 'repos';
+  function show(track) {
+    tabs.forEach(function (b) { b.setAttribute('aria-selected', b.dataset.track === track); });
+    document.querySelectorAll('section.track').forEach(function (s) { s.hidden = s.dataset.track !== track; });
+    if (history.replaceState) history.replaceState(null, '', '#' + track + (view === 'companies' ? '/companies' : ''));
+  }
+  function setView(v) {
+    view = v;
+    seg.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.v === v); });
+    document.querySelectorAll('.view').forEach(function (el) { el.hidden = el.dataset.view !== v; });
+    var cur = document.querySelector('.tabs [aria-selected="true"]');
+    if (cur) show(cur.dataset.track);
+  }
+  tabs.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.track); }); });
+  seg.forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.v); }); });
+  document.querySelectorAll('section.track').forEach(function (sec) {
+    var f = 'all', q = '';
+    var rows = sec.querySelectorAll('[data-view="repos"] tbody tr');
+    var empty = sec.querySelector('.empty');
+    function apply() {
+      var n = 0;
+      rows.forEach(function (r) {
+        var ok = (f === 'all' || r.dataset.st === f) && (!q || r.dataset.q.indexOf(q) >= 0);
+        r.hidden = !ok; if (ok) n++;
+      });
+      empty.hidden = n > 0;
+    }
+    sec.querySelectorAll('.chip').forEach(function (c) {
+      c.addEventListener('click', function () {
+        f = c.dataset.f;
+        sec.querySelectorAll('.chip').forEach(function (x) { x.classList.toggle('on', x === c); });
+        apply();
+      });
+    });
+    var s = sec.querySelector('.search');
+    if (s) s.addEventListener('input', function () { q = s.value.trim().toLowerCase(); apply(); });
+  });
+  var h = location.hash.slice(1).split('/');
+  if (h[1] === 'companies') setView('companies');
+  if (h[0] && document.querySelector('.tabs [data-track="' + h[0] + '"]')) show(h[0]);
+})();
+"""
+
+MARK = ('<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1a1b1f"/>'
+        '<path d="M9 17l5 5 9-12" stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' "
+           "rx='7' fill='%230a0b0d'/%3E%3Cpath d='M9 17l5 5 9-12' stroke='%2300d4aa' stroke-width='3.5' fill='none' "
+           "stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+
+
+def shell(title, desc, body, current):
     sha = os.environ.get("GITHUB_SHA", "local")[:7]
     built = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-
-    page = f"""<!doctype html>
+    nav = [("index.html", "Leaderboard"), ("method.html", "Method"), (f"{REPO_URL}/blob/main/STORY.md", "Story"), (REPO_URL, "GitHub")]
+    links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in nav)
+    return f"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Does it run? — GitHub repo reproducibility leaderboard</title>
-<meta name="description" content="A sandboxed AI agent tries to run each repo's README demo; a hidden test decides. Which repos run, and which fight back?">
+<title>{esc(title)}</title>
+<meta name="description" content="{esc(desc)}">
 <meta property="og:title" content="Does it run?">
-<meta property="og:description" content="{len(rows)} GitHub repos, one sandboxed agent, a hidden test. Who is easiest to reproduce?">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Cpath d='M9 17l5 5 9-12' stroke='%2300d4aa' stroke-width='3.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta property="og:description" content="{esc(desc)}">
+<link rel="icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {{
-  --bg-base:#0a0b0d; --bg-panel:#111214; --bg-surface:#1a1b1f; --bg-surface-hover:#222329; --bg-inset:#0e0f11;
-  --text-primary:#f0f1f3; --text-secondary:#a0a4ab; --text-tertiary:#5c5f66;
-  --pos:#00d4aa; --pos-bg:rgba(0,212,170,.08); --neg:#ff4757; --neg-bg:rgba(255,71,87,.08);
-  --warn:#ffb347; --warn-bg:rgba(255,179,71,.08); --accent:#5b7fff; --accent-bg:rgba(91,127,255,.08);
-  --border-subtle:rgba(255,255,255,.04); --border:rgba(255,255,255,.06); --border-strong:rgba(255,255,255,.10);
-  --mono:"JetBrains Mono","SF Mono",Consolas,monospace; --sans:Inter,-apple-system,system-ui,sans-serif;
-}}
-* {{ box-sizing:border-box; margin:0; padding:0; }}
-html {{ scroll-behavior:smooth; scroll-padding-top:16px; }}
-body {{ background:var(--bg-base); color:var(--text-secondary); font:400 14px/1.55 var(--sans);
-  padding:24px 16px calc(80px + env(safe-area-inset-bottom)); -webkit-font-smoothing:antialiased; }}
-a {{ color:var(--accent); text-decoration:none; }}
-.wrap {{ max-width:880px; margin:0 auto; }}
-.mono {{ font-family:var(--mono); font-variant-numeric:tabular-nums; }}
-.overline {{ font:500 11px/1 var(--sans); letter-spacing:.5px; text-transform:uppercase; color:var(--text-tertiary); }}
-header h1 {{ font:600 28px/1.15 var(--sans); letter-spacing:-.6px; color:var(--text-primary); margin:10px 0 8px; }}
-header p {{ max-width:620px; }}
-.stats {{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; margin:24px 0 8px;
-  background:var(--border); border:1px solid var(--border); border-radius:12px; overflow:hidden; }}
-.stat {{ background:var(--bg-panel); padding:14px 16px; }}
-.stat .v {{ font:600 20px/1.2 var(--mono); letter-spacing:-.5px; color:var(--text-primary); font-variant-numeric:tabular-nums; }}
-.stat .l {{ font-size:12px; letter-spacing:.2px; color:var(--text-tertiary); margin-top:2px; }}
-section {{ margin-top:40px; }}
-section > h2 {{ font:600 18px/1.3 var(--sans); letter-spacing:-.3px; color:var(--text-primary); margin-bottom:4px; }}
-section > .sub {{ font-size:12px; color:var(--text-tertiary); margin-bottom:12px; }}
-ol, ul {{ list-style:none; }}
-.board {{ border:1px solid var(--border); border-radius:12px; overflow:hidden; background:var(--bg-surface); }}
-.row {{ display:grid; grid-template-columns:28px 1fr 64px; gap:12px; align-items:start; padding:14px 16px;
-  border-top:1px solid var(--border-subtle); }}
-.row:first-child {{ border-top:0; }}
-.rank {{ color:var(--text-tertiary); font-size:13px; padding-top:2px; }}
-.repo {{ color:var(--text-primary); font:500 15px/1.3 var(--sans); letter-spacing:-.2px; word-break:break-word; }}
-.repo .owner {{ color:var(--text-tertiary); font-weight:400; }}
-.repo:hover {{ color:var(--accent); }}
-.meta {{ font-size:12px; color:var(--text-secondary); margin-top:3px; display:flex; gap:6px; align-items:center; flex-wrap:wrap; }}
-.conf {{ font:500 10px/1 var(--sans); letter-spacing:.4px; text-transform:uppercase; padding:3px 5px; border-radius:4px;
-  color:var(--text-tertiary); border:1px solid var(--border-strong); cursor:help; }}
-.conf-high {{ color:var(--text-secondary); }}
-.why {{ font-size:12px; color:var(--neg); margin-top:6px; line-height:1.45; }}
-.facts {{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:8px; font-size:12px; color:var(--text-tertiary); }}
-.badge {{ font:600 10px/1 var(--sans); letter-spacing:.4px; text-transform:uppercase; padding:4px 7px; border-radius:4px; }}
-.badge.pos {{ color:var(--pos); background:var(--pos-bg); border:1px solid rgba(0,212,170,.2); }}
-.badge.warn {{ color:var(--warn); background:var(--warn-bg); border:1px solid rgba(255,179,71,.2); }}
-.badge.neg {{ color:var(--neg); background:var(--neg-bg); border:1px solid rgba(255,71,87,.2); }}
-.score {{ text-align:right; }}
-.score .num {{ display:block; font-size:20px; font-weight:600; letter-spacing:-.5px; line-height:1.1; }}
-.score .bar {{ display:block; height:3px; background:var(--bg-inset); border-radius:2px; margin-top:8px; overflow:hidden; }}
-.score .bar span {{ display:block; height:100%; border-radius:2px; }}
-.pos {{ color:var(--pos); }} .score.pos .bar span {{ background:var(--pos); }}
-.warn {{ color:var(--warn); }} .score.warn .bar span {{ background:var(--warn); }}
-.neg {{ color:var(--neg); }} .score.neg .bar span {{ background:var(--neg); }}
-.company {{ padding:14px 16px; border-top:1px solid var(--border-subtle); }}
-.company:first-child {{ border-top:0; }}
-.chead {{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }}
-.cname {{ color:var(--text-primary); font:500 15px/1.3 var(--sans); }}
-.cscore {{ margin-left:auto; font-size:15px; font-weight:500; }}
-.n {{ color:var(--text-tertiary); font-size:11px; font-weight:400; }}
-.teams {{ margin-top:6px; }}
-.teams li {{ display:flex; justify-content:space-between; gap:12px; font-size:12px; padding:3px 0 3px 12px;
-  border-left:1px solid var(--border-strong); color:var(--text-secondary); }}
-.method {{ background:var(--bg-surface); border:1px solid var(--border); border-radius:12px; padding:16px; }}
-.method h3 {{ font:500 15px/1.3 var(--sans); color:var(--text-primary); margin:16px 0 6px; }}
-.method h3:first-child {{ margin-top:0; }}
-.method li {{ padding-left:14px; position:relative; margin:4px 0; }}
-.method li::before {{ content:""; position:absolute; left:2px; top:10px; width:4px; height:4px; border-radius:50%; background:var(--text-tertiary); }}
-code {{ font-family:var(--mono); font-size:12px; background:var(--bg-inset); border:1px solid var(--border); border-radius:4px; padding:1px 5px; color:var(--text-primary); }}
-.caveat {{ border-left:3px solid var(--warn); background:var(--warn-bg); padding:10px 12px; border-radius:0 8px 8px 0; margin-top:12px; color:var(--text-secondary); }}
-footer {{ margin-top:48px; font-size:12px; color:var(--text-tertiary); display:flex; gap:12px; flex-wrap:wrap; }}
-nav.tabs {{ position:fixed; left:0; right:0; bottom:0; height:calc(56px + env(safe-area-inset-bottom));
-  padding-bottom:env(safe-area-inset-bottom); display:flex; background:rgba(17,18,20,.85);
-  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-top:1px solid var(--border); z-index:10; }}
-nav.tabs a {{ flex:1; display:flex; align-items:center; justify-content:center; min-height:44px;
-  font:500 13px/1 var(--sans); color:var(--text-tertiary); }}
-nav.tabs a:hover, nav.tabs a:focus-visible {{ color:var(--accent); outline:none; }}
-@media (min-width:768px) {{
-  html {{ scroll-padding-top:72px; }}
-  body {{ padding:0 24px 64px; }}
-  nav.tabs {{ position:sticky; top:0; bottom:auto; height:56px; justify-content:flex-end; gap:4px;
-    margin:0 -24px 32px; padding:0 max(24px, calc((100vw - 880px) / 2)); border-top:0; border-bottom:1px solid var(--border); }}
-  nav.tabs .brand {{ margin-right:auto; color:var(--text-primary); font-weight:600; flex:none; }}
-  nav.tabs a {{ flex:none; padding:0 14px; }}
-  header {{ padding-top:24px; }}
-  header h1 {{ font-size:40px; letter-spacing:-1px; }}
-  .stats {{ grid-template-columns:repeat(4,1fr); }}
-  .row {{ grid-template-columns:36px 1fr 96px; padding:16px 20px; }}
-}}
-@media (max-width:767px) {{ nav.tabs .brand {{ display:none; }} }}
-</style>
+<style>{CSS}</style>
 </head>
 <body>
-<nav class="tabs" aria-label="Sections">
-  <a class="brand" href="#top">Does it run?</a>
-  <a href="#track-0">Leaderboard</a><a href="#companies-0">Companies</a><a href="#method">Method</a><a href="{REPO_URL}/blob/main/STORY.md">Story</a>
-</nav>
 <div class="wrap">
-<header id="top">
-  <div class="overline">GitHub reproducibility leaderboard</div>
-  <h1>Does it run?</h1>
-  <p>A sandboxed AI agent gets one tool, a fresh Linux box (a CPU-only GitHub runner, or an 8&nbsp;GB GPU on the
-  GPU track) and a repo's README.
-  A hidden, pre-registered test decides whether the demo really works. Then we replay the agent's
-  installer on a brand-new machine. <a href="{REPO_URL}/blob/main/STORY.md">Read what broke →</a></p>
-  <div class="stats">
-    <div class="stat"><div class="v">{len(rows)}</div><div class="l">repos tested</div></div>
-    <div class="stat"><div class="v">{len(ran)}/{len(rows)}</div><div class="l">got running</div></div>
-    <div class="stat"><div class="v">{median_min:.0f} min</div><div class="l">median agent time</div></div>
-    <div class="stat"><div class="v">{replays}/{len(ran)}</div><div class="l">of those, installers replay first try</div></div>
-  </div>
-</header>
-
-{sections}
-<section id="method">
-  <h2>Method</h2>
-  <div class="method">
-    <h3>The run</h3>
-    <ul>
-      <li>Agent: Claude Code (Opus 5.5 pinned on the CPU track; Opus 5 on the earlier GPU track) with a single tool, <code>docker exec</code> into a throwaway container:
-        a CPU-only GitHub-hosted runner (4 vCPU, 16&nbsp;GB) on the CPU track, an RTX 5060 8&nbsp;GB on the GPU track.
-        No host access; private networks and cloud metadata firewalled off. 90 minutes per repo.</li>
-      <li>Goal: the repo's own README demo. Success is decided by a hidden script written before the run
-        and copied in only after the agent stops.</li>
-      <li>Replay: the agent's <code>setup.sh</code> is run on a fresh container to see if the install is shareable;
-        if it fails, the agent gets one repair round.</li>
-      <li>Audit (CPU track): every failed hidden test is reviewed by an independent agent; a defective test leaves
-        the repo unscored. A run that hit the 90-minute limit stays 0.</li>
-    </ul>
-    <h3>The score</h3>
-    <ul>
-      <li><code>100 − min(50, agent minutes) − min(40, 10 × repo files patched)</code>; 0 if it never ran.</li>
-      <li>Files patched is measured with <code>git diff</code> on the repo (whitespace ignored), not taken from the agent's notes.</li>
-      <li>Replay is shown but not scored: it grades our installer, not the repo's authors.</li>
-    </ul>
-    <h3>Who made it</h3>
-    <ul>
-      <li>Company comes from, in order: the owning GitHub org (high), LICENSE copyright or CLA (medium), the linked
-        paper's author affiliations via OpenAlex (medium). Teams are split only where separate GitHub org accounts
-        show them. Hover the tag for evidence.</li>
-    </ul>
-    <div class="caveat">One run per repo, one pinned agent, AI-written tests (audited), and hardware that favours
-      some repos (no GPU on the CPU track; one Blackwell card on the GPU track, which penalises old PyTorch pins).
-      Agent time also moves with download speed. Scores are a signal, not a verdict.</div>
-  </div>
-</section>
-
-<footer>
-  <span>Built {built} from <a href="{REPO_URL}/commit/{esc(sha)}">{esc(sha)}</a></span>
-  <a href="{REPO_URL}">Source &amp; raw data</a>
-</footer>
+<header class="top"><a class="brand" href="index.html">{MARK}Does it run?</a><nav class="links" aria-label="Pages">{links}</nav></header>
+{body}
+<footer><span>Built {built} from <a href="{REPO_URL}/commit/{esc(sha)}">{esc(sha)}</a></span>
+  <a href="{REPO_URL}">Code and every raw run log</a><a href="method.html">Method</a></footer>
 </div>
+<nav class="bottom" aria-label="Pages">{links}</nav>
 </body>
 </html>
 """
+
+
+def index_page(tracks, all_exams, pushed_since):
+    tabs = "".join(
+        f'<button type="button" role="tab" data-track="{esc(t["track"])}" aria-selected="{"true" if i == 0 else "false"}">'
+        f'{esc(TRACK_TABS.get(t["track"], (t["track"],))[0])}<span class="n">{len(t["repos"])}</span></button>'
+        for i, t in enumerate(tracks))
+    panels = "".join(track_panel(t, i, all_exams, pushed_since) for i, t in enumerate(tracks))
+    body = f"""
+<main>
+<h1>Does it run?</h1>
+<p class="lede">An AI agent gets a clean Linux box and a big-company repo's README, and has to get the README's own demo running.
+  A hidden test checks the output. <a href="method.html">How it works</a></p>
+<div class="switch"><div class="tabs" role="tablist" aria-label="Track">{tabs}</div>
+  <div class="seg" role="group" aria-label="View"><button type="button" data-v="repos" aria-pressed="true">Repos</button><button type="button" data-v="companies" aria-pressed="false">Companies</button></div>
+</div>
+{panels}
+</main>
+<script>{JS}</script>"""
+    return shell("Does it run? GitHub repo reproducibility leaderboard",
+                 "An AI agent tries to run each big-company repo's README demo on a clean machine; a hidden test decides.",
+                 body, "index.html")
+
+
+def method_page(tracks, all_exams, pushed_since):
+    act, _ = active_slugs()
+    nt = [e for e in all_exams if not e.get("eligible") and (act is None or e["slug"] in act)]
+    groups = {}
+    for e in nt:
+        groups.setdefault(exclusion_kind(e.get("reason")), []).append(e)
+    nt_html = ""
+    for k, es in sorted(groups.items(), key=lambda kv: -len(kv[1])):
+        lis = "".join(f'<li><a href="https://github.com/{esc(e["repo"])}">{esc(e["repo"])}</a> — {esc(e.get("reason") or "")}</li>'
+                      for e in sorted(es, key=lambda e: (e.get("company", ""), e["repo"])))
+        nt_html += f"<h3>{esc(k)} · {len(es)}</h3><ul>{lis}</ul>"
+    body = f"""
+<main class="prose">
+<h1>Method</h1>
+<p class="lede">How each repo is run and scored, and which repos were left out.</p>
+
+<h2>A run</h2>
+<ul>
+  <li>The agent (Claude Code, Opus 5.5 pinned on the CPU tracks) has one tool, <code>docker exec</code>, into a throwaway
+    container on a CPU-only GitHub-hosted runner (4 vCPU, 16 GB). No host access; private networks and cloud metadata are
+    firewalled off. 90 minutes per repo.</li>
+  <li>The goal is the repo's own README demo. A hidden test, committed before the run and copied in only after the agent
+    stops, runs the demo on known input and checks the output.</li>
+  <li>The agent's <code>setup.sh</code> is then replayed on a fresh container to see whether the install can be repeated.</li>
+  <li>Every test in the maintained set was checked against the repo's source before the final run: it runs the README's main
+    demo, a broken install cannot pass, and the task never hints at anything the README doesn't say. Each verdict and its
+    evidence: <a href="{REPO_URL}/blob/main/data/reviews/2026-11-14-fairness.json">data/reviews</a>.</li>
+</ul>
+
+<h2>The score</h2>
+<ul>
+  <li><code>100 − min(50, agent minutes) − min(40, 10 × repo files changed)</code>; 0 if the demo never ran.</li>
+  <li>Files changed is measured with <code>git diff</code> on the repo (whitespace ignored); files with no changed line,
+    such as a chmod or an image a demo overwrote, don't count.</li>
+  <li>Replay is shown next to the score but not in it: it grades our install script, not the repo's authors.</li>
+</ul>
+
+<h2>Which repos</h2>
+<ul>
+  <li>Up to 25 of the most-starred Python repos per company, registered in
+    <a href="{REPO_URL}/blob/main/data/candidates.json">data/candidates.json</a> before any run.</li>
+  <li>Maintained: GitHub reported the repo not archived and pushed to since {esc(pushed_since or '')}
+    (<a href="{REPO_URL}/blob/main/data/active.json">data/active.json</a>).</li>
+  <li>Company comes from the owning GitHub org; teams are split only where separate org accounts show them.</li>
+</ul>
+
+<h2 id="not-tested">Not tested · {len(nt)}</h2>
+<p>A stated requirement is not a fault, so these maintained repos were left out before any run. Each reason was checked
+  against the README or docs.</p>
+{nt_html}
+
+<h2>Limits</h2>
+<p>This is a personal and fairly subjective test. Each repo ran once with one pinned agent; what counts as the demo and the
+  score formula are my choices; agent time also moves with download speed. Companies with fewer than 3 repos are flagged.
+  Scores are a signal, not a verdict.</p>
+</main>"""
+    css_extra = "<style>.prose h3{font:500 15px/1.3 var(--sans);color:var(--ink);margin:20px 0 4px}.prose ul ul{margin-top:0}.prose li{font-size:13px}</style>"
+    return shell("Method · Does it run?", "How Does it run? tests each repo, scores it, and which repos were left out.",
+                 css_extra + body, "method.html")
+
+
+def main():
+    data = load_json(ROOT / "data" / "leaderboard.json")
+    tracks = data["tracks"]
+    all_exams = exams()
+    _, pushed_since = active_slugs()
     OUT.mkdir(exist_ok=True)
     write_badges(tracks)
-    (OUT / "index.html").write_text(page, encoding="utf-8", newline="\n")
+    (OUT / "index.html").write_text(index_page(tracks, all_exams, pushed_since), encoding="utf-8", newline="\n")
+    (OUT / "method.html").write_text(method_page(tracks, all_exams, pushed_since), encoding="utf-8", newline="\n")
     (OUT / "leaderboard.json").write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
-    print(f"wrote {OUT / 'index.html'} ({len(rows)} repos)")
+    print(f"wrote {OUT / 'index.html'} and method.html ({sum(len(t['repos']) for t in tracks)} rows)")
 
 
 if __name__ == "__main__":
