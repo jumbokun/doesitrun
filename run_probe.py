@@ -104,6 +104,10 @@ def start_container(name, cfg):
             # Containers must not reach services on the host machine.
             "--add-host", "host.docker.internal:127.0.0.1",
             "--add-host", "gateway.docker.internal:127.0.0.1",
+            # Public resolvers: Docker's embedded DNS otherwise forwards to the host's upstream, which on
+            # some GitHub runners sits in a range BLOCKED above (Azure 168.63.129.16, 10/8), leaving the
+            # sandbox with no DNS at all. Nothing private is unblocked for this.
+            "--dns", "1.1.1.1", "--dns", "8.8.8.8",
             # Same generous download settings for every repo, so a transient PyPI/NVIDIA/HF stall
             # is not scored as the repo being hard to reproduce (batch 2: 5 of 6 replay failures).
             "-e", "UV_HTTP_TIMEOUT=300", "-e", "UV_HTTP_RETRIES=8",

@@ -81,6 +81,15 @@ def verify():
             out += "\nretry:\n" + subprocess.run(
                 ["docker", "exec", name, "bash", "-c", curl_lines(internet).replace("-m 4", "-m 15")],
                 capture_output=True, text=True).stdout
+        if not ("pypi -> 200" in out and "hf -> 200" in out):
+            # Tell DNS failure apart from no egress: resolve a name, then reach a public IP directly.
+            out += "\ndiagnose:\n" + subprocess.run(
+                ["docker", "exec", name, "bash", "-c",
+                 'echo "dns -> $(getent hosts pypi.org || echo fail)"; cat /etc/resolv.conf; '
+                 'echo "ip 1.1.1.1 -> $(curl -s -m 10 -o /dev/null -w %{http_code} https://1.1.1.1/ || echo blocked)"'],
+                capture_output=True, text=True).stdout
+            print("host resolv.conf:", pathlib.Path("/etc/resolv.conf").read_text(errors="replace")
+                  if pathlib.Path("/etc/resolv.conf").exists() else "n/a")
         subprocess.run(["docker", "rm", "-f", name], capture_output=True)
 
         controls = [h for h in ("192.168.65.254", gateway("bridge")) if h]
