@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "README has no CPU install path; installed CPU paddlepaddle==3.3.1 from PyPI and paddleformers editable without the paddlefleet extra"},
+  {"kind": "dependency_pin", "detail": "pip must exist in the venv (paddleformers does `import pip` at import time); used `uv venv --seed`"},
+  {"kind": "code_patch", "detail": "qwen3/modeling.py: make gpt_provider/paddlefleet import optional and alias Qwen3ForCausalLM(Pipe) to the pure-Paddle *Deprecated classes when paddlefleet (GPU-only) is missing"},
+  {"kind": "code_patch", "detail": "nn/norm.py: skip fused_rms_norm_ext (no CPU kernel) for CPU tensors and use the plain RMSNorm path"},
+  {"kind": "code_patch", "detail": "model_utils.from_pretrained: on CPU, map dtype bfloat16/float16 to float32 because Paddle has no CPU bf16 matmul kernel"}
+ ]}

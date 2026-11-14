@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "README only documents installing from PyPI; installing from source needs `pip install .` in a venv"},
+  {"kind": "system_package", "detail": "Installed Rust toolchain via rustup (edition 2024 requires rustc>=1.85; not in base image, apt version too old)"},
+  {"kind": "other", "detail": "Set TIKTOKEN_CACHE_DIR and pre-downloaded vocab files in setup.sh"}
+ ]}

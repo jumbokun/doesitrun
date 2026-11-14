@@ -1,0 +1,41 @@
+{
+  "slug": "bytedance-protenix",
+  "repo": "bytedance/Protenix",
+  "track": "cpu-gha",
+  "goal": "Install Protenix (README: pip install protenix, or from the /work/Protenix clone) on this CPU-only machine so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1 --trimul_kernel torch --triatt_kernel torch` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
+  "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with the full atom set and plausible backbone geometry, and a confidence summary json with a reasonable pLDDT.",
+  "started": "2026-11-14 16:00:03",
+  "agent": {
+    "secs": 634,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "d180d1f0-d6cd-418f-a410-dfbb9503433d",
+    "num_turns": 13,
+    "cost_usd": 0.296388,
+    "is_error": false,
+    "final": "oading the model tries to compile a CUDA-only component and fails with \"CUDA_HOME environment variable is not set\". This setting is documented in `docs/kernels.md` but not in the README.\n\nThe GPU-only packages pinned in the requirements still get installed, but they aren't used with the torch kernel options in the command.\n\nFiles are in `/work`:\n- `setup.sh`\n- `env.sh`\n- `NOTES.md`\n- `REPORT.json`"
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 106
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 282,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 108
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 16:19:15"
+}

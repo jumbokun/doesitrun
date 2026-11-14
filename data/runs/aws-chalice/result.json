@@ -1,0 +1,41 @@
+{
+  "slug": "aws-chalice",
+  "repo": "aws/chalice",
+  "track": "cpu-gha",
+  "goal": "Install chalice from the repo clone and make the quickstart work offline: `chalice new-project helloworld` then `chalice local --port 8000` inside that project (no AWS deploy, no credentials). Write /work/run.sh so it creates the project at /work/helloworld (if missing), starts `chalice local --port 8000` in the background (nohup), and waits until http://127.0.0.1:8000/ responds. Write /work/env.sh to activate the environment where chalice is installed.",
+  "check": "The local server on port 8000 returns {\"hello\": \"world\"} for GET /, and a freshly scaffolded project with a couple of extra routes is served with chalice local and answers them correctly.",
+  "started": "2026-11-14 17:14:37",
+  "agent": {
+    "secs": 71,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "df4f6d98-b7d5-4723-8f60-1497d67afc4f",
+    "num_turns": 8,
+    "cost_usd": 0.11094,
+    "is_error": false,
+    "final": "DONE. The README path worked on Python 3.12 with a venv and an editable install from the clone, and a from-scratch rerun of `setup.sh` and `run.sh` returned `{\"hello\":\"world\"}` on port 8000; a separate test project's extra GET and POST routes also answered correctly under `chalice local`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 10,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:16:24"
+}

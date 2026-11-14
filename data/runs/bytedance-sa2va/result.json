@@ -1,0 +1,47 @@
+{
+  "slug": "bytedance-sa2va",
+  "repo": "bytedance/Sa2VA",
+  "track": "cpu-gha",
+  "goal": "Get projects/sa2va/demo/demo.py (projects/sa2va/README.md Quick Start, option 1) running on this CPU-only machine with the public ByteDance/Sa2VA-1B model (a smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir.",
+  "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and that overlay images with a visible predicted mask are written to the output directory.",
+  "started": "2026-11-14 16:22:10",
+  "agent": {
+    "secs": 1641,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "be6b9dd4-ad3b-499f-a5a4-ab3e42eae842",
+    "num_turns": 42,
+    "cost_usd": 1.1861988,
+    "is_error": false,
+    "final": "iction in `torch.inference_mode()`.\n\n**Setup choices:**\n- The environment goes in `projects/sa2va/.venv`, following the README's manual `uv sync` path, rather than `/tmp` as `setup_env.sh` does.\n- The repo commit and the model revision (`82faf06`) are pinned.\n- The model is stored in `/work/hf_home`, which `env.sh` sets as `HF_HOME`.\n\n`/work/NOTES.md` and `/work/REPORT.json` cover the same points."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 73
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 37,
+    "files": [
+      {
+        "path": "projects/sa2va/demo/demo.py",
+        "added": 34,
+        "removed": 3
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 155,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 87
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 16:55:09"
+}

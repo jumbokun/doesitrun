@@ -1,0 +1,47 @@
+{
+  "slug": "facebookresearch-detectron2",
+  "repo": "facebookresearch/detectron2",
+  "track": "cpu-gha",
+  "goal": "Install detectron2 (CPU-only PyTorch build) so that `cd demo && python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input <image.jpg> --output <dir> --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl MODEL.DEVICE cpu` runs and writes a visualized image with predicted instance masks. Put the needed environment activation in /work/env.sh.",
+  "check": "The hidden test runs the demo on a COCO photo and verifies an annotated output image of the same size, visibly differing from the input, is written.",
+  "started": "2026-11-14 15:21:06",
+  "agent": {
+    "secs": 211,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "2541b9a2-261d-43f7-8d52-37270faa4594",
+    "num_turns": 9,
+    "cost_usd": 0.1702186,
+    "is_error": false,
+    "final": "DONE: after a clean rebuild with `/work/setup.sh`, the demo ran on CPU on a COCO photo, found 15 instances and wrote an annotated image the same size as the input (640×480) that clearly differs from it, once I'd added `python3-dev`, used `--no-build-isolation` and fixed a broken internal import in `demo/demo.py`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 6
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 2,
+    "files": [
+      {
+        "path": "demo/demo.py",
+        "added": 1,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 60,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 9
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:26:16"
+}

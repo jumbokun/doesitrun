@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Pinned scikit-learn==1.5.2 because coremltools disables the sklearn converter for sklearn > 1.5.1"},
+  {"kind": "dependency_pin", "detail": "Pinned torch==2.8.0 (CPU wheel) to match coremltools _TORCH_MAX_VERSION"}
+ ]}

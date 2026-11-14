@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Installed torch (CPU wheel from download.pytorch.org/whl/cpu); not a dependency of evalscope but required for local model eval"},
+  {"kind": "undocumented_step", "detail": "Installed accelerate; transformers from_pretrained with device_map requires it"},
+  {"kind": "dependency_pin", "detail": "Pinned transformers<5 (4.57.6); transformers 5.x apply_chat_template fails on evalscope's pydantic ChatMessage objects"}
+ ]}

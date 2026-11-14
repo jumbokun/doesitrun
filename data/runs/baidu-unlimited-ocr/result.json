@@ -1,0 +1,47 @@
+{
+  "slug": "baidu-unlimited-ocr",
+  "repo": "baidu/Unlimited-OCR",
+  "track": "cpu-gha",
+  "goal": "Install the Transformers dependencies from the README (a CPU build of torch is fine) and make the README's single-page Transformers inference work on this CPU-only machine. The hidden test loads the model with AutoTokenizer.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True) and AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, use_safetensors=True, torch_dtype=torch.float32).eval() with no .cuda() call (there is no GPU), then runs model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and expects correct OCR text back.",
+  "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words.",
+  "started": "2026-11-14 16:50:25",
+  "agent": {
+    "secs": 1325,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "3f2efa38-c80d-4e49-ad5b-7521aff6db22",
+    "num_turns": 27,
+    "cost_usd": 0.8185513999999999,
+    "is_error": false,
+    "final": "eam version could replace the patched code.\n\nEach page takes about 2.5–3.5 minutes on 4 cores. Memory peaks around 12.7 GB of the 16 GB, so a very large page or a smaller machine could still run out. The two test images were 1000×600 and A4 size (1240×1754).\n\n`setup.sh` contains the patch script inline, so it doesn't need anything else from `/work`. The details are in `NOTES.md` and `REPORT.json`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 271
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 0,
+    "files": [
+      {
+        "path": "Unlimited-OCR.pdf",
+        "added": 0,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 38,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 208
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:21:29"
+}

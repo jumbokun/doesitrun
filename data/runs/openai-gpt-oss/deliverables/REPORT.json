@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "Ollama install.sh requires zstd (not in the base image); installed zstd (and pciutils) via apt"},
+  {"kind": "undocumented_step", "detail": "No systemd in container; run 'ollama serve' manually in the background with OLLAMA_HOST=127.0.0.1:11434 and OLLAMA_MODELS=/work/ollama-models"}
+ ]}

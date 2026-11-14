@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Patched mteb_except_retrieval_eval.py/utils.py to run on CPU: skip .cuda()/move_to_cuda, fp32 instead of fp16, disable cuda autocast, batch size max(1,gpu_count)*64"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu"},
+  {"kind": "dependency_pin", "detail": "Pinned the full resolved dependency set (torch 2.15 cpu, transformers 5.23, datasets 5.2, mteb 1.0.2) for reproducibility since requirements.txt is unpinned"},
+  {"kind": "undocumented_step", "detail": "Created an isolated Python 3.12 venv with uv (system Python is externally managed)"}
+ ]}

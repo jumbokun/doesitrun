@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "gdm-xarray-jax v0.1.1 requires Python>=3.12 (setup.py classifiers say 3.10/3.11); used uv venv with Python 3.12"},
+  {"kind": "dependency_pin", "detail": "Removed 'colabtools' from setup.py install_requires: the PyPI package is an unrelated third-party project and is never imported"},
+  {"kind": "dependency_pin", "detail": "Installed h5py, which h5netcdf needs to read the sample .nc file but which is not pulled in"},
+  {"kind": "undocumented_step", "detail": "Installed google-cloud-storage and downloaded weights/sample from public dm_graphcast bucket via HTTPS"},
+  {"kind": "code_patch", "detail": "sparse_transformer.Transformer falls back from TPU-only Pallas splash_mha to triblockdiag_mha on non-TPU backends (CPU)"}
+ ]}

@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "Installed Go 1.24.5 toolchain from go.dev (not in base image, needed to build the scanner)"},
+  {"kind": "undocumented_step", "detail": "Built cmd/cli into infra-scan/aig_infra_scan/bin/ai-infra-guard; source checkout ships no binary and README only documents the PyPI wheel"},
+  {"kind": "undocumented_step", "detail": "Editable install of infra-scan into a uv venv so the wrapper uses the repo's data/ fingerprint and vuln rules instead of the PyPI-bundled copy"}
+ ]}

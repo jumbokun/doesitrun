@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "doc_error", "detail": "INSTALL.md conda example pins pytorch 1.13/CUDA 11.6/py3.9, inconsistent with listed supported PyTorch 2.1-2.4.1"},
+  {"kind": "dependency_pin", "detail": "Installed torch==2.4.1, torchvision==0.19.1 CPU wheels and numpy<2 in a Python 3.12 uv venv"},
+  {"kind": "undocumented_step", "detail": "Needed --no-build-isolation (setup.py imports torch) plus setuptools/wheel/ninja preinstalled"},
+  {"kind": "system_package", "detail": "apt install python3-dev; build failed with missing Python.h"},
+  {"kind": "gpu_compat", "detail": "FORCE_CUDA=0 and CPU-only torch to build the CPU-only extension on a GPU-less machine"}
+ ]}

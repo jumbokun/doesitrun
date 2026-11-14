@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Installed Python 3.11 via uv (Ubuntu 24.04 has 3.12), removed EXTERNALLY-MANAGED, symlinked /usr/local/bin/python3.11"},
+  {"kind": "dependency_pin", "detail": "Installed pipenv==2022.8.5 with setuptools<81 into python3.11 since pipenv needs pkg_resources"},
+  {"kind": "undocumented_step", "detail": "Ran install_deps steps manually: script requires sudo (absent) and installs docker-ce which is not needed"},
+  {"kind": "system_package", "detail": "Datastore emulator needs Java 21+; installed openjdk-21-jre-headless instead of openjdk-17 from install_deps_linux.bash"},
+  {"kind": "dependency_pin", "detail": "Pinned google-cloud-cli and pubsub emulator to 591.0.0-0 too; gcloud 593 demands Java 25 for datastore emulator"},
+  {"kind": "system_package", "detail": "Installed golang-go from apt for the local GCS emulator (go run emulators/gcs.go)"},
+  {"kind": "other", "detail": "run.sh uses --skip-install-deps and PYTHONUNBUFFERED=1 to avoid reinstalling deps on each start and get live logs"}
+ ]}

@@ -1,0 +1,41 @@
+{
+  "slug": "awslabs-mcp",
+  "repo": "awslabs/mcp",
+  "track": "cpu-gha",
+  "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation; read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown, and search_documentation must return AWS documentation results for a query.",
+  "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, reads a Lambda docs page and checks that substantial Lambda markdown comes back, and runs a documentation search and checks it returns docs.aws.amazon.com results.",
+  "started": "2026-11-14 17:18:47",
+  "agent": {
+    "secs": 85,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "a3caa8bc-8e93-4f0f-ac31-d1ab3f479781",
+    "num_turns": 10,
+    "cost_usd": 0.1563924,
+    "is_error": false,
+    "final": "DONE: the server installs from source into `/work/venv` and starts over stdio, and an MCP client test passed. It listed `read_documentation` and `search_documentation`, returned the Lambda welcome page as markdown and gave docs.aws.amazon.com search results, and it passed again after a clean rebuild with `setup.sh`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 6,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 4
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:20:47"
+}

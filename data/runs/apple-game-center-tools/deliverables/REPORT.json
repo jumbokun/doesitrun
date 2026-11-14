@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Installed undocumented 'requests' package (imported by script) into a uv venv"},
+  {"kind": "undocumented_step", "detail": "Added scripts/ to PATH and made scripts executable so bare 'genrulesinput.py' works"},
+  {"kind": "doc_error", "detail": "README link for genrulesinput.py points to README_genrulesinput.md instead of the script"}
+ ]}

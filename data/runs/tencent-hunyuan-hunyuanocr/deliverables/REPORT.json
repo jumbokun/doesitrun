@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "apt-get install cmake (and libssl-dev); cmake is not in the base image but needed to build llama.cpp"},
+  {"kind": "dependency_pin", "detail": "Installed torch from the PyTorch CPU wheel index instead of the default CUDA wheel"},
+  {"kind": "undocumented_step", "detail": "Installed llama.cpp requirements-convert_hf_to_gguf.txt into the conversion venv"},
+  {"kind": "other", "detail": "Downloaded the HF model to /work/models/HunyuanOCR, not ./HunyuanOCR, to avoid colliding with the repo clone"},
+  {"kind": "doc_error", "detail": "docs say chat.py reads llama_cpp/test_assets/data.jsonl, but that file is missing from the repo; I tested with a direct HTTP request"}
+ ]}

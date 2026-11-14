@@ -1,0 +1,41 @@
+{
+  "slug": "paddlepaddle-paddlex",
+  "repo": "PaddlePaddle/PaddleX",
+  "track": "cpu-gha",
+  "goal": "Install PaddlePaddle (CPU) and PaddleX from the repo clone (with the OCR extras needed), then run the README OCR command: `paddlex --pipeline OCR --input <image> --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False --save_path <dir> --device cpu`. It must download the models, recognize text in a local image with printed English text, print the result with rec_texts, and save result image/JSON files to the save path.",
+  "check": "The hidden test runs the OCR CLI on a generated image of printed text on CPU and verifies the saved output files and that the recognized text contains the expected words.",
+  "started": "2026-11-14 16:57:39",
+  "agent": {
+    "secs": 201,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "fc5d48f7-ba43-4b85-a2ef-f612979c6fa2",
+    "num_turns": 14,
+    "cost_usd": 0.2810452,
+    "is_error": false,
+    "final": " downloaded before the hidden test runs. `env.sh` also sets `PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK=True`, which skips PaddleX's network check before model downloads. It wasn't needed to fix anything.\n\nThe details are in `/work/NOTES.md` and `/work/REPORT.json`.\n\nDONE: a fresh run of setup.sh reproduces a working CPU OCR pipeline that recognizes the English text and saves the result image and JSON."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 4
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 30,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 4
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:02:02"
+}

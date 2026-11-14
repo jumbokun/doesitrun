@@ -7,9 +7,9 @@
         {
           "repo": "apple/game-center-tools",
           "slug": "apple-game-center-tools",
-          "score": 99.7,
+          "score": 99.6,
           "why": "0 min, 0 repo files patched",
-          "agent_minutes": 0.3,
+          "agent_minutes": 0.4,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -68,27 +68,6 @@
           "corrected": false
         },
         {
-          "repo": "awslabs/mcp",
-          "slug": "awslabs-mcp",
-          "score": 99.4,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "google-research/arxiv-latex-cleaner",
           "slug": "google-research-arxiv-la-b23d9",
           "score": 99.4,
@@ -132,27 +111,6 @@
           "corrected": false
         },
         {
-          "repo": "NVIDIA/garak",
-          "slug": "nvidia-garak",
-          "score": 99.4,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "google/agents-cli",
           "slug": "google-agents-cli",
           "score": 99.3,
@@ -169,27 +127,6 @@
           "attribution_evidence": [
             "owner 'google' is Google org account (Google)",
             "README mentions 'Google Cloud' -> team Google Cloud (low)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "aws/chalice",
-          "slug": "aws-chalice",
-          "score": 99.2,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.8,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -217,8 +154,51 @@
           "corrected": false
         },
         {
-          "repo": "apple/coremltools",
-          "slug": "apple-coremltools",
+          "repo": "microsoft/autogen",
+          "slug": "microsoft-autogen",
+          "score": 99.1,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/warp",
+          "slug": "nvidia-warp",
+          "score": 99.1,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "apple/app-store-server-library-python",
+          "slug": "apple-app-store-server-l-eeba5",
           "score": 99.0,
           "why": "1 min, 0 repo files patched",
           "agent_minutes": 1.0,
@@ -280,6 +260,27 @@
           "corrected": false
         },
         {
+          "repo": "apple/coremltools",
+          "slug": "apple-coremltools",
+          "score": 98.9,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/markitdown",
           "slug": "microsoft-markitdown",
           "score": 98.9,
@@ -316,6 +317,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "aws/chalice",
+          "slug": "aws-chalice",
+          "score": 98.8,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -364,27 +386,6 @@
           "corrected": false
         },
         {
-          "repo": "aws/aws-cli",
-          "slug": "aws-aws-cli",
-          "score": 98.7,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "google/adk-recipes",
           "slug": "google-adk-recipes",
           "score": 98.7,
@@ -406,11 +407,116 @@
           "corrected": false
         },
         {
-          "repo": "amazon-science/chronos-forecasting",
-          "slug": "amazon-science-chronos-f-714a0",
+          "repo": "openai/tiktoken",
+          "slug": "openai-tiktoken",
+          "score": 98.7,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "aws/serverless-application-model",
+          "slug": "aws-serverless-applicati-760d5",
+          "score": 98.6,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/mcp",
+          "slug": "awslabs-mcp",
+          "score": 98.6,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "aws/aws-sam-cli",
+          "slug": "aws-aws-sam-cli",
+          "score": 98.5,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "Tencent/MedicalNet",
+          "slug": "tencent-medicalnet",
           "score": 98.5,
           "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.5,
+          "agent_minutes": 1.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "amazon-science/chronos-forecasting",
+          "slug": "amazon-science-chronos-f-714a0",
+          "score": 98.3,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.6,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -421,27 +527,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'amazon-science' is Amazon org account (Amazon Science)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "apple/coreai-optimization",
-          "slug": "apple-coreai-optimization",
-          "score": 98.3,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -490,6 +575,27 @@
           "corrected": false
         },
         {
+          "repo": "apple/coreai-optimization",
+          "slug": "apple-coreai-optimization",
+          "score": 98.1,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "PaddlePaddle/PARL",
           "slug": "paddlepaddle-parl",
           "score": 98.0,
@@ -532,32 +638,11 @@
           "corrected": false
         },
         {
-          "repo": "aws/serverless-application-model",
-          "slug": "aws-serverless-applicati-760d5",
-          "score": 97.9,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "NVlabs/GR00T-WholeBodyControl",
           "slug": "nvlabs-gr00t-wholebodycontrol",
-          "score": 97.8,
+          "score": 97.5,
           "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.2,
+          "agent_minutes": 2.5,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -616,6 +701,27 @@
           "corrected": false
         },
         {
+          "repo": "aws/aws-cli",
+          "slug": "aws-aws-cli",
+          "score": 97.0,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/VibeVoice",
           "slug": "microsoft-vibevoice",
           "score": 96.8,
@@ -637,6 +743,27 @@
           "corrected": false
         },
         {
+          "repo": "PaddlePaddle/PaddleX",
+          "slug": "paddlepaddle-paddlex",
+          "score": 96.7,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "google-deepmind/gemma",
           "slug": "google-deepmind-gemma",
           "score": 96.6,
@@ -652,6 +779,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "openai/gpt-oss",
+          "slug": "openai-gpt-oss",
+          "score": 96.0,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -721,53 +869,11 @@
           "corrected": false
         },
         {
-          "repo": "openai/gpt-oss",
-          "slug": "openai-gpt-oss",
-          "score": 94.6,
-          "why": "5 min, 0 repo files patched",
-          "agent_minutes": 5.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "OpenAI",
-          "team": "OpenAI",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'openai' is OpenAI org account (OpenAI)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "facebookresearch/Kats",
-          "slug": "facebookresearch-kats",
-          "score": 93.8,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 6.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "PaddlePaddle/PaddleOCR",
           "slug": "paddlepaddle-paddleocr",
-          "score": 92.8,
-          "why": "7 min, 0 repo files patched",
-          "agent_minutes": 7.2,
+          "score": 95.3,
+          "why": "5 min, 0 repo files patched",
+          "agent_minutes": 4.7,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -778,6 +884,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "facebookresearch/Kats",
+          "slug": "facebookresearch-kats",
+          "score": 93.9,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 6.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -805,84 +932,106 @@
           "corrected": false
         },
         {
-          "repo": "aws/deep-learning-containers",
-          "slug": "aws-deep-learning-containers",
-          "score": 92.4,
-          "why": "8 min, 0 repo files patched",
-          "agent_minutes": 7.6,
+          "repo": "facebookresearch/pytorch3d",
+          "slug": "facebookresearch-pytorch3d",
+          "score": 91.1,
+          "why": "9 min, 0 repo files patched",
+          "agent_minutes": 8.9,
           "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/amazon-redshift-utils",
+          "slug": "awslabs-amazon-redshift-utils",
+          "score": 89.6,
+          "why": "0 min, 1 repo files patched",
+          "agent_minutes": 0.4,
+          "files_patched": 1,
           "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Amazon",
-          "team": "AWS",
+          "team": "AWS Labs",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
           ],
           "audit": null,
           "audit_reason": null,
           "corrected": false
         },
         {
-          "repo": "PaddlePaddle/PaddleX",
-          "slug": "paddlepaddle-paddlex",
-          "score": 89.6,
-          "why": "10 min, 0 repo files patched",
-          "agent_minutes": 10.4,
+          "repo": "awslabs/aws-support-tools",
+          "slug": "awslabs-aws-support-tools",
+          "score": 89.4,
+          "why": "1 min, 1 repo files patched",
+          "agent_minutes": 0.6,
+          "files_patched": 1,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "bytedance/Protenix",
+          "slug": "bytedance-protenix",
+          "score": 89.4,
+          "why": "11 min, 0 repo files patched",
+          "agent_minutes": 10.6,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
+          "company": "ByteDance",
+          "team": "ByteDance",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
           "audit_reason": null,
           "corrected": false
         },
         {
-          "repo": "Tencent-Hunyuan/HunyuanOCR",
-          "slug": "tencent-hunyuan-hunyuanocr",
-          "score": 89.5,
-          "why": "10 min, 0 repo files patched",
-          "agent_minutes": 10.5,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "modelscope/evalscope",
-          "slug": "modelscope-evalscope",
+          "repo": "google/adk-python",
+          "slug": "google-adk-python",
           "score": 88.3,
-          "why": "12 min, 0 repo files patched",
-          "agent_minutes": 11.7,
-          "files_patched": 0,
-          "lines_patched": 0,
+          "why": "2 min, 1 repo files patched",
+          "agent_minutes": 1.7,
+          "files_patched": 1,
+          "lines_patched": 9,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "ModelScope",
+          "company": "Google",
+          "team": "Google",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'modelscope' is Alibaba org account (ModelScope)"
+            "owner 'google' is Google org account (Google)",
+            "README mentions 'Google Cloud' -> team Google Cloud (low)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -910,42 +1059,21 @@
           "corrected": false
         },
         {
-          "repo": "baidu/Unlimited-OCR",
-          "slug": "baidu-unlimited-ocr",
-          "score": 87.6,
-          "why": "12 min, 0 repo files patched",
-          "agent_minutes": 12.4,
+          "repo": "google/clusterfuzz",
+          "slug": "google-clusterfuzz",
+          "score": 87.0,
+          "why": "13 min, 0 repo files patched",
+          "agent_minutes": 13.0,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "Baidu",
+          "company": "Google",
+          "team": "Google",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'baidu' is Baidu org account (Baidu)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/unilm",
-          "slug": "microsoft-unilm",
-          "score": 86.2,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 3.8,
-          "files_patched": 1,
-          "lines_patched": 11,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
+            "owner 'google' is Google org account (Google)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -954,11 +1082,11 @@
         {
           "repo": "facebookresearch/detectron2",
           "slug": "facebookresearch-detectron2",
-          "score": 86.0,
+          "score": 86.5,
           "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.0,
+          "agent_minutes": 3.5,
           "files_patched": 1,
-          "lines_patched": 4,
+          "lines_patched": 2,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
@@ -994,6 +1122,28 @@
           "corrected": false
         },
         {
+          "repo": "microsoft/data-formulator",
+          "slug": "microsoft-data-formulator",
+          "score": 85.8,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 4.2,
+          "files_patched": 1,
+          "lines_patched": 3,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/qlib",
           "slug": "microsoft-qlib",
           "score": 85.6,
@@ -1009,6 +1159,48 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "google-research/text-to-text-transfer-transformer",
+          "slug": "google-research-text-to-25965",
+          "score": 85.0,
+          "why": "5 min, 1 repo files patched",
+          "agent_minutes": 5.0,
+          "files_patched": 1,
+          "lines_patched": 10,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/garak",
+          "slug": "nvidia-garak",
+          "score": 84.8,
+          "why": "5 min, 1 repo files patched",
+          "agent_minutes": 5.2,
+          "files_patched": 1,
+          "lines_patched": 9,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1036,13 +1228,97 @@
           "corrected": false
         },
         {
-          "repo": "bytedance/Protenix",
-          "slug": "bytedance-protenix",
-          "score": 70.3,
-          "why": "10 min, 2 repo files patched",
-          "agent_minutes": 9.7,
+          "repo": "Tencent-Hunyuan/HunyuanOCR",
+          "slug": "tencent-hunyuan-hunyuanocr",
+          "score": 83.3,
+          "why": "17 min, 0 repo files patched",
+          "agent_minutes": 16.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "microsoft/unilm",
+          "slug": "microsoft-unilm",
+          "score": 74.1,
+          "why": "6 min, 2 repo files patched",
+          "agent_minutes": 5.9,
           "files_patched": 2,
-          "lines_patched": 15,
+          "lines_patched": 9,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "google-deepmind/weathernext",
+          "slug": "google-deepmind-weathernext",
+          "score": 72.5,
+          "why": "7 min, 2 repo files patched",
+          "agent_minutes": 7.5,
+          "files_patched": 2,
+          "lines_patched": 5,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 67.9,
+          "why": "22 min, 1 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 1,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "Baidu",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "bytedance/Sa2VA",
+          "slug": "bytedance-sa2va",
+          "score": 62.7,
+          "why": "27 min, 1 repo files patched",
+          "agent_minutes": 27.4,
+          "files_patched": 1,
+          "lines_patched": 37,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
@@ -1057,42 +1333,21 @@
           "corrected": false
         },
         {
-          "repo": "Tencent/MedicalNet",
-          "slug": "tencent-medicalnet",
-          "score": 68.0,
-          "why": "2 min, 3 repo files patched",
-          "agent_minutes": 2.0,
+          "repo": "PaddlePaddle/PaddleFormers",
+          "slug": "paddlepaddle-paddleformers",
+          "score": 61.2,
+          "why": "9 min, 3 repo files patched",
+          "agent_minutes": 8.8,
           "files_patched": 3,
-          "lines_patched": 12,
+          "lines_patched": 23,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "ml-explore/mlx-lm",
-          "slug": "ml-explore-mlx-lm",
-          "score": 60.7,
-          "why": "29 min, 1 repo files patched",
-          "agent_minutes": 29.3,
-          "files_patched": 1,
-          "lines_patched": 4,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "MLX",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'ml-explore' is Apple org account (MLX)"
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1120,34 +1375,13 @@
           "corrected": false
         },
         {
-          "repo": "google/clusterfuzz",
-          "slug": "google-clusterfuzz",
-          "score": 59.1,
-          "why": "31 min, 1 repo files patched",
-          "agent_minutes": 30.9,
-          "files_patched": 1,
-          "lines_patched": 1,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google' is Google org account (Google)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "apple/dnikit",
           "slug": "apple-dnikit",
-          "score": 58.7,
-          "why": "1 min, 27 repo files patched",
-          "agent_minutes": 1.4,
-          "files_patched": 27,
-          "lines_patched": 0,
+          "score": 58.5,
+          "why": "2 min, 28 repo files patched",
+          "agent_minutes": 1.5,
+          "files_patched": 28,
+          "lines_patched": 7,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
@@ -1156,48 +1390,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleFormers",
-          "slug": "paddlepaddle-paddleformers",
-          "score": 55.5,
-          "why": "4 min, 4 repo files patched",
-          "agent_minutes": 4.5,
-          "files_patched": 4,
-          "lines_patched": 41,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "pass",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "bytedance/Sa2VA",
-          "slug": "bytedance-sa2va",
-          "score": 40,
-          "why": "79 min, 1 repo files patched",
-          "agent_minutes": 79.3,
-          "files_patched": 1,
-          "lines_patched": 39,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1206,12 +1398,12 @@
         {
           "repo": "modelscope/FunClip",
           "slug": "modelscope-funclip",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 14.2,
+          "score": 56.8,
+          "why": "33 min, 1 repo files patched",
+          "agent_minutes": 33.1,
           "files_patched": 1,
-          "lines_patched": 5,
-          "replay": "fail: other",
+          "lines_patched": 4,
+          "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Alibaba",
@@ -1220,185 +1412,58 @@
           "attribution_evidence": [
             "owner 'modelscope' is Alibaba org account (ModelScope)"
           ],
-          "audit": "repo_failure",
-          "audit_reason": "The oracle stopped first because wget isn't installed, but the README's own download step uses wget too. With curl swapped in, stage 1 runs on CPU and writes a good Chinese total.srt. Stage 2 with the README's exact --dest_text then prints 'No period found in the video; no output was generated', so no res.mp4 is made: the video at the README URL doesn't contain that sentence. The installing agent's setup.sh also says this and swaps in a different file (2022云栖大会_片段2.mp4). The README's documented demo does not work as written.",
+          "audit": null,
+          "audit_reason": null,
           "corrected": false
         },
         {
-          "repo": "Tencent-Hunyuan/Hunyuan3D-1",
-          "slug": "tencent-hunyuan-hunyuan3d-1",
-          "score": 0,
-          "why": "agent hit the time limit before the demo ran",
-          "agent_minutes": 90.0,
-          "files_patched": 4,
-          "lines_patched": 20,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": "inconclusive",
-          "audit_reason": "This audit sandbox has no installation at all: /work is empty, with no setup.sh, no env.sh and no Hunyuan3D-1 checkout, so the oracle re-run here died at `source /work/env.sh` before testing anything about the repo. Without the agent's install I can't tell why the original run failed. A fresh clone does hardcode CUDA in the svrm path (svrm/ldm/models/svrm.py:55 `.cuda()`, context_type='cuda'; ops.py `.cuda()`), so a CPU run may well be the repo's fault, but I can't confirm that here.",
-          "corrected": false
-        },
-        {
-          "repo": "apple/app-store-server-library-python",
-          "slug": "apple-app-store-server-l-eeba5",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.6,
+          "repo": "modelscope/evalscope",
+          "slug": "modelscope-evalscope",
+          "score": 50,
+          "why": "60 min, 0 repo files patched",
+          "agent_minutes": 59.8,
           "files_patched": 0,
           "lines_patched": 0,
-          "replay": "fail: other",
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "ml-explore/mlx-lm",
+          "slug": "ml-explore-mlx-lm",
+          "score": 44.6,
+          "why": "45 min, 1 repo files patched",
+          "agent_minutes": 45.4,
+          "files_patched": 1,
+          "lines_patched": 7,
+          "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Apple",
-          "team": "Apple",
+          "team": "MLX",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
+            "owner 'ml-explore' is Apple org account (MLX)"
           ],
-          "audit": "oracle_defect",
-          "audit_reason": "The bundled test certs have no Authority Key Identifier, so the default strict chain checks reject them. The repo's own test helper (tests/util.py:38) sets verifier._chain_verifier.enable_strict_checks = False for this reason ('We don't have authority identifiers on test certs'), and with that setting the repo's notification-decoding test passes here. The oracle builds the verifier without disabling strict checks, and the README never says Apple's test certs pass strict verification, so the bug is in the oracle; the signature part already passed.",
-          "corrected": false
-        },
-        {
-          "repo": "aws/aws-sam-cli",
-          "slug": "aws-aws-sam-cli",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 1.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The oracle's sam init call leaves out --dependency-manager. SAM CLI requires that flag with --runtime/--app-template in --no-interactive mode, and its error message says so explicitly. When I added --dependency-manager pip, sam init created the project and sam build produced .aws-sam/build/template.yaml and HelloWorldFunction/app.py, so the install works.",
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/amazon-redshift-utils",
-          "slug": "awslabs-amazon-redshift-utils",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.4,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "manifestgen.py wrote exactly OUTFILE-000..003.json, and between them they hold 101 unique entries (26/25/25/25) with the correct total size, mandatory=true, and the empty file left out. The oracle failed only because of a slicing bug: f[-8:] gives '000.json' (8 chars), but the expected strings like '-000.json' are 9 chars, so the filename assertion can never pass.",
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/aws-support-tools",
-          "slug": "awslabs-aws-support-tools",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.8,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The script runs correctly with bc installed and is unmodified upstream code (git diff shows only a mode change): the gp3, io2 and st1 outputs all match the oracle's expectations. The oracle fails only on its io1 assertion. It expects 'throughput is 2500.00 MiB/s', but the upstream io1 function deliberately caps throughput at 500 MiB/s for <=32000 IOPS (io1 limit), and the README never promises otherwise; the goal also only names gp3, io2 and st1.",
-          "corrected": false
-        },
-        {
-          "repo": "facebookresearch/pytorch3d",
-          "slug": "facebookresearch-pytorch3d",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 9.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The PyTorch3D pipeline itself worked: the cow mesh loaded, rendered to (1,256,256,4) on CPU, and passed the coverage (0.123) and texture std assertions. The oracle only crashed afterwards at `import matplotlib`, which it used just to save a PNG. matplotlib is an optional extra (setup.py 'all'; INSTALL.md lists it as needed only for tutorials/examples), and the stated goal only required import pytorch3d plus the render pipeline.",
-          "corrected": false
-        },
-        {
-          "repo": "google-deepmind/weathernext",
-          "slug": "google-deepmind-weathernext",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 5.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The oracle failed only because its helper script /work/oracle_py/run_wn.py does not exist in this sandbox (python: can't open file ... Errno 2), so the oracle depends on a file from its own environment. Running the notebook's core flow myself (fiddle config WeatherNextCyclones_Mini, Mini <2024 weights, steps-01 sample, fgn with triblockdiag_mha, chunked_prediction_generator_multiple_runs with 2 members) on CPU worked: 2m_temperature was finite, ranged 209-315 K, had nonzero ensemble spread, and a 52 MB NetCDF was written.",
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/data-formulator",
-          "slug": "microsoft-data-formulator",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 1.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)",
-            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The server, UI and app-config work, and the upload API returns success once the request carries the X-Workspace-Id header. The frontend always sends that header, and the code requires it by design (py-src/data_formulator/workspace_factory.py:135). The oracle's curl calls leave the header out, so the server rejects them; nothing is wrong with the install. The README never documents these internal API calls, let alone says they work without a workspace header.",
+          "audit": null,
+          "audit_reason": null,
           "corrected": false
         },
         {
           "repo": "NVIDIA/Megatron-LM",
           "slug": "nvidia-megatron-lm",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 24.8,
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 3.3,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "fail: other",
@@ -1410,16 +1475,16 @@
           "attribution_evidence": [
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
-          "audit": "oracle_defect",
-          "audit_reason": "Corrected on review: the failure comes from our test setup, not Megatron-LM. The README only says --tokenizer-model /path/to/tokenizer.model; our examiner chose GPT-2 files in a directory named 'tok', which transformers 4.57.6 (installed by our agent) cannot resolve without 'gpt2' in the path, while the same files under /…/gpt2 load fine (shown in the audit's own evidence). The test depended on its own environment, which the audit rule defines as an oracle defect.",
-          "corrected": true
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
         },
         {
           "repo": "NVIDIA/SkillSpector",
           "slug": "nvidia-skillspector",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.9,
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 1.1,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "fail: other",
@@ -1431,189 +1496,147 @@
           "attribution_evidence": [
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
-          "audit": "oracle_defect",
-          "audit_reason": "The malicious scan works and writes a valid 21KB JSON report with 7 issues, versus 0 for the safe fixture. It exits 1 because risk_score is 100, and README 'Exit codes' documents exit 1 as 'Scan completed and risk_score > 50'. The oracle runs under set -e, so it aborts on this documented exit code. It would also have failed later, because it looks for a 'findings' key when the report schema uses 'issues'.",
-          "corrected": false
-        },
-        {
-          "repo": "NVIDIA/warp",
-          "slug": "nvidia-warp",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The mesh example ran on CPU and wrote a 1.79 MB USD with 6 prims, and the end-time assertion passed. The failure came from the oracle defining a wp.kernel inside `python -c`. Warp has to read kernel source with inspect, and it explicitly rejects code with no source file ('Directly evaluating Warp code defined as a string ... is not supported'). The same kernel saved to a file launches on CPU and gives correct results.",
-          "corrected": false
-        },
-        {
-          "repo": "openai/tiktoken",
-          "slug": "openai-tiktoken",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 1.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "OpenAI",
-          "team": "OpenAI",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'openai' is OpenAI org account (OpenAI)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The ImportError comes from the oracle's `cd /work/tiktoken`: running Python from the repo root puts the unbuilt source package (it has no compiled _tiktoken .so) ahead of the correctly installed site-packages copy, which does include _tiktoken.cpython-312-x86_64-linux-gnu.so. Running the oracle's exact Python body from /tmp with a fresh cache passes every assertion (o200k/cl100k token ids, gpt-4o mapping, round trips). The README never says to run from the source checkout, so the failure comes from the oracle's working directory, not from the install.",
+          "audit": null,
+          "audit_reason": null,
           "corrected": false
         }
       ],
       "companies": [
         {
-          "company": "Amazon",
-          "n": 7,
+          "company": "OpenAI",
+          "n": 3,
           "mean": 97.9,
           "teams": [
             {
-              "team": "AWS Labs",
-              "n": 2,
-              "mean": 99.2
-            },
+              "team": "OpenAI",
+              "n": 3,
+              "mean": 97.9
+            }
+          ]
+        },
+        {
+          "company": "Amazon",
+          "n": 9,
+          "mean": 96.4,
+          "teams": [
             {
               "team": "Amazon Science",
               "n": 1,
-              "mean": 98.5
+              "mean": 98.3
             },
             {
               "team": "AWS",
               "n": 4,
-              "mean": 97.1
-            }
-          ]
-        },
-        {
-          "company": "OpenAI",
-          "n": 2,
-          "mean": 96.8,
-          "teams": [
-            {
-              "team": "OpenAI",
-              "n": 2,
-              "mean": 96.8
-            }
-          ]
-        },
-        {
-          "company": "NVIDIA",
-          "n": 4,
-          "mean": 96.0,
-          "teams": [
-            {
-              "team": "NVIDIA",
-              "n": 2,
-              "mean": 99.1
+              "mean": 98.2
             },
             {
-              "team": "NVIDIA Research",
-              "n": 2,
-              "mean": 92.9
+              "team": "AWS Labs",
+              "n": 4,
+              "mean": 94.2
             }
           ]
         },
         {
           "company": "Microsoft",
-          "n": 9,
-          "mean": 95.5,
+          "n": 11,
+          "mean": 93.8,
           "teams": [
             {
               "team": "Microsoft",
-              "n": 9,
-              "mean": 95.5
+              "n": 11,
+              "mean": 93.8
+            }
+          ]
+        },
+        {
+          "company": "Tencent",
+          "n": 3,
+          "mean": 93.3,
+          "teams": [
+            {
+              "team": "Tencent",
+              "n": 2,
+              "mean": 98.2
+            },
+            {
+              "team": "Hunyuan",
+              "n": 1,
+              "mean": 83.3
             }
           ]
         },
         {
           "company": "Google",
-          "n": 10,
-          "mean": 90.7,
+          "n": 13,
+          "mean": 90.8,
           "teams": [
             {
-              "team": "Google DeepMind",
-              "n": 2,
-              "mean": 96.9
+              "team": "Google",
+              "n": 6,
+              "mean": 95.2
             },
             {
-              "team": "Google",
-              "n": 5,
-              "mean": 91.0
+              "team": "Google DeepMind",
+              "n": 3,
+              "mean": 88.8
             },
             {
               "team": "Google Research",
-              "n": 3,
-              "mean": 86.1
+              "n": 4,
+              "mean": 85.8
             }
           ]
         },
         {
           "company": "Meta",
-          "n": 2,
-          "mean": 89.9,
+          "n": 3,
+          "mean": 90.5,
           "teams": [
             {
               "team": "FAIR",
-              "n": 2,
-              "mean": 89.9
+              "n": 3,
+              "mean": 90.5
             }
           ]
         },
         {
           "company": "Apple",
-          "n": 6,
-          "mean": 85.9,
+          "n": 7,
+          "mean": 85.4,
           "teams": [
             {
               "team": "Apple",
-              "n": 5,
-              "mean": 90.9
+              "n": 6,
+              "mean": 92.2
             },
             {
               "team": "MLX",
               "n": 1,
-              "mean": 60.7
+              "mean": 44.6
             }
           ]
         },
         {
           "company": "Baidu",
           "n": 6,
-          "mean": 84.9,
+          "mean": 84.2,
           "teams": [
-            {
-              "team": "Baidu",
-              "n": 1,
-              "mean": 87.6
-            },
             {
               "team": "PaddlePaddle",
               "n": 5,
-              "mean": 84.4
+              "mean": 87.4
+            },
+            {
+              "team": "Baidu",
+              "n": 1,
+              "mean": 67.9
             }
           ]
         },
         {
           "company": "Alibaba",
           "n": 7,
-          "mean": 79.1,
+          "mean": 81.7,
           "teams": [
             {
               "team": "Qwen",
@@ -1623,36 +1646,36 @@
             {
               "team": "ModelScope",
               "n": 6,
-              "mean": 76.0
-            }
-          ]
-        },
-        {
-          "company": "Tencent",
-          "n": 4,
-          "mean": 63.9,
-          "teams": [
-            {
-              "team": "Tencent",
-              "n": 2,
-              "mean": 83.0
-            },
-            {
-              "team": "Hunyuan",
-              "n": 2,
-              "mean": 44.8
+              "mean": 79.1
             }
           ]
         },
         {
           "company": "ByteDance",
           "n": 2,
-          "mean": 55.1,
+          "mean": 76.1,
           "teams": [
             {
               "team": "ByteDance",
               "n": 2,
-              "mean": 55.1
+              "mean": 76.1
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "n": 7,
+          "mean": 66.9,
+          "teams": [
+            {
+              "team": "NVIDIA Research",
+              "n": 2,
+              "mean": 92.8
+            },
+            {
+              "team": "NVIDIA",
+              "n": 5,
+              "mean": 56.5
             }
           ]
         }
@@ -1666,9 +1689,9 @@
         {
           "repo": "apple/game-center-tools",
           "slug": "apple-game-center-tools",
-          "score": 99.7,
+          "score": 99.6,
           "why": "0 min, 0 repo files patched",
-          "agent_minutes": 0.3,
+          "agent_minutes": 0.4,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -1727,27 +1750,6 @@
           "corrected": false
         },
         {
-          "repo": "awslabs/mcp",
-          "slug": "awslabs-mcp",
-          "score": 99.4,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "google-research/arxiv-latex-cleaner",
           "slug": "google-research-arxiv-la-b23d9",
           "score": 99.4,
@@ -1785,27 +1787,6 @@
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)",
             "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "NVIDIA/garak",
-          "slug": "nvidia-garak",
-          "score": 99.4,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1876,27 +1857,6 @@
           "corrected": false
         },
         {
-          "repo": "aws/chalice",
-          "slug": "aws-chalice",
-          "score": 99.2,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.8,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "microsoft/agent-framework",
           "slug": "microsoft-agent-framework",
           "score": 99.2,
@@ -1939,8 +1899,51 @@
           "corrected": false
         },
         {
-          "repo": "apple/coremltools",
-          "slug": "apple-coremltools",
+          "repo": "microsoft/autogen",
+          "slug": "microsoft-autogen",
+          "score": 99.1,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/warp",
+          "slug": "nvidia-warp",
+          "score": 99.1,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "apple/app-store-server-library-python",
+          "slug": "apple-app-store-server-l-eeba5",
           "score": 99.0,
           "why": "1 min, 0 repo files patched",
           "agent_minutes": 1.0,
@@ -2002,6 +2005,27 @@
           "corrected": false
         },
         {
+          "repo": "apple/coremltools",
+          "slug": "apple-coremltools",
+          "score": 98.9,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/markitdown",
           "slug": "microsoft-markitdown",
           "score": 98.9,
@@ -2038,6 +2062,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "aws/chalice",
+          "slug": "aws-chalice",
+          "score": 98.8,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2086,27 +2131,6 @@
           "corrected": false
         },
         {
-          "repo": "aws/aws-cli",
-          "slug": "aws-aws-cli",
-          "score": 98.7,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "google/adk-recipes",
           "slug": "google-adk-recipes",
           "score": 98.7,
@@ -2149,6 +2173,69 @@
           "corrected": false
         },
         {
+          "repo": "openai/tiktoken",
+          "slug": "openai-tiktoken",
+          "score": 98.7,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "aws/serverless-application-model",
+          "slug": "aws-serverless-applicati-760d5",
+          "score": 98.6,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/mcp",
+          "slug": "awslabs-mcp",
+          "score": 98.6,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "QwenLM/Qwen3",
           "slug": "qwenlm-qwen3",
           "score": 98.6,
@@ -2170,11 +2257,53 @@
           "corrected": false
         },
         {
-          "repo": "amazon-science/chronos-forecasting",
-          "slug": "amazon-science-chronos-f-714a0",
+          "repo": "aws/aws-sam-cli",
+          "slug": "aws-aws-sam-cli",
+          "score": 98.5,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "Tencent/MedicalNet",
+          "slug": "tencent-medicalnet",
           "score": 98.5,
           "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.5,
+          "agent_minutes": 1.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "amazon-science/chronos-forecasting",
+          "slug": "amazon-science-chronos-f-714a0",
+          "score": 98.3,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.6,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -2185,27 +2314,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'amazon-science' is Amazon org account (Amazon Science)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "apple/coreai-optimization",
-          "slug": "apple-coreai-optimization",
-          "score": 98.3,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2269,6 +2377,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "apple/coreai-optimization",
+          "slug": "apple-coreai-optimization",
+          "score": 98.1,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2401,27 +2530,6 @@
           "corrected": false
         },
         {
-          "repo": "aws/serverless-application-model",
-          "slug": "aws-serverless-applicati-760d5",
-          "score": 97.9,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "modelscope/ClearerVoice-Studio",
           "slug": "modelscope-clearervoice-studio",
           "score": 97.8,
@@ -2445,9 +2553,9 @@
         {
           "repo": "NVlabs/GR00T-WholeBodyControl",
           "slug": "nvlabs-gr00t-wholebodycontrol",
-          "score": 97.8,
+          "score": 97.5,
           "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.2,
+          "agent_minutes": 2.5,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -2527,6 +2635,27 @@
           "corrected": false
         },
         {
+          "repo": "aws/aws-cli",
+          "slug": "aws-aws-cli",
+          "score": 97.0,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/VibeVoice",
           "slug": "microsoft-vibevoice",
           "score": 96.8,
@@ -2542,6 +2671,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "PaddlePaddle/PaddleX",
+          "slug": "paddlepaddle-paddlex",
+          "score": 96.7,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2584,6 +2734,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "openai/gpt-oss",
+          "slug": "openai-gpt-oss",
+          "score": 96.0,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2674,6 +2845,27 @@
           "corrected": false
         },
         {
+          "repo": "PaddlePaddle/PaddleOCR",
+          "slug": "paddlepaddle-paddleocr",
+          "score": 95.3,
+          "why": "5 min, 0 repo files patched",
+          "agent_minutes": 4.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "facebookresearch/fairseq",
           "slug": "facebookresearch-fairseq",
           "score": 94.9,
@@ -2689,27 +2881,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "openai/gpt-oss",
-          "slug": "openai-gpt-oss",
-          "score": 94.6,
-          "why": "5 min, 0 repo files patched",
-          "agent_minutes": 5.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "OpenAI",
-          "team": "OpenAI",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'openai' is OpenAI org account (OpenAI)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2742,6 +2913,27 @@
           "score": 94.1,
           "why": "6 min, 0 repo files patched",
           "agent_minutes": 5.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "facebookresearch/Kats",
+          "slug": "facebookresearch-kats",
+          "score": 93.9,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 6.1,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -2800,53 +2992,11 @@
           "corrected": false
         },
         {
-          "repo": "facebookresearch/Kats",
-          "slug": "facebookresearch-kats",
-          "score": 93.8,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 6.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "PaddlePaddle/PaddleSeg",
           "slug": "paddlepaddle-paddleseg",
           "score": 93.7,
           "why": "6 min, 0 repo files patched",
           "agent_minutes": 6.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleOCR",
-          "slug": "paddlepaddle-paddleocr",
-          "score": 92.8,
-          "why": "7 min, 0 repo files patched",
-          "agent_minutes": 7.2,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -2884,27 +3034,6 @@
           "corrected": false
         },
         {
-          "repo": "aws/deep-learning-containers",
-          "slug": "aws-deep-learning-containers",
-          "score": 92.4,
-          "why": "8 min, 0 repo files patched",
-          "agent_minutes": 7.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "QwenLM/Qwen",
           "slug": "qwenlm-qwen",
           "score": 92.1,
@@ -2926,42 +3055,42 @@
           "corrected": false
         },
         {
-          "repo": "PaddlePaddle/PaddleX",
-          "slug": "paddlepaddle-paddlex",
-          "score": 89.6,
-          "why": "10 min, 0 repo files patched",
-          "agent_minutes": 10.4,
+          "repo": "facebookresearch/pytorch3d",
+          "slug": "facebookresearch-pytorch3d",
+          "score": 91.1,
+          "why": "9 min, 0 repo files patched",
+          "agent_minutes": 8.9,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
+          "company": "Meta",
+          "team": "FAIR",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+            "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
           "audit_reason": null,
           "corrected": false
         },
         {
-          "repo": "Tencent-Hunyuan/HunyuanOCR",
-          "slug": "tencent-hunyuan-hunyuanocr",
-          "score": 89.5,
-          "why": "10 min, 0 repo files patched",
-          "agent_minutes": 10.5,
-          "files_patched": 0,
+          "repo": "awslabs/amazon-redshift-utils",
+          "slug": "awslabs-amazon-redshift-utils",
+          "score": 89.6,
+          "why": "0 min, 1 repo files patched",
+          "agent_minutes": 0.4,
+          "files_patched": 1,
           "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
+          "company": "Amazon",
+          "team": "AWS Labs",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2989,6 +3118,48 @@
           "corrected": false
         },
         {
+          "repo": "awslabs/aws-support-tools",
+          "slug": "awslabs-aws-support-tools",
+          "score": 89.4,
+          "why": "1 min, 1 repo files patched",
+          "agent_minutes": 0.6,
+          "files_patched": 1,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "bytedance/Protenix",
+          "slug": "bytedance-protenix",
+          "score": 89.4,
+          "why": "11 min, 0 repo files patched",
+          "agent_minutes": 10.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "NVlabs/stylegan3",
           "slug": "nvlabs-stylegan3",
           "score": 88.5,
@@ -3010,21 +3181,22 @@
           "corrected": false
         },
         {
-          "repo": "modelscope/evalscope",
-          "slug": "modelscope-evalscope",
+          "repo": "google/adk-python",
+          "slug": "google-adk-python",
           "score": 88.3,
-          "why": "12 min, 0 repo files patched",
-          "agent_minutes": 11.7,
-          "files_patched": 0,
-          "lines_patched": 0,
+          "why": "2 min, 1 repo files patched",
+          "agent_minutes": 1.7,
+          "files_patched": 1,
+          "lines_patched": 9,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "ModelScope",
+          "company": "Google",
+          "team": "Google",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'modelscope' is Alibaba org account (ModelScope)"
+            "owner 'google' is Google org account (Google)",
+            "README mentions 'Google Cloud' -> team Google Cloud (low)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3052,27 +3224,6 @@
           "corrected": false
         },
         {
-          "repo": "baidu/Unlimited-OCR",
-          "slug": "baidu-unlimited-ocr",
-          "score": 87.6,
-          "why": "12 min, 0 repo files patched",
-          "agent_minutes": 12.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "Baidu",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'baidu' is Baidu org account (Baidu)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "ByteDance-Seed/m3-agent",
           "slug": "bytedance-seed-m3-agent",
           "score": 87.1,
@@ -3094,21 +3245,21 @@
           "corrected": false
         },
         {
-          "repo": "microsoft/unilm",
-          "slug": "microsoft-unilm",
-          "score": 86.2,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 3.8,
-          "files_patched": 1,
-          "lines_patched": 11,
+          "repo": "google/clusterfuzz",
+          "slug": "google-clusterfuzz",
+          "score": 87.0,
+          "why": "13 min, 0 repo files patched",
+          "agent_minutes": 13.0,
+          "files_patched": 0,
+          "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
+          "company": "Google",
+          "team": "Google",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
+            "owner 'google' is Google org account (Google)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3117,11 +3268,11 @@
         {
           "repo": "facebookresearch/detectron2",
           "slug": "facebookresearch-detectron2",
-          "score": 86.0,
+          "score": 86.5,
           "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.0,
+          "agent_minutes": 3.5,
           "files_patched": 1,
-          "lines_patched": 4,
+          "lines_patched": 2,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
@@ -3157,6 +3308,28 @@
           "corrected": false
         },
         {
+          "repo": "microsoft/data-formulator",
+          "slug": "microsoft-data-formulator",
+          "score": 85.8,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 4.2,
+          "files_patched": 1,
+          "lines_patched": 3,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/qlib",
           "slug": "microsoft-qlib",
           "score": 85.6,
@@ -3178,6 +3351,48 @@
           "corrected": false
         },
         {
+          "repo": "google-research/text-to-text-transfer-transformer",
+          "slug": "google-research-text-to-25965",
+          "score": 85.0,
+          "why": "5 min, 1 repo files patched",
+          "agent_minutes": 5.0,
+          "files_patched": 1,
+          "lines_patched": 10,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/garak",
+          "slug": "nvidia-garak",
+          "score": 84.8,
+          "why": "5 min, 1 repo files patched",
+          "agent_minutes": 5.2,
+          "files_patched": 1,
+          "lines_patched": 9,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "modelscope/modelscope",
           "slug": "modelscope-modelscope",
           "score": 83.9,
@@ -3193,6 +3408,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "Tencent-Hunyuan/HunyuanOCR",
+          "slug": "tencent-hunyuan-hunyuanocr",
+          "score": 83.3,
+          "why": "17 min, 0 repo files patched",
+          "agent_minutes": 16.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3367,6 +3603,27 @@
           "corrected": false
         },
         {
+          "repo": "microsoft/unilm",
+          "slug": "microsoft-unilm",
+          "score": 74.1,
+          "why": "6 min, 2 repo files patched",
+          "agent_minutes": 5.9,
+          "files_patched": 2,
+          "lines_patched": 9,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "Tencent-Hunyuan/Hunyuan3D-2",
           "slug": "tencent-hunyuan-hunyuan3d-2",
           "score": 73.0,
@@ -3388,21 +3645,21 @@
           "corrected": false
         },
         {
-          "repo": "bytedance/Protenix",
-          "slug": "bytedance-protenix",
-          "score": 70.3,
-          "why": "10 min, 2 repo files patched",
-          "agent_minutes": 9.7,
+          "repo": "google-deepmind/weathernext",
+          "slug": "google-deepmind-weathernext",
+          "score": 72.5,
+          "why": "7 min, 2 repo files patched",
+          "agent_minutes": 7.5,
           "files_patched": 2,
-          "lines_patched": 15,
+          "lines_patched": 5,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
+          "company": "Google",
+          "team": "Google DeepMind",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3430,21 +3687,21 @@
           "corrected": false
         },
         {
-          "repo": "Tencent/MedicalNet",
-          "slug": "tencent-medicalnet",
-          "score": 68.0,
-          "why": "2 min, 3 repo files patched",
-          "agent_minutes": 2.0,
-          "files_patched": 3,
-          "lines_patched": 12,
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 67.9,
+          "why": "22 min, 1 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 1,
+          "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
+          "company": "Baidu",
+          "team": "Baidu",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
+            "owner 'baidu' is Baidu org account (Baidu)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3472,21 +3729,42 @@
           "corrected": false
         },
         {
-          "repo": "ml-explore/mlx-lm",
-          "slug": "ml-explore-mlx-lm",
-          "score": 60.7,
-          "why": "29 min, 1 repo files patched",
-          "agent_minutes": 29.3,
+          "repo": "bytedance/Sa2VA",
+          "slug": "bytedance-sa2va",
+          "score": 62.7,
+          "why": "27 min, 1 repo files patched",
+          "agent_minutes": 27.4,
           "files_patched": 1,
-          "lines_patched": 4,
+          "lines_patched": 37,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "MLX",
+          "company": "ByteDance",
+          "team": "ByteDance",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'ml-explore' is Apple org account (MLX)"
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "PaddlePaddle/PaddleFormers",
+          "slug": "paddlepaddle-paddleformers",
+          "score": 61.2,
+          "why": "9 min, 3 repo files patched",
+          "agent_minutes": 8.8,
+          "files_patched": 3,
+          "lines_patched": 23,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3514,34 +3792,13 @@
           "corrected": false
         },
         {
-          "repo": "google/clusterfuzz",
-          "slug": "google-clusterfuzz",
-          "score": 59.1,
-          "why": "31 min, 1 repo files patched",
-          "agent_minutes": 30.9,
-          "files_patched": 1,
-          "lines_patched": 1,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google' is Google org account (Google)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "apple/dnikit",
           "slug": "apple-dnikit",
-          "score": 58.7,
-          "why": "1 min, 27 repo files patched",
-          "agent_minutes": 1.4,
-          "files_patched": 27,
-          "lines_patched": 0,
+          "score": 58.5,
+          "why": "2 min, 28 repo files patched",
+          "agent_minutes": 1.5,
+          "files_patched": 28,
+          "lines_patched": 7,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
@@ -3577,6 +3834,27 @@
           "corrected": false
         },
         {
+          "repo": "modelscope/FunClip",
+          "slug": "modelscope-funclip",
+          "score": 56.8,
+          "why": "33 min, 1 repo files patched",
+          "agent_minutes": 33.1,
+          "files_patched": 1,
+          "lines_patched": 4,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "Tencent/FaceDetection-DSFD",
           "slug": "tencent-facedetection-dsfd",
           "score": 55.8,
@@ -3592,27 +3870,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'Tencent' is Tencent org account (Tencent)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleFormers",
-          "slug": "paddlepaddle-paddleformers",
-          "score": 55.5,
-          "why": "4 min, 4 repo files patched",
-          "agent_minutes": 4.5,
-          "files_patched": 4,
-          "lines_patched": 41,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "pass",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3640,21 +3897,42 @@
           "corrected": false
         },
         {
-          "repo": "bytedance/Sa2VA",
-          "slug": "bytedance-sa2va",
-          "score": 40,
-          "why": "79 min, 1 repo files patched",
-          "agent_minutes": 79.3,
-          "files_patched": 1,
-          "lines_patched": 39,
+          "repo": "modelscope/evalscope",
+          "slug": "modelscope-evalscope",
+          "score": 50,
+          "why": "60 min, 0 repo files patched",
+          "agent_minutes": 59.8,
+          "files_patched": 0,
+          "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
+          "company": "Alibaba",
+          "team": "ModelScope",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "ml-explore/mlx-lm",
+          "slug": "ml-explore-mlx-lm",
+          "score": 44.6,
+          "why": "45 min, 1 repo files patched",
+          "agent_minutes": 45.4,
+          "files_patched": 1,
+          "lines_patched": 7,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "MLX",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'ml-explore' is Apple org account (MLX)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3767,24 +4045,45 @@
           "corrected": false
         },
         {
-          "repo": "modelscope/FunClip",
-          "slug": "modelscope-funclip",
+          "repo": "NVIDIA/Megatron-LM",
+          "slug": "nvidia-megatron-lm",
           "score": 0,
           "why": "agent could not reproduce",
-          "agent_minutes": 14.2,
-          "files_patched": 1,
-          "lines_patched": 5,
+          "agent_minutes": 3.3,
+          "files_patched": 0,
+          "lines_patched": 0,
           "replay": "fail: other",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "ModelScope",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'modelscope' is Alibaba org account (ModelScope)"
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
-          "audit": "repo_failure",
-          "audit_reason": "The oracle stopped first because wget isn't installed, but the README's own download step uses wget too. With curl swapped in, stage 1 runs on CPU and writes a good Chinese total.srt. Stage 2 with the README's exact --dest_text then prints 'No period found in the video; no output was generated', so no res.mp4 is made: the video at the README URL doesn't contain that sentence. The installing agent's setup.sh also says this and swaps in a different file (2022云栖大会_片段2.mp4). The README's documented demo does not work as written.",
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/SkillSpector",
+          "slug": "nvidia-skillspector",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 1.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
           "corrected": false
         },
         {
@@ -3809,27 +4108,6 @@
           "corrected": false
         },
         {
-          "repo": "Tencent-Hunyuan/Hunyuan3D-1",
-          "slug": "tencent-hunyuan-hunyuan3d-1",
-          "score": 0,
-          "why": "agent hit the time limit before the demo ran",
-          "agent_minutes": 90.0,
-          "files_patched": 4,
-          "lines_patched": 20,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": "inconclusive",
-          "audit_reason": "This audit sandbox has no installation at all: /work is empty, with no setup.sh, no env.sh and no Hunyuan3D-1 checkout, so the oracle re-run here died at `source /work/env.sh` before testing anything about the repo. Without the agent's install I can't tell why the original run failed. A fresh clone does hardcode CUDA in the svrm path (svrm/ldm/models/svrm.py:55 `.cuda()`, context_type='cuda'; ops.py `.cuda()`), so a CPU run may well be the repo's fault, but I can't confirm that here.",
-          "corrected": false
-        },
-        {
           "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
           "slug": "tencent-hunyuan-hunyuan3d-2-1",
           "score": 0,
@@ -3848,90 +4126,6 @@
           ],
           "audit": "inconclusive",
           "audit_reason": "auditor produced no valid AUDIT.json",
-          "corrected": false
-        },
-        {
-          "repo": "apple/app-store-server-library-python",
-          "slug": "apple-app-store-server-l-eeba5",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The bundled test certs have no Authority Key Identifier, so the default strict chain checks reject them. The repo's own test helper (tests/util.py:38) sets verifier._chain_verifier.enable_strict_checks = False for this reason ('We don't have authority identifiers on test certs'), and with that setting the repo's notification-decoding test passes here. The oracle builds the verifier without disabling strict checks, and the README never says Apple's test certs pass strict verification, so the bug is in the oracle; the signature part already passed.",
-          "corrected": false
-        },
-        {
-          "repo": "aws/aws-sam-cli",
-          "slug": "aws-aws-sam-cli",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 1.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The oracle's sam init call leaves out --dependency-manager. SAM CLI requires that flag with --runtime/--app-template in --no-interactive mode, and its error message says so explicitly. When I added --dependency-manager pip, sam init created the project and sam build produced .aws-sam/build/template.yaml and HelloWorldFunction/app.py, so the install works.",
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/amazon-redshift-utils",
-          "slug": "awslabs-amazon-redshift-utils",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.4,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "manifestgen.py wrote exactly OUTFILE-000..003.json, and between them they hold 101 unique entries (26/25/25/25) with the correct total size, mandatory=true, and the empty file left out. The oracle failed only because of a slicing bug: f[-8:] gives '000.json' (8 chars), but the expected strings like '-000.json' are 9 chars, so the filename assertion can never pass.",
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/aws-support-tools",
-          "slug": "awslabs-aws-support-tools",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.8,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The script runs correctly with bc installed and is unmodified upstream code (git diff shows only a mode change): the gp3, io2 and st1 outputs all match the oracle's expectations. The oracle fails only on its io1 assertion. It expects 'throughput is 2500.00 MiB/s', but the upstream io1 function deliberately caps throughput at 500 MiB/s for <=32000 IOPS (io1 limit), and the README never promises otherwise; the goal also only names gp3, io2 and st1.",
           "corrected": false
         },
         {
@@ -3977,48 +4171,6 @@
           "corrected": false
         },
         {
-          "repo": "facebookresearch/pytorch3d",
-          "slug": "facebookresearch-pytorch3d",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 9.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The PyTorch3D pipeline itself worked: the cow mesh loaded, rendered to (1,256,256,4) on CPU, and passed the coverage (0.123) and texture std assertions. The oracle only crashed afterwards at `import matplotlib`, which it used just to save a PNG. matplotlib is an optional extra (setup.py 'all'; INSTALL.md lists it as needed only for tutorials/examples), and the stated goal only required import pytorch3d plus the render pipeline.",
-          "corrected": false
-        },
-        {
-          "repo": "google-deepmind/weathernext",
-          "slug": "google-deepmind-weathernext",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 5.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The oracle failed only because its helper script /work/oracle_py/run_wn.py does not exist in this sandbox (python: can't open file ... Errno 2), so the oracle depends on a file from its own environment. Running the notebook's core flow myself (fiddle config WeatherNextCyclones_Mini, Mini <2024 weights, steps-01 sample, fgn with triblockdiag_mha, chunked_prediction_generator_multiple_runs with 2 members) on CPU worked: 2m_temperature was finite, ranged 209-315 K, had nonzero ensemble spread, and a 52 MB NetCDF was written.",
-          "corrected": false
-        },
-        {
           "repo": "google/python-fire",
           "slug": "google-python-fire",
           "score": null,
@@ -4037,112 +4189,6 @@
           ],
           "audit": "oracle_defect",
           "audit_reason": "All README demos work: Hello World!, Hello David!, 20, 30, and the trace all print correctly. `python hello.py --help` exits 0 and prints Fire's help page (NAME / SYNOPSIS / FLAGS), but that page never contains the literal word 'usage'. The README only says the command 'Shows usage information', so the oracle's `grep -qi usage` checks for a string Fire doesn't print.",
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/data-formulator",
-          "slug": "microsoft-data-formulator",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 1.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)",
-            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The server, UI and app-config work, and the upload API returns success once the request carries the X-Workspace-Id header. The frontend always sends that header, and the code requires it by design (py-src/data_formulator/workspace_factory.py:135). The oracle's curl calls leave the header out, so the server rejects them; nothing is wrong with the install. The README never documents these internal API calls, let alone says they work without a workspace header.",
-          "corrected": false
-        },
-        {
-          "repo": "NVIDIA/Megatron-LM",
-          "slug": "nvidia-megatron-lm",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 24.8,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "Corrected on review: the failure comes from our test setup, not Megatron-LM. The README only says --tokenizer-model /path/to/tokenizer.model; our examiner chose GPT-2 files in a directory named 'tok', which transformers 4.57.6 (installed by our agent) cannot resolve without 'gpt2' in the path, while the same files under /…/gpt2 load fine (shown in the audit's own evidence). The test depended on its own environment, which the audit rule defines as an oracle defect.",
-          "corrected": true
-        },
-        {
-          "repo": "NVIDIA/SkillSpector",
-          "slug": "nvidia-skillspector",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The malicious scan works and writes a valid 21KB JSON report with 7 issues, versus 0 for the safe fixture. It exits 1 because risk_score is 100, and README 'Exit codes' documents exit 1 as 'Scan completed and risk_score > 50'. The oracle runs under set -e, so it aborts on this documented exit code. It would also have failed later, because it looks for a 'findings' key when the report schema uses 'issues'.",
-          "corrected": false
-        },
-        {
-          "repo": "NVIDIA/warp",
-          "slug": "nvidia-warp",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The mesh example ran on CPU and wrote a 1.79 MB USD with 6 prims, and the end-time assertion passed. The failure came from the oracle defining a wp.kernel inside `python -c`. Warp has to read kernel source with inspect, and it explicitly rejects code with no source file ('Directly evaluating Warp code defined as a string ... is not supported'). The same kernel saved to a file launches on CPU and gives correct results.",
-          "corrected": false
-        },
-        {
-          "repo": "openai/tiktoken",
-          "slug": "openai-tiktoken",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 1.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "OpenAI",
-          "team": "OpenAI",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'openai' is OpenAI org account (OpenAI)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The ImportError comes from the oracle's `cd /work/tiktoken`: running Python from the repo root puts the unbuilt source package (it has no compiled _tiktoken .so) ahead of the correctly installed site-packages copy, which does include _tiktoken.cpython-312-x86_64-linux-gnu.so. Running the oracle's exact Python body from /tmp with a fresh cache passes every assertion (o200k/cl100k token ids, gpt-4o mapping, round trips). The README never says to run from the source checkout, so the failure comes from the oracle's working directory, not from the install.",
           "corrected": false
         },
         {
@@ -4191,83 +4237,83 @@
       "companies": [
         {
           "company": "Amazon",
-          "n": 7,
-          "mean": 97.9,
+          "n": 9,
+          "mean": 96.4,
           "teams": [
-            {
-              "team": "AWS Labs",
-              "n": 2,
-              "mean": 99.2
-            },
             {
               "team": "Amazon Science",
               "n": 1,
-              "mean": 98.5
+              "mean": 98.3
             },
             {
               "team": "AWS",
               "n": 4,
-              "mean": 97.1
+              "mean": 98.2
+            },
+            {
+              "team": "AWS Labs",
+              "n": 4,
+              "mean": 94.2
             }
           ]
         },
         {
           "company": "Microsoft",
-          "n": 12,
-          "mean": 94.5,
+          "n": 14,
+          "mean": 93.3,
           "teams": [
             {
               "team": "Microsoft",
-              "n": 12,
-              "mean": 94.5
+              "n": 14,
+              "mean": 93.3
             }
           ]
         },
         {
           "company": "Meta",
-          "n": 9,
-          "mean": 92.8,
+          "n": 10,
+          "mean": 92.7,
           "teams": [
             {
               "team": "FAIR",
-              "n": 9,
-              "mean": 92.8
-            }
-          ]
-        },
-        {
-          "company": "Apple",
-          "n": 7,
-          "mean": 87.7,
-          "teams": [
-            {
-              "team": "Apple",
-              "n": 5,
-              "mean": 90.9
-            },
-            {
-              "team": "MLX",
-              "n": 2,
-              "mean": 79.7
+              "n": 10,
+              "mean": 92.7
             }
           ]
         },
         {
           "company": "OpenAI",
-          "n": 4,
-          "mean": 87.6,
+          "n": 5,
+          "mean": 90.1,
           "teams": [
             {
               "team": "OpenAI",
-              "n": 4,
-              "mean": 87.6
+              "n": 5,
+              "mean": 90.1
+            }
+          ]
+        },
+        {
+          "company": "Apple",
+          "n": 8,
+          "mean": 87.0,
+          "teams": [
+            {
+              "team": "Apple",
+              "n": 6,
+              "mean": 92.2
+            },
+            {
+              "team": "MLX",
+              "n": 2,
+              "mean": 71.7
             }
           ]
         },
         {
           "company": "Alibaba",
           "n": 12,
-          "mean": 85.2,
+          "mean": 86.7,
           "teams": [
             {
               "team": "Qwen",
@@ -4277,70 +4323,53 @@
             {
               "team": "ModelScope",
               "n": 7,
-              "mean": 79.1
+              "mean": 81.8
             }
           ]
         },
         {
           "company": "Baidu",
           "n": 11,
-          "mean": 84.7,
+          "mean": 84.3,
           "teams": [
-            {
-              "team": "Baidu",
-              "n": 1,
-              "mean": 87.6
-            },
             {
               "team": "PaddlePaddle",
               "n": 10,
-              "mean": 84.4
+              "mean": 85.9
+            },
+            {
+              "team": "Baidu",
+              "n": 1,
+              "mean": 67.9
             }
           ]
         },
         {
           "company": "Google",
-          "n": 13,
-          "mean": 76.0,
+          "n": 16,
+          "mean": 78.8,
           "teams": [
             {
               "team": "Google DeepMind",
-              "n": 3,
-              "mean": 91.4
+              "n": 4,
+              "mean": 86.7
             },
             {
               "team": "Google",
-              "n": 6,
-              "mean": 75.8
+              "n": 7,
+              "mean": 81.6
             },
             {
               "team": "Google Research",
-              "n": 4,
-              "mean": 64.5
-            }
-          ]
-        },
-        {
-          "company": "NVIDIA",
-          "n": 9,
-          "mean": 74.5,
-          "teams": [
-            {
-              "team": "NVIDIA",
-              "n": 3,
-              "mean": 88.7
-            },
-            {
-              "team": "NVIDIA Research",
-              "n": 6,
-              "mean": 67.3
+              "n": 5,
+              "mean": 68.6
             }
           ]
         },
         {
           "company": "Tencent",
-          "n": 11,
-          "mean": 66.3,
+          "n": 10,
+          "mean": 75.3,
           "teams": [
             {
               "team": "ARC Lab",
@@ -4350,24 +4379,41 @@
             {
               "team": "Tencent",
               "n": 4,
-              "mean": 74.0
+              "mean": 81.7
             },
             {
               "team": "Hunyuan",
-              "n": 5,
-              "mean": 49.0
+              "n": 4,
+              "mean": 59.8
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "n": 12,
+          "mean": 62.9,
+          "teams": [
+            {
+              "team": "NVIDIA Research",
+              "n": 6,
+              "mean": 67.3
+            },
+            {
+              "team": "NVIDIA",
+              "n": 6,
+              "mean": 58.4
             }
           ]
         },
         {
           "company": "ByteDance",
           "n": 9,
-          "mean": 54.8,
+          "mean": 59.4,
           "teams": [
             {
               "team": "ByteDance",
               "n": 7,
-              "mean": 58.0
+              "mean": 63.9
             },
             {
               "team": "Seed",

@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.11 instead of README's 3.7.0 (unavailable; torch>=2.6 requires >=3.9)"},
+  {"kind": "dependency_pin", "detail": "Replaced numpy==1.15.4/scipy==1.1.0 (won't build on modern Python, conflict with torch>=2.6) with numpy==1.26.4, scipy==1.13.1"},
+  {"kind": "dependency_pin", "detail": "Pinned nibabel==4.0.2 since nibabel>=5 removed get_data() used in datasets/brains18.py"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch==2.6.0 wheel from the PyTorch CPU index instead of README's CUDA 9.0 setup"},
+  {"kind": "doc_error", "detail": "requirements.txt is internally inconsistent (torch>=2.6.0 alongside 2018-era numpy/scipy pins) and README PyTorch-0.4.1 contradicts it"}
+ ]}

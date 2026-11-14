@@ -1,0 +1,47 @@
+{
+  "slug": "google-adk-python",
+  "repo": "google/adk-python",
+  "track": "cpu-gha",
+  "goal": "Install google-adk from the clone at /work/adk-python (Python 3.11+, e.g. pip install -e .) so the `adk` CLI works. Then single-step runs of two sample workflows must work: `adk run contributing/samples/workflows/fan_out_fan_in \"Hello World\"` and `adk run contributing/samples/workflows/state \"hello adk\"`. These workflows use only function nodes, so no model or API key is involved. Write /work/env.sh so that `adk` is on PATH.",
+  "check": "The hidden test runs both sample workflows with `adk run` in single-step mode and checks the workflow outputs: the fanned-out uppercase, character count and reversed string, and the state-derived final result.",
+  "started": "2026-11-14 15:15:48",
+  "agent": {
+    "secs": 103,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "71b9a422-2393-4cf0-ac07-08a388914d63",
+    "num_turns": 15,
+    "cost_usd": 0.273488,
+    "is_error": false,
+    "final": "t, ran `setup.sh` from scratch, re-ran both samples, then ran `setup.sh` a second time over the result; both runs worked. The patch is written out from inside `setup.sh`, so it doesn't need any other file. To run the unit tests I installed `pytest` and `pytest-asyncio` into the environment; `setup.sh` doesn't install them.\n\nFiles are in `/work`:\n- `setup.sh`\n- `env.sh`\n- `NOTES.md`\n- `REPORT.json`"
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 9,
+    "files": [
+      {
+        "path": "src/google/adk/cli/cli.py",
+        "added": 9,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 6,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:18:04"
+}

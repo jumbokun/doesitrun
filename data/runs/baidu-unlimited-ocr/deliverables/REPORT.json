@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed torch==2.13.0+cpu/torchvision from the PyTorch CPU index instead of the default CUDA build"},
+  {"kind": "dependency_pin", "detail": "Installed triton==3.7.1; the remote code imports it and transformers check_imports refuses to load the model without it"},
+  {"kind": "code_patch", "detail": "modeling_unlimitedocr.py: cast the hard-coded bf16 image tensors to the model dtype so float32 inference works"},
+  {"kind": "gpu_compat", "detail": "modeling_unlimitedocr.py: replaced hard-coded .cuda() on images_seq_mask with .to(inputs_embeds.device)"},
+  {"kind": "code_patch", "detail": "deepencoder.py: compute SAM rel-pos attention in query chunks to avoid OOM on a 16GB CPU box with float32 weights"},
+  {"kind": "undocumented_step", "detail": "Pinned the HF model revision, cleared the stale transformers_modules cache after patching, and set HF_HUB_OFFLINE=1 so the patched code is used"}
+ ]}

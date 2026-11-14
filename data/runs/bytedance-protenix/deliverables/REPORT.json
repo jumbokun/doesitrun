@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "apt install python3-dev so scikit-learn-extra 0.3.0 can build from source (no py3.12 wheel)"},
+  {"kind": "gpu_compat", "detail": "Install CPU build of torch==2.7.1 from download.pytorch.org/whl/cpu before installing protenix"},
+  {"kind": "gpu_compat", "detail": "export LAYERNORM_TYPE=torch to skip JIT compile of CUDA fused layernorm (fails: CUDA_HOME not set)"},
+  {"kind": "undocumented_step", "detail": "Set PROTENIX_ROOT_DIR and pre-download checkpoint/CCD via warm-up prediction in setup.sh"}
+ ]}

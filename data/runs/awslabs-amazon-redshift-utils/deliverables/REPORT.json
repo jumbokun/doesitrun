@@ -1,0 +1,2 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [{"kind": "undocumented_step", "detail": "README does not document installing requirements.txt; created a uv venv at /work/venv and installed it there"}]}

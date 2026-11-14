@@ -1,0 +1,41 @@
+{
+  "slug": "apple-app-store-server-l-eeba5",
+  "repo": "apple/app-store-server-library-python",
+  "track": "cpu-gha",
+  "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8, tests/resources/mock_signed_data/{testNotification,transactionInfo} and tests/resources/xcode/xcode-app-receipt-with-transaction, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification and the transaction, make PromotionalOfferSignatureCreator produce a signature, and make ReceiptUtility extract the transaction id from the Xcode app receipt. No Apple credentials or network API calls are needed.",
+  "check": "A Python script imports the installed library, creates a promotional offer signature that verifies against the test key, decodes the bundled notification (type TEST) and transaction, checks that a wrong bundle id is rejected, and extracts the transaction id from the bundled Xcode receipt.",
+  "started": "2026-11-14 17:29:48",
+  "agent": {
+    "secs": 60,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "3d4bacf1-35c8-4439-a158-6fc964e36483",
+    "num_turns": 10,
+    "cost_usd": 0.1881574,
+    "is_error": false,
+    "final": "DONE — The clone installs cleanly into a uv venv (Python 3.12), and after rebuilding from `setup.sh` my check passed every goal (with strict chain checks off for the test CA, as the repo's own tests do) and 325 repo tests passed (I skipped the async test, which needs optional httpx)."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 2,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 1
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:31:12"
+}

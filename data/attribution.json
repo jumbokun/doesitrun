@@ -1177,5 +1177,34 @@
     "evidence": [
       "owner 'openai' is OpenAI org account (OpenAI)"
     ]
+  },
+  "google/adk-python": {
+    "repo": "google/adk-python",
+    "company": "Google",
+    "team": "Google Cloud",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)",
+      "README mentions 'Google Cloud' -> team Google Cloud (low)"
+    ]
+  },
+  "google-research/text-to-text-transfer-transformer": {
+    "repo": "google-research/text-to-text-transfer-transformer",
+    "company": "Google",
+    "team": "Google Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-research' is Google org account (Google Research)"
+    ]
+  },
+  "microsoft/autogen": {
+    "repo": "microsoft/autogen",
+    "company": "Microsoft",
+    "team": "Microsoft Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)",
+      "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+    ]
   }
 }

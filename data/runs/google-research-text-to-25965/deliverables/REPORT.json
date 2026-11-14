@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Use Python 3.11: pandas<2.0.0 (required by t5) has no py3.12 wheel and fails to build"},
+  {"kind": "dependency_pin", "detail": "numpy<2 for binary compatibility with pandas 1.5.3"},
+  {"kind": "dependency_pin", "detail": "tensorflow==2.15.1 / tensorflow-text==2.15.0 because mesh-tensorflow needs tf.compat.v1.estimator (removed in TF>=2.16)"},
+  {"kind": "dependency_pin", "detail": "setuptools<81 so tensorflow_hub can import pkg_resources"},
+  {"kind": "dependency_pin", "detail": "sentencepiece==0.2.0 and tensorflow-metadata==1.15.0 so they are compatible with protobuf<5, which TF 2.15 requires"},
+  {"kind": "undocumented_step", "detail": "Install torch (CPU wheel) separately; it is not in the t5[gcp] install_requires"},
+  {"kind": "code_patch", "detail": "hf_model.py predict(): append EOS to encoded inputs; without it t5-base produces garbage predictions"}
+ ]}

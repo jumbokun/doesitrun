@@ -1,0 +1,182 @@
+{
+  "slug": "apple-dnikit",
+  "repo": "apple/dnikit",
+  "track": "cpu-gha",
+  "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates, DimensionReduction, Familiarity`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(..., threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, DimensionReduction with Strategy.PCA must reduce responses, Familiarity.introspect must fit and score responses, and the repo's src/dnikit/tests/test_duplicates.py and the PCA tests in test_dimension_reduction.py must pass with pytest.",
+  "check": "Runs Duplicates on synthetic responses with planted near-duplicates (more clusters in the more-duplicated response), reduces synthetic data with PCA, fits Familiarity and checks in-distribution samples score higher than far-away ones, then runs the repo's duplicates and PCA unit tests.",
+  "started": "2026-11-14 17:34:24",
+  "agent": {
+    "secs": 90,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "faf6a451-61be-4ad3-bba1-790b2cd06eee",
+    "num_turns": 11,
+    "cost_usd": 0.23473360000000001,
+    "is_error": false,
+    "final": "es as modified. That's an existing quirk of the upstream repo (the clone warns those files should be Git LFS pointers) and it doesn't affect the code.\n\n`NOTES.md` and `REPORT.json` record the same three changes.\n\nDONE — dnikit installs from source in a Python 3.10 venv, the duplicates, PCA and familiarity checks work, and the target tests pass after removing the dev-only options from `pytest.ini`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 28,
+    "lines_changed": 7,
+    "files": [
+      {
+        "path": "docs/img/Eigenvalues_data.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/arch_overview.gif",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/dni-health.jpeg",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/dni-pfa-correlation.gif",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/fam2.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/fam_deer_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/fam_mnist_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/generic_pipeline.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/iua-show-heatmap.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/iua-show-table.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/pfa_recipe_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/pfa_recipe_with_fs.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/pfa_show_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/response_producer.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/responses.gif",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/sample_pipeline.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Eig_dist.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Eigenvalues.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Energy.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Inference.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/KL.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Pooling.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/ResponseMatrix.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/l1.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/lstm.jpg",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/max.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/pearsons.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "pytest.ini",
+        "added": 0,
+        "removed": 7
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 8,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:36:28"
+}

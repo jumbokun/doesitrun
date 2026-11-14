@@ -1,0 +1,47 @@
+{
+  "slug": "microsoft-data-formulator",
+  "repo": "microsoft/data-formulator",
+  "track": "cpu-gha",
+  "goal": "Install Data Formulator from the cloned repo (or pip) and start the web server with `python -m data_formulator` on port 5567 (frontend must be served at /). Provide /work/env.sh and /work/run.sh that start the server in the background and return once it is ready. No LLM API key is needed; the data upload/workspace API must work: uploading a CSV through POST /api/tables/create-table and reading it back through /api/tables/list-tables, get-table and sample-table.",
+  "check": "The hidden test checks that the server serves the web UI and app-config, then uploads a generated CSV as a table and verifies it is listed and returns the correct rows and counts.",
+  "started": "2026-11-14 15:36:35",
+  "agent": {
+    "secs": 253,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "dfd35925-c0e5-41a5-bf97-78cba268bc45",
+    "num_turns": 17,
+    "cost_usd": 0.34414540000000005,
+    "is_error": false,
+    "final": " and `/work/run.sh` serves the UI at `/` and `/api/app-config` on port 5567. Uploading a CSV and reading it back through list-tables, get-table and sample-table returned the right rows and counts. That works with or without an `X-Workspace-Id` header, thanks to a small patch in `workspace_factory.py` (described in `/work/NOTES.md`) that falls back to a default workspace when the header is missing."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 3,
+    "files": [
+      {
+        "path": "py-src/data_formulator/workspace_factory.py",
+        "added": 2,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 84,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 7
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:42:44"
+}

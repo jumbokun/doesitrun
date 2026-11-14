@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "apt-get install libgl1 libglib2.0-0t64; opencv-contrib-python import failed with missing libGL.so.1"},
+  {"kind": "undocumented_step", "detail": "Created a uv venv (Python 3.12) because system pip is externally managed on Ubuntu 24.04"},
+  {"kind": "other", "detail": "Set PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK=True in env.sh to skip model-host connectivity check (optional)"}
+ ]}

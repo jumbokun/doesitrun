@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "Installed Node.js v22.21.1 (tarball) and yarn 1.22.22 to build the frontend; not in image and not mentioned in README"},
+  {"kind": "doc_error", "detail": "Node 20 (as in Dockerfile) / 22.12 too old: vite 7 and eslint-visitor-keys need node >=20.19 / >=22.13"},
+  {"kind": "undocumented_step", "detail": "Built frontend from source (yarn install && yarn build) and pip install -e . since README's pip install gives PyPI 0.7.0, not the repo code"},
+  {"kind": "code_patch", "detail": "workspace_factory.get_active_workspace_id falls back to DF_DEFAULT_WORKSPACE_ID env when X-Workspace-Id header is absent, so plain API clients work"},
+  {"kind": "other", "detail": "Set DATA_FORMULATOR_HOME and BROWSER=true for headless background run"}
+ ]}

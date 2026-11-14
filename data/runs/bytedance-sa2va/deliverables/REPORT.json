@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Sa2VA-1B (InternVL2.5) needs the 'legacy' uv extra; used documented `uv sync --extra=legacy` and downloaded the model (pinned revision) via hf download"},
+  {"kind": "gpu_compat", "detail": "Pass use_flash_attn=False to from_pretrained; the remote code enables FlashAttention2 whenever flash_attn imports, which fails on CPU"},
+  {"kind": "gpu_compat", "detail": "Make Tensor.cuda a no-op on CPU because the model's predict_forward hard-codes .cuda()"},
+  {"kind": "code_patch", "detail": "Cast the model to bf16 after loading; torch_dtype='auto' leaves some modules fp32, which mismatches the bf16 inputs"},
+  {"kind": "code_patch", "detail": "demo.py passed processor= to predict_forward, but InternVL-based Sa2VA-1B rejects it (TypeError); only pass it for Qwen models"},
+  {"kind": "gpu_compat", "detail": "Redirect SAM2's hard-coded torch.device('cuda') inference state and autocast('cuda') to CPU at runtime"},
+  {"kind": "code_patch", "detail": "Wrap predict_forward in torch.inference_mode(); SAM2 kept its autograd graph (~5GB/call), so 4 frames were OOM-killed under the 12GB limit"}
+ ]}

@@ -1,0 +1,41 @@
+{
+  "slug": "modelscope-evalscope",
+  "repo": "modelscope/evalscope",
+  "track": "cpu-gha",
+  "goal": "Install evalscope (Python >= 3.11) and make the README Method 2 command `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k arc --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and both datasets fetched. It must accept a `--work-dir <dir>` option for outputs and write the evaluation reports there.",
+  "check": "The hidden test runs the local-model gsm8k + arc evaluation with limit 5 into a fresh work dir and verifies a report with a score for each dataset (5 gsm8k samples) and review files whose model answers are non-empty.",
+  "started": "2026-11-14 15:48:37",
+  "agent": {
+    "secs": 3589,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "1732a706-a8ee-489e-a674-d5ecc9ff6fa4",
+    "num_turns": 15,
+    "cost_usd": 0.2604508,
+    "is_error": false,
+    "final": "mplate:** evalscope passes message objects that transformers 5.23 can't read. The same code is still on the GitHub main branch. Pinning `transformers<5` (4.57.6) fixes it.\n\n`setup.sh` puts the venv in `/work/venv`. It downloads the model and runs a 1-sample warm-up eval so both datasets are already cached. `env.sh` activates the venv. The three fixes are written up in `NOTES.md` and `REPORT.json`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 386
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 1516,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 390
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:27:01"
+}

@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch wheel from download.pytorch.org/whl/cpu (README assumes CUDA GPU)"},
+  {"kind": "other", "detail": "Used uv venv with Python 3.10 instead of conda"},
+  {"kind": "dependency_pin", "detail": "Pinned resolved versions (torch 2.14.1, pytorch-lightning 2.6.6, vector-quantize-pytorch 1.34.0, transformers 5.20.2) for reproducibility"},
+  {"kind": "other", "detail": "Cloned with GIT_LFS_SKIP_SMUDGE=1 since synthetic training needs no LFS assets"}
+ ]}

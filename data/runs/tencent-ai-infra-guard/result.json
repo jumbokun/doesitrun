@@ -1,0 +1,41 @@
+{
+  "slug": "tencent-ai-infra-guard",
+  "repo": "Tencent/AI-Infra-Guard",
+  "track": "cpu-gha",
+  "goal": "Get the AI-Infra-Guard infrastructure scanner CLI (aig-infra-scan from infra-scan/, or the Go CLI built from cmd/cli) working so that `aig-infra-scan -t http://127.0.0.1:PORT --lang en --json -o result.json` scans a local HTTP service and reports the detected AI product. The command must be available on PATH (via /work/env.sh) and must use the bundled fingerprint rules from the repo's data/ directory. No LLM/API key is needed.",
+  "check": "The hidden test starts a fake Ollama HTTP service locally, scans it with the CLI, and verifies the output identifies Ollama for that target.",
+  "started": "2026-11-14 15:54:26",
+  "agent": {
+    "secs": 121,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "c40b6cfa-1ed0-4971-bdb9-57670103be59",
+    "num_turns": 12,
+    "cost_usd": 0.27151400000000003,
+    "is_error": false,
+    "final": "DONE: `aig-infra-scan`, built from source with the Go toolchain and installed editable in /work/venv using the repo's `data/` rules, detected a fake Ollama at 127.0.0.1:11434 as `ollama` 0.1.30 with `--lang en --json -o result.json`; `setup.sh` ran start to finish here but has not been re-run on a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 50,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:57:42"
+}

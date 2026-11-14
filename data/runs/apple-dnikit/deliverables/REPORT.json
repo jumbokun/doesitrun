@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used uv-managed Python 3.10 venv since package classifiers stop at 3.10 (system has 3.12)"},
+  {"kind": "undocumented_step", "detail": "Installed pytest separately; core package install has no test runner"},
+  {"kind": "code_patch", "detail": "Removed --mypy/--flake8/--cov/--cov-fail-under/--junit-xml addopts from pytest.ini so individual test files run with plain pytest"}
+ ]}

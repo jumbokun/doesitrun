@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "other", "detail": "Used a uv venv with Python 3.12 instead of the README's conda env (conda not available)"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu before pip install -e ."},
+  {"kind": "system_package", "detail": "apt install libmagic1 for the python-magic dependency"},
+  {"kind": "undocumented_step", "detail": "Set HF_HUB_DISABLE_XET=1 because the unauthenticated Xet download of gpt2 returned 404; pre-downloaded gpt2 into HF_HOME"},
+  {"kind": "code_patch", "detail": "huggingface.Pipeline._call_model: pass max_new_tokens + handle_long_generation='hole' (+return_full_text=False when deprefixing) so the 1057-token DAN prompt fits gpt2's 1024 context instead of erroring with None outputs"}
+ ]}

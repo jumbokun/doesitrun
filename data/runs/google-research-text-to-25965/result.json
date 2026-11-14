@@ -1,0 +1,47 @@
+{
+  "slug": "google-research-text-to-25965",
+  "repo": "google-research/text-to-text-transfer-transformer",
+  "track": "cpu-gha",
+  "goal": "Install the t5 library (README: pip install t5[gcp], or from the /work/text-to-text-transfer-transformer clone) so that the HfPyTorchModel usage example linked from the README's t5.models section works on this CPU-only machine: `t5.models.HfPyTorchModel('t5-base', <model_dir>, torch.device('cpu')).predict([...task-prefixed inputs...], sequence_length={'inputs': 32}, batch_size=2, output_file=<file>)` must load the pretrained t5-base checkpoint and write one decoded prediction per input to the output file. Provide /work/env.sh that activates this environment.",
+  "check": "The hidden test runs HfPyTorchModel.predict with t5-base on CPU on a few task-prefixed inputs (English-German and English-French translation, CoLA) and verifies the prediction file contains correct translations and CoLA labels.",
+  "started": "2026-11-14 15:15:40",
+  "agent": {
+    "secs": 303,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "09f31a6f-9046-4025-96f4-4a9da90f2e96",
+    "num_turns": 23,
+    "cost_usd": 0.5557391999999999,
+    "is_error": false,
+    "final": "DONE. After seven fixes to the README install (six version pins or extra installs, plus one code patch to make `predict` add an end-of-sequence token), `HfPyTorchModel('t5-base', …).predict` on CPU writes correct outputs (\"Das ist gut.\", \"La maison est merveilleuse.\", \"acceptable\", \"unacceptable\"), confirmed with a from-scratch run of `/work/setup.sh`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 12
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 10,
+    "files": [
+      {
+        "path": "t5/models/hf_model.py",
+        "added": 9,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 33,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 18
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:22:07"
+}

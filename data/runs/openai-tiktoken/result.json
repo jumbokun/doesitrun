@@ -1,0 +1,41 @@
+{
+  "slug": "openai-tiktoken",
+  "repo": "openai/tiktoken",
+  "track": "cpu-gha",
+  "goal": "Install tiktoken from the /work/tiktoken clone so that `import tiktoken` works in the environment /work/env.sh activates. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. The gpt2 and cl100k_base encodings should work too.",
+  "check": "The hidden test runs Python outside the repo directory that encodes and decodes text with several encodings and checks exact token ids, special-token handling and round trips.",
+  "started": "2026-11-14 17:10:07",
+  "agent": {
+    "secs": 79,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "514392b7-420e-44cf-af2a-8977bc1afdb6",
+    "num_turns": 6,
+    "cost_usd": 0.11760979999999999,
+    "is_error": false,
+    "final": "to `/work/.cargo`, creates a venv at `/work/venv`, runs `pip install .`, and downloads all the vocab files in advance into `/work/tiktoken_cache`. `env.sh` points `TIKTOKEN_CACHE_DIR` at that folder.\n\nI didn't change any code or pin any versions. The README only covers installing from PyPI, so building from the clone was the part it didn't document. The details are in `NOTES.md` and `REPORT.json`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 29,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:12:21"
+}

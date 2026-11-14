@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-kats",
+  "repo": "facebookresearch/Kats",
+  "track": "cpu-gha",
+  "goal": "Install Kats (pip install kats, or from the /work/Kats clone) so that the three README example snippets run from /work/Kats: the ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in the snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
+  "check": "A hidden script runs all three snippets from the repo root and verifies a 30-row forecast, a detected change point near the simulated shift, and a populated feature dict.",
+  "started": "2026-11-14 15:31:09",
+  "agent": {
+    "secs": 364,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "a6f9568a-0505-4812-80da-b5278af9234b",
+    "num_turns": 21,
+    "cost_usd": 0.3876844,
+    "is_error": false,
+    "final": "s but no requirements file lists.\n\nImporting Kats still prints a warning that torch isn't installed. That only affects an optional feature, not the three snippets.\n\nFiles are in `/work`:\n- setup.sh\n- env.sh\n- NOTES.md\n- REPORT.json\n\nDONE — all three README snippets run from /work/Kats after installing Python 3.10 with a corrected set of dependency versions (modern `prophet`, `statsmodels` 0.13.5)."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 9,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 1
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:37:51"
+}

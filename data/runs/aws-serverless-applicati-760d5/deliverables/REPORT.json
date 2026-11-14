@@ -1,0 +1,4 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Set AWS_DEFAULT_REGION=us-east-1; sam-translate.py raises NoRegionFound without a region"}
+ ]}

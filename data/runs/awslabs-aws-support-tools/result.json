@@ -1,0 +1,47 @@
+{
+  "slug": "awslabs-aws-support-tools",
+  "repo": "awslabs/aws-support-tools",
+  "track": "cpu-gha",
+  "goal": "Get EBS/VolumeLimitCalculator/volume_Limit_calculator.sh running as the README describes (needs the bc package installed). It reads answers from stdin (volume type, then size/IOPS/throughput) and prints the maximum available IOPS and throughput. It must work for gp3, io2 and st1 inputs fed via stdin.",
+  "check": "The hidden test pipes several volume configurations into the script and checks the printed IOPS and throughput figures match the expected values.",
+  "started": "2026-11-14 17:28:57",
+  "agent": {
+    "secs": 38,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "3686815e-2825-41cf-a159-8a035fe5fc00",
+    "num_turns": 6,
+    "cost_usd": 0.1390852,
+    "is_error": false,
+    "final": "DONE — I installed bc and checked that the script prints IOPS and throughput for gp3, io2 and st1 (and gp2) answers piped in on stdin. The only README problem was a wrong filename: it says `volume_Limit_Calculator.sh`, but the file is `volume_Limit_calculator.sh`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 0,
+    "files": [
+      {
+        "path": "EBS/VolumeLimitCalculator/volume_Limit_calculator.sh",
+        "added": 0,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 4,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 0
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:30:00"
+}

@@ -1,0 +1,41 @@
+{
+  "slug": "nvlabs-gr00t-wholebodycontrol",
+  "repo": "NVlabs/GR00T-WholeBodyControl",
+  "track": "cpu-gha",
+  "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make both `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` and `python scripts/train_root.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. Both scripts train on synthetic data using the configs under motionbricks/out/; train_pose.py (which needs the pretrained VQVAE checkpoint) is not required. Provide /work/env.sh that activates the environment.",
+  "check": "Running the VQVAE and the root-model synthetic-data training for 20 steps each on CPU exits successfully, logs each start banner, reaches 20 steps and prints 'Training complete.' with no traceback.",
+  "started": "2026-11-14 15:48:00",
+  "agent": {
+    "secs": 150,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "6d5ef327-c282-4fc1-b8eb-2b466d292252",
+    "num_turns": 11,
+    "cost_usd": 0.24642220000000004,
+    "is_error": false,
+    "final": " and stats files under `out/`, which aren't stored in LFS, so the pretrained checkpoints aren't downloaded.\n\n`env.sh` also changes into the `motionbricks/` directory, so the scripts can be run straight after sourcing it. `NOTES.md` and `REPORT.json` list the same four changes.\n\nDONE — both scripts reach 20 steps and print 'Training complete.' on CPU, confirmed by a from-scratch re-run of setup.sh."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 18
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 13,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 23
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:51:46"
+}

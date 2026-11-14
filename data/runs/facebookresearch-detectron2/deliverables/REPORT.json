@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Installed CPU-only torch 2.5.1/torchvision 0.20.1 from download.pytorch.org/whl/cpu"},
+  {"kind": "undocumented_step", "detail": "pip install -e needs --no-build-isolation so setup.py can import torch"},
+  {"kind": "system_package", "detail": "Installed python3-dev; extension build failed with missing Python.h"},
+  {"kind": "system_package", "detail": "Installed opencv-python-headless plus libgl1/libglib2.0-0 for the demo"},
+  {"kind": "code_patch", "detail": "demo/demo.py imported Meta-internal 'vision.fair.detectron2.demo.predictor'; changed to 'from predictor import'"}
+ ]}

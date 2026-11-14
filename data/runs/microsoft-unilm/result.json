@@ -1,0 +1,52 @@
+{
+  "slug": "microsoft-unilm",
+  "repo": "microsoft/unilm",
+  "track": "cpu-gha",
+  "goal": "In /work/unilm/e5, install requirements.txt and get the README's MTEB evaluation (mteb_except_retrieval_eval.py, as called by scripts/eval_mteb_except_retrieval.sh) working on this CPU-only machine with intfloat/e5-small-v2. The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
+  "check": "The hidden test runs that command into a fresh directory and verifies the STS12 result JSON exists with a cosine-similarity Spearman score in the plausible range for e5-small-v2.",
+  "started": "2026-11-14 15:35:19",
+  "agent": {
+    "secs": 355,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "e680006e-8530-4aac-9c31-130538973b14",
+    "num_turns": 13,
+    "cost_usd": 0.34372479999999994,
+    "is_error": false,
+    "final": "d ran `setup.sh` from nothing. I then ran the exact check command after sourcing `/work/env.sh` from another directory. Each run takes about a minute on this 4-CPU machine.\n\n`NOTES.md` and `REPORT.json` are in `/work`. One entry in `REPORT.json` gives \"system Python is externally managed\" as the reason for the separate environment. That's normal on Ubuntu 24.04, but I didn't actually test it here."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 67
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 9,
+    "files": [
+      {
+        "path": "e5/mteb_except_retrieval_eval.py",
+        "added": 4,
+        "removed": 3
+      },
+      {
+        "path": "e5/utils.py",
+        "added": 2,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 93,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 67
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:45:23"
+}

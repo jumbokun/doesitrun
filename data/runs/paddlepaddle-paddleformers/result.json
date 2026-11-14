@@ -1,0 +1,57 @@
+{
+  "slug": "paddlepaddle-paddleformers",
+  "repo": "PaddlePaddle/PaddleFormers",
+  "track": "cpu-gha",
+  "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-0.6B-Base', dtype='bfloat16').eval().generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
+  "check": "The hidden test runs the README tokenizer and text-generation snippets and verifies the expected token ids and that the model generates a sensible Chinese continuation (including a simple factual completion).",
+  "started": "2026-11-14 16:56:37",
+  "agent": {
+    "secs": 531,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "6ec255ff-7a28-4a32-bb03-c0053d1be14e",
+    "num_turns": 41,
+    "cost_usd": 1.0356944000000001,
+    "is_error": false,
+    "final": "st 3.5 nightly. On CPU the model loads in float32 instead and logs a warning.\n\n`setup.sh` also pre-downloads `Qwen/Qwen3-0.6B-Base` and pins the Python packages to the versions I tested. A copy of the patch is saved as `/work/paddleformers_cpu.patch`.\n\nDONE — the README tokenizer and generation snippets run on CPU after a fresh `setup.sh`, giving the expected token ids and sensible Chinese output."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 23
+  },
+  "repo_diff": {
+    "files_changed": 3,
+    "lines_changed": 23,
+    "files": [
+      {
+        "path": "paddleformers/nn/norm.py",
+        "added": 5,
+        "removed": 1
+      },
+      {
+        "path": "paddleformers/transformers/model_utils.py",
+        "added": 8,
+        "removed": 0
+      },
+      {
+        "path": "paddleformers/transformers/qwen3/modeling.py",
+        "added": 9,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 62,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 23
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:07:36"
+}

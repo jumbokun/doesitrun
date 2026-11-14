@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "On Linux the mlx dependency is Darwin-only; had to install the [cpu] extra (mlx[cpu]) which the README does not mention"},
+  {"kind": "code_patch", "detail": "Patched mlx_lm/utils.py load_model to cast the model to float32 on the CPU device, because bf16 quantized matmul on the MLX CPU backend is ~40x slower (~140 s/token)"}
+ ]}

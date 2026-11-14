@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Used docs/installation.md CPU recipe: python3.12 venv + torch/torchaudio 2.10.0 from the PyTorch CPU index before requirements.txt"},
+  {"kind": "system_package", "detail": "apt-get install ffmpeg (not mentioned in the README)"},
+  {"kind": "dead_link", "detail": "README's wget of the example video gets HTTP 403 from the HF CDN redirect; curl -L on the same URL works"},
+  {"kind": "doc_error", "detail": "README's example --dest_text is not in the example video's transcript; used a sentence from total.srt"},
+  {"kind": "code_patch", "detail": "videoclipper.py stage 2: set audio_clipper.lang = lang (otherwise AttributeError 'lang')"},
+  {"kind": "code_patch", "detail": "videoclipper.py stage 2: move the clip written as <name>_noN.mp4 to the requested --output_file"},
+  {"kind": "undocumented_step", "detail": "Pre-download the funasr ModelScope models in setup.sh by instantiating AutoModel"}
+ ]}

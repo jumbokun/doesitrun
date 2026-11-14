@@ -1,0 +1,41 @@
+{
+  "slug": "amazon-science-chronos-f-714a0",
+  "repo": "amazon-science/chronos-forecasting",
+  "track": "cpu-gha",
+  "goal": "Install the chronos-forecasting package from the repo clone (plus pandas with pyarrow) so that `from chronos import Chronos2Pipeline` works. Then load amazon/chronos-2 with device_map='cpu' and run pipeline.predict_df on a long-format DataFrame (columns id, timestamp, target) with prediction_length=24 and quantile_levels=[0.1,0.5,0.9]. The README's electricity_price parquet example is the reference; it must produce a forecast DataFrame with predictions and quantile columns. Provide /work/env.sh that activates the environment so `python` can import chronos.",
+  "check": "The hidden test runs CPU forecasts on synthetic multi-series data, with and without future covariates, and verifies the output has the right shape, the quantile columns, finite values and ordered quantiles.",
+  "started": "2026-11-14 17:24:44",
+  "agent": {
+    "secs": 99,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "d2b74c66-67c2-4c79-bf25-6d892996b50d",
+    "num_turns": 7,
+    "cost_usd": 0.1340248,
+    "is_error": false,
+    "final": "DONE — I deleted the venv, model cache and clone and re-ran `/work/setup.sh` from scratch, and the README's electricity_price example plus my own synthetic 3-series tests (with and without future covariates) all gave correctly shaped forecasts with finite, ordered 0.1/0.5/0.9 quantiles on CPU."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 16,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 11
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 17:27:19"
+}

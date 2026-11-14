@@ -1,0 +1,52 @@
+{
+  "slug": "google-deepmind-weathernext",
+  "repo": "google-deepmind/weathernext",
+  "track": "cpu-gha",
+  "goal": "Install the weathernext package from /work/weathernext (pip install from the repo, as the notebook's install cell does) so the core flow of docs/weathernext2/wn2_demo.ipynb works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-04.nc from the public bucket dm_graphcast, then run the notebook's autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
+  "check": "A standalone script downloads the public weights and steps-04 sample, runs a 2-member, 4-step Mini-model ensemble rollout on CPU, and checks finite, physically plausible 2m temperatures, nonzero ensemble spread, a 6h forecast close to the sample's target, and a written NetCDF output.",
+  "started": "2026-11-14 15:15:58",
+  "agent": {
+    "secs": 449,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "d80f6e9d-9999-4d47-8875-e393b2b0e0b9",
+    "num_turns": 16,
+    "cost_usd": 0.4341568,
+    "is_error": false,
+    "final": "h finite 2m temperatures between 207 and 317 K, about 0.3 K of ensemble spread, a 6h error of 0.73 K against the sample's target, and a NetCDF file written. Getting there took Python 3.12, dropping the unrelated `colabtools` PyPI package from setup.py, adding h5py and google-cloud-storage, and a small patch that switches the TPU-only attention kernel to the notebook's GPU fallback when not on TPU."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 160
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 5,
+    "files": [
+      {
+        "path": "setup.py",
+        "added": 0,
+        "removed": 1
+      },
+      {
+        "path": "weathernext/utils/sparse_transformer.py",
+        "added": 4,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 11,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 159
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 15:29:21"
+}
