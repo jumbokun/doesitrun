@@ -516,7 +516,9 @@ def method_page(tracks, all_exams, pushed_since):
 
 <h2 id="not-tested">Not tested · {len(nt)}</h2>
 <p>A stated requirement is not a fault, so these maintained repos were left out before any run. Each reason was checked
-  against the README or docs.</p>
+  against the README or docs. A repo counts as needing a GPU only when its README says so in words (needs a GPU,
+  a GPU memory minimum, run on GPU machines); a <code>device="cuda"</code> default in sample code or a
+  "tested on" line does not.</p>
 {nt_html}
 
 <h2>Limits</h2>
