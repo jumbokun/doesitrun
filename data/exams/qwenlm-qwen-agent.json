@@ -14,8 +14,36 @@
   },
   "eligible": true,
   "reason": "Qwen-Agent's README quickstart builds an Assistant agent against an OpenAI-compatible local model service (Ollama), which runs on CPU with a small Qwen model and needs no API key.",
-  "demo": "README Quickstart / Developing Your Own Agent: qwen_agent Assistant with a local OpenAI-compatible model service (Ollama) instead of DashScope",
-  "goal": "Install qwen-agent from the repo (pip install -e ./\"[rag,code_interpreter,mcp]\" or similar). Serve a small Qwen model on CPU through Ollama (use model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and wait until ready. Then a Qwen-Agent Assistant configured with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'} must answer a chat message and its built-in tools (e.g. code_interpreter) must import and work.",
-  "check": "The hidden test checks that the model server answers, that a Qwen-Agent Assistant returns a non-empty reply to a prompt, and that a built-in tool runs and returns the expected result.",
-  "server": true
+  "demo": "README Quickstart 'Developing Your Own Agent' (custom @register_tool tool, files=[doc.pdf] RAG) on a local OpenAI-compatible Ollama server; code_interpreter is left out because the README requires Docker for it",
+  "goal": "Install qwen-agent from the /work/Qwen-Agent clone as the README describes (pip install -e ./\"[gui,rag,code_interpreter,mcp]\", or at least the [rag] extra). Serve a small Qwen model on CPU through Ollama (model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and return once it is ready. Then the README Quickstart pattern must work against that server with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'}: an Assistant answers a chat message, calls a custom tool registered with @register_tool and uses its result, and answers questions from a file passed as files=['./examples/resource/doc.pdf']. The Docker-based code_interpreter tool is not required. /work/env.sh must activate the environment.",
+  "check": "The hidden test checks that the model server answers and that an Assistant replies to a prompt, calls a custom registered tool and reports its result, and answers a question from the bundled doc.pdf via the RAG path.",
+  "server": true,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle requires `CodeInterpreter().call(...)` to work, but the README says this tool runs code in local Docker containers: 'Before using this tool, please ensure that Docker is installed and running' (README.md:187-189), and code_interpreter.py:101 calls _check_docker_availability(). The sandbox has no Docker, so a correct README install cannot pass. The recorded pass came only from the probe adding a 67-line fallback to an unsandboxed local Jupyter kernel in qwen_agent/tools/code_interpreter.py (repo_diff), so the test rewarded bypassing the tool's sandbox. This is an oracle_defect-class bug.",
+      "Coverage: v1 never exercises the CPU-feasible parts of the README Quickstart: a custom tool registered with @register_tool and called by the Assistant (function calling), and files=['./examples/resource/doc.pdf'] (RAG). v2 tests plain chat, a custom tool call whose result must appear in the reply, the Retrieval tool on the bundled PDF, and an Assistant answer grounded in that PDF. Each LLM step gets 3 attempts to absorb small-model nondeterminism.",
+      "Goal must change: it demands that 'its built-in tools (e.g. code_interpreter) must import and work', but the README makes that tool depend on Docker."
+    ],
+    "evidence": [
+      "src/qwenlm-qwen-agent/README.md:90-170 - Quickstart: @register_tool('my_image_gen'), tools=['my_image_gen','code_interpreter'], files=['./examples/resource/doc.pdf'], Assistant over an OpenAI-compatible server (vLLM or Ollama)",
+      "src/qwenlm-qwen-agent/README.md:81 - Ollama section for local CPU deployment",
+      "src/qwenlm-qwen-agent/README.md:187-189 - code interpreter requires Docker installed and running",
+      "src/qwenlm-qwen-agent/qwen_agent/tools/code_interpreter.py:99-101 - docker image name + _check_docker_availability()",
+      "src/qwenlm-qwen-agent/qwen_agent/tools/retrieval.py:79-107 - Retrieval.call(query, files) parses and searches docs; search_tools/base_search.py:77 returns the whole doc when it fits max_ref_token",
+      "src/qwenlm-qwen-agent/examples/resource/doc.pdf - Pillow tutorial; flip_image uses Image.FLIP_LEFT_RIGHT for horizontal flips",
+      "logs/qwenlm-qwen-agent/oracle.txt - the pass went through \"local kernel process's PID = 2222\" (the patched non-Docker path)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Qwen-Agent's README quickstart builds an Assistant agent against an OpenAI-compatible local model service (Ollama), which runs on CPU with a small Qwen model and needs no API key.",
+      "demo": "README Quickstart / Developing Your Own Agent: qwen_agent Assistant with a local OpenAI-compatible model service (Ollama) instead of DashScope",
+      "goal": "Install qwen-agent from the repo (pip install -e ./\"[rag,code_interpreter,mcp]\" or similar). Serve a small Qwen model on CPU through Ollama (use model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and wait until ready. Then a Qwen-Agent Assistant configured with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'} must answer a chat message and its built-in tools (e.g. code_interpreter) must import and work.",
+      "check": "The hidden test checks that the model server answers, that a Qwen-Agent Assistant returns a non-empty reply to a prompt, and that a built-in tool runs and returns the expected result.",
+      "server": true
+    }
+  }
 }

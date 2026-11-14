@@ -17,5 +17,28 @@
   "demo": "README Quick Start: paddlespeech asr and paddlespeech tts CLI",
   "goal": "Install PaddleSpeech from the repo clone (CPU paddlepaddle) so the `paddlespeech` CLI works. Download https://paddlespeech.cdn.bcebos.com/PaddleAudio/zh.wav and run `paddlespeech asr --lang zh --input zh.wav`, which must print the Chinese transcript. Also run `paddlespeech tts --input \"你好，欢迎使用百度飞桨深度学习框架！\" --output output.wav` which must produce a valid wav file. Both must work on CPU.",
   "check": "The hidden test runs the asr CLI on zh.wav expecting the correct transcript, and the tts CLI expecting a valid non-trivial WAV file.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle bug: it downloads zh.wav with `wget`, which is not installed in the test container (only curl), so it fails before testing anything. v2 uses curl.",
+      "v2 also validates the TTS wav with the wave module (duration and non-silence) instead of size + RIFF only."
+    ],
+    "evidence": [
+      "logs/paddlepaddle-paddlespeech/oracle.txt and replay_oracle.txt - \"timeout: failed to run command 'wget': No such file or directory\"",
+      "src/paddlepaddle-paddlespeech/README.md:288,299,309,323 - wget zh.wav, `paddlespeech asr --lang zh --input zh.wav` -> 我认为跑步最重要的就是给我带来了身体健康, `paddlespeech tts ... --output output.wav`",
+      "data/runs/paddlepaddle-paddlespeech/result.json audit - auditor reproduced the transcript and a 171044-byte RIFF wav"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README quickstart offers CPU-capable paddlespeech asr/tts CLI with small pretrained models auto-downloaded.",
+      "demo": "README Quick Start: paddlespeech asr and paddlespeech tts CLI",
+      "goal": "Install PaddleSpeech from the repo clone (CPU paddlepaddle) so the `paddlespeech` CLI works. Download https://paddlespeech.cdn.bcebos.com/PaddleAudio/zh.wav and run `paddlespeech asr --lang zh --input zh.wav`, which must print the Chinese transcript. Also run `paddlespeech tts --input \"你好，欢迎使用百度飞桨深度学习框架！\" --output output.wav` which must produce a valid wav file. Both must work on CPU.",
+      "check": "The hidden test runs the asr CLI on zh.wav expecting the correct transcript, and the tts CLI expecting a valid non-trivial WAV file.",
+      "server": false
+    }
+  }
 }

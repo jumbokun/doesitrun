@@ -17,5 +17,29 @@
   "demo": "README Basic Usage: fire.Fire on a function and on a class",
   "goal": "Install python-fire from the cloned repo so that `import fire` works. Then create hello.py and calculator.py exactly as in the README Basic Usage section and run `python hello.py`, `python hello.py --name=David`, `python hello.py --help`, `python calculator.py double 10` and `python calculator.py double --number=15`. Also the repo's examples (e.g. examples/cipher) should run as CLIs.",
   "check": "The hidden test writes the README example scripts itself, runs them with the installed fire and checks the printed outputs (Hello World!, Hello David!, 20, 30, help text).",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle bug: `python hello.py --help | grep -qi usage` - Fire's help page (NAME / SYNOPSIS / FLAGS) never contains the word 'usage'; the README only says --help 'Shows usage information'. v2 checks the NAME/SYNOPSIS sections and the --name flag.",
+      "Coverage widened: v2 also runs the bundled examples/cipher CLI (rot13 and caesar-decode), which the goal already asks for, from outside the clone so the installed package is used."
+    ],
+    "evidence": [
+      "data/runs/google-python-fire/result.json audit evidence_out - help output 'NAME / SYNOPSIS / FLAGS -n, --name=NAME' with no 'usage'",
+      "src/google-python-fire/README.md:47-50,106 - hello.py examples, '--help # Shows usage information', `-- --trace`",
+      "src/google-python-fire/fire/helptext.py:115,139,281 - NAME, SYNOPSIS, FLAGS sections; fire/core.py:141-158 trace/help go to stderr with FireExit(0)",
+      "src/google-python-fire/examples/cipher/cipher.py docstring - rot13 'Hello world!' -> 'Uryyb jbeyq!', caesar-decode 1 'Ifmmp xpsme!' -> 'Hello world!'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Python Fire's README shows small CLI examples (hello.py, calculator.py) that run trivially on CPU.",
+      "demo": "README Basic Usage: fire.Fire on a function and on a class",
+      "goal": "Install python-fire from the cloned repo so that `import fire` works. Then create hello.py and calculator.py exactly as in the README Basic Usage section and run `python hello.py`, `python hello.py --name=David`, `python hello.py --help`, `python calculator.py double 10` and `python calculator.py double --number=15`. Also the repo's examples (e.g. examples/cipher) should run as CLIs.",
+      "check": "The hidden test writes the README example scripts itself, runs them with the installed fire and checks the printed outputs (Hello World!, Hello David!, 20, 30, help text).",
+      "server": false
+    }
+  }
 }

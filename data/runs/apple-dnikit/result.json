@@ -178,5 +178,16 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 17:36:28"
+  "finished": "2026-11-14 17:36:28",
+  "review": {
+    "date": "2026-11-15",
+    "by": "second review (independent check of the maintained passes against their raw logs)",
+    "patched_waived": [
+      {
+        "path": "pytest.ini",
+        "why": "Agent removed the dev-only addopts (--mypy --flake8 --cov --cov-fail-under 80 ...) so a bare `pytest file` works without the dev plugins. Not a repo defect: docs/dev/contributing.rst:200-211 documents pytest-mypy/pytest-flake8/pytest-cov as the project's test setup, and the README demo does not involve pytest. The oracle itself passes `-o addopts=\"\"`, so the edit was not needed to pass.",
+        "evidence": "oracles/apple-dnikit.sh:66 `python -m pytest -q -p no:cacheprovider -o addopts=\"\" ...`; deliverables/setup.sh:13-21 strips the addopts; apple/dnikit@2f39056 pytest.ini addopts and docs/dev/contributing.rst:200-211"
+      }
+    ]
+  }
 }

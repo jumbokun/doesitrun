@@ -43,5 +43,16 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 15:18:04"
+  "finished": "2026-11-14 15:18:04",
+  "review": {
+    "date": "2026-11-15",
+    "by": "second review (independent check of the maintained passes against their raw logs)",
+    "patched_waived": [
+      {
+        "path": "src/google/adk/cli/cli.py",
+        "why": "Cosmetic: the patch makes text-mode `adk run` also print a workflow's final value-only `output`. The workflow runs correctly without it, the documented `--jsonl` option shows the result, and the oracle uses --jsonl, so the pass doesn't depend on the patch. It is a real UX gap (the state sample prints nothing in text mode), but it doesn't stop the README demo from working.",
+        "evidence": "adk-python@287c0b0 src/google/adk/cli/cli.py:585-597: human-readable mode echoes only `text_parts` or long_running_tool_ids; contributing/samples/workflows/state/agent.py: read_state_via_param returns a plain string. NOTES.md: 'runs correctly, but in the default human-readable mode it prints nothing ... With `--jsonl` the result shows up'."
+      }
+    ]
+  }
 }

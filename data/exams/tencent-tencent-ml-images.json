@@ -14,8 +14,37 @@
   },
   "eligible": true,
   "reason": "The README's TFRecord preparation step (data/tfrecord.py) is a concrete CPU-only demo with bundled sample images; the checkpoint demos rely on Google Drive/Baidu links and Python 2.7/TF1.",
-  "demo": "Train > Prepare the TFRecord File (cd data; ./tfrecord.sh, i.e. tfrecord.py -idx -tfs -im -cls 11166 -one True)",
-  "goal": "Get data/tfrecord.py working (the README targets Python 2.7 and TensorFlow 1.x; any environment where the script runs unmodified in behaviour is fine). It must convert the bundled images data/images/im_0..im_3.jpg, listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1'), into a .tfrecords file in the -tfs directory using -im data/images/ -cls 11166 -one True. Each record must contain the image bytes, a 11166-float label vector and the image name.",
-  "check": "The hidden test generates its own index file for the four bundled images, runs tfrecord.py, and checks that the output TFRecord holds 4 records with the expected names, JPEG data and label vectors of plausible size.",
-  "server": false
+  "demo": "README 'Single-Label Image Classification' (./example/image_classification.sh with ckpt-resnet101-mlimages-imagenet) + 'Prepare the TFRecord File' (data/tfrecord.py)",
+  "goal": "Set up the environment the README lists (Python 2.7, TensorFlow >= 1.6) so that, from /work/tencent-ml-images, the README's single-label image classification demo works on CPU: download the ckpt-resnet101-mlimages-imagenet checkpoint linked in the README's Checkpoints section and place it so that ./example/image_classification.sh (which passes --model_dir=checkpoints/resnet.ckpt) runs and writes top-5 ImageNet predictions for the bundled images in data/images/. Also make data/tfrecord.py work: convert data/images/im_0..im_3.jpg listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1') into a .tfrecords file in the -tfs directory with -im data/images/ -cls 11166 -one True. /work/env.sh must activate this environment.",
+  "check": "The hidden test runs image_classification.py with the ImageNet-finetuned checkpoint on the four bundled images and checks each gets five ranked predictions with a correct label for an unambiguous image, then runs tfrecord.py on its own index file and checks the 4 records' names, JPEG data and label vectors.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Demo choice: the test only runs the TFRecord preparation helper (data/tfrecord.py), a data-wrangling script. The README's runnable model demo is 'Single-Label Image Classification' (./example/image_classification.sh with the ResNet-101 checkpoint), plus feature extraction; neither is tested, so a broken model/inference path passes.",
+      "The examiner's reason for skipping it ('checkpoint demos rely on Google Drive/Baidu links and Python 2.7/TF1') is not an eligibility criterion: the Google Drive file is public and downloadable without an account (ckpt-resnet101-mlimages-imagenet.zip, 475 MB, served with confirm=t), and the probe agent already built a Python 2.7 + TF1 environment for tfrecord.py.",
+      "The model runs on CPU as shipped: flags.py:42 data_format defaults to 'channels_first', which resnet.py:40 does not treat as 'NCHW', so the graph is NHWC; gpu_options in image_classification.py:66-70 are ignored without a GPU.",
+      "v2 runs image_classification.py on the 4 bundled images, checks the per-image top-5 output format and that the bundled jaguar photo (im_3.jpg) gets leopard/jaguar/cheetah in its top-5, and keeps the v1 TFRecord checks."
+    ],
+    "evidence": [
+      "README.md:262-276 — checkpoints ckpt-resnet101-mlimages-imagenet (Google Drive link1 id 1wIhRemoPxTw7uDz-TlwfYJsOR2usb2kg); 'Here we provide a demo for single-label image-classification ... ./example/image_classification.sh'",
+      "example/image_classification.sh — python2.7 image_classification.py --images=data/im_list_for_classification.txt --top_k_pred=5 --model_dir=checkpoints/resnet.ckpt --dictionary=data/imagenet2012_dictionary.txt",
+      "https://drive.usercontent.google.com/download?id=1wIhRemoPxTw7uDz-TlwfYJsOR2usb2kg&export=download&confirm=t — 200 application/octet-stream, Content-Length 498578498; zip central directory lists ckpt-resnet101-mlimages-imagenet/resnet.ckpt.{data-00000-of-00001,index,meta}",
+      "README.md:44-47 — Dependencies: Linux, Python 2.7, Tensorflow >= 1.6.0",
+      "image_classification.py:88,97-99 — output format ('open pic ... failed', '+++ the predictions of X is:', '%d %s: %.3f')",
+      "data/images/im_3.jpg is a jaguar; data/imagenet2012_dictionary.txt rows 288 leopard, 290 jaguar, 293 cheetah",
+      "data/run repo_diff lists data/tfrecord.py and data/tfrecord.sh with 0 lines changed (mode change only)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The README's TFRecord preparation step (data/tfrecord.py) is a concrete CPU-only demo with bundled sample images; the checkpoint demos rely on Google Drive/Baidu links and Python 2.7/TF1.",
+      "demo": "Train > Prepare the TFRecord File (cd data; ./tfrecord.sh, i.e. tfrecord.py -idx -tfs -im -cls 11166 -one True)",
+      "goal": "Get data/tfrecord.py working (the README targets Python 2.7 and TensorFlow 1.x; any environment where the script runs unmodified in behaviour is fine). It must convert the bundled images data/images/im_0..im_3.jpg, listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1'), into a .tfrecords file in the -tfs directory using -im data/images/ -cls 11166 -one True. Each record must contain the image bytes, a 11166-float label vector and the image name.",
+      "check": "The hidden test generates its own index file for the four bundled images, runs tfrecord.py, and checks that the output TFRecord holds 4 records with the expected names, JPEG data and label vectors of plausible size.",
+      "server": false
+    }
+  }
 }

@@ -12,10 +12,35 @@
     "cost_usd": 0.054943700000000005,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README shows run_generator.py generating images from a downloadable pretrained FFHQ pickle, feasible on CPU if the CUDA custom ops fall back to the reference implementation.",
+  "eligible": false,
+  "reason": "Reclassified on review: The README Requirements list 'One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5' and say the custom ops are 'compiled on the fly using NVCC'. The examiner's reason itself says it is only 'feasible on CPU if the CUDA custom ops fall back to the reference implementation'.",
   "demo": "Using pre-trained networks: python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0",
-  "goal": "Make `python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0 --result-dir=<dir>` run on a CPU-only machine (no GPU, no nvcc), producing seed0066.png and seed0230.png in a run subdirectory of <dir>. The repo needs TensorFlow 1.x and its custom CUDA ops (fused_bias_act, upfirdn_2d) default to impl='cuda', so a CPU-compatible path must be arranged. The network pickle is downloaded from nvlabs-fi-cdn.nvidia.com.",
-  "check": "The hidden test runs the generate-images command with seeds 66 and 230 and verifies two valid 1024x1024 RGB PNG images were produced that are not blank.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The README Requirements list 'One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5' and say the custom ops are 'compiled on the fly using NVCC'. The examiner's reason itself says it is only 'feasible on CPU if the CUDA custom ops fall back to the reference implementation'.",
+      "Goal leaks the fix: 'its custom CUDA ops (fused_bias_act, upfirdn_2d) default to impl='cuda', so a CPU-compatible path must be arranged'. The probe patched 5 files and added an NCHW->NHWC conv shim to pass."
+    ],
+    "evidence": [
+      "src/nvlabs-stylegan2/README.md:40 — 'One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5.'",
+      "src/nvlabs-stylegan2/README.md:43 — 'StyleGAN2 relies on custom TensorFlow ops that are compiled on the fly using NVCC'",
+      "src/nvlabs-stylegan2/dnnlib/tflib/ops/fused_bias_act.py:34, upfirdn_2d.py:19 — impl='cuda' defaults",
+      "data/exams/nvlabs-stylegan2.json goal — 'default to impl='cuda', so a CPU-compatible path must be arranged'",
+      "data/runs/nvlabs-stylegan2/deliverables/NOTES.md items 3-5 — ops default switched to 'ref', allow_soft_placement, NCHW conv wrapper"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README shows run_generator.py generating images from a downloadable pretrained FFHQ pickle, feasible on CPU if the CUDA custom ops fall back to the reference implementation.",
+      "demo": "Using pre-trained networks: python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0",
+      "goal": "Make `python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0 --result-dir=<dir>` run on a CPU-only machine (no GPU, no nvcc), producing seed0066.png and seed0230.png in a run subdirectory of <dir>. The repo needs TensorFlow 1.x and its custom CUDA ops (fused_bias_act, upfirdn_2d) default to impl='cuda', so a CPU-compatible path must be arranged. The network pickle is downloaded from nvlabs-fi-cdn.nvidia.com.",
+      "check": "The hidden test runs the generate-images command with seeds 66 and 230 and verifies two valid 1024x1024 RGB PNG images were produced that are not blank.",
+      "server": false
+    }
+  }
 }

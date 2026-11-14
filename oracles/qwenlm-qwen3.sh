@@ -2,6 +2,8 @@ set -e
 source /work/env.sh
 cd /work/Qwen3
 OUT=$(mktemp -d /tmp/oracle.XXXXXX)
+# README.md:90-130 Transformers snippet, model swapped to the README-listed 0.6B size (README.md:55),
+# device_map "cpu" instead of "auto" (no GPU), greedy decoding so the check is reproducible.
 cat > $OUT/t.py <<'P'
 import sys
 from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -18,5 +20,16 @@ print(out)
 P
 timeout 3000 python $OUT/t.py $OUT/out.txt
 test $(wc -c < $OUT/out.txt) -gt 100
-grep -qi -E "language model|model|text|AI" $OUT/out.txt
+# v1 grepped "language model|model|text|AI" case-insensitively; "ai" matches almost any English
+# text ("explain", "contain"), so it did not check content. An answer to this prompt names the
+# topic; observed greedy output: "A large language model (LLM) is a type of artificial intelligence ..."
+grep -qi "language model" $OUT/out.txt
+python - $OUT/out.txt <<'P'
+import sys, re
+t = open(sys.argv[1]).read()
+words = re.findall(r"[A-Za-z]+", t)
+assert len(words) >= 20, words
+# degenerate generations (one token repeated) fail this
+assert len(set(w.lower() for w in words)) >= 12, words
+P
 echo "ORACLE PASS"

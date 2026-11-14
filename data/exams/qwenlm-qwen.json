@@ -14,8 +14,36 @@
   },
   "eligible": true,
   "reason": "README quickstart chat inference has a small official variant (Qwen-1.8B-Chat, open on Hugging Face) that runs on CPU.",
-  "demo": "README Quickstart / Using Transformers, CLI demo cli_demo.py with Qwen/Qwen-1_8B-Chat",
-  "goal": "Get `python cli_demo.py -c Qwen/Qwen-1_8B-Chat --cpu-only` working in /work/Qwen on CPU (install requirements.txt; the pinned transformers range <4.38 matters). It must load the Qwen-1.8B-Chat model from Hugging Face and answer a prompt typed on stdin, such as 'What is the capital of France?', then exit on ':q'. Write /work/env.sh that activates the environment (it is sourced by the test).",
-  "check": "The test pipes a question about the capital of France into the CLI demo on CPU and verifies the reply mentions Paris and the process exits cleanly.",
-  "server": false
+  "demo": "README 'CLI Demo' (cli_demo.py) with Qwen-1.8B-Chat on CPU (--cpu-only)",
+  "goal": "In /work/Qwen, install the requirements as the README describes and get `python cli_demo.py -c <checkpoint> --cpu-only` working on CPU with the Qwen-1.8B-Chat model. The README links this model on Hugging Face (Qwen/Qwen-1_8B-Chat) and ModelScope (qwen/Qwen-1_8B-Chat) and shows how to load a ModelScope download from a local directory. If you load it from a local directory, export QWEN_CKPT=<that directory> in /work/env.sh; otherwise the test uses `-c Qwen/Qwen-1_8B-Chat`. The demo must answer a question typed on stdin, such as 'What is the capital of France?', and exit on ':q'. /work/env.sh must activate the environment.",
+  "check": "The test pipes a question about the capital of France into the CLI demo on CPU and verifies the model's printed reply mentions Paris and the process exits cleanly.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Goal says the model must load 'from Hugging Face', but Qwen/Qwen-1_8B-Chat now returns 401 on the Hub (https://huggingface.co/api/models/Qwen/Qwen-1_8B-Chat -> 401 on 2026-11-14; Qwen/Qwen-7B-Chat still 200). The README links a ModelScope copy (README.md:27) and documents a 'download from ModelScope, load from local dir' path (README.md:225-245), so the goal should allow that.",
+      "Oracle hard-codes `-c Qwen/Qwen-1_8B-Chat`. A README-following ModelScope install (snapshot_download into ~/.cache/modelscope) cannot pass unless the probe reproduces that exact relative path. The recorded pass relied on the probe saving the model to /work/Qwen/Qwen/Qwen-1_8B-Chat so the hub id resolved as a local dir. v2 accepts QWEN_CKPT from env.sh and defaults to the hub id.",
+      "Goal leaks a hint: 'the pinned transformers range <4.38 matters' tells the probe not to upgrade transformers. The README only says `pip install -r requirements.txt` (README.md:124-126) and elsewhere suggests updating packages (README.md:1008). Removed.",
+      "Leniency (minor): v1 greps 'paris' anywhere in the combined stdout+stderr log. v2 checks the last 'Qwen-Chat:' response that cli_demo.py:199-201 prints."
+    ],
+    "evidence": [
+      "src/qwenlm-qwen/README.md:27 - 1.8B-Chat linked on ModelScope (qwen/Qwen-1_8B-Chat) and Hugging Face",
+      "src/qwenlm-qwen/README.md:225-245 - ModelScope snapshot_download, then load from the local directory",
+      "src/qwenlm-qwen/README.md:981-1008 - CLI demo `python cli_demo.py`; `-c` is a checkpoint name or path, `--cpu-only`",
+      "src/qwenlm-qwen/cli_demo.py:107-111 - -c/--checkpoint-path and --cpu-only; :q exits (cli_demo.py:32,135)",
+      "src/qwenlm-qwen/requirements.txt:1 - transformers>=4.32.0,<4.38.0 (the pin exists; the 'matters' emphasis is not from the README)",
+      "data/runs/qwenlm-qwen/result.json agent.final - 'Qwen/Qwen-1_8B-Chat is gone from Hugging Face (401), so setup.sh downloads the official ModelScope copy ... to /work/Qwen/Qwen/Qwen-1_8B-Chat'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README quickstart chat inference has a small official variant (Qwen-1.8B-Chat, open on Hugging Face) that runs on CPU.",
+      "demo": "README Quickstart / Using Transformers, CLI demo cli_demo.py with Qwen/Qwen-1_8B-Chat",
+      "goal": "Get `python cli_demo.py -c Qwen/Qwen-1_8B-Chat --cpu-only` working in /work/Qwen on CPU (install requirements.txt; the pinned transformers range <4.38 matters). It must load the Qwen-1.8B-Chat model from Hugging Face and answer a prompt typed on stdin, such as 'What is the capital of France?', then exit on ':q'. Write /work/env.sh that activates the environment (it is sourced by the test).",
+      "check": "The test pipes a question about the capital of France into the CLI demo on CPU and verifies the reply mentions Paris and the process exits cleanly.",
+      "server": false
+    }
+  }
 }

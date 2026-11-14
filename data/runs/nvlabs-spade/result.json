@@ -52,5 +52,10 @@
       "cost_usd": 0.07133740000000001
     },
     "audited": "2026-10-27 03:51:36"
+  },
+  "review": {
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "public_reason": "The README's Google Drive link to the pretrained checkpoints returns 404 (reported in issue #175), so the pretrained-model demo cannot run."
   }
 }

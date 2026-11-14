@@ -1,0 +1,2310 @@
+{
+ "date": "2026-11-15",
+ "scope": "every CPU run outside the maintained set (tested and excluded), the GPU pilot, and an independent check of every maintained pass against its raw logs",
+ "criteria": [
+  "same as 2026-11-14-fairness.json",
+  "each pass re-read from its oracle trace: every step ran, nothing vacuous",
+  "each counted patch: needed for the README demo, or agent overreach (waived)",
+  "a run that did not pass gets one verified public_reason, never a description of our harness"
+ ],
+ "decisions_by_maintainer": [
+  "microsoft-unilm, ml-explore-mlx-lm, paddlepaddle-paddleformers, baidu-unlimited-ocr excluded after reading their READMEs: GPU machines / Apple silicon / CUDA>=13 / .cuda() in the example"
+ ],
+ "verdicts": [
+  {
+   "slug": "openai-gym",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/openai-gym/README.md:25-37 - the 'API' CartPole-v1 random-action loop (reset(seed=42), 1000 steps, 5-tuple step, reset on terminated/truncated) is what the oracle runs",
+    "oracles/openai-gym.sh - runs from /tmp/oracle_out/t.py so /work/gym does not shadow anything; asserts obs shape (4,), 1000 steps, >=5 episodes (random CartPole episodes average ~22 steps; the run saw 44)",
+    "data/runs/openai-gym/result.json - oracle and fresh-container replay both pass; repo_diff 0 files; the numpy<2 pin the agent found (gym/utils/passive_env_checker.py:225,233 use np.bool8) is not in the goal"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "microsoft-jarvis",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Goal leaks an install hint: '(it needs the click package; install what else the script imports)'. taskbench/README.md:129-134 says to `pip install -r requirements.txt` in a Python 3.8 env; the goal tells the agent the test only needs click.",
+    "Goal also hands over a gotcha the README does not state ('Work on a copy ... because the script writes its output next to the input file name'); the oracle copies the data itself, so the hint is unnecessary.",
+    "Coverage too narrow: the oracle only runs generate_graph.py --dependency_type resource, which imports nothing but json and click (generate_graph.py:1-2), so an install of click alone passes. The README's temporal graph (README.md:227) and the visualize_graph.py check it names (README.md:236; networkx/matplotlib/scipy from requirements.txt) are untested.",
+    "Minor dead code in v1: `for f in [\"tool_desc.json\", \"tool_desc.json\".replace(\"tools\",\"graph\")]` loads the same file twice."
+   ],
+   "evidence": [
+    "src/microsoft-jarvis/taskbench/README.md:129-134 - Setup: conda python=3.8 + pip install -r requirements.txt",
+    "src/microsoft-jarvis/taskbench/README.md:227-236 - resource vs temporal tool graphs via --dependency_type, then 'check the tool graph through the visualization tool visualize_graph.py'",
+    "src/microsoft-jarvis/taskbench/generate_graph.py:19,42 - output path is tool_file.replace('tools','graph'), i.e. it overwrites tool_desc.json; :36-40 temporal = complete directed graph of type 'complete'",
+    "src/microsoft-jarvis/taskbench/visualize_graph.py:1-34 - imports networkx/matplotlib, reads <data_dir>/graph_desc.json, saves graph_desc.pdf",
+    "src/microsoft-jarvis/taskbench/data_dailylifeapis/tool_desc.json - 40 API tools with 'parameters'; the bundled graph_desc.json has 40*39=1560 'complete' links, matching v2's expectation",
+    "src/microsoft-jarvis/README.md - the main HuggingGPT demo needs OpenAI/HF keys; taskbench/evaluate.py needs LLM predictions that are not bundled (and expects task_nodes, while bundled data.json has tool_nodes), so the tool-graph scripts stay the right CPU demo",
+    "logs/microsoft-jarvis/oracle.txt - v1 run printed 'data_huggingface 23 nodes 225 links', 'data_multimedia 40 nodes 449 links'; v2's assertion block was dry-run on graphs re-derived from the bundled tool_desc files and gives 225/449/1560"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "taskbench/README.md 'Setup' + 'Construct Your Own Tool Graph': python generate_graph.py --tool_desc <tool library> --dependency_type resource|temporal, then python visualize_graph.py --data_dir <dir>",
+    "goal": "Set up the TaskBench environment the way taskbench/README.md 'Setup' describes (a Python 3.8 environment with taskbench/requirements.txt installed). From /work/JARVIS/taskbench, `python generate_graph.py --tool_desc <tool_desc.json> --dependency_type resource` must turn a bundled tool library such as data_huggingface/tool_desc.json into a tool graph JSON with nodes and links, `--dependency_type temporal` must do the same for the API-style library data_dailylifeapis/tool_desc.json, and `python visualize_graph.py --data_dir <dir>` must render <dir>/graph_desc.json to a PDF.",
+    "check": "The hidden test builds resource graphs for two bundled tool libraries and a temporal graph for the API library on copies of the data, checks their nodes and links, and renders one graph to a PDF with visualize_graph.py.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-detr",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/facebookresearch-detr/README.md:92-95 - torch hub detr_resnet50 pretrained=True is the README's inference entry point; hubconf.py:26-40 return_postprocessor returns PostProcess",
+    "src/facebookresearch-detr/models/detr.py:258-283 - PostProcess takes softmax over the 92 logits minus no-object, the same >0.9 rule the official colab demo applies to the same COCO 000000039769 image (2 cats, 2 remotes, couch)",
+    "oracles/facebookresearch-detr.sh - loads with source='local' from the clone (tests this commit), asserts (1,100,92)/(1,100,4) shapes and labels 17 (cat) x2 and 75 (remote); fetches the image from images.cocodataset.org (the only network dependency; the repo bundles no photo)",
+    "data/runs/facebookresearch-detr/result.json - oracle and replay pass; repo_diff 0"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "ml-explore-mlx-examples",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/ml-explore-mlx-examples/README.md:6 - 'The MNIST example is a good starting point to learn how to use MLX'; mnist/README.md - pip install -r requirements.txt; python main.py (CPU by default)",
+    "src/ml-explore-mlx-examples/mnist/main.py:51,78-88,102-103 - num_epochs=10, prints 'Epoch {e}: Test accuracy {acc:.3f}', CPU unless --gpu; the oracle's 10-line count, 'Epoch 9' and final >0.90 match (agent saw ~0.95)",
+    "data/runs/ml-explore-mlx-examples/deliverables/NOTES.md - the mlx[cpu] fix the agent needed on Linux is not leaked by the goal (the goal only repeats requirements.txt: mlx, numpy)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "qwenlm-qwen3",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Content check is vacuous: `grep -qi -E \"language model|model|text|AI\"`. Case-insensitive 'ai' matches nearly any English text ('explain', 'contain', 'train'), so the oracle in effect only checks for >100 bytes of output, and a degenerate generation passes. v2 requires 'language model' (the prompt's topic; observed greedy output starts 'A large language model (LLM) is ...') and a minimal word-diversity check."
+   ],
+   "evidence": [
+    "oracles/qwenlm-qwen3.sh:19 - grep -qi -E \"language model|model|text|AI\"",
+    "logs/qwenlm-qwen3/oracle.txt and replay_oracle.txt - greedy output both times: 'A large language model (LLM) is a type of artificial intelligence that can understand, generate, and respond to human language...'",
+    "src/qwenlm-qwen3/README.md:90-130 - transformers>=4.51.0 snippet with device_map='auto'; README.md:55 lists the 0.6B size; README.md:200 documents enable_thinking=False, so the goal and model swap trace to the README",
+    "data/runs/qwenlm-qwen3/deliverables/NOTES.md - accelerate was the agent's own finding, not leaked by the goal"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "microsoft-cascadia-code",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/cascadia-wiki/Modifying-Cascadia-Code.md (linked from README.md:56) - pip3 install -r requirements.txt, then `python3 build.py`; vttlib is already pinned in requirements.txt:302",
+    "src/microsoft-cascadia-code/pipelines/release.yml:58 - the repo's own release pipeline runs `python ./build.py -P -NF -M -I` as its 'Build font (minimal)' step, so the goal's flag set traces to the repo; build.py:354-358 these only skip the PL/NF/Mono/Italic variants, and the core path (ufo2ft variable compile, VTT merge and compile, STAT) still runs",
+    "src/microsoft-cascadia-code/build.py:224-277 - writes build/ttf/CascadiaCode.ttf; the oracle checks size, the 'Cascadia Code' name, fvar, GSUB, and cmap 'A' and U+2192, all of which hold for a correct build (agent saw 4319 glyphs, GSUB/GPOS/GDEF/STAT)",
+    "Note (not a defect): the wiki's default `python3 build.py` builds all 12 variable fonts; testing it would add italic coverage but is heavier and not needed for fairness"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-animate-783a7",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/facebookresearch-animate-783a7/README.md:76-95 - 'Export transparent .gif' with render.start, plus 'Headless Rendering: specify USE_MESA: True within the view section'; the oracle's config is export_gif_example.yaml plus that view block (char1 instead of char3, both bundled)",
+    "src/facebookresearch-animate-783a7/README.md:98-170 - animating your own drawing needs the TorchServe Docker container or macOS, so the bundled-character render is the right CPU demo",
+    "oracles/facebookresearch-animate-783a7.sh - GIF >20 kB, >10 frames, >=100 px, frame 0 != middle frame (agent saw 339 frames); repo_diff 0",
+    "data/runs/facebookresearch-animate-783a7/deliverables/NOTES.md - libosmesa6 was the agent's finding, not in the goal"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "qwenlm-qwen3-tts",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Vacuous assertion: `assert \"Ryan\" in [...] or True` can never fail (dead check). v2 asserts 'ryan' is in get_supported_speakers(), which returns a lowercased list (qwen3_tts_model.py:842-854).",
+    "Lenient on a broken model: with max_new_tokens=400 (~33 s at 12 Hz) and the duration cap at 60 s, a model that never emits end-of-speech and outputs noise passes the energy checks. v2 caps the duration at 20 s for this 10-word sentence (runs saw 6.9 s and 4.2 s)."
+   ],
+   "evidence": [
+    "oracles/qwenlm-qwen3-tts.sh:9 - assert \"Ryan\" in [...] or True",
+    "src/qwenlm-qwen3-tts/qwen_tts/inference/qwen3_tts_model.py:165-185 - generate_custom_voice validates speakers case-insensitively; :842-854 get_supported_speakers returns sorted lowercase names",
+    "logs/qwenlm-qwen3-tts/oracle.txt 'sr 24000 dur 6.88'; replay_oracle.txt 'sr 24000 dur 4.16'",
+    "src/qwenlm-qwen3-tts/README.md:150-196 - CustomVoice snippet (cuda/bf16/flash-attn) and speaker table including Ryan; the goal's CPU/fp32/no-flash-attn adaptation is forced by the no-GPU sandbox and is not an install hint"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-demucs",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Output content is not checked: v1 only asserts file size >500 kB, duration >5 s and 2 channels, which any 20 s stereo wav passes (e.g. a broken model emitting noise or silence). v2 checks the README's 44.1 kHz stereo format, that no_vocals is not silent, that stem length equals the input, and that vocals + no_vocals reconstructs test.mp3 (corr > 0.8), since no_vocals is the sum of the other stems."
+   ],
+   "evidence": [
+    "src/facebookresearch-demucs/README.md:189,196-197,202 - `python3 -m demucs`, `--two-stems=vocals`, `-d cpu`; README.md:205-209 - stems are stereo 44.1 kHz int16 wav",
+    "src/facebookresearch-demucs/demucs/separate.py:208-218 - no_{stem} is the sum of the other sources (two-stems 'add' mode is the default)",
+    "src/facebookresearch-demucs/demucs/api.py:210-239 - mix loading: ffmpeg AudioFile first, torchaudio fallback (v2 does the same)",
+    "logs/facebookresearch-demucs/oracle.txt - 'vocals 20.0 2', 'no_vocals 20.0 2'; test.mp3 is 20.0 s; running from /work/demucs is fine because the clone is the editable-installed package",
+    "v2's numeric block was dry-run on synthetic stems (reconstruction corr 1.0)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencentarc-gfpgan",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/tencentarc-gfpgan/README.md:120 - `python inference_gfpgan.py -i inputs/whole_imgs -o results -v 1.3 -s 2` is the Quick Inference demo the oracle runs",
+    "src/tencentarc-gfpgan/inference_gfpgan.py:60-65 - on CPU the script disables the RealESRGAN background upsampler itself, so `--bg_upsampler None` changes nothing and is not a hint",
+    "src/tencentarc-gfpgan/inputs/whole_imgs - 3 bundled images (1297x1920, 783x1146, 700x464), so 'restored_imgs >= 3, each >= 256 px' plus non-empty restored_faces holds for a correct install (outputs are 2x)",
+    "data/runs/tencentarc-gfpgan/result.json - oracle and replay pass; repo_diff 0"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-byteps",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/bytedance-byteps/README.md:100 - 'BytePS does not support pure CPU training for now ... you need CUDA and NCCL to build and run BytePS.'",
+    "src/bytedance-byteps/README.md:79 - 'BytePS depends on CUDA and NCCL'; setup.py:498-504 '# We assume we have CUDA', links cudart"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-seed-bagel",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/bytedance-seed-bagel/README.md:121-129 - Quick Start downloads ByteDance-Seed/BAGEL-7B-MoT; the HF API file tree of that repo totals 29.6 GB (>15 GB cap)",
+    "src/bytedance-seed-bagel/README.md:139-150 - app.py modes are 'For 32GB+ VRAM GPU', NF4 'For 12~32GB VRAM GPU', INT8 'For 22~32GB VRAM GPU'; app.py:75-97 maps the model onto cuda devices"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "qwenlm-qwen-image",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/qwenlm-qwen-image/README.md:16 - '20B MMDiT image foundation model'; the HF API file tree of Qwen/Qwen-Image totals 57.7 GB (>15 GB cap, and >16 GB RAM in any dtype)",
+    "src/qwenlm-qwen-image/README.md:80-95,176-186 - every README pipeline (Qwen-Image, -2512, -Edit*) is the full 20B model; the snippets have a CPU branch, but the weights alone exceed the limits and no smaller official variant is offered"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-hunyuan-hunyuanw-67f63",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/tencent-hunyuan-hunyuanw-67f63/README.md:168-169 - '# login your own hugging face account / huggingface-cli login --token $HUGGINGFACE_TOKEN'; demo_panogen.py:51,133 load black-forest-labs/FLUX.1-dev and FLUX.1-Fill-dev, which the HF API reports as gated ('auto')",
+    "src/tencent-hunyuan-hunyuanw-67f63/README.md:132,180-221 - tested with PyTorch 2.5.0+cu124; every demo command runs with CUDA_VISIBLE_DEVICES=0; the lite version targets 'Consumer-grade GPUs such as 4090' (README.md:37)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "modelscope-clearervoice-studio",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "clearvoice/README.md 'Install from GitHub' + 'Sample Python Script' — ClearVoice(task=..., model_names=[...]); myClearVoice(input_path='samples/input.wav', online_write=False); .write(...) is exactly the API the oracle calls",
+    "clearvoice/demo.py 'Demo Four' — FRCRN_SE_16K on samples/input.wav is an official README/demo variant (smaller than the featured MossFormer2_SE_48K), allowed by the 'smaller official variant' rule",
+    "clearvoice/samples/input.wav — 16000 Hz mono int16, 38363 frames, so the oracle's sr==16000 and 30000<n<50000 bounds hold; networks.py:351-357 resamples output back to the input rate",
+    "commit 6b3774dc (2025-08-14), run passed oracle and replay"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-vggt",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "README.md 'Quick Start' — VGGT.from_pretrained('facebook/VGGT-1B'), load_and_preprocess_images, model(images); 'Detailed Usage' — pose_encoding_to_extri_intri + unproject_depth_map_to_point_map, the same calls the oracle makes",
+    "README.md Quick Start dtype line calls torch.cuda.get_device_capability(), which raises without CUDA; the goal's 'adapt to float32' note concerns the oracle's own script, not installation, so it is not an install hint",
+    "vggt/models/vggt.py:55-56 adds the batch dim, so pose_enc (1,S,9), depth (1,S,...) shapes asserted by the oracle are correct; examples/kitchen/images has 25 PNGs (oracle takes 4)",
+    "requirements.txt is the README install path (no package install), so sys.path.insert(0,'/work/vggt') in the oracle matches the README"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-megatts3",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "readme.md 'Command-Line Usage (Standard)' — python tts/infer_cli.py --input_wav 'assets/English_prompt.wav' ... --output_dir ./gen --p_w 2.0 --t_w 3.0; the oracle runs the same command",
+    "tts/infer_cli.py:269 --time_step exists (default 32); oracle's 16 only shortens diffusion, README says CPU inference is supported ('We also support cpu inference')",
+    "tts/infer_cli.py:85 sr=24000 and :285-288 writes '[P]<text>.wav' into output_dir, consistent with the oracle's glob, rate>=16000 and duration bounds",
+    "goal items (Python 3.10, requirements.txt, PYTHONPATH, HF ByteDance/MegaTTS3 into ./checkpoints) are all in readme.md 'Installation' / 'Model Download'"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-piano-transcription",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "README.md 'Piano transcription using pretrained model' — the oracle runs the README snippet verbatim with device='cpu' on resources/cut_liszt.mp3",
+    "resources/cut_liszt.mid ships as the reference; the agent's run produced 508 notes, so the oracle's n>50 threshold and MThd header check are strict enough to reject an empty/failed transcription while not pinning exact notes"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-fairseq",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Demo choice: the test only covers the RoBERTa sub-example (examples/roberta). The top-level README's one code example, and fairseq's core function, is translation with a pretrained transformer (torch.hub 'transformer.wmt19.en-de.single_model' -> 'Hallo Welt'). Sequence generation / beam search, the moses+fastBPE pipeline and TransformerModel loading are never exercised, so a broken generation path would still pass.",
+    "The translation model is CPU-feasible: wmt19.en-de.joined-dict.single_model.tar.gz is 2.99 GB (HTTP HEAD Content-Length 2988854245), public, no key.",
+    "v2 keeps the RoBERTa checks unchanged and adds the README translation example, loaded from the local install (torch.hub.load('pytorch/fairseq') would pull GitHub main, not the clone under test)."
+   ],
+   "evidence": [
+    "README.md:138-143 — en2de = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.en-de.single_model'); en2de.translate('Hello world', beam=5) # 'Hallo Welt'",
+    "fairseq/models/transformer/transformer_legacy.py:40-45,62 — hub name maps to the archive URL with tokenizer='moses', bpe='fastbpe'",
+    "fairseq/models/fairseq_model.py:242-272 — BaseFairseqModel.from_pretrained resolves hub names via hub_models(), so TransformerModel.from_pretrained('transformer.wmt19.en-de.single_model') is the same entry point as the hub call",
+    "examples/translation/README.md:25 and examples/wmt19/README.md:32 — 'pip install fastBPE sacremoses' documented for these models; :49-53 document 'Hallo Welt!' and 'Die Katze saß auf der Matte.'",
+    "examples/roberta/README.md:114-115 — encode('Hello world!') == [0, 31414, 232, 328, 2] (v1 assertion is correct)",
+    "https://dl.fbaipublicfiles.com/fairseq/models/wmt19.en-de.joined-dict.single_model.tar.gz — 200 OK, 2.99 GB"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README.md pretrained translation example (transformer.wmt19.en-de.single_model, 'Hello world' -> 'Hallo Welt') + examples/roberta/README.md Example usage (roberta.base fill_mask/encode/extract_features)",
+    "goal": "Install fairseq from /work/fairseq as the README describes (editable) so it works on CPU, and make /work/env.sh activate that environment. Two README examples must then work with the local install: (1) the top-level README's translation example, the pretrained model 'transformer.wmt19.en-de.single_model' translating 'Hello world' into German (the hidden test loads it with TransformerModel.from_pretrained('transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe'), which downloads the model; see examples/translation/README.md for what the translation models need); (2) examples/roberta: download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt') and run fill_mask('The capital of France is <mask>.', topk=3), encode and extract_features.",
+    "check": "A hidden script translates English sentences to German with the wmt19 en-de single model and checks the documented translations, then loads roberta.base and checks fill_mask predicts Paris, encode gives the README's token ids, and extract_features has shape (1,5,768).",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-tencent-ml-images",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Demo choice: the test only runs the TFRecord preparation helper (data/tfrecord.py), a data-wrangling script. The README's runnable model demo is 'Single-Label Image Classification' (./example/image_classification.sh with the ResNet-101 checkpoint), plus feature extraction; neither is tested, so a broken model/inference path passes.",
+    "The examiner's reason for skipping it ('checkpoint demos rely on Google Drive/Baidu links and Python 2.7/TF1') is not an eligibility criterion: the Google Drive file is public and downloadable without an account (ckpt-resnet101-mlimages-imagenet.zip, 475 MB, served with confirm=t), and the probe agent already built a Python 2.7 + TF1 environment for tfrecord.py.",
+    "The model runs on CPU as shipped: flags.py:42 data_format defaults to 'channels_first', which resnet.py:40 does not treat as 'NCHW', so the graph is NHWC; gpu_options in image_classification.py:66-70 are ignored without a GPU.",
+    "v2 runs image_classification.py on the 4 bundled images, checks the per-image top-5 output format and that the bundled jaguar photo (im_3.jpg) gets leopard/jaguar/cheetah in its top-5, and keeps the v1 TFRecord checks."
+   ],
+   "evidence": [
+    "README.md:262-276 — checkpoints ckpt-resnet101-mlimages-imagenet (Google Drive link1 id 1wIhRemoPxTw7uDz-TlwfYJsOR2usb2kg); 'Here we provide a demo for single-label image-classification ... ./example/image_classification.sh'",
+    "example/image_classification.sh — python2.7 image_classification.py --images=data/im_list_for_classification.txt --top_k_pred=5 --model_dir=checkpoints/resnet.ckpt --dictionary=data/imagenet2012_dictionary.txt",
+    "https://drive.usercontent.google.com/download?id=1wIhRemoPxTw7uDz-TlwfYJsOR2usb2kg&export=download&confirm=t — 200 application/octet-stream, Content-Length 498578498; zip central directory lists ckpt-resnet101-mlimages-imagenet/resnet.ckpt.{data-00000-of-00001,index,meta}",
+    "README.md:44-47 — Dependencies: Linux, Python 2.7, Tensorflow >= 1.6.0",
+    "image_classification.py:88,97-99 — output format ('open pic ... failed', '+++ the predictions of X is:', '%d %s: %.3f')",
+    "data/images/im_3.jpg is a jaguar; data/imagenet2012_dictionary.txt rows 288 leopard, 290 jaguar, 293 cheetah",
+    "data/run repo_diff lists data/tfrecord.py and data/tfrecord.sh with 0 lines changed (mode change only)"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README 'Single-Label Image Classification' (./example/image_classification.sh with ckpt-resnet101-mlimages-imagenet) + 'Prepare the TFRecord File' (data/tfrecord.py)",
+    "goal": "Set up the environment the README lists (Python 2.7, TensorFlow >= 1.6) so that, from /work/tencent-ml-images, the README's single-label image classification demo works on CPU: download the ckpt-resnet101-mlimages-imagenet checkpoint linked in the README's Checkpoints section and place it so that ./example/image_classification.sh (which passes --model_dir=checkpoints/resnet.ckpt) runs and writes top-5 ImageNet predictions for the bundled images in data/images/. Also make data/tfrecord.py work: convert data/images/im_0..im_3.jpg listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1') into a .tfrecords file in the -tfs directory with -im data/images/ -cls 11166 -one True. /work/env.sh must activate this environment.",
+    "check": "The hidden test runs image_classification.py with the ImageNet-finetuned checkpoint on the four bundled images and checks each gets five ranked predictions with a correct label for an unambiguous image, then runs tfrecord.py on its own index file and checks the 4 records' names, JPEG data and label vectors.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "paddlepaddle-models",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Too lenient: the classification check accepts any 5 ranked labels; it never checks that the bundled demo image (a Weimaraner, ImageNet class 178) is recognised, so wrong preprocessing, a wrong label map or garbage weights would pass. The real run produced Weimaraner 0.884 at rank 1.",
+    "Coverage: paddlecv's own install guide ends with an object-detection quick check (PP-YOLOE+ on demo/000000014439.jpg, reference output image bundled); only the single classification op is tested. v2 adds that documented detection command and checks for the many 'person' boxes the reference output shows.",
+    "Choosing paddlecv as the demo is right: the repo root README is a catalogue with no runnable example."
+   ],
+   "evidence": [
+    "paddlecv/docs/GETTING_STARTED.md:40-53 — deployment examples (classification, detection, segmentation, OCR) via tools/predict.py",
+    "paddlecv/docs/INSTALL.md:74-88 — '快速体验' runs PP-YOLOE+ on demo/000000014439.jpg; reference demo/000000014439_output.jpg shows ~12 person boxes",
+    "paddlecv/configs/single_op/PP-YOLOE+.yml — ParserDetResults threshold 0.5, DetOutput inputs dt_bboxes/dt_scores/dt_cls_names, save_res True",
+    "paddlecv/ppcv/ops/output/detection.py:114 writes det_output.json; classification.py:52 writes clas_output.json",
+    "tools/predict.py:58-61 --device defaults to CPU",
+    "logs-paddlepaddle-models oracle.txt — cls.class_ids [178, 211, 209, 210, 208], label_names ['Weimaraner', ...], scores [0.88356, ...]",
+    "README.md (repo root) — catalogue of official/research/community model lists, no runnable command"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "paddlecv/docs/GETTING_STARTED.md 部署示例 image classification (PP-LCNet) + docs/INSTALL.md 快速体验 object detection (PP-YOLOE+)",
+    "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies paddlecv needs, then on CPU run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` and the install guide's detection check `python -u tools/predict.py --config=configs/single_op/PP-YOLOE+.yml --input=demo/000000014439.jpg --output_dir=<dir>`. The pretrained inference models download automatically; each command must write its structured result and visualised image to the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs them.",
+    "check": "The hidden test runs both commands on the bundled demo images and checks the classification result names the dog breed shown with ranked top-5 scores, and the detection result contains the people visible in the demo image with valid boxes and scores, plus the saved output images.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-nougat",
+   "kind": "tested",
+   "verdict": "fix_goal",
+   "issues": [
+    "Leaked install hint: the goal says '(resolve any dependency version conflicts, e.g. transformers/albumentations/pypdfium2 pins)'. The README says only `pip install nougat-ocr` / from repository; nothing about pin conflicts. The pypdfium2 hint is exactly the fix the run needed (agent pinned pypdfium2==4.30.0 because 5.x removed `render`), so the pass was helped by the goal.",
+    "Oracle itself is sound: the CLI command and flags (--no-skipping, -p) are from the README, and the run produced the page text verbatim. Re-run with the neutral goal below."
+   ],
+   "evidence": [
+    "README.md 'Install' — `pip install nougat-ocr` / `pip install git+https://github.com/facebookresearch/nougat`; no mention of version conflicts or pins",
+    "setup.py:46-60 — pypdfium2 is unpinned, so the current 5.x is installed by a plain README install",
+    "data/runs/facebookresearch-nougat/result.json agent.final — 'pypdfium2==4.30.0 (5.x removed render, which broke the plain README install)'",
+    "README.md CLI usage — documents --no-skipping and --pages/-p; default model tag 0.1.0-small",
+    "logs-facebookresearch-nougat oracle.txt — in.mmd contained 'Abstract ... We present a method for converting scientific documents into markup language ... 1 Introduction'"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README 'Get prediction for a PDF' > CLI: nougat path/to/file.pdf -o output_directory",
+    "goal": "Install nougat-ocr from /work/nougat as the README describes so the `nougat` command works on CPU, and make /work/env.sh activate that environment. Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
+    "check": "Runs the nougat CLI on a generated one-page text PDF and checks that a non-empty .mmd output file is produced containing recognizable words from the page.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "paddlepaddle-paddlenlp",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Too lenient: the oracle only checks the decoded text is >=10 bytes. Any non-empty decode (repeated punctuation, wrong-vocab garbage from a broken tokenizer or weight conversion) passes, although the README shows the expected Chinese self-introduction. v2 requires a Chinese answer (>=10 CJK characters, >=8 distinct characters, not an echo of the prompt).",
+    "Minor: the v1 oracle writes the Chinese text with open(...,'w') without an encoding; v2 pins utf-8.",
+    "Goal is fine: the float32-on-CPU note concerns the oracle's script, and installation hints (paddle version, aistudio-sdk breakage) are not leaked."
+   ],
+   "evidence": [
+    "README_en.md:94-101 — Quick Start; expected output ['我是一个AI语言模型，我可以回答各种问题，...']",
+    "paddlenlp/generation/configuration_utils.py:131-140,198-201 — default decode strategy is greedy unless do_sample, so the output is deterministic and Chinese for this prompt",
+    "logs-paddlepaddle-paddlenlp oracle.txt — RESULT: [' 我是一个AI语言模型，我可以回答各种问题，包括但不限于：天气、新闻、历史、文化、科学、教育、娱乐等。请问您有什么需要了解的吗？'] (well above the v2 bar)",
+    "oracles/paddlepaddle-paddlenlp.sh — `[ \"$(wc -c < $OUT/out.txt)\" -ge 10 ]` is the only content check"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-giantmidi-piano",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "README.md 'Transcribe audios to MIDI files' — python3 audios_to_midis.py transcribe_piano --workspace=... --mp3s_dir=... --midis_dir=... --begin_ind=... --end_index=...; YouTube audio is not bundled, so supplying a synthetic mp3 under the catalogue name is the only offline way to run it",
+    "audios_to_midis.py:95-125 — reads resources/full_music_pieces_youtube_similarity_pianosoloprob_split.csv, only rows with giant_midi_piano==1 (row 0 'A., Jag, Je t'aime Juliette, OXC7Fd0ZN8o' qualifies), writes <audio_name>.mid, swallows errors as 'Failed for this audio!' — which the oracle greps for",
+    "logs-bytedance-giantmidi-piano oracle.txt — 'notes 38' from the 12-note synthetic clip; checks (MThd, >=3 note_on) reject a missing/empty transcription"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-dreamo",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "dreamo_generator.py:80-82 — model_root = 'black-forest-labs/FLUX.1-dev'; DreamOPipeline.from_pretrained(model_root, torch_dtype=torch.bfloat16)",
+    "https://huggingface.co/api/models/black-forest-labs/FLUX.1-dev — gated: 'auto' (license acceptance + login), 57.9 GB of weight files",
+    "README.md 'For consumer-grade GPUs' — base footprint '24GB VRAM', lowest documented path still needs an 8 GB GPU with nunchaku; --device cpu exists but the gate and >16 GB bf16 model remain"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-trae-agent",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [
+    "The recorded reason overstates it: not 'every' README demo needs a key — README.md:161-162 shows `trae-cli run \"Comment this code\" --provider ollama --model qwen3` (ollama_client.py:34-37 defaults to localhost:11434). The exclusion still stands because README.md:29-31 lists 'API key for your chosen provider' as a stated requirement, and the product's function is driving a remote LLM; a CPU-only local 8B model on 4 vCPU would test Ollama/qwen3 rather than the repo."
+   ],
+   "evidence": [
+    "README.md:29-31 — Requirements: 'UV' and 'API key for your chosen provider (OpenAI, Anthropic, Google Gemini, OpenRouter, etc.)'",
+    "README.md:133 — Quick Start `trae-cli run \"Create a hello world Python script\"` with the anthropic default config (trae_config.yaml.example: api_key: your_anthropic_api_key)",
+    "README.md:161-162 — Ollama local-model example exists"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "qwenlm-qwen-vl",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "README.md:683-689 — Qwen-VL-Chat quickstart; CPU option is device_map='cpu' with the full model",
+    "https://huggingface.co/api/models/Qwen/Qwen-VL-Chat — 19.31 GB of weights (Qwen/Qwen-VL also 19.31 GB): over the 15 GB download limit, and ~9.6B params in fp32 on CPU would also exceed 16 GB RAM",
+    "README.md:845-862 — the smaller Qwen-VL-Chat-Int4 (9.7 GB) needs AutoGPTQ; README.md:143 positions it as a '12G GPU' demo"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencentarc-instantmesh",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "README.md:31,40-41 — 'We recommend using Python>=3.10, PyTorch>=2.1.0, and CUDA>=12.1'; install step `conda install cuda -c nvidia/label/cuda-12.1.0`",
+    "run.py:95 — device = torch.device('cuda') hardcoded for the README command `python run.py configs/instant-mesh-large.yaml examples/hatsune_miku.png --save_video`",
+    "src/models/lrm_mesh.py:370, src/models/lrm.py:197, src/models/geometry/render/neural_render.py:73 — nvdiffrast RasterizeCudaContext (CUDA-only rasterizer)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "paddlepaddle-paddleseg",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/paddlepaddle-paddleseg/docs/quick_start.md:18-86 - Quick Start = download optic_disc_seg, tools/train.py with configs/quick_start/pp_liteseg_optic_disc_512x512_1k.yml, tools/predict.py on data/optic_disc_seg/JPEGImages/H0002.jpg; the oracle runs exactly this, cut to 20 iters",
+    "src/paddlepaddle-paddleseg/tools/train.py:35-78 - --device defaults to gpu but utils.set_device (paddleseg/utils/utils.py:63-77) falls back to cpu; --num_workers, --iters, --batch_size, --save_interval, --save_dir all exist",
+    "src/paddlepaddle-paddleseg/paddleseg/core/predict.py:95-150 - predictions are written as <save_dir>/pseudo_color_prediction/<name>.png, which the oracle's PNG glob finds",
+    "src/paddlepaddle-paddleseg/docs/install.md:16-22 - the GPU build is only 'highly recommended'; CPU Paddle is a documented option, so the CPU goal stays within the docs",
+    "data/runs/paddlepaddle-paddleseg/result.json - oracle and fresh-container replay both pass, no repo source changed"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "qwenlm-qwen",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Goal says the model must load 'from Hugging Face', but Qwen/Qwen-1_8B-Chat now returns 401 on the Hub (https://huggingface.co/api/models/Qwen/Qwen-1_8B-Chat -> 401 on 2026-11-14; Qwen/Qwen-7B-Chat still 200). The README links a ModelScope copy (README.md:27) and documents a 'download from ModelScope, load from local dir' path (README.md:225-245), so the goal should allow that.",
+    "Oracle hard-codes `-c Qwen/Qwen-1_8B-Chat`. A README-following ModelScope install (snapshot_download into ~/.cache/modelscope) cannot pass unless the probe reproduces that exact relative path. The recorded pass relied on the probe saving the model to /work/Qwen/Qwen/Qwen-1_8B-Chat so the hub id resolved as a local dir. v2 accepts QWEN_CKPT from env.sh and defaults to the hub id.",
+    "Goal leaks a hint: 'the pinned transformers range <4.38 matters' tells the probe not to upgrade transformers. The README only says `pip install -r requirements.txt` (README.md:124-126) and elsewhere suggests updating packages (README.md:1008). Removed.",
+    "Leniency (minor): v1 greps 'paris' anywhere in the combined stdout+stderr log. v2 checks the last 'Qwen-Chat:' response that cli_demo.py:199-201 prints."
+   ],
+   "evidence": [
+    "src/qwenlm-qwen/README.md:27 - 1.8B-Chat linked on ModelScope (qwen/Qwen-1_8B-Chat) and Hugging Face",
+    "src/qwenlm-qwen/README.md:225-245 - ModelScope snapshot_download, then load from the local directory",
+    "src/qwenlm-qwen/README.md:981-1008 - CLI demo `python cli_demo.py`; `-c` is a checkpoint name or path, `--cpu-only`",
+    "src/qwenlm-qwen/cli_demo.py:107-111 - -c/--checkpoint-path and --cpu-only; :q exits (cli_demo.py:32,135)",
+    "src/qwenlm-qwen/requirements.txt:1 - transformers>=4.32.0,<4.38.0 (the pin exists; the 'matters' emphasis is not from the README)",
+    "data/runs/qwenlm-qwen/result.json agent.final - 'Qwen/Qwen-1_8B-Chat is gone from Hugging Face (401), so setup.sh downloads the official ModelScope copy ... to /work/Qwen/Qwen/Qwen-1_8B-Chat'"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README 'CLI Demo' (cli_demo.py) with Qwen-1.8B-Chat on CPU (--cpu-only)",
+    "goal": "In /work/Qwen, install the requirements as the README describes and get `python cli_demo.py -c <checkpoint> --cpu-only` working on CPU with the Qwen-1.8B-Chat model. The README links this model on Hugging Face (Qwen/Qwen-1_8B-Chat) and ModelScope (qwen/Qwen-1_8B-Chat) and shows how to load a ModelScope download from a local directory. If you load it from a local directory, export QWEN_CKPT=<that directory> in /work/env.sh; otherwise the test uses `-c Qwen/Qwen-1_8B-Chat`. The demo must answer a question typed on stdin, such as 'What is the capital of France?', and exit on ':q'. /work/env.sh must activate the environment.",
+    "check": "The test pipes a question about the capital of France into the CLI demo on CPU and verifies the model's printed reply mentions Paris and the process exits cleanly.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencentarc-t2i-adapter",
+   "kind": "tested",
+   "verdict": "fix_goal",
+   "issues": [
+    "Goal leaks CPU workarounds the README does not give: 'drop .to(\"cuda\") and xformers, use float32 or bfloat16' tells the probe what to change in the README snippet for CPU (README.md:126-139 use float16, .to(\"cuda\") and enable_xformers_memory_efficient_attention). This is the same kind of leak flagged for microsoft-unilm and bytedance-sa2va in the maintained round. Removed.",
+    "Goal also rewrites the README's install line: 'install diffusers with T2IAdapter/StableDiffusionXLAdapterPipeline support' steers the probe away from the README's `pip install git+...diffusers.git@t2iadapterxl # for now` (README.md:108), which the README does not do. The probe found that branch no longer imports and used diffusers 0.35.2. The goal should just point at the README's Quick start and let the probe find that out.",
+    "Oracle is sound: it runs the README pipeline code path (T2IAdapter + EulerAncestral + fp16-fix VAE + StableDiffusionXLAdapterPipeline, with the README prompt and adapter_conditioning_scale) at 512x512 and 8 steps, and checks for a 512x512, >20 KB, non-flat PNG. Its `timeout 6000` exceeds ORACLE_SEC=3600, which is harmless because the run took 70-111 s.",
+    "Note (not counted against the test): README.md:101 says 'Inference requires at least 15GB of GPU memory', but the diffusers pipeline is device-agnostic and needs no repo source change on CPU (repo_diff 0 files), so keeping it tested follows the nvlabs-gr00t precedent."
+   ],
+   "evidence": [
+    "src/tencentarc-t2i-adapter/README.md:101-165 - Quick start with diffusers: install lines, LineArt adapter snippet, prompt 'Ice dragon roar, 4k photo'",
+    "data/runs/tencentarc-t2i-adapter/result.json - pass + replay pass, repo_diff 0 files; agent replaced the stale t2iadapterxl branch with diffusers==0.35.2"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README 'How to Test' > Quick start with diffusers (LineArt adapter, StableDiffusionXLAdapterPipeline)",
+    "goal": "Get the README's 'Quick start with diffusers' LineArt example working on this CPU-only machine (no GPU): StableDiffusionXLAdapterPipeline with the TencentARC/t2i-adapter-lineart-sdxl-1.0 adapter, stabilityai/stable-diffusion-xl-base-1.0, the madebyollin/sdxl-vae-fp16-fix VAE and the EulerAncestral scheduler, with the models downloaded from Hugging Face. It must generate and save an image from a line-art control image with the prompt 'Ice dragon roar, 4k photo', at a reduced size of 512x512 with a few inference steps. /work/env.sh must activate the environment.",
+    "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU in bfloat16 with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "nvlabs-stylegan3",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The README states requirements we cannot meet: '1-8 high-end NVIDIA GPUs with at least 12 GB of memory' and 'CUDA toolkit 11.1 or later' (README.md:55-57).",
+    "The README demo has a CUDA-only code path: gen_images.py:106 hard-codes `device = torch.device('cuda')`, so it cannot run on CPU without editing repo source. The recorded pass needed exactly that one-line patch (repo_diff: gen_images.py). By the rule applied at exam time (a README-stated GPU requirement plus CUDA-only code), this repo should have been excluded.",
+    "If it stays tested, the goal and oracle are otherwise fine: seeds 2,3 must give two 512x512 PNGs with std>20, and the goal gives no install hints beyond environment.yml's package names."
+   ],
+   "evidence": [
+    "src/nvlabs-stylegan3/README.md:55 - '1-8 high-end NVIDIA GPUs with at least 12 GB of memory'",
+    "src/nvlabs-stylegan3/README.md:57 - 'CUDA toolkit 11.1 or later'",
+    "src/nvlabs-stylegan3/gen_images.py:106 - device = torch.device('cuda')",
+    "data/runs/nvlabs-stylegan3/result.json repo_diff - gen_images.py 1 line changed (CPU fallback patch)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-seed-m3-agent",
+   "kind": "tested",
+   "verdict": "fix_goal",
+   "issues": [
+    "Goal plants a diagnosis that is false at this commit: 'configs/api_config.json has empty values, and importing mmagent may fail on them, so you may need dummy values'. mmagent/utils/chat_api.py:35-45 wraps client creation in try/except, and the probe confirmed it 'didn't need dummy values'. A hint about where the import breaks, true or not, is not traceable to the README, which only says 'Before running, add api config' (README.md:66). Replaced with a plain scope statement: this step calls no API.",
+    "Goal also says 'Install only the dependencies needed; do not download the large models or run GPU steps'. The scope part is fair, because memorization steps 2-5 and the M3-Agent models are optional when the pre-built graphs are downloaded (README.md:50,72). But 'install only the dependencies needed' invites skipping the README's `bash setup.sh`, and it pushed the probe to patch mmagent/__init__.py so the face/voice imports may fail (repo_diff: mmagent/__init__.py +8). Reworded to name only the README step and its inputs.",
+    "Demo choice is acceptable: memorization (the M3-Agent-Memorization 7B Omni model) and control (vLLM + the GPT-4o API) need a GPU or a paid API. Visualizing a pre-built memory graph is the only README step that runs on CPU without a key, and it does exercise the VideoGraph pickle, refresh_equivalences and retrieve.translate.",
+    "Oracle is sound: it downloads the public robot.tar.gz, extracts bedroom_01.pkl, and checks for the 'Clip 1 Memory' header (visualization.py:38) and at least one '[episodic]'/'[semantic]' node line (visualization.py:46-47)."
+   ],
+   "evidence": [
+    "src/bytedance-seed-m3-agent/README.md:50 - memory graphs can be downloaded from HF instead of generated",
+    "src/bytedance-seed-m3-agent/README.md:72 - steps are 'required only if you haven't downloaded intermediate_outputs and memory_graphs'",
+    "src/bytedance-seed-m3-agent/README.md:146-152 - step 6 `python visualization.py --mem_path data/memory_graphs/robot/bedroom_01.pkl --clip_id 1`",
+    "src/bytedance-seed-m3-agent/mmagent/utils/chat_api.py:35-45 - an empty api_config is swallowed by try/except",
+    "src/bytedance-seed-m3-agent/mmagent/__init__.py:44-55 - imports face_processing (insightface buffalo_l at import, face_processing.py:25) and voice_processing (models/pretrained_eres2netv2.ckpt + speakerlab at import, voice_processing.py:22,35)",
+    "data/runs/bytedance-seed-m3-agent/deliverables/NOTES.md - 'The empty configs/api_config.json caused no problem'; patched mmagent/__init__.py"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README > Run Locally > Memorization > step 6 Memory Graph Visualization (python visualization.py --mem_path data/memory_graphs/robot/bedroom_01.pkl --clip_id 1)",
+    "goal": "In /work/m3-agent, get the README's Memorization step 6, `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1`, working on this CPU-only machine. Use the pre-built memory graphs the README links on Hugging Face (public dataset ByteDance-Seed/M3-Bench, memory_graphs/robot.tar.gz, about 2.4 GB) and extract robot/bedroom_01.pkl. Generating graphs from video (Memorization steps 2-5 and the M3-Agent models) and the Control stage are not part of this goal. This step calls no API, so no real API key is needed. The script must print the memory of clip 1 (episodic/semantic nodes and their related faces/voices). /work/env.sh must activate the environment.",
+    "check": "The hidden test extracts bedroom_01.pkl from the dataset archive, runs visualization.py on clip 1, and checks the output contains the 'Clip 1 Memory' header with episodic/semantic memory lines.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-hunyuan-hy-world-2-0",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The README makes FlashAttention part of the WorldMirror install ('Install **one** FlashAttention backend', README.md:195-209: FA3 for Hopper, or `pip install flash-attn`). It also recommends CUDA 12.8 (README.md:163) and labels the CLI '# Single GPU' (README.md:288). flash-attn cannot be built without CUDA.",
+    "CUDA-only code path: hyworldmirror/models/layers/attention.py:10-15 imports flash_attn_interface or flash_attn unconditionally at module import, so the pipeline cannot be imported on a CPU-only machine without editing repo source. The recorded pass needed that patch (repo_diff: attention.py +7/-2), and it also dropped cupy and replaced the README's CUDA-built gsplat with the PyPI wheel. By the exam-time rule this repo should have been excluded.",
+    "If it stays tested, the goal leaks the diagnosis: 'no flash-attn/CUDA available ... Any source patching needed for CPU is allowed' tells the probe what to patch. The oracle itself is fine: it checks the PLY magic and sizes, the camera_params JSON, and at least 2 depth .npy and 2 normal .png files. Its `timeout 5400` exceeds ORACLE_SEC=3600, which is harmless."
+   ],
+   "evidence": [
+    "src/tencent-hunyuan-hy-world-2-0/README.md:163 - 'We recommend CUDA 12.8 and Python 3.11+'",
+    "src/tencent-hunyuan-hy-world-2-0/README.md:195-209 - 'Install one FlashAttention backend'",
+    "src/tencent-hunyuan-hy-world-2-0/README.md:287-289 - CLI under '# Single GPU'",
+    "src/tencent-hunyuan-hy-world-2-0/hyworld2/worldrecon/hyworldmirror/models/layers/attention.py:10-15 - hard import of flash_attn",
+    "data/runs/tencent-hunyuan-hy-world-2-0/deliverables/NOTES.md items 3-5 - cupy dropped, gsplat swapped, flash-attn import patched"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "qwenlm-qwen-agent",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Oracle requires `CodeInterpreter().call(...)` to work, but the README says this tool runs code in local Docker containers: 'Before using this tool, please ensure that Docker is installed and running' (README.md:187-189), and code_interpreter.py:101 calls _check_docker_availability(). The sandbox has no Docker, so a correct README install cannot pass. The recorded pass came only from the probe adding a 67-line fallback to an unsandboxed local Jupyter kernel in qwen_agent/tools/code_interpreter.py (repo_diff), so the test rewarded bypassing the tool's sandbox. This is an oracle_defect-class bug.",
+    "Coverage: v1 never exercises the CPU-feasible parts of the README Quickstart: a custom tool registered with @register_tool and called by the Assistant (function calling), and files=['./examples/resource/doc.pdf'] (RAG). v2 tests plain chat, a custom tool call whose result must appear in the reply, the Retrieval tool on the bundled PDF, and an Assistant answer grounded in that PDF. Each LLM step gets 3 attempts to absorb small-model nondeterminism.",
+    "Goal must change: it demands that 'its built-in tools (e.g. code_interpreter) must import and work', but the README makes that tool depend on Docker."
+   ],
+   "evidence": [
+    "src/qwenlm-qwen-agent/README.md:90-170 - Quickstart: @register_tool('my_image_gen'), tools=['my_image_gen','code_interpreter'], files=['./examples/resource/doc.pdf'], Assistant over an OpenAI-compatible server (vLLM or Ollama)",
+    "src/qwenlm-qwen-agent/README.md:81 - Ollama section for local CPU deployment",
+    "src/qwenlm-qwen-agent/README.md:187-189 - code interpreter requires Docker installed and running",
+    "src/qwenlm-qwen-agent/qwen_agent/tools/code_interpreter.py:99-101 - docker image name + _check_docker_availability()",
+    "src/qwenlm-qwen-agent/qwen_agent/tools/retrieval.py:79-107 - Retrieval.call(query, files) parses and searches docs; search_tools/base_search.py:77 returns the whole doc when it fits max_ref_token",
+    "src/qwenlm-qwen-agent/examples/resource/doc.pdf - Pillow tutorial; flip_image uses Image.FLIP_LEFT_RIGHT for horizontal flips",
+    "logs/qwenlm-qwen-agent/oracle.txt - the pass went through \"local kernel process's PID = 2222\" (the patched non-Docker path)"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README Quickstart 'Developing Your Own Agent' (custom @register_tool tool, files=[doc.pdf] RAG) on a local OpenAI-compatible Ollama server; code_interpreter is left out because the README requires Docker for it",
+    "goal": "Install qwen-agent from the /work/Qwen-Agent clone as the README describes (pip install -e ./\"[gui,rag,code_interpreter,mcp]\", or at least the [rag] extra). Serve a small Qwen model on CPU through Ollama (model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and return once it is ready. Then the README Quickstart pattern must work against that server with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'}: an Assistant answers a chat message, calls a custom tool registered with @register_tool and uses its result, and answers questions from a file passed as files=['./examples/resource/doc.pdf']. The Docker-based code_interpreter tool is not required. /work/env.sh must activate the environment.",
+    "check": "The hidden test checks that the model server answers and that an Assistant replies to a prompt, calls a custom registered tool and reports its result, and answers a question from the bundled doc.pdf via the RAG path.",
+    "server": true
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "google-deepmind-pysc2",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "The check text promises the test 'checks it completes and reports a score', but v1 never checks a score or reward. The CLI run is only grepped for 'Traceback', and the direct SC2Env check sends only no_op actions, so a broken action/reward path would still pass as long as nothing raises.",
+    "Coverage: the README's second agent example, `--agent pysc2.agents.scripted_agent.CollectMineralShards` on this same map (README.md:130-132), is never run. v2 runs it through the CLI and through run_loop with the scripted agent, and asserts it collects at least one mineral shard (reward > 0) in 300 agent steps. It also requires run_loop's 'Took ... seconds for N steps' line from the random-agent CLI run.",
+    "Goal is clean: the SC2 Linux package, mini_games.zip, SC2PATH and the agent command are all in README.md:90-132, and it gives no install hints. The probe's extra_ports patch fixes a real bug at HEAD 0df53d3: sc_process.py:191-196 forwards **kwargs to Popen while sc2_env.py:338 passes extra_ports. The README's PyPI release predates that bug."
+   ],
+   "evidence": [
+    "src/google-deepmind-pysc2/README.md:120-132 - random agent demo and the scripted CollectMineralShards agent command",
+    "src/google-deepmind-pysc2/pysc2/agents/scripted_agent.py:52-66 - the CollectMineralShards agent moves the marines to the nearest shard",
+    "src/google-deepmind-pysc2/pysc2/agents/base_agent.py - step() accumulates obs.reward into self.reward",
+    "src/google-deepmind-pysc2/pysc2/env/run_loop.py:19-50 - run_loop(agents, env, max_frames, max_episodes) prints 'Took %.3f seconds for %s steps'",
+    "src/google-deepmind-pysc2/pysc2/lib/sc_process.py:191-196 and pysc2/env/sc2_env.py:338 - extra_ports forwarded to subprocess.Popen at HEAD",
+    "data/runs/google-deepmind-pysc2/result.json agent.final - '200 steps ends before the game does, so the output shows step speed but no episode score line'"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README 'Run an agent': python -m pysc2.bin.agent --map CollectMineralShards (random agent and --agent pysc2.agents.scripted_agent.CollectMineralShards), headless",
+    "goal": "Install pysc2, download the Linux StarCraft II package (Blizzard s2client-proto downloads; extract to ~/StarCraftII or set SC2PATH) and the mini_games maps (pysc2 v1.2 release mini_games.zip) into the SC2 Maps dir, as the README describes. Then `python -m pysc2.bin.agent --map CollectMineralShards --norender --max_episodes 1 --max_agent_steps 100` must run the default random agent to completion, and the README's scripted agent (`--agent pysc2.agents.scripted_agent.CollectMineralShards`) must play the same map headless. Make /work/env.sh export SC2PATH if it is non-default.",
+    "check": "The hidden test runs the random and scripted agents headless on CollectMineralShards, then drives the environment from Python and checks the observations and that the scripted agent collects mineral shards (positive reward).",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "microsoft-swin-transformer",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "get_started.md's install requires 'CUDA>=10.2 with cudnn>=7' and PyTorch built with CUDA (get_started.md:30-36), and the evaluation command launches main.py through torch.distributed.",
+    "CUDA-only code path: main.py:315-316 calls torch.cuda.set_device and init_process_group(backend='nccl'), main.py:103 calls model.cuda(), and main.py:246-247 calls .cuda() on every batch. It cannot run on CPU without editing repo source; the recorded pass needed 43 changed lines in main.py and utils.py (repo_diff). By the exam-time rule this repo should have been excluded.",
+    "If it stays tested, the goal leaks the diagnosis ('the code assumes CUDA/NCCL so it needs CPU adaptation'), the same leak flagged for microsoft-unilm in the maintained round. The oracle string 'Accuracy of the network on the 16 test images' matches main.py:140-165."
+   ],
+   "evidence": [
+    "src/microsoft-swin-transformer/get_started.md:30-36 - install CUDA>=10.2 and PyTorch with cudatoolkit",
+    "src/microsoft-swin-transformer/main.py:103,187-188,246-247,315-316 - .cuda(), torch.cuda.set_device, nccl",
+    "data/runs/microsoft-swin-transformer/result.json repo_diff - main.py +23/-14, utils.py +3/-3"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "nvlabs-stylegan",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The README states requirements we cannot meet: 'TensorFlow 1.10.0 or newer with GPU support', 'One or more high-end NVIDIA GPUs with at least 11GB of DRAM', and a CUDA toolkit and cuDNN (README.md:76-78).",
+    "GPU-only code path: the network code uses data_format='NCHW' for conv2d, depthwise_conv2d and avg_pool (training/networks_stylegan.py:47,90,168), which TensorFlow's CPU kernels do not support, and dnnlib/tflib/network.py:408 pins ops to /gpu:N. The recorded pass needed a new NCHW->NHWC shim injected into the pickled network source, plus allow_soft_placement (repo_diff: network.py and tfutil.py, and a new cpu_compat.py). By the exam-time rule this repo should have been excluded.",
+    "If it stays tested, the goal leaks the workaround: 'CPU workarounds (e.g. NCHW convolutions)' names the exact fix. A separate real problem: dnnlib.util.open_url saves Google Drive's virus-scan HTML page instead of the 300 MB pickle (probe NOTES item 3), so pretrained_example.py fails to download the model as written, even on a GPU machine."
+   ],
+   "evidence": [
+    "src/nvlabs-stylegan/README.md:76-78 - TF with GPU support, NVIDIA GPUs, CUDA/cuDNN",
+    "src/nvlabs-stylegan/training/networks_stylegan.py:47,90,168 - NCHW ops",
+    "src/nvlabs-stylegan/dnnlib/tflib/network.py:408 - tf.device('/gpu:%d')",
+    "data/runs/nvlabs-stylegan/deliverables/NOTES.md items 3-5 - Google Drive HTML instead of the pickle; GPU-pinned ops; NCHW shim"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-infiniteyou",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/bytedance-infiniteyou/README.md:59-60,102 - the base model is black-forest-labs/FLUX.1-dev (the default --base_model_path)",
+    "https://huggingface.co/api/models/black-forest-labs/FLUX.1-dev - gated: 'auto' (license acceptance with an HF account required)",
+    "src/bytedance-infiniteyou/README.md:75-81 - peak VRAM is 43 GB in bf16 and still about 16 GB with --cpu_offload and --quantize_8bit",
+    "src/bytedance-infiniteyou/README.md:161 - FLUX.1-schnell is mentioned as a compatible base, but it is the same 12B transformer plus T5-XXL (far over the 15 GB download and 16 GB RAM limits), so there is no CPU-feasible substitute"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "google-deepmind-alphafold",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/google-deepmind-alphafold/README.md:41-42 - 'Full installation requires up to 3 TB of disk space ... and a modern NVIDIA GPU'",
+    "src/google-deepmind-alphafold/README.md:196-197 - the full databases are ~556 GB to download and 2.62 TB unzipped",
+    "src/google-deepmind-alphafold/README.md:346-351 - even reduced_dbs needs ~600 GB of disk; every run_alphafold path needs the genetic databases"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "qwenlm-qwen3-coder",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/qwenlm-qwen3-coder/README.md:45 - the sizes are 480B-A35B, 30B-A3B and Qwen3-Coder-Next (built on Qwen3-Next-80B-A3B, README.md:47)",
+    "src/qwenlm-qwen3-coder/README.md:83-90 - the model table lists only these (plus FP8 versions and an 80B GGUF); the smallest, 30B-A3B, is ~60 GB in bf16 and ~30 GB in FP8, over the 15 GB download and 16 GB RAM limits",
+    "src/qwenlm-qwen3-coder/README.md:105-117 - the Quick Start chats with Qwen/Qwen3-Coder-Next (80B)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "paddlepaddle-paddledetection",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Too lenient: the 'detections were reported' check is `grep -qi \"class_id\\|score\\|bbox\"` on the log, which matches the line 'Detection bbox results save in <file>' that trainer.predict logs for every saved image even with zero detections; the image-size and cmp checks also pass for an image with no boxes (it is re-encoded at quality 95). A model with broken/random weights would pass.",
+    "v2 adds the documented --save_results=True flag and checks bbox.json: >=3 detections with score>=0.5, >=2 of them COCO person (id 1), boxes inside the 640x404 image.",
+    "Demo and goal are fine: tools/infer.py on the bundled demo image with the small official PP-PicoDet-S weights; use_gpu=False is the config switch for CPU."
+   ],
+   "evidence": [
+    "src/paddlepaddle-paddledetection/ppdet/engine/trainer.py:1277 — logger.info('Detection bbox results save in {}') runs for every visualized image, independent of bbox_num",
+    "logs/paddlepaddle-paddledetection/oracle.txt — the only matching log line is '[10/27 02:46:01] ppdet.engine INFO: Detection bbox results save in /tmp/oracle_out.uq0t9s/000000014439.jpg'; no detection content was ever inspected",
+    "src/paddlepaddle-paddledetection/docs/tutorials/GETTING_STARTED.md:58 — '--save_results | infer | Whether to save detection results to file'",
+    "src/paddlepaddle-paddledetection/ppdet/metrics/metrics.py:133-140 + trainer.py:1178 — bbox.json written to output_dir as a list of {image_id, category_id, bbox, score} (json_results.py:76-107)",
+    "src/paddlepaddle-paddledetection/demo/000000014439.jpg — viewed: several people and a large kite on a field",
+    "logs/paddlepaddle-paddledetection/commands.jsonl — probe's own run with --save_results=True: bbox.json '7 7' (7 detections, all score>0.5)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-detectron",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The install docs state a GPU requirement we cannot meet: 'NVIDIA GPU, Linux, Python2' and 'Detectron operators currently do not have CPU implementation; a GPU system is required.' The examiner's own reason says 'feasible on CPU if Caffe2 is built'.",
+    "Goal leaks a workaround the docs do not give: '(Caffe2-based; you will need to make it run without a GPU)'. The pass only came after the probe patched detectron/utils/c2.py and env.py for CPU (repo_diff), and needed a repair round after the first replay failed.",
+    "README itself says 'Detectron is deprecated. Please see detectron2'."
+   ],
+   "evidence": [
+    "src/facebookresearch-detectron/INSTALL.md:9 — '- NVIDIA GPU, Linux, Python2'",
+    "src/facebookresearch-detectron/INSTALL.md:14 — 'Detectron operators currently do not have CPU implementation; a GPU system is required.'",
+    "src/facebookresearch-detectron/GETTING_STARTED.md:35 — inference example 'using a single GPU'",
+    "data/exams/facebookresearch-detectron.json goal — 'you will need to make it run without a GPU'",
+    "data/runs/facebookresearch-detectron/result.json repo_diff — detectron/utils/c2.py (+3/-1), detectron/utils/env.py (+14/-1); replay class 'fail: other' before repair"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-hunyuan-hunyuan3d-2",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Demands more than the README promises: goal and oracle require pipeline.enable_flashvdm() on a float32 CPU pipeline. The README 'Code Usage' demo never calls it (only examples/faster_shape_gen_with_flashvdm_mini_turbo.py does, with device='cuda' and the float16 default). enable_flashvdm() reloads the turbo VAE without passing dtype, so ShapeVAE gets its float16 default, which only clashes with a float32 pipeline. The probe had to patch hy3dgen/shapegen/pipelines.py, so the repo is penalised for a combination the docs never offer.",
+    "v2 runs the README Code Usage path with the official mini-turbo variant on CPU/float32, using the default VAE (VanillaVolumeDecoder + skimage marching cubes, both CPU-capable). It keeps 5 steps and octree_resolution 128, and adds a bounding-box sanity bound. The probe transcript shows vanilla volume decoding on CPU running at ~7.8 it/s over 64 chunks, so the time is fine. v2 has not been run.",
+    "Otherwise sound: the shape-gen demo with the 0.6B mini-turbo variant is representative, the texture step needs the CUDA rasterizer extensions ('# for texture'), and the mesh checks are reasonable."
+   ],
+   "evidence": [
+    "src/tencent-hunyuan-hunyuan3d-2/README.md:188-200 — Code Usage: from_pretrained('tencent/Hunyuan3D-2'); mesh = pipeline(image='assets/demo.png')[0]; no enable_flashvdm",
+    "src/tencent-hunyuan-hunyuan3d-2/hy3dgen/shapegen/pipelines.py:274-280 — enable_flashvdm: ShapeVAE.from_pretrained(model_path, subfolder=..., use_safetensors=..., device=self.device) with no dtype",
+    "src/tencent-hunyuan-hunyuan3d-2/hy3dgen/shapegen/models/autoencoders/model.py:120-121 — ShapeVAE.from_pretrained defaults device='cuda', dtype=torch.float16",
+    "src/tencent-hunyuan-hunyuan3d-2/examples/faster_shape_gen_with_flashvdm_mini_turbo.py:13-20 — the flashvdm example uses device='cuda'",
+    "src/tencent-hunyuan-hunyuan3d-2/hy3dgen/shapegen/models/autoencoders/model.py:165-169 — default VanillaVolumeDecoder + MCSurfaceExtractor",
+    "data/runs/tencent-hunyuan-hunyuan3d-2/deliverables/NOTES.md item 4 — 'enable_flashvdm() reloads the turbo VAE without passing a dtype ... Float vs Half'; repo_diff pipelines.py +1/-1",
+    "logs/tencent-hunyuan-hunyuan3d-2/transcript.jsonl — 'Volume Decoding: ... 0/64 ... 7.8it/s' (vanilla decoder on CPU)"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README 'Code Usage' (Hunyuan3DDiTFlowMatchingPipeline, assets/demo.png -> mesh) with the official Hunyuan3D-2mini turbo variant (README model table)",
+    "goal": "Install the project as the README describes (PyTorch, `pip install -r requirements.txt`, `pip install -e .`; the texture extensions under '# for texture' are not needed). Then run the README's Code Usage shape generation on CPU with the mini-turbo variant: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2mini', subfolder='hunyuan3d-dit-v2-mini-turbo', device='cpu', dtype=torch.float32) on assets/demo.png, and export the resulting trimesh mesh to a .glb file. Write /work/env.sh that activates the environment.",
+    "check": "The hidden test runs the mini-turbo shape pipeline on CPU on assets/demo.png with a few sampling steps and verifies a valid, non-degenerate exported GLB mesh.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "nvidia-fastphotostyle",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The docs state hardware we cannot meet: TUTORIAL.md Requirements 'Hardware: PC with NVIDIA Titan GPU.' and 'Software: Ubuntu 16.04, CUDA 9.1, ..., pytorch 0.4.0', and setup includes `pip install cupy`.",
+    "Goal leaks the fix: 'imports cupy at module load (smooth_filter.py), so the code and environment must be adapted to run without a GPU'. The probe then patched demo.py, process_stylization.py and smooth_filter.py (repo_diff), and the pass needed a repair round after the first replay failed.",
+    "demo.py has a --cuda flag (default 1), but smooth_filter.py imports cupy/pynvrtc unconditionally and process_stylization.py imports smooth_filter, so the shipped CPU path cannot even import without CUDA. The docs never claim CPU support."
+   ],
+   "evidence": [
+    "src/nvidia-fastphotostyle/TUTORIAL.md:31 — '- Hardware: PC with NVIDIA Titan GPU.'",
+    "src/nvidia-fastphotostyle/TUTORIAL.md:32,42,45 — CUDA 9.1, `conda install pytorch=0.4.0 torchvision cuda91`, `pip install cupy`",
+    "src/nvidia-fastphotostyle/smooth_filter.py:327-328 — 'from cupy.cuda import function' / 'from pynvrtc.compiler import Program' at module level; process_stylization.py:14 imports it",
+    "data/exams/nvidia-fastphotostyle.json goal — 'imports cupy at module load (smooth_filter.py), so the code and environment must be adapted'",
+    "data/runs/nvidia-fastphotostyle/result.json — replay 'fail: other', pass only in replay_after_repair"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "paddlepaddle-paddlegan",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Too lenient: the oracle only checks that the output image is not blank and differs from the input (mean abs diff > 3), so an untrained or wrong generator would pass. The repo ships the expected AnimeGANv2 result for this exact photo (docs/imgs/animeganv2_res.jpg). v2 requires the output to be much closer to that reference than the input is (out-vs-ref < 0.6 x in-vs-ref; locally in-vs-ref = 35.4, and the probe measured ~10 for its output). It also pins the output path to anime.png and requires the input's size.",
+    "Demo choice and goal are fine: animeganv2.py is the documented CLI and --cpu is its own flag. The Quick Start (CycleGAN training on Cityscapes) is not CPU-feasible.",
+    "Harness note: the run container was capped at 12 GiB (replay mem '12g'), not the 16 GB the exam promises. The probe's downscale patch was partly an OOM workaround for that cap, though it also reports a segfault in Im2ColFunctor at full resolution even with no_grad."
+   ],
+   "evidence": [
+    "oracles/paddlepaddle-paddlegan.sh — only std>10 and |out-in|>3 checks",
+    "src/paddlepaddle-paddlegan/ppgan/apps/animegan_predictor.py:79-81,88-89 — result resized to the input size and written as <output_path>/anime.png",
+    "src/paddlepaddle-paddlegan/docs/imgs/animeganv2_res.jpg (1280x832) vs animeganv2_test.jpg (1280x853) — mean abs diff 35.4 after resize (computed locally with PIL/numpy)",
+    "src/paddlepaddle-paddlegan/docs/en_US/tutorials/animegan.md:23 — `python applications/tools/animeganv2.py --input_image ${PATH_OF_IMAGE}`",
+    "data/runs/paddlepaddle-paddlegan/deliverables/NOTES.md — 'mean abs diff 10, versus 36 between the input and the reference'",
+    "logs/paddlepaddle-paddlegan/oracle.txt — 'ok /tmp/oracle_anime.sxDPrq/anime.png (1280, 853)'"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "openai-gpt-2",
+   "kind": "tested",
+   "verdict": "fix_goal",
+   "issues": [
+    "Goal leaks a workaround the docs do not give: 'The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims)'. DEVELOPERS.md only says `pip3 install tensorflow==1.12.0`, and the probe went exactly the hinted route (tensorflow-cpu 2.15 + tf.compat.v1 edits in 4 files).",
+    "The oracle is fine: it checks for the 124M checkpoint, uses --nsamples 1 (the script's default of 0 runs forever), and checks the 'SAMPLE 1' marker and text length for both scripts. The `|| true` after the stdin-fed interactive script is justified, because its input() loop raises EOFError after printing the sample, and the output is still checked."
+   ],
+   "evidence": [
+    "src/openai-gpt-2/DEVELOPERS.md:14-21 — 'Install tensorflow 1.12 ... pip3 install tensorflow==1.12.0'; no mention of TF2/compat",
+    "data/exams/openai-gpt-2.json goal — '(e.g. compatible old Python/TF or compat shims)'",
+    "data/runs/openai-gpt-2/deliverables/NOTES.md — 'import tensorflow as tf became import tensorflow.compat.v1 as tf; tf.disable_v2_behavior()'",
+    "logs/openai-gpt-2/oracle.txt — body=251 > 80, after=206 > 40, ORACLE PASS"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "DEVELOPERS.md: download_model.py 124M, then Unconditional and Conditional sample generation",
+    "goal": "Follow DEVELOPERS.md: download the GPT-2 small (124M) model into /work/gpt-2/models/124M with download_model.py, and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. Write /work/env.sh that activates the environment needed to run them.",
+    "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-facedetection-dsfd",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The README Requirements list hardware we cannot meet: 'NVIDIA GPU == Tesla P40' and 'Linux CUDA CuDNN', plus Torch 0.3.1 / Python 3.6. demo.py hard-codes net.cuda() and x.cuda(), and the examiner's reason concedes 'the original code hard-codes CUDA'.",
+    "Goal leaks the fix: 'patch/adapt the code as needed (e.g. the hard-coded net.cuda())' and '--save_folder (with trailing slash)'. The probe changed 5 files (65 lines) to get a CPU path."
+   ],
+   "evidence": [
+    "src/tencent-facedetection-dsfd/README.md:36-41 — Requirements: Torch == 0.3.1, Torchvision == 0.2.1, Python == 3.6, NVIDIA GPU == Tesla P40, Linux CUDA CuDNN",
+    "src/tencent-facedetection-dsfd/demo.py:70,172 — x = x.cuda(); net.cuda()",
+    "data/exams/tencent-facedetection-dsfd.json goal — 'patch/adapt the code as needed (e.g. the hard-coded net.cuda())'",
+    "data/runs/tencent-facedetection-dsfd/result.json repo_diff — 5 files, 65 lines"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "nvlabs-stylegan2",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The README Requirements list 'One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5' and say the custom ops are 'compiled on the fly using NVCC'. The examiner's reason itself says it is only 'feasible on CPU if the CUDA custom ops fall back to the reference implementation'.",
+    "Goal leaks the fix: 'its custom CUDA ops (fused_bias_act, upfirdn_2d) default to impl='cuda', so a CPU-compatible path must be arranged'. The probe patched 5 files and added an NCHW->NHWC conv shim to pass."
+   ],
+   "evidence": [
+    "src/nvlabs-stylegan2/README.md:40 — 'One or more high-end NVIDIA GPUs, NVIDIA drivers, CUDA 10.0 toolkit and cuDNN 7.5.'",
+    "src/nvlabs-stylegan2/README.md:43 — 'StyleGAN2 relies on custom TensorFlow ops that are compiled on the fly using NVCC'",
+    "src/nvlabs-stylegan2/dnnlib/tflib/ops/fused_bias_act.py:34, upfirdn_2d.py:19 — impl='cuda' defaults",
+    "data/exams/nvlabs-stylegan2.json goal — 'default to impl='cuda', so a CPU-compatible path must be arranged'",
+    "data/runs/nvlabs-stylegan2/deliverables/NOTES.md items 3-5 — ops default switched to 'ref', allow_soft_placement, NCHW conv wrapper"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-latentsync",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The README states a GPU memory minimum for the demo: 'Minimum VRAM for inference: 8 GB with LatentSync 1.5, 18 GB with LatentSync 1.6'. The code hard-codes cuda (scripts/inference.py:52,74; lipsync_pipeline.py:342), which the examiner's reason also notes.",
+    "Goal leaks the fix: 'The code hardcodes cuda in places, so it must be made to run on CPU (float32)'. The oracle also cut the demo to a 1.6 s clip at 5 steps without --enable_deepcache (README: inference_steps 20-50).",
+    "Even cut down, it took 41 min of the oracle budget (2486 s of 3600), and the probe agent hit the 90-minute limit (agent.timed_out=true)."
+   ],
+   "evidence": [
+    "src/bytedance-latentsync/README.md:108-111 — 'Minimum VRAM for inference: 8 GB with LatentSync 1.5; 18 GB with LatentSync 1.6'",
+    "src/bytedance-latentsync/scripts/inference.py:52,74 — device=\"cuda\", .to(\"cuda\")",
+    "src/bytedance-latentsync/inference.sh — --inference_steps 20 --enable_deepcache on the full demo1 clip",
+    "data/exams/bytedance-latentsync.json goal — 'The code hardcodes cuda in places, so it must be made to run on CPU (float32)'",
+    "data/runs/bytedance-latentsync/result.json — agent secs 5400 timed_out true; oracle secs 2486"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-dolphin",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "Run timed out (90 min) without delivering setup.sh/env.sh, so the oracle died at `source /work/env.sh`. The transcript shows why. The README model is Dolphin-v2 with 3B parameters (3.75B BF16 per the HF API, 7.5 GB of safetensors), and demo_page.py loads it in float32 on CPU (self.model.float()), about 15 GB of weights before any activations. The first stock run was OOM-killed. The probe then switched to bfloat16, but this CPU (AMD EPYC 7763, no avx512_bf16) ran a 512x2048x11008 bf16 matmul in 28.8 s versus 0.26 s in fp32. The page never finished.",
+    "This is directly verifiable from the hub sizes plus demo_page.py: float32 weights alone (~15 GB) leave no room on a 16 GB CPU machine for the vision encoder on a 1700x2200 page. The current README offers no smaller model. Dolphin-1.5 (0.3B) only lives on the v1.5 branch ('Dolphin-1.5 moved to v1.5 branch'). If the owner prefers testing over exclusion, a new exam on branch v1.5 would be the CPU-feasible option.",
+    "Harness note: the container's cgroup memory.max was 12884901888 (12 GiB), below the 16 GB the exam prompt promises. That alone guaranteed the float32 OOM here."
+   ],
+   "evidence": [
+    "src/bytedance-dolphin/README.md:48 — 'Released Dolphin-v2 model. Upgraded to 3B parameters ... (Dolphin-1.5 moved to v1.5 branch)'",
+    "src/bytedance-dolphin/README.md:121-131 — download ByteDance/Dolphin-v2 to ./hf_model; :145 demo_page.py page_1.png",
+    "src/bytedance-dolphin/demo_page.py:27-37 — from_pretrained() then on CPU `self.model = self.model.float()`",
+    "https://huggingface.co/api/models/ByteDance/Dolphin-v2 — safetensors parameters BF16 3754622976; shards 4997750760 + 2511587184 bytes",
+    "logs/bytedance-dolphin/commands.jsonl #8 — stock run: 'Killed nohup python demo_page.py ...'",
+    "logs/bytedance-dolphin/commands.jsonl #20 — 'torch.float32 prefill 0.26 / torch.bfloat16 prefill 28.79'",
+    "logs/bytedance-dolphin/commands.jsonl #13 — /sys/fs/cgroup/memory.max = 12884901888",
+    "data/runs/bytedance-dolphin/result.json — agent secs 5400 timed_out true; replay 'no setup.sh delivered'"
+   ],
+   "audit_check": "Disagree with the reasoning, though 'inconclusive' was the right label for the auditor's sandbox. /work was empty because the probe agent hit its 90-minute limit without writing setup.sh/env.sh (result.json agent.timed_out=true, replay note 'no setup.sh delivered'), not because install state was lost. The real blocker was the README demo itself: the 3B Dolphin-v2 model loaded in float32 was OOM-killed, and bf16 was too slow on CPU.",
+   "public_reason": "The README's only model, the 3B-parameter Dolphin-v2, is converted to float32 by demo_page.py on a CPU, about 15 GB of weights, so the page-parsing demo runs out of memory on a 16 GB machine; the smaller Dolphin-1.5 now lives only on an old branch.",
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-monolith",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [
+    "The reason's time estimate is the examiner's judgement, but the dependency behind it is verifiable. The only documented run path is `bazel run //monolith/native_training:demo` with bazel 3.1.0, and that target depends on @org_tensorflow//tensorflow:tensorflow_py. The WORKSPACE pins TensorFlow 2.4.0 (and TF Serving 2.4.0) as source archives to patch and build, so the demo means compiling all of TensorFlow from source on 4 vCPUs. No pip package or prebuilt binary is offered."
+   ],
+   "evidence": [
+    "src/bytedance-monolith/README.md:18-42 — Quick start = Build from source: bazel 3.1.0, then `bazel run //monolith/native_training:demo`",
+    "src/bytedance-monolith/WORKSPACE:61-67 — '# Tensorflow 2.4.0' tensorflow_http_archive(name='org_tensorflow', patch='//third_party:org_tensorflow/tf.patch')",
+    "src/bytedance-monolith/monolith/native_training/BUILD:18-26,98 — py_binary 'demo' -> :cpu_training/:native_task, deps on @org_tensorflow//tensorflow:tensorflow_py and tf_custom_op_library"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "nvidia-vid2vid",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/nvidia-vid2vid/README.md:36-41 — Prerequisites: 'NVIDIA GPU + CUDA cuDNN', 'PyTorch 0.4'",
+    "src/nvidia-vid2vid/models/vid2vid_model_G.py:90,100,106,110 — unconditional .cuda() calls on inputs in the generator",
+    "src/nvidia-vid2vid/scripts/street/test_g1_1024.sh — the test demo the reason names"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-hunyuan-hunyuani-26574",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "issues": [],
+   "evidence": [
+    "src/tencent-hunyuan-hunyuani-26574/README.md:425-429 — every variant (Base, Instruct, Instruct-Distil) is '80B total (13B active)' with recommended VRAM '>= 3 x 80 GB' / '>= 8 x 80 GB'",
+    "src/tencent-hunyuan-hunyuani-26574/README.md:433 — 'Multi-GPU inference is recommended for the Base model.'"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-seed-depth-any-12e2f",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Oracle bug: it pre-creates the export dir with mktemp -d and passes it as --export-dir; da3 then asks 'Export directory ... already exists. Do you want to clean it and continue? [y/N]' and aborts without a tty. This, not the repo, failed the main run.",
+    "Oracle omits --device cpu although the CLI defaults to device='cuda'; a correct README install on a CPU box cannot pass, which pushed the agent into patching services/inference_service.py (counted in repo_diff).",
+    "Goal leaks an install hint: 'gsplat/xformers are not needed'. xformers is a hard dependency in pyproject.toml and the README installs it explicitly; the goal should not tell the agent to drop it.",
+    "Coverage widened: v2 also checks conf/extrinsics/intrinsics shapes and that scene.glb holds a real point cloud."
+   ],
+   "evidence": [
+    "logs/bytedance-seed-depth-any-12e2f/oracle.txt (tail) - \"Export directory '/tmp/da3_oracle.BnSj7i' already exists. Do you want to clean it and continue? [y/N]: ... Aborted.\" after 'Found 2 images to process' (import and setup were fine)",
+    "src/bytedance-seed-depth-any-12e2f/src/depth_anything_3/services/input_handlers.py:41-60 - existing export dir -> typer.confirm, else exit; cli.py:132-134 --auto-cleanup defaults to False",
+    "src/bytedance-seed-depth-any-12e2f/src/depth_anything_3/cli.py:119 - device: str = typer.Option(\"cuda\")",
+    "src/bytedance-seed-depth-any-12e2f/pyproject.toml:14-41 - xformers listed in dependencies; addict and scikit-learn absent while model/da3.py:19 does `from addict import Dict`",
+    "src/bytedance-seed-depth-any-12e2f/README.md:91 - `pip install xformers torch>=2 torchvision`",
+    "logs/bytedance-seed-depth-any-12e2f/replay_setup.log (tail) - replay setup.sh died at `python /work/patch_cpu.py` (a file setup.sh never creates), before its `uv pip install addict scikit-learn` line"
+   ],
+   "audit_check": "Disagree. The recorded repo_failure (ModuleNotFoundError: addict) comes from the replay container, where the agent's setup.sh stopped at a missing /work/patch_cpu.py before installing addict. In the main run the CLI imported fine and the oracle itself failed at the interactive export-dir prompt. addict really is undeclared in pyproject.toml (a genuine repo defect the agent had to work around), but the score needs a re-run with the fixed oracle.",
+   "public_reason": null,
+   "new_exam": {
+    "demo": "README Quick Start > Basic Usage: `da3 auto assets/examples/SOH --export-format glb --export-dir ... --model-dir ${MODEL_DIR}` (CLI without backend), with the README's DA3-SMALL model on CPU",
+    "goal": "Install the project from the clone following the README Installation section so the `da3` CLI works on this CPU-only machine. Then `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <a new directory> --model-dir depth-anything/DA3-SMALL --device cpu` must finish and write results.npz and scene.glb into the export dir; DA3-SMALL is the README's smallest Apache-2.0 model and downloads from Hugging Face without a token. Put any environment activation in /work/env.sh.",
+    "check": "The hidden test runs that command into a fresh export dir and verifies the npz depth/confidence/camera arrays have the right shapes for the 2 images and that scene.glb holds a non-trivial point cloud.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "google-research-bert",
+   "kind": "tested",
+   "verdict": "ok",
+   "evidence": [
+    "src/google-research-bert/README.md:48 - BERT-Tiny link https://storage.googleapis.com/bert_models/2020_02_20/uncased_L-2_H-128_A-2.zip; README.md:739-760 extract_features example with the same 'Who was Jim Henson ? ||| Jim Henson was a puppeteer' input the oracle uses",
+    "curl 2026-11-14 from this machine: 403 for .../2020_02_20/uncased_L-2_H-128_A-2.zip and .../2018_10_18/uncased_L-12_H-768_A-12.zip, while a public bucket (gcp-public-data-landsat) returns 206",
+    "logs/google-research-bert/replay_setup.log - 'curl: (22) The requested URL returned error: 403'",
+    "src/google-research-bert/extract_features.py:401-409 - output keys features/token/layers/values match the oracle's assertions"
+   ],
+   "audit_check": "Agree (repo_failure). Every README checkpoint URL in gs://bert_models returns 403 AccessDenied for anonymous callers; the oracle reproduces the README demo faithfully. The agent's fallback (converting google/bert_uncased_L-2_H-128_A-2 from Hugging Face) is not in the README.",
+   "public_reason": "Every pretrained BERT checkpoint the README links (storage.googleapis.com/bert_models/...) now returns HTTP 403 Access Denied, so the feature-extraction demo has no model to load.",
+   "issues": [],
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "google-trax",
+   "kind": "tested",
+   "verdict": "ok",
+   "evidence": [
+    "src/google-trax/README.md:60-88 - snippet loads gs://trax-ml/models/translation/ende_wmt32k.pkl.gz and gs://trax-ml/vocabs/ende_32k.subword and shows 'Es ist schön, heute neue Dinge zu lernen!'",
+    "logs/google-trax/oracle.txt (tail) - PermissionDeniedError: HTTP 403 ... Anonymous caller does not have storage.objects.get access ... trax-ml/objects/models/translation/ende_wmt32k.pkl.gz",
+    "curl 2026-11-14 from this machine: 403 for both trax-ml objects; 206 for a known public bucket",
+    "gh api repos/google/trax - archived: true"
+   ],
+   "audit_check": "Agree (repo_failure). The gs://trax-ml bucket the README snippet reads weights and vocab from is no longer public; the oracle is the README snippet verbatim with lenient word checks.",
+   "public_reason": "The README's pre-trained translation weights and vocabulary live in the gs://trax-ml bucket, which now returns HTTP 403 Access Denied to everyone, and the repo is archived.",
+   "issues": [],
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "nvlabs-spade",
+   "kind": "tested",
+   "verdict": "ok",
+   "evidence": [
+    "src/nvlabs-spade/README.md:65-79 - pretrained checkpoints only via Google Drive file 12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ; CPU via --gpu_ids -1",
+    "curl 2026-11-14: drive.google.com/file/d/12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ/view -> 404; drive.usercontent download -> 404",
+    "https://github.com/NVlabs/SPADE/issues/175 - 'Can't download the tar of the pretrained models' (2024-11-26, open)",
+    "src/nvlabs-spade/options/test_options.py:12,14 and test.py:42 - --results_dir/--how_many exist and outputs are named synthesized_image, matching the oracle"
+   ],
+   "audit_check": "Agree (repo_failure). The only documented source of coco_pretrained is a Google Drive file that returns 404; the oracle's checks would be fair if the checkpoint existed.",
+   "public_reason": "The README's Google Drive link to the pretrained checkpoints returns 404 (reported in issue #175), so the pretrained-model demo cannot run.",
+   "issues": [],
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-hunyuan-hunyuan3d-2-1",
+   "kind": "tested",
+   "verdict": "should_exclude",
+   "issues": [
+    "The README states a GPU requirement: 'It takes 10 GB VRAM for shape generation, 21GB for texture generation and 29GB for shape and texture generation in total', and installs CUDA torch (cu124) plus CUDA-compiled rasterizers. The exam carved out a CPU-only, shape-only, 10-step variant the README never offers.",
+    "Measured on our 4-vCPU box: one 10-step bf16 run takes ~505-593 s per diffusion step (~85 min of sampling before VAE decode), and the unpatched pipeline was OOM-killed (exit 137) while building the 3.3B DiT; the agent had to patch hy3dshape/pipelines.py to fit memory.",
+    "Oracle bug regardless: its inner `timeout 6000` exceeds the harness ORACLE_SEC=3600, so the test could never finish in budget.",
+    "The duplicate audit's 'oracle re-run passed' in 18 s cannot be a real CPU generation; it read a shape.glb left in /tmp/oracle_out.WsxvtU by an earlier oracle process that outlived the harness timeout."
+   ],
+   "evidence": [
+    "src/tencent-hunyuan-hunyuan3d-2-1/README.md:81 - 'It takes 10 GB VRAM for shape generation, 21GB for texture generation and 29GB for shape and texture generation in total.'",
+    "logs/tencent-hunyuan-hunyuan3d-2-1/commands.jsonl - 'Diffusion Sampling:: 60%| 6/10 [51:33<33:41, 505.30s/it]' after a 3600 s wait; earlier run 'exit=137 ... Killed' while loading model.fp16.ckpt",
+    "data/runs/tencent-hunyuan-hunyuan3d-2-1/result.json - agent timed_out (5400 s); oracle and replay oracle both hit 3600 s; repo_diff hy3dshape/hy3dshape/pipelines.py +8/-2",
+    "oracles/tencent-hunyuan-hunyuan3d-2-1.sh - `timeout 6000 python $OUT/run.py`"
+   ],
+   "audit_check": "Disagree with both records. 'inconclusive' carries no evidence; the duplicate 'oracle_defect' is right that the code eventually produces a valid mesh, but its 18-second 'pass' only inspected a GLB from a run that took far longer than the test budget. The real cause is that the README targets a 10 GB+ GPU and the CPU path takes about 1.5 h and needs a memory patch, so the repo should be excluded rather than scored.",
+   "public_reason": "The README requires a GPU with 10 GB of VRAM for shape generation (21 GB for texture); on a 4-core CPU a single reduced 10-step shape run takes about 1.5 hours, so the demo is out of scope for a CPU test.",
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-ui-tars",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Oracle bug: it expects factor=1000 normalisation (0.1, 0.2 -> pixels 192/216) for model_type='qwen25vl', but the parser treats qwen25vl coordinates as absolute pixels on the smart_resize'd 1932x1092 image, giving [0.05176, 0.18315] and pyautogui.click(99.379, 197.802). The repo output is correct per its code.",
+    "Goal ambiguity: it allows installing 'from the repo's codes/ directory or PyPI', but PyPI ui-tars is now 0.5.1 (2026-04-09), a different code line whose pyautogui generator divides pixels by scale_factor=1000 (README snippet -> click(0.099, 0.198)). The test must pin the repo's own codes/ package; v2 checks the installed module is byte-identical to codes/ui_tars/action_parser.py.",
+    "Coverage widened: v2 also checks the qwen2vl relative path, type/clipboard, hotkey, drag and finished actions."
+   ],
+   "evidence": [
+    "logs/bytedance-ui-tars/oracle.txt - start_box '[0.051759834368530024, 0.18315018315018314, ...]' then AssertionError at `abs(v[0]-0.1)<1e-3`",
+    "src/bytedance-ui-tars/codes/ui_tars/action_parser.py:115-147 (smart_resize), 164-169 and 248-258 (qwen25vl: num / smart_resize_width|height), 259 (other models: num / factor), 482-483 (x = round(((x1+x2)/2)*image_width, 3))",
+    "src/bytedance-ui-tars/codes/pyproject.toml:3 - version 0.1.4; PyPI ui-tars latest 0.5.1, whose wheel ui_tars/action_parser.py:416,694-695 divides by scale_factor=1000",
+    "data/runs/bytedance-ui-tars/result.json agent final - README snippet printed pyautogui.click(99.379, 197.802, button='left') from the codes/ install"
+   ],
+   "audit_check": "Agree (oracle_defect). The qwen25vl branch deliberately normalises by the smart_resize dimensions; the oracle's 0.1/0.2 expectation has no basis in the README or source.",
+   "public_reason": null,
+   "new_exam": {
+    "demo": "README 'Step 2: Post Processing' - install the ui-tars package and run the Python usage snippet",
+    "goal": "Install the ui-tars package from this repo's codes/ directory (the package source in the clone) so that `from ui_tars.action_parser import parse_action_to_structure_output, parsing_response_to_pyautogui_code` works. Then run the README usage snippet on the response \"Thought: Click the button\\nAction: click(start_box='(100,200)')\" at 1920x1080, factor=1000, model_type='qwen25vl'; it must print the parsed dict and the generated pyautogui code. Write /work/env.sh so that it activates the environment where this works.",
+    "check": "The hidden test confirms the installed parser is the repo's own, then runs it on several action strings (click, type, hotkey, drag, finished) and checks the parsed action types, scaled coordinates and generated pyautogui code.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "facebookresearch-parlai",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Oracle bug: it greps for literal 'text:' and 'labels:' in display_data output, but simple_display prints the text and an indented label with no field prefixes; the only 'labels:' match is the 'hide_labels:' option dump. Correct output fails.",
+    "Second step is not a README demo: `eval_model -m repeat_label -t integration_tests` appears nowhere in README/docs and only checks the word 'exs'. v2 runs the README's own second example (`eval_model -m ir_baseline -t personachat -dt valid`, capped with the documented -ne flag) and reads metrics from the --report-filename JSON."
+   ],
+   "evidence": [
+    "logs/facebookresearch-parlai/oracle.txt - five examples printed as context/question lines followed by '   Saint Bernadette Soubirous' etc., no 'text:' prefix; display_data exited 0",
+    "src/facebookresearch-parlai/parlai/scripts/display_data.py simple_display - prints the header, act['text'], then '   ' + labels",
+    "src/facebookresearch-parlai/README.md:132-139 - `parlai display_data -t squad` and `parlai eval_model -m ir_baseline -t personachat -dt valid`",
+    "src/facebookresearch-parlai/parlai/scripts/eval_model.py:56,94,121-140 - --report-filename JSON, -ne/--num-examples",
+    "http://parl.ai/downloads/personachat/personachat.tgz -> dl.fbaipublicfiles.com, HTTP 200, 223 MB (checked 2026-11-14)"
+   ],
+   "audit_check": "Agree (oracle_defect). ParlAI's non-verbose display never prints 'text:'; the run downloaded SQuAD and printed correct examples.",
+   "public_reason": null,
+   "new_exam": {
+    "demo": "README 'Examples': `parlai display_data -t squad` and `parlai eval_model -m ir_baseline -t personachat -dt valid`",
+    "goal": "Install ParlAI from the clone (README 'Installing ParlAI') so the `parlai` CLI works on CPU. Then the README examples must work: `parlai display_data -t squad -n 5` downloads SQuAD and prints examples with their answers, and `parlai eval_model -m ir_baseline -t personachat -dt valid -ne 200` downloads PersonaChat and reports evaluation metrics.",
+    "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks the printed questions/answers and downloaded data files, then runs the README's ir_baseline evaluation on 200 PersonaChat validation examples and checks the metrics report.",
+    "server": false
+   },
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "google-python-fire",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Oracle bug: `python hello.py --help | grep -qi usage` - Fire's help page (NAME / SYNOPSIS / FLAGS) never contains the word 'usage'; the README only says --help 'Shows usage information'. v2 checks the NAME/SYNOPSIS sections and the --name flag.",
+    "Coverage widened: v2 also runs the bundled examples/cipher CLI (rot13 and caesar-decode), which the goal already asks for, from outside the clone so the installed package is used."
+   ],
+   "evidence": [
+    "data/runs/google-python-fire/result.json audit evidence_out - help output 'NAME / SYNOPSIS / FLAGS -n, --name=NAME' with no 'usage'",
+    "src/google-python-fire/README.md:47-50,106 - hello.py examples, '--help # Shows usage information', `-- --trace`",
+    "src/google-python-fire/fire/helptext.py:115,139,281 - NAME, SYNOPSIS, FLAGS sections; fire/core.py:141-158 trace/help go to stderr with FireExit(0)",
+    "src/google-python-fire/examples/cipher/cipher.py docstring - rot13 'Hello world!' -> 'Uryyb jbeyq!', caesar-decode 1 'Ifmmp xpsme!' -> 'Hello world!'"
+   ],
+   "audit_check": "Agree (oracle_defect). All README commands produce the documented output; only the 'usage' grep is wrong.",
+   "public_reason": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "paddlepaddle-paddlespeech",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Oracle bug: it downloads zh.wav with `wget`, which is not installed in the test container (only curl), so it fails before testing anything. v2 uses curl.",
+    "v2 also validates the TTS wav with the wave module (duration and non-silence) instead of size + RIFF only."
+   ],
+   "evidence": [
+    "logs/paddlepaddle-paddlespeech/oracle.txt and replay_oracle.txt - \"timeout: failed to run command 'wget': No such file or directory\"",
+    "src/paddlepaddle-paddlespeech/README.md:288,299,309,323 - wget zh.wav, `paddlespeech asr --lang zh --input zh.wav` -> 我认为跑步最重要的就是给我带来了身体健康, `paddlespeech tts ... --output output.wav`",
+    "data/runs/paddlepaddle-paddlespeech/result.json audit - auditor reproduced the transcript and a 171044-byte RIFF wav"
+   ],
+   "audit_check": "Agree (oracle_defect). The failure is the oracle's dependency on wget; ASR and TTS both work with the agent's install.",
+   "public_reason": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-pocketflow",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Oracle bug: it downloads the 170 MB CIFAR-10 binary itself under `timeout 900`; cs.toronto.edu serves ~56 KB/s to these runners, so the download cannot finish and the test stops before training. v2 uses the dataset the documented path.conf (data_dir_local_cifar10) points to, validated by exact file sizes, and only falls back to downloading.",
+    "Oracle bug: the accuracy regex `([0-9.]+)` drops the exponent of PocketFlow's '%.4e' log ('accuracy = 3.7280e-01' -> 3.728 -> /100 -> 0.037), so a correct run fails the >0.15 assertion. v2 parses scientific notation.",
+    "Oracle inner timeouts (5400 s train) exceeded ORACLE_SEC=3600; v2 budgets 1500 s train / 900 s eval (the agent measured ~110 s for training)."
+   ],
+   "evidence": [
+    "logs/tencent-pocketflow/oracle.txt (tail) - last line `timeout 900 curl -fsSL -o .../c10.tgz https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz`; result.json oracle secs 900",
+    "src/tencent-pocketflow/learners/full_precision/learner.py:103 - tf.logging.info('%s = %.4e' ...); :191 'model saved to'",
+    "src/tencent-pocketflow/docs/docs/installation.md:17-30 - path.conf with data_dir_local_cifar10 is the documented data setup; scripts/run_local.sh reads it via utils/get_path_args.py",
+    "logs/tencent-pocketflow/commands.jsonl - run_local.sh train 110 s, eval 'INFO:tensorflow:accuracy = 3.9900e-01'"
+   ],
+   "audit_check": "Agree (oracle_defect). Both audits reproduced training, the saved checkpoint and ~37-40% eval accuracy; the oracle's own download and regex are the cause.",
+   "public_reason": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "bytedance-pasa",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "evidence": [
+    "src/bytedance-pasa/README.md:121 - 'You need to first apply for a Google Search API key at serper.dev, and replace the your google keys in utils.py' before `python run_paper_agent.py`",
+    "src/bytedance-pasa/README.md:103 - needs the pasa-7b-crawler and pasa-7b-selector checkpoints",
+    "huggingface.co/api/models: bytedance-research/pasa-7b-crawler 15.25 GB, pasa-7b-selector 30.47 GB (checked 2026-11-14)"
+   ],
+   "issues": [],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "paddlepaddle-ernie",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "evidence": [
+    "src/paddlepaddle-ernie/README.md:215-224 - Quick Start is `erniekit train examples/configs/ERNIE-4.5-0.3B/sft/run_sft_8k.yaml`",
+    "src/paddlepaddle-ernie/docs/erniekit.md:25-30,119 - prerequisites CUDA >= 12.3 and Ampere/Hopper (80GB+HBM); ERNIE-4.5-0.3B SFT 8K needs 1x80G A/H GPU",
+    "src/paddlepaddle-ernie/README.md:235-261 - inference/serving via FastDeploy; FastDeploy's README lists NVIDIA GPU, Kunlunxin XPU, Iluvatar, Enflame, Hygon DCU and others - no CPU backend"
+   ],
+   "issues": [],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "tencent-hunyuan-hunyuanv-08745",
+   "kind": "excluded",
+   "verdict": "exclusion_ok",
+   "evidence": [
+    "src/tencent-hunyuan-hunyuanv-08745/README.md:133-138 - 'GPU: NVIDIA GPU with CUDA support; Minimum GPU Memory: 14 GB (with model offloading enabled)'",
+    "src/tencent-hunyuan-hunyuanv-08745/checkpoints-download.md:14,27,57 - 8.3B DiT plus the Qwen2.5-VL-7B-Instruct text encoder; the vision encoder needs a gated FLUX.1-Redux-dev download with an HF token"
+   ],
+   "issues": [],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "cpu-gha outside the maintained set"
+  },
+  {
+   "slug": "manimgx",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "The ~6 s duration check that the check text promises is guarded by `if command -v ffprobe` and never ran. The base image has no ffmpeg and the README install needs none, so v1 only verified a >20 KB file named Hello3D.mp4.",
+    "v2 reads the duration (mvhd box) and frame size (tkhd box) from the MP4 with the standard library and requires 5-7 s and 1920x1080. It also expects the output at <Scene>.mp4 beside scene.py instead of using find."
+   ],
+   "evidence": [
+    "oracles/manimgx.sh:20-25 — duration only checked when ffprobe exists, else prints 'duration not checked'",
+    "base/Dockerfile:8-10 — apt installs git, build-essential, python3 only (no ffmpeg/ffprobe)",
+    "data/runs/manimgx/deliverables/NOTES.md — 'No system FFmpeg, x264, LaTeX or Vulkan driver is required -- all are bundled in the wheel'; setup.sh installs no apt packages",
+    "src/manimgx/README.md:81-104 — Hello3D scene: run_time=2 + wait(4); 'You get Hello3D.mp4, a 1080p60 video'",
+    "src/manimgx/src/manimgx/cli/export.py:83 — default output <Scene>.mp4 beside the file; cli/scenes.py:80 — default 1920x1080 at 60 fps",
+    "v2 MP4 box parser sanity-checked locally on a 6 s 1920x1080 ffmpeg test clip: duration 6.0, size (1920, 1080)"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "earshot",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "Demo choice: the test runs the install check `earshot doctor --load`, not the tool itself. The README's core commands (describe / match) run on CPU and need no audio from the repo, because a bank sound renders by id with no models.",
+    "Too lenient: `doctor` always exits 0. Its handler is `emit(check(...), a) and 0`, and emit returns the result dict, so the lambda returns 0. A failed model load is caught and only listed under 'problems', so exit 0 does not show that both models loaded, as the goal claims.",
+    "v2: doctor --load --json must report problems == [] and both model revisions. Then it renders sfx whoosh_fast/crisp and runs describe --json (tags, AudioSet labels, measurements) and match --json with --alts (a valid verdict, and the whoosh description must beat 'a dog barking' and 'a person talking')."
+   ],
+   "evidence": [
+    "src/earshot/earshot/doctor.py:185 — `p.set_defaults(func=lambda a: emit(check(a.load, a.fetch), a) and 0)`; report.py:55-72 emit returns result",
+    "src/earshot/earshot/doctor.py:161-165 — RuntimeError from model load appended to problems, not raised",
+    "src/earshot/earshot/doctor.py:85-104 — clap_revision / ast_revision recorded only after both models load",
+    "src/earshot/README.md:35-48,52-56 — describe / match / find are the headline commands; README.md:72 doctor is 'check the install'",
+    "src/earshot/README.md:218-225 — `earshot sfx render whoosh_fast/crisp -o w.wav` renders from the bank with no models and no network; earshot/forge/bank/forge_v2.json contains whoosh_fast/crisp",
+    "src/earshot/README.md:270 — 'The repo holds no audio', so the oracle renders its own input",
+    "src/earshot/earshot/describe.py:160-245 (top_tags, audioset, measurements); match.py:33,91-134 (verdict set, p_vs_alts, alts)"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README 'What it does' example commands `earshot describe` and `earshot match ... --alts` on a sound rendered with `earshot sfx render whoosh_fast/crisp` (README 'Sound for films'), after the README Install check `earshot doctor --load`",
+    "goal": "Install earshot per its README Install section (CPU only). From /work/earshot, `python -m earshot doctor --load` must report both models loaded with no problems; then render a bank sound with `python -m earshot sfx render whoosh_fast/crisp -o w.wav` and run the README's listening commands on it: `python -m earshot describe w.wav --json` and `python -m earshot match w.wav \"a fast air whoosh\" --alts \"a dog barking\" \"a person talking\" --json`.",
+    "check": "runs doctor --load (no problems, both models loaded), renders whoosh_fast/crisp, then requires describe to return tags and AudioSet labels and match to return a verdict that prefers the whoosh description over the two unrelated alternatives",
+    "server": false
+   },
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "stylegan2ada",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/stylegan2ada/README.md:76-79 — the oracle runs the README's first MetFaces command (seed subset 85,265)",
+    "src/stylegan2ada/generate.py:82,121 — device hard-coded to cuda (no CPU path); writes seed%04d.png",
+    "src/stylegan2ada/torch_utils/ops/bias_act.py:50, upfirdn2d.py:34 — the 'Failed to build CUDA kernels ... Falling back to slow reference implementation' warnings the oracle greps for",
+    "src/stylegan2ada/torch_utils/ops/conv2d_gradfix.py:22,48-55 — its own 'Falling back' warning is only reachable when enabled=True (training), so the case-insensitive grep cannot false-fail generation",
+    "src/stylegan2ada/README.md:66-70 — custom PyTorch extensions compiled on the fly with NVCC are part of the README's requirements, so the goal's 'plugins must compile' is traceable",
+    "data/runs/stylegan2ada/result.json — oracle and fresh replay both pass, no repo files patched"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "unimate",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/unimate/README.md:218-222 — 2b command on assets/examples/unitree_go2 with the same prompt (the README runs two prompts; one is a fair subset)",
+    "src/unimate/unimate/inference/sample.py:590-636,1035 — the manifest is written only after a motion is saved, and nothing is written to --output_dir before sampling, so 'exit 0 + at least one file' implies a generated motion",
+    "src/unimate/unimate/utils/visualization.py:36-46 — motions/<...>.npy (F,J,D) written first; deliverables/NOTES.md reports a (60,18,12) npy, matching n_joints 18 in assets/examples/unitree_go2/summary.json",
+    "src/unimate/unimate/configs/schema.py:380 — sampling device defaults to cuda (no CPU fallback), so the run is on the GPU",
+    "The goal's limits (no 88 GB dataset, no mesh driving) narrow the scope and are not install hints; the undocumented flan-t5 text-encoder download was not leaked"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "kev",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/kev/README.md:80-116 — local server on :8009 and the exact example ticket the oracle sends",
+    "src/kev/kev/api.py:152-159 — answer schema (choice/noul/score); the oracle parses the response JSON and asserts the department choice is one of the three criteria",
+    "src/kev/README.md:32 — Kev-0.8B 'any 4 GB GPU', so the goal's 'pick the variant that fits an 8 GB GPU' comes from the README table and does not leak an install hint",
+    "oracles/gpu_delta.sh + oracles/kev.sh — GPU memory must rise >500 MiB across run.sh; README.md:88-90 says --device auto silently falls back to CPU, so this check is what makes 'ON THE GPU' verifiable"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "nanojev",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/nanojev/README.md:99-134 — Quick start: snapshot_download of the checkpoint, serve_decisions.py on 8765, POST /api/evaluate",
+    "src/nanojev/scripts/serve_decisions.py:31-51 — returns 200 only after engine.predict succeeds; validation errors give 400, inference errors 500",
+    "src/nanojev/scripts/predict_toy_decisions.py:34-80 — the oracle's {states:[{id,state,questions:{fire:{type:boolean,instructions}}}]} is a valid request; :131-136 every answer's probabilities are validated before return; :254 the response is keyed by state id 's1'",
+    "src/nanojev/scripts/predict_toy_decisions.py:199-202 — the engine refuses non-CUDA devices, and the oracle also checks that GPU memory rose"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "mdm",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/mdm/README.md:313-316,360-361 — 'Generate a single prompt' with the same prompt; outputs results.npy and stick-figure mp4s",
+    "src/mdm/sample/generate.py:197-201 — results.npy saved after sampling; :247,284-285 — upstream always writes samples_XX_to_YY.mp4 grids, so the oracle's 'any mp4' does not depend on the agent's 5-line patch that adds per-sample mp4s",
+    "oracles/mdm.sh — `ls save/humanml*/model*.pt | head -1` matches every README HumanML3D checkpoint folder (humanml_trans_enc_512, humanml_enc_512_50steps, ...)",
+    "src/mdm/utils/dist_util.py:49-51 — --device 0 silently falls back to CPU without CUDA; acceptable because the goal does not demand the GPU and the README demo is the same either way",
+    "data/runs/mdm/result.json — the first replay failed (installer not self-contained); the repair made setup.sh self-contained and replay_after_repair passes. This was on the agent side, not the oracle"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "yolov7",
+   "kind": "tested",
+   "verdict": "ok",
+   "issues": [],
+   "evidence": [
+    "src/yolov7/README.md:138-141 — the exact image demo command on inference/images/horses.jpg",
+    "src/yolov7/detect.py:117 — prints '<n> horse(s)'; the oracle's regex '[0-9]+ horses?' cannot match an error message; :25,107,142 — annotated image saved to <project>/<name>/horses.jpg",
+    "src/yolov7/utils/torch_utils.py:63-86 — --device 0 asserts CUDA is available, so a CPU install fails",
+    "data/runs/yolov7/result.json — the first replay timed out on a download; the supplementary replay passes"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "oldphotos",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "Too lenient: run.py ignores every stage's exit code and copies the stage-1 images into final_output/ before the face stages run. A crash in face detection, face enhancement or blending still leaves one file per input, so v1's count check passed. This run's agent had to fix a stage-4 crash under modern scikit-image (repo_diff: Face_Detection/align_warp_back_multiple_dlib*.py), and v1 could not tell whether the fix worked.",
+    "v2 keeps the README command and the one-result-per-input check. It adds three checks: stage 2 detected faces, stage 3 enhanced each crop, and each final image with a face differs from its stage-1 copy (stage 4 blended it)."
+   ],
+   "evidence": [
+    "src/oldphotos/run.py:10-15 — run_cmd uses subprocess.call and discards the return code",
+    "src/oldphotos/run.py:97-104 — stage-1 results copied into final_output before stages 2-4",
+    "src/oldphotos/Face_Detection/detect_all_dlib.py:177-178 — crops saved as <stem>_<k>.png; Face_Enhancement/test_face.py:25 — enhanced faces in <results_dir>/each_img",
+    "src/oldphotos/Face_Detection/align_warp_back_multiple_dlib.py:378-380,400,431 — images with faces are rewritten into final_output/<x>; images without faces are skipped",
+    "src/oldphotos/test_images/old_w_scratch/a.png, c.png — frontal portraits, so a correct install should find at least one face",
+    "data/runs/oldphotos/result.json repo_diff — Face_Detection/align_warp_back_multiple_dlib.py and _HR.py patched; agent final: 'one-line dtype fix in the stage-4 blending code that modern scikit-image broke'"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "lama",
+   "kind": "tested",
+   "verdict": "fix_both",
+   "issues": [
+    "The goal asks for more than the repo does. It requires inpainting 'on CUDA', but bin/predict.py hard-codes `device = torch.device(\"cpu\")` on purpose (upstream 3bfa8c2, 2023-08-02, 'CPU seems quick enough') and ignores the config's device key. Meeting the goal forced a repo patch (bin/predict.py is in repo_diff), which cost the repo 10 points. The oracle's `device=cuda` override does nothing on the unpatched code.",
+    "Lenient: v1 checked only the output size. v2 inpaints a magenta block and requires it gone (inside the mask: mean |diff| > 40 and magenta share < 5 %) and the unmasked pixels kept (mean |diff| < 3).",
+    "The README path runs on CPU at this commit, so the repo belongs on the CPU track, not the GPU pilot."
+   ],
+   "evidence": [
+    "src/lama/bin/predict.py:44 — `device = torch.device(\"cpu\")`; `git show 3bfa8c2` changed it from torch.device(predict_config.device)",
+    "src/lama/configs/prediction/default.yaml — predict.py never reads `device: cuda` at this commit; docker/2_predict_with_gpu.sh passes no device, so the GPU docker path also runs on CPU",
+    "data/runs/lama/result.json repo_diff — bin/predict.py 1+/1- (plus configs/prediction/default.yaml), i.e. the agent re-enabled CUDA to meet the goal",
+    "src/lama/README.md:100-153 — Inference: TORCH_HOME/PYTHONPATH, big-lama download, `python3 bin/predict.py model.path=$(pwd)/big-lama indir=... outdir=...`; no GPU requirement",
+    "src/lama/saicinpainting/training/trainers/default.py:71 — inpainted = mask*pred + (1-mask)*image, so unmasked pixels are preserved",
+    "src/lama/bin/predict.py:67-72 — output file named after the mask file (probe_mask001.png)"
+   ],
+   "audit_check": null,
+   "new_exam": {
+    "demo": "README Inference: big-lama + bin/predict.py on image/mask pairs",
+    "goal": "Get the README Inference path working: the big-lama model downloaded into /work/lama/big-lama as the README shows, and `python3 bin/predict.py model.path=$(pwd)/big-lama indir=<dir> outdir=<dir>` (with TORCH_HOME and PYTHONPATH set as the README says) inpainting PNG image+mask pairs named like image.png / image_mask001.png.",
+    "check": "creates its own PNG image with an object to remove plus image_mask001.png, runs bin/predict.py with model.path=/work/lama/big-lama, and requires a same-size output in which the masked object is gone and the unmasked pixels are kept",
+    "server": false
+   },
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "groundingdino",
+   "kind": "tested",
+   "verdict": "fix_oracle",
+   "issues": [
+    "An assertion fails on a correct README install. v1's first line, `python -c \"from groundingdino import _C\"`, imports the extension before torch is loaded. groundingdino/__init__.py is empty at this commit, and the CUDAExtension that setup.py builds has no rpath to torch/lib, so the import fails with 'libc10.so: cannot open shared object file'. The package itself always imports torch first. The agent patched groundingdino/__init__.py (+1 patched file, -10 points) and ran patchelf on the .so only to satisfy this line.",
+    "Too lenient: demo/inference_on_a_image.py saves pred.jpg whether or not anything was detected, so a numerically broken CUDA kernel (the agent patched ms_deform_attn_cuda.cu) would still pass. v2 loads the demo's own functions and requires the GPU detections on cat_dog.jpeg to include both 'cat' and 'dog' with valid boxes."
+   ],
+   "evidence": [
+    "src/groundingdino/groundingdino/__init__.py — 0 bytes at 856dde2",
+    "src/groundingdino/groundingdino/models/GroundingDINO/ms_deform_attn.py:21-31 — `import torch` precedes `from groundingdino import _C` (try/except warn)",
+    "data/runs/groundingdino/deliverables/NOTES.md item 5 — '`import groundingdino._C` alone raised ImportError: libc10.so ... it only works if torch was imported first'; fixed by adding `import torch` to __init__.py and patchelf",
+    "data/runs/groundingdino/result.json repo_diff — groundingdino/__init__.py +1 line",
+    "src/groundingdino/demo/inference_on_a_image.py:205-214 — pred.jpg saved unconditionally; :84-146 get_grounding_output returns filtered boxes and phrases; :149 the __main__ guard allows importing its functions",
+    "src/groundingdino/groundingdino/models/GroundingDINO/ms_deform_attn.py:330 — the compiled _C path is used for CUDA tensors",
+    "src/groundingdino/README.md:121-127,198-205 — the _C warning and the GPU demo command; deliverables NOTES report cat/dog logits 0.82/0.57, above the 0.3 box threshold"
+   ],
+   "audit_check": null,
+   "new_exam": null,
+   "scope": "gpu-rtx5060 pilot"
+  },
+  {
+   "slug": "apple-game-center-tools",
+   "pass_genuine": true,
+   "pass_evidence": "oracle and replay traces identical (8 steps): '+ timeout 120 python3 scripts/genrulesinput.py' then '+ python3 - /tmp/oracle.EQWX/out.json' (asserts 3 requests, skills [1,50,20,30], secondsInQueue [20,10,0], requestName r1) then 'ORACLE PASS'",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Rev-2 goal no longer mentions the 'requests' module; agent discovered it alone (final: 'installed the requests package it imports but the README never mentions'). env.sh only activates a venv and adds scripts/ to PATH.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-research-harness2",
+   "pass_genuine": true,
+   "pass_evidence": "output: 'Local demo: 2 tasks completed; 0 failed. /tmp/oracle_demo_274/demo.json' then ORACLE PASS (replay identical); grep on that line plus demo.json asserts failed==0, done>=1, execution_count>0, editor_calls>0",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "10-27 run, oracle.txt has no bash -x trace, but oracle file unchanged since ceaa4b7 (before the run). 'harness2-demo | tee' has no pipefail, but the following grep + demo.json asserts catch any failure. Goal (uv venv 3.12, .[render], no credentials) is README.md:83-94.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "awslabs-aws-support-tools",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (28 steps), all 5 stdin runs executed and every grep ran: '> Maximum available IOPS for your volume are 4000' / 'throughput is 250 MiB/s', gp3 defaults '3000' / '125 MiB/s', io2 'throughput is 2500.00 MiB/s', io1 'throughput is 500 MiB/s', st1 'burst balance is 244.14 MiB/s ... will be 39.06 MiB/s' (bc-computed)",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "'needs the bc package installed' is the README's own install step (Readme.md), not a leak. env.sh only adds the script dir to PATH.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-skillopt",
+   "pass_genuine": true,
+   "pass_evidence": "output 'checked 0.3333 -> 1.0' then ORACLE PASS (replay identical); before it, grep for 'PASS: nightly consolidation improves held-out score AND gate blocks regressions' in the --assert-improves run, and JSON asserts backend=='mock', after_holdout>baseline_holdout, improved and gate_blocks_harmful True",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "10-27 run (no -x trace); oracle unchanged since ceaa4b7. Command is docs/sleep/README.md:437, --json documented at :35.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-research-timesfm",
+   "pass_genuine": true,
+   "pass_evidence": "output 'S1 (12,) (12, 9)', 'S2 (12,) (12, 9)', 'MV (3, 24) (3, 24, 9)', 'SCRIPT OK', ORACLE PASS in both oracle and replay; script asserts finiteness and ramp forecast mean>0.5; real checkpoint downloaded ('unauthenticated requests to the HF Hub')",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "10-27 run (no -x trace); oracle unchanged since ceaa4b7. 'python | tee' without pipefail is covered by grep 'SCRIPT OK', printed only after all asserts. device='cpu' is the README example with the device swapped, not a fix.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "nvidia-skillspector",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (21 steps): 'rc malicious=1 safe=0 markdown=1', '+ python3 -I - /tmp/oracle.sdrpmr 1' -> 'malicious issues 7 score 100 DO_NOT_INSTALL | safe issues 0 score 0', 'json ok', both markdown greps ran, ORACLE PASS",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "set +e around the scans is deliberate and every rc is checked against the README exit-code contract (0/1 ok, 2 error; safe must be 0; score>50 iff rc 1). Run started 18:33 UTC, after a96abff (18:29 UTC) fixed 'tail -5'.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "nvidia-warp",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (14 steps, set -o pipefail): 'Saved the USD stage file at /tmp/oracle_jlGX/mesh.usd', 'prims 6 end 20.0', 'mean y first/last 20.041 19.483' (particles fell), kernel file compiled: \"Module __main__ 61e69b9 load on device 'cpu' took 1600.65 ms  (compiled)\", 'kernel ok', ORACLE PASS",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Example runs from a fresh cwd so the installed package (not the source tree) is exercised. env.sh just activates /work/venv.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "awslabs-gluonts",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (9 steps): DeepAR trained ('`Trainer.fit` stopped: `max_epochs=2` reached.'), no 'freq ... failed' line, 'forecasts ok (100, 12)', '+ test -s .../forecast.png', ORACLE PASS",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Uses a synthetic monthly series in place of the README's airpassengers download (oracle-controlled input, same flow). Headless backend in the goal is a sandbox concession. env.sh sets venv PATH + MPLBACKEND=Agg only.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "apple-coremltools",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (9 steps): \"ops {'const', 'cast', 'linear', 'conv', 'relu', 'reduce_mean', 'reshape'}\", 'CONVERT OK', ORACLE PASS (replay: same op set); sklearn converter ran and saved lr.mlmodel before CONVERT OK",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "'Failed to load _MLModelProxy: No module named coremltools.libcoremlpython' lines are the expected Linux warnings (prediction is macOS only, not required). Rev-2 goal dropped the version-trap hint; agent found the torch/sklearn caps itself (setup.sh comment cites _TORCH_MAX_VERSION).",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "apple-coreai-torch",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (9 steps): 'coreai-torch 0.4.3: converting 1 program(s) to Core AI', \"ODIE [default]: Loading function 'main'\", 'shapes (3, 5) (3, 5)', 'MATCH' (allclose atol 1e-4 vs PyTorch), ORACLE PASS",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Goal's 'coreai-core==1.0.0b3' and 'Python >=3.11' come from the repo's pyproject.toml (requires-python, dependencies), which README's `uv sync` resolves anyway; not a fix.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-promptflow",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (15 steps): pf flow test printed '\"answer\": \"Prompt flow is a suite of development tools ...\"'; batch 'rows ok 3', ORACLE PASS. But show-details shows every batch row ran with 'inputs.question | What is Prompt flow?' although the oracle's data.jsonl had 'Tell me about cats' and 'Hello there'",
+   "patches": [],
+   "goal_leak": null,
+   "action": "fix_oracle",
+   "notes": "Pass is real (pf CLI ran single and batch). Oracle weakness: it omits the README's --column-mapping question='${data.question}' (flow README.md:45), so the batch silently used the flow default input (flow.dag.yaml:4) and the answer check (either of two fixed strings; content_safety_check is random.choice) cannot tell. oracles_v2 uses the README command, questions distinct from the default, and requires each 'not familiar' answer to echo its own row's question. Expected to still pass; rerun under v2.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-adk-recipes",
+   "pass_genuine": true,
+   "pass_evidence": "output 'server ready (pid 267)' (run.sh polls /list-apps for expense_agent), 'trigger response: {\"status\":\"success\"}', ORACLE PASS; oracle asserts list-apps 200 contains expense_agent and pubsub POST 200 with status success",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "10-27 run (no -x trace); oracle unchanged since ceaa4b7. MODEL_NAME=gemini-3.5-flash is in the README-linked .env.example; README wants a real key, and the dummy key is a sandbox concession for the documented under-$100 path (README 'Tip: change amount to 45'), which the oracle sets itself. run.sh starts the real expense_agent/fast_api_app.py, no stubs.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "aws-serverless-applicati-760d5",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (13 steps): '+ timeout 600 python bin/sam-translate.py translate --template-file=... --output-template=.../out.json' -> 'Wrote transformed CloudFormation template to:', \"checked ['MyFunction', 'MyFunctionRole']\" after asserts on AWS::Lambda::Function, Handler index.handler, ZipFile contains console.log(event), AWS::IAM::Role",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Rev-2 goal dropped the dummy-credentials hint (oracle sets them itself). env.sh sets a default region; harmless, the oracle exports its own.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "aws-aws-sam-cli",
+   "pass_genuine": true,
+   "pass_evidence": "traces identical (23 steps): 'SAM CLI, version 1.172.1', '+ timeout 600 sam init --no-interactive --name myapp --runtime python3.12 --dependency-manager pip --app-template hello-world --package-type Zip ...', '+ timeout 900 sam build', \"+ grep -q 'def lambda_handler' .aws-sam/build/HelloWorldFunction/app.py\", ORACLE PASS",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Goal does not mention --dependency-manager (only the v2 oracle has it). env.sh activates the repo venv and disables telemetry only.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "amazon-science-chronos-f-714a0",
+   "pass_genuine": true,
+   "pass_evidence": "v2 oracle ran both halves; stdout: 'univariate   id timestamp ... 0.1 0.5 0.9' and 'covariates ...' heads, then 'ORACLE PASS'; trace '+ timeout 1800 python -' -> '+ test -s .../pred.csv' -> '+ test -s .../pred_cov.csv' -> '+ echo ORACLE PASS'; replay identical.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Univariate and future_df covariate predict_df on synthetic series; asserts shape, quantile order, finite values, level range and future timestamps. env.sh only sets venv/HF_HOME. 'pandas with pyarrow' in goal is stated in README ('requires: pip install pandas[pyarrow]').",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-pyright",
+   "pass_genuine": true,
+   "pass_evidence": "stdout (both runs): 'rc bad=1 good=0', '0 errors, 0 warnings, 0 informations', 'pyright 1.1.414', \"3 {'filesAnalyzed': 1, 'errorCount': 3, ...}\", 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "10-27 log has no bash -x trace (stdout only), but the oracle is straight-line under set -e and every check's output is printed: built CLI found errors on lines 1,3,4 of bad.py, clean file 0 errors, JSON output parsed. set +e only wraps the CLI calls whose rc is then asserted (1 and 0). Goal's pnpm run install:all / pnpm run build are verbatim from docs/build-debug.md. env.sh only adds node to PATH and CI=true.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "paddlepaddle-parl",
+   "pass_genuine": true,
+   "pass_evidence": "stdout: 'test rewards: [8.8, 96.0, 168.0, 256.0, 238.0, 375.2, 300.0, 491.2, 388.0, 300.0]' / 'ORACLE PASS'; trace '+ timeout 3000 python train.py --max_episodes 1000' -> '+ test -s .../model.ckpt' -> \"+ grep -q 'Test reward' log.txt\" -> '+ python - .../log.txt' -> '+ echo ORACLE PASS'; replay same.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Real QuickStart training in a fresh copy with model.ckpt removed first; learning asserted (max reward >= 100). Goal deps (paddlepaddle, gym, pygame, parl) are the QuickStart README's dependency list.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "nvlabs-gr00t-wholebodycontrol",
+   "pass_genuine": true,
+   "pass_evidence": "Both scripts ran: '+ timeout 1500 python scripts/train_vqvae.py --max_steps 20 ...' and '+ timeout 1500 python scripts/train_root.py ...', each followed by the banner/feature-dim/'max_steps=20. reached'/'^Training complete\\.$' greps; stdout shows '`Trainer.fit` stopped: `max_steps=20` reached.' and 'Training complete.' twice, then 'ORACLE PASS'; replay identical.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Traceback check is an if-grep (correctly not killed by set -e; grep found nothing). env.sh: venv, CUDA_VISIBLE_DEVICES='', cd motionbricks. Goal's --max_steps/--batch_size/--num_samples are scaling choices; the synthetic-data and out/ config facts are in motionbricks/README.md Training.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-deepmind-sonnet",
+   "pass_genuine": true,
+   "pass_evidence": "stdout (ORACLE PASS is line 9 of oracle.txt, before the TF stderr lines): '2.0.3.dev', 'README API OK', '[Epoch 0] ... test acc: 97.54%' ... '[Epoch 4] train loss: 0.05024, test acc: 98.41% (159 wrong)', 'final acc 98.41', 'ORACLE PASS'; replay 'final acc 98.52' / 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": "Minor: goal names tensorflow-datasets, which README.md Installation (pip install tensorflow tensorflow-probability; pip install dm-sonnet) and examples/README.md do not list; examples/simple_mnist.py:22 imports it, so the ImportError names the fix anyway. Does not affect pass or score (no repo patch).",
+   "action": "ok",
+   "notes": "Last line of oracle.txt is TF stderr (cuInit warning) because stdout is written first; PASS is genuine. 10-27 log has no -x trace, but all checks are straight-line and their outputs are printed. Same class of hint as the 'requests' leak the fairness review removed from apple-game-center-tools; consider dropping 'tensorflow-datasets' from the goal on the next exam revision.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "aws-aws-cli",
+   "pass_genuine": true,
+   "pass_evidence": "stdout: 'aws-cli/2.40.3 Python/3.12.3 Linux/7.0.0-1017-azure source/x86_64.ubuntu.24', 'service call ok', 'ORACLE PASS' (last line of file is the '+ kill 297' trap trace); trace shows every step incl. '+ timeout 120 aws dynamodb list-tables --endpoint-url http://127.0.0.1:32833 --output json', the --query call and '+ python3 -I - .../list.json .../q.txt .../requests.log'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "aws --version | tee has no pipefail, but the following greps on ver.txt (aws-cli/2., source) cover it. Stub asserts SigV4 credential scope and X-Amz-Target, parsed JSON and --query output. env.sh only activates the venv.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "paddlepaddle-paddlex",
+   "pass_genuine": true,
+   "pass_evidence": "v2 (pipefail) ran: saved files 'in_ocr_res_img.png' (39844 B), 'in_res.json'; 'TEXT: HELLOPADDLEXOCRREPRODUCIBLE2024' / 'ORACLE PASS'; replay identical.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Recognized text read from saved JSON, both generated lines required. env.sh sets PADDLE_PDX_ENABLE_MKLDNN_BYDEFAULT=0 (oneDNN fails on PP-OCRv6 with paddle 3.3.0 CPU) and PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK; config env vars, not a fake and not a repo patch. Goal's 'OCR extras' vs README's paddlex[base] is not a material hint (setup used paddlex[ocr]).",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "openai-gpt-oss",
+   "pass_genuine": true,
+   "pass_evidence": "stdout: 'Ollama server ready with gpt-oss:20b', 'content: 4', 'reasoning: The user asks: \"What is 2+2? Reply with just the number.\" So answer: 4.', 'ORACLE PASS'; replay same.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "setup.sh:15 'ollama pull gpt-oss:20b' (replay_setup.log shows the pull 'success'); no ollama create/cp aliasing. HTTP 200, model name, answer 4 and printable-text asserts. env.sh only PATH/OLLAMA_* vars.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "modelscope-ms-swift",
+   "pass_genuine": true,
+   "pass_evidence": "train log: 'Saving model checkpoint to /tmp/oracle.WtfpL5/out/v0-20261027-025141/checkpoint-8', \"'global_step/max_steps': '8/8'\"; infer: 'The inference results have been saved to result_path: `/tmp/oracle.WtfpL5/res.jsonl`', \"[{'response': 'I am an artificial intelligence ...\" then 'ORACLE PASS'; replay identical (checkpoint-8, 2 responses).",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "swift sft/infer are piped to tee without pipefail, but the checkpoint is searched in a fresh mktemp output dir and adapter size/res.jsonl rows are asserted, so a failed run cannot pass. Smaller model / float32 / few steps in the goal are CPU scaling choices, not repo fixes.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "paddlepaddle-paddleocr",
+   "pass_genuine": true,
+   "pass_evidence": "trace '+ timeout 1500 paddleocr ocr -i .../in.png --save_path .../res --use_doc_orientation_classify False ...' -> '+ J=.../res/in_res.json' -> '+ python - .../in_res.json' -> '+ ls .../in_ocr_res_img.png'; stdout 'TEXT: HELLOPADDLEOCRREPRODUCIBILITYTEST2024' / 'ORACLE PASS'; replay identical.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "CLI failure is caught (|| { cat; exit 1; }), recognized text asserted from the saved JSON. env.sh: venv + PADDLE_PDX_DISABLE_MODEL_SOURCE_CHECK. Goal flags are from docs/quick_start.en.md:57-61; the v5-model misstatement was removed in rev 2.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "modelscope-diffsynth-studio",
+   "pass_genuine": true,
+   "pass_evidence": "stdout: model loads for text_encoder/unet/vae, 'ok 60.43015849063203', 'ORACLE PASS' (oracle.txt ends with tqdm stderr '15/15 [02:11<00:00, 8.77s/it]'); replay: 15/15 steps, PASS.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Real SD1.5 run (15 denoising steps, ~8.8 s/it on CPU). Weakness, not a false pass here: the only content check is 512x512 and pixel std > 15, so a pipeline emitting structured noise would also pass; the oracle builds its own run.py rather than running the example file (so agent edits to the example could not help). Goal's 'change rand_device/device to cpu' is the sandbox's no-GPU adaptation, not a repo-defect fix.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "bytedance-protenix",
+   "pass_genuine": true,
+   "pass_evidence": "v2 (pipefail) ran with documented '--trimul_kernel torch --triatt_kernel torch'; log 'Loading from /root/checkpoint/protenix_base_default_v1.0.0.pt, strict: True', 'N_token 76, N_atom 602'; stdout 'atom rows: 602', 'CA atoms: 76', 'consecutive CA-CA distances: min 3.66 max 3.84, 75/75 in [3.0,4.5]', 'plddt: 75.86 ptm: 0.72', 'ORACLE PASS'; replay identical.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "env.sh sets LAYERNORM_TYPE=torch (repo's own switch for the non-CUDA layernorm) and PROTENIX_ROOT_DIR; neither fakes output. No repo diff in this run. Kernel flags in the goal are documented (inference_demo.sh, docs/training_inference_instructions.md per rev 2 evidence).",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-adk-python",
+   "pass_genuine": true,
+   "pass_evidence": "both runs: \"+ timeout 600 adk run --in_memory --jsonl contributing/samples/workflows/fan_out_fan_in 'Hello World'\" -> aggregate event text 'Uppercase: HELLO WORLD\\n\\nCharacter Count: 11\\n\\nReversed: dlroW olleH'; state run -> '\"output\": \"Final Result: HELLO ADK (Original was: hello adk)!\"'; 'events 5 4', 'ORACLE PASS'. Every step traced; the failure branches ('|| { cat ...err; exit 1; }') are not taken.",
+   "patches": [
+    {
+     "path": "src/google/adk/cli/cli.py",
+     "needed": false,
+     "why": "Cosmetic: the patch makes text-mode `adk run` also print a workflow's final value-only `output`. The workflow runs correctly without it, the documented `--jsonl` option shows the result, and the oracle uses --jsonl, so the pass doesn't depend on the patch. It is a real UX gap (the state sample prints nothing in text mode), but it doesn't stop the README demo from working.",
+     "evidence": "adk-python@287c0b0 src/google/adk/cli/cli.py:585-597: human-readable mode echoes only `text_parts` or long_running_tool_ids; contributing/samples/workflows/state/agent.py: read_state_via_param returns a plain string. NOTES.md: 'runs correctly, but in the default human-readable mode it prints nothing ... With `--jsonl` the result shows up'."
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "Drop the cli.py patch from the score (-10). The agent's own notes say the sample already worked and the patch only adds console output.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-clusterfuzz",
+   "pass_genuine": true,
+   "pass_evidence": "stdout: 'ClusterFuzz server is ready at http://localhost:9000', 'http / 200', \"fuzzers: ['afl', 'centipede', 'googlefuzztest', 'honggfuzz', 'libFuzzer']\", 'ORACLE PASS'; trace \"+ '[' 1221885 -gt 500 ']'\", '+ python3 .../check.py .../fuzzers.html', '+ ok=1'; replay same.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "The '|| true' only guards curl inside the 60x retry loop; the outcome is enforced by '[ \"$ok\" = 1 ]'. Bootstrap datastore seeding verified via the base64 JSON payload on /fuzzers. run.sh uses butler's --skip-install-deps (deps installed in setup.sh) and stubs nothing. repo_diff empty this run (v1's login.py patch is gone).",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "paddlepaddle-paddleclas",
+   "pass_genuine": true,
+   "pass_evidence": "\"ppcls INFO: class_ids: [8, 7, 86, 82, 80], scores: [0.97968, 0.02028, ...], label_names: ['hen', 'cock', ...]\", 'Predict complete!', then the Python API printed the same list and 'ORACLE PASS'. The trace runs \"+ grep -q 'class_ids: \\[8, 7'\", '+ grep -q hen', \"+ grep -q 'Predict complete'\" and '+ timeout 1500 python -' in both oracle and replay.",
+   "patches": [
+    {
+     "path": "__init__.py",
+     "needed": true,
+     "why": "Real packaging defect. setup.py installs the repo root as package `paddleclas`, but ppcls code uses absolute `from ppcls...` imports, so the documented `pip install -v -e .` followed by `paddleclas ...` dies with ModuleNotFoundError before predicting. A human following whl_deploy_en.md hits the same thing.",
+     "evidence": "PaddleClas@202ac79 setup.py: packages=['paddleclas'], package_dir={'paddleclas': ''}; ppcls/optimizer/__init__.py:24 'from ppcls.engine.train.utils import type_name'. Agent cmd 7 traceback: 'File \"/work/PaddleClas/ppcls/optimizer/__init__.py\", line 24 ... ModuleNotFoundError: No module named 'ppcls''."
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "The other fixes (py3.11, paddlepaddle==2.6.2 because Paddle 3.x looks for inference.json, libgl1, setuptools, PYTHONSAFEPATH) are environment fixes and aren't counted. The env.sh PYTHONSAFEPATH only stops the repo-root paddleclas.py shadowing the package; it doesn't fake anything.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-qlib",
+   "pass_genuine": true,
+   "pass_evidence": "10-27 log, stdout only (no -x trace; the oracle file is unchanged since ceaa4b7, which predates the run): full backtest tables \"'The following are analysis results of the excess return with cost(1day).' ... information_ratio 0.914486\", 'IC mean 0.04680587323833807 n 871', 'report rows 871', 'ORACLE PASS'. The replay prints the same numbers.",
+   "patches": [
+    {
+     "path": "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml",
+     "needed": false,
+     "why": "The only change is `num_threads: 20` -> `4`, which the goal explicitly allows ('num_threads may be lowered for 4 CPUs'). It is tuning for our 4-vCPU sandbox, not a repo defect, and the oracle applies the same sed to its own copy anyway.",
+     "evidence": "setup.sh: \"sed -i 's/num_threads: 20/num_threads: 4/' examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml\"; NOTES.md: 'I made no code patches'; oracles/microsoft-qlib.sh:8 does the same sed into $OUT/cfg.yaml."
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "A sandbox-sanctioned config tweak costs qlib 10 points. Either exclude this path from patched() or have the agent override threads outside the tracked file.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "nvidia-garak",
+   "pass_genuine": true,
+   "pass_evidence": "'repeat attempts 16 dan attempts 2 gpt2 non-empty outputs 16', 'ORACLE PASS'. Both traces run all four garak invocations ('--list_probes', '-t test.Repeat -p test.Test -d always.Pass', '--target_type huggingface --target_name gpt2 --spec probes.dan.Dan_11_0', '... gpt2 -p test.Test ... --generations 1') and the python -I report check.",
+   "patches": [
+    {
+     "path": "garak/generators/huggingface.py",
+     "needed": true,
+     "why": "Real defect in the README's own example. The DAN 11.0 prompt is 1057 gpt2 tokens against a 1024 context, and the Pipeline generator passes no max_new_tokens or long-prompt handling, so generation throws 'index out of range in self'. garak logs it and records None outputs, and the README run 'See if the Hugging Face version of GPT2 is vulnerable to DAN 11.0' ends with 'dan.DAN: SKIP ok on 0/0' and answers nothing.",
+     "evidence": "garak@8927792 README.md:112-115; generators/huggingface.py Pipeline._call_model 'raw_output = self.generator(formatted_prompt)'. Agent cmd 6 (unpatched): 'dan.DAN: SKIP  ok on    0/   0', 'mitigation.MitigationBypass: SKIP'; cmd 7 log: 'ERROR  index out of range in self'; cmd 10: '(1057 > 1024)'."
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "The penalty is fair. The oracle doesn't actually require the patch: it asserts that a dan.DAN eval entry exists, and evaluators/base.py writes that entry even when every score is None. The gpt2 text check runs on short test.Test prompts, which work unpatched. So an unpatched install would also pass; consider asserting total_evaluated>0 on the DAN eval entry.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "tencent-hunyuan-hunyuanocr",
+   "pass_genuine": true,
+   "pass_evidence": "replay stdout: 'server ready (pid 1903)', 'RESPONSE (first 800 chars): ring, and Jacobson semisimple, by Corollary 8.35(ii)]...', \"matched ['jacobson', 'semisimple', 'corollary', 'composition series', 'maschke']\", 'ORACLE PASS'; original run identical (server 'already running' from the agent session).",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Bundled page llama_cpp/test_assets/ocr/0.png with the official doc_parse prompt, stdlib client. Replay built llama.cpp, ran hf download --exclude v1.0/* and converted both GGUFs ('Model successfully exported to .../mmproj-hyocr-f16.gguf', SETUP_OK) before the server started. Goal's 'excluding v1.0/*' and the 4.1 flags are verbatim from docs/llama_cpp.md:54,100-101; DFlash is documented as optional.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-unilm",
+   "pass_genuine": true,
+   "pass_evidence": "\"Scores: {'cos_sim': {'pearson': 0.8411566317802608, 'spearman': 0.7620976970653133}, ...\", 'STS12 spearman 0.7620976970653133', 'ORACLE PASS'. The trace shows '+ timeout 3000 python -u mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir /tmp/e5out.yGmw7M', then '+ python - /tmp/e5out...', in both runs (3108 x 2 real sentences encoded, ~60 s).",
+   "patches": [
+    {
+     "path": "e5/mteb_except_retrieval_eval.py",
+     "needed": false,
+     "why": "This is a CPU fallback for our GPU-less sandbox, not a repo defect. The script is written for GPUs (fp16 load, encoder.cuda(), batch_size = 64 * gpu_count, torch.cuda.amp.autocast), and the e5 README describes GPU evaluation ('run the following command on GPU machines', 'will use all the available GPUs'). On the documented hardware the command works unmodified.",
+     "evidence": "unilm@31c5b90 e5/mteb_except_retrieval_eval.py:42 torch_dtype=torch.float16, :46 gpu_count = torch.cuda.device_count(), :49 self.encoder.cuda(), :68 batch_size = 64 * self.gpu_count, :75 torch.cuda.amp.autocast(); e5/README.md:55,62-63."
+    },
+    {
+     "path": "e5/utils.py",
+     "needed": false,
+     "why": "Same CPU fallback: move_to_cuda becomes a no-op without CUDA.",
+     "evidence": "unilm@31c5b90 e5/utils.py:24-30 move_to_cuda calls .cuda(non_blocking=True) unconditionally."
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "Both counted files are sandbox workarounds, so unilm loses 20 points for lacking a CPU path the README never promises. The fairness review's own revision block says this demo 'arguably should have been excluded' under the CUDA-only rule. Recommend excluding it, or at least not scoring these two files. The current goal says only 'CPU-only machine', which is an environment fact, not a fix.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "bytedance-sa2va",
+   "pass_genuine": true,
+   "pass_evidence": "'The output is:\\nSure, [SEG].<|im_end|>', '000.jpg changed fraction 0.076' ... '003.jpg changed fraction 0.085', 'ORACLE PASS'. Both traces run frame extraction, demo.py, \"+ grep -q 'The output is:'\", \"+ grep -q '\\[SEG\\]'\", 'N=4' and the v2 mask-diff check. The demo's `| tee` has no pipefail, but the greps, overlay count and mask check would all fail if demo.py had crashed.",
+   "patches": [
+    {
+     "path": "projects/sa2va/demo/demo.py",
+     "needed": true,
+     "why": "Mixed patch, but the file is needed. demo.py always calls predict_forward(..., processor=processor), and every InternVL-based Sa2VA checkpoint, including the README's own ByteDance/Sa2VA-8B, has predict_forward without a `processor` parameter. So the README Quick Start command raises TypeError on any hardware. The other ~30 lines (flash-attn off, Tensor.cuda no-op, bf16 cast, SAM2 cpu device/autocast, inference_mode for RAM) are CPU-sandbox workarounds, but the file would count as patched either way.",
+     "evidence": "Sa2VA@c2c28a6 projects/sa2va/demo/demo.py: processor=None for non-qwen models, then predict_forward(..., processor=processor) on both branches; huggingface.co/ByteDance/Sa2VA-8B and Sa2VA-1B modeling_sa2va_chat.py:584-592 \"def predict_forward(self, image=None, video=None, text=None, past_text='', mask_prompts=None, tokenizer=None)\"; agent cmd 9: \"TypeError: Sa2VAChatModel.predict_forward() got an unexpected keyword argument 'processor'\"."
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "The file penalty is fair. The agent's minutes include a lot of CPU-fallback work, which is a sandbox cost. That's an existing property of the time term, not something this check changes.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "modelscope-funclip",
+   "pass_genuine": true,
+   "pass_evidence": "curl got 36077615 bytes; stage 1 wrote total.srt with the transcript '呃，尊敬的刘书记...'; 'dest_text: 并且我们在过去五年当中结识的各位的伙伴们啊'; stage 2 'Clipping Log: 1 periods found in the audio: from 93.05 to 97.00999999999999', 'Save clipped mp4 file to .../res.mp4'; 'clip duration 4.0 full 178.5', 'ORACLE PASS'. The replay is identical, and every step is traced.",
+   "patches": [
+    {
+     "path": "funclip/videoclipper.py",
+     "needed": true,
+     "why": "Real defect. In `--stage 2`, runner() builds VideoClipper(None) and never sets `.lang` (only stage 1 does), and video_clip() reads self.lang as soon as a matching period is found. So any successful stage-2 CLI clip crashes with AttributeError. The second hunk (move the clip to --output_file instead of <name>_no0.mp4) isn't needed, because the oracle accepts either name, but the file counts once.",
+     "evidence": "FunClip@cdcb53f funclip/videoclipper.py:124-127 __init__ sets no lang; :504/:512 lang set only under `if stage == 1`; :527-528 `if stage == 2: audio_clipper = VideoClipper(None)`; :344 `if self.lang == 'en' and isinstance(sentences, str)` inside video_clip."
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "The penalty is fair. The README's literal --dest_text isn't spoken in the example video, and the revised oracle works around that by picking a sentence from total.srt.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "ml-explore-mlx-lm",
+   "pass_genuine": true,
+   "pass_evidence": "'==========\\nMt. Everest is approximately 8,848 meters (29,029 feet) tall.\\n==========', 'Generation: 19 tokens, 0.335 tokens-per-sec', 'CLI TEXT: Mt. Everest ...', 'OUT: Mt. Everest is approximately 8,848 meters (29,029 feet) tall.', 'ORACLE PASS'. Both traces run '+ timeout 2100 mlx_lm.generate ...', '+ grep -q Generation:', the python check and '+ timeout 1200 python .../api.py'. The run is cd'd into a fresh /tmp dir, so the installed package is what gets imported.",
+   "patches": [
+    {
+     "path": "mlx_lm/utils.py",
+     "needed": false,
+     "why": "Performance workaround for our Linux-CPU sandbox, not an mlx-lm defect. The README targets Apple silicon ('models on Apple silicon with MLX'), and the slowness is in the mlx core CPU backend: 4-bit quantized matmul with bf16 scales is ~8x slower than fp32 in a microbenchmark and makes one forward pass take minutes. The patch upcasts the model to fp32 when the default device is CPU. Without it the unpatched CLI was still running after 20 min, so the oracle's budget would fail, but on the README's platform nothing needs changing.",
+     "evidence": "mlx-lm@56230fa README.md:4; pyproject.toml:25 \"mlx>=0.32.3; platform_system == 'Darwin'\", :47 cpu = [\"mlx[cpu]>=0.32.3\"]; agent cmd 14: 'q 4 0.0273...' (fp32) vs 'q4 bf16 0.2189...'; cmd 13 per-layer 'mlp 13.2' s; cmd 5: unpatched mlx_lm.generate at 20:04 CPU-minutes still running."
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "The penalty is for a CPU-speed workaround on a platform the README doesn't target. Eligibility is also doubtful: the unpatched README path can't finish inside ORACLE_SEC on 4 vCPU. Recommend not counting this file, or excluding the exam as not CPU-feasible as documented.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "awslabs-amazon-redshift-utils",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 300 python3 ./manifestgen.py --prefix=/tmp/oracle.dkgJOg/OUTFILE --num=4 --csv --input-file=...'; stderr 'Generating batch 3, 25 entries'; python check printed 'manifests ok [26, 25, 25, 25]' (exact split, 101 unique URLs with exact sizes asserted); '+ echo 'ORACLE PASS''. Replay identical.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "repo_diff lists src/ManifestGenerator/manifestgen.py with 0/0 lines (mode-only chmod +x), not scored by leaderboard.patched(). Oracle runs via python3 so it does not depend on the chmod.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-yapf",
+   "pass_genuine": true,
+   "pass_evidence": "Run predates bash -x tracing (Oct 27); output 'yapf 0.43.0' then 'ORACLE PASS' under set -e. Script asserts exact formatted lines (grep -q \"^x = {'a': 37, 'b': 42, 'c': 927}$\", '^def f(a, b):$'), --diff rc != 0 with '^+def f(a, b):', -i result == stdout result, second --diff exits 0, --style google output.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Only `|| rc=$?` captures the expected non-zero --diff exit, then asserts it; nothing swallowed.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-research-arxiv-la-b23d9",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 600 python -m arxiv_latex_cleaner /tmp/oracle.7AtZ8N/paper --resize_images --im_size 100 ...'; tests for removed main.aux/im_not_included.png/figure_not_included.tex/main.bib all executed; '+ grep -q 'Whole line comment'' (if-branch not taken = comments stripped); PIL printed 'images/im1_included.png (75, 100)' 'images/im2_included.jpg (50, 10)'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "The 'unmatched \\iffalse' warning comes from the repo's own test_data and is expected.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-agents-cli",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 1500 agents-cli create caveman-agent -y --skip-checks -o /tmp/oracle.DG3B5P'; '+ P=/tmp/oracle.DG3B5P/caveman-agent'; test -s pyproject.toml / app/agent.py, grep root_agent, grep -qi caveman, ast.parse of agent.py all ran; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "`agents-cli info || true` is informational only, not an assertion; the scaffold checks carry the verdict.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-agent-framework",
+   "pass_genuine": true,
+   "pass_evidence": "output: \"['DLROW OLLEH']\", \"['!!!DLROW OLLEH']\", two 'Final state: WorkflowRunState.IDLE' ('+ [ 2 -ge 2 ]'); oracle-controlled input via custom.py printed \"RESULT ['KROWEMARF TNEGA']\"; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-autogen",
+   "pass_genuine": true,
+   "pass_evidence": "core quickstart output '10 passed the check, continue.' ... 'Modified 2 to 1' ... '1 failed the check, stopping.'; '+ [ 9 = 9 ]' (9 Modified lines); hello_replay printed TextMessage source='assistant' content='Hello World!' and 'HELLO_OK'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Goal names ReplayChatCompletionClient and the asyncio.run wrapper; these define the test input (the oracle writes the scripts itself), not a fix to the repo.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "apple-app-store-server-l-eeba5",
+   "pass_genuine": true,
+   "pass_evidence": "output 'signature ok' (signature verified with the public key), 'notification decoded NotificationTypeV2.TEST', 'transaction decoded' (after a wrong bundle id was rejected with INVALID_APP_IDENTIFIER), 'receipt ok'; each grep -q ran; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "`python t.py | tee` has no pipefail, but each sentinel line is printed only after its assertions, so a failure cannot reach all four greps.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "openai-whisper",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 1800 whisper tests/jfk.flac --model tiny.en --device cpu --fp16 False --output_dir /tmp/oracle.2VUFMy --output_format all'; '[00:00.000 --> 00:08.000]  And so, my fellow Americans ask not what your country can do for you'; json assert on 'ask not what your country can do for you'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-markitdown",
+   "pass_genuine": true,
+   "pass_evidence": "Run predates tracing (Oct 27); 'ORACLE PASS' under set -e. Script greps UUIDs embedded in the bundled test files (314b0a30-... docx, 6ff4173b-... xlsx, 2cdda5c8-... pptx) and a PDF sentence, which only real conversion produces.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Line 8 `stdin -x .pptx || markitdown file -o` falls back between two documented README modes; both write pptx.md, which is then content-checked.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "aws-chalice",
+   "pass_genuine": true,
+   "pass_evidence": "trace: run.sh server '+ code=200' and {'hello':'world'}; oracle's own project '+ timeout 120 chalice new-project demoapp', 'chalice local --port 8765' served GET /, /hello/oracle, POST /users; '+ nf=403' '[ 403 != 200 ]'; python printed 'chalice local ok'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "nvidia-model-optimizer",
+   "pass_genuine": true,
+   "pass_evidence": "output 'Inserted 56 quantizers', 'max diff 0.013964295387268066 quantizers 56', print_quant_summary shows calibrated amax (e.g. q_proj.input_quantizer amax=3.84e+00), 'QUANT_OK'; '+ grep -q QUANT_OK'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "openai-tiktoken",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ cd /tmp/oracle.wEgjAe' (outside source tree), '+ timeout 900 python -' printed 'ok' after exact-id asserts (o200k 'hello world' == [24912, 2375], gpt2 [31373, 995], cl100k [15339, 1917], special-token rejection, batch encode); 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Revised goal no longer mentions Rust; building from the clone needs Rust, which the agent installed (env.sh RUSTUP_HOME) without repo changes.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "awslabs-mcp",
+   "pass_genuine": true,
+   "pass_evidence": "tools: {'search_documentation', 'read_documentation', ...}; read_documentation returned '# What is AWS Lambda?' body (asserts not isError, body > 1000 chars, >=5 'lambda' in body); HTTP 'GET https://docs.aws.amazon.com/lambda/... 200 OK'; search returned 'https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-lambda-url.html', ...; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "tencent-medicalnet",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 1800 python train.py --ci_test', '+ grep -q 'Finished training'', loss regex printed \"losses: ['2.848']\" (finite); 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "This (revised-goal) run made no repo code changes: pinned nibabel 4.0.2 / numpy 1.26 / scipy 1.13 instead of patching get_data.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-langextract",
+   "pass_genuine": true,
+   "pass_evidence": "output 'ollama ready'; \"EXTRACTIONS: [('character', 'Lady Juliet'), ('emotion', 'gazed longingly'), ('relationship', 'Romeo')]\" (asserts grounded char_interval and text in source); saved/loaded extraction_results.jsonl; visualization.html > 500 B; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "apple-coreai-optimization",
+   "pass_genuine": true,
+   "pass_evidence": "output 'finalized type: GraphModule', 'prepared max abs err vs float: 0.00183887779712677', 'finalized max abs err vs float: 0.00183887779712677' (asserted 0 < err < 0.05), 'QUANT_OK (1, 10)'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "tencent-ai-infra-guard",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ CMD=aig-infra-scan', '+ timeout 600 aig-infra-scan -t http://127.0.0.1:18434 --lang en --json -o .../result.json'; log 'Loading fingerprints:165', 'Loading vulnerability database, count:2737'; parsed JSON printed \"fingerprints: [{'name': 'ollama', 'version': '0.1.20'}]\" and 'advisories: 28 [CVE-2024-12055, ...]'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Fallback branches (ai-infra-guard / go run) not taken; the structured fingerprints field is checked, not the raw Resp body.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "qwenlm-qwen-mm-plugins",
+   "pass_genuine": true,
+   "pass_evidence": "output 'client ok' after tools/list, save_view (sample_page_1.png 173265 B), crop (crop.png half-size asserted), visualize ('Tokyo' in text), read_image (image content), each with isError checks; 'ls -l' shows both PNGs; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "nvidia-megatron-lm",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 1200 python tools/preprocess_data.py --input .../data.jsonl --output-prefix .../out --tokenizer-type HuggingFaceTokenizer --tokenizer-model .../gpt2 --workers 2 --append-eod'; out_text_document.bin 760 B / .idx 442 B; IndexedDataset decode \"0 'Document number 0. The quick brown fox...'\", \"19 'Document number 19. ...'\" with EOD 50256 asserted; 'dataset ok'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-vibevoice",
+   "pass_genuine": true,
+   "pass_evidence": "Run predates tracing (Oct 27). Output 'Using voice preset for Carter', 'Generated audio duration: 5.47 seconds', 'Saved output to /tmp/oracle_out.EwNOCE/out/oracle_in_generated.wav', python check 'duration 5.466666666666667 rate 24000' (2<dur<60, peak >500 asserted), 'ORACLE PASS'. Replay: 'duration 5.866666666666666 rate 24000', 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "'Some weights ... newly initialized: model.acoustic_tokenizer.encoder...' is the encoder half the streaming model does not use (voice presets supply prompts).",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-deepmind-gemma",
+   "pass_genuine": true,
+   "pass_evidence": "output \"ANS1: 'Paris\\n<end_of_turn>'\" (asserted 'paris' in answer), \"ANS2: 'Paris\\n<end_of_turn>'\" (only length checked); '+ test -s .../out.txt'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Real 270M IT model output. The second-turn answer is wrong (Paris for Germany) but the oracle only requires a non-empty reply there; that is model quality, not install.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-playwright-python",
+   "pass_genuine": true,
+   "pass_evidence": "output 'script ok' after title=='Oracle Page', inner_text=='Hello Oracle 4242', evaluate('1+2')==3 on a local page via p.chromium.launch(); 'png size 10460' with PNG magic asserted; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "modelscope-funasr",
+   "pass_genuine": true,
+   "pass_evidence": "Run predates tracing (Oct 27). Output downloads iic/SenseVoiceSmall, fsmn-vad, cam++ ('All keys matched successfully'), then '[0.6s] Speaker 0: 欢迎大家来体验达摩院推出的语音识别模型' (>=5 CJK chars asserted), 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "facebookresearch-kats",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 1500 python .../demo.py' printed 'FEATS 40 CP 2019-01-30 00:00:00' (30-row non-null forecast mean>100, CUSUM change point in [01-20, 02-10], >30 TsFeatures asserted); '+ test -s .../fcst.csv'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "facebookresearch-pytorch3d",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 1200 python -I - /tmp/oracle.sNproI' printed 'coverage 0.123138427734375' (TexturesUV, tex >=256, 0.05<cov<0.95, rgb std>0.02 asserted); '+ test 11060 -gt 3000'; 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "apple-dnikit",
+   "pass_genuine": true,
+   "pass_evidence": "output 'duplicate clusters 8 70', 'pca shapes [(100, 8), (100, 8), (100, 8)]', 'familiarity mean in/out -7.227 -185.914', 'DNIKIT_OK'; pytest run with '-o addopts=' under `if !` (exit status checked) '5 passed in 1.17s'; 'ORACLE PASS'.",
+   "patches": [
+    {
+     "path": "pytest.ini",
+     "needed": false,
+     "why": "Agent removed the dev-only addopts (--mypy --flake8 --cov --cov-fail-under 80 ...) so a bare `pytest file` works without the dev plugins. Not a repo defect: docs/dev/contributing.rst:200-211 documents pytest-mypy/pytest-flake8/pytest-cov as the project's test setup, and the README demo does not involve pytest. The oracle itself passes `-o addopts=\"\"`, so the edit was not needed to pass.",
+     "evidence": "oracles/apple-dnikit.sh:66 `python -m pytest -q -p no:cacheprovider -o addopts=\"\" ...`; deliverables/setup.sh:13-21 strips the addopts; apple/dnikit@2f39056 pytest.ini addopts and docs/dev/contributing.rst:200-211"
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "Score 88.5 -> 98.5 if pytest.ini is not counted. repo_diff also lists 27 binary images with 0/0 lines (binary churn), correctly unscored.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "nvlabs-sana",
+   "pass_genuine": true,
+   "pass_evidence": "Run predates tracing (Oct 27). Output '100%| 8/8 [04:34<00:00, 34.29s/it]' then 'ORACLE PASS' under set -e; the python check after generation asserts sana.png > 20 KB, size (512, 512) and grey extrema range > 50.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Content check is loose (no semantic check of the image), but the 8-step SanaPipeline generation really ran on CPU.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "facebookresearch-detectron2",
+   "pass_genuine": true,
+   "pass_evidence": "trace: 'set -o pipefail' around '+ timeout 3000 python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input .../in.jpg ...'; log '/tmp/oracle.HMjJJ1/in.jpg: detected 6 instances in 2.76s'; '+ [ 6 -ge 2 ]'; 'mean abs diff 55.63'; 'ORACLE PASS'.",
+   "patches": [
+    {
+     "path": "demo/demo.py",
+     "needed": true,
+     "why": "demo.py imports a Meta-internal module path that does not exist in the open-source tree, so `python demo.py` (GETTING_STARTED.md) fails with ModuleNotFoundError for everyone.",
+     "evidence": "facebookresearch/detectron2@247691a demo/demo.py:17 `from vision.fair.detectron2.demo.predictor import VisualizationDemo` (introduced e70b922 'vision/fair' 2024-01-31); NOTES.md 'ModuleNotFoundError: vision'"
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Fair: the one counted patch is a real defect any user hits.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "microsoft-data-formulator",
+   "pass_genuine": true,
+   "pass_evidence": "trace: run.sh 'Data Formulator ready on http://127.0.0.1:5567'; curl -sf with '-H X-Workspace-Id: oracle-ws-842' for create-table, list-tables, get-table, sample-table; python printed 'checks ok' (row_count 60, total_rows 60, 10-row page, units sum exact); 'ORACLE PASS'.",
+   "patches": [
+    {
+     "path": "py-src/data_formulator/workspace_factory.py",
+     "needed": false,
+     "why": "Agent added a DF_DEFAULT_WORKSPACE_ID fallback for API clients that omit X-Workspace-Id. The header is required by design (stateless backend, frontend sends it on every call), and the v2 oracle sends the header, so the patch is not needed for the demo or the test.",
+     "evidence": "microsoft/data-formulator@5477f0e workspace_factory.py:15-17 'Backend is stateless: workspace ID comes from the frontend on every request', :120-135; src/app/utils.tsx:188-189 sets X-Workspace-Id; oracle sends the header on every /api/tables call; NOTES.md 'Requests that send the header behave exactly as before'"
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "Score 85.8 -> 95.8 if the patch is not counted. The goal never says the API needs X-Workspace-Id, which is why the agent patched; consider adding 'send an X-Workspace-Id header, as the frontend does' to the goal (it is the API contract, not a fix).",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-research-text-to-25965",
+   "pass_genuine": true,
+   "pass_evidence": "trace: 'set -o pipefail', '+ timeout 3000 python run.py ...' (outside clone), \"PREDICTIONS: ['Das ist gut.', 'La maison est merveilleuse.', 'acceptable', 'unacceptable']\" (asserts gut/das, maison, cola1 == acceptable); 'ORACLE PASS'.",
+   "patches": [
+    {
+     "path": "t5/models/hf_model.py",
+     "needed": true,
+     "why": "HfPyTorchModel.predict encodes inputs with encode_tf (no EOS) and relies on tokens_to_batches(ensure_eos=True), but mesh_tensorflow's ensure_dataset_eos only replaces the final token when it is not PAD, so short inputs never get EOS and t5-base emits sentinel garbage. The docstring example linked from the README fails as documented.",
+     "evidence": "google-research/text-to-text-transfer-transformer@42909aa t5/models/hf_model.py:514-520 (encode_tf map, then tokens_to_batches) and :112-132 (docstring says eos is always added); mesh_tensorflow/transformer/dataset.py ensure_dataset_eos: `tf.concat([v[0:-1], tf.clip_by_value(v[-1:], 0, 1)], axis=0)` 'Replaces the final token ... if it is not PAD=0'"
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Fair: the patch fixes a real defect. Pre-patch agent output on the same inputs was \"La maison est merveilleuse. l'annuaire l'annuaire\" and '<extra_id_0> a <extra_id_1> a ...' (commands.jsonl), while HF generate with EOS gave the correct labels.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "modelscope-modelscope",
+   "pass_genuine": true,
+   "pass_evidence": "Run predates tracing (Oct 27). Output \"{'output': ['今天', '天气', '不错', '，', '适合', '出去', '游玩']}\" (asserted >=4 tokens incl. 天气/游玩 and join == input), 'ORACLE PASS'. Replay gives the same result.",
+   "patches": [
+    {
+     "path": "modelscope/pipelines/nlp/token_classification_pipeline.py",
+     "needed": true,
+     "why": "TokenClassificationPipeline (parent of WordSegmentationPipeline) calls super().__init__ without forwarding trust_remote_code, so Pipeline sets trust_remote_code=False and Model.from_pretrained refuses the allow_remote model, even though pipeline() marked the damo/ owner trusted. The README word-segmentation example fails for every user.",
+     "evidence": "modelscope/modelscope@4be706e pipelines/nlp/token_classification_pipeline.py:50-57 (super().__init__ passes only compile/compile_options); pipelines/base.py:100 `self.trust_remote_code = kwargs.get('trust_remote_code', False)`; models/base/base_model.py:205-214 raises 'trust_remote_code=True was not explicitly set'; pipelines/builder.py:130-132,268-276 computes trust for trusted owners; word_segmentation_pipeline.py:25 subclasses TokenClassificationPipeline"
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "Fair: the one counted patch is a real defect. The agent's other workaround (pre-installing the model repo's transformers/huggingface-hub pins because the uv venv has no pip) touched no repo files.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "baidu-unlimited-ocr",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 6000 python .../run.py ...' output '<PAGE><BLOCK>text[40, 176, 532, 274]<FORK>Invoice Number 48213 / Total Amount Due Monday / Reproducibility Benchmark'; the loop ran all 6 greps, 'matched 6/6', '[ 6 -ge 4 ]'; 'ORACLE PASS'.",
+   "patches": [
+    {
+     "path": "(HF snapshot) baidu/Unlimited-OCR-2 modeling_unlimitedocr.py, deepencoder.py",
+     "needed": false,
+     "why": "CPU-only/float32/16 GB workarounds for a demo the README documents on GPU; not counted by repo_diff, so no score impact.",
+     "evidence": "deliverables/setup.sh step 4 patch_model.py; NOTES.md items 3-4"
+    }
+   ],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "The score does not penalise the repo (repo_diff only lists Unlimited-OCR.pdf 0/0, an LFS pointer). But the agent patched the model's remote code in the HF snapshot (modeling_unlimitedocr.py: bf16 hard-cast and two .cuda() calls; deepencoder.py: chunked SAM attention to avoid OOM), outside the git clone, so repo_diff cannot see it. These are CPU/16 GB workarounds: the README path is GPU (.eval().cuda(), bf16 on an A800). The pass is a genuine CPU run of code the README does not claim runs on CPU; consider flagging out-of-clone patches in the record so readers know the 0-files score involved patching.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "google-deepmind-weathernext",
+   "pass_genuine": true,
+   "pass_evidence": "output 'eval targets {... time: 4 ...}', \"pred dims {'sample': 2, 'time': 4, ...}\", 't2m min/max 207.16 317.49', 'ensemble spread 0.3016', 't2m 6h RMSE vs target 0.619' (the `if mask.mean() > 0.5` branch was taken, so the RMSE assert ran), 'WROTE /tmp/oracle_out.tgMKpI/pred.nc'; '[ 210637165 -gt 100000 ]'; 'ORACLE PASS'.",
+   "patches": [
+    {
+     "path": "setup.py",
+     "needed": false,
+     "why": "Agent deleted the \"colabtools\" requirement pre-emptively (the PyPI name belongs to an unrelated third-party package) without trying the install. That package installs fine (pure wheel, no dependencies) and nothing imports it, so `pip install .` and the demo work unchanged. A reasonable supply-chain caution, but not needed for the demo.",
+     "evidence": "google-deepmind/weathernext@f2f2c51 setup.py:34 \"colabtools\"; PyPI colabtools 0.0.1 ships colabtools-0.0.1-py3-none-any.whl, requires_dist None; commands.jsonl: `sed -i '/\"colabtools\",/d' setup.py` issued in the same command as the first install attempt"
+    },
+    {
+     "path": "weathernext/utils/sparse_transformer.py",
+     "needed": false,
+     "why": "Agent made Transformer fall back from splash_mha (TPU Pallas kernel) to triblockdiag_mha on non-TPU backends. The notebook targets TPU/GPU (it switches only for gpu), so CPU is our sandbox, and the oracle already applies the same switch in the config (`if jax.default_backend() != \"tpu\": tk[\"attention_type\"] = \"triblockdiag_mha\"`), so the repo edit was not needed to pass.",
+     "evidence": "docs/weathernext2/wn2_demo.ipynb cell10 (`if backend == 'gpu': ... 'triblockdiag_mha'` / `elif backend == 'tpu'`); oracles/google-deepmind-weathernext.sh:37-38"
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "Score 72.5 -> 92.5 if neither file is counted. NOTES item 1 (Python 3.12 needed although the classifiers say 3.10/3.11) is a real packaging inconsistency but required no file change.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "paddlepaddle-paddleformers",
+   "pass_genuine": true,
+   "pass_evidence": "output 'IDS [105492, 104773]', 'TEXT 大模型，即大型语言模型，是一种基于深度学习的自然语言处理技术...' (>=8 CJK, >=5 distinct asserted), 'CAPITAL ... 中华人民共和国的首都是北京' ('北京' asserted); set -o pipefail around python|tee; 'ORACLE PASS'.",
+   "patches": [
+    {
+     "path": "paddleformers/transformers/qwen3/modeling.py",
+     "needed": false,
+     "why": "Makes Qwen3 import without paddlefleet and aliases Qwen3ForCausalLM to the *Deprecated pure-Paddle class. paddlefleet needs paddlepaddle-gpu/CUDA; the README's documented install includes [paddlefleet] on CUDA, so this is a CPU-sandbox workaround.",
+     "evidence": "PaddlePaddle/PaddleFormers@b52811b gpt_provider.py:30-36 raises ImportError without paddlefleet; README.md:206-211 'CUDA ≥ 13.0', :252-275 '.[paddlefleet]' with cu12x/cu130 indexes, :278-281 安装方案三 tokenizer/processor only"
+    },
+    {
+     "path": "paddleformers/nn/norm.py",
+     "needed": false,
+     "why": "Skips fused_rms_norm_ext on CPU (no CPU kernel). CPU-only workaround.",
+     "evidence": "deliverables/setup.sh patch hunk for norm.py; NOTES.md item 4"
+    },
+    {
+     "path": "paddleformers/transformers/model_utils.py",
+     "needed": false,
+     "why": "Loads bf16/fp16 as float32 on CPU (Paddle has no CPU bf16 matmul). CPU-only workaround; on the README's GPU path dtype='bfloat16' works.",
+     "evidence": "deliverables/setup.sh patch hunk for model_utils.py; oracle log 'dtype `bfloat16` is not supported on CPU, using `float32` instead.'"
+    }
+   ],
+   "goal_leak": null,
+   "action": "rescore",
+   "notes": "Score 61.2 -> 91.2 if none of the three are counted. Root issue is exam scope: the README requires CUDA >= 13 and GPU installs ('安装依赖（GPU）', '.[paddlefleet]' with cu126/cu129/cu130 indexes) and says plain `pip install paddleformers` (安装方案三) is only for tokenizer/processor. CPU generation is not a documented path, so either do not count CPU-enablement patches or re-scope the exam (tokenizer snippet only, or mark ineligible). The README note 'PaddleFleet ≥ 0.3（仅为 GPU 训练功能依赖）' is misleading (Qwen3 inference import requires it), a minor doc defect that does not affect a GPU user following the README.",
+   "scope": "maintained pass check"
+  },
+  {
+   "slug": "modelscope-evalscope",
+   "pass_genuine": true,
+   "pass_evidence": "trace: '+ timeout 3300 evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k arc --limit 5 --work-dir .../wd'; report table 'ARC ... OVERALL 10 6 60%', 'GSM8K main 5 2 40%'; python printed 'gsm8k report .../gsm8k.json score 0.4 num 5' and 'arc report .../arc.json score 0.6 num 10' (num and a non-empty assistant answer in every review row asserted); 'ORACLE PASS'.",
+   "patches": [],
+   "goal_leak": null,
+   "action": "ok",
+   "notes": "`evalscope eval | tail` has no pipefail, but the report/review checks in a fresh --work-dir can only pass if the evaluation actually ran.",
+   "scope": "maintained pass check"
+  }
+ ]
+}

@@ -12,10 +12,36 @@
     "cost_usd": 0.044902000000000004,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "GETTING_STARTED.md shows tools/infer_simple.py running a pretrained Mask R-CNN on bundled demo images, with a public weights URL and no credentials; feasible on CPU if Caffe2 is built.",
+  "eligible": false,
+  "reason": "Reclassified on review: The install docs state a GPU requirement we cannot meet: 'NVIDIA GPU, Linux, Python2' and 'Detectron operators currently do not have CPU implementation; a GPU system is required.' The examiner's own reason says 'feasible on CPU if Caffe2 is built'.",
   "demo": "GETTING_STARTED.md > Inference with Pretrained Models > Directory of Image Files (tools/infer_simple.py)",
-  "goal": "Get `python tools/infer_simple.py --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml --output-dir <dir> --image-ext jpg --wts <model_final.pkl URL from GETTING_STARTED.md> demo` working on CPU only in /work/Detectron (Caffe2-based; you will need to make it run without a GPU). It must produce a visualization file per demo image (PDF by default; --output-ext jpg also acceptable). Write /work/env.sh (activates the environment needed to run it).",
-  "check": "The hidden test runs infer_simple.py on a bundled demo image with the Mask R-CNN weights and verifies that a non-trivial visualization output file is produced.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The install docs state a GPU requirement we cannot meet: 'NVIDIA GPU, Linux, Python2' and 'Detectron operators currently do not have CPU implementation; a GPU system is required.' The examiner's own reason says 'feasible on CPU if Caffe2 is built'.",
+      "Goal leaks a workaround the docs do not give: '(Caffe2-based; you will need to make it run without a GPU)'. The pass only came after the probe patched detectron/utils/c2.py and env.py for CPU (repo_diff), and needed a repair round after the first replay failed.",
+      "README itself says 'Detectron is deprecated. Please see detectron2'."
+    ],
+    "evidence": [
+      "src/facebookresearch-detectron/INSTALL.md:9 — '- NVIDIA GPU, Linux, Python2'",
+      "src/facebookresearch-detectron/INSTALL.md:14 — 'Detectron operators currently do not have CPU implementation; a GPU system is required.'",
+      "src/facebookresearch-detectron/GETTING_STARTED.md:35 — inference example 'using a single GPU'",
+      "data/exams/facebookresearch-detectron.json goal — 'you will need to make it run without a GPU'",
+      "data/runs/facebookresearch-detectron/result.json repo_diff — detectron/utils/c2.py (+3/-1), detectron/utils/env.py (+14/-1); replay class 'fail: other' before repair"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "GETTING_STARTED.md shows tools/infer_simple.py running a pretrained Mask R-CNN on bundled demo images, with a public weights URL and no credentials; feasible on CPU if Caffe2 is built.",
+      "demo": "GETTING_STARTED.md > Inference with Pretrained Models > Directory of Image Files (tools/infer_simple.py)",
+      "goal": "Get `python tools/infer_simple.py --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml --output-dir <dir> --image-ext jpg --wts <model_final.pkl URL from GETTING_STARTED.md> demo` working on CPU only in /work/Detectron (Caffe2-based; you will need to make it run without a GPU). It must produce a visualization file per demo image (PDF by default; --output-ext jpg also acceptable). Write /work/env.sh (activates the environment needed to run it).",
+      "check": "The hidden test runs infer_simple.py on a bundled demo image with the Mask R-CNN weights and verifies that a non-trivial visualization output file is produced.",
+      "server": false
+    }
+  }
 }

@@ -17,5 +17,32 @@
   "demo": "Quick start / getting started: python tools/infer.py -c configs/picodet/picodet_s_320_coco_lcnet.yml -o weights=https://paddledet.bj.bcebos.com/models/picodet_s_320_coco_lcnet.pdparams --infer_img=demo/000000014439.jpg",
   "goal": "Get PaddleDetection object detection inference working on CPU. Run tools/infer.py with configs/picodet/picodet_s_320_coco_lcnet.yml, the pretrained picodet_s_320_coco_lcnet weights from paddledet.bj.bcebos.com, on the bundled demo/000000014439.jpg with use_gpu=False, and save the visualized result to an output directory.",
   "check": "The hidden test runs the detection on a bundled demo image on CPU and verifies a visualized output image is produced and detections were reported.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Too lenient: the 'detections were reported' check is `grep -qi \"class_id\\|score\\|bbox\"` on the log, which matches the line 'Detection bbox results save in <file>' that trainer.predict logs for every saved image even with zero detections; the image-size and cmp checks also pass for an image with no boxes (it is re-encoded at quality 95). A model with broken/random weights would pass.",
+      "v2 adds the documented --save_results=True flag and checks bbox.json: >=3 detections with score>=0.5, >=2 of them COCO person (id 1), boxes inside the 640x404 image.",
+      "Demo and goal are fine: tools/infer.py on the bundled demo image with the small official PP-PicoDet-S weights; use_gpu=False is the config switch for CPU."
+    ],
+    "evidence": [
+      "src/paddlepaddle-paddledetection/ppdet/engine/trainer.py:1277 — logger.info('Detection bbox results save in {}') runs for every visualized image, independent of bbox_num",
+      "logs/paddlepaddle-paddledetection/oracle.txt — the only matching log line is '[10/27 02:46:01] ppdet.engine INFO: Detection bbox results save in /tmp/oracle_out.uq0t9s/000000014439.jpg'; no detection content was ever inspected",
+      "src/paddlepaddle-paddledetection/docs/tutorials/GETTING_STARTED.md:58 — '--save_results | infer | Whether to save detection results to file'",
+      "src/paddlepaddle-paddledetection/ppdet/metrics/metrics.py:133-140 + trainer.py:1178 — bbox.json written to output_dir as a list of {image_id, category_id, bbox, score} (json_results.py:76-107)",
+      "src/paddlepaddle-paddledetection/demo/000000014439.jpg — viewed: several people and a large kite on a field",
+      "logs/paddlepaddle-paddledetection/commands.jsonl — probe's own run with --save_results=True: bbox.json '7 7' (7 detections, all score>0.5)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README documents tools/infer.py inference with pretrained PP-PicoDet weights, which runs on CPU with small downloads.",
+      "demo": "Quick start / getting started: python tools/infer.py -c configs/picodet/picodet_s_320_coco_lcnet.yml -o weights=https://paddledet.bj.bcebos.com/models/picodet_s_320_coco_lcnet.pdparams --infer_img=demo/000000014439.jpg",
+      "goal": "Get PaddleDetection object detection inference working on CPU. Run tools/infer.py with configs/picodet/picodet_s_320_coco_lcnet.yml, the pretrained picodet_s_320_coco_lcnet weights from paddledet.bj.bcebos.com, on the bundled demo/000000014439.jpg with use_gpu=False, and save the visualized result to an output directory.",
+      "check": "The hidden test runs the detection on a bundled demo image on CPU and verifies a visualized output image is produced and detections were reported.",
+      "server": false
+    }
+  }
 }

@@ -12,33 +12,28 @@
     "cost_usd": 0.0779991,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README's Transformers section runs single-page OCR inference with an ungated MIT 6.7GB HF model, feasible on CPU with small device changes.",
+  "eligible": false,
+  "reason": "Reclassified on review: the README's inference example loads the model with .eval().cuda() (README.md:93), i.e. a CUDA GPU.",
   "demo": "README > Inference > Transformers (model.infer single-page)",
-  "goal": "Install the Transformers dependencies from the README (a CPU build of torch is fine) and make the README's single-page Transformers inference work on this CPU-only machine. The hidden test loads the model with AutoTokenizer.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True) and AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, use_safetensors=True, torch_dtype=torch.float32).eval() with no .cuda() call (there is no GPU), then runs model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and expects correct OCR text back.",
-  "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words.",
+  "goal": "",
+  "check": "",
   "server": false,
   "revision": {
-    "rev": 2,
-    "date": "2026-11-14",
-    "by": "fairness review (every maintained-set exam re-checked against the source)",
-    "verdict": "fix_goal",
+    "rev": 3,
+    "date": "2026-11-15",
+    "by": "second review (independent check of the maintained passes against their raw logs)",
+    "verdict": "ok",
     "issues": [
-      "Goal leaks the diagnosis: 'the remote code also hardcodes cuda, so it must be made to work on CPU' tells the probe where the failure is and what to patch; the README only shows .eval().cuda() on an A800. The loading contract (float32, no .cuda()) must stay in the goal because the oracle fixes it, but the diagnosis should go.",
-      "Oracle is otherwise sound: follows the README loading path (AutoModel/AutoTokenizer, trust_remote_code, use_safetensors) with float32 on CPU, calls model.infer(tokenizer, image_file=..., output_path=..., save_results=True) as in README.md:89-93, and needs 4 of 6 distinctive words."
+      "The score does not penalise the repo (repo_diff only lists Unlimited-OCR.pdf 0/0, an LFS pointer). But the agent patched the model's remote code in the HF snapshot (modeling_unlimitedocr.py: bf16 hard-cast and two .cuda() calls; deepencoder.py: chunked SAM attention to avoid OOM), outside the git clone, so repo_diff cannot see it. These are CPU/16 GB workarounds: the README path is GPU (.eval().cuda(), bf16 on an A800). The pass is a genuine CPU run of code the README does not claim runs on CPU; consider flagging out-of-clone patches in the record so readers know the 0-files score involved patching."
     ],
     "evidence": [
-      "data/exams/baidu-unlimited-ocr.json goal - 'the remote code also hardcodes cuda, so it must be made to work on CPU'",
-      "src/baidu-unlimited-ocr/README.md:61-93 - Transformers section: tested on NVIDIA A800, .eval().cuda(); no CPU guidance",
-      "data/runs/baidu-unlimited-ocr/result.json agent.final - fixes were 'patching out the model's hardcoded .cuda() and bfloat16'"
+      "deliverables/setup.sh step 4 patch_model.py; NOTES.md items 3-4"
     ],
     "previous": {
       "eligible": true,
       "reason": "README's Transformers section runs single-page OCR inference with an ungated MIT 6.7GB HF model, feasible on CPU with small device changes.",
-      "demo": "README > Inference > Transformers (model.infer single-page)",
-      "goal": "Install the Transformers dependencies from the README (CPU torch is fine) and load baidu/Unlimited-OCR-2 with trust_remote_code on CPU (the README uses .cuda(); the remote code also hardcodes cuda, so it must be made to work on CPU). Then run model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and get correct OCR text back. The model is loaded via AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, torch_dtype=torch.float32) with no explicit .cuda().",
-      "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words.",
-      "server": false
+      "goal": "Install the Transformers dependencies from the README (a CPU build of torch is fine) and make the README's single-page Transformers inference work on this CPU-only machine. The hidden test loads the model with AutoTokenizer.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True) and AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, use_safetensors=True, torch_dtype=torch.float32).eval() with no .cuda() call (there is no GPU), then runs model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and expects correct OCR text back.",
+      "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words."
     }
   }
 }

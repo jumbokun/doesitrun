@@ -17,5 +17,30 @@
   "demo": "Installation/Tutorial docs: ./scripts/run_local.sh nets/lenet_at_cifar10_run.py (full-precision learner on CIFAR-10, local mode)",
   "goal": "Get PocketFlow's local-mode training working on CPU: running nets/lenet_at_cifar10_run.py (as scripts/run_local.sh does, with path.conf pointing data_dir_local_cifar10 at the CIFAR-10 binary version) with --nb_epochs_rat 0.01 must train the LeNet full-precision learner and save a checkpoint to ./models_eval/model.ckpt. Then `--exec_mode eval` should evaluate the model on the CIFAR-10 test set. You will need a Python and TensorFlow 1.x-compatible environment (the code uses tf.app.flags, tf.layers). Download CIFAR-10 binary from https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz. Put the Python environment setup in /work/env.sh, and /work/run.sh is not needed.",
   "check": "The hidden test runs a short CPU training of the LeNet CIFAR-10 model through the repo's own entry script, then checks that the checkpoint was written and that the evaluation step prints an accuracy above chance.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle bug: it downloads the 170 MB CIFAR-10 binary itself under `timeout 900`; cs.toronto.edu serves ~56 KB/s to these runners, so the download cannot finish and the test stops before training. v2 uses the dataset the documented path.conf (data_dir_local_cifar10) points to, validated by exact file sizes, and only falls back to downloading.",
+      "Oracle bug: the accuracy regex `([0-9.]+)` drops the exponent of PocketFlow's '%.4e' log ('accuracy = 3.7280e-01' -> 3.728 -> /100 -> 0.037), so a correct run fails the >0.15 assertion. v2 parses scientific notation.",
+      "Oracle inner timeouts (5400 s train) exceeded ORACLE_SEC=3600; v2 budgets 1500 s train / 900 s eval (the agent measured ~110 s for training)."
+    ],
+    "evidence": [
+      "logs/tencent-pocketflow/oracle.txt (tail) - last line `timeout 900 curl -fsSL -o .../c10.tgz https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz`; result.json oracle secs 900",
+      "src/tencent-pocketflow/learners/full_precision/learner.py:103 - tf.logging.info('%s = %.4e' ...); :191 'model saved to'",
+      "src/tencent-pocketflow/docs/docs/installation.md:17-30 - path.conf with data_dir_local_cifar10 is the documented data setup; scripts/run_local.sh reads it via utils/get_path_args.py",
+      "logs/tencent-pocketflow/commands.jsonl - run_local.sh train 110 s, eval 'INFO:tensorflow:accuracy = 3.9900e-01'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The docs show training a model with run_local.sh on CIFAR-10 (public dataset, no keys), and the small LeNet variant can finish a short training run on CPU.",
+      "demo": "Installation/Tutorial docs: ./scripts/run_local.sh nets/lenet_at_cifar10_run.py (full-precision learner on CIFAR-10, local mode)",
+      "goal": "Get PocketFlow's local-mode training working on CPU: running nets/lenet_at_cifar10_run.py (as scripts/run_local.sh does, with path.conf pointing data_dir_local_cifar10 at the CIFAR-10 binary version) with --nb_epochs_rat 0.01 must train the LeNet full-precision learner and save a checkpoint to ./models_eval/model.ckpt. Then `--exec_mode eval` should evaluate the model on the CIFAR-10 test set. You will need a Python and TensorFlow 1.x-compatible environment (the code uses tf.app.flags, tf.layers). Download CIFAR-10 binary from https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz. Put the Python environment setup in /work/env.sh, and /work/run.sh is not needed.",
+      "check": "The hidden test runs a short CPU training of the LeNet CIFAR-10 model through the repo's own entry script, then checks that the checkpoint was written and that the evaluation step prints an accuracy above chance.",
+      "server": false
+    }
+  }
 }

@@ -12,10 +12,36 @@
     "cost_usd": 0.09849530000000001,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "The WorldMirror 2.0 CLI reconstructs 3D from bundled example images with a public ~1.2B model (a few GB), and the code falls back to CPU.",
+  "eligible": false,
+  "reason": "Reclassified on review: The README makes FlashAttention part of the WorldMirror install ('Install **one** FlashAttention backend', README.md:195-209: FA3 for Hopper, or `pip install flash-attn`). It also recommends CUDA 12.8 (README.md:163) and labels the CLI '# Single GPU' (README.md:288). flash-attn cannot be built without CUDA.",
   "demo": "README 'Code Usage — WorldMirror 2.0' CLI: python -m hyworld2.worldrecon.pipeline --input_path path/to/images",
-  "goal": "Get `python -m hyworld2.worldrecon.pipeline --input_path examples/worldrecon/realistic/Desk --output_path <dir> --target_size 518` running on CPU only (no GPU, no flash-attn/CUDA available; the public tencent/HY-World-2.0 weights, subfolder HY-WorldMirror-2.0, download automatically). It must finish and write depth maps, normal maps, camera_params.json, points.ply and gaussians.ply under <dir>/<case>/<timestamp>/. Any source patching needed for CPU is allowed.",
-  "check": "The hidden test runs the WorldMirror CLI on the bundled Desk images with a small target size and verifies that the depth, normal, camera_params.json, points.ply and gaussians.ply outputs exist with plausible content.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The README makes FlashAttention part of the WorldMirror install ('Install **one** FlashAttention backend', README.md:195-209: FA3 for Hopper, or `pip install flash-attn`). It also recommends CUDA 12.8 (README.md:163) and labels the CLI '# Single GPU' (README.md:288). flash-attn cannot be built without CUDA.",
+      "CUDA-only code path: hyworldmirror/models/layers/attention.py:10-15 imports flash_attn_interface or flash_attn unconditionally at module import, so the pipeline cannot be imported on a CPU-only machine without editing repo source. The recorded pass needed that patch (repo_diff: attention.py +7/-2), and it also dropped cupy and replaced the README's CUDA-built gsplat with the PyPI wheel. By the exam-time rule this repo should have been excluded.",
+      "If it stays tested, the goal leaks the diagnosis: 'no flash-attn/CUDA available ... Any source patching needed for CPU is allowed' tells the probe what to patch. The oracle itself is fine: it checks the PLY magic and sizes, the camera_params JSON, and at least 2 depth .npy and 2 normal .png files. Its `timeout 5400` exceeds ORACLE_SEC=3600, which is harmless."
+    ],
+    "evidence": [
+      "src/tencent-hunyuan-hy-world-2-0/README.md:163 - 'We recommend CUDA 12.8 and Python 3.11+'",
+      "src/tencent-hunyuan-hy-world-2-0/README.md:195-209 - 'Install one FlashAttention backend'",
+      "src/tencent-hunyuan-hy-world-2-0/README.md:287-289 - CLI under '# Single GPU'",
+      "src/tencent-hunyuan-hy-world-2-0/hyworld2/worldrecon/hyworldmirror/models/layers/attention.py:10-15 - hard import of flash_attn",
+      "data/runs/tencent-hunyuan-hy-world-2-0/deliverables/NOTES.md items 3-5 - cupy dropped, gsplat swapped, flash-attn import patched"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The WorldMirror 2.0 CLI reconstructs 3D from bundled example images with a public ~1.2B model (a few GB), and the code falls back to CPU.",
+      "demo": "README 'Code Usage — WorldMirror 2.0' CLI: python -m hyworld2.worldrecon.pipeline --input_path path/to/images",
+      "goal": "Get `python -m hyworld2.worldrecon.pipeline --input_path examples/worldrecon/realistic/Desk --output_path <dir> --target_size 518` running on CPU only (no GPU, no flash-attn/CUDA available; the public tencent/HY-World-2.0 weights, subfolder HY-WorldMirror-2.0, download automatically). It must finish and write depth maps, normal maps, camera_params.json, points.ply and gaussians.ply under <dir>/<case>/<timestamp>/. Any source patching needed for CPU is allowed.",
+      "check": "The hidden test runs the WorldMirror CLI on the bundled Desk images with a small target size and verifies that the depth, normal, camera_params.json, points.ply and gaussians.ply outputs exist with plausible content.",
+      "server": false
+    }
+  }
 }

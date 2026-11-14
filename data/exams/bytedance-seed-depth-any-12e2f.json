@@ -14,8 +14,36 @@
   },
   "eligible": true,
   "reason": "README documents a `da3 auto` CLI on bundled example images; the small Apache-2.0 DA3-SMALL variant runs on CPU with ungated HF weights.",
-  "demo": "Quick Start > Basic Usage: `da3 auto assets/examples/SOH --export-format glb --model-dir depth-anything/DA3-SMALL` (CLI, without backend)",
-  "goal": "Install the project (CPU-only torch is fine; gsplat/xformers are not needed) so the `da3` CLI works. Then run `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <dir> --model-dir depth-anything/DA3-SMALL` on CPU; the model weights download from Hugging Face automatically (no token needed). It must finish and write the exported results (results.npz and a .glb) into the export dir. Put any environment activation in /work/env.sh.",
-  "check": "The hidden test runs the da3 CLI on the bundled SOH images with DA3-SMALL on CPU and verifies the exported npz has depth arrays of the right shape for 2 images and that a non-trivial GLB file exists.",
-  "server": false
+  "demo": "README Quick Start > Basic Usage: `da3 auto assets/examples/SOH --export-format glb --export-dir ... --model-dir ${MODEL_DIR}` (CLI without backend), with the README's DA3-SMALL model on CPU",
+  "goal": "Install the project from the clone following the README Installation section so the `da3` CLI works on this CPU-only machine. Then `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <a new directory> --model-dir depth-anything/DA3-SMALL --device cpu` must finish and write results.npz and scene.glb into the export dir; DA3-SMALL is the README's smallest Apache-2.0 model and downloads from Hugging Face without a token. Put any environment activation in /work/env.sh.",
+  "check": "The hidden test runs that command into a fresh export dir and verifies the npz depth/confidence/camera arrays have the right shapes for the 2 images and that scene.glb holds a non-trivial point cloud.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle bug: it pre-creates the export dir with mktemp -d and passes it as --export-dir; da3 then asks 'Export directory ... already exists. Do you want to clean it and continue? [y/N]' and aborts without a tty. This, not the repo, failed the main run.",
+      "Oracle omits --device cpu although the CLI defaults to device='cuda'; a correct README install on a CPU box cannot pass, which pushed the agent into patching services/inference_service.py (counted in repo_diff).",
+      "Goal leaks an install hint: 'gsplat/xformers are not needed'. xformers is a hard dependency in pyproject.toml and the README installs it explicitly; the goal should not tell the agent to drop it.",
+      "Coverage widened: v2 also checks conf/extrinsics/intrinsics shapes and that scene.glb holds a real point cloud."
+    ],
+    "evidence": [
+      "logs/bytedance-seed-depth-any-12e2f/oracle.txt (tail) - \"Export directory '/tmp/da3_oracle.BnSj7i' already exists. Do you want to clean it and continue? [y/N]: ... Aborted.\" after 'Found 2 images to process' (import and setup were fine)",
+      "src/bytedance-seed-depth-any-12e2f/src/depth_anything_3/services/input_handlers.py:41-60 - existing export dir -> typer.confirm, else exit; cli.py:132-134 --auto-cleanup defaults to False",
+      "src/bytedance-seed-depth-any-12e2f/src/depth_anything_3/cli.py:119 - device: str = typer.Option(\"cuda\")",
+      "src/bytedance-seed-depth-any-12e2f/pyproject.toml:14-41 - xformers listed in dependencies; addict and scikit-learn absent while model/da3.py:19 does `from addict import Dict`",
+      "src/bytedance-seed-depth-any-12e2f/README.md:91 - `pip install xformers torch>=2 torchvision`",
+      "logs/bytedance-seed-depth-any-12e2f/replay_setup.log (tail) - replay setup.sh died at `python /work/patch_cpu.py` (a file setup.sh never creates), before its `uv pip install addict scikit-learn` line"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README documents a `da3 auto` CLI on bundled example images; the small Apache-2.0 DA3-SMALL variant runs on CPU with ungated HF weights.",
+      "demo": "Quick Start > Basic Usage: `da3 auto assets/examples/SOH --export-format glb --model-dir depth-anything/DA3-SMALL` (CLI, without backend)",
+      "goal": "Install the project (CPU-only torch is fine; gsplat/xformers are not needed) so the `da3` CLI works. Then run `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <dir> --model-dir depth-anything/DA3-SMALL` on CPU; the model weights download from Hugging Face automatically (no token needed). It must finish and write the exported results (results.npz and a .glb) into the export dir. Put any environment activation in /work/env.sh.",
+      "check": "The hidden test runs the da3 CLI on the bundled SOH images with DA3-SMALL on CPU and verifies the exported npz has depth arrays of the right shape for 2 images and that a non-trivial GLB file exists.",
+      "server": false
+    }
+  }
 }

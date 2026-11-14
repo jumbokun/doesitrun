@@ -15,8 +15,8 @@
     "dir": "earshot",
     "gpu": false,
     "mem": "5g",
-    "goal": "Install earshot per its README (CPU only) so that `python -m earshot doctor --load`, run from the repo directory, succeeds with both models loaded.",
-    "check": "runs `python -m earshot doctor --load` from /work/earshot and requires exit code 0",
+    "goal": "Install earshot per its README Install section (CPU only). From /work/earshot, `python -m earshot doctor --load` must report both models loaded with no problems; then render a bank sound with `python -m earshot sfx render whoosh_fast/crisp -o w.wav` and run the README's listening commands on it: `python -m earshot describe w.wav --json` and `python -m earshot match w.wav \"a fast air whoosh\" --alts \"a dog barking\" \"a person talking\" --json`.",
+    "check": "runs doctor --load (no problems, both models loaded), renders whoosh_fast/crisp, then requires describe to return tags and AudioSet labels and match to return a verdict that prefers the whoosh description over the two unrelated alternatives",
     "server": false
   },
   {

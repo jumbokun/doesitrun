@@ -12,10 +12,36 @@
     "cost_usd": 0.05526350000000001,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README offers a CLI inference script (inference.sh) with bundled demo assets and public non-gated HF checkpoints (~5GB), though the code hardcodes CUDA and needs CPU patching.",
+  "eligible": false,
+  "reason": "Reclassified on review: The README states a GPU memory minimum for the demo: 'Minimum VRAM for inference: 8 GB with LatentSync 1.5, 18 GB with LatentSync 1.6'. The code hard-codes cuda (scripts/inference.py:52,74; lipsync_pipeline.py:342), which the examiner's reason also notes.",
   "demo": "Inference > Command Line Interface: ./inference.sh (scripts.inference with assets/demo1_video.mp4 + demo1_audio.wav)",
-  "goal": "Get LatentSync's CLI inference (python -m scripts.inference, as in inference.sh with configs/unet/stage2_512.yaml and checkpoints/latentsync_unet.pt downloaded from ByteDance/LatentSync-1.6) to produce a lip-synced video on CPU only from a short clip of assets/demo1_video.mp4 and assets/demo1_audio.wav. The code hardcodes cuda in places, so it must be made to run on CPU (float32). It must accept --video_path, --audio_path, --video_out_path, --inference_steps and --guidance_scale as in inference.sh.",
-  "check": "Running the inference CLI on a 1.6-second clip of the demo video/audio produces an output mp4 with sensible size, resolution, frame count and an audio track.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The README states a GPU memory minimum for the demo: 'Minimum VRAM for inference: 8 GB with LatentSync 1.5, 18 GB with LatentSync 1.6'. The code hard-codes cuda (scripts/inference.py:52,74; lipsync_pipeline.py:342), which the examiner's reason also notes.",
+      "Goal leaks the fix: 'The code hardcodes cuda in places, so it must be made to run on CPU (float32)'. The oracle also cut the demo to a 1.6 s clip at 5 steps without --enable_deepcache (README: inference_steps 20-50).",
+      "Even cut down, it took 41 min of the oracle budget (2486 s of 3600), and the probe agent hit the 90-minute limit (agent.timed_out=true)."
+    ],
+    "evidence": [
+      "src/bytedance-latentsync/README.md:108-111 — 'Minimum VRAM for inference: 8 GB with LatentSync 1.5; 18 GB with LatentSync 1.6'",
+      "src/bytedance-latentsync/scripts/inference.py:52,74 — device=\"cuda\", .to(\"cuda\")",
+      "src/bytedance-latentsync/inference.sh — --inference_steps 20 --enable_deepcache on the full demo1 clip",
+      "data/exams/bytedance-latentsync.json goal — 'The code hardcodes cuda in places, so it must be made to run on CPU (float32)'",
+      "data/runs/bytedance-latentsync/result.json — agent secs 5400 timed_out true; oracle secs 2486"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README offers a CLI inference script (inference.sh) with bundled demo assets and public non-gated HF checkpoints (~5GB), though the code hardcodes CUDA and needs CPU patching.",
+      "demo": "Inference > Command Line Interface: ./inference.sh (scripts.inference with assets/demo1_video.mp4 + demo1_audio.wav)",
+      "goal": "Get LatentSync's CLI inference (python -m scripts.inference, as in inference.sh with configs/unet/stage2_512.yaml and checkpoints/latentsync_unet.pt downloaded from ByteDance/LatentSync-1.6) to produce a lip-synced video on CPU only from a short clip of assets/demo1_video.mp4 and assets/demo1_audio.wav. The code hardcodes cuda in places, so it must be made to run on CPU (float32). It must accept --video_path, --audio_path, --video_out_path, --inference_steps and --guidance_scale as in inference.sh.",
+      "check": "Running the inference CLI on a 1.6-second clip of the demo video/audio produces an output mp4 with sensible size, resolution, frame count and an audio track.",
+      "server": false
+    }
+  }
 }

@@ -12,10 +12,34 @@
     "cost_usd": 0.0551415,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README/get_started.md gives an evaluation command for pretrained Swin-T that can run on CPU with a small ImageFolder dataset, no credentials needed.",
+  "eligible": false,
+  "reason": "Reclassified on review: get_started.md's install requires 'CUDA>=10.2 with cudnn>=7' and PyTorch built with CUDA (get_started.md:30-36), and the evaluation command launches main.py through torch.distributed.",
   "demo": "get_started.md Evaluation: python -m torch.distributed.run --nproc_per_node 1 main.py --eval --cfg configs/swin/swin_tiny_patch4_window7_224.yaml --resume swin_tiny_patch4_window7_224.pth --data-path <imagenet>",
-  "goal": "Get the Swin-T ImageNet-1K evaluation from get_started.md working on CPU only (the code assumes CUDA/NCCL so it needs CPU adaptation). Download the pretrained swin_tiny_patch4_window7_224.pth from the README Model Zoo link and run main.py --eval with configs/swin/swin_tiny_patch4_window7_224.yaml on a small ImageFolder-style dataset (data-path/train and data-path/val with class subfolders, e.g. a few generated images). It must finish and print the 'Accuracy of the network on the N test images' line.",
-  "check": "A hidden test generates a tiny ImageFolder dataset, downloads the Swin-T checkpoint, runs the eval command via torch.distributed.run on one process, and checks the log reports accuracy over all 16 test images.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "get_started.md's install requires 'CUDA>=10.2 with cudnn>=7' and PyTorch built with CUDA (get_started.md:30-36), and the evaluation command launches main.py through torch.distributed.",
+      "CUDA-only code path: main.py:315-316 calls torch.cuda.set_device and init_process_group(backend='nccl'), main.py:103 calls model.cuda(), and main.py:246-247 calls .cuda() on every batch. It cannot run on CPU without editing repo source; the recorded pass needed 43 changed lines in main.py and utils.py (repo_diff). By the exam-time rule this repo should have been excluded.",
+      "If it stays tested, the goal leaks the diagnosis ('the code assumes CUDA/NCCL so it needs CPU adaptation'), the same leak flagged for microsoft-unilm in the maintained round. The oracle string 'Accuracy of the network on the 16 test images' matches main.py:140-165."
+    ],
+    "evidence": [
+      "src/microsoft-swin-transformer/get_started.md:30-36 - install CUDA>=10.2 and PyTorch with cudatoolkit",
+      "src/microsoft-swin-transformer/main.py:103,187-188,246-247,315-316 - .cuda(), torch.cuda.set_device, nccl",
+      "data/runs/microsoft-swin-transformer/result.json repo_diff - main.py +23/-14, utils.py +3/-3"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README/get_started.md gives an evaluation command for pretrained Swin-T that can run on CPU with a small ImageFolder dataset, no credentials needed.",
+      "demo": "get_started.md Evaluation: python -m torch.distributed.run --nproc_per_node 1 main.py --eval --cfg configs/swin/swin_tiny_patch4_window7_224.yaml --resume swin_tiny_patch4_window7_224.pth --data-path <imagenet>",
+      "goal": "Get the Swin-T ImageNet-1K evaluation from get_started.md working on CPU only (the code assumes CUDA/NCCL so it needs CPU adaptation). Download the pretrained swin_tiny_patch4_window7_224.pth from the README Model Zoo link and run main.py --eval with configs/swin/swin_tiny_patch4_window7_224.yaml on a small ImageFolder-style dataset (data-path/train and data-path/val with class subfolders, e.g. a few generated images). It must finish and print the 'Accuracy of the network on the N test images' line.",
+      "check": "A hidden test generates a tiny ImageFolder dataset, downloads the Swin-T checkpoint, runs the eval command via torch.distributed.run on one process, and checks the log reports accuracy over all 16 test images.",
+      "server": false
+    }
+  }
 }

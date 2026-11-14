@@ -17,5 +17,28 @@
   "demo": "README 'Run Qwen3' > Transformers quickstart snippet (AutoModelForCausalLM + apply_chat_template + generate), using Qwen/Qwen3-0.6B instead of the 30B model",
   "goal": "Get the README Transformers chat-generation snippet working on CPU with the small model Qwen/Qwen3-0.6B (replace the 30B model name). Python with transformers and torch (CPU) must be installed so that `python` can run a script that loads the tokenizer and model, applies the chat template to the prompt 'Give me a short introduction to large language model.', and generates text with model.generate.",
   "check": "A hidden script runs the README-style snippet with Qwen/Qwen3-0.6B in the prepared environment and checks that it generates non-empty, sensible text about language models.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Content check is vacuous: `grep -qi -E \"language model|model|text|AI\"`. Case-insensitive 'ai' matches nearly any English text ('explain', 'contain', 'train'), so the oracle in effect only checks for >100 bytes of output, and a degenerate generation passes. v2 requires 'language model' (the prompt's topic; observed greedy output starts 'A large language model (LLM) is ...') and a minimal word-diversity check."
+    ],
+    "evidence": [
+      "oracles/qwenlm-qwen3.sh:19 - grep -qi -E \"language model|model|text|AI\"",
+      "logs/qwenlm-qwen3/oracle.txt and replay_oracle.txt - greedy output both times: 'A large language model (LLM) is a type of artificial intelligence that can understand, generate, and respond to human language...'",
+      "src/qwenlm-qwen3/README.md:90-130 - transformers>=4.51.0 snippet with device_map='auto'; README.md:55 lists the 0.6B size; README.md:200 documents enable_thinking=False, so the goal and model swap trace to the README",
+      "data/runs/qwenlm-qwen3/deliverables/NOTES.md - accelerate was the agent's own finding, not leaked by the goal"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README's Transformers quickstart runs text generation with a Qwen3 model; a small variant (Qwen3-0.6B) is ungated and fits CPU/16GB.",
+      "demo": "README 'Run Qwen3' > Transformers quickstart snippet (AutoModelForCausalLM + apply_chat_template + generate), using Qwen/Qwen3-0.6B instead of the 30B model",
+      "goal": "Get the README Transformers chat-generation snippet working on CPU with the small model Qwen/Qwen3-0.6B (replace the 30B model name). Python with transformers and torch (CPU) must be installed so that `python` can run a script that loads the tokenizer and model, applies the chat template to the prompt 'Give me a short introduction to large language model.', and generates text with model.generate.",
+      "check": "A hidden script runs the README-style snippet with Qwen/Qwen3-0.6B in the prepared environment and checks that it generates non-empty, sensible text about language models.",
+      "server": false
+    }
+  }
 }

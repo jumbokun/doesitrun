@@ -12,10 +12,36 @@
     "cost_usd": 0.07962689999999999,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "TUTORIAL Example 1 runs demo.py photorealistic style transfer with a bundled 33MB checkpoint; --cuda 0 and --fast (OpenCV guided filter) allow CPU-only operation on small images.",
+  "eligible": false,
+  "reason": "Reclassified on review: The docs state hardware we cannot meet: TUTORIAL.md Requirements 'Hardware: PC with NVIDIA Titan GPU.' and 'Software: Ubuntu 16.04, CUDA 9.1, ..., pytorch 0.4.0', and setup includes `pip install cupy`.",
   "demo": "TUTORIAL.md Example 1 / README: python demo.py --fast --output_image_path results/example1.png (run with --cuda 0)",
-  "goal": "Get `python demo.py --cuda 0 --fast --no_post --content_image_path A --style_image_path B --output_image_path OUT` working on CPU only, using the bundled PhotoWCTModels/photo_wct.pth, on small PNG content and style images. The repo targets old PyTorch/CUDA and imports cupy at module load (smooth_filter.py), so the code and environment must be adapted to run without a GPU. It must write a stylized image of the same size as the content image.",
-  "check": "The hidden test runs demo.py on CPU with generated content and style images and verifies a non-blank output image of the content image's size that differs from the content.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The docs state hardware we cannot meet: TUTORIAL.md Requirements 'Hardware: PC with NVIDIA Titan GPU.' and 'Software: Ubuntu 16.04, CUDA 9.1, ..., pytorch 0.4.0', and setup includes `pip install cupy`.",
+      "Goal leaks the fix: 'imports cupy at module load (smooth_filter.py), so the code and environment must be adapted to run without a GPU'. The probe then patched demo.py, process_stylization.py and smooth_filter.py (repo_diff), and the pass needed a repair round after the first replay failed.",
+      "demo.py has a --cuda flag (default 1), but smooth_filter.py imports cupy/pynvrtc unconditionally and process_stylization.py imports smooth_filter, so the shipped CPU path cannot even import without CUDA. The docs never claim CPU support."
+    ],
+    "evidence": [
+      "src/nvidia-fastphotostyle/TUTORIAL.md:31 — '- Hardware: PC with NVIDIA Titan GPU.'",
+      "src/nvidia-fastphotostyle/TUTORIAL.md:32,42,45 — CUDA 9.1, `conda install pytorch=0.4.0 torchvision cuda91`, `pip install cupy`",
+      "src/nvidia-fastphotostyle/smooth_filter.py:327-328 — 'from cupy.cuda import function' / 'from pynvrtc.compiler import Program' at module level; process_stylization.py:14 imports it",
+      "data/exams/nvidia-fastphotostyle.json goal — 'imports cupy at module load (smooth_filter.py), so the code and environment must be adapted'",
+      "data/runs/nvidia-fastphotostyle/result.json — replay 'fail: other', pass only in replay_after_repair"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "TUTORIAL Example 1 runs demo.py photorealistic style transfer with a bundled 33MB checkpoint; --cuda 0 and --fast (OpenCV guided filter) allow CPU-only operation on small images.",
+      "demo": "TUTORIAL.md Example 1 / README: python demo.py --fast --output_image_path results/example1.png (run with --cuda 0)",
+      "goal": "Get `python demo.py --cuda 0 --fast --no_post --content_image_path A --style_image_path B --output_image_path OUT` working on CPU only, using the bundled PhotoWCTModels/photo_wct.pth, on small PNG content and style images. The repo targets old PyTorch/CUDA and imports cupy at module load (smooth_filter.py), so the code and environment must be adapted to run without a GPU. It must write a stylized image of the same size as the content image.",
+      "check": "The hidden test runs demo.py on CPU with generated content and style images and verifies a non-blank output image of the content image's size that differs from the content.",
+      "server": false
+    }
+  }
 }

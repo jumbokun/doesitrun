@@ -15,7 +15,32 @@
   "eligible": true,
   "reason": "README documents a `nougat` CLI that runs the small 0.1.0-small model (~1GB download from GitHub releases, no auth) on a PDF, feasible on CPU for one page.",
   "demo": "README 'Get prediction for a PDF' > CLI: nougat path/to/file.pdf -o output_directory",
-  "goal": "Install nougat-ocr from /work/nougat so the `nougat` command works on CPU (resolve any dependency version conflicts, e.g. transformers/albumentations/pypdfium2 pins). Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
+  "goal": "Install nougat-ocr from /work/nougat as the README describes so the `nougat` command works on CPU, and make /work/env.sh activate that environment. Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
   "check": "Runs the nougat CLI on a generated one-page text PDF and checks that a non-empty .mmd output file is produced containing recognizable words from the page.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Leaked install hint: the goal says '(resolve any dependency version conflicts, e.g. transformers/albumentations/pypdfium2 pins)'. The README says only `pip install nougat-ocr` / from repository; nothing about pin conflicts. The pypdfium2 hint is exactly the fix the run needed (agent pinned pypdfium2==4.30.0 because 5.x removed `render`), so the pass was helped by the goal.",
+      "Oracle itself is sound: the CLI command and flags (--no-skipping, -p) are from the README, and the run produced the page text verbatim. Re-run with the neutral goal below."
+    ],
+    "evidence": [
+      "README.md 'Install' — `pip install nougat-ocr` / `pip install git+https://github.com/facebookresearch/nougat`; no mention of version conflicts or pins",
+      "setup.py:46-60 — pypdfium2 is unpinned, so the current 5.x is installed by a plain README install",
+      "data/runs/facebookresearch-nougat/result.json agent.final — 'pypdfium2==4.30.0 (5.x removed render, which broke the plain README install)'",
+      "README.md CLI usage — documents --no-skipping and --pages/-p; default model tag 0.1.0-small",
+      "logs-facebookresearch-nougat oracle.txt — in.mmd contained 'Abstract ... We present a method for converting scientific documents into markup language ... 1 Introduction'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README documents a `nougat` CLI that runs the small 0.1.0-small model (~1GB download from GitHub releases, no auth) on a PDF, feasible on CPU for one page.",
+      "demo": "README 'Get prediction for a PDF' > CLI: nougat path/to/file.pdf -o output_directory",
+      "goal": "Install nougat-ocr from /work/nougat so the `nougat` command works on CPU (resolve any dependency version conflicts, e.g. transformers/albumentations/pypdfium2 pins). Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
+      "check": "Runs the nougat CLI on a generated one-page text PDF and checks that a non-empty .mmd output file is produced containing recognizable words from the page.",
+      "server": false
+    }
+  }
 }

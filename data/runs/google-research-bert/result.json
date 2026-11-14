@@ -52,5 +52,10 @@
       "cost_usd": 0.10423639999999999
     },
     "audited": "2026-10-27 03:05:19"
+  },
+  "review": {
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "public_reason": "Every pretrained BERT checkpoint the README links (storage.googleapis.com/bert_models/...) now returns HTTP 403 Access Denied, so the feature-extraction demo has no model to load."
   }
 }

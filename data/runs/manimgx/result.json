@@ -35,5 +35,25 @@
   },
   "track": "gpu-rtx5060",
   "goal": "Install ManimGX so that the README's 'From Python to MP4' example (scene.py with the Hello3D ThreeDScene, rendered via `manimgx render scene.py`) produces Hello3D.mp4.",
-  "check": "renders that exact README scene with `manimgx render scene.py` and checks a ~6 second Hello3D.mp4 is produced"
+  "check": "renders that exact README scene with `manimgx render scene.py` and checks a ~6 second Hello3D.mp4 is produced",
+  "review": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "The ~6 s duration check that the check text promises is guarded by `if command -v ffprobe` and never ran. The base image has no ffmpeg and the README install needs none, so v1 only verified a >20 KB file named Hello3D.mp4.",
+      "v2 reads the duration (mvhd box) and frame size (tkhd box) from the MP4 with the standard library and requires 5-7 s and 1920x1080. It also expects the output at <Scene>.mp4 beside scene.py instead of using find."
+    ],
+    "evidence": [
+      "oracles/manimgx.sh:20-25 — duration only checked when ffprobe exists, else prints 'duration not checked'",
+      "base/Dockerfile:8-10 — apt installs git, build-essential, python3 only (no ffmpeg/ffprobe)",
+      "data/runs/manimgx/deliverables/NOTES.md — 'No system FFmpeg, x264, LaTeX or Vulkan driver is required -- all are bundled in the wheel'; setup.sh installs no apt packages",
+      "src/manimgx/README.md:81-104 — Hello3D scene: run_time=2 + wait(4); 'You get Hello3D.mp4, a 1080p60 video'",
+      "src/manimgx/src/manimgx/cli/export.py:83 — default output <Scene>.mp4 beside the file; cli/scenes.py:80 — default 1920x1080 at 60 fps",
+      "v2 MP4 box parser sanity-checked locally on a 6 s 1920x1080 ffmpeg test clip: duration 6.0, size (1920, 1080)"
+    ],
+    "rerun_pending": true,
+    "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+  }
 }

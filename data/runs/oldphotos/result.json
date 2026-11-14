@@ -46,5 +46,25 @@
   },
   "track": "gpu-rtx5060",
   "goal": "Follow the README Installation (Synchronized-BatchNorm copies, dlib landmark model, face and global checkpoints, requirements) so that the Full Pipeline `python run.py --input_folder <abs path to test_images/old_w_scratch> --output_folder <dir> --GPU 0 --with_scratch` restores every bundled scratched test image.",
-  "check": "runs that exact command on test_images/old_w_scratch with --GPU 0 --with_scratch and requires final_output/ to contain one result per input image"
+  "check": "runs that exact command on test_images/old_w_scratch with --GPU 0 --with_scratch and requires final_output/ to contain one result per input image",
+  "review": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Too lenient: run.py ignores every stage's exit code and copies the stage-1 images into final_output/ before the face stages run. A crash in face detection, face enhancement or blending still leaves one file per input, so v1's count check passed. This run's agent had to fix a stage-4 crash under modern scikit-image (repo_diff: Face_Detection/align_warp_back_multiple_dlib*.py), and v1 could not tell whether the fix worked.",
+      "v2 keeps the README command and the one-result-per-input check. It adds three checks: stage 2 detected faces, stage 3 enhanced each crop, and each final image with a face differs from its stage-1 copy (stage 4 blended it)."
+    ],
+    "evidence": [
+      "src/oldphotos/run.py:10-15 — run_cmd uses subprocess.call and discards the return code",
+      "src/oldphotos/run.py:97-104 — stage-1 results copied into final_output before stages 2-4",
+      "src/oldphotos/Face_Detection/detect_all_dlib.py:177-178 — crops saved as <stem>_<k>.png; Face_Enhancement/test_face.py:25 — enhanced faces in <results_dir>/each_img",
+      "src/oldphotos/Face_Detection/align_warp_back_multiple_dlib.py:378-380,400,431 — images with faces are rewritten into final_output/<x>; images without faces are skipped",
+      "src/oldphotos/test_images/old_w_scratch/a.png, c.png — frontal portraits, so a correct install should find at least one face",
+      "data/runs/oldphotos/result.json repo_diff — Face_Detection/align_warp_back_multiple_dlib.py and _HR.py patched; agent final: 'one-line dtype fix in the stage-4 blending code that modern scikit-image broke'"
+    ],
+    "rerun_pending": true,
+    "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+  }
 }

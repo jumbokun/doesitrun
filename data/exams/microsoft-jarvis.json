@@ -14,8 +14,37 @@
   },
   "eligible": true,
   "reason": "The main HuggingGPT demo needs OpenAI/HF keys, but the README's TaskBench 'Construct Your Own Tool Graph' step (generate_graph.py) runs offline on CPU with bundled data.",
-  "demo": "taskbench/README.md, 'Construct Your Own Tool Graph': python generate_graph.py --tool_desc tool_desc.json --dependency_type resource --data_dir data_multimedia",
-  "goal": "Set up a Python environment so that taskbench/generate_graph.py runs (it needs the click package; install what else the script imports). Run it with --dependency_type resource on a tool library such as taskbench/data_huggingface/tool_desc.json. It must produce a tool graph JSON with nodes and links. Work on a copy of the data directory, because the script writes its output next to the input file name.",
-  "check": "The hidden test runs generate_graph.py on a copy of the bundled tool library and checks that the produced graph has all the nodes and a plausible set of type-consistent links.",
-  "server": false
+  "demo": "taskbench/README.md 'Setup' + 'Construct Your Own Tool Graph': python generate_graph.py --tool_desc <tool library> --dependency_type resource|temporal, then python visualize_graph.py --data_dir <dir>",
+  "goal": "Set up the TaskBench environment the way taskbench/README.md 'Setup' describes (a Python 3.8 environment with taskbench/requirements.txt installed). From /work/JARVIS/taskbench, `python generate_graph.py --tool_desc <tool_desc.json> --dependency_type resource` must turn a bundled tool library such as data_huggingface/tool_desc.json into a tool graph JSON with nodes and links, `--dependency_type temporal` must do the same for the API-style library data_dailylifeapis/tool_desc.json, and `python visualize_graph.py --data_dir <dir>` must render <dir>/graph_desc.json to a PDF.",
+  "check": "The hidden test builds resource graphs for two bundled tool libraries and a temporal graph for the API library on copies of the data, checks their nodes and links, and renders one graph to a PDF with visualize_graph.py.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Goal leaks an install hint: '(it needs the click package; install what else the script imports)'. taskbench/README.md:129-134 says to `pip install -r requirements.txt` in a Python 3.8 env; the goal tells the agent the test only needs click.",
+      "Goal also hands over a gotcha the README does not state ('Work on a copy ... because the script writes its output next to the input file name'); the oracle copies the data itself, so the hint is unnecessary.",
+      "Coverage too narrow: the oracle only runs generate_graph.py --dependency_type resource, which imports nothing but json and click (generate_graph.py:1-2), so an install of click alone passes. The README's temporal graph (README.md:227) and the visualize_graph.py check it names (README.md:236; networkx/matplotlib/scipy from requirements.txt) are untested.",
+      "Minor dead code in v1: `for f in [\"tool_desc.json\", \"tool_desc.json\".replace(\"tools\",\"graph\")]` loads the same file twice."
+    ],
+    "evidence": [
+      "src/microsoft-jarvis/taskbench/README.md:129-134 - Setup: conda python=3.8 + pip install -r requirements.txt",
+      "src/microsoft-jarvis/taskbench/README.md:227-236 - resource vs temporal tool graphs via --dependency_type, then 'check the tool graph through the visualization tool visualize_graph.py'",
+      "src/microsoft-jarvis/taskbench/generate_graph.py:19,42 - output path is tool_file.replace('tools','graph'), i.e. it overwrites tool_desc.json; :36-40 temporal = complete directed graph of type 'complete'",
+      "src/microsoft-jarvis/taskbench/visualize_graph.py:1-34 - imports networkx/matplotlib, reads <data_dir>/graph_desc.json, saves graph_desc.pdf",
+      "src/microsoft-jarvis/taskbench/data_dailylifeapis/tool_desc.json - 40 API tools with 'parameters'; the bundled graph_desc.json has 40*39=1560 'complete' links, matching v2's expectation",
+      "src/microsoft-jarvis/README.md - the main HuggingGPT demo needs OpenAI/HF keys; taskbench/evaluate.py needs LLM predictions that are not bundled (and expects task_nodes, while bundled data.json has tool_nodes), so the tool-graph scripts stay the right CPU demo",
+      "logs/microsoft-jarvis/oracle.txt - v1 run printed 'data_huggingface 23 nodes 225 links', 'data_multimedia 40 nodes 449 links'; v2's assertion block was dry-run on graphs re-derived from the bundled tool_desc files and gives 225/449/1560"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The main HuggingGPT demo needs OpenAI/HF keys, but the README's TaskBench 'Construct Your Own Tool Graph' step (generate_graph.py) runs offline on CPU with bundled data.",
+      "demo": "taskbench/README.md, 'Construct Your Own Tool Graph': python generate_graph.py --tool_desc tool_desc.json --dependency_type resource --data_dir data_multimedia",
+      "goal": "Set up a Python environment so that taskbench/generate_graph.py runs (it needs the click package; install what else the script imports). Run it with --dependency_type resource on a tool library such as taskbench/data_huggingface/tool_desc.json. It must produce a tool graph JSON with nodes and links. Work on a copy of the data directory, because the script writes its output next to the input file name.",
+      "check": "The hidden test runs generate_graph.py on a copy of the bundled tool library and checks that the produced graph has all the nodes and a plausible set of type-consistent links.",
+      "server": false
+    }
+  }
 }

@@ -12,10 +12,35 @@
     "cost_usd": 0.053244200000000005,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README's pretrained_example.py loads the public FFHQ StyleGAN generator and generates one 1024x1024 image; inference is feasible on CPU (TF1 code may need CPU/NHWC patching).",
+  "eligible": false,
+  "reason": "Reclassified on review: The README states requirements we cannot meet: 'TensorFlow 1.10.0 or newer with GPU support', 'One or more high-end NVIDIA GPUs with at least 11GB of DRAM', and a CUDA toolkit and cuDNN (README.md:76-78).",
   "demo": "README 'Using pre-trained networks': python pretrained_example.py",
-  "goal": "Get `python pretrained_example.py` in /work/stylegan to run on CPU only: it downloads the pre-trained FFHQ generator pickle (Google Drive id 1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ, ~300MB), prints the Gs layer table, and writes results/example.png. The code targets TensorFlow 1.x and Python 3.6/3.7, so you may need a compatible environment and CPU workarounds (e.g. NCHW convolutions). Put activation of the environment in /work/env.sh.",
-  "check": "Running pretrained_example.py exits successfully and produces a valid 1024x1024 RGB PNG that is not blank.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The README states requirements we cannot meet: 'TensorFlow 1.10.0 or newer with GPU support', 'One or more high-end NVIDIA GPUs with at least 11GB of DRAM', and a CUDA toolkit and cuDNN (README.md:76-78).",
+      "GPU-only code path: the network code uses data_format='NCHW' for conv2d, depthwise_conv2d and avg_pool (training/networks_stylegan.py:47,90,168), which TensorFlow's CPU kernels do not support, and dnnlib/tflib/network.py:408 pins ops to /gpu:N. The recorded pass needed a new NCHW->NHWC shim injected into the pickled network source, plus allow_soft_placement (repo_diff: network.py and tfutil.py, and a new cpu_compat.py). By the exam-time rule this repo should have been excluded.",
+      "If it stays tested, the goal leaks the workaround: 'CPU workarounds (e.g. NCHW convolutions)' names the exact fix. A separate real problem: dnnlib.util.open_url saves Google Drive's virus-scan HTML page instead of the 300 MB pickle (probe NOTES item 3), so pretrained_example.py fails to download the model as written, even on a GPU machine."
+    ],
+    "evidence": [
+      "src/nvlabs-stylegan/README.md:76-78 - TF with GPU support, NVIDIA GPUs, CUDA/cuDNN",
+      "src/nvlabs-stylegan/training/networks_stylegan.py:47,90,168 - NCHW ops",
+      "src/nvlabs-stylegan/dnnlib/tflib/network.py:408 - tf.device('/gpu:%d')",
+      "data/runs/nvlabs-stylegan/deliverables/NOTES.md items 3-5 - Google Drive HTML instead of the pickle; GPU-pinned ops; NCHW shim"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README's pretrained_example.py loads the public FFHQ StyleGAN generator and generates one 1024x1024 image; inference is feasible on CPU (TF1 code may need CPU/NHWC patching).",
+      "demo": "README 'Using pre-trained networks': python pretrained_example.py",
+      "goal": "Get `python pretrained_example.py` in /work/stylegan to run on CPU only: it downloads the pre-trained FFHQ generator pickle (Google Drive id 1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ, ~300MB), prints the Gs layer table, and writes results/example.png. The code targets TensorFlow 1.x and Python 3.6/3.7, so you may need a compatible environment and CPU workarounds (e.g. NCHW convolutions). Put activation of the environment in /work/env.sh.",
+      "check": "Running pretrained_example.py exits successfully and produces a valid 1024x1024 RGB PNG that is not blank.",
+      "server": false
+    }
+  }
 }

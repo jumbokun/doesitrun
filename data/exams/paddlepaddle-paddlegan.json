@@ -17,5 +17,32 @@
   "demo": "docs/en_US/tutorials/animegan.md: python applications/tools/animeganv2.py --input_image <img> --cpu",
   "goal": "Install PaddleGAN (CPU PaddlePaddle plus requirements) so that `python applications/tools/animeganv2.py --input_image docs/imgs/animeganv2_test.jpg --output_path <dir> --cpu` runs from the repo root. It must auto-download the pretrained AnimeGANv2 Hayao weights and write a stylized anime image to the output directory.",
   "check": "The hidden test runs the AnimeGANv2 CLI on a bundled photo and verifies a valid, non-trivial stylized image is written that differs from the input.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Too lenient: the oracle only checks that the output image is not blank and differs from the input (mean abs diff > 3), so an untrained or wrong generator would pass. The repo ships the expected AnimeGANv2 result for this exact photo (docs/imgs/animeganv2_res.jpg). v2 requires the output to be much closer to that reference than the input is (out-vs-ref < 0.6 x in-vs-ref; locally in-vs-ref = 35.4, and the probe measured ~10 for its output). It also pins the output path to anime.png and requires the input's size.",
+      "Demo choice and goal are fine: animeganv2.py is the documented CLI and --cpu is its own flag. The Quick Start (CycleGAN training on Cityscapes) is not CPU-feasible.",
+      "Harness note: the run container was capped at 12 GiB (replay mem '12g'), not the 16 GB the exam promises. The probe's downscale patch was partly an OOM workaround for that cap, though it also reports a segfault in Im2ColFunctor at full resolution even with no_grad."
+    ],
+    "evidence": [
+      "oracles/paddlepaddle-paddlegan.sh — only std>10 and |out-in|>3 checks",
+      "src/paddlepaddle-paddlegan/ppgan/apps/animegan_predictor.py:79-81,88-89 — result resized to the input size and written as <output_path>/anime.png",
+      "src/paddlepaddle-paddlegan/docs/imgs/animeganv2_res.jpg (1280x832) vs animeganv2_test.jpg (1280x853) — mean abs diff 35.4 after resize (computed locally with PIL/numpy)",
+      "src/paddlepaddle-paddlegan/docs/en_US/tutorials/animegan.md:23 — `python applications/tools/animeganv2.py --input_image ${PATH_OF_IMAGE}`",
+      "data/runs/paddlepaddle-paddlegan/deliverables/NOTES.md — 'mean abs diff 10, versus 36 between the input and the reference'",
+      "logs/paddlepaddle-paddlegan/oracle.txt — 'ok /tmp/oracle_anime.sxDPrq/anime.png (1280, 853)'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "PaddleGAN documents a pretrained AnimeGANv2 CLI demo (small weights, CPU-capable) with no credentials needed.",
+      "demo": "docs/en_US/tutorials/animegan.md: python applications/tools/animeganv2.py --input_image <img> --cpu",
+      "goal": "Install PaddleGAN (CPU PaddlePaddle plus requirements) so that `python applications/tools/animeganv2.py --input_image docs/imgs/animeganv2_test.jpg --output_path <dir> --cpu` runs from the repo root. It must auto-download the pretrained AnimeGANv2 Hayao weights and write a stylized anime image to the output directory.",
+      "check": "The hidden test runs the AnimeGANv2 CLI on a bundled photo and verifies a valid, non-trivial stylized image is written that differs from the input.",
+      "server": false
+    }
+  }
 }

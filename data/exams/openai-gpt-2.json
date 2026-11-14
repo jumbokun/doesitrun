@@ -15,7 +15,31 @@
   "eligible": true,
   "reason": "README/DEVELOPERS.md give runnable GPT-2 sample generation scripts with a freely downloadable 124M model that runs on CPU.",
   "demo": "DEVELOPERS.md: download_model.py 124M, then Unconditional and Conditional sample generation",
-  "goal": "Get the GPT-2 small (124M) model downloaded into /work/gpt-2/models/124M via download_model.py and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims); write /work/env.sh that activates it.",
+  "goal": "Follow DEVELOPERS.md: download the GPT-2 small (124M) model into /work/gpt-2/models/124M with download_model.py, and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. Write /work/env.sh that activates the environment needed to run them.",
   "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal leaks a workaround the docs do not give: 'The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims)'. DEVELOPERS.md only says `pip3 install tensorflow==1.12.0`, and the probe went exactly the hinted route (tensorflow-cpu 2.15 + tf.compat.v1 edits in 4 files).",
+      "The oracle is fine: it checks for the 124M checkpoint, uses --nsamples 1 (the script's default of 0 runs forever), and checks the 'SAMPLE 1' marker and text length for both scripts. The `|| true` after the stdin-fed interactive script is justified, because its input() loop raises EOFError after printing the sample, and the output is still checked."
+    ],
+    "evidence": [
+      "src/openai-gpt-2/DEVELOPERS.md:14-21 — 'Install tensorflow 1.12 ... pip3 install tensorflow==1.12.0'; no mention of TF2/compat",
+      "data/exams/openai-gpt-2.json goal — '(e.g. compatible old Python/TF or compat shims)'",
+      "data/runs/openai-gpt-2/deliverables/NOTES.md — 'import tensorflow as tf became import tensorflow.compat.v1 as tf; tf.disable_v2_behavior()'",
+      "logs/openai-gpt-2/oracle.txt — body=251 > 80, after=206 > 40, ORACLE PASS"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README/DEVELOPERS.md give runnable GPT-2 sample generation scripts with a freely downloadable 124M model that runs on CPU.",
+      "demo": "DEVELOPERS.md: download_model.py 124M, then Unconditional and Conditional sample generation",
+      "goal": "Get the GPT-2 small (124M) model downloaded into /work/gpt-2/models/124M via download_model.py and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims); write /work/env.sh that activates it.",
+      "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text.",
+      "server": false
+    }
+  }
 }

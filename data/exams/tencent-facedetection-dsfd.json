@@ -12,10 +12,34 @@
     "cost_usd": 0.0631645,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README demo.py detects faces in a bundled image using a pretrained DSFD checkpoint downloadable from Google Drive; the original code hard-codes CUDA but is small to patch for CPU.",
+  "eligible": false,
+  "reason": "Reclassified on review: The README Requirements list hardware we cannot meet: 'NVIDIA GPU == Tesla P40' and 'Linux CUDA CuDNN', plus Torch 0.3.1 / Python 3.6. demo.py hard-codes net.cuda() and x.cuda(), and the examiner's reason concedes 'the original code hard-codes CUDA'.",
   "demo": "Getting Started > Evaluation step 3: python demo.py (default image data/worlds-largest-selfie.jpg)",
-  "goal": "Get `python demo.py` working on CPU only: download the DSFD WIDER FACE weights (Google Drive file id 1WeXlNYsM6dMP3xQQELI-4gxhwKUQxc3-) to weights/WIDERFace_DSFD_RES152.pth, and patch/adapt the code as needed (e.g. the hard-coded net.cuda()). Run it with --img_root ./data/worlds-largest-selfie.jpg and a --save_folder (with trailing slash) so it writes an annotated detection image.",
-  "check": "The hidden test runs demo.py on the bundled selfie image with a fresh output folder and verifies a non-trivial annotated image output is produced and the process exits successfully.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The README Requirements list hardware we cannot meet: 'NVIDIA GPU == Tesla P40' and 'Linux CUDA CuDNN', plus Torch 0.3.1 / Python 3.6. demo.py hard-codes net.cuda() and x.cuda(), and the examiner's reason concedes 'the original code hard-codes CUDA'.",
+      "Goal leaks the fix: 'patch/adapt the code as needed (e.g. the hard-coded net.cuda())' and '--save_folder (with trailing slash)'. The probe changed 5 files (65 lines) to get a CPU path."
+    ],
+    "evidence": [
+      "src/tencent-facedetection-dsfd/README.md:36-41 — Requirements: Torch == 0.3.1, Torchvision == 0.2.1, Python == 3.6, NVIDIA GPU == Tesla P40, Linux CUDA CuDNN",
+      "src/tencent-facedetection-dsfd/demo.py:70,172 — x = x.cuda(); net.cuda()",
+      "data/exams/tencent-facedetection-dsfd.json goal — 'patch/adapt the code as needed (e.g. the hard-coded net.cuda())'",
+      "data/runs/tencent-facedetection-dsfd/result.json repo_diff — 5 files, 65 lines"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README demo.py detects faces in a bundled image using a pretrained DSFD checkpoint downloadable from Google Drive; the original code hard-codes CUDA but is small to patch for CPU.",
+      "demo": "Getting Started > Evaluation step 3: python demo.py (default image data/worlds-largest-selfie.jpg)",
+      "goal": "Get `python demo.py` working on CPU only: download the DSFD WIDER FACE weights (Google Drive file id 1WeXlNYsM6dMP3xQQELI-4gxhwKUQxc3-) to weights/WIDERFace_DSFD_RES152.pth, and patch/adapt the code as needed (e.g. the hard-coded net.cuda()). Run it with --img_root ./data/worlds-largest-selfie.jpg and a --save_folder (with trailing slash) so it writes an annotated detection image.",
+      "check": "The hidden test runs demo.py on the bundled selfie image with a fresh output folder and verifies a non-trivial annotated image output is produced and the process exits successfully.",
+      "server": false
+    }
+  }
 }

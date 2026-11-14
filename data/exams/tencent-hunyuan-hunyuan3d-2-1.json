@@ -12,10 +12,37 @@
     "cost_usd": 0.0638703,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README code usage shows image-to-3D shape generation with public Hunyuan3D-2.1 weights (~7.4GB fp16 shape checkpoint), which can plausibly run on CPU with reduced steps/resolution.",
+  "eligible": false,
+  "reason": "Reclassified on review: The README states a GPU requirement: 'It takes 10 GB VRAM for shape generation, 21GB for texture generation and 29GB for shape and texture generation in total', and installs CUDA torch (cu124) plus CUDA-compiled rasterizers. The exam carved out a CPU-only, shape-only, 10-step variant the README never offers.",
   "demo": "README 'Code Usage' - Hunyuan3DDiTFlowMatchingPipeline shape generation on assets/demo.png (shape stage of demo.py only, no texture)",
-  "goal": "Get the shape-generation part of the README Code Usage / demo.py working on CPU only: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2.1', device='cpu', dtype=torch.bfloat16) then pipe(image=assets/demo.png, num_inference_steps=10, octree_resolution=128, num_chunks=20000) must return a trimesh that exports to a .glb. Skip the texture/Paint stage (needs CUDA). Install dependencies so imports from hy3dshape work without a GPU (CPU torch is fine), and the public weights download (only the hunyuan3d-dit-v2-1 subfolder is needed) must be cached so from_pretrained works.",
-  "check": "A hidden script runs CPU shape generation on assets/demo.png and verifies an exported GLB mesh with a plausible number of vertices and faces and non-degenerate extent.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The README states a GPU requirement: 'It takes 10 GB VRAM for shape generation, 21GB for texture generation and 29GB for shape and texture generation in total', and installs CUDA torch (cu124) plus CUDA-compiled rasterizers. The exam carved out a CPU-only, shape-only, 10-step variant the README never offers.",
+      "Measured on our 4-vCPU box: one 10-step bf16 run takes ~505-593 s per diffusion step (~85 min of sampling before VAE decode), and the unpatched pipeline was OOM-killed (exit 137) while building the 3.3B DiT; the agent had to patch hy3dshape/pipelines.py to fit memory.",
+      "Oracle bug regardless: its inner `timeout 6000` exceeds the harness ORACLE_SEC=3600, so the test could never finish in budget.",
+      "The duplicate audit's 'oracle re-run passed' in 18 s cannot be a real CPU generation; it read a shape.glb left in /tmp/oracle_out.WsxvtU by an earlier oracle process that outlived the harness timeout."
+    ],
+    "evidence": [
+      "src/tencent-hunyuan-hunyuan3d-2-1/README.md:81 - 'It takes 10 GB VRAM for shape generation, 21GB for texture generation and 29GB for shape and texture generation in total.'",
+      "logs/tencent-hunyuan-hunyuan3d-2-1/commands.jsonl - 'Diffusion Sampling:: 60%| 6/10 [51:33<33:41, 505.30s/it]' after a 3600 s wait; earlier run 'exit=137 ... Killed' while loading model.fp16.ckpt",
+      "data/runs/tencent-hunyuan-hunyuan3d-2-1/result.json - agent timed_out (5400 s); oracle and replay oracle both hit 3600 s; repo_diff hy3dshape/hy3dshape/pipelines.py +8/-2",
+      "oracles/tencent-hunyuan-hunyuan3d-2-1.sh - `timeout 6000 python $OUT/run.py`"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README code usage shows image-to-3D shape generation with public Hunyuan3D-2.1 weights (~7.4GB fp16 shape checkpoint), which can plausibly run on CPU with reduced steps/resolution.",
+      "demo": "README 'Code Usage' - Hunyuan3DDiTFlowMatchingPipeline shape generation on assets/demo.png (shape stage of demo.py only, no texture)",
+      "goal": "Get the shape-generation part of the README Code Usage / demo.py working on CPU only: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2.1', device='cpu', dtype=torch.bfloat16) then pipe(image=assets/demo.png, num_inference_steps=10, octree_resolution=128, num_chunks=20000) must return a trimesh that exports to a .glb. Skip the texture/Paint stage (needs CUDA). Install dependencies so imports from hy3dshape work without a GPU (CPU torch is fine), and the public weights download (only the hunyuan3d-dit-v2-1 subfolder is needed) must be cached so from_pretrained works.",
+      "check": "A hidden script runs CPU shape generation on assets/demo.png and verifies an exported GLB mesh with a plausible number of vertices and faces and non-degenerate extent.",
+      "server": false
+    },
+    "public_reason": "The README requires a GPU with 10 GB of VRAM for shape generation (21 GB for texture); on a 4-core CPU a single reduced 10-step shape run takes about 1.5 hours, so the demo is out of scope for a CPU test."
+  }
 }

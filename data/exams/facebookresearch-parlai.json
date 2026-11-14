@@ -14,8 +14,33 @@
   },
   "eligible": true,
   "reason": "README shows `parlai display_data -t squad`, a small CPU-only dataset download and display.",
-  "demo": "README 'Examples': parlai display_data -t squad",
-  "goal": "Install ParlAI from the clone so the `parlai` CLI works on CPU. Then `parlai display_data -t squad -n 5` must download SQuAD and print examples with text and labels. `parlai eval_model -m repeat_label -t integration_tests -dt valid -ne 10` must also run and report metrics.",
-  "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks that examples with text and labels are printed and the data files exist. It then runs a small eval_model and checks that metrics are reported.",
-  "server": false
+  "demo": "README 'Examples': `parlai display_data -t squad` and `parlai eval_model -m ir_baseline -t personachat -dt valid`",
+  "goal": "Install ParlAI from the clone (README 'Installing ParlAI') so the `parlai` CLI works on CPU. Then the README examples must work: `parlai display_data -t squad -n 5` downloads SQuAD and prints examples with their answers, and `parlai eval_model -m ir_baseline -t personachat -dt valid -ne 200` downloads PersonaChat and reports evaluation metrics.",
+  "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks the printed questions/answers and downloaded data files, then runs the README's ir_baseline evaluation on 200 PersonaChat validation examples and checks the metrics report.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle bug: it greps for literal 'text:' and 'labels:' in display_data output, but simple_display prints the text and an indented label with no field prefixes; the only 'labels:' match is the 'hide_labels:' option dump. Correct output fails.",
+      "Second step is not a README demo: `eval_model -m repeat_label -t integration_tests` appears nowhere in README/docs and only checks the word 'exs'. v2 runs the README's own second example (`eval_model -m ir_baseline -t personachat -dt valid`, capped with the documented -ne flag) and reads metrics from the --report-filename JSON."
+    ],
+    "evidence": [
+      "logs/facebookresearch-parlai/oracle.txt - five examples printed as context/question lines followed by '   Saint Bernadette Soubirous' etc., no 'text:' prefix; display_data exited 0",
+      "src/facebookresearch-parlai/parlai/scripts/display_data.py simple_display - prints the header, act['text'], then '   ' + labels",
+      "src/facebookresearch-parlai/README.md:132-139 - `parlai display_data -t squad` and `parlai eval_model -m ir_baseline -t personachat -dt valid`",
+      "src/facebookresearch-parlai/parlai/scripts/eval_model.py:56,94,121-140 - --report-filename JSON, -ne/--num-examples",
+      "http://parl.ai/downloads/personachat/personachat.tgz -> dl.fbaipublicfiles.com, HTTP 200, 223 MB (checked 2026-11-14)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README shows `parlai display_data -t squad`, a small CPU-only dataset download and display.",
+      "demo": "README 'Examples': parlai display_data -t squad",
+      "goal": "Install ParlAI from the clone so the `parlai` CLI works on CPU. Then `parlai display_data -t squad -n 5` must download SQuAD and print examples with text and labels. `parlai eval_model -m repeat_label -t integration_tests -dt valid -ne 10` must also run and report metrics.",
+      "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks that examples with text and labels are printed and the data files exist. It then runs a small eval_model and checks that metrics are reported.",
+      "server": false
+    }
+  }
 }

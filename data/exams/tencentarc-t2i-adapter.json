@@ -15,7 +15,31 @@
   "eligible": true,
   "reason": "README's diffusers quick start runs SDXL T2I-Adapter (lineart) with ungated public HF models (~8GB download), feasible on CPU at reduced resolution/steps.",
   "demo": "README 'How to Test' > Quick start with diffusers (LineArt adapter, StableDiffusionXLAdapterPipeline)",
-  "goal": "Get the README's diffusers quick start working on CPU only (no GPU, so drop .to('cuda') and xformers, use float32 or bfloat16): install diffusers with T2IAdapter/StableDiffusionXLAdapterPipeline support, torch, transformers, accelerate, safetensors, and load TencentARC/t2i-adapter-lineart-sdxl-1.0 with stabilityai/stable-diffusion-xl-base-1.0 and madebyollin/sdxl-vae-fp16-fix. Generate an image from a line-art control image with prompt 'Ice dragon roar, 4k photo' (reduced size such as 512x512 and few steps to finish in time) so the README pipeline code path runs and saves a picture. Models are downloaded automatically from Hugging Face.",
-  "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced.",
-  "server": false
+  "goal": "Get the README's 'Quick start with diffusers' LineArt example working on this CPU-only machine (no GPU): StableDiffusionXLAdapterPipeline with the TencentARC/t2i-adapter-lineart-sdxl-1.0 adapter, stabilityai/stable-diffusion-xl-base-1.0, the madebyollin/sdxl-vae-fp16-fix VAE and the EulerAncestral scheduler, with the models downloaded from Hugging Face. It must generate and save an image from a line-art control image with the prompt 'Ice dragon roar, 4k photo', at a reduced size of 512x512 with a few inference steps. /work/env.sh must activate the environment.",
+  "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU in bfloat16 with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal leaks CPU workarounds the README does not give: 'drop .to(\"cuda\") and xformers, use float32 or bfloat16' tells the probe what to change in the README snippet for CPU (README.md:126-139 use float16, .to(\"cuda\") and enable_xformers_memory_efficient_attention). This is the same kind of leak flagged for microsoft-unilm and bytedance-sa2va in the maintained round. Removed.",
+      "Goal also rewrites the README's install line: 'install diffusers with T2IAdapter/StableDiffusionXLAdapterPipeline support' steers the probe away from the README's `pip install git+...diffusers.git@t2iadapterxl # for now` (README.md:108), which the README does not do. The probe found that branch no longer imports and used diffusers 0.35.2. The goal should just point at the README's Quick start and let the probe find that out.",
+      "Oracle is sound: it runs the README pipeline code path (T2IAdapter + EulerAncestral + fp16-fix VAE + StableDiffusionXLAdapterPipeline, with the README prompt and adapter_conditioning_scale) at 512x512 and 8 steps, and checks for a 512x512, >20 KB, non-flat PNG. Its `timeout 6000` exceeds ORACLE_SEC=3600, which is harmless because the run took 70-111 s.",
+      "Note (not counted against the test): README.md:101 says 'Inference requires at least 15GB of GPU memory', but the diffusers pipeline is device-agnostic and needs no repo source change on CPU (repo_diff 0 files), so keeping it tested follows the nvlabs-gr00t precedent."
+    ],
+    "evidence": [
+      "src/tencentarc-t2i-adapter/README.md:101-165 - Quick start with diffusers: install lines, LineArt adapter snippet, prompt 'Ice dragon roar, 4k photo'",
+      "data/runs/tencentarc-t2i-adapter/result.json - pass + replay pass, repo_diff 0 files; agent replaced the stale t2iadapterxl branch with diffusers==0.35.2"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README's diffusers quick start runs SDXL T2I-Adapter (lineart) with ungated public HF models (~8GB download), feasible on CPU at reduced resolution/steps.",
+      "demo": "README 'How to Test' > Quick start with diffusers (LineArt adapter, StableDiffusionXLAdapterPipeline)",
+      "goal": "Get the README's diffusers quick start working on CPU only (no GPU, so drop .to('cuda') and xformers, use float32 or bfloat16): install diffusers with T2IAdapter/StableDiffusionXLAdapterPipeline support, torch, transformers, accelerate, safetensors, and load TencentARC/t2i-adapter-lineart-sdxl-1.0 with stabilityai/stable-diffusion-xl-base-1.0 and madebyollin/sdxl-vae-fp16-fix. Generate an image from a line-art control image with prompt 'Ice dragon roar, 4k photo' (reduced size such as 512x512 and few steps to finish in time) so the README pipeline code path runs and saves a picture. Models are downloaded automatically from Hugging Face.",
+      "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced.",
+      "server": false
+    }
+  }
 }

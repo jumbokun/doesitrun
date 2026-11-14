@@ -14,8 +14,36 @@
   },
   "eligible": true,
   "reason": "README documents image-to-3D shape generation with a small public 0.6B Hunyuan3D-2mini turbo model that can run on CPU without any gated access.",
-  "demo": "README 'Code Usage' (Hunyuan3DDiTFlowMatchingPipeline, image assets/demo.png -> mesh) using the Hunyuan3D-2mini turbo variant",
-  "goal": "Install the project (CPU-only PyTorch, requirements.txt, pip install -e .; the texture/CUDA extensions are not needed) and run shape generation with Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2mini', subfolder='hunyuan3d-dit-v2-mini-turbo', device='cpu', dtype=torch.float32) on assets/demo.png, calling pipeline.enable_flashvdm(). Export the resulting trimesh mesh to a .glb file. Importing hy3dgen.shapegen and loading the model weights from Hugging Face must work on CPU.",
-  "check": "The hidden test runs the mini-turbo shape pipeline on CPU on assets/demo.png and verifies a valid non-degenerate exported GLB mesh.",
-  "server": false
+  "demo": "README 'Code Usage' (Hunyuan3DDiTFlowMatchingPipeline, assets/demo.png -> mesh) with the official Hunyuan3D-2mini turbo variant (README model table)",
+  "goal": "Install the project as the README describes (PyTorch, `pip install -r requirements.txt`, `pip install -e .`; the texture extensions under '# for texture' are not needed). Then run the README's Code Usage shape generation on CPU with the mini-turbo variant: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2mini', subfolder='hunyuan3d-dit-v2-mini-turbo', device='cpu', dtype=torch.float32) on assets/demo.png, and export the resulting trimesh mesh to a .glb file. Write /work/env.sh that activates the environment.",
+  "check": "The hidden test runs the mini-turbo shape pipeline on CPU on assets/demo.png with a few sampling steps and verifies a valid, non-degenerate exported GLB mesh.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Demands more than the README promises: goal and oracle require pipeline.enable_flashvdm() on a float32 CPU pipeline. The README 'Code Usage' demo never calls it (only examples/faster_shape_gen_with_flashvdm_mini_turbo.py does, with device='cuda' and the float16 default). enable_flashvdm() reloads the turbo VAE without passing dtype, so ShapeVAE gets its float16 default, which only clashes with a float32 pipeline. The probe had to patch hy3dgen/shapegen/pipelines.py, so the repo is penalised for a combination the docs never offer.",
+      "v2 runs the README Code Usage path with the official mini-turbo variant on CPU/float32, using the default VAE (VanillaVolumeDecoder + skimage marching cubes, both CPU-capable). It keeps 5 steps and octree_resolution 128, and adds a bounding-box sanity bound. The probe transcript shows vanilla volume decoding on CPU running at ~7.8 it/s over 64 chunks, so the time is fine. v2 has not been run.",
+      "Otherwise sound: the shape-gen demo with the 0.6B mini-turbo variant is representative, the texture step needs the CUDA rasterizer extensions ('# for texture'), and the mesh checks are reasonable."
+    ],
+    "evidence": [
+      "src/tencent-hunyuan-hunyuan3d-2/README.md:188-200 — Code Usage: from_pretrained('tencent/Hunyuan3D-2'); mesh = pipeline(image='assets/demo.png')[0]; no enable_flashvdm",
+      "src/tencent-hunyuan-hunyuan3d-2/hy3dgen/shapegen/pipelines.py:274-280 — enable_flashvdm: ShapeVAE.from_pretrained(model_path, subfolder=..., use_safetensors=..., device=self.device) with no dtype",
+      "src/tencent-hunyuan-hunyuan3d-2/hy3dgen/shapegen/models/autoencoders/model.py:120-121 — ShapeVAE.from_pretrained defaults device='cuda', dtype=torch.float16",
+      "src/tencent-hunyuan-hunyuan3d-2/examples/faster_shape_gen_with_flashvdm_mini_turbo.py:13-20 — the flashvdm example uses device='cuda'",
+      "src/tencent-hunyuan-hunyuan3d-2/hy3dgen/shapegen/models/autoencoders/model.py:165-169 — default VanillaVolumeDecoder + MCSurfaceExtractor",
+      "data/runs/tencent-hunyuan-hunyuan3d-2/deliverables/NOTES.md item 4 — 'enable_flashvdm() reloads the turbo VAE without passing a dtype ... Float vs Half'; repo_diff pipelines.py +1/-1",
+      "logs/tencent-hunyuan-hunyuan3d-2/transcript.jsonl — 'Volume Decoding: ... 0/64 ... 7.8it/s' (vanilla decoder on CPU)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README documents image-to-3D shape generation with a small public 0.6B Hunyuan3D-2mini turbo model that can run on CPU without any gated access.",
+      "demo": "README 'Code Usage' (Hunyuan3DDiTFlowMatchingPipeline, image assets/demo.png -> mesh) using the Hunyuan3D-2mini turbo variant",
+      "goal": "Install the project (CPU-only PyTorch, requirements.txt, pip install -e .; the texture/CUDA extensions are not needed) and run shape generation with Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2mini', subfolder='hunyuan3d-dit-v2-mini-turbo', device='cpu', dtype=torch.float32) on assets/demo.png, calling pipeline.enable_flashvdm(). Export the resulting trimesh mesh to a .glb file. Importing hy3dgen.shapegen and loading the model weights from Hugging Face must work on CPU.",
+      "check": "The hidden test runs the mini-turbo shape pipeline on CPU on assets/demo.png and verifies a valid non-degenerate exported GLB mesh.",
+      "server": false
+    }
+  }
 }

@@ -48,5 +48,21 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 15:29:21"
+  "finished": "2026-11-14 15:29:21",
+  "review": {
+    "date": "2026-11-15",
+    "by": "second review (independent check of the maintained passes against their raw logs)",
+    "patched_waived": [
+      {
+        "path": "setup.py",
+        "why": "Agent deleted the \"colabtools\" requirement pre-emptively (the PyPI name belongs to an unrelated third-party package) without trying the install. That package installs fine (pure wheel, no dependencies) and nothing imports it, so `pip install .` and the demo work unchanged. A reasonable supply-chain caution, but not needed for the demo.",
+        "evidence": "google-deepmind/weathernext@f2f2c51 setup.py:34 \"colabtools\"; PyPI colabtools 0.0.1 ships colabtools-0.0.1-py3-none-any.whl, requires_dist None; commands.jsonl: `sed -i '/\"colabtools\",/d' setup.py` issued in the same command as the first install attempt"
+      },
+      {
+        "path": "weathernext/utils/sparse_transformer.py",
+        "why": "Agent made Transformer fall back from splash_mha (TPU Pallas kernel) to triblockdiag_mha on non-TPU backends. The notebook targets TPU/GPU (it switches only for gpu), so CPU is our sandbox, and the oracle already applies the same switch in the config (`if jax.default_backend() != \"tpu\": tk[\"attention_type\"] = \"triblockdiag_mha\"`), so the repo edit was not needed to pass.",
+        "evidence": "docs/weathernext2/wn2_demo.ipynb cell10 (`if backend == 'gpu': ... 'triblockdiag_mha'` / `elif backend == 'tpu'`); oracles/google-deepmind-weathernext.sh:37-38"
+      }
+    ]
+  }
 }

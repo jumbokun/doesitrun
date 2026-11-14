@@ -66,5 +66,26 @@
   },
   "track": "gpu-rtx5060",
   "goal": "Install GroundingDINO per its README WITH its CUDA extension compiled (so `from groundingdino import _C` works — the README warns about `NameError: name '_C' is not defined`), download the Swin-T OGC weights into weights/, and make the README GPU demo `demo/inference_on_a_image.py` work on .asset/cat_dog.jpeg.",
-  "check": "imports `groundingdino._C`, then runs demo/inference_on_a_image.py with groundingdino/config/GroundingDINO_SwinT_OGC.py and weights/groundingdino_swint_ogc.pth on .asset/cat_dog.jpeg with text 'cat . dog .' on the GPU (no --cpu-only) and requires pred.jpg"
+  "check": "imports `groundingdino._C`, then runs demo/inference_on_a_image.py with groundingdino/config/GroundingDINO_SwinT_OGC.py and weights/groundingdino_swint_ogc.pth on .asset/cat_dog.jpeg with text 'cat . dog .' on the GPU (no --cpu-only) and requires pred.jpg",
+  "review": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "An assertion fails on a correct README install. v1's first line, `python -c \"from groundingdino import _C\"`, imports the extension before torch is loaded. groundingdino/__init__.py is empty at this commit, and the CUDAExtension that setup.py builds has no rpath to torch/lib, so the import fails with 'libc10.so: cannot open shared object file'. The package itself always imports torch first. The agent patched groundingdino/__init__.py (+1 patched file, -10 points) and ran patchelf on the .so only to satisfy this line.",
+      "Too lenient: demo/inference_on_a_image.py saves pred.jpg whether or not anything was detected, so a numerically broken CUDA kernel (the agent patched ms_deform_attn_cuda.cu) would still pass. v2 loads the demo's own functions and requires the GPU detections on cat_dog.jpeg to include both 'cat' and 'dog' with valid boxes."
+    ],
+    "evidence": [
+      "src/groundingdino/groundingdino/__init__.py — 0 bytes at 856dde2",
+      "src/groundingdino/groundingdino/models/GroundingDINO/ms_deform_attn.py:21-31 — `import torch` precedes `from groundingdino import _C` (try/except warn)",
+      "data/runs/groundingdino/deliverables/NOTES.md item 5 — '`import groundingdino._C` alone raised ImportError: libc10.so ... it only works if torch was imported first'; fixed by adding `import torch` to __init__.py and patchelf",
+      "data/runs/groundingdino/result.json repo_diff — groundingdino/__init__.py +1 line",
+      "src/groundingdino/demo/inference_on_a_image.py:205-214 — pred.jpg saved unconditionally; :84-146 get_grounding_output returns filtered boxes and phrases; :149 the __main__ guard allows importing its functions",
+      "src/groundingdino/groundingdino/models/GroundingDINO/ms_deform_attn.py:330 — the compiled _C path is used for CUDA tensors",
+      "src/groundingdino/README.md:121-127,198-205 — the _C warning and the GPU demo command; deliverables NOTES report cat/dog logits 0.82/0.57, above the 0.3 box threshold"
+    ],
+    "rerun_pending": true,
+    "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+  }
 }

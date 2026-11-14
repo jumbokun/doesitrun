@@ -12,10 +12,40 @@
     "cost_usd": 0.053802100000000005,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README gives page-level inference commands with bundled demo images and a public (ungated) Dolphin-v2 3B model that can run on CPU.",
+  "eligible": false,
+  "reason": "Reclassified on review: Run timed out (90 min) without delivering setup.sh/env.sh, so the oracle died at `source /work/env.sh`. The transcript shows why. The README model is Dolphin-v2 with 3B parameters (3.75B BF16 per the HF API, 7.5 GB of safetensors), and demo_page.py loads it in float32 on CPU (self.model.float()), about 15 GB of weights before any activations. The first stock run was OOM-killed. The probe then switched to bfloat16, but this CPU (AMD EPYC 7763, no avx512_bf16) ran a 512x2048x11008 bf16 matmul in 2",
   "demo": "README Inference > Page-level Parsing: python demo_page.py --model_path ./hf_model --save_dir ./results --input_path ./demo/page_imgs/page_1.png",
-  "goal": "Install the dependencies, download the ByteDance/Dolphin-v2 model into /work/Dolphin/hf_model, and run `python demo_page.py --model_path ./hf_model --save_dir <dir> --input_path ./demo/page_imgs/page_1.png` on CPU. It must finish and write the parsed JSON and Markdown results for the page. /work/env.sh must make the right python environment available.",
-  "check": "The hidden test runs page-level parsing on a bundled demo image and verifies that non-trivial JSON and Markdown output files with parsed text are produced.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "Run timed out (90 min) without delivering setup.sh/env.sh, so the oracle died at `source /work/env.sh`. The transcript shows why. The README model is Dolphin-v2 with 3B parameters (3.75B BF16 per the HF API, 7.5 GB of safetensors), and demo_page.py loads it in float32 on CPU (self.model.float()), about 15 GB of weights before any activations. The first stock run was OOM-killed. The probe then switched to bfloat16, but this CPU (AMD EPYC 7763, no avx512_bf16) ran a 512x2048x11008 bf16 matmul in 28.8 s versus 0.26 s in fp32. The page never finished.",
+      "This is directly verifiable from the hub sizes plus demo_page.py: float32 weights alone (~15 GB) leave no room on a 16 GB CPU machine for the vision encoder on a 1700x2200 page. The current README offers no smaller model. Dolphin-1.5 (0.3B) only lives on the v1.5 branch ('Dolphin-1.5 moved to v1.5 branch'). If the owner prefers testing over exclusion, a new exam on branch v1.5 would be the CPU-feasible option.",
+      "Harness note: the container's cgroup memory.max was 12884901888 (12 GiB), below the 16 GB the exam prompt promises. That alone guaranteed the float32 OOM here."
+    ],
+    "evidence": [
+      "src/bytedance-dolphin/README.md:48 — 'Released Dolphin-v2 model. Upgraded to 3B parameters ... (Dolphin-1.5 moved to v1.5 branch)'",
+      "src/bytedance-dolphin/README.md:121-131 — download ByteDance/Dolphin-v2 to ./hf_model; :145 demo_page.py page_1.png",
+      "src/bytedance-dolphin/demo_page.py:27-37 — from_pretrained() then on CPU `self.model = self.model.float()`",
+      "https://huggingface.co/api/models/ByteDance/Dolphin-v2 — safetensors parameters BF16 3754622976; shards 4997750760 + 2511587184 bytes",
+      "logs/bytedance-dolphin/commands.jsonl #8 — stock run: 'Killed nohup python demo_page.py ...'",
+      "logs/bytedance-dolphin/commands.jsonl #20 — 'torch.float32 prefill 0.26 / torch.bfloat16 prefill 28.79'",
+      "logs/bytedance-dolphin/commands.jsonl #13 — /sys/fs/cgroup/memory.max = 12884901888",
+      "data/runs/bytedance-dolphin/result.json — agent secs 5400 timed_out true; replay 'no setup.sh delivered'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README gives page-level inference commands with bundled demo images and a public (ungated) Dolphin-v2 3B model that can run on CPU.",
+      "demo": "README Inference > Page-level Parsing: python demo_page.py --model_path ./hf_model --save_dir ./results --input_path ./demo/page_imgs/page_1.png",
+      "goal": "Install the dependencies, download the ByteDance/Dolphin-v2 model into /work/Dolphin/hf_model, and run `python demo_page.py --model_path ./hf_model --save_dir <dir> --input_path ./demo/page_imgs/page_1.png` on CPU. It must finish and write the parsed JSON and Markdown results for the page. /work/env.sh must make the right python environment available.",
+      "check": "The hidden test runs page-level parsing on a bundled demo image and verifies that non-trivial JSON and Markdown output files with parsed text are produced.",
+      "server": false
+    },
+    "public_reason": "The README's only model, the 3B-parameter Dolphin-v2, is converted to float32 by demo_page.py on a CPU, about 15 GB of weights, so the page-parsing demo runs out of memory on a 16 GB machine; the smaller Dolphin-1.5 now lives only on an old branch."
+  }
 }

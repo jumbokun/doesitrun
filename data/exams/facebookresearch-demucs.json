@@ -17,5 +17,29 @@
   "demo": "README 'Separating tracks' section: demucs PATH_TO_AUDIO_FILE (with --two-stems=vocals)",
   "goal": "Install demucs from the /work/demucs clone (CPU-only PyTorch) and run the CLI `python3 -m demucs --two-stems=vocals -d cpu -o OUTDIR test.mp3` on the bundled /work/demucs/test.mp3 with the default htdemucs model. It must download the pretrained weights and write separated stem wav files (vocals.wav and no_vocals.wav) under OUTDIR/htdemucs/test/.",
   "check": "The hidden test runs the separation on the bundled test.mp3 and verifies the stem wav files exist with plausible size and duration.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Output content is not checked: v1 only asserts file size >500 kB, duration >5 s and 2 channels, which any 20 s stereo wav passes (e.g. a broken model emitting noise or silence). v2 checks the README's 44.1 kHz stereo format, that no_vocals is not silent, that stem length equals the input, and that vocals + no_vocals reconstructs test.mp3 (corr > 0.8), since no_vocals is the sum of the other stems."
+    ],
+    "evidence": [
+      "src/facebookresearch-demucs/README.md:189,196-197,202 - `python3 -m demucs`, `--two-stems=vocals`, `-d cpu`; README.md:205-209 - stems are stereo 44.1 kHz int16 wav",
+      "src/facebookresearch-demucs/demucs/separate.py:208-218 - no_{stem} is the sum of the other sources (two-stems 'add' mode is the default)",
+      "src/facebookresearch-demucs/demucs/api.py:210-239 - mix loading: ffmpeg AudioFile first, torchaudio fallback (v2 does the same)",
+      "logs/facebookresearch-demucs/oracle.txt - 'vocals 20.0 2', 'no_vocals 20.0 2'; test.mp3 is 20.0 s; running from /work/demucs is fine because the clone is the editable-installed package",
+      "v2's numeric block was dry-run on synthetic stems (reconstruction corr 1.0)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README documents a CLI that separates a bundled test.mp3 into stems on CPU with freely downloadable models.",
+      "demo": "README 'Separating tracks' section: demucs PATH_TO_AUDIO_FILE (with --two-stems=vocals)",
+      "goal": "Install demucs from the /work/demucs clone (CPU-only PyTorch) and run the CLI `python3 -m demucs --two-stems=vocals -d cpu -o OUTDIR test.mp3` on the bundled /work/demucs/test.mp3 with the default htdemucs model. It must download the pretrained weights and write separated stem wav files (vocals.wav and no_vocals.wav) under OUTDIR/htdemucs/test/.",
+      "check": "The hidden test runs the separation on the bundled test.mp3 and verifies the stem wav files exist with plausible size and duration.",
+      "server": false
+    }
+  }
 }

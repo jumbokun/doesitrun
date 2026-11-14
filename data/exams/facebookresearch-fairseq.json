@@ -14,8 +14,35 @@
   },
   "eligible": true,
   "reason": "examples/roberta README shows pretrained RoBERTa base loading, fill_mask and feature extraction, runnable on CPU with a ~700MB public download.",
-  "demo": "examples/roberta/README.md - Example usage (RobertaModel.from_pretrained, fill_mask, encode, extract_features)",
-  "goal": "Install fairseq from /work/fairseq (editable) so that `from fairseq.models.roberta import RobertaModel` works on CPU. Download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, extract it, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt'), and run m.fill_mask('The capital of France is <mask>.', topk=3), m.encode and m.extract_features. Write /work/env.sh that activates the environment (it is sourced before python is run).",
-  "check": "A hidden script loads the roberta.base model, checks fill_mask returns 3 filled predictions including Paris, that encode gives the expected token ids, and that extracted features have shape (1,5,768).",
-  "server": false
+  "demo": "README.md pretrained translation example (transformer.wmt19.en-de.single_model, 'Hello world' -> 'Hallo Welt') + examples/roberta/README.md Example usage (roberta.base fill_mask/encode/extract_features)",
+  "goal": "Install fairseq from /work/fairseq as the README describes (editable) so it works on CPU, and make /work/env.sh activate that environment. Two README examples must then work with the local install: (1) the top-level README's translation example, the pretrained model 'transformer.wmt19.en-de.single_model' translating 'Hello world' into German (the hidden test loads it with TransformerModel.from_pretrained('transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe'), which downloads the model; see examples/translation/README.md for what the translation models need); (2) examples/roberta: download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt') and run fill_mask('The capital of France is <mask>.', topk=3), encode and extract_features.",
+  "check": "A hidden script translates English sentences to German with the wmt19 en-de single model and checks the documented translations, then loads roberta.base and checks fill_mask predicts Paris, encode gives the README's token ids, and extract_features has shape (1,5,768).",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Demo choice: the test only covers the RoBERTa sub-example (examples/roberta). The top-level README's one code example, and fairseq's core function, is translation with a pretrained transformer (torch.hub 'transformer.wmt19.en-de.single_model' -> 'Hallo Welt'). Sequence generation / beam search, the moses+fastBPE pipeline and TransformerModel loading are never exercised, so a broken generation path would still pass.",
+      "The translation model is CPU-feasible: wmt19.en-de.joined-dict.single_model.tar.gz is 2.99 GB (HTTP HEAD Content-Length 2988854245), public, no key.",
+      "v2 keeps the RoBERTa checks unchanged and adds the README translation example, loaded from the local install (torch.hub.load('pytorch/fairseq') would pull GitHub main, not the clone under test)."
+    ],
+    "evidence": [
+      "README.md:138-143 — en2de = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.en-de.single_model'); en2de.translate('Hello world', beam=5) # 'Hallo Welt'",
+      "fairseq/models/transformer/transformer_legacy.py:40-45,62 — hub name maps to the archive URL with tokenizer='moses', bpe='fastbpe'",
+      "fairseq/models/fairseq_model.py:242-272 — BaseFairseqModel.from_pretrained resolves hub names via hub_models(), so TransformerModel.from_pretrained('transformer.wmt19.en-de.single_model') is the same entry point as the hub call",
+      "examples/translation/README.md:25 and examples/wmt19/README.md:32 — 'pip install fastBPE sacremoses' documented for these models; :49-53 document 'Hallo Welt!' and 'Die Katze saß auf der Matte.'",
+      "examples/roberta/README.md:114-115 — encode('Hello world!') == [0, 31414, 232, 328, 2] (v1 assertion is correct)",
+      "https://dl.fbaipublicfiles.com/fairseq/models/wmt19.en-de.joined-dict.single_model.tar.gz — 200 OK, 2.99 GB"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "examples/roberta README shows pretrained RoBERTa base loading, fill_mask and feature extraction, runnable on CPU with a ~700MB public download.",
+      "demo": "examples/roberta/README.md - Example usage (RobertaModel.from_pretrained, fill_mask, encode, extract_features)",
+      "goal": "Install fairseq from /work/fairseq (editable) so that `from fairseq.models.roberta import RobertaModel` works on CPU. Download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, extract it, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt'), and run m.fill_mask('The capital of France is <mask>.', topk=3), m.encode and m.extract_features. Write /work/env.sh that activates the environment (it is sourced before python is run).",
+      "check": "A hidden script loads the roberta.base model, checks fill_mask returns 3 filled predictions including Paris, that encode gives the expected token ids, and that extracted features have shape (1,5,768).",
+      "server": false
+    }
+  }
 }

@@ -14,8 +14,36 @@
   },
   "eligible": true,
   "reason": "The paddlecv subdirectory documents CPU-runnable inference (tools/predict.py) with small pretrained inference models auto-downloaded and no credentials.",
-  "demo": "paddlecv/docs/GETTING_STARTED.md 部署示例: image classification with python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg",
-  "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies needed by paddlecv, then run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` on CPU. The pretrained inference model is downloaded automatically and the classification result must be produced in the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs it.",
-  "check": "The hidden test runs the classification prediction on the bundled demo image and verifies the output result file contains top-5 class ids, scores and label names, plus a saved output image.",
-  "server": false
+  "demo": "paddlecv/docs/GETTING_STARTED.md 部署示例 image classification (PP-LCNet) + docs/INSTALL.md 快速体验 object detection (PP-YOLOE+)",
+  "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies paddlecv needs, then on CPU run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` and the install guide's detection check `python -u tools/predict.py --config=configs/single_op/PP-YOLOE+.yml --input=demo/000000014439.jpg --output_dir=<dir>`. The pretrained inference models download automatically; each command must write its structured result and visualised image to the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs them.",
+  "check": "The hidden test runs both commands on the bundled demo images and checks the classification result names the dog breed shown with ranked top-5 scores, and the detection result contains the people visible in the demo image with valid boxes and scores, plus the saved output images.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Too lenient: the classification check accepts any 5 ranked labels; it never checks that the bundled demo image (a Weimaraner, ImageNet class 178) is recognised, so wrong preprocessing, a wrong label map or garbage weights would pass. The real run produced Weimaraner 0.884 at rank 1.",
+      "Coverage: paddlecv's own install guide ends with an object-detection quick check (PP-YOLOE+ on demo/000000014439.jpg, reference output image bundled); only the single classification op is tested. v2 adds that documented detection command and checks for the many 'person' boxes the reference output shows.",
+      "Choosing paddlecv as the demo is right: the repo root README is a catalogue with no runnable example."
+    ],
+    "evidence": [
+      "paddlecv/docs/GETTING_STARTED.md:40-53 — deployment examples (classification, detection, segmentation, OCR) via tools/predict.py",
+      "paddlecv/docs/INSTALL.md:74-88 — '快速体验' runs PP-YOLOE+ on demo/000000014439.jpg; reference demo/000000014439_output.jpg shows ~12 person boxes",
+      "paddlecv/configs/single_op/PP-YOLOE+.yml — ParserDetResults threshold 0.5, DetOutput inputs dt_bboxes/dt_scores/dt_cls_names, save_res True",
+      "paddlecv/ppcv/ops/output/detection.py:114 writes det_output.json; classification.py:52 writes clas_output.json",
+      "tools/predict.py:58-61 --device defaults to CPU",
+      "logs-paddlepaddle-models oracle.txt — cls.class_ids [178, 211, 209, 210, 208], label_names ['Weimaraner', ...], scores [0.88356, ...]",
+      "README.md (repo root) — catalogue of official/research/community model lists, no runnable command"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The paddlecv subdirectory documents CPU-runnable inference (tools/predict.py) with small pretrained inference models auto-downloaded and no credentials.",
+      "demo": "paddlecv/docs/GETTING_STARTED.md 部署示例: image classification with python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg",
+      "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies needed by paddlecv, then run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` on CPU. The pretrained inference model is downloaded automatically and the classification result must be produced in the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs it.",
+      "check": "The hidden test runs the classification prediction on the bundled demo image and verifies the output result file contains top-5 class ids, scores and label names, plus a saved output image.",
+      "server": false
+    }
+  }
 }

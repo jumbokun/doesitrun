@@ -17,5 +17,15 @@
   "demo": "README Quick Start CLI (`pf flow test` / pf CLI), using examples/flows/standard/conditional-flow-for-if-else which needs no API key",
   "goal": "Install promptflow and promptflow-tools so the `pf` CLI works. Then run the flow examples/flows/standard/conditional-flow-for-if-else both with `pf flow test --flow <dir> --inputs question=\"What is Prompt flow?\"` and as a batch run with `pf run create --flow <dir> --data <dir>/data.jsonl`. Both must complete successfully without any API key or connection.",
   "check": "The hidden test runs the flow through the pf CLI on its own inputs, both single test and batch run, and checks the outputs contain the expected answers.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 3,
+    "date": "2026-11-15",
+    "by": "second review (independent check of the maintained passes against their raw logs)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Pass is real (pf CLI ran single and batch). Oracle weakness: it omits the README's --column-mapping question='${data.question}' (flow README.md:45), so the batch silently used the flow default input (flow.dag.yaml:4) and the answer check (either of two fixed strings; content_safety_check is random.choice) cannot tell. oracles_v2 uses the README command, questions distinct from the default, and requires each 'not familiar' answer to echo its own row's question. Expected to still pass; rerun under v2."
+    ],
+    "evidence": []
+  }
 }

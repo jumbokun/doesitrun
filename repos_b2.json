@@ -25,8 +25,8 @@
     "dir": "lama",
     "gpu": true,
     "mem": "4g",
-    "goal": "Get the README Inference path working: big-lama model downloaded into /work/lama/big-lama, and `python3 bin/predict.py model.path=$(pwd)/big-lama indir=<dir> outdir=<dir>` (with TORCH_HOME and PYTHONPATH set as the README says) inpainting PNG image+mask pairs named like image.png / image_mask001.png on CUDA.",
-    "check": "creates its own PNG image + image_mask001.png pair, runs bin/predict.py with model.path=/work/lama/big-lama and device=cuda, and requires an inpainted PNG of the same size",
+    "goal": "Get the README Inference path working: the big-lama model downloaded into /work/lama/big-lama as the README shows, and `python3 bin/predict.py model.path=$(pwd)/big-lama indir=<dir> outdir=<dir>` (with TORCH_HOME and PYTHONPATH set as the README says) inpainting PNG image+mask pairs named like image.png / image_mask001.png.",
+    "check": "creates its own PNG image with an object to remove plus image_mask001.png, runs bin/predict.py with model.path=/work/lama/big-lama, and requires a same-size output in which the masked object is gone and the unmasked pixels are kept",
     "server": false
   },
   {

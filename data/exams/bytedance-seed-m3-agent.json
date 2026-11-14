@@ -15,7 +15,35 @@
   "eligible": true,
   "reason": "The README's memory-graph visualization step runs on CPU from a public, ungated M3-Bench memory graph pickle (robot.tar.gz, 2.4 GB), with no API calls needed.",
   "demo": "README > Run Locally > Memorization > step 6 Memory Graph Visualization (python visualization.py --mem_path data/memory_graphs/robot/bedroom_01.pkl --clip_id 1)",
-  "goal": "Get `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1` working in /work/m3-agent. Download the pre-built memory graph from the public HF dataset ByteDance-Seed/M3-Bench (memory_graphs/robot.tar.gz, 2.4 GB) and extract bedroom_01.pkl. Install only the dependencies needed; do not download the large models or run GPU steps. configs/api_config.json has empty values, and importing mmagent may fail on them, so you may need dummy values; no real API key is required. The script must print the memory of clip 1 (episodic/semantic nodes, faces, voices).",
+  "goal": "In /work/m3-agent, get the README's Memorization step 6, `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1`, working on this CPU-only machine. Use the pre-built memory graphs the README links on Hugging Face (public dataset ByteDance-Seed/M3-Bench, memory_graphs/robot.tar.gz, about 2.4 GB) and extract robot/bedroom_01.pkl. Generating graphs from video (Memorization steps 2-5 and the M3-Agent models) and the Control stage are not part of this goal. This step calls no API, so no real API key is needed. The script must print the memory of clip 1 (episodic/semantic nodes and their related faces/voices). /work/env.sh must activate the environment.",
   "check": "The hidden test extracts bedroom_01.pkl from the dataset archive, runs visualization.py on clip 1, and checks the output contains the 'Clip 1 Memory' header with episodic/semantic memory lines.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal plants a diagnosis that is false at this commit: 'configs/api_config.json has empty values, and importing mmagent may fail on them, so you may need dummy values'. mmagent/utils/chat_api.py:35-45 wraps client creation in try/except, and the probe confirmed it 'didn't need dummy values'. A hint about where the import breaks, true or not, is not traceable to the README, which only says 'Before running, add api config' (README.md:66). Replaced with a plain scope statement: this step calls no API.",
+      "Goal also says 'Install only the dependencies needed; do not download the large models or run GPU steps'. The scope part is fair, because memorization steps 2-5 and the M3-Agent models are optional when the pre-built graphs are downloaded (README.md:50,72). But 'install only the dependencies needed' invites skipping the README's `bash setup.sh`, and it pushed the probe to patch mmagent/__init__.py so the face/voice imports may fail (repo_diff: mmagent/__init__.py +8). Reworded to name only the README step and its inputs.",
+      "Demo choice is acceptable: memorization (the M3-Agent-Memorization 7B Omni model) and control (vLLM + the GPT-4o API) need a GPU or a paid API. Visualizing a pre-built memory graph is the only README step that runs on CPU without a key, and it does exercise the VideoGraph pickle, refresh_equivalences and retrieve.translate.",
+      "Oracle is sound: it downloads the public robot.tar.gz, extracts bedroom_01.pkl, and checks for the 'Clip 1 Memory' header (visualization.py:38) and at least one '[episodic]'/'[semantic]' node line (visualization.py:46-47)."
+    ],
+    "evidence": [
+      "src/bytedance-seed-m3-agent/README.md:50 - memory graphs can be downloaded from HF instead of generated",
+      "src/bytedance-seed-m3-agent/README.md:72 - steps are 'required only if you haven't downloaded intermediate_outputs and memory_graphs'",
+      "src/bytedance-seed-m3-agent/README.md:146-152 - step 6 `python visualization.py --mem_path data/memory_graphs/robot/bedroom_01.pkl --clip_id 1`",
+      "src/bytedance-seed-m3-agent/mmagent/utils/chat_api.py:35-45 - an empty api_config is swallowed by try/except",
+      "src/bytedance-seed-m3-agent/mmagent/__init__.py:44-55 - imports face_processing (insightface buffalo_l at import, face_processing.py:25) and voice_processing (models/pretrained_eres2netv2.ckpt + speakerlab at import, voice_processing.py:22,35)",
+      "data/runs/bytedance-seed-m3-agent/deliverables/NOTES.md - 'The empty configs/api_config.json caused no problem'; patched mmagent/__init__.py"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The README's memory-graph visualization step runs on CPU from a public, ungated M3-Bench memory graph pickle (robot.tar.gz, 2.4 GB), with no API calls needed.",
+      "demo": "README > Run Locally > Memorization > step 6 Memory Graph Visualization (python visualization.py --mem_path data/memory_graphs/robot/bedroom_01.pkl --clip_id 1)",
+      "goal": "Get `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1` working in /work/m3-agent. Download the pre-built memory graph from the public HF dataset ByteDance-Seed/M3-Bench (memory_graphs/robot.tar.gz, 2.4 GB) and extract bedroom_01.pkl. Install only the dependencies needed; do not download the large models or run GPU steps. configs/api_config.json has empty values, and importing mmagent may fail on them, so you may need dummy values; no real API key is required. The script must print the memory of clip 1 (episodic/semantic nodes, faces, voices).",
+      "check": "The hidden test extracts bedroom_01.pkl from the dataset archive, runs visualization.py on clip 1, and checks the output contains the 'Clip 1 Memory' header with episodic/semantic memory lines.",
+      "server": false
+    }
+  }
 }

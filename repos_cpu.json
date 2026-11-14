@@ -106,8 +106,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install pysc2, download the Linux StarCraft II headless build (Blizzard s2client-proto downloads, ~4GB, extract to ~/StarCraftII or set SC2PATH) and the mini_games maps (pysc2 v1.2 release mini_games.zip) into the SC2 Maps dir. Then run `python -m pysc2.bin.agent --map CollectMineralShards --norender --max_episodes 1 --max_agent_steps 200` so the random agent plays and finishes without error, and make env.sh export SC2PATH if non-default.",
-    "check": "The hidden test runs the random agent headless on the CollectMineralShards map for a short episode and checks it completes and reports a score."
+    "goal": "Install pysc2, download the Linux StarCraft II package (Blizzard s2client-proto downloads; extract to ~/StarCraftII or set SC2PATH) and the mini_games maps (pysc2 v1.2 release mini_games.zip) into the SC2 Maps dir, as the README describes. Then `python -m pysc2.bin.agent --map CollectMineralShards --norender --max_episodes 1 --max_agent_steps 100` must run the default random agent to completion, and the README's scripted agent (`--agent pysc2.agents.scripted_agent.CollectMineralShards`) must play the same map headless. Make /work/env.sh export SC2PATH if it is non-default.",
+    "check": "The hidden test runs the random and scripted agents headless on CollectMineralShards, then drives the environment from Python and checks the observations and that the scripted agent collects mineral shards (positive reward)."
   },
   {
     "slug": "google-deepmind-weathernext",
@@ -194,19 +194,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install fairseq from /work/fairseq (editable) so that `from fairseq.models.roberta import RobertaModel` works on CPU. Download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, extract it, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt'), and run m.fill_mask('The capital of France is <mask>.', topk=3), m.encode and m.extract_features. Write /work/env.sh that activates the environment (it is sourced before python is run).",
-    "check": "A hidden script loads the roberta.base model, checks fill_mask returns 3 filled predictions including Paris, that encode gives the expected token ids, and that extracted features have shape (1,5,768)."
-  },
-  {
-    "slug": "facebookresearch-detectron",
-    "repo": "facebookresearch/Detectron",
-    "dir": "Detectron",
-    "company": "Meta",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get `python tools/infer_simple.py --cfg configs/12_2017_baselines/e2e_mask_rcnn_R-101-FPN_2x.yaml --output-dir <dir> --image-ext jpg --wts <model_final.pkl URL from GETTING_STARTED.md> demo` working on CPU only in /work/Detectron (Caffe2-based; you will need to make it run without a GPU). It must produce a visualization file per demo image (PDF by default; --output-ext jpg also acceptable). Write /work/env.sh (activates the environment needed to run it).",
-    "check": "The hidden test runs infer_simple.py on a bundled demo image with the Mask R-CNN weights and verifies that a non-trivial visualization output file is produced."
+    "goal": "Install fairseq from /work/fairseq as the README describes (editable) so it works on CPU, and make /work/env.sh activate that environment. Two README examples must then work with the local install: (1) the top-level README's translation example, the pretrained model 'transformer.wmt19.en-de.single_model' translating 'Hello world' into German (the hidden test loads it with TransformerModel.from_pretrained('transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe'), which downloads the model; see examples/translation/README.md for what the translation models need); (2) examples/roberta: download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt') and run fill_mask('The capital of France is <mask>.', topk=3), encode and extract_features.",
+    "check": "A hidden script translates English sentences to German with the wmt19 en-de single model and checks the documented translations, then loads roberta.base and checks fill_mask predicts Paris, encode gives the README's token ids, and extract_features has shape (1,5,768)."
   },
   {
     "slug": "facebookresearch-detr",
@@ -249,8 +238,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install ParlAI from the clone so the `parlai` CLI works on CPU. Then `parlai display_data -t squad -n 5` must download SQuAD and print examples with text and labels. `parlai eval_model -m repeat_label -t integration_tests -dt valid -ne 10` must also run and report metrics.",
-    "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks that examples with text and labels are printed and the data files exist. It then runs a small eval_model and checks that metrics are reported."
+    "goal": "Install ParlAI from the clone (README 'Installing ParlAI') so the `parlai` CLI works on CPU. Then the README examples must work: `parlai display_data -t squad -n 5` downloads SQuAD and prints examples with their answers, and `parlai eval_model -m ir_baseline -t personachat -dt valid -ne 200` downloads PersonaChat and reports evaluation metrics.",
+    "check": "The hidden test runs display_data on SQuAD into a fresh datapath and checks the printed questions/answers and downloaded data files, then runs the README's ir_baseline evaluation on 200 PersonaChat validation examples and checks the metrics report."
   },
   {
     "slug": "facebookresearch-demucs",
@@ -271,7 +260,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install nougat-ocr from /work/nougat so the `nougat` command works on CPU (resolve any dependency version conflicts, e.g. transformers/albumentations/pypdfium2 pins). Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
+    "goal": "Install nougat-ocr from /work/nougat as the README describes so the `nougat` command works on CPU, and make /work/env.sh activate that environment. Then `nougat some.pdf -o outdir --no-skipping -p 1` must download the default 0.1.0-small checkpoint and write a non-empty .mmd file with the recognized text of a simple one-page PDF.",
     "check": "Runs the nougat CLI on a generated one-page text PDF and checks that a non-empty .mmd output file is produced containing recognizable words from the page."
   },
   {
@@ -359,19 +348,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Set up a Python environment so that taskbench/generate_graph.py runs (it needs the click package; install what else the script imports). Run it with --dependency_type resource on a tool library such as taskbench/data_huggingface/tool_desc.json. It must produce a tool graph JSON with nodes and links. Work on a copy of the data directory, because the script writes its output next to the input file name.",
-    "check": "The hidden test runs generate_graph.py on a copy of the bundled tool library and checks that the produced graph has all the nodes and a plausible set of type-consistent links."
-  },
-  {
-    "slug": "microsoft-unilm",
-    "repo": "microsoft/unilm",
-    "dir": "unilm",
-    "company": "Microsoft",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "In /work/unilm/e5, install requirements.txt and get the README's MTEB evaluation (mteb_except_retrieval_eval.py, as called by scripts/eval_mteb_except_retrieval.sh) working on this CPU-only machine with intfloat/e5-small-v2. The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
-    "check": "The hidden test runs that command into a fresh directory and verifies the STS12 result JSON exists with a cosine-similarity Spearman score in the plausible range for e5-small-v2."
+    "goal": "Set up the TaskBench environment the way taskbench/README.md 'Setup' describes (a Python 3.8 environment with taskbench/requirements.txt installed). From /work/JARVIS/taskbench, `python generate_graph.py --tool_desc <tool_desc.json> --dependency_type resource` must turn a bundled tool library such as data_huggingface/tool_desc.json into a tool graph JSON with nodes and links, `--dependency_type temporal` must do the same for the API-style library data_dailylifeapis/tool_desc.json, and `python visualize_graph.py --data_dir <dir>` must render <dir>/graph_desc.json to a PDF.",
+    "check": "The hidden test builds resource graphs for two bundled tool libraries and a temporal graph for the API library on copies of the data, checks their nodes and links, and renders one graph to a PDF with visualize_graph.py."
   },
   {
     "slug": "microsoft-skillopt",
@@ -394,17 +372,6 @@
     "server": true,
     "goal": "Install Data Formulator from the cloned repo (or pip) and start the web server with `python -m data_formulator` on port 5567 (frontend must be served at /). Provide /work/env.sh and /work/run.sh that start the server in the background and return once it is ready. No LLM API key is needed; the data upload/workspace API must work: uploading a CSV through POST /api/tables/create-table and reading it back through /api/tables/list-tables, get-table and sample-table.",
     "check": "The hidden test checks that the server serves the web UI and app-config, then uploads a generated CSV as a table and verifies it is listed and returns the correct rows and counts."
-  },
-  {
-    "slug": "microsoft-swin-transformer",
-    "repo": "microsoft/Swin-Transformer",
-    "dir": "Swin-Transformer",
-    "company": "Microsoft",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get the Swin-T ImageNet-1K evaluation from get_started.md working on CPU only (the code assumes CUDA/NCCL so it needs CPU adaptation). Download the pretrained swin_tiny_patch4_window7_224.pth from the README Model Zoo link and run main.py --eval with configs/swin/swin_tiny_patch4_window7_224.yaml on a small ImageFolder-style dataset (data-path/train and data-path/val with class subfolders, e.g. a few generated images). It must finish and print the 'Accuracy of the network on the N test images' line.",
-    "check": "A hidden test generates a tiny ImageFolder dataset, downloads the Swin-T checkpoint, runs the eval command via torch.distributed.run on one process, and checks the log reports accuracy over all 16 test images."
   },
   {
     "slug": "microsoft-pyright",
@@ -473,39 +440,6 @@
     "check": "Runs the preprocessing CLI on a generated 20-document JSONL with a downloaded GPT-2 tokenizer directory and verifies the output loads as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token."
   },
   {
-    "slug": "nvlabs-stylegan",
-    "repo": "NVlabs/stylegan",
-    "dir": "stylegan",
-    "company": "NVIDIA",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get `python pretrained_example.py` in /work/stylegan to run on CPU only: it downloads the pre-trained FFHQ generator pickle (Google Drive id 1MEGjdvVpUsu1jB4zrXZN7Y4kBBOzizDQ, ~300MB), prints the Gs layer table, and writes results/example.png. The code targets TensorFlow 1.x and Python 3.6/3.7, so you may need a compatible environment and CPU workarounds (e.g. NCHW convolutions). Put activation of the environment in /work/env.sh.",
-    "check": "Running pretrained_example.py exits successfully and produces a valid 1024x1024 RGB PNG that is not blank."
-  },
-  {
-    "slug": "nvlabs-stylegan2",
-    "repo": "NVlabs/stylegan2",
-    "dir": "stylegan2",
-    "company": "NVIDIA",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Make `python run_generator.py generate-images --network=gdrive:networks/stylegan2-ffhq-config-f.pkl --seeds=66,230 --truncation-psi=1.0 --result-dir=<dir>` run on a CPU-only machine (no GPU, no nvcc), producing seed0066.png and seed0230.png in a run subdirectory of <dir>. The repo needs TensorFlow 1.x and its custom CUDA ops (fused_bias_act, upfirdn_2d) default to impl='cuda', so a CPU-compatible path must be arranged. The network pickle is downloaded from nvlabs-fi-cdn.nvidia.com.",
-    "check": "The hidden test runs the generate-images command with seeds 66 and 230 and verifies two valid 1024x1024 RGB PNG images were produced that are not blank."
-  },
-  {
-    "slug": "nvidia-fastphotostyle",
-    "repo": "NVIDIA/FastPhotoStyle",
-    "dir": "FastPhotoStyle",
-    "company": "NVIDIA",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get `python demo.py --cuda 0 --fast --no_post --content_image_path A --style_image_path B --output_image_path OUT` working on CPU only, using the bundled PhotoWCTModels/photo_wct.pth, on small PNG content and style images. The repo targets old PyTorch/CUDA and imports cupy at module load (smooth_filter.py), so the code and environment must be adapted to run without a GPU. It must write a stylized image of the same size as the content image.",
-    "check": "The hidden test runs demo.py on CPU with generated content and style images and verifies a non-blank output image of the content image's size that differs from the content."
-  },
-  {
     "slug": "nvidia-garak",
     "repo": "NVIDIA/garak",
     "dir": "garak",
@@ -550,17 +484,6 @@
     "check": "The hidden test runs the mesh example on CPU and verifies the USD file is written with animated frames and that a small Warp kernel computes correct results."
   },
   {
-    "slug": "nvlabs-stylegan3",
-    "repo": "NVlabs/stylegan3",
-    "dir": "stylegan3",
-    "company": "NVIDIA",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get gen_images.py running on CPU only (no GPU) so it downloads the pretrained stylegan3-r-afhqv2-512x512 network from the README URL and writes a generated PNG for seed 2 with --trunc=1 into an output directory. Install whatever dependencies (torch CPU, numpy, click, pillow, scipy, requests, tqdm, etc.) are needed and record the environment in /work/env.sh.",
-    "check": "The hidden test runs gen_images.py with the pretrained AFHQv2 network on a seed and verifies a valid, non-trivial 512x512 PNG is produced."
-  },
-  {
     "slug": "nvidia-model-optimizer",
     "repo": "NVIDIA/Model-Optimizer",
     "dir": "Model-Optimizer",
@@ -601,8 +524,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get `python cli_demo.py -c Qwen/Qwen-1_8B-Chat --cpu-only` working in /work/Qwen on CPU (install requirements.txt; the pinned transformers range <4.38 matters). It must load the Qwen-1.8B-Chat model from Hugging Face and answer a prompt typed on stdin, such as 'What is the capital of France?', then exit on ':q'. Write /work/env.sh that activates the environment (it is sourced by the test).",
-    "check": "The test pipes a question about the capital of France into the CLI demo on CPU and verifies the reply mentions Paris and the process exits cleanly."
+    "goal": "In /work/Qwen, install the requirements as the README describes and get `python cli_demo.py -c <checkpoint> --cpu-only` working on CPU with the Qwen-1.8B-Chat model. The README links this model on Hugging Face (Qwen/Qwen-1_8B-Chat) and ModelScope (qwen/Qwen-1_8B-Chat) and shows how to load a ModelScope download from a local directory. If you load it from a local directory, export QWEN_CKPT=<that directory> in /work/env.sh; otherwise the test uses `-c Qwen/Qwen-1_8B-Chat`. The demo must answer a question typed on stdin, such as 'What is the capital of France?', and exit on ':q'. /work/env.sh must activate the environment.",
+    "check": "The test pipes a question about the capital of France into the CLI demo on CPU and verifies the model's printed reply mentions Paris and the process exits cleanly."
   },
   {
     "slug": "modelscope-funasr",
@@ -623,8 +546,8 @@
     "gpu": false,
     "mem": "12g",
     "server": true,
-    "goal": "Install qwen-agent from the repo (pip install -e ./\"[rag,code_interpreter,mcp]\" or similar). Serve a small Qwen model on CPU through Ollama (use model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and wait until ready. Then a Qwen-Agent Assistant configured with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'} must answer a chat message and its built-in tools (e.g. code_interpreter) must import and work.",
-    "check": "The hidden test checks that the model server answers, that a Qwen-Agent Assistant returns a non-empty reply to a prompt, and that a built-in tool runs and returns the expected result."
+    "goal": "Install qwen-agent from the /work/Qwen-Agent clone as the README describes (pip install -e ./\"[gui,rag,code_interpreter,mcp]\", or at least the [rag] extra). Serve a small Qwen model on CPU through Ollama (model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and return once it is ready. Then the README Quickstart pattern must work against that server with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'}: an Assistant answers a chat message, calls a custom tool registered with @register_tool and uses its result, and answers questions from a file passed as files=['./examples/resource/doc.pdf']. The Docker-based code_interpreter tool is not required. /work/env.sh must activate the environment.",
+    "check": "The hidden test checks that the model server answers and that an Assistant replies to a prompt, calls a custom registered tool and reports its result, and answers a question from the bundled doc.pdf via the RAG path."
   },
   {
     "slug": "modelscope-ms-swift",
@@ -733,8 +656,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the project (CPU-only PyTorch, requirements.txt, pip install -e .; the texture/CUDA extensions are not needed) and run shape generation with Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2mini', subfolder='hunyuan3d-dit-v2-mini-turbo', device='cpu', dtype=torch.float32) on assets/demo.png, calling pipeline.enable_flashvdm(). Export the resulting trimesh mesh to a .glb file. Importing hy3dgen.shapegen and loading the model weights from Hugging Face must work on CPU.",
-    "check": "The hidden test runs the mini-turbo shape pipeline on CPU on assets/demo.png and verifies a valid non-degenerate exported GLB mesh."
+    "goal": "Install the project as the README describes (PyTorch, `pip install -r requirements.txt`, `pip install -e .`; the texture extensions under '# for texture' are not needed). Then run the README's Code Usage shape generation on CPU with the mini-turbo variant: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2mini', subfolder='hunyuan3d-dit-v2-mini-turbo', device='cpu', dtype=torch.float32) on assets/demo.png, and export the resulting trimesh mesh to a .glb file. Write /work/env.sh that activates the environment.",
+    "check": "The hidden test runs the mini-turbo shape pipeline on CPU on assets/demo.png with a few sampling steps and verifies a valid, non-degenerate exported GLB mesh."
   },
   {
     "slug": "tencent-ai-infra-guard",
@@ -748,17 +671,6 @@
     "check": "The hidden test starts a fake Ollama HTTP service locally, scans it with the CLI, and verifies the output identifies Ollama for that target."
   },
   {
-    "slug": "tencent-hunyuan-hunyuan3d-2-1",
-    "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
-    "dir": "Hunyuan3D-2.1",
-    "company": "Tencent",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get the shape-generation part of the README Code Usage / demo.py working on CPU only: Hunyuan3DDiTFlowMatchingPipeline.from_pretrained('tencent/Hunyuan3D-2.1', device='cpu', dtype=torch.bfloat16) then pipe(image=assets/demo.png, num_inference_steps=10, octree_resolution=128, num_chunks=20000) must return a trimesh that exports to a .glb. Skip the texture/Paint stage (needs CUDA). Install dependencies so imports from hy3dshape work without a GPU (CPU torch is fine), and the public weights download (only the hunyuan3d-dit-v2-1 subfolder is needed) must be cached so from_pretrained works.",
-    "check": "A hidden script runs CPU shape generation on assets/demo.png and verifies an exported GLB mesh with a plausible number of vertices and faces and non-degenerate extent."
-  },
-  {
     "slug": "tencentarc-t2i-adapter",
     "repo": "TencentARC/T2I-Adapter",
     "dir": "T2I-Adapter",
@@ -766,8 +678,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get the README's diffusers quick start working on CPU only (no GPU, so drop .to('cuda') and xformers, use float32 or bfloat16): install diffusers with T2IAdapter/StableDiffusionXLAdapterPipeline support, torch, transformers, accelerate, safetensors, and load TencentARC/t2i-adapter-lineart-sdxl-1.0 with stabilityai/stable-diffusion-xl-base-1.0 and madebyollin/sdxl-vae-fp16-fix. Generate an image from a line-art control image with prompt 'Ice dragon roar, 4k photo' (reduced size such as 512x512 and few steps to finish in time) so the README pipeline code path runs and saves a picture. Models are downloaded automatically from Hugging Face.",
-    "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced."
+    "goal": "Get the README's 'Quick start with diffusers' LineArt example working on this CPU-only machine (no GPU): StableDiffusionXLAdapterPipeline with the TencentARC/t2i-adapter-lineart-sdxl-1.0 adapter, stabilityai/stable-diffusion-xl-base-1.0, the madebyollin/sdxl-vae-fp16-fix VAE and the EulerAncestral scheduler, with the models downloaded from Hugging Face. It must generate and save an image from a line-art control image with the prompt 'Ice dragon roar, 4k photo', at a reduced size of 512x512 with a few inference steps. /work/env.sh must activate the environment.",
+    "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU in bfloat16 with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced."
   },
   {
     "slug": "tencent-tencent-ml-images",
@@ -777,19 +689,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get data/tfrecord.py working (the README targets Python 2.7 and TensorFlow 1.x; any environment where the script runs unmodified in behaviour is fine). It must convert the bundled images data/images/im_0..im_3.jpg, listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1'), into a .tfrecords file in the -tfs directory using -im data/images/ -cls 11166 -one True. Each record must contain the image bytes, a 11166-float label vector and the image name.",
-    "check": "The hidden test generates its own index file for the four bundled images, runs tfrecord.py, and checks that the output TFRecord holds 4 records with the expected names, JPEG data and label vectors of plausible size."
-  },
-  {
-    "slug": "tencent-facedetection-dsfd",
-    "repo": "Tencent/FaceDetection-DSFD",
-    "dir": "FaceDetection-DSFD",
-    "company": "Tencent",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get `python demo.py` working on CPU only: download the DSFD WIDER FACE weights (Google Drive file id 1WeXlNYsM6dMP3xQQELI-4gxhwKUQxc3-) to weights/WIDERFace_DSFD_RES152.pth, and patch/adapt the code as needed (e.g. the hard-coded net.cuda()). Run it with --img_root ./data/worlds-largest-selfie.jpg and a --save_folder (with trailing slash) so it writes an annotated detection image.",
-    "check": "The hidden test runs demo.py on the bundled selfie image with a fresh output folder and verifies a non-trivial annotated image output is produced and the process exits successfully."
+    "goal": "Set up the environment the README lists (Python 2.7, TensorFlow >= 1.6) so that, from /work/tencent-ml-images, the README's single-label image classification demo works on CPU: download the ckpt-resnet101-mlimages-imagenet checkpoint linked in the README's Checkpoints section and place it so that ./example/image_classification.sh (which passes --model_dir=checkpoints/resnet.ckpt) runs and writes top-5 ImageNet predictions for the bundled images in data/images/. Also make data/tfrecord.py work: convert data/images/im_0..im_3.jpg listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1') into a .tfrecords file in the -tfs directory with -im data/images/ -cls 11166 -one True. /work/env.sh must activate this environment.",
+    "check": "The hidden test runs image_classification.py with the ImageNet-finetuned checkpoint on the four bundled images and checks each gets five ranked predictions with a correct label for an unambiguous image, then runs tfrecord.py on its own index file and checks the 4 records' names, JPEG data and label vectors."
   },
   {
     "slug": "tencent-pocketflow",
@@ -801,17 +702,6 @@
     "server": false,
     "goal": "Get PocketFlow's local-mode training working on CPU: running nets/lenet_at_cifar10_run.py (as scripts/run_local.sh does, with path.conf pointing data_dir_local_cifar10 at the CIFAR-10 binary version) with --nb_epochs_rat 0.01 must train the LeNet full-precision learner and save a checkpoint to ./models_eval/model.ckpt. Then `--exec_mode eval` should evaluate the model on the CIFAR-10 test set. You will need a Python and TensorFlow 1.x-compatible environment (the code uses tf.app.flags, tf.layers). Download CIFAR-10 binary from https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz. Put the Python environment setup in /work/env.sh, and /work/run.sh is not needed.",
     "check": "The hidden test runs a short CPU training of the LeNet CIFAR-10 model through the repo's own entry script, then checks that the checkpoint was written and that the evaluation step prints an accuracy above chance."
-  },
-  {
-    "slug": "tencent-hunyuan-hy-world-2-0",
-    "repo": "Tencent-Hunyuan/HY-World-2.0",
-    "dir": "HY-World-2.0",
-    "company": "Tencent",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get `python -m hyworld2.worldrecon.pipeline --input_path examples/worldrecon/realistic/Desk --output_path <dir> --target_size 518` running on CPU only (no GPU, no flash-attn/CUDA available; the public tencent/HY-World-2.0 weights, subfolder HY-WorldMirror-2.0, download automatically). It must finish and write depth maps, normal maps, camera_params.json, points.ply and gaussians.ply under <dir>/<case>/<timestamp>/. Any source patching needed for CPU is allowed.",
-    "check": "The hidden test runs the WorldMirror CLI on the bundled Desk images with a small target size and verifies that the depth, normal, camera_params.json, points.ply and gaussians.ply outputs exist with plausible content."
   },
   {
     "slug": "tencent-medicalnet",
@@ -843,19 +733,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the ui-tars package (from the repo's codes/ directory or PyPI) so that `from ui_tars.action_parser import parse_action_to_structure_output, parsing_response_to_pyautogui_code` works. Then run the README usage snippet on the response \"Thought: Click the button\\nAction: click(start_box='(100,200)')\" at 1920x1080, factor=1000, model_type='qwen25vl'. It must print the parsed dict and the generated pyautogui code. Write /work/env.sh so that it activates the environment where this works.",
-    "check": "The hidden test runs the parser on several action strings and checks the parsed action types, scaled coordinates and generated pyautogui code."
-  },
-  {
-    "slug": "bytedance-dolphin",
-    "repo": "bytedance/Dolphin",
-    "dir": "Dolphin",
-    "company": "ByteDance",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Install the dependencies, download the ByteDance/Dolphin-v2 model into /work/Dolphin/hf_model, and run `python demo_page.py --model_path ./hf_model --save_dir <dir> --input_path ./demo/page_imgs/page_1.png` on CPU. It must finish and write the parsed JSON and Markdown results for the page. /work/env.sh must make the right python environment available.",
-    "check": "The hidden test runs page-level parsing on a bundled demo image and verifies that non-trivial JSON and Markdown output files with parsed text are produced."
+    "goal": "Install the ui-tars package from this repo's codes/ directory (the package source in the clone) so that `from ui_tars.action_parser import parse_action_to_structure_output, parsing_response_to_pyautogui_code` works. Then run the README usage snippet on the response \"Thought: Click the button\\nAction: click(start_box='(100,200)')\" at 1920x1080, factor=1000, model_type='qwen25vl'; it must print the parsed dict and the generated pyautogui code. Write /work/env.sh so that it activates the environment where this works.",
+    "check": "The hidden test confirms the installed parser is the repo's own, then runs it on several action strings (click, type, hotkey, drag, finished) and checks the parsed action types, scaled coordinates and generated pyautogui code."
   },
   {
     "slug": "bytedance-seed-depth-any-12e2f",
@@ -865,19 +744,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the project (CPU-only torch is fine; gsplat/xformers are not needed) so the `da3` CLI works. Then run `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <dir> --model-dir depth-anything/DA3-SMALL` on CPU; the model weights download from Hugging Face automatically (no token needed). It must finish and write the exported results (results.npz and a .glb) into the export dir. Put any environment activation in /work/env.sh.",
-    "check": "The hidden test runs the da3 CLI on the bundled SOH images with DA3-SMALL on CPU and verifies the exported npz has depth arrays of the right shape for 2 images and that a non-trivial GLB file exists."
-  },
-  {
-    "slug": "bytedance-latentsync",
-    "repo": "bytedance/LatentSync",
-    "dir": "LatentSync",
-    "company": "ByteDance",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get LatentSync's CLI inference (python -m scripts.inference, as in inference.sh with configs/unet/stage2_512.yaml and checkpoints/latentsync_unet.pt downloaded from ByteDance/LatentSync-1.6) to produce a lip-synced video on CPU only from a short clip of assets/demo1_video.mp4 and assets/demo1_audio.wav. The code hardcodes cuda in places, so it must be made to run on CPU (float32). It must accept --video_path, --audio_path, --video_out_path, --inference_steps and --guidance_scale as in inference.sh.",
-    "check": "Running the inference CLI on a 1.6-second clip of the demo video/audio produces an output mp4 with sensible size, resolution, frame count and an audio track."
+    "goal": "Install the project from the clone following the README Installation section so the `da3` CLI works on this CPU-only machine. Then `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <a new directory> --model-dir depth-anything/DA3-SMALL --device cpu` must finish and write results.npz and scene.glb into the export dir; DA3-SMALL is the README's smallest Apache-2.0 model and downloads from Hugging Face without a token. Put any environment activation in /work/env.sh.",
+    "check": "The hidden test runs that command into a fresh export dir and verifies the npz depth/confidence/camera arrays have the right shapes for the 2 images and that scene.glb holds a non-trivial point cloud."
   },
   {
     "slug": "bytedance-megatts3",
@@ -942,7 +810,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1` working in /work/m3-agent. Download the pre-built memory graph from the public HF dataset ByteDance-Seed/M3-Bench (memory_graphs/robot.tar.gz, 2.4 GB) and extract bedroom_01.pkl. Install only the dependencies needed; do not download the large models or run GPU steps. configs/api_config.json has empty values, and importing mmagent may fail on them, so you may need dummy values; no real API key is required. The script must print the memory of clip 1 (episodic/semantic nodes, faces, voices).",
+    "goal": "In /work/m3-agent, get the README's Memorization step 6, `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1`, working on this CPU-only machine. Use the pre-built memory graphs the README links on Hugging Face (public dataset ByteDance-Seed/M3-Bench, memory_graphs/robot.tar.gz, about 2.4 GB) and extract robot/bedroom_01.pkl. Generating graphs from video (Memorization steps 2-5 and the M3-Agent models) and the Control stage are not part of this goal. This step calls no API, so no real API key is needed. The script must print the memory of clip 1 (episodic/semantic nodes and their related faces/voices). /work/env.sh must activate the environment.",
     "check": "The hidden test extracts bedroom_01.pkl from the dataset archive, runs visualization.py on clip 1, and checks the output contains the 'Clip 1 Memory' header with episodic/semantic memory lines."
   },
   {
@@ -955,17 +823,6 @@
     "server": false,
     "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI (with --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False as in docs/quick_start.en.md) work on CPU. It must download the default text detection and recognition models and run them on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
     "check": "Runs the paddleocr OCR CLI on a freshly generated image with known English text and verifies the saved JSON contains the recognized words and a visualization image is written."
-  },
-  {
-    "slug": "baidu-unlimited-ocr",
-    "repo": "baidu/Unlimited-OCR",
-    "dir": "Unlimited-OCR",
-    "company": "Baidu",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Install the Transformers dependencies from the README (a CPU build of torch is fine) and make the README's single-page Transformers inference work on this CPU-only machine. The hidden test loads the model with AutoTokenizer.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True) and AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, use_safetensors=True, torch_dtype=torch.float32).eval() with no .cuda() call (there is no GPU), then runs model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and expects correct OCR text back.",
-    "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words."
   },
   {
     "slug": "paddlepaddle-paddledetection",
@@ -988,17 +845,6 @@
     "server": false,
     "goal": "Install PaddleNLP (CPU paddlepaddle) so that the README quick-start works: load AutoTokenizer and AutoModelForCausalLM for Qwen/Qwen2-0.5B, tokenize '你好！请自我介绍一下。' with return_tensors='pd', call model.generate(max_length=128) and print the decoded text. float32 may be used instead of float16 on CPU. The python in the environment configured by /work/env.sh must be able to run this script.",
     "check": "A Python script using the README API generates non-empty Chinese/text output from Qwen/Qwen2-0.5B for the README prompt."
-  },
-  {
-    "slug": "paddlepaddle-paddleformers",
-    "repo": "PaddlePaddle/PaddleFormers",
-    "dir": "PaddleFormers",
-    "company": "Baidu",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-0.6B-Base', dtype='bfloat16').eval().generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
-    "check": "The hidden test runs the README tokenizer and text-generation snippets and verifies the expected token ids and that the model generates a sensible Chinese continuation (including a simple factual completion)."
   },
   {
     "slug": "paddlepaddle-paddlespeech",
@@ -1041,8 +887,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies needed by paddlecv, then run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` on CPU. The pretrained inference model is downloaded automatically and the classification result must be produced in the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs it.",
-    "check": "The hidden test runs the classification prediction on the bundled demo image and verifies the output result file contains top-5 class ids, scores and label names, plus a saved output image."
+    "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies paddlecv needs, then on CPU run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` and the install guide's detection check `python -u tools/predict.py --config=configs/single_op/PP-YOLOE+.yml --input=demo/000000014439.jpg --output_dir=<dir>`. The pretrained inference models download automatically; each command must write its structured result and visualised image to the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs them.",
+    "check": "The hidden test runs both commands on the bundled demo images and checks the classification result names the dog breed shown with ranked top-5 scores, and the detection result contains the people visible in the demo image with valid boxes and scores, plus the saved output images."
   },
   {
     "slug": "paddlepaddle-paddlex",
@@ -1107,7 +953,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get the GPT-2 small (124M) model downloaded into /work/gpt-2/models/124M via download_model.py and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. The code targets TensorFlow 1.x, so a working environment must be arranged (e.g. compatible old Python/TF or compat shims); write /work/env.sh that activates it.",
+    "goal": "Follow DEVELOPERS.md: download the GPT-2 small (124M) model into /work/gpt-2/models/124M with download_model.py, and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. Write /work/env.sh that activates the environment needed to run them.",
     "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text."
   },
   {
@@ -1241,17 +1087,6 @@
     "server": false,
     "goal": "Get the MNIST example in /work/mlx-examples/mnist running on CPU. Install its requirements (mlx, numpy) and make `python main.py` in that directory download MNIST and train the MLP for all 10 epochs, printing a test accuracy line per epoch. Write /work/env.sh, which activates the environment so that `python` runs the demo.",
     "check": "Running main.py on CPU completes 10 epochs and prints per-epoch test accuracy that ends above 0.90."
-  },
-  {
-    "slug": "ml-explore-mlx-lm",
-    "repo": "ml-explore/mlx-lm",
-    "dir": "mlx-lm",
-    "company": "Apple",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Install mlx-lm from /work/mlx-lm so that `mlx_lm.generate --prompt \"How tall is Mt Everest?\" --max-tokens 64` runs on this Linux CPU machine with the default model mlx-community/Llama-3.2-3B-Instruct-4bit and prints a generated answer. The README's Python API (load/generate) with the same model must also work. Put needed environment activation in /work/env.sh.",
-    "check": "The hidden test runs the CLI generate command and the Python API on the default model and checks that non-empty, sensible generated text about Everest is produced."
   },
   {
     "slug": "apple-coremltools",

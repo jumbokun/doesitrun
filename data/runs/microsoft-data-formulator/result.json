@@ -43,5 +43,16 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 15:42:44"
+  "finished": "2026-11-14 15:42:44",
+  "review": {
+    "date": "2026-11-15",
+    "by": "second review (independent check of the maintained passes against their raw logs)",
+    "patched_waived": [
+      {
+        "path": "py-src/data_formulator/workspace_factory.py",
+        "why": "Agent added a DF_DEFAULT_WORKSPACE_ID fallback for API clients that omit X-Workspace-Id. The header is required by design (stateless backend, frontend sends it on every call), and the v2 oracle sends the header, so the patch is not needed for the demo or the test.",
+        "evidence": "microsoft/data-formulator@5477f0e workspace_factory.py:15-17 'Backend is stateless: workspace ID comes from the frontend on every request', :120-135; src/app/utils.tsx:188-189 sets X-Workspace-Id; oracle sends the header on every /api/tables call; NOTES.md 'Requests that send the header behave exactly as before'"
+      }
+    ]
+  }
 }

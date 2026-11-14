@@ -43,5 +43,16 @@
     },
     "class": "pass"
   },
-  "finished": "2026-10-27 02:36:17"
+  "finished": "2026-10-27 02:36:17",
+  "review": {
+    "date": "2026-11-15",
+    "by": "second review (independent check of the maintained passes against their raw logs)",
+    "patched_waived": [
+      {
+        "path": "examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml",
+        "why": "The only change is `num_threads: 20` -> `4`, which the goal explicitly allows ('num_threads may be lowered for 4 CPUs'). It is tuning for our 4-vCPU sandbox, not a repo defect, and the oracle applies the same sed to its own copy anyway.",
+        "evidence": "setup.sh: \"sed -i 's/num_threads: 20/num_threads: 4/' examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml\"; NOTES.md: 'I made no code patches'; oracles/microsoft-qlib.sh:8 does the same sed into $OUT/cfg.yaml."
+      }
+    ]
+  }
 }

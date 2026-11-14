@@ -57,5 +57,26 @@
   },
   "track": "gpu-rtx5060",
   "goal": "Get the README Inference path working: big-lama model downloaded into /work/lama/big-lama, and `python3 bin/predict.py model.path=$(pwd)/big-lama indir=<dir> outdir=<dir>` (with TORCH_HOME and PYTHONPATH set as the README says) inpainting PNG image+mask pairs named like image.png / image_mask001.png on CUDA.",
-  "check": "creates its own PNG image + image_mask001.png pair, runs bin/predict.py with model.path=/work/lama/big-lama and device=cuda, and requires an inpainted PNG of the same size"
+  "check": "creates its own PNG image + image_mask001.png pair, runs bin/predict.py with model.path=/work/lama/big-lama and device=cuda, and requires an inpainted PNG of the same size",
+  "review": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "The goal asks for more than the repo does. It requires inpainting 'on CUDA', but bin/predict.py hard-codes `device = torch.device(\"cpu\")` on purpose (upstream 3bfa8c2, 2023-08-02, 'CPU seems quick enough') and ignores the config's device key. Meeting the goal forced a repo patch (bin/predict.py is in repo_diff), which cost the repo 10 points. The oracle's `device=cuda` override does nothing on the unpatched code.",
+      "Lenient: v1 checked only the output size. v2 inpaints a magenta block and requires it gone (inside the mask: mean |diff| > 40 and magenta share < 5 %) and the unmasked pixels kept (mean |diff| < 3).",
+      "The README path runs on CPU at this commit, so the repo belongs on the CPU track, not the GPU pilot."
+    ],
+    "evidence": [
+      "src/lama/bin/predict.py:44 — `device = torch.device(\"cpu\")`; `git show 3bfa8c2` changed it from torch.device(predict_config.device)",
+      "src/lama/configs/prediction/default.yaml — predict.py never reads `device: cuda` at this commit; docker/2_predict_with_gpu.sh passes no device, so the GPU docker path also runs on CPU",
+      "data/runs/lama/result.json repo_diff — bin/predict.py 1+/1- (plus configs/prediction/default.yaml), i.e. the agent re-enabled CUDA to meet the goal",
+      "src/lama/README.md:100-153 — Inference: TORCH_HOME/PYTHONPATH, big-lama download, `python3 bin/predict.py model.path=$(pwd)/big-lama indir=... outdir=...`; no GPU requirement",
+      "src/lama/saicinpainting/training/trainers/default.py:71 — inpainted = mask*pred + (1-mask)*image, so unmasked pixels are preserved",
+      "src/lama/bin/predict.py:67-72 — output file named after the mask file (probe_mask001.png)"
+    ],
+    "rerun_pending": true,
+    "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+  }
 }

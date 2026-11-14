@@ -12,10 +12,35 @@
     "cost_usd": 0.04083780000000001,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README quickstart gen_images.py downloads a ~300MB pretrained pickle and generates an image; custom ops have a CPU reference fallback.",
+  "eligible": false,
+  "reason": "Reclassified on review: The README states requirements we cannot meet: '1-8 high-end NVIDIA GPUs with at least 12 GB of memory' and 'CUDA toolkit 11.1 or later' (README.md:55-57).",
   "demo": "README 'Using networks from Python' / Quick start: python gen_images.py --outdir=out --trunc=1 --seeds=2 --network=<stylegan3-r-afhqv2-512x512.pkl URL>",
-  "goal": "Get gen_images.py running on CPU only (no GPU) so it downloads the pretrained stylegan3-r-afhqv2-512x512 network from the README URL and writes a generated PNG for seed 2 with --trunc=1 into an output directory. Install whatever dependencies (torch CPU, numpy, click, pillow, scipy, requests, tqdm, etc.) are needed and record the environment in /work/env.sh.",
-  "check": "The hidden test runs gen_images.py with the pretrained AFHQv2 network on a seed and verifies a valid, non-trivial 512x512 PNG is produced.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "should_exclude",
+    "issues": [
+      "The README states requirements we cannot meet: '1-8 high-end NVIDIA GPUs with at least 12 GB of memory' and 'CUDA toolkit 11.1 or later' (README.md:55-57).",
+      "The README demo has a CUDA-only code path: gen_images.py:106 hard-codes `device = torch.device('cuda')`, so it cannot run on CPU without editing repo source. The recorded pass needed exactly that one-line patch (repo_diff: gen_images.py). By the rule applied at exam time (a README-stated GPU requirement plus CUDA-only code), this repo should have been excluded.",
+      "If it stays tested, the goal and oracle are otherwise fine: seeds 2,3 must give two 512x512 PNGs with std>20, and the goal gives no install hints beyond environment.yml's package names."
+    ],
+    "evidence": [
+      "src/nvlabs-stylegan3/README.md:55 - '1-8 high-end NVIDIA GPUs with at least 12 GB of memory'",
+      "src/nvlabs-stylegan3/README.md:57 - 'CUDA toolkit 11.1 or later'",
+      "src/nvlabs-stylegan3/gen_images.py:106 - device = torch.device('cuda')",
+      "data/runs/nvlabs-stylegan3/result.json repo_diff - gen_images.py 1 line changed (CPU fallback patch)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README quickstart gen_images.py downloads a ~300MB pretrained pickle and generates an image; custom ops have a CPU reference fallback.",
+      "demo": "README 'Using networks from Python' / Quick start: python gen_images.py --outdir=out --trunc=1 --seeds=2 --network=<stylegan3-r-afhqv2-512x512.pkl URL>",
+      "goal": "Get gen_images.py running on CPU only (no GPU) so it downloads the pretrained stylegan3-r-afhqv2-512x512 network from the README URL and writes a generated PNG for seed 2 with --trunc=1 into an output directory. Install whatever dependencies (torch CPU, numpy, click, pillow, scipy, requests, tqdm, etc.) are needed and record the environment in /work/env.sh.",
+      "check": "The hidden test runs gen_images.py with the pretrained AFHQv2 network on a seed and verifies a valid, non-trivial 512x512 PNG is produced.",
+      "server": false
+    }
+  }
 }

@@ -17,5 +17,29 @@
   "demo": "README Quickstart > Python Package Usage > Custom Voice Generate, using Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice on CPU",
   "goal": "Install the qwen-tts package from the repo and get Qwen3TTSModel.from_pretrained('Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice') running on CPU (device_map='cpu', dtype=torch.float32, no flash_attention). Then call generate_custom_voice with an English text, language='English', speaker='Ryan', and write the result to a wav file with soundfile. The wav must contain real synthesized speech.",
   "check": "The hidden test runs a short English CustomVoice synthesis on CPU and verifies a valid, non-silent speech wav of plausible duration is written.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Vacuous assertion: `assert \"Ryan\" in [...] or True` can never fail (dead check). v2 asserts 'ryan' is in get_supported_speakers(), which returns a lowercased list (qwen3_tts_model.py:842-854).",
+      "Lenient on a broken model: with max_new_tokens=400 (~33 s at 12 Hz) and the duration cap at 60 s, a model that never emits end-of-speech and outputs noise passes the energy checks. v2 caps the duration at 20 s for this 10-word sentence (runs saw 6.9 s and 4.2 s)."
+    ],
+    "evidence": [
+      "oracles/qwenlm-qwen3-tts.sh:9 - assert \"Ryan\" in [...] or True",
+      "src/qwenlm-qwen3-tts/qwen_tts/inference/qwen3_tts_model.py:165-185 - generate_custom_voice validates speakers case-insensitively; :842-854 get_supported_speakers returns sorted lowercase names",
+      "logs/qwenlm-qwen3-tts/oracle.txt 'sr 24000 dur 6.88'; replay_oracle.txt 'sr 24000 dur 4.16'",
+      "src/qwenlm-qwen3-tts/README.md:150-196 - CustomVoice snippet (cuda/bf16/flash-attn) and speaker table including Ryan; the goal's CPU/fp32/no-flash-attn adaptation is forced by the no-GPU sandbox and is not an install hint"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README Quickstart shows Python CustomVoice inference with a 0.6B public model that can run on CPU in float32.",
+      "demo": "README Quickstart > Python Package Usage > Custom Voice Generate, using Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice on CPU",
+      "goal": "Install the qwen-tts package from the repo and get Qwen3TTSModel.from_pretrained('Qwen/Qwen3-TTS-12Hz-0.6B-CustomVoice') running on CPU (device_map='cpu', dtype=torch.float32, no flash_attention). Then call generate_custom_voice with an English text, language='English', speaker='Ryan', and write the result to a wav file with soundfile. The wav must contain real synthesized speech.",
+      "check": "The hidden test runs a short English CustomVoice synthesis on CPU and verifies a valid, non-silent speech wav of plausible duration is written.",
+      "server": false
+    }
+  }
 }

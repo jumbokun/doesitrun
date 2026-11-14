@@ -17,5 +17,30 @@
   "demo": "README_en.md Quick Start: Text generation with large language model",
   "goal": "Install PaddleNLP (CPU paddlepaddle) so that the README quick-start works: load AutoTokenizer and AutoModelForCausalLM for Qwen/Qwen2-0.5B, tokenize '你好！请自我介绍一下。' with return_tensors='pd', call model.generate(max_length=128) and print the decoded text. float32 may be used instead of float16 on CPU. The python in the environment configured by /work/env.sh must be able to run this script.",
   "check": "A Python script using the README API generates non-empty Chinese/text output from Qwen/Qwen2-0.5B for the README prompt.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Too lenient: the oracle only checks the decoded text is >=10 bytes. Any non-empty decode (repeated punctuation, wrong-vocab garbage from a broken tokenizer or weight conversion) passes, although the README shows the expected Chinese self-introduction. v2 requires a Chinese answer (>=10 CJK characters, >=8 distinct characters, not an echo of the prompt).",
+      "Minor: the v1 oracle writes the Chinese text with open(...,'w') without an encoding; v2 pins utf-8.",
+      "Goal is fine: the float32-on-CPU note concerns the oracle's script, and installation hints (paddle version, aistudio-sdk breakage) are not leaked."
+    ],
+    "evidence": [
+      "README_en.md:94-101 — Quick Start; expected output ['我是一个AI语言模型，我可以回答各种问题，...']",
+      "paddlenlp/generation/configuration_utils.py:131-140,198-201 — default decode strategy is greedy unless do_sample, so the output is deterministic and Chinese for this prompt",
+      "logs-paddlepaddle-paddlenlp oracle.txt — RESULT: [' 我是一个AI语言模型，我可以回答各种问题，包括但不限于：天气、新闻、历史、文化、科学、教育、娱乐等。请问您有什么需要了解的吗？'] (well above the v2 bar)",
+      "oracles/paddlepaddle-paddlenlp.sh — `[ \"$(wc -c < $OUT/out.txt)\" -ge 10 ]` is the only content check"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README Quick Start runs Qwen/Qwen2-0.5B text generation, a small model feasible on CPU with no gated access.",
+      "demo": "README_en.md Quick Start: Text generation with large language model",
+      "goal": "Install PaddleNLP (CPU paddlepaddle) so that the README quick-start works: load AutoTokenizer and AutoModelForCausalLM for Qwen/Qwen2-0.5B, tokenize '你好！请自我介绍一下。' with return_tensors='pd', call model.generate(max_length=128) and print the decoded text. float32 may be used instead of float16 on CPU. The python in the environment configured by /work/env.sh must be able to run this script.",
+      "check": "A Python script using the README API generates non-empty Chinese/text output from Qwen/Qwen2-0.5B for the README prompt.",
+      "server": false
+    }
+  }
 }

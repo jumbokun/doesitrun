@@ -92,7 +92,7 @@ disagreed once (Hunyuan3D-2.1: defect vs inconclusive) — borderline audits are
 
 ```
 README demo ──► agent (Claude Code, ONE tool: `docker exec` into a throwaway container)
-                 │   CPU track: GitHub-hosted Ubuntu runner, 4 vCPU / 16 GB, no GPU
+                 │   CPU track: GitHub-hosted Ubuntu runner, 4 vCPU / 16 GB (container capped at 12 GB), no GPU
                  │   GPU track: Ubuntu 24.04 · CUDA 12.8 · RTX 5060 8 GB (Blackwell, sm_120)
                  ▼
             hidden oracle  ── written before the run, copied in only after the agent stops
@@ -116,7 +116,7 @@ Scores are only compared within a hardware track.
 | track | hardware | repos | how they were chosen |
 |---|---|---|---|
 | `gpu-rtx5060` | RTX 5060 Laptop 8 GB, local | 11 | batch 1: five 2026 releases; batch 2: six 2020–23 research repos with install complaints |
-| `cpu-gha` | GitHub-hosted runner, 4 vCPU / 16 GB, no GPU | 89 | per company, top 25 Python repos by stars across its official orgs; the first 10 an examiner rules eligible (batch 4 companies: the first 3) |
+| `cpu-gha` | GitHub-hosted runner, 4 vCPU / 16 GB (container capped at 12 GB), no GPU | 89 | per company, top 25 Python repos by stars across its official orgs; the first 10 an examiner rules eligible (batch 4 companies: the first 3) |
 
 The `cpu-gha` track runs entirely on GitHub Actions ([`exam.yml`](.github/workflows/exam.yml),
 [`probe.yml`](.github/workflows/probe.yml)). An **examiner agent** reads each candidate (no install) and

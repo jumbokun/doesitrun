@@ -35,5 +35,27 @@
   },
   "track": "gpu-rtx5060",
   "goal": "Install earshot per its README (CPU only) so that `python -m earshot doctor --load`, run from the repo directory, succeeds with both models loaded.",
-  "check": "runs `python -m earshot doctor --load` from /work/earshot and requires exit code 0"
+  "check": "runs `python -m earshot doctor --load` from /work/earshot and requires exit code 0",
+  "review": {
+    "rev": 2,
+    "date": "2026-11-15",
+    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "verdict": "fix_both",
+    "issues": [
+      "Demo choice: the test runs the install check `earshot doctor --load`, not the tool itself. The README's core commands (describe / match) run on CPU and need no audio from the repo, because a bank sound renders by id with no models.",
+      "Too lenient: `doctor` always exits 0. Its handler is `emit(check(...), a) and 0`, and emit returns the result dict, so the lambda returns 0. A failed model load is caught and only listed under 'problems', so exit 0 does not show that both models loaded, as the goal claims.",
+      "v2: doctor --load --json must report problems == [] and both model revisions. Then it renders sfx whoosh_fast/crisp and runs describe --json (tags, AudioSet labels, measurements) and match --json with --alts (a valid verdict, and the whoosh description must beat 'a dog barking' and 'a person talking')."
+    ],
+    "evidence": [
+      "src/earshot/earshot/doctor.py:185 — `p.set_defaults(func=lambda a: emit(check(a.load, a.fetch), a) and 0)`; report.py:55-72 emit returns result",
+      "src/earshot/earshot/doctor.py:161-165 — RuntimeError from model load appended to problems, not raised",
+      "src/earshot/earshot/doctor.py:85-104 — clap_revision / ast_revision recorded only after both models load",
+      "src/earshot/README.md:35-48,52-56 — describe / match / find are the headline commands; README.md:72 doctor is 'check the install'",
+      "src/earshot/README.md:218-225 — `earshot sfx render whoosh_fast/crisp -o w.wav` renders from the bank with no models and no network; earshot/forge/bank/forge_v2.json contains whoosh_fast/crisp",
+      "src/earshot/README.md:270 — 'The repo holds no audio', so the oracle renders its own input",
+      "src/earshot/earshot/describe.py:160-245 (top_tags, audioset, measurements); match.py:33,91-134 (verdict set, p_vs_alts, alts)"
+    ],
+    "rerun_pending": true,
+    "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+  }
 }
