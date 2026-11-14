@@ -73,5 +73,15 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 21:39:17"
+  "finished": "2026-11-14 21:39:17",
+  "review": {
+    "by": "third check 2026-11-15 (each counted patch checked against source)",
+    "patched_waived": [
+      {
+        "path": "data/tfrecord.py",
+        "why": "Not needed: the agent made -idx also accept a single file, but the README's data/tfrecord.sh and the oracle both pass a directory (-idx image_lists/).",
+        "evidence": "tencent-ml-images data/tfrecord.sh './tfrecord.py -idx image_lists/ ...'; oracles/tencent-tencent-ml-images.sh:48"
+      }
+    ]
+  }
 }

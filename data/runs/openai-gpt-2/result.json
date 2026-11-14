@@ -43,5 +43,15 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 23:50:44"
+  "finished": "2026-11-14 23:50:44",
+  "review": {
+    "by": "third check 2026-11-15 (each counted patch checked against source)",
+    "patched_waived": [
+      {
+        "path": "src/interactive_conditional_samples.py",
+        "why": "Not needed: the patch makes the interactive prompt exit cleanly when stdin ends, but the oracle pipes one prompt in and does not depend on the exit status.",
+        "evidence": "oracles/openai-gpt-2.sh:11 printf ... | python3 src/interactive_conditional_samples.py ... || true"
+      }
+    ]
+  }
 }

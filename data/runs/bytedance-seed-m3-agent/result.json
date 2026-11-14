@@ -48,5 +48,20 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 23:25:27"
+  "finished": "2026-11-14 23:25:27",
+  "review": {
+    "by": "third check 2026-11-15 (each counted patch checked against source)",
+    "patched_waived": [
+      {
+        "path": "mmagent/voice_processing.py",
+        "why": "CPU fallback for our GPU-less sandbox, not a defect: the code targets CUDA and the README makes no CPU claim.",
+        "evidence": "m3-agent mmagent/voice_processing.py:45,63 .to(torch.device('cuda'))"
+      },
+      {
+        "path": "visualization.py",
+        "why": "Flips the script's own display toggle for a headless machine, as its comment says to.",
+        "evidence": "m3-agent visualization.py:21 'SHOW_FACES = True    # False if there is no graphical environment'"
+      }
+    ]
+  }
 }

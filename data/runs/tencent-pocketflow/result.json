@@ -83,5 +83,40 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 21:51:27"
+  "finished": "2026-11-14 21:51:27",
+  "review": {
+    "by": "third check 2026-11-15 (each counted patch checked against source)",
+    "patched_waived": [
+      {
+        "path": "examples/convnet_at_fmnist_run.py",
+        "why": "Not used by the demo: the same --log_dir flag fix was applied to every *_run.py, but the documented run (and the oracle) uses only nets/lenet_at_cifar10_run.py, which stays counted.",
+        "evidence": "oracles/tencent-pocketflow.sh:36,41 nets/lenet_at_cifar10_run.py"
+      },
+      {
+        "path": "nets/faster_rcnn_at_pascalvoc_run.py",
+        "why": "Not used by the demo: the same --log_dir flag fix was applied to every *_run.py, but the documented run (and the oracle) uses only nets/lenet_at_cifar10_run.py, which stays counted.",
+        "evidence": "oracles/tencent-pocketflow.sh:36,41 nets/lenet_at_cifar10_run.py"
+      },
+      {
+        "path": "nets/mobilenet_at_ilsvrc12_run.py",
+        "why": "Not used by the demo: the same --log_dir flag fix was applied to every *_run.py, but the documented run (and the oracle) uses only nets/lenet_at_cifar10_run.py, which stays counted.",
+        "evidence": "oracles/tencent-pocketflow.sh:36,41 nets/lenet_at_cifar10_run.py"
+      },
+      {
+        "path": "nets/resnet_at_cifar10_run.py",
+        "why": "Not used by the demo: the same --log_dir flag fix was applied to every *_run.py, but the documented run (and the oracle) uses only nets/lenet_at_cifar10_run.py, which stays counted.",
+        "evidence": "oracles/tencent-pocketflow.sh:36,41 nets/lenet_at_cifar10_run.py"
+      },
+      {
+        "path": "nets/resnet_at_ilsvrc12_run.py",
+        "why": "Not used by the demo: the same --log_dir flag fix was applied to every *_run.py, but the documented run (and the oracle) uses only nets/lenet_at_cifar10_run.py, which stays counted.",
+        "evidence": "oracles/tencent-pocketflow.sh:36,41 nets/lenet_at_cifar10_run.py"
+      },
+      {
+        "path": "nets/vgg_at_pascalvoc_run.py",
+        "why": "Not used by the demo: the same --log_dir flag fix was applied to every *_run.py, but the documented run (and the oracle) uses only nets/lenet_at_cifar10_run.py, which stays counted.",
+        "evidence": "oracles/tencent-pocketflow.sh:36,41 nets/lenet_at_cifar10_run.py"
+      }
+    ]
+  }
 }

@@ -43,5 +43,15 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-14 23:43:01"
+  "finished": "2026-11-14 23:43:01",
+  "review": {
+    "by": "third check 2026-11-15 (each counted patch checked against source)",
+    "patched_waived": [
+      {
+        "path": "paddlecv/ppcv/model_zoo/MODEL_ZOO",
+        "why": "Not an agent edit: the repo's own setup.py rewrites this file during the documented `python setup.py install`.",
+        "evidence": "PaddlePaddle/models paddlecv/setup.py:69-72 open(model_zoo_file, 'w')"
+      }
+    ]
+  }
 }
