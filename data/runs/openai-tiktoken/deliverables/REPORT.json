@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "Installed Rust toolchain via rustup; required to build the _tiktoken extension from source"},
+  {"kind": "undocumented_step", "detail": "README only covers PyPI install; installed from clone with `uv pip install /work/tiktoken` into a venv"},
+  {"kind": "other", "detail": "Set TIKTOKEN_CACHE_DIR to a persistent dir and pre-downloaded vocab files"}
+ ]}

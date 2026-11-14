@@ -2,7 +2,7 @@
 
 How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never mixed. Method: README.md; full notebook: WORKLOG.md.
 
-## CPU · maintained repos only (not archived, pushed since 2026-08-13) — 69 repos
+## CPU · maintained repos only (not archived, pushed since 2026-08-13) — 70 repos
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
 |---|---|---|---|---|---|---|
@@ -64,22 +64,22 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 56 | [PaddlePaddle/PaddleFormers](https://github.com/PaddlePaddle/PaddleFormers) | 55.5 | 4 min | 4 (41 lines) | fail: other; replay_after_repair: pass | Baidu / PaddlePaddle (high) |
 | 57 | [bytedance/Sa2VA](https://github.com/bytedance/Sa2VA) | 40 | 79 min | 1 (39 lines) | pass | ByteDance / ByteDance (high) |
 | 58 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 0 | 14 min | 1 (5 lines) | fail: other | Alibaba / ModelScope (high) |
-| 59 | [Tencent-Hunyuan/Hunyuan3D-1](https://github.com/Tencent-Hunyuan/Hunyuan3D-1) | 0 | 90 min | 4 (20 lines) | fail: other | Tencent / Hunyuan (high) |
-| 60 | [apple/app-store-server-library-python](https://github.com/apple/app-store-server-library-python) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Apple / Apple (high) |
-| 61 | [aws/aws-sam-cli](https://github.com/aws/aws-sam-cli) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Amazon / AWS (high) |
-| 62 | [awslabs/amazon-redshift-utils](https://github.com/awslabs/amazon-redshift-utils) | not scored (oracle defect) | 0 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
-| 63 | [awslabs/aws-support-tools](https://github.com/awslabs/aws-support-tools) | not scored (oracle defect) | 1 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
-| 64 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 65 | [google-deepmind/weathernext](https://github.com/google-deepmind/weathernext) | not scored (oracle defect) | 5 min | 0 (0 lines) | fail: other | Google / Google DeepMind (high) |
-| 66 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft (high) |
-| 67 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | not scored (oracle defect) | 25 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
-| 68 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
-| 69 | [NVIDIA/warp](https://github.com/NVIDIA/warp) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 59 | [openai/tiktoken](https://github.com/openai/tiktoken) | 0 | 1 min | 0 (0 lines) | fail: other | OpenAI / OpenAI (high) |
+| 60 | [Tencent-Hunyuan/Hunyuan3D-1](https://github.com/Tencent-Hunyuan/Hunyuan3D-1) | 0 | 90 min | 4 (20 lines) | fail: other | Tencent / Hunyuan (high) |
+| 61 | [apple/app-store-server-library-python](https://github.com/apple/app-store-server-library-python) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Apple / Apple (high) |
+| 62 | [aws/aws-sam-cli](https://github.com/aws/aws-sam-cli) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Amazon / AWS (high) |
+| 63 | [awslabs/amazon-redshift-utils](https://github.com/awslabs/amazon-redshift-utils) | not scored (oracle defect) | 0 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
+| 64 | [awslabs/aws-support-tools](https://github.com/awslabs/aws-support-tools) | not scored (oracle defect) | 1 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
+| 65 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 66 | [google-deepmind/weathernext](https://github.com/google-deepmind/weathernext) | not scored (oracle defect) | 5 min | 0 (0 lines) | fail: other | Google / Google DeepMind (high) |
+| 67 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft (high) |
+| 68 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | not scored (oracle defect) | 25 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 69 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 70 | [NVIDIA/warp](https://github.com/NVIDIA/warp) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
 | Amazon | 7 | 97.9 | AWS Labs 99.2 (n=2); Amazon Science 98.5 (n=1); AWS 97.1 (n=4) |
-| OpenAI ⚠ n<3 | 2 | 96.8 | OpenAI 96.8 (n=2) |
 | NVIDIA | 4 | 96.0 | NVIDIA 99.1 (n=2); NVIDIA Research 92.9 (n=2) |
 | Microsoft | 9 | 95.5 | Microsoft 95.5 (n=9) |
 | Google | 10 | 90.7 | Google DeepMind 96.9 (n=2); Google 91.0 (n=5); Google Research 86.1 (n=3) |
@@ -87,10 +87,11 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | Apple | 6 | 85.9 | Apple 90.9 (n=5); MLX 60.7 (n=1) |
 | Baidu | 6 | 84.9 | Baidu 87.6 (n=1); PaddlePaddle 84.4 (n=5) |
 | Alibaba | 7 | 79.1 | Qwen 97.5 (n=1); ModelScope 76.0 (n=6) |
+| OpenAI | 3 | 64.5 | OpenAI 64.5 (n=3) |
 | Tencent | 4 | 63.9 | Tencent 83.0 (n=2); Hunyuan 44.8 (n=2) |
 | ByteDance ⚠ n<3 | 2 | 55.1 | ByteDance 55.1 (n=2) |
 
-## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 119 repos
+## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 120 repos
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
 |---|---|---|---|---|---|---|
@@ -196,23 +197,24 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 100 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google (high) |
 | 101 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 0 | 14 min | 1 (5 lines) | fail: other | Alibaba / ModelScope (high) |
 | 102 | [NVlabs/SPADE](https://github.com/NVlabs/SPADE) | 0 | 10 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA Research (high) |
-| 103 | [Tencent-Hunyuan/Hunyuan3D-1](https://github.com/Tencent-Hunyuan/Hunyuan3D-1) | 0 | 90 min | 4 (20 lines) | fail: other | Tencent / Hunyuan (high) |
-| 104 | [Tencent-Hunyuan/Hunyuan3D-2.1](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1) | 0 | 90 min | 1 (10 lines) | fail: other | Tencent / Hunyuan (high) |
-| 105 | [apple/app-store-server-library-python](https://github.com/apple/app-store-server-library-python) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Apple / Apple (high) |
-| 106 | [aws/aws-sam-cli](https://github.com/aws/aws-sam-cli) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Amazon / AWS (high) |
-| 107 | [awslabs/amazon-redshift-utils](https://github.com/awslabs/amazon-redshift-utils) | not scored (oracle defect) | 0 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
-| 108 | [awslabs/aws-support-tools](https://github.com/awslabs/aws-support-tools) | not scored (oracle defect) | 1 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
-| 109 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
-| 110 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 111 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
-| 112 | [google-deepmind/weathernext](https://github.com/google-deepmind/weathernext) | not scored (oracle defect) | 5 min | 0 (0 lines) | fail: other | Google / Google DeepMind (high) |
-| 113 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
-| 114 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft (high) |
-| 115 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | not scored (oracle defect) | 25 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
-| 116 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
-| 117 | [NVIDIA/warp](https://github.com/NVIDIA/warp) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
-| 118 | [PaddlePaddle/PaddleSpeech](https://github.com/PaddlePaddle/PaddleSpeech) | not scored (oracle defect) | 17 min | 0 (0 lines) | fail: other | Baidu / PaddlePaddle (high) |
-| 119 | [Tencent/PocketFlow](https://github.com/Tencent/PocketFlow) | not scored (oracle defect) | 88 min | 0 (0 lines) | fail: other | Tencent / Tencent (high) |
+| 103 | [openai/tiktoken](https://github.com/openai/tiktoken) | 0 | 1 min | 0 (0 lines) | fail: other | OpenAI / OpenAI (high) |
+| 104 | [Tencent-Hunyuan/Hunyuan3D-1](https://github.com/Tencent-Hunyuan/Hunyuan3D-1) | 0 | 90 min | 4 (20 lines) | fail: other | Tencent / Hunyuan (high) |
+| 105 | [Tencent-Hunyuan/Hunyuan3D-2.1](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1) | 0 | 90 min | 1 (10 lines) | fail: other | Tencent / Hunyuan (high) |
+| 106 | [apple/app-store-server-library-python](https://github.com/apple/app-store-server-library-python) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Apple / Apple (high) |
+| 107 | [aws/aws-sam-cli](https://github.com/aws/aws-sam-cli) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | Amazon / AWS (high) |
+| 108 | [awslabs/amazon-redshift-utils](https://github.com/awslabs/amazon-redshift-utils) | not scored (oracle defect) | 0 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
+| 109 | [awslabs/aws-support-tools](https://github.com/awslabs/aws-support-tools) | not scored (oracle defect) | 1 min | 1 (0 lines) | fail: other | Amazon / AWS Labs (high) |
+| 110 | [bytedance/UI-TARS](https://github.com/bytedance/UI-TARS) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | ByteDance / ByteDance (high) |
+| 111 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 112 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | not scored (oracle defect) | 9 min | 0 (0 lines) | fail: other | Meta / FAIR (high) |
+| 113 | [google-deepmind/weathernext](https://github.com/google-deepmind/weathernext) | not scored (oracle defect) | 5 min | 0 (0 lines) | fail: other | Google / Google DeepMind (high) |
+| 114 | [google/python-fire](https://github.com/google/python-fire) | not scored (oracle defect) | 0 min | 0 (0 lines) | fail: other | Google / Google (high) |
+| 115 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | not scored (oracle defect) | 2 min | 0 (0 lines) | fail: other | Microsoft / Microsoft (high) |
+| 116 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | not scored (oracle defect) | 25 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 117 | [NVIDIA/SkillSpector](https://github.com/NVIDIA/SkillSpector) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 118 | [NVIDIA/warp](https://github.com/NVIDIA/warp) | not scored (oracle defect) | 1 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA (high) |
+| 119 | [PaddlePaddle/PaddleSpeech](https://github.com/PaddlePaddle/PaddleSpeech) | not scored (oracle defect) | 17 min | 0 (0 lines) | fail: other | Baidu / PaddlePaddle (high) |
+| 120 | [Tencent/PocketFlow](https://github.com/Tencent/PocketFlow) | not scored (oracle defect) | 88 min | 0 (0 lines) | fail: other | Tencent / Tencent (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
@@ -220,11 +222,11 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | Microsoft | 12 | 94.5 | Microsoft 94.5 (n=12) |
 | Meta | 9 | 92.8 | FAIR 92.8 (n=9) |
 | Apple | 7 | 87.7 | Apple 90.9 (n=5); MLX 79.7 (n=2) |
-| OpenAI | 4 | 87.6 | OpenAI 87.6 (n=4) |
 | Alibaba | 12 | 85.2 | Qwen 93.7 (n=5); ModelScope 79.1 (n=7) |
 | Baidu | 11 | 84.7 | Baidu 87.6 (n=1); PaddlePaddle 84.4 (n=10) |
 | Google | 13 | 76.0 | Google DeepMind 91.4 (n=3); Google 75.8 (n=6); Google Research 64.5 (n=4) |
 | NVIDIA | 9 | 74.5 | NVIDIA 88.7 (n=3); NVIDIA Research 67.3 (n=6) |
+| OpenAI | 5 | 70.1 | OpenAI 70.1 (n=5) |
 | Tencent | 11 | 66.3 | ARC Lab 93.8 (n=2); Tencent 74.0 (n=4); Hunyuan 49.0 (n=5) |
 | ByteDance | 9 | 54.8 | ByteDance 58.0 (n=7); Seed 43.5 (n=2) |
 

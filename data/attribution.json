@@ -1168,5 +1168,14 @@
     "evidence": [
       "owner 'microsoft' is Microsoft org account (Microsoft)"
     ]
+  },
+  "openai/tiktoken": {
+    "repo": "openai/tiktoken",
+    "company": "OpenAI",
+    "team": "OpenAI",
+    "confidence": "high",
+    "evidence": [
+      "owner 'openai' is OpenAI org account (OpenAI)"
+    ]
   }
 }

@@ -1225,6 +1225,27 @@
           "corrected": false
         },
         {
+          "repo": "openai/tiktoken",
+          "slug": "openai-tiktoken",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "Tencent-Hunyuan/Hunyuan3D-1",
           "slug": "tencent-hunyuan-hunyuan3d-1",
           "score": 0,
@@ -1481,18 +1502,6 @@
           ]
         },
         {
-          "company": "OpenAI",
-          "n": 2,
-          "mean": 96.8,
-          "teams": [
-            {
-              "team": "OpenAI",
-              "n": 2,
-              "mean": 96.8
-            }
-          ]
-        },
-        {
           "company": "NVIDIA",
           "n": 4,
           "mean": 96.0,
@@ -1603,6 +1612,18 @@
               "team": "ModelScope",
               "n": 6,
               "mean": 76.0
+            }
+          ]
+        },
+        {
+          "company": "OpenAI",
+          "n": 3,
+          "mean": 64.5,
+          "teams": [
+            {
+              "team": "OpenAI",
+              "n": 3,
+              "mean": 64.5
             }
           ]
         },
@@ -3788,6 +3809,27 @@
           "corrected": false
         },
         {
+          "repo": "openai/tiktoken",
+          "slug": "openai-tiktoken",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "Tencent-Hunyuan/Hunyuan3D-1",
           "slug": "tencent-hunyuan-hunyuan3d-1",
           "score": 0,
@@ -4211,18 +4253,6 @@
           ]
         },
         {
-          "company": "OpenAI",
-          "n": 4,
-          "mean": 87.6,
-          "teams": [
-            {
-              "team": "OpenAI",
-              "n": 4,
-              "mean": 87.6
-            }
-          ]
-        },
-        {
           "company": "Alibaba",
           "n": 12,
           "mean": 85.2,
@@ -4292,6 +4322,18 @@
               "team": "NVIDIA Research",
               "n": 6,
               "mean": 67.3
+            }
+          ]
+        },
+        {
+          "company": "OpenAI",
+          "n": 5,
+          "mean": 70.1,
+          "teams": [
+            {
+              "team": "OpenAI",
+              "n": 5,
+              "mean": 70.1
             }
           ]
         },
