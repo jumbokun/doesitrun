@@ -779,28 +779,6 @@
           "public_reason": null
         },
         {
-          "repo": "NVlabs/GR00T-WholeBodyControl",
-          "slug": "nvlabs-gr00t-wholebodycontrol",
-          "score": 97.5,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.5,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
           "repo": "QwenLM/Qwen-MM-Plugins",
           "slug": "qwenlm-qwen-mm-plugins",
           "score": 97.5,
@@ -1396,6 +1374,28 @@
           "public_reason": null
         },
         {
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 77.9,
+          "why": "22 min, 0 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "Baidu",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "bytedance/Sa2VA",
           "slug": "bytedance-sa2va",
           "score": 62.7,
@@ -1545,8 +1545,8 @@
         },
         {
           "company": "NVIDIA",
-          "n": 7,
-          "mean": 95.0,
+          "n": 6,
+          "mean": 94.5,
           "teams": [
             {
               "team": "NVIDIA",
@@ -1555,20 +1555,8 @@
             },
             {
               "team": "NVIDIA Research",
-              "n": 2,
-              "mean": 92.8
-            }
-          ]
-        },
-        {
-          "company": "Baidu",
-          "n": 4,
-          "mean": 94.0,
-          "teams": [
-            {
-              "team": "PaddlePaddle",
-              "n": 4,
-              "mean": 94.0
+              "n": 1,
+              "mean": 88.1
             }
           ]
         },
@@ -1586,6 +1574,23 @@
               "team": "Hunyuan",
               "n": 1,
               "mean": 83.3
+            }
+          ]
+        },
+        {
+          "company": "Baidu",
+          "n": 5,
+          "mean": 90.8,
+          "teams": [
+            {
+              "team": "PaddlePaddle",
+              "n": 4,
+              "mean": 94.0
+            },
+            {
+              "team": "Baidu",
+              "n": 1,
+              "mean": 77.9
             }
           ]
         },
@@ -2566,28 +2571,6 @@
           "public_reason": null
         },
         {
-          "repo": "NVlabs/GR00T-WholeBodyControl",
-          "slug": "nvlabs-gr00t-wholebodycontrol",
-          "score": 97.5,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.5,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
           "repo": "QwenLM/Qwen-MM-Plugins",
           "slug": "qwenlm-qwen-mm-plugins",
           "score": 97.5,
@@ -3293,6 +3276,28 @@
           "public_reason": null
         },
         {
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 77.9,
+          "why": "22 min, 0 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "Baidu",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "bytedance/Sa2VA",
           "slug": "bytedance-sa2va",
           "score": 62.7,
@@ -3526,13 +3531,18 @@
         },
         {
           "company": "Baidu",
-          "n": 5,
-          "mean": 93.9,
+          "n": 6,
+          "mean": 91.2,
           "teams": [
             {
               "team": "PaddlePaddle",
               "n": 5,
               "mean": 93.9
+            },
+            {
+              "team": "Baidu",
+              "n": 1,
+              "mean": 77.9
             }
           ]
         },
@@ -3589,8 +3599,8 @@
         },
         {
           "company": "NVIDIA",
-          "n": 8,
-          "mean": 83.1,
+          "n": 7,
+          "mean": 81.0,
           "teams": [
             {
               "team": "NVIDIA",
@@ -3599,8 +3609,8 @@
             },
             {
               "team": "NVIDIA Research",
-              "n": 3,
-              "mean": 61.9
+              "n": 2,
+              "mean": 44.0
             }
           ]
         }
