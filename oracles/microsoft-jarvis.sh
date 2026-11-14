@@ -5,7 +5,8 @@ OUT=$(mktemp -d /tmp/oracle_graph_XXXXXX)
 
 # 1) Resource-dependency graphs (taskbench/README.md:227-236; generate_graph.py:4-20).
 #    Output path is tool_file.replace("tools","graph") (generate_graph.py:19), i.e. the input file
-#    itself for tool_desc.json, so every run works on a copy under $OUT.
+#    itself for tool_desc.json, so every run works on a copy under $OUT. A fix that writes the
+#    graph to graph_desc.json next to the input (the file visualize_graph.py reads) is accepted too.
 for d in data_huggingface data_multimedia; do
   mkdir -p $OUT/$d
   cp $d/tool_desc.json $OUT/$d/tool_desc.json
@@ -22,11 +23,14 @@ cp $d/tool_desc.json $OUT/$d/orig.json
 timeout 300 python generate_graph.py --tool_desc $OUT/$d/tool_desc.json --dependency_type temporal --data_dir $OUT/$d
 
 python - "$OUT" <<'P'
-import json, sys
+import json, os, sys
 out = sys.argv[1]
+def graph(d):
+    p = f"{out}/{d}/graph_desc.json"
+    return json.load(open(p if os.path.exists(p) else f"{out}/{d}/tool_desc.json"))
 for d in ["data_huggingface", "data_multimedia"]:
     orig = json.load(open(f"{out}/{d}/orig.json"))["nodes"]
-    g = json.load(open(f"{out}/{d}/tool_desc.json"))
+    g = graph(d)
     assert "links" in g, f"{d}: no links in output"
     assert len(g["nodes"]) == len(orig) > 5, d
     ids = {n["id"]: n for n in g["nodes"]}
@@ -40,7 +44,7 @@ for d in ["data_huggingface", "data_multimedia"]:
     print(d, len(g["nodes"]), "nodes", len(g["links"]), "links")
 d = "data_dailylifeapis"
 orig = json.load(open(f"{out}/{d}/orig.json"))["nodes"]
-g = json.load(open(f"{out}/{d}/tool_desc.json"))
+g = graph(d)
 n = len(orig)
 assert len(g["nodes"]) == n > 5 and all("parameters" in x for x in g["nodes"]), d
 # generate_graph.py:36-40: complete directed graph, type "complete"
@@ -54,7 +58,8 @@ P
 #    graph_desc.pdf next to it). Exercises networkx/matplotlib/scipy from requirements.txt.
 V=$OUT/vis
 mkdir -p $V
-cp $OUT/data_huggingface/tool_desc.json $V/graph_desc.json
+G=$OUT/data_huggingface/graph_desc.json; [ -f $G ] || G=$OUT/data_huggingface/tool_desc.json
+cp $G $V/graph_desc.json
 MPLBACKEND=Agg timeout 600 python visualize_graph.py --data_dir $V
 test -s $V/graph_desc.pdf
 head -c 4 $V/graph_desc.pdf | grep -q '%PDF'

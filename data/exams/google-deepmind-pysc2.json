@@ -19,30 +19,42 @@
   "check": "The hidden test runs the random and scripted agents headless on CollectMineralShards, then drives the environment from Python and checks the observations and that the scripted agent collects mineral shards (positive reward).",
   "server": false,
   "revision": {
-    "rev": 2,
+    "rev": 3,
     "date": "2026-11-15",
-    "by": "second review (outside the maintained set; independent log check of maintained passes)",
+    "by": "third check (2026-11-15): failed reruns of revised exams traced to the oracle in the raw logs",
     "verdict": "fix_oracle",
     "issues": [
-      "The check text promises the test 'checks it completes and reports a score', but v1 never checks a score or reward. The CLI run is only grepped for 'Traceback', and the direct SC2Env check sends only no_op actions, so a broken action/reward path would still pass as long as nothing raises.",
-      "Coverage: the README's second agent example, `--agent pysc2.agents.scripted_agent.CollectMineralShards` on this same map (README.md:130-132), is never run. v2 runs it through the CLI and through run_loop with the scripted agent, and asserts it collects at least one mineral shard (reward > 0) in 300 agent steps. It also requires run_loop's 'Took ... seconds for N steps' line from the random-agent CLI run.",
-      "Goal is clean: the SC2 Linux package, mini_games.zip, SC2PATH and the agent command are all in README.md:90-132, and it gives no install hints. The probe's extra_ports patch fixes a real bug at HEAD 0df53d3: sc_process.py:191-196 forwards **kwargs to Popen while sc2_env.py:338 passes extra_ports. The README's PyPI release predates that bug."
+      "v2 oracle asserted at least 250 scripted-agent steps, but a CollectMineralShards episode is 1920 game loops, i.e. 241 agent steps at step_mul 8, so no install could pass. Threshold lowered to 200; the reward > 0 check is kept."
     ],
     "evidence": [
-      "src/google-deepmind-pysc2/README.md:120-132 - random agent demo and the scripted CollectMineralShards agent command",
-      "src/google-deepmind-pysc2/pysc2/agents/scripted_agent.py:52-66 - the CollectMineralShards agent moves the marines to the nearest shard",
-      "src/google-deepmind-pysc2/pysc2/agents/base_agent.py - step() accumulates obs.reward into self.reward",
-      "src/google-deepmind-pysc2/pysc2/env/run_loop.py:19-50 - run_loop(agents, env, max_frames, max_episodes) prints 'Took %.3f seconds for %s steps'",
-      "src/google-deepmind-pysc2/pysc2/lib/sc_process.py:191-196 and pysc2/env/sc2_env.py:338 - extra_ports forwarded to subprocess.Popen at HEAD",
-      "data/runs/google-deepmind-pysc2/result.json agent.final - '200 steps ends before the game does, so the output shows step speed but no episode score line'"
+      "logs-google-deepmind-pysc2 oracle.txt: 'Episode 2 finished after 1920 game steps', 'SCRIPTED_REWARD 86.0 steps 241', 'AssertionError: 241'"
     ],
-    "previous": {
-      "eligible": true,
-      "reason": "README runs a random agent on a StarCraft II map via python -m pysc2.bin.agent; the free Linux headless SC2 binary and maps download publicly (EULA password only), CPU-only.",
-      "demo": "README 'Run an agent': python -m pysc2.bin.agent --map CollectMineralShards (with mini_games maps)",
-      "goal": "Install pysc2, download the Linux StarCraft II headless build (Blizzard s2client-proto downloads, ~4GB, extract to ~/StarCraftII or set SC2PATH) and the mini_games maps (pysc2 v1.2 release mini_games.zip) into the SC2 Maps dir. Then run `python -m pysc2.bin.agent --map CollectMineralShards --norender --max_episodes 1 --max_agent_steps 200` so the random agent plays and finishes without error, and make env.sh export SC2PATH if non-default.",
-      "check": "The hidden test runs the random agent headless on the CollectMineralShards map for a short episode and checks it completes and reports a score.",
-      "server": false
+    "earlier": {
+      "rev": 2,
+      "date": "2026-11-15",
+      "by": "second review (outside the maintained set; independent log check of maintained passes)",
+      "verdict": "fix_oracle",
+      "issues": [
+        "The check text promises the test 'checks it completes and reports a score', but v1 never checks a score or reward. The CLI run is only grepped for 'Traceback', and the direct SC2Env check sends only no_op actions, so a broken action/reward path would still pass as long as nothing raises.",
+        "Coverage: the README's second agent example, `--agent pysc2.agents.scripted_agent.CollectMineralShards` on this same map (README.md:130-132), is never run. v2 runs it through the CLI and through run_loop with the scripted agent, and asserts it collects at least one mineral shard (reward > 0) in 300 agent steps. It also requires run_loop's 'Took ... seconds for N steps' line from the random-agent CLI run.",
+        "Goal is clean: the SC2 Linux package, mini_games.zip, SC2PATH and the agent command are all in README.md:90-132, and it gives no install hints. The probe's extra_ports patch fixes a real bug at HEAD 0df53d3: sc_process.py:191-196 forwards **kwargs to Popen while sc2_env.py:338 passes extra_ports. The README's PyPI release predates that bug."
+      ],
+      "evidence": [
+        "src/google-deepmind-pysc2/README.md:120-132 - random agent demo and the scripted CollectMineralShards agent command",
+        "src/google-deepmind-pysc2/pysc2/agents/scripted_agent.py:52-66 - the CollectMineralShards agent moves the marines to the nearest shard",
+        "src/google-deepmind-pysc2/pysc2/agents/base_agent.py - step() accumulates obs.reward into self.reward",
+        "src/google-deepmind-pysc2/pysc2/env/run_loop.py:19-50 - run_loop(agents, env, max_frames, max_episodes) prints 'Took %.3f seconds for %s steps'",
+        "src/google-deepmind-pysc2/pysc2/lib/sc_process.py:191-196 and pysc2/env/sc2_env.py:338 - extra_ports forwarded to subprocess.Popen at HEAD",
+        "data/runs/google-deepmind-pysc2/result.json agent.final - '200 steps ends before the game does, so the output shows step speed but no episode score line'"
+      ],
+      "previous": {
+        "eligible": true,
+        "reason": "README runs a random agent on a StarCraft II map via python -m pysc2.bin.agent; the free Linux headless SC2 binary and maps download publicly (EULA password only), CPU-only.",
+        "demo": "README 'Run an agent': python -m pysc2.bin.agent --map CollectMineralShards (with mini_games maps)",
+        "goal": "Install pysc2, download the Linux StarCraft II headless build (Blizzard s2client-proto downloads, ~4GB, extract to ~/StarCraftII or set SC2PATH) and the mini_games maps (pysc2 v1.2 release mini_games.zip) into the SC2 Maps dir. Then run `python -m pysc2.bin.agent --map CollectMineralShards --norender --max_episodes 1 --max_agent_steps 200` so the random agent plays and finishes without error, and make env.sh export SC2PATH if non-default.",
+        "check": "The hidden test runs the random agent headless on the CollectMineralShards map for a short episode and checks it completes and reports a score.",
+        "server": false
+      }
     }
   }
 }

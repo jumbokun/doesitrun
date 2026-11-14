@@ -19,8 +19,9 @@ grep -qi "Traceback" $out/cli2.txt && { tail -30 $out/cli2.txt; exit 1; }
 
 # 3) Same scripted agent through the Python API with inspectable observations and reward.
 #    BaseAgent.step accumulates obs.reward (pysc2/agents/base_agent.py); each mineral shard is +1,
-#    and scripted_agent.CollectMineralShards walks the marines to the nearest shard, so 300 agent
-#    steps (2400 game loops at step_mul 8) must collect at least one shard on a working install.
+#    and scripted_agent.CollectMineralShards walks the marines to the nearest shard. The mini-game episode is 1920 game loops (241 agent steps at step_mul 8, as the run log shows:
+#    'Episode 2 finished after 1920 game steps'), so the episode must run to near its end and
+#    collect at least one shard on a working install.
 cat > $out/check.py <<'P'
 import numpy as np
 from absl import app
@@ -47,7 +48,7 @@ def main(_):
     agent = scripted_agent.CollectMineralShards()
     run_loop.run_loop([agent], env, max_frames=300, max_episodes=1)
     print("SCRIPTED_REWARD", agent.reward, "steps", agent.steps)
-    assert agent.steps >= 250, agent.steps
+    assert agent.steps >= 200, agent.steps
     assert agent.reward > 0, agent.reward
     print("REWARD_OK")
 app.run(main)
