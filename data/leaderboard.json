@@ -26,6 +26,27 @@
           "corrected": false
         },
         {
+          "repo": "awslabs/amazon-redshift-utils",
+          "slug": "awslabs-amazon-redshift-utils",
+          "score": 99.6,
+          "why": "0 min, 0 repo files patched",
+          "agent_minutes": 0.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "google-research/harness2",
           "slug": "google-research-harness2",
           "score": 99.6,
@@ -62,6 +83,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/aws-support-tools",
+          "slug": "awslabs-aws-support-tools",
+          "score": 99.4,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -133,6 +175,27 @@
           "corrected": false
         },
         {
+          "repo": "google-research/timesfm",
+          "slug": "google-research-timesfm",
+          "score": 99.2,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/agent-framework",
           "slug": "microsoft-agent-framework",
           "score": 99.2,
@@ -148,6 +211,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/SkillSpector",
+          "slug": "nvidia-skillspector",
+          "score": 99.2,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -701,6 +785,27 @@
           "corrected": false
         },
         {
+          "repo": "NVIDIA/Megatron-LM",
+          "slug": "nvidia-megatron-lm",
+          "score": 97.2,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 2.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "aws/aws-cli",
           "slug": "aws-aws-cli",
           "score": 97.0,
@@ -953,48 +1058,6 @@
           "corrected": false
         },
         {
-          "repo": "awslabs/amazon-redshift-utils",
-          "slug": "awslabs-amazon-redshift-utils",
-          "score": 89.6,
-          "why": "0 min, 1 repo files patched",
-          "agent_minutes": 0.4,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/aws-support-tools",
-          "slug": "awslabs-aws-support-tools",
-          "score": 89.4,
-          "why": "1 min, 1 repo files patched",
-          "agent_minutes": 0.6,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "bytedance/Protenix",
           "slug": "bytedance-protenix",
           "score": 89.4,
@@ -1010,6 +1073,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "apple/dnikit",
+          "slug": "apple-dnikit",
+          "score": 88.5,
+          "why": "2 min, 1 repo files patched",
+          "agent_minutes": 1.5,
+          "files_patched": 1,
+          "lines_patched": 7,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1249,6 +1333,27 @@
           "corrected": false
         },
         {
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 77.9,
+          "why": "22 min, 0 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "Baidu",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/unilm",
           "slug": "microsoft-unilm",
           "score": 74.1,
@@ -1291,27 +1396,6 @@
           "corrected": false
         },
         {
-          "repo": "baidu/Unlimited-OCR",
-          "slug": "baidu-unlimited-ocr",
-          "score": 67.9,
-          "why": "22 min, 1 repo files patched",
-          "agent_minutes": 22.1,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "Baidu",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'baidu' is Baidu org account (Baidu)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "bytedance/Sa2VA",
           "slug": "bytedance-sa2va",
           "score": 62.7,
@@ -1348,48 +1432,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google-research/timesfm",
-          "slug": "google-research-timesfm",
-          "score": 59.2,
-          "why": "1 min, 4 repo files patched",
-          "agent_minutes": 0.8,
-          "files_patched": 4,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-research' is Google org account (Google Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "apple/dnikit",
-          "slug": "apple-dnikit",
-          "score": 58.5,
-          "why": "2 min, 28 repo files patched",
-          "agent_minutes": 1.5,
-          "files_patched": 28,
-          "lines_patched": 7,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1457,51 +1499,31 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false
-        },
-        {
-          "repo": "NVIDIA/Megatron-LM",
-          "slug": "nvidia-megatron-lm",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 3.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "NVIDIA/SkillSpector",
-          "slug": "nvidia-skillspector",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 1.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
         }
       ],
       "companies": [
+        {
+          "company": "Amazon",
+          "n": 9,
+          "mean": 98.6,
+          "teams": [
+            {
+              "team": "AWS Labs",
+              "n": 4,
+              "mean": 99.2
+            },
+            {
+              "team": "Amazon Science",
+              "n": 1,
+              "mean": 98.3
+            },
+            {
+              "team": "AWS",
+              "n": 4,
+              "mean": 98.2
+            }
+          ]
+        },
         {
           "company": "OpenAI",
           "n": 3,
@@ -1515,24 +1537,41 @@
           ]
         },
         {
-          "company": "Amazon",
-          "n": 9,
-          "mean": 96.4,
+          "company": "NVIDIA",
+          "n": 7,
+          "mean": 95.0,
           "teams": [
             {
-              "team": "Amazon Science",
-              "n": 1,
-              "mean": 98.3
+              "team": "NVIDIA",
+              "n": 5,
+              "mean": 95.8
             },
             {
-              "team": "AWS",
+              "team": "NVIDIA Research",
+              "n": 2,
+              "mean": 92.8
+            }
+          ]
+        },
+        {
+          "company": "Google",
+          "n": 13,
+          "mean": 93.9,
+          "teams": [
+            {
+              "team": "Google Research",
               "n": 4,
-              "mean": 98.2
+              "mean": 95.8
             },
             {
-              "team": "AWS Labs",
-              "n": 4,
-              "mean": 94.2
+              "team": "Google",
+              "n": 6,
+              "mean": 95.2
+            },
+            {
+              "team": "Google DeepMind",
+              "n": 3,
+              "mean": 88.8
             }
           ]
         },
@@ -1566,28 +1605,6 @@
           ]
         },
         {
-          "company": "Google",
-          "n": 13,
-          "mean": 90.8,
-          "teams": [
-            {
-              "team": "Google",
-              "n": 6,
-              "mean": 95.2
-            },
-            {
-              "team": "Google DeepMind",
-              "n": 3,
-              "mean": 88.8
-            },
-            {
-              "team": "Google Research",
-              "n": 4,
-              "mean": 85.8
-            }
-          ]
-        },
-        {
           "company": "Meta",
           "n": 3,
           "mean": 90.5,
@@ -1602,12 +1619,12 @@
         {
           "company": "Apple",
           "n": 7,
-          "mean": 85.4,
+          "mean": 89.6,
           "teams": [
             {
               "team": "Apple",
               "n": 6,
-              "mean": 92.2
+              "mean": 97.2
             },
             {
               "team": "MLX",
@@ -1619,7 +1636,7 @@
         {
           "company": "Baidu",
           "n": 6,
-          "mean": 84.2,
+          "mean": 85.8,
           "teams": [
             {
               "team": "PaddlePaddle",
@@ -1629,7 +1646,7 @@
             {
               "team": "Baidu",
               "n": 1,
-              "mean": 67.9
+              "mean": 77.9
             }
           ]
         },
@@ -1661,23 +1678,6 @@
               "mean": 76.1
             }
           ]
-        },
-        {
-          "company": "NVIDIA",
-          "n": 7,
-          "mean": 66.9,
-          "teams": [
-            {
-              "team": "NVIDIA Research",
-              "n": 2,
-              "mean": 92.8
-            },
-            {
-              "team": "NVIDIA",
-              "n": 5,
-              "mean": 56.5
-            }
-          ]
         }
       ],
       "view_of": "cpu-gha"
@@ -1702,6 +1702,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/amazon-redshift-utils",
+          "slug": "awslabs-amazon-redshift-utils",
+          "score": 99.6,
+          "why": "0 min, 0 repo files patched",
+          "agent_minutes": 0.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1744,6 +1765,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/aws-support-tools",
+          "slug": "awslabs-aws-support-tools",
+          "score": 99.4,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -1857,6 +1899,27 @@
           "corrected": false
         },
         {
+          "repo": "google-research/timesfm",
+          "slug": "google-research-timesfm",
+          "score": 99.2,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/agent-framework",
           "slug": "microsoft-agent-framework",
           "score": 99.2,
@@ -1872,6 +1935,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "NVIDIA/SkillSpector",
+          "slug": "nvidia-skillspector",
+          "score": 99.2,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2635,6 +2719,27 @@
           "corrected": false
         },
         {
+          "repo": "NVIDIA/Megatron-LM",
+          "slug": "nvidia-megatron-lm",
+          "score": 97.2,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 2.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "aws/aws-cli",
           "slug": "aws-aws-cli",
           "score": 97.0,
@@ -2887,6 +2992,27 @@
           "corrected": false
         },
         {
+          "repo": "Tencent/tencent-ml-images",
+          "slug": "tencent-tencent-ml-images",
+          "score": 94.4,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 5.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "PaddlePaddle/models",
           "slug": "paddlepaddle-models",
           "score": 94.3,
@@ -3076,27 +3202,6 @@
           "corrected": false
         },
         {
-          "repo": "awslabs/amazon-redshift-utils",
-          "slug": "awslabs-amazon-redshift-utils",
-          "score": 89.6,
-          "why": "0 min, 1 repo files patched",
-          "agent_minutes": 0.4,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "TencentARC/T2I-Adapter",
           "slug": "tencentarc-t2i-adapter",
           "score": 89.5,
@@ -3118,27 +3223,6 @@
           "corrected": false
         },
         {
-          "repo": "awslabs/aws-support-tools",
-          "slug": "awslabs-aws-support-tools",
-          "score": 89.4,
-          "why": "1 min, 1 repo files patched",
-          "agent_minutes": 0.6,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "bytedance/Protenix",
           "slug": "bytedance-protenix",
           "score": 89.4,
@@ -3154,6 +3238,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "apple/dnikit",
+          "slug": "apple-dnikit",
+          "score": 88.5,
+          "why": "2 min, 1 repo files patched",
+          "agent_minutes": 1.5,
+          "files_patched": 1,
+          "lines_patched": 7,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3498,6 +3603,27 @@
           "corrected": false
         },
         {
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 77.9,
+          "why": "22 min, 0 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "Baidu",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "microsoft/Swin-Transformer",
           "slug": "microsoft-swin-transformer",
           "score": 76.8,
@@ -3555,27 +3681,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "Tencent/tencent-ml-images",
-          "slug": "tencent-tencent-ml-images",
-          "score": 74.4,
-          "why": "6 min, 2 repo files patched",
-          "agent_minutes": 5.6,
-          "files_patched": 2,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3687,27 +3792,6 @@
           "corrected": false
         },
         {
-          "repo": "baidu/Unlimited-OCR",
-          "slug": "baidu-unlimited-ocr",
-          "score": 67.9,
-          "why": "22 min, 1 repo files patched",
-          "agent_minutes": 22.1,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "Baidu",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'baidu' is Baidu org account (Baidu)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "PaddlePaddle/PaddleGAN",
           "slug": "paddlepaddle-paddlegan",
           "score": 65.5,
@@ -3765,48 +3849,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google-research/timesfm",
-          "slug": "google-research-timesfm",
-          "score": 59.2,
-          "why": "1 min, 4 repo files patched",
-          "agent_minutes": 0.8,
-          "files_patched": 4,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-research' is Google org account (Google Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "apple/dnikit",
-          "slug": "apple-dnikit",
-          "score": 58.5,
-          "why": "2 min, 28 repo files patched",
-          "agent_minutes": 1.5,
-          "files_patched": 28,
-          "lines_patched": 7,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -4045,48 +4087,6 @@
           "corrected": false
         },
         {
-          "repo": "NVIDIA/Megatron-LM",
-          "slug": "nvidia-megatron-lm",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 3.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "NVIDIA/SkillSpector",
-          "slug": "nvidia-skillspector",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 1.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "NVlabs/SPADE",
           "slug": "nvlabs-spade",
           "score": 0,
@@ -4238,8 +4238,13 @@
         {
           "company": "Amazon",
           "n": 9,
-          "mean": 96.4,
+          "mean": 98.6,
           "teams": [
+            {
+              "team": "AWS Labs",
+              "n": 4,
+              "mean": 99.2
+            },
             {
               "team": "Amazon Science",
               "n": 1,
@@ -4249,11 +4254,6 @@
               "team": "AWS",
               "n": 4,
               "mean": 98.2
-            },
-            {
-              "team": "AWS Labs",
-              "n": 4,
-              "mean": 94.2
             }
           ]
         },
@@ -4282,6 +4282,23 @@
           ]
         },
         {
+          "company": "Apple",
+          "n": 8,
+          "mean": 90.8,
+          "teams": [
+            {
+              "team": "Apple",
+              "n": 6,
+              "mean": 97.2
+            },
+            {
+              "team": "MLX",
+              "n": 2,
+              "mean": 71.7
+            }
+          ]
+        },
+        {
           "company": "OpenAI",
           "n": 5,
           "mean": 90.1,
@@ -4290,23 +4307,6 @@
               "team": "OpenAI",
               "n": 5,
               "mean": 90.1
-            }
-          ]
-        },
-        {
-          "company": "Apple",
-          "n": 8,
-          "mean": 87.0,
-          "teams": [
-            {
-              "team": "Apple",
-              "n": 6,
-              "mean": 92.2
-            },
-            {
-              "team": "MLX",
-              "n": 2,
-              "mean": 71.7
             }
           ]
         },
@@ -4330,7 +4330,7 @@
         {
           "company": "Baidu",
           "n": 11,
-          "mean": 84.3,
+          "mean": 85.2,
           "teams": [
             {
               "team": "PaddlePaddle",
@@ -4340,14 +4340,14 @@
             {
               "team": "Baidu",
               "n": 1,
-              "mean": 67.9
+              "mean": 77.9
             }
           ]
         },
         {
           "company": "Google",
           "n": 16,
-          "mean": 78.8,
+          "mean": 81.3,
           "teams": [
             {
               "team": "Google DeepMind",
@@ -4362,14 +4362,31 @@
             {
               "team": "Google Research",
               "n": 5,
-              "mean": 68.6
+              "mean": 76.6
+            }
+          ]
+        },
+        {
+          "company": "NVIDIA",
+          "n": 12,
+          "mean": 79.2,
+          "teams": [
+            {
+              "team": "NVIDIA",
+              "n": 6,
+              "mean": 91.2
+            },
+            {
+              "team": "NVIDIA Research",
+              "n": 6,
+              "mean": 67.3
             }
           ]
         },
         {
           "company": "Tencent",
           "n": 10,
-          "mean": 75.3,
+          "mean": 77.3,
           "teams": [
             {
               "team": "ARC Lab",
@@ -4379,29 +4396,12 @@
             {
               "team": "Tencent",
               "n": 4,
-              "mean": 81.7
+              "mean": 86.7
             },
             {
               "team": "Hunyuan",
               "n": 4,
               "mean": 59.8
-            }
-          ]
-        },
-        {
-          "company": "NVIDIA",
-          "n": 12,
-          "mean": 62.9,
-          "teams": [
-            {
-              "team": "NVIDIA Research",
-              "n": 6,
-              "mean": 67.3
-            },
-            {
-              "team": "NVIDIA",
-              "n": 6,
-              "mean": 58.4
             }
           ]
         },

@@ -1,8 +1,7 @@
 {"readme_path_worked_as_written": false,
  "interventions": [
-  {"kind": "undocumented_step", "detail": "pyproject [tool.uv] override-dependencies disables torch/triton, so `uv pip install -e .` silently skips torch; installed torch/triton with `uv pip install --no-config` from outside the repo"},
-  {"kind": "gpu_compat", "detail": "Installed CPU-only torch==2.15.0+cpu from the download.pytorch.org/whl/cpu index"},
-  {"kind": "dependency_pin", "detail": "Installed triton==3.9.0 because megatron.core imports triton unconditionally (moe/ops/paged_stash.py), even on CPU"},
-  {"kind": "dependency_pin", "detail": "Installed transformers==5.23.0 (only in the 'training' extra) for HuggingFaceTokenizer"},
-  {"kind": "undocumented_step", "detail": "Downloaded the GPT-2 tokenizer files from huggingface.co/openai-community/gpt2 into /work/gpt2"}
+  {"kind": "dependency_pin", "detail": "pyproject [tool.uv] override-dependencies disables torch; installed CPU torch with uv pip install --no-config from the PyTorch CPU index"},
+  {"kind": "dependency_pin", "detail": "megatron.core imports triton unconditionally but the uv override blocks it; installed triton with --no-config"},
+  {"kind": "undocumented_step", "detail": "Installed transformers/tokenizers/sentencepiece/tiktoken/nltk needed by preprocess_data.py tokenizers (not in base deps)"},
+  {"kind": "undocumented_step", "detail": "Downloaded GPT-2 tokenizer files from huggingface.co/openai-community/gpt2 into /work/gpt2"}
  ]}

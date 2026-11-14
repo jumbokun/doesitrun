@@ -4,23 +4,23 @@
   "track": "cpu-gha",
   "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir> --workers 2 --append-eod` runs on CPU, where <dir> is a local copy of the GPT-2 tokenizer from Hugging Face (openai-community/gpt2, not gated: config.json, tokenizer.json, tokenizer_config.json, vocab.json, merges.txt). The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset.",
   "check": "Runs the preprocessing CLI on a generated 20-document JSONL with a downloaded GPT-2 tokenizer directory and verifies the output loads as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token.",
-  "started": "2026-11-14 15:40:58",
+  "started": "2026-11-14 18:32:11",
   "agent": {
-    "secs": 197,
+    "secs": 167,
     "timed_out": false,
     "model": "claude-opus-5-5",
     "tools": [
       "mcp__box__sh"
     ],
-    "session_id": "e18697bc-b7f6-4dd2-a7f9-fe5edb0af0a6",
-    "num_turns": 19,
-    "cost_usd": 0.3599188,
+    "session_id": "580d2a19-5f06-4af1-8dee-c2d272337930",
+    "num_turns": 17,
+    "cost_usd": 0.3094084,
     "is_error": false,
-    "final": "DONE: a from-scratch `setup.sh` run builds a CPU-only venv, and on a 20-document test the preprocessing command produced `.bin`/`.idx` files that load as an `IndexedDataset` with 20 documents, each decoding back to its original text and ending with EOD (50256)."
+    "final": "and triton from being installed (it expects NVIDIA's PyTorch container). I worked around that with `--no-config`, which installs CPU torch and triton anyway, and added the tokenizer libraries the script needs. No code changes. `NOTES.md` and `REPORT.json` have the details.\n\nI also added a `/work/tools` symlink so `python tools/preprocess_data.py` works from `/work` as well as from inside the repo."
   },
   "oracle": {
-    "pass": false,
-    "secs": 7
+    "pass": true,
+    "secs": 12
   },
   "repo_diff": {
     "files_changed": 0,
@@ -29,13 +29,13 @@
   },
   "replay": {
     "setup_ok": true,
-    "setup_secs": 32,
+    "setup_secs": 18,
     "mem": "12g",
     "oracle": {
-      "pass": false,
-      "secs": 7
+      "pass": true,
+      "secs": 22
     },
-    "class": "fail: other"
+    "class": "pass"
   },
-  "finished": "2026-11-14 15:45:23"
+  "finished": "2026-11-14 18:36:16"
 }
