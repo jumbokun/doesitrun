@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dead_link", "detail": "paddlepaddle==2.3.2 no longer available on PyPI/tuna mirror; installed paddlepaddle==3.0.0 CPU"},
+  {"kind": "python_version", "detail": "Created Python 3.10 venv with uv since system Python 3.12 is outside documented 3.5-3.10 range"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 for opencv-python (libGL.so.1 missing)"},
+  {"kind": "dependency_pin", "detail": "setuptools<81 because ppdet imports pkg_resources"},
+  {"kind": "code_patch", "detail": "ImageFolder._load_images loaded COCO annotation file unconditionally; only load when do_eval"},
+  {"kind": "other", "detail": "Installed package with uv pip install -e . instead of python setup.py install"}
+ ]}

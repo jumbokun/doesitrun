@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used uv-managed Python 3.10 venv instead of python3.8/system 3.12; pinned deps (torch 2.0.0, pandas 1.4.0) unavailable on 3.12"},
+  {"kind": "undocumented_step", "detail": "Installed pinned requirements.txt with CPU torch index before setup.py develop (setup.py strips version pins)"},
+  {"kind": "dependency_pin", "detail": "pyyaml==5.4 built with cython<3 and --no-build-isolation (fails with Cython 3)"},
+  {"kind": "dependency_pin", "detail": "pyzmq 18.1.0 -> 25.1.2 (no py3.10 wheel, source build fails)"},
+  {"kind": "dependency_pin", "detail": "setuptools<70 because latest setuptools removed pkg_resources imported by parlai/core/opt.py"},
+  {"kind": "dependency_pin", "detail": "Installed scikit-learn==1.3.2, commented out in requirements.txt but imported at CLI startup"}
+ ]}

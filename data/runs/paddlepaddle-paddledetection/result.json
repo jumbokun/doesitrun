@@ -1,0 +1,47 @@
+{
+  "slug": "paddlepaddle-paddledetection",
+  "repo": "PaddlePaddle/PaddleDetection",
+  "track": "cpu-gha",
+  "goal": "Get PaddleDetection object detection inference working on CPU. Run tools/infer.py with configs/picodet/picodet_s_320_coco_lcnet.yml, the pretrained picodet_s_320_coco_lcnet weights from paddledet.bj.bcebos.com, on the bundled demo/000000014439.jpg with use_gpu=False, and save the visualized result to an output directory.",
+  "check": "The hidden test runs the detection on a bundled demo image on CPU and verifies a visualized output image is produced and detections were reported.",
+  "started": "2026-11-14 23:16:34",
+  "agent": {
+    "secs": 381,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "fbf21a61-4040-4c50-8834-fabb7036751b",
+    "num_turns": 19,
+    "cost_usd": 0.39124180000000014,
+    "is_error": false,
+    "final": "e and it worked. Getting there took four changes the README doesn't mention: paddlepaddle 3.0.0 on a Python 3.10 venv (the documented 2.3.2 is no longer published), the `libgl1`/`libglib2.0-0t64` system packages, a `setuptools<81` pin, and a one-line fix to `ppdet/data/source/dataset.py` so it no longer needs the COCO annotation file for plain inference. All of this is in NOTES.md and REPORT.json."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 141
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 2,
+    "files": [
+      {
+        "path": "ppdet/data/source/dataset.py",
+        "added": 2,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 108,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 23:27:29"
+}

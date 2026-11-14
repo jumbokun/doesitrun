@@ -1,0 +1,47 @@
+{
+  "slug": "paddlepaddle-models",
+  "repo": "PaddlePaddle/models",
+  "track": "cpu-gha",
+  "goal": "In /work/models/paddlecv (see docs/INSTALL.md and docs/GETTING_STARTED.md), install PaddlePaddle (CPU) and the dependencies paddlecv needs, then on CPU run `python -u tools/predict.py --config=configs/single_op/PP-LCNet.yml --input=demo/ILSVRC2012_val_00020010.jpeg --output_dir=<dir>` and the install guide's detection check `python -u tools/predict.py --config=configs/single_op/PP-YOLOE+.yml --input=demo/000000014439.jpg --output_dir=<dir>`. The pretrained inference models download automatically; each command must write its structured result and visualised image to the output directory. Write /work/env.sh that activates whatever environment is needed so `python` runs them.",
+  "check": "The hidden test runs both commands on the bundled demo images and checks the classification result names the dog breed shown with ranked top-5 scores, and the detection result contains the people visible in the demo image with valid boxes and scores, plus the saved output images.",
+  "started": "2026-11-14 23:30:22",
+  "agent": {
+    "secs": 543,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "5e7883df-3c16-4e63-836c-7a22f09753c4",
+    "num_turns": 22,
+    "cost_usd": 0.48112679999999997,
+    "is_error": false,
+    "final": " scratch with `/work/setup.sh` and ran both commands on CPU: classification named the dog a Weimaraner with five ranked scores (top 0.884), and detection found 12 people with boxes and scores, each writing its JSON result and output image; the main change was Python 3.9 with paddlepaddle 2.6.2 and pinned libraries, because the documented 2.3.2 is no longer on PyPI and the Baidu mirror returns 403."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 19
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 44,
+    "files": [
+      {
+        "path": "paddlecv/ppcv/model_zoo/MODEL_ZOO",
+        "added": 22,
+        "removed": 22
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 156,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 19
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 23:43:01"
+}

@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "requirements.txt lacks torch; installed CPU torch==2.4.1 from the PyTorch CPU index"},
+  {"kind": "dependency_pin", "detail": "pinned numpy<2 and huggingface_hub<0.26 for compatibility with transformers<4.38/torch 2.4"},
+  {"kind": "dead_link", "detail": "Hugging Face repo Qwen/Qwen-1_8B-Chat returns 401/Repository Not Found; downloaded qwen/Qwen-1_8B-Chat from ModelScope via modelscope.snapshot_download to a local dir"}
+ ]}

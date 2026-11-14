@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "README gives no torch install step; installed CPU-only torch from download.pytorch.org/whl/cpu"},
+  {"kind": "dependency_pin", "detail": "Installed accelerate, required by device_map='auto' but not mentioned in README"},
+  {"kind": "other", "detail": "Replaced Qwen/Qwen3-30B-A3B-Instruct-2507 with Qwen/Qwen3-0.6B and pre-downloaded it for CPU use"}
+ ]}

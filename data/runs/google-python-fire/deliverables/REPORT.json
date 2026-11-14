@@ -1,0 +1,4 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "doc_error", "detail": "README says `python setup.py install` but the repo has no setup.py; installed with `uv pip install .` (pyproject.toml) into a venv instead"}
+ ]}

@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.10 via uv venv; hydra-core 1.0.x / omegaconf 2.0 don't work with the system Python 3.12"},
+  {"kind": "dependency_pin", "detail": "pip<24.1 (and setuptools<70) so pip accepts omegaconf 2.0.x's invalid metadata; otherwise ResolutionImpossible"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch/torchaudio 2.4.1 from download.pytorch.org/whl/cpu, plus numpy<2, before the editable install with --no-build-isolation"},
+  {"kind": "dependency_pin", "detail": "Installed requests, which fairseq.file_utils imports to download pretrained models but setup.py doesn't declare"},
+  {"kind": "undocumented_step", "detail": "Top-level README translation example needs fastBPE/sacremoses, which only examples/translation/README.md mentions"}
+ ]}

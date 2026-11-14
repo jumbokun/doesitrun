@@ -1,0 +1,41 @@
+{
+  "slug": "qwenlm-qwen3",
+  "repo": "QwenLM/Qwen3",
+  "track": "cpu-gha",
+  "goal": "Get the README Transformers chat-generation snippet working on CPU with the small model Qwen/Qwen3-0.6B (replace the 30B model name). Python with transformers and torch (CPU) must be installed so that `python` can run a script that loads the tokenizer and model, applies the chat template to the prompt 'Give me a short introduction to large language model.', and generates text with model.generate.",
+  "check": "A hidden script runs the README-style snippet with Qwen/Qwen3-0.6B in the prepared environment and checks that it generates non-empty, sensible text about language models.",
+  "started": "2026-11-14 21:19:02",
+  "agent": {
+    "secs": 76,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "580285b8-c5db-440e-8472-df4d67b49b87",
+    "num_turns": 7,
+    "cost_usd": 0.09899640000000001,
+    "is_error": false,
+    "final": "DONE: the README snippet, switched to Qwen/Qwen3-0.6B, generated a coherent answer about large language models on CPU in my test. The README doesn't say to install CPU torch or `accelerate`, so `setup.sh` adds both (the snippet fails without `accelerate`). I ran `setup.sh` in this sandbox but not on a fresh container, and my test capped `max_new_tokens` at 200 instead of the README's 16384."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 6
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 18,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 10
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 21:21:16"
+}

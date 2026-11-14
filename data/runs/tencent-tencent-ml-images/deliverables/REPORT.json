@@ -1,0 +1,13 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Python 2.7 not available on Ubuntu 24.04/uv; created conda-forge python=2.7 env via micromamba at /opt/mlimg"},
+  {"kind": "dependency_pin", "detail": "TF 1.15 fails with absl DuplicateFlagError on --log_dir from flags.py; pinned tensorflow==1.13.2"},
+  {"kind": "dependency_pin", "detail": "Pinned grpcio==1.39.0, h5py==2.10.0, numpy==1.16.6 with --prefer-binary because newest grpcio sdist fails to build on py2"},
+  {"kind": "undocumented_step", "detail": "OpenCV (cv2) dependency not listed; installed opencv-python-headless==4.1.2.30"},
+  {"kind": "system_package", "detail": "Installed libglib2.0-0t64 (libgthread needed by cv2) and unzip"},
+  {"kind": "code_patch", "detail": "image_classification.py: second docstring before from __future__ imports is a SyntaxError; converted to comment"},
+  {"kind": "other", "detail": "example/image_classification.sh lacked execute permission; chmod +x"},
+  {"kind": "undocumented_step", "detail": "Checkpoint zip must be extracted and resnet.ckpt.* placed directly in checkpoints/ to match --model_dir=checkpoints/resnet.ckpt"},
+  {"kind": "code_patch", "detail": "data/tfrecord.py: allow -idx to be a single index file in addition to a directory"},
+  {"kind": "other", "detail": "Symlinked /usr/bin/python to env python so #!/usr/bin/python shebangs resolve"}
+ ]}

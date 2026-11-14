@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dead_link", "detail": "mirror.baidu.com/pypi/simple returns 403; installed paddlepaddle from PyPI"},
+  {"kind": "python_version", "detail": "System Python 3.12 build fails (webrtcvad needs Python.h, onnxoptimizer needs cmake); used uv-managed Python 3.10"},
+  {"kind": "undocumented_step", "detail": "Installed pip and setuptools (<80) into the venv because paddle imports setuptools and paddlenlp imports pip"},
+  {"kind": "dependency_pin", "detail": "Pinned huggingface_hub<0.26 (paddlenlp 2.8.1 imports removed repo_type_and_id_from_hf_id)"},
+  {"kind": "dependency_pin", "detail": "Pinned aistudio-sdk<0.3 (paddlenlp 2.8.1 imports aistudio_sdk.hub.download)"},
+  {"kind": "dependency_pin", "detail": "Pinned datasets<3 to be compatible with huggingface_hub<0.26"},
+  {"kind": "system_package", "detail": "Installed libsndfile1 and ffmpeg via apt as a precaution for audio IO (not proven strictly required)"}
+ ]}

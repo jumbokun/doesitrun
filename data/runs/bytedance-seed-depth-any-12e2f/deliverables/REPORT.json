@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed torch/torchvision (and xformers) via the PyTorch CPU wheel index instead of default CUDA wheels"},
+  {"kind": "dependency_pin", "detail": "Installed missing undeclared dependency 'addict' (imported by model/da3.py)"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 libgomp1 so opencv-python (cv2) and open3d can import"},
+  {"kind": "undocumented_step", "detail": "Pre-downloaded depth-anything/DA3-SMALL into the Hugging Face cache during setup"}
+ ]}

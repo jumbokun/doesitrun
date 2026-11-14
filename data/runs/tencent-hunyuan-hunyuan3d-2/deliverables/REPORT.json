@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "pin transformers>=4.48,<5; transformers 5.x Dinov2 key layout breaks conditioner state_dict loading"},
+  {"kind": "dependency_pin", "detail": "pin diffusers<0.36 so it works with huggingface_hub<1 (pulled in by transformers 4.x); diffusers 0.43 fails to import resolve_revision"},
+  {"kind": "gpu_compat", "detail": "install CPU-only torch/torchvision from download.pytorch.org/whl/cpu"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 libgomp1 for opencv/pymeshlab"}
+ ]}

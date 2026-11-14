@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.10 venv (uv) since system 3.12 is incompatible with librosa==0.8.1 / opencv<=4.6 / imageio==2.9.0 pins"},
+  {"kind": "dependency_pin", "detail": "Installed paddlepaddle==2.6.2 from PyPI (README's baidu mirror / old versions not used)"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools<70 because paddle imports setuptools at import time"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 for opencv-python 4.6 / paddle 2.6 compatibility"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 for cv2 (libGL.so.1 missing)"},
+  {"kind": "code_patch", "detail": "Wrap AnimeGAN generator inference in paddle.no_grad() to avoid >12GB memory OOM kill"},
+  {"kind": "code_patch", "detail": "Downscale input to <=640*1024 px before generator to avoid Paddle CPU im2col int32 overflow segfault on final 7x7 conv"}
+ ]}

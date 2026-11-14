@@ -1,0 +1,47 @@
+{
+  "slug": "google-deepmind-pysc2",
+  "repo": "google-deepmind/pysc2",
+  "track": "cpu-gha",
+  "goal": "Install pysc2, download the Linux StarCraft II package (Blizzard s2client-proto downloads; extract to ~/StarCraftII or set SC2PATH) and the mini_games maps (pysc2 v1.2 release mini_games.zip) into the SC2 Maps dir, as the README describes. Then `python -m pysc2.bin.agent --map CollectMineralShards --norender --max_episodes 1 --max_agent_steps 100` must run the default random agent to completion, and the README's scripted agent (`--agent pysc2.agents.scripted_agent.CollectMineralShards`) must play the same map headless. Make /work/env.sh export SC2PATH if it is non-default.",
+  "check": "The hidden test runs the random and scripted agents headless on CollectMineralShards, then drives the environment from Python and checks the observations and that the scripted agent collects mineral shards (positive reward).",
+  "started": "2026-11-14 21:01:09",
+  "agent": {
+    "secs": 426,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "c494ab05-6be4-431a-a732-28286f7699e2",
+    "num_turns": 17,
+    "cost_usd": 0.30447840000000004,
+    "is_error": false,
+    "final": "episode headless, and driving `SC2Env` from Python with it gave a positive reward (85–95). It took a one-line patch to `pysc2/lib/sc_process.py` (the latest commit passes the `extra_ports` argument through to `subprocess.Popen`, so the game crashed on every launch) and pinning `protobuf==3.20.3` (version 7 can't load the SC2 protocol files). Details are in `/work/NOTES.md` and `/work/REPORT.json`."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 21
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 1,
+    "files": [
+      {
+        "path": "pysc2/lib/sc_process.py",
+        "added": 1,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 110,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 22
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-11-14 21:11:09"
+}

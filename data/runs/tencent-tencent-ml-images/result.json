@@ -1,0 +1,77 @@
+{
+  "slug": "tencent-tencent-ml-images",
+  "repo": "Tencent/tencent-ml-images",
+  "track": "cpu-gha",
+  "goal": "Set up the environment the README lists (Python 2.7, TensorFlow >= 1.6) so that, from /work/tencent-ml-images, the README's single-label image classification demo works on CPU: download the ckpt-resnet101-mlimages-imagenet checkpoint linked in the README's Checkpoints section and place it so that ./example/image_classification.sh (which passes --model_dir=checkpoints/resnet.ckpt) runs and writes top-5 ImageNet predictions for the bundled images in data/images/. Also make data/tfrecord.py work: convert data/images/im_0..im_3.jpg listed in an index file given via -idx (lines like 'im_0.jpg<TAB>3:1 865:1 2:1') into a .tfrecords file in the -tfs directory with -im data/images/ -cls 11166 -one True. /work/env.sh must activate this environment.",
+  "check": "The hidden test runs image_classification.py with the ImageNet-finetuned checkpoint on the four bundled images and checks each gets five ranked predictions with a correct label for an unambiguous image, then runs tfrecord.py on its own index file and checks the 4 records' names, JPEG data and label vectors.",
+  "started": "2026-11-14 21:28:46",
+  "agent": {
+    "secs": 539,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "44ad70c2-bd29-4b87-b108-d260648ea4d4",
+    "num_turns": 21,
+    "cost_usd": 0.4716886,
+    "is_error": false,
+    "final": "DONE: I ran `setup.sh` from scratch on a clean state and confirmed the demo and `tfrecord.py` both work on CPU, using Python 2.7 via micromamba, TensorFlow pinned to 1.13.2, two small code patches and the checkpoint unzipped into `checkpoints/`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 6
+  },
+  "repo_diff": {
+    "files_changed": 7,
+    "lines_changed": 6,
+    "files": [
+      {
+        "path": "data/download_urls_multithreading.sh",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "data/tfrecord.py",
+        "added": 4,
+        "removed": 0
+      },
+      {
+        "path": "data/tfrecord.sh",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "example/image_classification.sh",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "image_classification.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "models/__init__.pyc",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "models/resnet.pyc",
+        "added": 0,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 57,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 6
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 21:39:17"
+}

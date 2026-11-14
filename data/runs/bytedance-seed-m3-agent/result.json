@@ -1,0 +1,52 @@
+{
+  "slug": "bytedance-seed-m3-agent",
+  "repo": "ByteDance-Seed/m3-agent",
+  "track": "cpu-gha",
+  "goal": "In /work/m3-agent, get the README's Memorization step 6, `python visualization.py --mem_path <path to bedroom_01.pkl> --clip_id 1`, working on this CPU-only machine. Use the pre-built memory graphs the README links on Hugging Face (public dataset ByteDance-Seed/M3-Bench, memory_graphs/robot.tar.gz, about 2.4 GB) and extract robot/bedroom_01.pkl. Generating graphs from video (Memorization steps 2-5 and the M3-Agent models) and the Control stage are not part of this goal. This step calls no API, so no real API key is needed. The script must print the memory of clip 1 (episodic/semantic nodes and their related faces/voices). /work/env.sh must activate the environment.",
+  "check": "The hidden test extracts bedroom_01.pkl from the dataset archive, runs visualization.py on clip 1, and checks the output contains the 'Clip 1 Memory' header with episodic/semantic memory lines.",
+  "started": "2026-11-14 22:14:26",
+  "agent": {
+    "secs": 3847,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "87f5545b-79c6-4854-8401-a2e9ab2cc9a2",
+    "num_turns": 17,
+    "cost_usd": 0.37937839999999995,
+    "is_error": false,
+    "final": ".sh`, `python visualization.py --mem_path data/memory_graphs/robot/bedroom_01.pkl --clip_id 1` printed the \"Clip 1 Memory\" header with 17 episodic and 15 semantic lines, plus the 2 related voice nodes (clip 1 has no face nodes). That re-run reused the already-downloaded 2.4 GB archive, so the download step itself wasn't re-tested; the fixes are recorded in `/work/NOTES.md` and `/work/REPORT.json`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 123
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 4,
+    "files": [
+      {
+        "path": "mmagent/voice_processing.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "visualization.py",
+        "added": 1,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 166,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 104
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 23:25:27"
+}

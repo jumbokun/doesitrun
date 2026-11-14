@@ -1,0 +1,41 @@
+{
+  "slug": "qwenlm-qwen-agent",
+  "repo": "QwenLM/Qwen-Agent",
+  "track": "cpu-gha",
+  "goal": "Install qwen-agent from the /work/Qwen-Agent clone as the README describes (pip install -e ./\"[gui,rag,code_interpreter,mcp]\", or at least the [rag] extra). Serve a small Qwen model on CPU through Ollama (model qwen3:1.7b, falling back to qwen2.5:1.5b only if needed) with its OpenAI-compatible API at http://localhost:11434/v1, and make /work/run.sh start it and return once it is ready. Then the README Quickstart pattern must work against that server with llm {'model':'qwen3:1.7b','model_server':'http://localhost:11434/v1','api_key':'EMPTY'}: an Assistant answers a chat message, calls a custom tool registered with @register_tool and uses its result, and answers questions from a file passed as files=['./examples/resource/doc.pdf']. The Docker-based code_interpreter tool is not required. /work/env.sh must activate the environment.",
+  "check": "The hidden test checks that the model server answers and that an Assistant replies to a prompt, calls a custom registered tool and reports its result, and answers a question from the bundled doc.pdf via the RAG path.",
+  "started": "2026-11-14 21:20:18",
+  "agent": {
+    "secs": 259,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "e8d05361-c2f0-454b-ad07-b1e7d02a9740",
+    "num_turns": 13,
+    "cost_usd": 0.23897480000000001,
+    "is_error": false,
+    "final": "es the Python 3.12 environment in `/work/venv`. The Docker code_interpreter tool wasn't tested, as agreed.\n\nFiles are in /work:\n- setup.sh\n- env.sh\n- run.sh\n- NOTES.md\n- REPORT.json\n- tests/quickstart_test.py\n\nDONE — the Ollama server answers and the Assistant handles chat, the custom tool and the doc.pdf question, after adding `soundfile`, installing `zstd` and working out the Ollama setup steps."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 35
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 42,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 39
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 21:26:56"
+}

@@ -1,0 +1,87 @@
+{
+  "slug": "tencent-pocketflow",
+  "repo": "Tencent/PocketFlow",
+  "track": "cpu-gha",
+  "goal": "Get PocketFlow's local-mode training working on CPU: running nets/lenet_at_cifar10_run.py (as scripts/run_local.sh does, with path.conf pointing data_dir_local_cifar10 at the CIFAR-10 binary version) with --nb_epochs_rat 0.01 must train the LeNet full-precision learner and save a checkpoint to ./models_eval/model.ckpt. Then `--exec_mode eval` should evaluate the model on the CIFAR-10 test set. You will need a Python and TensorFlow 1.x-compatible environment (the code uses tf.app.flags, tf.layers). Download CIFAR-10 binary from https://www.cs.toronto.edu/~kriz/cifar-10-binary.tar.gz. Put the Python environment setup in /work/env.sh, and /work/run.sh is not needed.",
+  "check": "The hidden test runs a short CPU training of the LeNet CIFAR-10 model through the repo's own entry script, then checks that the checkpoint was written and that the evaluation step prints an accuracy above chance.",
+  "started": "2026-11-14 21:43:30",
+  "agent": {
+    "secs": 321,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "1b164e09-8c75-458b-bbea-d3aa2036e3a2",
+    "num_turns": 30,
+    "cost_usd": 0.5289186,
+    "is_error": false,
+    "final": " arrays.\n\nThe script prints an `nvidia-smi: not found` error on every run because it looks for idle GPUs. It's harmless: the run carries on without a GPU, and `env.sh` also sets `CUDA_VISIBLE_DEVICES=\"\"`.\n\nFiles are in /work:\n- setup.sh\n- env.sh\n- NOTES.md\n- REPORT.json\n\nDONE — CPU training saves `./models_eval/model.ckpt` and eval prints about 36–41% accuracy, confirmed on a from-scratch rebuild."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 54
+  },
+  "repo_diff": {
+    "files_changed": 9,
+    "lines_changed": 24,
+    "files": [
+      {
+        "path": "datasets/cifar10_dataset.py",
+        "added": 3,
+        "removed": 2
+      },
+      {
+        "path": "examples/convnet_at_fmnist_run.py",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "path": "learners/uniform_quantization_tf/utils.py",
+        "added": 4,
+        "removed": 1
+      },
+      {
+        "path": "nets/faster_rcnn_at_pascalvoc_run.py",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "path": "nets/lenet_at_cifar10_run.py",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "path": "nets/mobilenet_at_ilsvrc12_run.py",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "path": "nets/resnet_at_cifar10_run.py",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "path": "nets/resnet_at_ilsvrc12_run.py",
+        "added": 2,
+        "removed": 0
+      },
+      {
+        "path": "nets/vgg_at_pascalvoc_run.py",
+        "added": 2,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 21,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 60
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 21:51:27"
+}

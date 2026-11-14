@@ -1,0 +1,11 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.10 instead of the 3.9.2 noted in requirements.txt, because visualization.py uses PEP 604 'int | None' syntax"},
+  {"kind": "gpu_compat", "detail": "Installed CPU wheels of torch/torchvision/torchaudio 2.6.0/0.21.0/2.6.0 and skipped flash-attn/vllm instead of running the CUDA setup.sh"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy==1.26.4 with insightface 0.7.3, hdbscan 0.8.40 and onnxruntime 1.22.1 in a venv, instead of using sudo pip"},
+  {"kind": "undocumented_step", "detail": "Downloaded speakerlab (3D-Speaker) and pretrained_eres2netv2.ckpt, because importing mmagent loads them even for visualization"},
+  {"kind": "code_patch", "detail": "mmagent/voice_processing.py: changed embedding_model.to('cuda') at import time to fall back to CPU"},
+  {"kind": "code_patch", "detail": "visualization.py: set SHOW_FACES=False (headless) and set MPLBACKEND=Agg in env.sh"},
+  {"kind": "undocumented_step", "detail": "Importing mmagent downloads the insightface buffalo_l model, so setup.sh does a warm-up run to fetch it"},
+  {"kind": "undocumented_step", "detail": "visualization.py must run from the repo root because configs/*.json are loaded by relative path; env.sh changes into it"}
+ ]}

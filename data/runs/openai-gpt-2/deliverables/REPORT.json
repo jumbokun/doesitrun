@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "System Python 3.12 can't install TF 1.x; installed Miniforge and created a Python 3.6 conda env (/opt/gpt2env)"},
+  {"kind": "dependency_pin", "detail": "tensorflow==1.12.0 lacks tf.sort used by src/sample.py; installed tensorflow==1.15.5 instead"},
+  {"kind": "code_patch", "detail": "interactive_conditional_samples.py: catch EOFError on input() so it exits cleanly when stdin runs out"}
+ ]}

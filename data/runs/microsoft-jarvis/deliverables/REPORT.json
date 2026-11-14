@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "conda not available; used uv-managed Python 3.8 venv instead of conda env"},
+  {"kind": "code_patch", "detail": "generate_graph.py output path replace('tools','graph') overwrote tool_desc.json input; now writes graph_desc.json alongside"},
+  {"kind": "other", "detail": "set MPLBACKEND=Agg so visualize_graph.py (plt.show) runs headless"}
+ ]}

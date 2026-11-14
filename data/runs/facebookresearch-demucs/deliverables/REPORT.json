@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.11 via uv because torchaudio<2.1 has no Python 3.12 wheels"},
+  {"kind": "dependency_pin", "detail": "Installed CPU torch==2.0.1 / torchaudio==2.0.2 from the PyTorch CPU index"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 for torch 2.0 compatibility"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools<81 because torch 2.0 imports pkg_resources"},
+  {"kind": "system_package", "detail": "apt installed ffmpeg (mp3 decoding) and libsndfile1 + pip soundfile (torchaudio wav writing backend)"},
+  {"kind": "other", "detail": "Ran the weight pre-download from /tmp so /work/demucs isn't picked up as a namespace package"}
+ ]}

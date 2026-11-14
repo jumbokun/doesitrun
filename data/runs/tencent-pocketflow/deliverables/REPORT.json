@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Python 3.6 unavailable via uv; created Python 3.7 env with micromamba from conda-forge"},
+  {"kind": "dependency_pin", "detail": "Installed tensorflow==1.15.5 (CPU TF1) with numpy 1.18.5, scipy, pandas, scikit-learn (not 'sklearn'), protobuf 3.20.3; skipped mpi4py"},
+  {"kind": "undocumented_step", "detail": "Created path.conf from path.conf.template with data_dir_local_cifar10 pointing at downloaded cifar-10-batches-bin"},
+  {"kind": "code_patch", "detail": "learners/uniform_quantization_tf/utils.py: fall back from tensorflow.contrib.lite to tensorflow.lite (TF>=1.14)"},
+  {"kind": "code_patch", "detail": "nets/*_run.py: delete absl.logging's --log_dir flag before redefining to avoid DuplicateFlagError"},
+  {"kind": "code_patch", "detail": "datasets/cifar10_dataset.py: module-level tf.constant mean/std replaced by numpy arrays (cross-graph error in TF 1.15)"},
+  {"kind": "gpu_compat", "detail": "No nvidia-smi on CPU; get_idle_gpus.py failure is ignored and env.sh sets CUDA_VISIBLE_DEVICES=''"}
+ ]}

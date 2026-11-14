@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "conda not available; created Python 3.12 venv with uv instead"},
+  {"kind": "gpu_compat", "detail": "installed CPU-only torch/torchaudio from download.pytorch.org/whl/cpu; skipped flash-attn; loaded with device_map=cpu, float32, default attention"},
+  {"kind": "system_package", "detail": "apt-installed sox, libsox-fmt-all, libsndfile1, ffmpeg (precaution, not documented)"},
+  {"kind": "undocumented_step", "detail": "pre-downloaded the 0.6B-CustomVoice checkpoint into HF_HOME=/work/hf_cache set by env.sh"}
+ ]}

@@ -1,0 +1,47 @@
+{
+  "slug": "microsoft-jarvis",
+  "repo": "microsoft/JARVIS",
+  "track": "cpu-gha",
+  "goal": "Set up the TaskBench environment the way taskbench/README.md 'Setup' describes (a Python 3.8 environment with taskbench/requirements.txt installed). From /work/JARVIS/taskbench, `python generate_graph.py --tool_desc <tool_desc.json> --dependency_type resource` must turn a bundled tool library such as data_huggingface/tool_desc.json into a tool graph JSON with nodes and links, `--dependency_type temporal` must do the same for the API-style library data_dailylifeapis/tool_desc.json, and `python visualize_graph.py --data_dir <dir>` must render <dir>/graph_desc.json to a PDF.",
+  "check": "The hidden test builds resource graphs for two bundled tool libraries and a temporal graph for the API library on copies of the data, checks their nodes and links, and renders one graph to a PDF with visualize_graph.py.",
+  "started": "2026-11-14 21:15:00",
+  "agent": {
+    "secs": 43,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "ec84cc61-8996-49f4-a58d-eea455cc314a",
+    "num_turns": 6,
+    "cost_usd": 0.1255492,
+    "is_error": false,
+    "final": "DONE: TaskBench now runs in a Python 3.8 uv venv with `requirements.txt` installed unchanged, after I fixed a bug where `generate_graph.py` overwrote its own input `tool_desc.json`; on copies of the data, the resource graphs (huggingface, multimedia) and the temporal graph (dailylifeapis) match the bundled `graph_desc.json` files exactly, and `visualize_graph.py` wrote a PDF."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 15,
+    "files": [
+      {
+        "path": "taskbench/generate_graph.py",
+        "added": 13,
+        "removed": 2
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 4,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 0
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-11-14 21:16:14"
+}

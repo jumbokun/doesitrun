@@ -1,0 +1,41 @@
+{
+  "slug": "bytedance-seed-depth-any-12e2f",
+  "repo": "ByteDance-Seed/Depth-Anything-3",
+  "track": "cpu-gha",
+  "goal": "Install the project from the clone following the README Installation section so the `da3` CLI works on this CPU-only machine. Then `da3 auto assets/examples/SOH --export-format mini_npz-glb --export-dir <a new directory> --model-dir depth-anything/DA3-SMALL --device cpu` must finish and write results.npz and scene.glb into the export dir; DA3-SMALL is the README's smallest Apache-2.0 model and downloads from Hugging Face without a token. Put any environment activation in /work/env.sh.",
+  "check": "The hidden test runs that command into a fresh export dir and verifies the npz depth/confidence/camera arrays have the right shapes for the 2 images and that scene.glb holds a non-trivial point cloud.",
+  "started": "2026-11-14 21:56:46",
+  "agent": {
+    "secs": 175,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "011538c3-5a39-4523-af06-441f839b91dc",
+    "num_turns": 12,
+    "cost_usd": 0.19681919999999997,
+    "is_error": false,
+    "final": "mmand then wrote `scene.glb` and `results.npz` on CPU, and a full re-run of `setup.sh` from a fresh clone and fresh caches gave the same result. One caveat: `results.npz` lands in `<export-dir>/exports/mini_npz/` (where the project's own code puts it), not at the top of the export dir, and I didn't move it. The arrays are the right shapes for the 2 images and the point cloud has about 129k points."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 659,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 5
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 22:11:10"
+}

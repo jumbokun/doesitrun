@@ -1,0 +1,41 @@
+{
+  "slug": "facebookresearch-fairseq",
+  "repo": "facebookresearch/fairseq",
+  "track": "cpu-gha",
+  "goal": "Install fairseq from /work/fairseq as the README describes (editable) so it works on CPU, and make /work/env.sh activate that environment. Two README examples must then work with the local install: (1) the top-level README's translation example, the pretrained model 'transformer.wmt19.en-de.single_model' translating 'Hello world' into German (the hidden test loads it with TransformerModel.from_pretrained('transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe'), which downloads the model; see examples/translation/README.md for what the translation models need); (2) examples/roberta: download https://dl.fbaipublicfiles.com/fairseq/models/roberta.base.tar.gz, load it with RobertaModel.from_pretrained(dir, checkpoint_file='model.pt') and run fill_mask('The capital of France is <mask>.', topk=3), encode and extract_features.",
+  "check": "A hidden script translates English sentences to German with the wmt19 en-de single model and checks the documented translations, then loads roberta.base and checks fill_mask predicts Paris, encode gives the README's token ids, and extract_features has shape (1,5,768).",
+  "started": "2026-11-14 21:00:36",
+  "agent": {
+    "secs": 791,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "cfc753f3-e1e6-4b83-aece-18ccab2a03cc",
+    "num_turns": 9,
+    "cost_usd": 0.22582,
+    "is_error": false,
+    "final": "acremoses are only mentioned in `examples/translation/README.md`, so I install them.\n\nNo fairseq code was changed. `setup.sh` also downloads both models and the files RoBERTa fetches on first use, so the checks don't need to download anything. `NOTES.md` and `REPORT.json` record each of these changes.\n\nDONE — both README examples produce the expected outputs on CPU with the local editable install."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 23
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 234,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 23
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 21:18:48"
+}

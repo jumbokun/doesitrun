@@ -492,6 +492,28 @@
           "public_reason": null
         },
         {
+          "repo": "microsoft/promptflow",
+          "slug": "microsoft-promptflow",
+          "score": 98.7,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "openai/tiktoken",
           "slug": "openai-tiktoken",
           "score": 98.7,
@@ -1511,13 +1533,13 @@
         },
         {
           "company": "Microsoft",
-          "n": 9,
-          "mean": 97.7,
+          "n": 10,
+          "mean": 97.8,
           "teams": [
             {
               "team": "Microsoft",
-              "n": 9,
-              "mean": 97.7
+              "n": 10,
+              "mean": 97.8
             }
           ]
         },
@@ -1714,6 +1736,50 @@
           "score": 99.6,
           "why": "0 min, 0 repo files patched",
           "agent_minutes": 0.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "bytedance/UI-TARS",
+          "slug": "bytedance-ui-tars",
+          "score": 99.5,
+          "why": "0 min, 0 repo files patched",
+          "agent_minutes": 0.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "google/python-fire",
+          "slug": "google-python-fire",
+          "score": 99.5,
+          "why": "0 min, 0 repo files patched",
+          "agent_minutes": 0.5,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -2174,6 +2240,28 @@
           "public_reason": null
         },
         {
+          "repo": "microsoft/promptflow",
+          "slug": "microsoft-promptflow",
+          "score": 98.7,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "ml-explore/mlx-examples",
           "slug": "ml-explore-mlx-examples",
           "score": 98.7,
@@ -2211,6 +2299,28 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'openai' is OpenAI org account (OpenAI)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "QwenLM/Qwen3",
+          "slug": "qwenlm-qwen3",
+          "score": 98.7,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2321,6 +2431,28 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "facebookresearch/demucs",
+          "slug": "facebookresearch-demucs",
+          "score": 98.4,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2549,6 +2681,28 @@
           "public_reason": null
         },
         {
+          "repo": "facebookresearch/nougat",
+          "slug": "facebookresearch-nougat",
+          "score": 97.9,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 2.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "modelscope/ClearerVoice-Studio",
           "slug": "modelscope-clearervoice-studio",
           "score": 97.8,
@@ -2659,6 +2813,28 @@
           "public_reason": null
         },
         {
+          "repo": "ByteDance-Seed/Depth-Anything-3",
+          "slug": "bytedance-seed-depth-any-12e2f",
+          "score": 97.1,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 2.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "Seed",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "aws/aws-cli",
           "slug": "aws-aws-cli",
           "score": 97.0,
@@ -2674,6 +2850,28 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "QwenLM/Qwen3-TTS",
+          "slug": "qwenlm-qwen3-tts",
+          "score": 97.0,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -2880,6 +3078,28 @@
           "public_reason": null
         },
         {
+          "repo": "QwenLM/Qwen-Agent",
+          "slug": "qwenlm-qwen-agent",
+          "score": 95.7,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "microsoft/qlib",
           "slug": "microsoft-qlib",
           "score": 95.6,
@@ -2929,6 +3149,28 @@
           "score": 95.3,
           "why": "5 min, 0 repo files patched",
           "agent_minutes": 4.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "PaddlePaddle/PaddleNLP",
+          "slug": "paddlepaddle-paddlenlp",
+          "score": 94.6,
+          "why": "5 min, 0 repo files patched",
+          "agent_minutes": 5.4,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
@@ -3005,6 +3247,28 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "facebookresearch/ParlAI",
+          "slug": "facebookresearch-parlai",
+          "score": 92.5,
+          "why": "7 min, 0 repo files patched",
+          "agent_minutes": 7.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3144,6 +3408,28 @@
           "public_reason": null
         },
         {
+          "repo": "facebookresearch/fairseq",
+          "slug": "facebookresearch-fairseq",
+          "score": 86.8,
+          "why": "13 min, 0 repo files patched",
+          "agent_minutes": 13.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "facebookresearch/detectron2",
           "slug": "facebookresearch-detectron2",
           "score": 86.5,
@@ -3159,6 +3445,28 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "openai/gpt-2",
+          "slug": "openai-gpt-2",
+          "score": 86.0,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 4.0,
+          "files_patched": 1,
+          "lines_patched": 4,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3232,6 +3540,28 @@
           "public_reason": null
         },
         {
+          "repo": "PaddlePaddle/PaddleSpeech",
+          "slug": "paddlepaddle-paddlespeech",
+          "score": 84.0,
+          "why": "16 min, 0 repo files patched",
+          "agent_minutes": 15.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "modelscope/modelscope",
           "slug": "modelscope-modelscope",
           "score": 83.9,
@@ -3247,6 +3577,28 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "PaddlePaddle/PaddleDetection",
+          "slug": "paddlepaddle-paddledetection",
+          "score": 83.7,
+          "why": "6 min, 1 repo files patched",
+          "agent_minutes": 6.3,
+          "files_patched": 1,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3276,6 +3628,28 @@
           "public_reason": null
         },
         {
+          "repo": "PaddlePaddle/models",
+          "slug": "paddlepaddle-models",
+          "score": 81.0,
+          "why": "9 min, 1 repo files patched",
+          "agent_minutes": 9.1,
+          "files_patched": 1,
+          "lines_patched": 44,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "baidu/Unlimited-OCR",
           "slug": "baidu-unlimited-ocr",
           "score": 77.9,
@@ -3291,6 +3665,50 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "PaddlePaddle/PaddleGAN",
+          "slug": "paddlepaddle-paddlegan",
+          "score": 75.3,
+          "why": "15 min, 1 repo files patched",
+          "agent_minutes": 14.7,
+          "files_patched": 1,
+          "lines_patched": 17,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "Tencent/tencent-ml-images",
+          "slug": "tencent-tencent-ml-images",
+          "score": 71.0,
+          "why": "9 min, 2 repo files patched",
+          "agent_minutes": 9.0,
+          "files_patched": 2,
+          "lines_patched": 6,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3342,6 +3760,28 @@
           "public_reason": null
         },
         {
+          "repo": "Tencent/PocketFlow",
+          "slug": "tencent-pocketflow",
+          "score": 54.7,
+          "why": "5 min, 9 repo files patched",
+          "agent_minutes": 5.3,
+          "files_patched": 9,
+          "lines_patched": 24,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "modelscope/evalscope",
           "slug": "modelscope-evalscope",
           "score": 50,
@@ -3357,6 +3797,116 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "QwenLM/Qwen",
+          "slug": "qwenlm-qwen",
+          "score": 50,
+          "why": "54 min, 0 repo files patched",
+          "agent_minutes": 53.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "Qwen",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'QwenLM' is Alibaba org account (Qwen)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "Tencent-Hunyuan/Hunyuan3D-2",
+          "slug": "tencent-hunyuan-hunyuan3d-2",
+          "score": 50,
+          "why": "80 min, 0 repo files patched",
+          "agent_minutes": 80.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Hunyuan",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "TencentARC/T2I-Adapter",
+          "slug": "tencentarc-t2i-adapter",
+          "score": 50,
+          "why": "90 min, 0 repo files patched",
+          "agent_minutes": 90.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "ARC Lab",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'TencentARC' is Tencent org account (ARC Lab)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "ByteDance-Seed/m3-agent",
+          "slug": "bytedance-seed-m3-agent",
+          "score": 30,
+          "why": "64 min, 2 repo files patched",
+          "agent_minutes": 64.1,
+          "files_patched": 2,
+          "lines_patched": 4,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "Seed",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "google-deepmind/pysc2",
+          "slug": "google-deepmind-pysc2",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 7.1,
+          "files_patched": 1,
+          "lines_patched": 1,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3407,6 +3957,28 @@
           "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle.",
           "corrected": false,
           "public_reason": "The README's pre-trained translation weights and vocabulary live in the gs://trax-ml bucket, which now returns HTTP 403 Access Denied to everyone, and the repo is archived."
+        },
+        {
+          "repo": "microsoft/JARVIS",
+          "slug": "microsoft-jarvis",
+          "score": 0,
+          "why": "agent could not reproduce",
+          "agent_minutes": 0.7,
+          "files_patched": 1,
+          "lines_patched": 15,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVlabs/SPADE",
@@ -3473,71 +4045,49 @@
         },
         {
           "company": "OpenAI",
-          "n": 4,
-          "mean": 98.3,
+          "n": 5,
+          "mean": 95.8,
           "teams": [
             {
               "team": "OpenAI",
-              "n": 4,
-              "mean": 98.3
-            }
-          ]
-        },
-        {
-          "company": "Microsoft",
-          "n": 10,
-          "mean": 97.7,
-          "teams": [
-            {
-              "team": "Microsoft",
-              "n": 10,
-              "mean": 97.7
-            }
-          ]
-        },
-        {
-          "company": "Tencent",
-          "n": 4,
-          "mean": 94.5,
-          "teams": [
-            {
-              "team": "Tencent",
-              "n": 2,
-              "mean": 98.2
-            },
-            {
-              "team": "ARC Lab",
-              "n": 1,
-              "mean": 98.0
-            },
-            {
-              "team": "Hunyuan",
-              "n": 1,
-              "mean": 83.3
+              "n": 5,
+              "mean": 95.8
             }
           ]
         },
         {
           "company": "Meta",
-          "n": 6,
-          "mean": 94.3,
+          "n": 10,
+          "mean": 94.2,
           "teams": [
             {
               "team": "FAIR",
-              "n": 6,
-              "mean": 94.3
+              "n": 10,
+              "mean": 94.2
+            }
+          ]
+        },
+        {
+          "company": "Microsoft",
+          "n": 12,
+          "mean": 89.7,
+          "teams": [
+            {
+              "team": "Microsoft",
+              "n": 12,
+              "mean": 89.7
             }
           ]
         },
         {
           "company": "Baidu",
-          "n": 6,
-          "mean": 91.2,
+          "n": 11,
+          "mean": 87.8,
           "teams": [
             {
               "team": "PaddlePaddle",
-              "n": 5,
-              "mean": 93.9
+              "n": 10,
+              "mean": 88.8
             },
             {
               "team": "Baidu",
@@ -3547,26 +4097,14 @@
           ]
         },
         {
-          "company": "ByteDance",
-          "n": 5,
-          "mean": 87.5,
-          "teams": [
-            {
-              "team": "ByteDance",
-              "n": 5,
-              "mean": 87.5
-            }
-          ]
-        },
-        {
           "company": "Alibaba",
-          "n": 8,
-          "mean": 83.7,
+          "n": 12,
+          "mean": 84.3,
           "teams": [
             {
               "team": "Qwen",
-              "n": 1,
-              "mean": 97.5
+              "n": 5,
+              "mean": 87.8
             },
             {
               "team": "ModelScope",
@@ -3576,24 +4114,19 @@
           ]
         },
         {
-          "company": "Google",
-          "n": 15,
-          "mean": 83.4,
+          "company": "ByteDance",
+          "n": 8,
+          "mean": 83.0,
           "teams": [
             {
-              "team": "Google DeepMind",
-              "n": 3,
-              "mean": 95.5
+              "team": "ByteDance",
+              "n": 6,
+              "mean": 89.5
             },
             {
-              "team": "Google",
-              "n": 7,
-              "mean": 83.0
-            },
-            {
-              "team": "Google Research",
-              "n": 5,
-              "mean": 76.6
+              "team": "Seed",
+              "n": 2,
+              "mean": 63.5
             }
           ]
         },
@@ -3611,6 +4144,50 @@
               "team": "NVIDIA Research",
               "n": 2,
               "mean": 44.0
+            }
+          ]
+        },
+        {
+          "company": "Google",
+          "n": 17,
+          "mean": 79.4,
+          "teams": [
+            {
+              "team": "Google",
+              "n": 8,
+              "mean": 85.1
+            },
+            {
+              "team": "Google Research",
+              "n": 5,
+              "mean": 76.6
+            },
+            {
+              "team": "Google DeepMind",
+              "n": 4,
+              "mean": 71.6
+            }
+          ]
+        },
+        {
+          "company": "Tencent",
+          "n": 8,
+          "mean": 75.4,
+          "teams": [
+            {
+              "team": "Tencent",
+              "n": 4,
+              "mean": 80.5
+            },
+            {
+              "team": "ARC Lab",
+              "n": 2,
+              "mean": 74.0
+            },
+            {
+              "team": "Hunyuan",
+              "n": 2,
+              "mean": 66.7
             }
           ]
         }

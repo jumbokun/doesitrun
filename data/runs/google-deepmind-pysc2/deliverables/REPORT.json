@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "code_patch", "detail": "sc_process._launch forwards extra_ports kwarg to subprocess.Popen (TypeError on every launch at HEAD 0df53d3); pop it before Popen"},
+  {"kind": "dependency_pin", "detail": "pin protobuf==3.20.3; protobuf 7.x cannot load s2clientprotocol's generated _pb2 modules"},
+  {"kind": "python_version", "detail": "use Python 3.11 venv (setup.py classifiers stop at 3.11) instead of system 3.12"},
+  {"kind": "system_package", "detail": "apt install unzip to extract the password-protected SC2 Linux zip and mini_games.zip"}
+ ]}

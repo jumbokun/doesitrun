@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Resolved paddlenlp 3.0.0b4 deps with uv --exclude-newer 2025-03-20 (latest aistudio-sdk removed aistudio_sdk.hub.download, breaking import)"},
+  {"kind": "undocumented_step", "detail": "Installed setuptools and pip into the venv; paddle imports setuptools and paddlenlp imports pip but neither is declared"},
+  {"kind": "python_version", "detail": "Used Python 3.10 venv via uv instead of system Python 3.12"},
+  {"kind": "gpu_compat", "detail": "Installed CPU paddlepaddle 3.0.0 from paddle CPU index and used dtype float32 instead of float16"}
+ ]}

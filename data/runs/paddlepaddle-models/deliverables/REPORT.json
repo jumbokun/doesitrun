@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.9 venv via uv; system Python 3.12 unsupported by old Paddle"},
+  {"kind": "dead_link", "detail": "mirror.baidu.com pypi returns 403 and paddlepaddle==2.3.2 no longer on PyPI; used paddlepaddle==2.6.2"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy==1.26.4 and opencv-python/opencv-contrib-python==4.10.0.84"},
+  {"kind": "dependency_pin", "detail": "Pinned paddlenlp==2.6.1 (2.8.1 breaks on aistudio_sdk import, 2.5.x needs removed paddle.fluid), protobuf 3.20.2; installed frozen set with --no-deps since paddlespeech 1.5.0 declares paddlenlp>=2.7.2"},
+  {"kind": "undocumented_step", "detail": "Installed pip and setuptools<70 into the venv (setup.py needs setuptools, paddlenlp imports pip)"},
+  {"kind": "other", "detail": "python setup.py install ends with a dependency-conflict error after installing the egg; ignored"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 for opencv"}
+ ]}

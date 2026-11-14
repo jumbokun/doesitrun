@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Pinned pypdfium2==4.30.0; pypdfium2 5.x removed PdfDocument.render() used by nougat/dataset/rasterize.py, so no .mmd was produced"},
+  {"kind": "other", "detail": "Installed CPU-only torch/torchvision from download.pytorch.org/whl/cpu before installing nougat to avoid the CUDA wheels"}
+ ]}

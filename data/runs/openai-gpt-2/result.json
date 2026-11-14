@@ -1,0 +1,47 @@
+{
+  "slug": "openai-gpt-2",
+  "repo": "openai/gpt-2",
+  "track": "cpu-gha",
+  "goal": "Follow DEVELOPERS.md: download the GPT-2 small (124M) model into /work/gpt-2/models/124M with download_model.py, and make `python3 src/generate_unconditional_samples.py` and `python3 src/interactive_conditional_samples.py` (prompt read from stdin) run on CPU and print generated text. Write /work/env.sh that activates the environment needed to run them.",
+  "check": "Generates an unconditional sample and a sample continuing a prompt from stdin with the 124M model, checking for sample markers and non-trivial generated text.",
+  "started": "2026-11-14 23:45:05",
+  "agent": {
+    "secs": 241,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "4adf93f8-6d1d-464e-beb6-0bec7d23d054",
+    "num_turns": 13,
+    "cost_usd": 0.2072156,
+    "is_error": false,
+    "final": "DONE: GPT-2 124M now runs on CPU with Python 3.6 and TensorFlow 1.15.5 (the documented 1.12.0 lacks `tf.sort`, which sampling needs), and after wiping everything and re-running `/work/setup.sh` from scratch, both scripts printed samples and exited 0."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 12
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 4,
+    "files": [
+      {
+        "path": "src/interactive_conditional_samples.py",
+        "added": 4,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 50,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 12
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 23:50:44"
+}
