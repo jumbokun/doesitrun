@@ -2967,6 +2967,28 @@
           "public_reason": null
         },
         {
+          "repo": "openai/gpt-2",
+          "slug": "openai-gpt-2",
+          "score": 96.0,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.0,
+          "files_patched": 0,
+          "lines_patched": 4,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "openai/gpt-oss",
           "slug": "openai-gpt-oss",
           "score": 96.0,
@@ -3342,6 +3364,28 @@
           "public_reason": null
         },
         {
+          "repo": "PaddlePaddle/models",
+          "slug": "paddlepaddle-models",
+          "score": 91.0,
+          "why": "9 min, 0 repo files patched",
+          "agent_minutes": 9.1,
+          "files_patched": 0,
+          "lines_patched": 44,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "bytedance/Protenix",
           "slug": "bytedance-protenix",
           "score": 89.4,
@@ -3445,28 +3489,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "openai/gpt-2",
-          "slug": "openai-gpt-2",
-          "score": 86.0,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.0,
-          "files_patched": 1,
-          "lines_patched": 4,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "OpenAI",
-          "team": "OpenAI",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'openai' is OpenAI org account (OpenAI)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3628,21 +3650,21 @@
           "public_reason": null
         },
         {
-          "repo": "PaddlePaddle/models",
-          "slug": "paddlepaddle-models",
+          "repo": "Tencent/tencent-ml-images",
+          "slug": "tencent-tencent-ml-images",
           "score": 81.0,
           "why": "9 min, 1 repo files patched",
-          "agent_minutes": 9.1,
+          "agent_minutes": 9.0,
           "files_patched": 1,
-          "lines_patched": 44,
+          "lines_patched": 6,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
+          "company": "Tencent",
+          "team": "Tencent",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+            "owner 'Tencent' is Tencent org account (Tencent)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3694,13 +3716,13 @@
           "public_reason": null
         },
         {
-          "repo": "Tencent/tencent-ml-images",
-          "slug": "tencent-tencent-ml-images",
-          "score": 71.0,
-          "why": "9 min, 2 repo files patched",
-          "agent_minutes": 9.0,
-          "files_patched": 2,
-          "lines_patched": 6,
+          "repo": "Tencent/PocketFlow",
+          "slug": "tencent-pocketflow",
+          "score": 64.7,
+          "why": "5 min, 3 repo files patched",
+          "agent_minutes": 5.3,
+          "files_patched": 3,
+          "lines_patched": 24,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
@@ -3760,21 +3782,21 @@
           "public_reason": null
         },
         {
-          "repo": "Tencent/PocketFlow",
-          "slug": "tencent-pocketflow",
-          "score": 54.7,
-          "why": "5 min, 9 repo files patched",
-          "agent_minutes": 5.3,
-          "files_patched": 9,
-          "lines_patched": 24,
+          "repo": "ByteDance-Seed/m3-agent",
+          "slug": "bytedance-seed-m3-agent",
+          "score": 50,
+          "why": "64 min, 0 repo files patched",
+          "agent_minutes": 64.1,
+          "files_patched": 0,
+          "lines_patched": 4,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
+          "company": "ByteDance",
+          "team": "Seed",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
+            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3841,28 +3863,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "ByteDance-Seed/m3-agent",
-          "slug": "bytedance-seed-m3-agent",
-          "score": 30,
-          "why": "64 min, 2 repo files patched",
-          "agent_minutes": 64.1,
-          "files_patched": 2,
-          "lines_patched": 4,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "Seed",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3992,12 +3992,12 @@
         {
           "company": "OpenAI",
           "n": 5,
-          "mean": 95.8,
+          "mean": 97.8,
           "teams": [
             {
               "team": "OpenAI",
               "n": 5,
-              "mean": 95.8
+              "mean": 97.8
             }
           ]
         },
@@ -4016,17 +4016,34 @@
         {
           "company": "Baidu",
           "n": 11,
-          "mean": 87.8,
+          "mean": 88.7,
           "teams": [
             {
               "team": "PaddlePaddle",
               "n": 10,
-              "mean": 88.8
+              "mean": 89.8
             },
             {
               "team": "Baidu",
               "n": 1,
               "mean": 77.9
+            }
+          ]
+        },
+        {
+          "company": "ByteDance",
+          "n": 8,
+          "mean": 85.5,
+          "teams": [
+            {
+              "team": "ByteDance",
+              "n": 6,
+              "mean": 89.5
+            },
+            {
+              "team": "Seed",
+              "n": 2,
+              "mean": 73.5
             }
           ]
         },
@@ -4070,19 +4087,24 @@
           ]
         },
         {
-          "company": "ByteDance",
-          "n": 8,
-          "mean": 83.0,
+          "company": "Tencent",
+          "n": 7,
+          "mean": 81.9,
           "teams": [
             {
-              "team": "ByteDance",
-              "n": 6,
-              "mean": 89.5
+              "team": "ARC Lab",
+              "n": 1,
+              "mean": 98.0
             },
             {
-              "team": "Seed",
+              "team": "Tencent",
+              "n": 4,
+              "mean": 85.5
+            },
+            {
+              "team": "Hunyuan",
               "n": 2,
-              "mean": 63.5
+              "mean": 66.7
             }
           ]
         },
@@ -4100,28 +4122,6 @@
               "team": "NVIDIA Research",
               "n": 2,
               "mean": 44.0
-            }
-          ]
-        },
-        {
-          "company": "Tencent",
-          "n": 7,
-          "mean": 79.1,
-          "teams": [
-            {
-              "team": "ARC Lab",
-              "n": 1,
-              "mean": 98.0
-            },
-            {
-              "team": "Tencent",
-              "n": 4,
-              "mean": 80.5
-            },
-            {
-              "team": "Hunyuan",
-              "n": 2,
-              "mean": 66.7
             }
           ]
         }

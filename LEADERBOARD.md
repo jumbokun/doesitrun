@@ -151,47 +151,47 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 57 | [PaddlePaddle/PaddleX](https://github.com/PaddlePaddle/PaddleX) | 96.7 | 3 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
 | 58 | [google-deepmind/gemma](https://github.com/google-deepmind/gemma) | 96.6 | 3 min | 0 (0 lines) | pass | Google / Google DeepMind (high) |
 | 59 | [bytedance/MegaTTS3](https://github.com/bytedance/MegaTTS3) | 96.0 | 4 min | 0 (0 lines) | pass | ByteDance / ByteDance (high) |
-| 60 | [openai/gpt-oss](https://github.com/openai/gpt-oss) | 96.0 | 4 min | 0 (0 lines) | pass | OpenAI / OpenAI (high) |
-| 61 | [microsoft/playwright-python](https://github.com/microsoft/playwright-python) | 95.9 | 4 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
-| 62 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | 95.8 | 4 min | 0 (3 lines) | pass | Microsoft / Microsoft (high) |
-| 63 | [modelscope/ms-swift](https://github.com/modelscope/ms-swift) | 95.8 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 64 | [bytedance/piano_transcription](https://github.com/bytedance/piano_transcription) | 95.7 | 4 min | 0 (0 lines) | pass | ByteDance / ByteDance (high) |
-| 65 | [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent) | 95.7 | 4 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
-| 66 | [microsoft/qlib](https://github.com/microsoft/qlib) | 95.6 | 4 min | 0 (2 lines) | pass | Microsoft / Microsoft (high) |
-| 67 | [modelscope/FunASR](https://github.com/modelscope/FunASR) | 95.5 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 68 | [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 95.3 | 5 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
-| 69 | [PaddlePaddle/PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP) | 94.6 | 5 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
-| 70 | [facebookresearch/Kats](https://github.com/facebookresearch/Kats) | 93.9 | 6 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 71 | [bytedance/GiantMIDI-Piano](https://github.com/bytedance/GiantMIDI-Piano) | 93.8 | 6 min | 0 (0 lines) | pass | ByteDance / ByteDance (high) |
-| 72 | [PaddlePaddle/PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg) | 93.7 | 6 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
-| 73 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | 92.5 | 8 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 74 | [google-deepmind/weathernext](https://github.com/google-deepmind/weathernext) | 92.5 | 8 min | 0 (5 lines) | pass | Google / Google DeepMind (high) |
-| 75 | [modelscope/DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio) | 92.5 | 8 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 76 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | 91.1 | 9 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 77 | [bytedance/Protenix](https://github.com/bytedance/Protenix) | 89.4 | 11 min | 0 (0 lines) | pass | ByteDance / ByteDance (high) |
-| 78 | [NVlabs/Sana](https://github.com/NVlabs/Sana) | 88.1 | 12 min | 0 (0 lines) | pass | NVIDIA / NVIDIA Research (high) |
-| 79 | [google/clusterfuzz](https://github.com/google/clusterfuzz) | 87.0 | 13 min | 0 (0 lines) | pass | Google / Google (high) |
-| 80 | [facebookresearch/fairseq](https://github.com/facebookresearch/fairseq) | 86.8 | 13 min | 0 (0 lines) | pass | Meta / FAIR (high) |
-| 81 | [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2) | 86.5 | 4 min | 1 (2 lines) | pass | Meta / FAIR (high) |
-| 82 | [openai/gpt-2](https://github.com/openai/gpt-2) | 86.0 | 4 min | 1 (4 lines) | pass | OpenAI / OpenAI (high) |
-| 83 | [PaddlePaddle/PaddleClas](https://github.com/PaddlePaddle/PaddleClas) | 85.9 | 4 min | 1 (8 lines) | pass | Baidu / PaddlePaddle (high) |
-| 84 | [google-research/text-to-text-transfer-transformer](https://github.com/google-research/text-to-text-transfer-transformer) | 85.0 | 5 min | 1 (10 lines) | pass | Google / Google Research (high) |
-| 85 | [NVIDIA/garak](https://github.com/NVIDIA/garak) | 84.8 | 5 min | 1 (9 lines) | pass | NVIDIA / NVIDIA (high) |
-| 86 | [PaddlePaddle/PaddleSpeech](https://github.com/PaddlePaddle/PaddleSpeech) | 84.0 | 16 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
-| 87 | [modelscope/modelscope](https://github.com/modelscope/modelscope) | 83.9 | 6 min | 1 (3 lines) | pass | Alibaba / ModelScope (high) |
-| 88 | [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection) | 83.7 | 6 min | 1 (2 lines) | pass | Baidu / PaddlePaddle (high) |
-| 89 | [Tencent-Hunyuan/HunyuanOCR](https://github.com/Tencent-Hunyuan/HunyuanOCR) | 83.3 | 17 min | 0 (0 lines) | pass | Tencent / Hunyuan (high) |
-| 90 | [PaddlePaddle/models](https://github.com/PaddlePaddle/models) | 81.0 | 9 min | 1 (44 lines) | pass | Baidu / PaddlePaddle (high) |
-| 91 | [baidu/Unlimited-OCR](https://github.com/baidu/Unlimited-OCR) | 77.9 | 22 min | 0 (0 lines) | pass | Baidu / Baidu (high) |
-| 92 | [PaddlePaddle/PaddleGAN](https://github.com/PaddlePaddle/PaddleGAN) | 75.3 | 15 min | 1 (17 lines) | pass | Baidu / PaddlePaddle (high) |
-| 93 | [Tencent/tencent-ml-images](https://github.com/Tencent/tencent-ml-images) | 71.0 | 9 min | 2 (6 lines) | pass | Tencent / Tencent (high) |
-| 94 | [bytedance/Sa2VA](https://github.com/bytedance/Sa2VA) | 62.7 | 27 min | 1 (37 lines) | pass | ByteDance / ByteDance (high) |
-| 95 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 56.8 | 33 min | 1 (4 lines) | pass | Alibaba / ModelScope (high) |
-| 96 | [Tencent/PocketFlow](https://github.com/Tencent/PocketFlow) | 54.7 | 5 min | 9 (24 lines) | pass | Tencent / Tencent (high) |
-| 97 | [modelscope/evalscope](https://github.com/modelscope/evalscope) | 50 | 60 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
-| 98 | [QwenLM/Qwen](https://github.com/QwenLM/Qwen) | 50 | 54 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
-| 99 | [Tencent-Hunyuan/Hunyuan3D-2](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | 50 | 80 min | 0 (0 lines) | pass | Tencent / Hunyuan (high) |
-| 100 | [ByteDance-Seed/m3-agent](https://github.com/ByteDance-Seed/m3-agent) | 30 | 64 min | 2 (4 lines) | pass | ByteDance / Seed (high) |
+| 60 | [openai/gpt-2](https://github.com/openai/gpt-2) | 96.0 | 4 min | 0 (4 lines) | pass | OpenAI / OpenAI (high) |
+| 61 | [openai/gpt-oss](https://github.com/openai/gpt-oss) | 96.0 | 4 min | 0 (0 lines) | pass | OpenAI / OpenAI (high) |
+| 62 | [microsoft/playwright-python](https://github.com/microsoft/playwright-python) | 95.9 | 4 min | 0 (0 lines) | pass | Microsoft / Microsoft (high) |
+| 63 | [microsoft/data-formulator](https://github.com/microsoft/data-formulator) | 95.8 | 4 min | 0 (3 lines) | pass | Microsoft / Microsoft (high) |
+| 64 | [modelscope/ms-swift](https://github.com/modelscope/ms-swift) | 95.8 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 65 | [bytedance/piano_transcription](https://github.com/bytedance/piano_transcription) | 95.7 | 4 min | 0 (0 lines) | pass | ByteDance / ByteDance (high) |
+| 66 | [QwenLM/Qwen-Agent](https://github.com/QwenLM/Qwen-Agent) | 95.7 | 4 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
+| 67 | [microsoft/qlib](https://github.com/microsoft/qlib) | 95.6 | 4 min | 0 (2 lines) | pass | Microsoft / Microsoft (high) |
+| 68 | [modelscope/FunASR](https://github.com/modelscope/FunASR) | 95.5 | 4 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 69 | [PaddlePaddle/PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) | 95.3 | 5 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
+| 70 | [PaddlePaddle/PaddleNLP](https://github.com/PaddlePaddle/PaddleNLP) | 94.6 | 5 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
+| 71 | [facebookresearch/Kats](https://github.com/facebookresearch/Kats) | 93.9 | 6 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 72 | [bytedance/GiantMIDI-Piano](https://github.com/bytedance/GiantMIDI-Piano) | 93.8 | 6 min | 0 (0 lines) | pass | ByteDance / ByteDance (high) |
+| 73 | [PaddlePaddle/PaddleSeg](https://github.com/PaddlePaddle/PaddleSeg) | 93.7 | 6 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
+| 74 | [facebookresearch/ParlAI](https://github.com/facebookresearch/ParlAI) | 92.5 | 8 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 75 | [google-deepmind/weathernext](https://github.com/google-deepmind/weathernext) | 92.5 | 8 min | 0 (5 lines) | pass | Google / Google DeepMind (high) |
+| 76 | [modelscope/DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio) | 92.5 | 8 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 77 | [facebookresearch/pytorch3d](https://github.com/facebookresearch/pytorch3d) | 91.1 | 9 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 78 | [PaddlePaddle/models](https://github.com/PaddlePaddle/models) | 91.0 | 9 min | 0 (44 lines) | pass | Baidu / PaddlePaddle (high) |
+| 79 | [bytedance/Protenix](https://github.com/bytedance/Protenix) | 89.4 | 11 min | 0 (0 lines) | pass | ByteDance / ByteDance (high) |
+| 80 | [NVlabs/Sana](https://github.com/NVlabs/Sana) | 88.1 | 12 min | 0 (0 lines) | pass | NVIDIA / NVIDIA Research (high) |
+| 81 | [google/clusterfuzz](https://github.com/google/clusterfuzz) | 87.0 | 13 min | 0 (0 lines) | pass | Google / Google (high) |
+| 82 | [facebookresearch/fairseq](https://github.com/facebookresearch/fairseq) | 86.8 | 13 min | 0 (0 lines) | pass | Meta / FAIR (high) |
+| 83 | [facebookresearch/detectron2](https://github.com/facebookresearch/detectron2) | 86.5 | 4 min | 1 (2 lines) | pass | Meta / FAIR (high) |
+| 84 | [PaddlePaddle/PaddleClas](https://github.com/PaddlePaddle/PaddleClas) | 85.9 | 4 min | 1 (8 lines) | pass | Baidu / PaddlePaddle (high) |
+| 85 | [google-research/text-to-text-transfer-transformer](https://github.com/google-research/text-to-text-transfer-transformer) | 85.0 | 5 min | 1 (10 lines) | pass | Google / Google Research (high) |
+| 86 | [NVIDIA/garak](https://github.com/NVIDIA/garak) | 84.8 | 5 min | 1 (9 lines) | pass | NVIDIA / NVIDIA (high) |
+| 87 | [PaddlePaddle/PaddleSpeech](https://github.com/PaddlePaddle/PaddleSpeech) | 84.0 | 16 min | 0 (0 lines) | pass | Baidu / PaddlePaddle (high) |
+| 88 | [modelscope/modelscope](https://github.com/modelscope/modelscope) | 83.9 | 6 min | 1 (3 lines) | pass | Alibaba / ModelScope (high) |
+| 89 | [PaddlePaddle/PaddleDetection](https://github.com/PaddlePaddle/PaddleDetection) | 83.7 | 6 min | 1 (2 lines) | pass | Baidu / PaddlePaddle (high) |
+| 90 | [Tencent-Hunyuan/HunyuanOCR](https://github.com/Tencent-Hunyuan/HunyuanOCR) | 83.3 | 17 min | 0 (0 lines) | pass | Tencent / Hunyuan (high) |
+| 91 | [Tencent/tencent-ml-images](https://github.com/Tencent/tencent-ml-images) | 81.0 | 9 min | 1 (6 lines) | pass | Tencent / Tencent (high) |
+| 92 | [baidu/Unlimited-OCR](https://github.com/baidu/Unlimited-OCR) | 77.9 | 22 min | 0 (0 lines) | pass | Baidu / Baidu (high) |
+| 93 | [PaddlePaddle/PaddleGAN](https://github.com/PaddlePaddle/PaddleGAN) | 75.3 | 15 min | 1 (17 lines) | pass | Baidu / PaddlePaddle (high) |
+| 94 | [Tencent/PocketFlow](https://github.com/Tencent/PocketFlow) | 64.7 | 5 min | 3 (24 lines) | pass | Tencent / Tencent (high) |
+| 95 | [bytedance/Sa2VA](https://github.com/bytedance/Sa2VA) | 62.7 | 27 min | 1 (37 lines) | pass | ByteDance / ByteDance (high) |
+| 96 | [modelscope/FunClip](https://github.com/modelscope/FunClip) | 56.8 | 33 min | 1 (4 lines) | pass | Alibaba / ModelScope (high) |
+| 97 | [ByteDance-Seed/m3-agent](https://github.com/ByteDance-Seed/m3-agent) | 50 | 64 min | 0 (4 lines) | pass | ByteDance / Seed (high) |
+| 98 | [modelscope/evalscope](https://github.com/modelscope/evalscope) | 50 | 60 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
+| 99 | [QwenLM/Qwen](https://github.com/QwenLM/Qwen) | 50 | 54 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
+| 100 | [Tencent-Hunyuan/Hunyuan3D-2](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | 50 | 80 min | 0 (0 lines) | pass | Tencent / Hunyuan (high) |
 | 101 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
 | 102 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google (high) |
 | 103 | [NVlabs/SPADE](https://github.com/NVlabs/SPADE) | 0 | 10 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA Research (high) |
@@ -201,14 +201,14 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | Apple | 7 | 98.8 | Apple 98.8 (n=6); MLX 98.7 (n=1) |
 | Amazon | 9 | 98.6 | AWS Labs 99.2 (n=4); Amazon Science 98.3 (n=1); AWS 98.2 (n=4) |
 | Microsoft | 11 | 97.8 | Microsoft 97.8 (n=11) |
-| OpenAI | 5 | 95.8 | OpenAI 95.8 (n=5) |
+| OpenAI | 5 | 97.8 | OpenAI 97.8 (n=5) |
 | Meta | 10 | 94.2 | FAIR 94.2 (n=10) |
-| Baidu | 11 | 87.8 | PaddlePaddle 88.8 (n=10); Baidu 77.9 (n=1) |
+| Baidu | 11 | 88.7 | PaddlePaddle 89.8 (n=10); Baidu 77.9 (n=1) |
+| ByteDance | 8 | 85.5 | ByteDance 89.5 (n=6); Seed 73.5 (n=2) |
 | Google | 16 | 84.4 | Google DeepMind 95.5 (n=3); Google 85.1 (n=8); Google Research 76.6 (n=5) |
 | Alibaba | 12 | 84.3 | Qwen 87.8 (n=5); ModelScope 81.8 (n=7) |
-| ByteDance | 8 | 83.0 | ByteDance 89.5 (n=6); Seed 63.5 (n=2) |
+| Tencent | 7 | 81.9 | ARC Lab 98.0 (n=1); Tencent 85.5 (n=4); Hunyuan 66.7 (n=2) |
 | NVIDIA | 7 | 81.0 | NVIDIA 95.8 (n=5); NVIDIA Research 44.0 (n=2) |
-| Tencent | 7 | 79.1 | ARC Lab 98.0 (n=1); Tencent 80.5 (n=4); Hunyuan 66.7 (n=2) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos
 
