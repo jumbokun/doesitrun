@@ -1,0 +1,41 @@
+{
+  "slug": "microsoft-agent-framework",
+  "repo": "microsoft/agent-framework",
+  "track": "cpu-gha",
+  "goal": "Install the Python agent-framework package (pip install agent-framework, or from the repo's python/ packages) so that `python python/samples/03-workflows/_start-here/step1_executors_and_edges.py` runs from the repo root. It must print the two workflow outputs ['DLROW OLLEH'] and ['!!!DLROW OLLEH'] with final state IDLE. The sample needs no API key or external service.",
+  "check": "The sample's printed outputs match the expected reversed/uppercased strings, and importing its workflow builder on a new input gives the correct transformed result.",
+  "started": "2026-11-14 00:45:56",
+  "agent": {
+    "secs": 49,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "5290a11e-71db-4fcf-bbbe-c48acf28a9ac",
+    "num_turns": 6,
+    "cost_usd": 0.0715346,
+    "is_error": false,
+    "final": "DONE — Following the README's `pip install agent-framework` worked with no changes: I pinned it to 1.26.0 in a uv venv, and after rebuilding from scratch the sample printed `['DLROW OLLEH']` and `['!!!DLROW OLLEH']` with final state IDLE, and `create_workflow()` turned the new input `'abc'` into `['CBA']`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 10,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 1
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:47:21"
+}

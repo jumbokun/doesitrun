@@ -1159,5 +1159,14 @@
     "evidence": [
       "owner 'Tencent' is Tencent org account (Tencent)"
     ]
+  },
+  "microsoft/agent-framework": {
+    "repo": "microsoft/agent-framework",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
   }
 }

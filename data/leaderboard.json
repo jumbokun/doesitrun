@@ -196,6 +196,27 @@
           "corrected": false
         },
         {
+          "repo": "microsoft/agent-framework",
+          "slug": "microsoft-agent-framework",
+          "score": 99.2,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
           "repo": "apple/coremltools",
           "slug": "apple-coremltools",
           "score": 99.0,
@@ -1468,13 +1489,13 @@
         },
         {
           "company": "Microsoft",
-          "n": 8,
-          "mean": 95.0,
+          "n": 9,
+          "mean": 95.5,
           "teams": [
             {
               "team": "Microsoft",
-              "n": 8,
-              "mean": 95.0
+              "n": 9,
+              "mean": 95.5
             }
           ]
         },
@@ -1849,6 +1870,27 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false
+        },
+        {
+          "repo": "microsoft/agent-framework",
+          "slug": "microsoft-agent-framework",
+          "score": 99.2,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -4107,13 +4149,13 @@
       "companies": [
         {
           "company": "Microsoft",
-          "n": 11,
-          "mean": 94.0,
+          "n": 12,
+          "mean": 94.5,
           "teams": [
             {
               "team": "Microsoft",
-              "n": 11,
-              "mean": 94.0
+              "n": 12,
+              "mean": 94.5
             }
           ]
         },
