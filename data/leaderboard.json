@@ -23,7 +23,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/amazon-redshift-utils",
@@ -44,7 +45,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/harness2",
@@ -65,7 +67,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/yapf",
@@ -86,7 +89,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/aws-support-tools",
@@ -107,7 +111,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/arxiv-latex-cleaner",
@@ -128,7 +133,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/SkillOpt",
@@ -150,7 +156,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/agents-cli",
@@ -172,7 +179,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/timesfm",
@@ -193,7 +201,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/agent-framework",
@@ -214,7 +223,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/SkillSpector",
@@ -235,7 +245,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/autogen",
@@ -257,7 +268,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/warp",
@@ -278,7 +290,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/app-store-server-library-python",
@@ -299,7 +312,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/gluonts",
@@ -320,7 +334,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "openai/whisper",
@@ -341,7 +356,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/coremltools",
@@ -362,7 +378,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/markitdown",
@@ -383,7 +400,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/coreai-torch",
@@ -404,7 +422,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/chalice",
@@ -425,28 +444,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/promptflow",
-          "slug": "microsoft-promptflow",
-          "score": 98.8,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/Model-Optimizer",
@@ -467,7 +466,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/adk-recipes",
@@ -488,7 +488,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "openai/tiktoken",
@@ -509,7 +510,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/serverless-application-model",
@@ -530,7 +532,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/mcp",
@@ -551,7 +554,30 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "apple/dnikit",
+          "slug": "apple-dnikit",
+          "score": 98.5,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.5,
+          "files_patched": 0,
+          "lines_patched": 7,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/aws-sam-cli",
@@ -572,7 +598,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "Tencent/MedicalNet",
@@ -593,7 +620,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "amazon-science/chronos-forecasting",
@@ -614,7 +642,31 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "google/adk-python",
+          "slug": "google-adk-python",
+          "score": 98.3,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.7,
+          "files_patched": 0,
+          "lines_patched": 9,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)",
+            "README mentions 'Google Cloud' -> team Google Cloud (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/langextract",
@@ -635,7 +687,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/pyright",
@@ -656,7 +709,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/coreai-optimization",
@@ -677,7 +731,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PARL",
@@ -698,7 +753,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "Tencent/AI-Infra-Guard",
@@ -719,7 +775,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVlabs/GR00T-WholeBodyControl",
@@ -740,7 +797,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "QwenLM/Qwen-MM-Plugins",
@@ -761,7 +819,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-deepmind/sonnet",
@@ -782,7 +841,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/Megatron-LM",
@@ -803,7 +863,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/aws-cli",
@@ -824,7 +885,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/VibeVoice",
@@ -845,7 +907,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PaddleX",
@@ -866,7 +929,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-deepmind/gemma",
@@ -887,7 +951,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "openai/gpt-oss",
@@ -908,7 +973,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/playwright-python",
@@ -929,7 +995,31 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "microsoft/data-formulator",
+          "slug": "microsoft-data-formulator",
+          "score": 95.8,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.2,
+          "files_patched": 0,
+          "lines_patched": 3,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/ms-swift",
@@ -950,7 +1040,30 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "microsoft/qlib",
+          "slug": "microsoft-qlib",
+          "score": 95.6,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.4,
+          "files_patched": 0,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/FunASR",
@@ -971,7 +1084,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PaddleOCR",
@@ -992,7 +1106,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/Kats",
@@ -1013,7 +1128,30 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "google-deepmind/weathernext",
+          "slug": "google-deepmind-weathernext",
+          "score": 92.5,
+          "why": "7 min, 0 repo files patched",
+          "agent_minutes": 7.5,
+          "files_patched": 0,
+          "lines_patched": 5,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/DiffSynth-Studio",
@@ -1034,7 +1172,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/pytorch3d",
@@ -1055,7 +1194,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "bytedance/Protenix",
@@ -1076,50 +1216,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "apple/dnikit",
-          "slug": "apple-dnikit",
-          "score": 88.5,
-          "why": "2 min, 1 repo files patched",
-          "agent_minutes": 1.5,
-          "files_patched": 1,
-          "lines_patched": 7,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google/adk-python",
-          "slug": "google-adk-python",
-          "score": 88.3,
-          "why": "2 min, 1 repo files patched",
-          "agent_minutes": 1.7,
-          "files_patched": 1,
-          "lines_patched": 9,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google' is Google org account (Google)",
-            "README mentions 'Google Cloud' -> team Google Cloud (low)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVlabs/Sana",
@@ -1140,7 +1238,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/clusterfuzz",
@@ -1161,7 +1260,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/detectron2",
@@ -1182,7 +1282,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PaddleClas",
@@ -1203,50 +1304,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/data-formulator",
-          "slug": "microsoft-data-formulator",
-          "score": 85.8,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.2,
-          "files_patched": 1,
-          "lines_patched": 3,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)",
-            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/qlib",
-          "slug": "microsoft-qlib",
-          "score": 85.6,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.4,
-          "files_patched": 1,
-          "lines_patched": 2,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/text-to-text-transfer-transformer",
@@ -1267,7 +1326,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/garak",
@@ -1288,7 +1348,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/modelscope",
@@ -1309,7 +1370,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "Tencent-Hunyuan/HunyuanOCR",
@@ -1330,70 +1392,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "baidu/Unlimited-OCR",
-          "slug": "baidu-unlimited-ocr",
-          "score": 77.9,
-          "why": "22 min, 0 repo files patched",
-          "agent_minutes": 22.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "Baidu",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'baidu' is Baidu org account (Baidu)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/unilm",
-          "slug": "microsoft-unilm",
-          "score": 74.1,
-          "why": "6 min, 2 repo files patched",
-          "agent_minutes": 5.9,
-          "files_patched": 2,
-          "lines_patched": 9,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google-deepmind/weathernext",
-          "slug": "google-deepmind-weathernext",
-          "score": 72.5,
-          "why": "7 min, 2 repo files patched",
-          "agent_minutes": 7.5,
-          "files_patched": 2,
-          "lines_patched": 5,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "bytedance/Sa2VA",
@@ -1414,28 +1414,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleFormers",
-          "slug": "paddlepaddle-paddleformers",
-          "score": 61.2,
-          "why": "9 min, 3 repo files patched",
-          "agent_minutes": 8.8,
-          "files_patched": 3,
-          "lines_patched": 23,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/FunClip",
@@ -1456,7 +1436,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/evalscope",
@@ -1477,31 +1458,23 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "ml-explore/mlx-lm",
-          "slug": "ml-explore-mlx-lm",
-          "score": 44.6,
-          "why": "45 min, 1 repo files patched",
-          "agent_minutes": 45.4,
-          "files_patched": 1,
-          "lines_patched": 7,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "MLX",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'ml-explore' is Apple org account (MLX)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         }
       ],
       "companies": [
+        {
+          "company": "Apple",
+          "n": 6,
+          "mean": 98.8,
+          "teams": [
+            {
+              "team": "Apple",
+              "n": 6,
+              "mean": 98.8
+            }
+          ]
+        },
         {
           "company": "Amazon",
           "n": 9,
@@ -1537,6 +1510,40 @@
           ]
         },
         {
+          "company": "Microsoft",
+          "n": 9,
+          "mean": 97.7,
+          "teams": [
+            {
+              "team": "Microsoft",
+              "n": 9,
+              "mean": 97.7
+            }
+          ]
+        },
+        {
+          "company": "Google",
+          "n": 13,
+          "mean": 96.2,
+          "teams": [
+            {
+              "team": "Google",
+              "n": 6,
+              "mean": 96.9
+            },
+            {
+              "team": "Google Research",
+              "n": 4,
+              "mean": 95.8
+            },
+            {
+              "team": "Google DeepMind",
+              "n": 3,
+              "mean": 95.5
+            }
+          ]
+        },
+        {
           "company": "NVIDIA",
           "n": 7,
           "mean": 95.0,
@@ -1554,36 +1561,14 @@
           ]
         },
         {
-          "company": "Google",
-          "n": 13,
-          "mean": 93.9,
+          "company": "Baidu",
+          "n": 4,
+          "mean": 94.0,
           "teams": [
             {
-              "team": "Google Research",
+              "team": "PaddlePaddle",
               "n": 4,
-              "mean": 95.8
-            },
-            {
-              "team": "Google",
-              "n": 6,
-              "mean": 95.2
-            },
-            {
-              "team": "Google DeepMind",
-              "n": 3,
-              "mean": 88.8
-            }
-          ]
-        },
-        {
-          "company": "Microsoft",
-          "n": 11,
-          "mean": 93.8,
-          "teams": [
-            {
-              "team": "Microsoft",
-              "n": 11,
-              "mean": 93.8
+              "mean": 94.0
             }
           ]
         },
@@ -1613,40 +1598,6 @@
               "team": "FAIR",
               "n": 3,
               "mean": 90.5
-            }
-          ]
-        },
-        {
-          "company": "Apple",
-          "n": 7,
-          "mean": 89.6,
-          "teams": [
-            {
-              "team": "Apple",
-              "n": 6,
-              "mean": 97.2
-            },
-            {
-              "team": "MLX",
-              "n": 1,
-              "mean": 44.6
-            }
-          ]
-        },
-        {
-          "company": "Baidu",
-          "n": 6,
-          "mean": 85.8,
-          "teams": [
-            {
-              "team": "PaddlePaddle",
-              "n": 5,
-              "mean": 87.4
-            },
-            {
-              "team": "Baidu",
-              "n": 1,
-              "mean": 77.9
             }
           ]
         },
@@ -1705,7 +1656,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/amazon-redshift-utils",
@@ -1726,7 +1678,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/harness2",
@@ -1747,7 +1700,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/yapf",
@@ -1768,7 +1722,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/aws-support-tools",
@@ -1789,7 +1744,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/arxiv-latex-cleaner",
@@ -1810,7 +1766,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/SkillOpt",
@@ -1832,7 +1789,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "openai/gym",
@@ -1853,7 +1811,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/agents-cli",
@@ -1875,28 +1834,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/JARVIS",
-          "slug": "microsoft-jarvis",
-          "score": 99.3,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/timesfm",
@@ -1917,7 +1856,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/agent-framework",
@@ -1938,7 +1878,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/SkillSpector",
@@ -1959,7 +1900,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/detr",
@@ -1980,7 +1922,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/autogen",
@@ -2002,7 +1945,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/warp",
@@ -2023,7 +1967,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/app-store-server-library-python",
@@ -2044,7 +1989,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/gluonts",
@@ -2065,7 +2011,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "openai/whisper",
@@ -2086,7 +2033,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/coremltools",
@@ -2107,7 +2055,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/markitdown",
@@ -2128,7 +2077,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/coreai-torch",
@@ -2149,7 +2099,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/chalice",
@@ -2170,28 +2121,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/promptflow",
-          "slug": "microsoft-promptflow",
-          "score": 98.8,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/Model-Optimizer",
@@ -2212,7 +2143,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/adk-recipes",
@@ -2233,7 +2165,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "ml-explore/mlx-examples",
@@ -2254,7 +2187,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "openai/tiktoken",
@@ -2275,7 +2209,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/serverless-application-model",
@@ -2296,7 +2231,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "awslabs/mcp",
@@ -2317,28 +2253,30 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
-          "repo": "QwenLM/Qwen3",
-          "slug": "qwenlm-qwen3",
-          "score": 98.6,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.4,
+          "repo": "apple/dnikit",
+          "slug": "apple-dnikit",
+          "score": 98.5,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.5,
           "files_patched": 0,
-          "lines_patched": 0,
+          "lines_patched": 7,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "Qwen",
+          "company": "Apple",
+          "team": "Apple",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'QwenLM' is Alibaba org account (Qwen)"
+            "owner 'apple' is Apple org account (Apple)"
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/aws-sam-cli",
@@ -2359,7 +2297,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "Tencent/MedicalNet",
@@ -2380,7 +2319,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "amazon-science/chronos-forecasting",
@@ -2401,7 +2341,31 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "google/adk-python",
+          "slug": "google-adk-python",
+          "score": 98.3,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.7,
+          "files_patched": 0,
+          "lines_patched": 9,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)",
+            "README mentions 'Google Cloud' -> team Google Cloud (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/langextract",
@@ -2422,7 +2386,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/pyright",
@@ -2443,7 +2408,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/cascadia-code",
@@ -2464,7 +2430,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "apple/coreai-optimization",
@@ -2485,7 +2452,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/AnimatedDrawings",
@@ -2506,49 +2474,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "QwenLM/Qwen3-TTS",
-          "slug": "qwenlm-qwen3-tts",
-          "score": 98.1,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "Qwen",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'QwenLM' is Alibaba org account (Qwen)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "facebookresearch/demucs",
-          "slug": "facebookresearch-demucs",
-          "score": 98.0,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.0,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PARL",
@@ -2569,7 +2496,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "Tencent/AI-Infra-Guard",
@@ -2590,7 +2518,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "TencentARC/GFPGAN",
@@ -2611,7 +2540,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/ClearerVoice-Studio",
@@ -2632,7 +2562,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVlabs/GR00T-WholeBodyControl",
@@ -2653,7 +2584,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "QwenLM/Qwen-MM-Plugins",
@@ -2674,7 +2606,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/vggt",
@@ -2695,7 +2628,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-deepmind/sonnet",
@@ -2716,7 +2650,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/Megatron-LM",
@@ -2737,7 +2672,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "aws/aws-cli",
@@ -2758,7 +2694,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/VibeVoice",
@@ -2779,7 +2716,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PaddleX",
@@ -2800,7 +2738,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-deepmind/gemma",
@@ -2821,7 +2760,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "bytedance/MegaTTS3",
@@ -2842,7 +2782,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "openai/gpt-oss",
@@ -2863,7 +2804,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "microsoft/playwright-python",
@@ -2884,7 +2826,31 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "microsoft/data-formulator",
+          "slug": "microsoft-data-formulator",
+          "score": 95.8,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.2,
+          "files_patched": 0,
+          "lines_patched": 3,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/ms-swift",
@@ -2905,7 +2871,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "bytedance/piano_transcription",
@@ -2926,7 +2893,30 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "microsoft/qlib",
+          "slug": "microsoft-qlib",
+          "score": 95.6,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.4,
+          "files_patched": 0,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/FunASR",
@@ -2947,7 +2937,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PaddleOCR",
@@ -2968,91 +2959,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "facebookresearch/fairseq",
-          "slug": "facebookresearch-fairseq",
-          "score": 94.9,
-          "why": "5 min, 0 repo files patched",
-          "agent_minutes": 5.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "Tencent/tencent-ml-images",
-          "slug": "tencent-tencent-ml-images",
-          "score": 94.4,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 5.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/models",
-          "slug": "paddlepaddle-models",
-          "score": 94.3,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 5.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "facebookresearch/nougat",
-          "slug": "facebookresearch-nougat",
-          "score": 94.1,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 5.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/Kats",
@@ -3073,28 +2981,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleNLP",
-          "slug": "paddlepaddle-paddlenlp",
-          "score": 93.9,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 6.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "bytedance/GiantMIDI-Piano",
@@ -3115,7 +3003,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PaddleSeg",
@@ -3136,7 +3025,30 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "google-deepmind/weathernext",
+          "slug": "google-deepmind-weathernext",
+          "score": 92.5,
+          "why": "7 min, 0 repo files patched",
+          "agent_minutes": 7.5,
+          "files_patched": 0,
+          "lines_patched": 5,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/DiffSynth-Studio",
@@ -3157,28 +3069,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "QwenLM/Qwen",
-          "slug": "qwenlm-qwen",
-          "score": 92.1,
-          "why": "8 min, 0 repo files patched",
-          "agent_minutes": 7.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "Qwen",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'QwenLM' is Alibaba org account (Qwen)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/pytorch3d",
@@ -3199,28 +3091,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "TencentARC/T2I-Adapter",
-          "slug": "tencentarc-t2i-adapter",
-          "score": 89.5,
-          "why": "10 min, 0 repo files patched",
-          "agent_minutes": 10.5,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "ARC Lab",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'TencentARC' is Tencent org account (ARC Lab)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "bytedance/Protenix",
@@ -3241,71 +3113,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "apple/dnikit",
-          "slug": "apple-dnikit",
-          "score": 88.5,
-          "why": "2 min, 1 repo files patched",
-          "agent_minutes": 1.5,
-          "files_patched": 1,
-          "lines_patched": 7,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "NVlabs/stylegan3",
-          "slug": "nvlabs-stylegan3",
-          "score": 88.5,
-          "why": "1 min, 1 repo files patched",
-          "agent_minutes": 1.5,
-          "files_patched": 1,
-          "lines_patched": 2,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google/adk-python",
-          "slug": "google-adk-python",
-          "score": 88.3,
-          "why": "2 min, 1 repo files patched",
-          "agent_minutes": 1.7,
-          "files_patched": 1,
-          "lines_patched": 9,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google' is Google org account (Google)",
-            "README mentions 'Google Cloud' -> team Google Cloud (low)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVlabs/Sana",
@@ -3326,28 +3135,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "ByteDance-Seed/m3-agent",
-          "slug": "bytedance-seed-m3-agent",
-          "score": 87.1,
-          "why": "3 min, 1 repo files patched",
-          "agent_minutes": 2.9,
-          "files_patched": 1,
-          "lines_patched": 8,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "Seed",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google/clusterfuzz",
@@ -3368,7 +3157,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "facebookresearch/detectron2",
@@ -3389,7 +3179,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "PaddlePaddle/PaddleClas",
@@ -3410,50 +3201,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/data-formulator",
-          "slug": "microsoft-data-formulator",
-          "score": 85.8,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.2,
-          "files_patched": 1,
-          "lines_patched": 3,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)",
-            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/qlib",
-          "slug": "microsoft-qlib",
-          "score": 85.6,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.4,
-          "files_patched": 1,
-          "lines_patched": 2,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/text-to-text-transfer-transformer",
@@ -3474,7 +3223,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "NVIDIA/garak",
@@ -3495,7 +3245,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/modelscope",
@@ -3516,7 +3267,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "Tencent-Hunyuan/HunyuanOCR",
@@ -3537,280 +3289,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "Tencent-Hunyuan/HY-World-2.0",
-          "slug": "tencent-hunyuan-hy-world-2-0",
-          "score": 82.7,
-          "why": "7 min, 1 repo files patched",
-          "agent_minutes": 7.3,
-          "files_patched": 1,
-          "lines_patched": 9,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "QwenLM/Qwen-Agent",
-          "slug": "qwenlm-qwen-agent",
-          "score": 82.0,
-          "why": "8 min, 1 repo files patched",
-          "agent_minutes": 8.0,
-          "files_patched": 1,
-          "lines_patched": 68,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "Qwen",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'QwenLM' is Alibaba org account (Qwen)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google-deepmind/pysc2",
-          "slug": "google-deepmind-pysc2",
-          "score": 80.3,
-          "why": "10 min, 1 repo files patched",
-          "agent_minutes": 9.7,
-          "files_patched": 1,
-          "lines_patched": 1,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "baidu/Unlimited-OCR",
-          "slug": "baidu-unlimited-ocr",
-          "score": 77.9,
-          "why": "22 min, 0 repo files patched",
-          "agent_minutes": 22.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "Baidu",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'baidu' is Baidu org account (Baidu)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/Swin-Transformer",
-          "slug": "microsoft-swin-transformer",
-          "score": 76.8,
-          "why": "3 min, 2 repo files patched",
-          "agent_minutes": 3.1,
-          "files_patched": 2,
-          "lines_patched": 43,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "NVlabs/stylegan",
-          "slug": "nvlabs-stylegan",
-          "score": 75.9,
-          "why": "4 min, 2 repo files patched",
-          "agent_minutes": 4.1,
-          "files_patched": 2,
-          "lines_patched": 4,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleDetection",
-          "slug": "paddlepaddle-paddledetection",
-          "score": 74.8,
-          "why": "5 min, 2 repo files patched",
-          "agent_minutes": 5.2,
-          "files_patched": 2,
-          "lines_patched": 3,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "facebookresearch/Detectron",
-          "slug": "facebookresearch-detectron",
-          "score": 74.2,
-          "why": "6 min, 2 repo files patched",
-          "agent_minutes": 5.8,
-          "files_patched": 2,
-          "lines_patched": 19,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "pass",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "microsoft/unilm",
-          "slug": "microsoft-unilm",
-          "score": 74.1,
-          "why": "6 min, 2 repo files patched",
-          "agent_minutes": 5.9,
-          "files_patched": 2,
-          "lines_patched": 9,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "Tencent-Hunyuan/Hunyuan3D-2",
-          "slug": "tencent-hunyuan-hunyuan3d-2",
-          "score": 73.0,
-          "why": "17 min, 1 repo files patched",
-          "agent_minutes": 17.0,
-          "files_patched": 1,
-          "lines_patched": 2,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google-deepmind/weathernext",
-          "slug": "google-deepmind-weathernext",
-          "score": 72.5,
-          "why": "7 min, 2 repo files patched",
-          "agent_minutes": 7.5,
-          "files_patched": 2,
-          "lines_patched": 5,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "NVIDIA/FastPhotoStyle",
-          "slug": "nvidia-fastphotostyle",
-          "score": 68.0,
-          "why": "2 min, 3 repo files patched",
-          "agent_minutes": 2.0,
-          "files_patched": 3,
-          "lines_patched": 13,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "pass",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleGAN",
-          "slug": "paddlepaddle-paddlegan",
-          "score": 65.5,
-          "why": "25 min, 1 repo files patched",
-          "agent_minutes": 24.5,
-          "files_patched": 1,
-          "lines_patched": 18,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "bytedance/Sa2VA",
@@ -3831,49 +3311,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleFormers",
-          "slug": "paddlepaddle-paddleformers",
-          "score": 61.2,
-          "why": "9 min, 3 repo files patched",
-          "agent_minutes": 8.8,
-          "files_patched": 3,
-          "lines_patched": 23,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "openai/gpt-2",
-          "slug": "openai-gpt-2",
-          "score": 57.3,
-          "why": "3 min, 4 repo files patched",
-          "agent_minutes": 2.7,
-          "files_patched": 4,
-          "lines_patched": 33,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "OpenAI",
-          "team": "OpenAI",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'openai' is OpenAI org account (OpenAI)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/FunClip",
@@ -3894,49 +3333,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "Tencent/FaceDetection-DSFD",
-          "slug": "tencent-facedetection-dsfd",
-          "score": 55.8,
-          "why": "4 min, 5 repo files patched",
-          "agent_minutes": 4.2,
-          "files_patched": 5,
-          "lines_patched": 65,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "NVlabs/stylegan2",
-          "slug": "nvlabs-stylegan2",
-          "score": 53.7,
-          "why": "6 min, 5 repo files patched",
-          "agent_minutes": 6.3,
-          "files_patched": 5,
-          "lines_patched": 31,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "modelscope/evalscope",
@@ -3957,91 +3355,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "ml-explore/mlx-lm",
-          "slug": "ml-explore-mlx-lm",
-          "score": 44.6,
-          "why": "45 min, 1 repo files patched",
-          "agent_minutes": 45.4,
-          "files_patched": 1,
-          "lines_patched": 7,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "MLX",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'ml-explore' is Apple org account (MLX)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "bytedance/LatentSync",
-          "slug": "bytedance-latentsync",
-          "score": 10,
-          "why": "90 min, 5 repo files patched",
-          "agent_minutes": 90.0,
-          "files_patched": 5,
-          "lines_patched": 23,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "bytedance/Dolphin",
-          "slug": "bytedance-dolphin",
-          "score": 0,
-          "why": "agent hit the time limit before the demo ran",
-          "agent_minutes": 90.0,
-          "files_patched": 1,
-          "lines_patched": 5,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
-          ],
-          "audit": "inconclusive",
-          "audit_reason": "/work is completely empty in this sandbox: there is no /work/setup.sh, no /work/env.sh, and no /work/Dolphin checkout or hf_model, so the oracle failed at `source /work/env.sh` before Dolphin code ever ran. Since even the installing agent's setup.sh is missing, this looks like the install state was never carried into this sandbox, not like a missed step in the install, and the README demo (demo_page.py) could not be run, so neither the repo nor the oracle's assertions could be checked.",
-          "corrected": false
-        },
-        {
-          "repo": "ByteDance-Seed/Depth-Anything-3",
-          "slug": "bytedance-seed-depth-any-12e2f",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 3.0,
-          "files_patched": 1,
-          "lines_patched": 5,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "Seed",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
-          ],
-          "audit": "repo_failure",
-          "audit_reason": "The da3 CLI crashes at import with ModuleNotFoundError: No module named 'addict', before any inference happens. src/depth_anything_3/model/da3.py imports addict unconditionally, but pyproject.toml does not list addict as a dependency, so the README's `pip install -e .` cannot give a working CLI. The installer's setup.sh did try to add addict/scikit-learn by hand, but they are not in the venv now, so the install is broken in this sandbox. The oracle's checks are not the cause.",
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "google-research/bert",
@@ -4062,7 +3377,8 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The oracle stops at its first real step: curl -f gets HTTP 403 AccessDenied for the BERT-Tiny zip. That is the exact checkpoint URL listed in the README (line 48), and other official bert_models URLs also return 403. The installing agent's /work/setup.sh also notes the official GCS zip is gone. The README's documented model download is dead upstream, so the documented demo cannot be reproduced as written. This is not an oracle bug.",
-          "corrected": false
+          "corrected": false,
+          "public_reason": "Every pretrained BERT checkpoint the README links (storage.googleapis.com/bert_models/...) now returns HTTP 403 Access Denied, so the feature-extraction demo has no model to load."
         },
         {
           "repo": "google/trax",
@@ -4084,7 +3400,8 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle.",
-          "corrected": false
+          "corrected": false,
+          "public_reason": "The README's pre-trained translation weights and vocabulary live in the gs://trax-ml bucket, which now returns HTTP 403 Access Denied to everyone, and the repo is archived."
         },
         {
           "repo": "NVlabs/SPADE",
@@ -4105,136 +3422,28 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The oracle stopped at `test -d checkpoints/coco_pretrained` because checkpoints/ is empty. The pretrained-model tarball that README.md line 65 points to on Google Drive (id 12gvlTbMvUcJewQlSEaZdeb2CdOB-b8kQ) now returns HTTP 404, and gdown can't fetch it either, so the README's documented COCO test demo can't be run. The oracle's check is reasonable; the repo's required download is broken.",
-          "corrected": false
-        },
-        {
-          "repo": "Tencent-Hunyuan/Hunyuan3D-2.1",
-          "slug": "tencent-hunyuan-hunyuan3d-2-1",
-          "score": 0,
-          "why": "agent hit the time limit before the demo ran",
-          "agent_minutes": 90.0,
-          "files_patched": 1,
-          "lines_patched": 10,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Hunyuan",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
-          ],
-          "audit": "inconclusive",
-          "audit_reason": "auditor produced no valid AUDIT.json",
-          "corrected": false
-        },
-        {
-          "repo": "bytedance/UI-TARS",
-          "slug": "bytedance-ui-tars",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The installed ui_tars/action_parser.py is identical to the repo's codes/ui_tars/action_parser.py, and the README snippet runs and prints the parsed dict and pyautogui code. For model_type='qwen25vl', the source deliberately treats coordinates as absolute pixels on the smart_resize'd image (1932x1092), so 100/1932=0.0518 and 200/1092=0.183. The oracle instead assumed factor=1000 normalization (0.1, 0.2) and pixels 192/216, which the README never promises for qwen25vl.",
-          "corrected": false
-        },
-        {
-          "repo": "facebookresearch/ParlAI",
-          "slug": "facebookresearch-parlai",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 1.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "display_data -t squad downloads SQuAD (dev/train-v1.1.json exist) and prints context, question and indented answer for each example, exits 0, and eval_model reports exs=10 with accuracy 1. ParlAI's display format never includes literal 'text:' prefixes (the only 'labels:' match is the 'hide_labels:' option dump), and the README never promises one. So the oracle's grep for 'text:' fails on output that is actually correct.",
-          "corrected": false
-        },
-        {
-          "repo": "google/python-fire",
-          "slug": "google-python-fire",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 0.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google' is Google org account (Google)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "All README demos work: Hello World!, Hello David!, 20, 30, and the trace all print correctly. `python hello.py --help` exits 0 and prints Fire's help page (NAME / SYNOPSIS / FLAGS), but that page never contains the literal word 'usage'. The README only says the command 'Shows usage information', so the oracle's `grep -qi usage` checks for a string Fire doesn't print.",
-          "corrected": false
-        },
-        {
-          "repo": "PaddlePaddle/PaddleSpeech",
-          "slug": "paddlepaddle-paddlespeech",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 17.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "The oracle aborted before testing anything because `wget` is not installed in the sandbox (only curl is). After downloading zh.wav with Python, `paddlespeech asr` printed the expected transcript 我认为跑步最重要的就是给我带来了身体健康, and `paddlespeech tts` wrote a 171044-byte RIFF wav on CPU, so the demo works and the failure comes from the oracle's dependency on its own environment.",
-          "corrected": false
-        },
-        {
-          "repo": "Tencent/PocketFlow",
-          "slug": "tencent-pocketflow",
-          "score": null,
-          "why": "not scored: the pre-registered audit found the hidden oracle defective",
-          "agent_minutes": 88.5,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
-          ],
-          "audit": "oracle_defect",
-          "audit_reason": "Training and eval work fine: running the oracle's exact commands on a copy of the repo with the local CIFAR-10 data writes models_eval/model.ckpt.*, logs 'model saved to', and eval prints 'accuracy = 3.7280e-01' (37%, well above chance). The oracle's run stalled on its own 900s curl download, which is very slow from this sandbox (about 16MB in 300s). Even if the download finished, its regex captures '3.7280' and drops the 'e-01' exponent, so it reads the accuracy as 0.037 and fails the >0.15 assertion. Both problems are in the oracle, not the repo.",
-          "corrected": false
+          "corrected": false,
+          "public_reason": "The README's Google Drive link to the pretrained checkpoints returns 404 (reported in issue #175), so the pretrained-model demo cannot run."
         }
       ],
       "companies": [
+        {
+          "company": "Apple",
+          "n": 7,
+          "mean": 98.8,
+          "teams": [
+            {
+              "team": "Apple",
+              "n": 6,
+              "mean": 98.8
+            },
+            {
+              "team": "MLX",
+              "n": 1,
+              "mean": 98.7
+            }
+          ]
+        },
         {
           "company": "Amazon",
           "n": 9,
@@ -4258,67 +3467,96 @@
           ]
         },
         {
+          "company": "OpenAI",
+          "n": 4,
+          "mean": 98.3,
+          "teams": [
+            {
+              "team": "OpenAI",
+              "n": 4,
+              "mean": 98.3
+            }
+          ]
+        },
+        {
           "company": "Microsoft",
-          "n": 14,
-          "mean": 93.3,
+          "n": 10,
+          "mean": 97.7,
           "teams": [
             {
               "team": "Microsoft",
-              "n": 14,
-              "mean": 93.3
+              "n": 10,
+              "mean": 97.7
+            }
+          ]
+        },
+        {
+          "company": "Tencent",
+          "n": 4,
+          "mean": 94.5,
+          "teams": [
+            {
+              "team": "Tencent",
+              "n": 2,
+              "mean": 98.2
+            },
+            {
+              "team": "ARC Lab",
+              "n": 1,
+              "mean": 98.0
+            },
+            {
+              "team": "Hunyuan",
+              "n": 1,
+              "mean": 83.3
             }
           ]
         },
         {
           "company": "Meta",
-          "n": 10,
-          "mean": 92.7,
+          "n": 6,
+          "mean": 94.3,
           "teams": [
             {
               "team": "FAIR",
-              "n": 10,
-              "mean": 92.7
-            }
-          ]
-        },
-        {
-          "company": "Apple",
-          "n": 8,
-          "mean": 90.8,
-          "teams": [
-            {
-              "team": "Apple",
               "n": 6,
-              "mean": 97.2
-            },
-            {
-              "team": "MLX",
-              "n": 2,
-              "mean": 71.7
+              "mean": 94.3
             }
           ]
         },
         {
-          "company": "OpenAI",
+          "company": "Baidu",
           "n": 5,
-          "mean": 90.1,
+          "mean": 93.9,
           "teams": [
             {
-              "team": "OpenAI",
+              "team": "PaddlePaddle",
               "n": 5,
-              "mean": 90.1
+              "mean": 93.9
+            }
+          ]
+        },
+        {
+          "company": "ByteDance",
+          "n": 5,
+          "mean": 87.5,
+          "teams": [
+            {
+              "team": "ByteDance",
+              "n": 5,
+              "mean": 87.5
             }
           ]
         },
         {
           "company": "Alibaba",
-          "n": 12,
-          "mean": 86.7,
+          "n": 8,
+          "mean": 83.7,
           "teams": [
             {
               "team": "Qwen",
-              "n": 5,
-              "mean": 93.7
+              "n": 1,
+              "mean": 97.5
             },
             {
               "team": "ModelScope",
@@ -4328,36 +3566,19 @@
           ]
         },
         {
-          "company": "Baidu",
-          "n": 11,
-          "mean": 85.2,
-          "teams": [
-            {
-              "team": "PaddlePaddle",
-              "n": 10,
-              "mean": 85.9
-            },
-            {
-              "team": "Baidu",
-              "n": 1,
-              "mean": 77.9
-            }
-          ]
-        },
-        {
           "company": "Google",
-          "n": 16,
-          "mean": 81.3,
+          "n": 15,
+          "mean": 83.4,
           "teams": [
             {
               "team": "Google DeepMind",
-              "n": 4,
-              "mean": 86.7
+              "n": 3,
+              "mean": 95.5
             },
             {
               "team": "Google",
               "n": 7,
-              "mean": 81.6
+              "mean": 83.0
             },
             {
               "team": "Google Research",
@@ -4368,57 +3589,18 @@
         },
         {
           "company": "NVIDIA",
-          "n": 12,
-          "mean": 79.2,
+          "n": 8,
+          "mean": 83.1,
           "teams": [
             {
               "team": "NVIDIA",
-              "n": 6,
-              "mean": 91.2
+              "n": 5,
+              "mean": 95.8
             },
             {
               "team": "NVIDIA Research",
-              "n": 6,
-              "mean": 67.3
-            }
-          ]
-        },
-        {
-          "company": "Tencent",
-          "n": 10,
-          "mean": 77.3,
-          "teams": [
-            {
-              "team": "ARC Lab",
-              "n": 2,
-              "mean": 93.8
-            },
-            {
-              "team": "Tencent",
-              "n": 4,
-              "mean": 86.7
-            },
-            {
-              "team": "Hunyuan",
-              "n": 4,
-              "mean": 59.8
-            }
-          ]
-        },
-        {
-          "company": "ByteDance",
-          "n": 9,
-          "mean": 59.4,
-          "teams": [
-            {
-              "team": "ByteDance",
-              "n": 7,
-              "mean": 63.9
-            },
-            {
-              "team": "Seed",
-              "n": 2,
-              "mean": 43.5
+              "n": 3,
+              "mean": 61.9
             }
           ]
         }
@@ -4428,44 +3610,6 @@
       "track": "gpu-rtx5060",
       "label": "GPU · RTX 5060 Laptop 8 GB",
       "repos": [
-        {
-          "repo": "academa-labs/manimgx",
-          "slug": "manimgx",
-          "score": 94.1,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 5.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Independent",
-          "team": "academa-labs",
-          "attribution_confidence": "none",
-          "attribution_evidence": [],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "Leonxlnx/earshot",
-          "slug": "earshot",
-          "score": 77.9,
-          "why": "22 min, 0 repo files patched",
-          "agent_minutes": 22.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Independent",
-          "team": "Leonxlnx",
-          "attribution_confidence": "none",
-          "attribution_evidence": [],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
         {
           "repo": "NVlabs/stylegan2-ada-pytorch",
           "slug": "stylegan2ada",
@@ -4485,7 +3629,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "Friedrich-M/UniMate",
@@ -4507,7 +3652,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "jaredpalmer/kev",
@@ -4526,7 +3672,8 @@
           "attribution_evidence": [],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "TianyuCodings/NanoJev",
@@ -4547,7 +3694,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "GuyTevet/motion-diffusion-model",
@@ -4568,7 +3716,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
         },
         {
           "repo": "WongKinYiu/yolov7",
@@ -4589,13 +3738,98 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "Leonxlnx/earshot",
+          "slug": "earshot",
+          "score": null,
+          "why": "not scored: the hidden test was revised after review and this run predates it",
+          "agent_minutes": 22.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
+          "team": "Leonxlnx",
+          "attribution_confidence": "none",
+          "attribution_evidence": [],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+        },
+        {
+          "repo": "IDEA-Research/GroundingDINO",
+          "slug": "groundingdino",
+          "score": null,
+          "why": "not scored: the hidden test was revised after review and this run predates it",
+          "agent_minutes": 47.6,
+          "files_patched": 2,
+          "lines_patched": 5,
+          "replay": "fail: download timeout",
+          "replay_supplementary": "pass",
+          "replay_after_repair": "not run",
+          "company": "IDEA",
+          "team": "IDEA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+        },
+        {
+          "repo": "advimman/lama",
+          "slug": "lama",
+          "score": null,
+          "why": "not scored: the hidden test was revised after review and this run predates it",
+          "agent_minutes": 21.0,
+          "files_patched": 4,
+          "lines_patched": 57,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Samsung",
+          "team": "Samsung AI Center",
+          "attribution_confidence": "medium",
+          "attribution_evidence": [
+            "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
+        },
+        {
+          "repo": "academa-labs/manimgx",
+          "slug": "manimgx",
+          "score": null,
+          "why": "not scored: the hidden test was revised after review and this run predates it",
+          "agent_minutes": 5.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
+          "team": "academa-labs",
+          "attribution_confidence": "none",
+          "attribution_evidence": [],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
         },
         {
           "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
           "slug": "oldphotos",
-          "score": 43.0,
-          "why": "37 min, 2 repo files patched",
+          "score": null,
+          "why": "not scored: the hidden test was revised after review and this run predates it",
           "agent_minutes": 37.0,
           "files_patched": 2,
           "lines_patched": 8,
@@ -4611,49 +3845,8 @@
           ],
           "audit": null,
           "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "advimman/lama",
-          "slug": "lama",
-          "score": 39.0,
-          "why": "21 min, 4 repo files patched",
-          "agent_minutes": 21.0,
-          "files_patched": 4,
-          "lines_patched": 57,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Samsung",
-          "team": "Samsung AI Center",
-          "attribution_confidence": "medium",
-          "attribution_evidence": [
-            "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "IDEA-Research/GroundingDINO",
-          "slug": "groundingdino",
-          "score": 32.4,
-          "why": "48 min, 2 repo files patched",
-          "agent_minutes": 47.6,
-          "files_patched": 2,
-          "lines_patched": 5,
-          "replay": "fail: download timeout",
-          "replay_supplementary": "pass",
-          "replay_after_repair": "not run",
-          "company": "IDEA",
-          "team": "IDEA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
+          "corrected": false,
+          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
         }
       ],
       "companies": [
@@ -4671,19 +3864,9 @@
         },
         {
           "company": "Independent",
-          "n": 5,
-          "mean": 73.3,
+          "n": 3,
+          "mean": 64.8,
           "teams": [
-            {
-              "team": "academa-labs",
-              "n": 1,
-              "mean": 94.1
-            },
-            {
-              "team": "Leonxlnx",
-              "n": 1,
-              "mean": 77.9
-            },
             {
               "team": "jaredpalmer",
               "n": 1,
@@ -4715,42 +3898,6 @@
               "team": "Institute of Information Science, Academia Sinica",
               "n": 1,
               "mean": 54.0
-            }
-          ]
-        },
-        {
-          "company": "Microsoft",
-          "n": 1,
-          "mean": 43.0,
-          "teams": [
-            {
-              "team": "Microsoft",
-              "n": 1,
-              "mean": 43.0
-            }
-          ]
-        },
-        {
-          "company": "Samsung",
-          "n": 1,
-          "mean": 39.0,
-          "teams": [
-            {
-              "team": "Samsung AI Center",
-              "n": 1,
-              "mean": 39.0
-            }
-          ]
-        },
-        {
-          "company": "IDEA",
-          "n": 1,
-          "mean": 32.4,
-          "teams": [
-            {
-              "team": "IDEA Research",
-              "n": 1,
-              "mean": 32.4
             }
           ]
         }
