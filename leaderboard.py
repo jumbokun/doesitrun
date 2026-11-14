@@ -3,7 +3,8 @@
 Repo score (0-100, higher = easier to get running), objective inputs only:
     0                                   if the agent could not pass the hidden oracle
     100 - min(50, agent_minutes)        effort: 1 point per agent minute
-        - min(40, 10 * files_patched)   repo code that had to change (git diff, whitespace ignored)
+        - min(40, 10 * files_patched)   repo code that had to change (git diff, whitespace ignored;
+                                        files with no changed line, i.e. chmod or binary output, not counted)
 Replay on a fresh container is reported next to the score, not in it: it grades the installer we
 produced, not the repo's authors. Scores from different hardware tracks are never mixed.
 Company/team scores are means over attributed repos per track, shown with n; n < 3 is flagged.
@@ -41,6 +42,14 @@ def replay_class(res, key):
     return r.get("class") or ("pass" if r.get("oracle", {}).get("pass") else "fail: other")
 
 
+def patched(diff):
+    """Files whose content had to change. Mode-only (chmod +x) and binary entries show 0 changed lines
+    in `git diff --numstat`; they are demo outputs overwriting tracked images/PDFs or an executable bit,
+    not repo code being fixed, so they stay in the record but are not scored."""
+    files = (diff or {}).get("files", [])
+    return [f for f in files if f["added"] + f["removed"] > 0] if files else []
+
+
 def repo_score(res):
     if not res["oracle"]["pass"] and res["agent"].get("timed_out"):
         # The oracle never had a finished install to judge, so no audit can unscore this: not reproduced
@@ -52,7 +61,7 @@ def repo_score(res):
     if not res["oracle"]["pass"]:
         return 0, "agent could not reproduce"
     minutes = res["agent"]["secs"] / 60
-    files = (res.get("repo_diff") or {}).get("files_changed", 0)
+    files = len(patched(res.get("repo_diff")))
     return round(100 - min(50, minutes) - min(40, 10 * files), 1), f"{minutes:.0f} min, {files} repo files patched"
 
 
@@ -86,7 +95,7 @@ def main():
         tracks.setdefault(res.get("track", "gpu-rtx5060"), []).append({
             "repo": res["repo"], "slug": res["slug"], "score": score, "why": why,
             "agent_minutes": round(res["agent"]["secs"] / 60, 1),
-            "files_patched": diff.get("files_changed"), "lines_patched": diff.get("lines_changed"),
+            "files_patched": len(patched(diff)) if "files" in diff else diff.get("files_changed"), "lines_patched": diff.get("lines_changed"),
             "replay": replay_class(res, "replay"),
             "replay_supplementary": replay_class(res, "replay_supplementary"),
             "replay_after_repair": replay_class(res, "replay_after_repair"),
