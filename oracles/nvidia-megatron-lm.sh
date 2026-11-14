@@ -28,7 +28,7 @@ timeout 1200 python tools/preprocess_data.py \
 ls -l $D
 test -s $D/out_text_document.bin
 test -s $D/out_text_document.idx
-python -"$D/out_text_document" "$D/gpt2" <<'PY'
+python - "$D/out_text_document" "$D/gpt2" <<'PY'
 import sys
 from megatron.core.datasets.indexed_dataset import IndexedDataset
 from transformers import AutoTokenizer

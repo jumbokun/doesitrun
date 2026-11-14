@@ -14,7 +14,7 @@ timeout 900 skillspector scan tests/fixtures/malicious_skill --no-llm --format m
 rc_md=$?
 set -e
 echo "rc malicious=$rc_mal safe=$rc_safe markdown=$rc_md"
-tail -5 $O/mal.log $O/safe.log $O/md.log
+tail -n 5 $O/mal.log $O/safe.log $O/md.log
 case "$rc_mal" in 0|1) ;; *) echo "malicious scan errored"; exit 1;; esac
 case "$rc_md" in 0|1) ;; *) echo "markdown scan errored"; exit 1;; esac
 [ "$rc_safe" = 0 ] || { echo "safe scan should exit 0"; exit 1; }
