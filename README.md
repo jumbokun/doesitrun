@@ -7,6 +7,23 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 
 [![Does it run? leaderboard](docs/screenshot.png)](https://jumbokun.github.io/doesitrun/)
 
+### Maintained repos only (2026-11-14) — the headline view
+
+Archived or quiet repos are often unmaintained on purpose, so the leaderboard now leads with repos that GitHub
+reported **not archived and pushed to since 2026-08-13** ([`data/active.json`](data/active.json), registered before
+the new repos were examined). That is 117 of the 267 candidates across 11 companies; every one was screened, with no
+per-company cap.
+
+| | |
+|---|---|
+| Screened out by the examiner | 47 of 117: the README itself says it needs a paid API key, cloud account, GPU, gated model or >15 GB download, or there is no runnable demo |
+| Tested | **70** |
+| README demo ran (hidden test passed) | **57 / 70**, median agent time 2.1 min; 56 installers replayed on a fresh machine first try |
+| Failed hidden tests | 13: **11 were defective tests** (unscored), 1 upstream problem (FunClip's README example), 1 agent timeout (Hunyuan3D-1, stays 0) |
+
+Company means in this view: Amazon 98 (7), OpenAI 97 (2), NVIDIA 96 (4), Microsoft 96 (9), Google 91 (10), Meta 90 (2),
+Apple 86 (6), Baidu 85 (6), Alibaba 79 (7), Tencent 64 (4), ByteDance 55 (2). Several n are small.
+
 ### Results so far (2026-10-27)
 
 **CPU track — 80 repos, 10 from each of Google, Meta, Microsoft, NVIDIA, Alibaba, Tencent, ByteDance, Baidu**

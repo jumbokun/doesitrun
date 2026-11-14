@@ -203,3 +203,16 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   (all 11 companies, top 25 each) that GitHub reports not archived and pushed since 2026-08-13 (92 days; dates in UTC, snapshot 2026-11-13 UTC): 117 of
   267. The examiner screens all of them with no per-company cap; 59 already have verdicts (39 probed, 20 excluded),
   58 are new. pushed_at counts any branch push, bots included, so "maintained" is a loose reading.
+- 2026-11-14: maintained set done. 58 new exams: 31 eligible, 27 excluded (README-stated keys/accounts/GPU/size, or
+  no runnable demo). 31 probes (run 43527464977 + reruns): 25 passed; 6 failed and all 6 audited oracle_defect,
+  each re-checked at the source: weathernext (oracle calls /work/oracle_py/run_wn.py, which only existed in the
+  examiner's sandbox), aws-sam-cli (omits --dependency-manager, required in non-interactive mode,
+  samcli/commands/init/command.py:48), redshift-utils (f[-8:] compared with 9-char '-000.json'), aws-support-tools
+  (expects 2500 MiB/s for io1; upstream caps io1 <=32000 IOPS at 500, volume_Limit_calculator.sh:176),
+  app-store-server-library (repo's own tests/util.py:38 disables strict chain checks for its test certs; oracle
+  didn't), tiktoken (oracle's mandated `cd /work/tiktoken` shadows the installed package with the unbuilt source
+  tree; same body passes from /tmp — a harness interaction, not the repo, so it stays unscored).
+  Maintained view: 70 tested, 57 ran, 13 failed = 11 oracle defects + FunClip (repo) + Hunyuan3D-1 (timeout).
+  Infra: firewall pre-check refused 5 jobs with internet_ok=False; tiktoken failed it for 80 s straight after the
+  retry fix, so containers now get --dns 1.1.1.1/8.8.8.8 (runner upstream DNS can sit in a blocked range); the
+  rerun passed the check.
