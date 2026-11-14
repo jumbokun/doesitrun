@@ -9,20 +9,30 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 
 ### Maintained repos only (2026-11-14) — the headline view
 
-Archived or quiet repos are often unmaintained on purpose, so the leaderboard now leads with repos that GitHub
+Archived or quiet repos are often unmaintained on purpose, so the leaderboard leads with repos that GitHub
 reported **not archived and pushed to since 2026-08-13** ([`data/active.json`](data/active.json), registered before
-the new repos were examined). That is 117 of the 267 candidates across 11 companies; every one was screened, with no
-per-company cap.
+the new repos were examined): 117 of the 267 candidates across 11 companies, every one screened, no per-company cap.
+
+**Every test in this set was then re-checked against the repo source** before the numbers below were run
+([`data/reviews/2026-11-14-fairness.json`](data/reviews/2026-11-14-fairness.json)): does it run the README's main
+CPU demo and check its real output, does the goal hint at anything the README doesn't say, does every assertion
+hold for a correct install, can a broken install slip through, and is every exclusion reason true. 29 tests and 44
+exclusions held; 40 tests were rewritten, 3 excluded repos turned out testable and 2 tested ones should have been
+excluded (Hunyuan3D-1's README states 22 GB VRAM; deep-learning-containers' only CPU route is Docker). Revised tests
+were committed before the re-run; superseded runs are kept in `data/runs/<slug>/v1/`. Two rewritten tests had shell
+typos, found on their first run, fixed and re-run.
 
 | | |
 |---|---|
-| Screened out by the examiner | 47 of 117: the README itself says it needs a paid API key, cloud account, GPU, gated model or >15 GB download, or there is no runnable demo |
-| Tested | **70** |
-| README demo ran (hidden test passed) | **57 / 70**, median agent time 2.1 min; 56 installers replayed on a fresh machine first try |
-| Failed hidden tests | 13: **11 were defective tests** (unscored), 1 upstream problem (FunClip's README example), 1 agent timeout (Hunyuan3D-1, stays 0) |
+| Out of scope | 46 of 117: the README or its docs say it needs a paid API key, cloud account, GPU, gated model, >15 GB download or Docker, or there is no runnable demo |
+| Tested | **71** |
+| README demo ran (hidden test passed) | **71 / 71**, median agent time 2.0 min; all 71 installers replayed on a fresh machine first try |
+| Had to change the repo's own code to get there | **15 / 71** — e.g. detectron2's `demo/demo.py` imports a Meta-internal path (`vision.fair.detectron2...`) since 2024-09, FunClip's stage 2 crashes on a missing attribute, unilm/e5's MTEB script is CUDA-only though the README doesn't say so |
 
-Company means in this view: Amazon 98 (7), OpenAI 97 (2), NVIDIA 96 (4), Microsoft 96 (9), Google 91 (10), Meta 90 (2),
-Apple 86 (6), Baidu 85 (6), Alibaba 79 (7), Tencent 64 (4), ByteDance 55 (2). Several n are small.
+Company means in this view: Amazon 99 (9), OpenAI 98 (3), NVIDIA 95 (7), Google 94 (13), Microsoft 94 (11),
+Tencent 93 (3), Meta 91 (3), Apple 90 (7), Baidu 86 (6), Alibaba 82 (7), ByteDance 76 (2). Several n are small.
+Scores count only files whose content changed (since 2026-11-14; chmod-only and demo-overwritten binaries used to
+cost 10 points each).
 
 ### Results so far (2026-10-27)
 
@@ -140,7 +150,8 @@ score = 100 − min(50, agent minutes) − min(40, 10 × repo files patched)    
 ```
 
 Only objective inputs: wall-clock agent time, and repo files changed as measured by `git diff`
-on the agent's clone (whitespace ignored) — not the agent's notes, which under-report patches.
+on the agent's clone (whitespace ignored; files with no changed line, i.e. chmod-only or a tracked binary the demo
+overwrote, are recorded but not counted) — not the agent's notes, which under-report patches.
 Replay is shown next to the score but not in it: it grades the installer we produced, not the repo's authors.
 
 ## Who made it

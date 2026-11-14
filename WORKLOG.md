@@ -216,3 +216,21 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   Infra: firewall pre-check refused 5 jobs with internet_ok=False; tiktoken failed it for 80 s straight after the
   retry fix, so containers now get --dns 1.1.1.1/8.8.8.8 (runner upstream DNS can sit in a blocked range); the
   rerun passed the check.
+- 2026-11-14: fairness review of the whole maintained set (owner: tests must be fair, reasonable, bug-free and
+  cover the main function). 7 reviewers, one per ~17 slugs, re-checked each exam against the source at the run's
+  commit (criteria and per-slug verdicts with file:line evidence: data/reviews/2026-11-14-fairness.json).
+  Held: 29 tests, 44 exclusions. Rewritten: 40 (oracle defects; too lenient, e.g. paddlex grepped "paddle", which
+  its own logs print, dnikit's unit-test step could never fail, awslabs-mcp's "lambda" matched the URL header;
+  leaked hints, e.g. game-center-tools' undeclared `requests`, coremltools' version trap, unilm's .cuda() fix,
+  deep-learning-containers allowing an upstream llama.cpp build; thin coverage, e.g. aws-cli never sent a request,
+  clusterfuzz required /login 200 which the local server returns as 400 by design, so the v1 pass only came from
+  the agent deleting a decorator). Re-included: adk-python, autogen, T5 (keyless demos in linked docs). Excluded:
+  Hunyuan3D-1 (README.md:197 states 22 GB VRAM), deep-learning-containers (only CPU route is docker run).
+  Exams keep a revision block with the previous fields; v1 runs moved to data/runs/<slug>/v1/. Revised exams
+  committed (9f566c0) before re-running 42 (run 43609032538): 40 passed; megatron-lm and skillspector failed on
+  shell typos in the new oracles (`python -"$D..."`, multi-file `tail -5`), fixed (a96abff), re-run 43626867979,
+  both passed. Maintained view now 71 tested, 71 ran, all replay first try, median 2.0 min, 15 patched repo code.
+  Scoring fix (separate commit): files with 0 changed lines in numstat (chmod, demo-overwritten PNG/PDF) no longer
+  count as patched; this had cost timesfm 40 points for running its own examples. 6 CPU scores changed.
+  Upstream evidence worth reporting: detectron2 demo/demo.py:17 imports vision.fair.detectron2.demo.predictor
+  since ebe8b454 (2024-09-09); issue #5364 auto-closed, workaround in its comments, still in main.
