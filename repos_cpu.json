@@ -495,17 +495,6 @@
     "check": "A hidden script quantizes a small Llama model with INT8_DEFAULT_CFG on CPU and verifies quantizers were inserted and calibrated and that outputs are finite and slightly different from the original."
   },
   {
-    "slug": "nvlabs-gr00t-wholebodycontrol",
-    "repo": "NVlabs/GR00T-WholeBodyControl",
-    "dir": "GR00T-WholeBodyControl",
-    "company": "NVIDIA",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make both `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` and `python scripts/train_root.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. Both scripts train on synthetic data using the configs under motionbricks/out/; train_pose.py (which needs the pretrained VQVAE checkpoint) is not required. Provide /work/env.sh that activates the environment.",
-    "check": "Running the VQVAE and the root-model synthetic-data training for 20 steps each on CPU exits successfully, logs each start banner, reaches 20 steps and prints 'Training complete.' with no traceback."
-  },
-  {
     "slug": "qwenlm-qwen3",
     "repo": "QwenLM/Qwen3",
     "dir": "Qwen3",
@@ -671,17 +660,6 @@
     "check": "The hidden test starts a fake Ollama HTTP service locally, scans it with the CLI, and verifies the output identifies Ollama for that target."
   },
   {
-    "slug": "tencentarc-t2i-adapter",
-    "repo": "TencentARC/T2I-Adapter",
-    "dir": "T2I-Adapter",
-    "company": "Tencent",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get the README's 'Quick start with diffusers' LineArt example working on this CPU-only machine (no GPU): StableDiffusionXLAdapterPipeline with the TencentARC/t2i-adapter-lineart-sdxl-1.0 adapter, stabilityai/stable-diffusion-xl-base-1.0, the madebyollin/sdxl-vae-fp16-fix VAE and the EulerAncestral scheduler, with the models downloaded from Hugging Face. It must generate and save an image from a line-art control image with the prompt 'Ice dragon roar, 4k photo', at a reduced size of 512x512 with a few inference steps. /work/env.sh must activate the environment.",
-    "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU in bfloat16 with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced."
-  },
-  {
     "slug": "tencent-tencent-ml-images",
     "repo": "Tencent/tencent-ml-images",
     "dir": "tencent-ml-images",
@@ -823,6 +801,17 @@
     "server": false,
     "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI (with --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False as in docs/quick_start.en.md) work on CPU. It must download the default text detection and recognition models and run them on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
     "check": "Runs the paddleocr OCR CLI on a freshly generated image with known English text and verifies the saved JSON contains the recognized words and a visualization image is written."
+  },
+  {
+    "slug": "baidu-unlimited-ocr",
+    "repo": "baidu/Unlimited-OCR",
+    "dir": "Unlimited-OCR",
+    "company": "Baidu",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "",
+    "check": ""
   },
   {
     "slug": "paddlepaddle-paddledetection",
