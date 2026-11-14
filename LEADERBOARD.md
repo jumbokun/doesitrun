@@ -88,7 +88,7 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | Alibaba | 7 | 81.7 | Qwen 97.5 (n=1); ModelScope 79.1 (n=6) |
 | ByteDance ⚠ n<3 | 2 | 76.1 | ByteDance 76.1 (n=2) |
 
-## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 106 repos
+## CPU · GitHub-hosted runner (4 vCPU, 16 GB) — 103 repos
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
 |---|---|---|---|---|---|---|
@@ -191,27 +191,24 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 | 97 | [modelscope/evalscope](https://github.com/modelscope/evalscope) | 50 | 60 min | 0 (0 lines) | pass | Alibaba / ModelScope (high) |
 | 98 | [QwenLM/Qwen](https://github.com/QwenLM/Qwen) | 50 | 54 min | 0 (0 lines) | pass | Alibaba / Qwen (high) |
 | 99 | [Tencent-Hunyuan/Hunyuan3D-2](https://github.com/Tencent-Hunyuan/Hunyuan3D-2) | 50 | 80 min | 0 (0 lines) | pass | Tencent / Hunyuan (high) |
-| 100 | [TencentARC/T2I-Adapter](https://github.com/TencentARC/T2I-Adapter) | 50 | 90 min | 0 (0 lines) | pass | Tencent / ARC Lab (high) |
-| 101 | [ByteDance-Seed/m3-agent](https://github.com/ByteDance-Seed/m3-agent) | 30 | 64 min | 2 (4 lines) | pass | ByteDance / Seed (high) |
-| 102 | [google-deepmind/pysc2](https://github.com/google-deepmind/pysc2) | 0 | 7 min | 1 (1 lines) | fail: other | Google / Google DeepMind (high) |
-| 103 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
-| 104 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google (high) |
-| 105 | [microsoft/JARVIS](https://github.com/microsoft/JARVIS) | 0 | 1 min | 1 (15 lines) | fail: other | Microsoft / Microsoft (high) |
-| 106 | [NVlabs/SPADE](https://github.com/NVlabs/SPADE) | 0 | 10 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA Research (high) |
+| 100 | [ByteDance-Seed/m3-agent](https://github.com/ByteDance-Seed/m3-agent) | 30 | 64 min | 2 (4 lines) | pass | ByteDance / Seed (high) |
+| 101 | [google-research/bert](https://github.com/google-research/bert) | 0 | 3 min | 0 (0 lines) | fail: other | Google / Google Research (high) |
+| 102 | [google/trax](https://github.com/google/trax) | 0 | 8 min | 1 (6 lines) | fail: other | Google / Google (high) |
+| 103 | [NVlabs/SPADE](https://github.com/NVlabs/SPADE) | 0 | 10 min | 0 (0 lines) | fail: other | NVIDIA / NVIDIA Research (high) |
 
 | company | n | mean | teams |
 |---|---|---|---|
 | Apple | 7 | 98.8 | Apple 98.8 (n=6); MLX 98.7 (n=1) |
 | Amazon | 9 | 98.6 | AWS Labs 99.2 (n=4); Amazon Science 98.3 (n=1); AWS 98.2 (n=4) |
+| Microsoft | 11 | 97.8 | Microsoft 97.8 (n=11) |
 | OpenAI | 5 | 95.8 | OpenAI 95.8 (n=5) |
 | Meta | 10 | 94.2 | FAIR 94.2 (n=10) |
-| Microsoft | 12 | 89.7 | Microsoft 89.7 (n=12) |
 | Baidu | 11 | 87.8 | PaddlePaddle 88.8 (n=10); Baidu 77.9 (n=1) |
+| Google | 16 | 84.4 | Google DeepMind 95.5 (n=3); Google 85.1 (n=8); Google Research 76.6 (n=5) |
 | Alibaba | 12 | 84.3 | Qwen 87.8 (n=5); ModelScope 81.8 (n=7) |
 | ByteDance | 8 | 83.0 | ByteDance 89.5 (n=6); Seed 63.5 (n=2) |
 | NVIDIA | 7 | 81.0 | NVIDIA 95.8 (n=5); NVIDIA Research 44.0 (n=2) |
-| Google | 17 | 79.4 | Google 85.1 (n=8); Google Research 76.6 (n=5); Google DeepMind 71.6 (n=4) |
-| Tencent | 8 | 75.4 | Tencent 80.5 (n=4); ARC Lab 74.0 (n=2); Hunyuan 66.7 (n=2) |
+| Tencent | 7 | 79.1 | ARC Lab 98.0 (n=1); Tencent 80.5 (n=4); Hunyuan 66.7 (n=2) |
 
 ## GPU · RTX 5060 Laptop 8 GB — 11 repos
 

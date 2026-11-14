@@ -3848,28 +3848,6 @@
           "public_reason": null
         },
         {
-          "repo": "TencentARC/T2I-Adapter",
-          "slug": "tencentarc-t2i-adapter",
-          "score": 50,
-          "why": "90 min, 0 repo files patched",
-          "agent_minutes": 90.0,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "ARC Lab",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'TencentARC' is Tencent org account (ARC Lab)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
           "repo": "ByteDance-Seed/m3-agent",
           "slug": "bytedance-seed-m3-agent",
           "score": 30,
@@ -3885,28 +3863,6 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'ByteDance-Seed' is ByteDance org account (Seed)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "google-deepmind/pysc2",
-          "slug": "google-deepmind-pysc2",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 7.1,
-          "files_patched": 1,
-          "lines_patched": 1,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3957,28 +3913,6 @@
           "audit_reason": "The README snippet (README.md:68-85) loads its pre-trained weights and vocab from gs://trax-ml, and that bucket now gives anonymous callers a 403 (AccessDenied), so the documented demo cannot run anywhere. The sandbox's GCS access works fine: a known public bucket returns 206. The oracle copies the README snippet faithfully, so the fault is in the repo's documented resources, not in the oracle.",
           "corrected": false,
           "public_reason": "The README's pre-trained translation weights and vocabulary live in the gs://trax-ml bucket, which now returns HTTP 403 Access Denied to everyone, and the repo is archived."
-        },
-        {
-          "repo": "microsoft/JARVIS",
-          "slug": "microsoft-jarvis",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.7,
-          "files_patched": 1,
-          "lines_patched": 15,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
         },
         {
           "repo": "NVlabs/SPADE",
@@ -4044,6 +3978,18 @@
           ]
         },
         {
+          "company": "Microsoft",
+          "n": 11,
+          "mean": 97.8,
+          "teams": [
+            {
+              "team": "Microsoft",
+              "n": 11,
+              "mean": 97.8
+            }
+          ]
+        },
+        {
           "company": "OpenAI",
           "n": 5,
           "mean": 95.8,
@@ -4068,18 +4014,6 @@
           ]
         },
         {
-          "company": "Microsoft",
-          "n": 12,
-          "mean": 89.7,
-          "teams": [
-            {
-              "team": "Microsoft",
-              "n": 12,
-              "mean": 89.7
-            }
-          ]
-        },
-        {
           "company": "Baidu",
           "n": 11,
           "mean": 87.8,
@@ -4093,6 +4027,28 @@
               "team": "Baidu",
               "n": 1,
               "mean": 77.9
+            }
+          ]
+        },
+        {
+          "company": "Google",
+          "n": 16,
+          "mean": 84.4,
+          "teams": [
+            {
+              "team": "Google DeepMind",
+              "n": 3,
+              "mean": 95.5
+            },
+            {
+              "team": "Google",
+              "n": 8,
+              "mean": 85.1
+            },
+            {
+              "team": "Google Research",
+              "n": 5,
+              "mean": 76.6
             }
           ]
         },
@@ -4148,41 +4104,19 @@
           ]
         },
         {
-          "company": "Google",
-          "n": 17,
-          "mean": 79.4,
-          "teams": [
-            {
-              "team": "Google",
-              "n": 8,
-              "mean": 85.1
-            },
-            {
-              "team": "Google Research",
-              "n": 5,
-              "mean": 76.6
-            },
-            {
-              "team": "Google DeepMind",
-              "n": 4,
-              "mean": 71.6
-            }
-          ]
-        },
-        {
           "company": "Tencent",
-          "n": 8,
-          "mean": 75.4,
+          "n": 7,
+          "mean": 79.1,
           "teams": [
+            {
+              "team": "ARC Lab",
+              "n": 1,
+              "mean": 98.0
+            },
             {
               "team": "Tencent",
               "n": 4,
               "mean": 80.5
-            },
-            {
-              "team": "ARC Lab",
-              "n": 2,
-              "mean": 74.0
             },
             {
               "team": "Hunyuan",
