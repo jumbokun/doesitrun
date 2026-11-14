@@ -22,8 +22,8 @@ OUT = ROOT / "_site"
 REPO_URL = "https://github.com/jumbokun/doesitrun"
 
 TRACK_TABS = {  # short tab name, one-line note under the tabs
-    "cpu-gha-maintained": ("Maintained", "Repos not archived and pushed to since {pushed_since}. CPU-only GitHub runner, 4 vCPU, 16 GB."),
-    "cpu-gha": ("All CPU", "Every CPU run, including archived and quiet repos. CPU-only GitHub runner, 4 vCPU, 16 GB."),
+    "cpu-gha-maintained": ("Maintained", "Repos not archived and pushed to since {pushed_since}. CPU-only GitHub runner, 4 vCPU; the container gets 12 GB of its 16 GB RAM."),
+    "cpu-gha": ("All CPU", "Every CPU run, including archived and quiet repos. CPU-only GitHub runner, 4 vCPU; the container gets 12 GB of its 16 GB RAM."),
     "gpu-rtx5060": ("GPU", "Earlier pilot on one RTX 5060 laptop GPU (8 GB). Old PyTorch pins have no kernels for it."),
 }
 
@@ -46,7 +46,8 @@ def patched_paths(slug):
     if not p.exists():
         return []
     files = (load_json(p).get("repo_diff") or {}).get("files", [])
-    return [f["path"] for f in files if f["added"] + f["removed"] > 0]
+    waived = {w["path"] for w in (load_json(p).get("review") or {}).get("patched_waived", [])}
+    return [f["path"] for f in files if f["added"] + f["removed"] > 0 and f["path"] not in waived]
 
 
 def mins(m):
@@ -96,8 +97,9 @@ def repo_table(t):
         changed = (f'<span class="chg" title="{esc(", ".join(files))}">{r["files_patched"]}</span>'
                    if r["files_patched"] else '<span class="dim">0</span>')
         note = ""
-        if st == "failed" and r.get("audit_reason"):
-            note = f'<div class="note neg">{esc(r["audit_reason"].split(". ")[0][:180])}</div>'
+        if st in ("failed", "unscored"):
+            note = (f'<div class="note neg">{esc(r["public_reason"])}</div>' if r.get("public_reason")
+                    else '<div class="note">Did not pass; see the run log.</div>' if st == "failed" else "")
         elif files:
             note = f'<div class="note">Changed: {esc(", ".join(files[:3]))}{" …" if len(files) > 3 else ""}</div>'
         team = "" if r["team"] in (r["company"], None, owner) else f' · {esc(r["team"])}'
@@ -234,7 +236,7 @@ def write_badges(tracks):
 EXCLUSION_KINDS = [  # first match wins; keyword buckets over the examiner's one-sentence reasons
     ("Paid API key or account", r"api key|api_key|credential|account|paid|serper|openai|gemini models"),
     ("Gated model", r"gated|license accept|access request|hf_token|request.*access|terms of use"),
-    ("GPU, or too big for 16 GB RAM / 15 GB download", r"\bgpu\b|cuda|vram|too large|\bparameters\b|\d+\s?gb\b|\d+(\.\d+)?b\b|docker"),
+    ("GPU, or too big for a 12 GB container / 15 GB download", r"\bgpu\b|cuda|vram|too large|\bparameters\b|\d+\s?gb\b|\d+(\.\d+)?b\b|docker"),
 ]
 
 
@@ -482,14 +484,15 @@ def method_page(tracks, all_exams, pushed_since):
 <h2>A run</h2>
 <ul>
   <li>The agent (Claude Code, Opus 5.5 pinned on the CPU tracks) has one tool, <code>docker exec</code>, into a throwaway
-    container on a CPU-only GitHub-hosted runner (4 vCPU, 16 GB). No host access; private networks and cloud metadata are
+    container on a CPU-only GitHub-hosted runner (4 vCPU, 16 GB RAM, of which the container may use 12 GB; the prompts say 16 GB). No host access; private networks and cloud metadata are
     firewalled off. 90 minutes per repo.</li>
   <li>The goal is the repo's own README demo. A hidden test, committed before the run and copied in only after the agent
     stops, runs the demo on known input and checks the output.</li>
   <li>The agent's <code>setup.sh</code> is then replayed on a fresh container to see whether the install can be repeated.</li>
-  <li>Every test in the maintained set was checked against the repo's source before the final run: it runs the README's main
-    demo, a broken install cannot pass, and the task never hints at anything the README doesn't say. Each verdict and its
-    evidence: <a href="{REPO_URL}/blob/main/data/reviews/2026-11-14-fairness.json">data/reviews</a>.</li>
+  <li>Every test was checked against the repo's source, then every pass against its raw log: it runs the README's main
+    demo, a broken install cannot pass, and the task never hints at anything the README doesn't say. Revised tests are
+    committed before they are re-run; superseded runs are kept. Each verdict and its evidence:
+    <a href="{REPO_URL}/tree/main/data/reviews">data/reviews</a>.</li>
 </ul>
 
 <h2>The score</h2>
@@ -497,6 +500,8 @@ def method_page(tracks, all_exams, pushed_since):
   <li><code>100 − min(50, agent minutes) − min(40, 10 × repo files changed)</code>; 0 if the demo never ran.</li>
   <li>Files changed is measured with <code>git diff</code> on the repo (whitespace ignored); files with no changed line,
     such as a chmod or an image a demo overwrote, don't count.</li>
+  <li>A review can waive a change shown not to be needed for the README demo (the agent overreaching); each waiver and
+    its reason is in the run record.</li>
   <li>Replay is shown next to the score but not in it: it grades our install script, not the repo's authors.</li>
 </ul>
 

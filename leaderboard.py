@@ -42,12 +42,14 @@ def replay_class(res, key):
     return r.get("class") or ("pass" if r.get("oracle", {}).get("pass") else "fail: other")
 
 
-def patched(diff):
+def patched(diff, review=None):
     """Files whose content had to change. Mode-only (chmod +x) and binary entries show 0 changed lines
     in `git diff --numstat`; they are demo outputs overwriting tracked images/PDFs or an executable bit,
-    not repo code being fixed, so they stay in the record but are not scored."""
+    not repo code being fixed, so they stay in the record but are not scored. A review may also waive a
+    change shown not to be needed for the README demo (agent overreach); the reason is kept in the record."""
+    waived = {w["path"] for w in (review or {}).get("patched_waived", [])}
     files = (diff or {}).get("files", [])
-    return [f for f in files if f["added"] + f["removed"] > 0] if files else []
+    return [f for f in files if f["added"] + f["removed"] > 0 and f["path"] not in waived] if files else []
 
 
 def repo_score(res):
@@ -55,13 +57,15 @@ def repo_score(res):
         # The oracle never had a finished install to judge, so no audit can unscore this: not reproduced
         # within the 90-minute budget.
         return 0, "agent hit the time limit before the demo ran"
+    if (res.get("review") or {}).get("rerun_pending"):
+        return None, "not scored: the hidden test was revised after review and this run predates it"
     verdict = (res.get("correction") or res.get("audit") or {}).get("verdict")
     if not res["oracle"]["pass"] and verdict == "oracle_defect":
         return None, "not scored: the pre-registered audit found the hidden oracle defective"
     if not res["oracle"]["pass"]:
         return 0, "agent could not reproduce"
     minutes = res["agent"]["secs"] / 60
-    files = len(patched(res.get("repo_diff")))
+    files = len(patched(res.get("repo_diff"), res.get("review")))
     return round(100 - min(50, minutes) - min(40, 10 * files), 1), f"{minutes:.0f} min, {files} repo files patched"
 
 
@@ -95,7 +99,7 @@ def main():
         tracks.setdefault(res.get("track", "gpu-rtx5060"), []).append({
             "repo": res["repo"], "slug": res["slug"], "score": score, "why": why,
             "agent_minutes": round(res["agent"]["secs"] / 60, 1),
-            "files_patched": len(patched(diff)) if "files" in diff else diff.get("files_changed"), "lines_patched": diff.get("lines_changed"),
+            "files_patched": len(patched(diff, res.get("review"))) if "files" in diff else diff.get("files_changed"), "lines_patched": diff.get("lines_changed"),
             "replay": replay_class(res, "replay"),
             "replay_supplementary": replay_class(res, "replay_supplementary"),
             "replay_after_repair": replay_class(res, "replay_after_repair"),
@@ -106,6 +110,8 @@ def main():
             "audit": (res.get("correction") or res.get("audit") or {}).get("verdict"),
             "audit_reason": (res.get("correction") or res.get("audit") or {}).get("reason"),
             "corrected": bool(res.get("correction")),
+            # One verified sentence for readers on why a run did not pass (data/reviews); never the raw audit text.
+            "public_reason": (res.get("review") or {}).get("public_reason"),
         })
     ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
