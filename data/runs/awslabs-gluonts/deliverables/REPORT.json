@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu so pip doesn't pull the CUDA wheels"},
+  {"kind": "undocumented_step", "detail": "Installed matplotlib separately: the README example imports it but gluonts[torch] doesn't include it"},
+  {"kind": "other", "detail": "Set MPLBACKEND=Agg and used plt.savefig instead of plt.show() because the machine is headless"}
+ ]}

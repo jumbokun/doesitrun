@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "Installed zstd, required by Ollama install.sh to extract the release archive"},
+  {"kind": "undocumented_step", "detail": "No systemd in container: started 'ollama serve' manually (nohup) before pull and for serving"},
+  {"kind": "gpu_compat", "detail": "Set CUDA_VISIBLE_DEVICES='' and OLLAMA_LLM_LIBRARY=cpu to run on CPU only"},
+  {"kind": "other", "detail": "run.sh preloads the model with keep_alive so the first chat request answers quickly"}
+ ]}

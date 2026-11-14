@@ -1,0 +1,47 @@
+{
+  "slug": "google-clusterfuzz",
+  "repo": "google/clusterfuzz",
+  "track": "cpu-gha",
+  "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install deps as needed, with local datastore emulator, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
+  "check": "The hidden test starts the server via run.sh and verifies http://localhost:9000/ and /login return HTTP 200 with ClusterFuzz page content.",
+  "started": "2026-11-13 23:35:12",
+  "agent": {
+    "secs": 1856,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "1be4839f-e98e-48d3-a2cf-9d53287e5da0",
+    "num_turns": 28,
+    "cost_usd": 0.8684169999999998,
+    "is_error": false,
+    "final": " mode logs you in automatically as `user@localhost` anyway.\n\nI couldn't confirm from the log that the background datastore seeding step finished, because its output never shows up there. It doesn't affect the two pages being checked.\n\nDONE — the server answers HTTP 200 with ClusterFuzz content on `/` and `/login` at localhost:9000, after a from-scratch `setup.sh` re-run and three runs of `run.sh`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 33
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 1,
+    "files": [
+      {
+        "path": "src/appengine/handlers/login.py",
+        "added": 0,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 161,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 79
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:11:04"
+}

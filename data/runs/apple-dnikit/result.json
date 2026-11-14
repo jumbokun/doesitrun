@@ -1,0 +1,177 @@
+{
+  "slug": "apple-dnikit",
+  "repo": "apple/dnikit",
+  "track": "cpu-gha",
+  "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(pipeline(StubProducer({...numpy responses...}), ...), threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, and the repo's src/dnikit/tests/test_duplicates.py must pass with pytest.",
+  "check": "Runs Duplicates on synthetic responses with planted near-duplicates and verifies clusters are found (more in the more-duplicated response), then runs the repo's duplicates unit tests.",
+  "started": "2026-11-14 00:31:09",
+  "agent": {
+    "secs": 81,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "1f535c2c-81ce-44ae-affa-73c2cb2dedcc",
+    "num_turns": 8,
+    "cost_usd": 0.15069280000000002,
+    "is_error": false,
+    "final": "=0`. If the hidden check runs pytest without sourcing `env.sh`, it will still get a failing exit code.\n- **Synthetic check:** I planted a 51-row cluster in one response and an 11-row cluster in the other. Duplicates found clusters of 23 and 11 rows, so the more-duplicated response got the bigger cluster, but the large one was only partly recovered.\n\n`NOTES.md` and `REPORT.json` list these changes."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 27,
+    "lines_changed": 0,
+    "files": [
+      {
+        "path": "docs/img/Eigenvalues_data.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/arch_overview.gif",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/dni-health.jpeg",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/dni-pfa-correlation.gif",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/fam2.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/fam_deer_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/fam_mnist_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/generic_pipeline.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/iua-show-heatmap.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/iua-show-table.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/pfa_recipe_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/pfa_recipe_with_fs.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/pfa_show_example.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/response_producer.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/responses.gif",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/img/sample_pipeline.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Eig_dist.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Eigenvalues.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Energy.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Inference.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/KL.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/Pooling.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/ResponseMatrix.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/l1.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/lstm.jpg",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/max.png",
+        "added": 0,
+        "removed": 0
+      },
+      {
+        "path": "docs/notebooks/assets/pearsons.png",
+        "added": 0,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 7,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 4
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:33:07"
+}

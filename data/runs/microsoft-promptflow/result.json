@@ -1,0 +1,41 @@
+{
+  "slug": "microsoft-promptflow",
+  "repo": "microsoft/promptflow",
+  "track": "cpu-gha",
+  "goal": "Install promptflow and promptflow-tools so the `pf` CLI works. Then run the flow examples/flows/standard/conditional-flow-for-if-else both with `pf flow test --flow <dir> --inputs question=\"What is Prompt flow?\"` and as a batch run with `pf run create --flow <dir> --data <dir>/data.jsonl`. Both must complete successfully without any API key or connection.",
+  "check": "The hidden test runs the flow through the pf CLI on its own inputs, both single test and batch run, and checks the outputs contain the expected answers.",
+  "started": "2026-11-13 23:42:11",
+  "agent": {
+    "secs": 75,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "cdec778a-31bb-45c2-86e4-4c474d8be097",
+    "num_turns": 7,
+    "cost_usd": 0.09788659999999999,
+    "is_error": false,
+    "final": "n a uv venv on Python 3.12, and after a fresh rerun of `setup.sh` both `pf flow test` and the `pf run create` batch run (status Completed) work with no API key, though each answer is randomly the \"I'm not familiar with your query\" default or the canned \"Prompt flow is a suite of development tools...\" text because the example's dummy safety check does a coin flip, which I left as upstream wrote it."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 9
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 13,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 13
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 23:44:24"
+}

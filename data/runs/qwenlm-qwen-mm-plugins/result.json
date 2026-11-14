@@ -1,0 +1,41 @@
+{
+  "slug": "qwenlm-qwen-mm-plugins",
+  "repo": "QwenLM/Qwen-MM-Plugins",
+  "track": "cpu-gha",
+  "goal": "Get the `core` capability's MCP server (python3 src/capabilities/core/qwen_mm_plugins_core, or qwen-mm-plugins-core with the [viz] extra) running over stdio in native mode with no API key. It must answer tools/list and execute save_view (render page 1 of tests/assets/sample.pdf to PNG), crop, visualize (tests/assets/sample.csv) and read_image. Install the base deps plus the viz extras (pypdfium2, pandas, matplotlib etc.) into the python that /work/env.sh puts on PATH.",
+  "check": "A JSON-RPC stdio client starts the core server, lists its tools, renders a PDF page to a PNG, crops it to the expected size, visualizes a CSV with expected text, and reads an image back.",
+  "started": "2026-11-13 23:53:58",
+  "agent": {
+    "secs": 149,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "4f46fb0f-e087-4d33-8071-836415c2ef2e",
+    "num_turns": 11,
+    "cost_usd": 0.2437628,
+    "is_error": false,
+    "final": "p worked without code changes, and after rebuilding the venv from scratch with `/work/setup.sh` my stdio client got tools/list, save_view (sample.pdf page 1 to PNG), crop, visualize (sample.csv table) and read_image all working with no API key; the one doc problem was that the docs' `tools/list` one-liner errors without the MCP `initialize` handshake, which is recorded in NOTES.md and REPORT.json."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 49,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 2
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 23:57:47"
+}

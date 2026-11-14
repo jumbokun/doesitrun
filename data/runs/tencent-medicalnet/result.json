@@ -1,0 +1,57 @@
+{
+  "slug": "tencent-medicalnet",
+  "repo": "Tencent/MedicalNet",
+  "track": "cpu-gha",
+  "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. The code was written for old PyTorch, nibabel and scipy, so it may need compatibility fixes for the installed library versions. Do not use the Google Drive pretrained weights.",
+  "check": "Running train.py --ci_test on CPU exits successfully, logs at least one finite loss value and prints 'Finished training'.",
+  "started": "2026-11-13 23:52:46",
+  "agent": {
+    "secs": 122,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "f30ba8af-2b8b-4877-bd77-ce8b2f96fd77",
+    "num_turns": 11,
+    "cost_usd": 0.28161400000000003,
+    "is_error": false,
+    "final": "env.sh`, `NOTES.md` and `REPORT.json` in `/work`. `env.sh` also changes into `/work/MedicalNet`. I moved the first copies of the clone and venv to `/tmp/mn_old` and `/tmp/venv_old` to test the fresh run; they can be deleted.\n\nDONE — `train.py --ci_test` trains one epoch on CPU with a finite loss and prints \"Finished training\" after a modern Python/library stack and two small compatibility patches."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 3,
+    "lines_changed": 12,
+    "files": [
+      {
+        "path": "datasets/brains18.py",
+        "added": 4,
+        "removed": 4
+      },
+      {
+        "path": "test.py",
+        "added": 1,
+        "removed": 1
+      },
+      {
+        "path": "train.py",
+        "added": 1,
+        "removed": 1
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 7,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 7
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 23:55:30"
+}

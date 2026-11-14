@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "other", "detail": "Used uv venv with Python 3.10 instead of conda (conda not available in image)"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch wheel from download.pytorch.org/whl/cpu instead of the default CUDA build"},
+  {"kind": "dependency_pin", "detail": "Pinned all resolved dependency versions and the repo commit in setup.sh for reproducibility"}
+ ]}

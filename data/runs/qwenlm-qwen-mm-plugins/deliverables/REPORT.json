@@ -1,0 +1,2 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [{"kind": "doc_error", "detail": "local_development.md tools/list one-liner omits the MCP initialize handshake and returns -32602; used a proper initialize-first client"}]}

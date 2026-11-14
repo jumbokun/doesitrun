@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "other", "detail": "Docker unavailable; built llama-server from source at the DLC-pinned llama.cpp ref b29c606 with Dockerfile.cpu cmake flags instead of using the server-cpu-v1 image"},
+  {"kind": "system_package", "detail": "apt-get install cmake libssl-dev libgomp1 to build llama.cpp on Ubuntu"},
+  {"kind": "undocumented_step", "detail": "Built with LLAMA_CURL=OFF and pre-downloaded the GGUF with curl, then served it via --model instead of --hf-repo/--hf-file"},
+  {"kind": "dead_link", "detail": "Documented HF repo ggml-org/Qwen2.5-0.5B-Instruct-GGUF returns 401; used Qwen/Qwen2.5-0.5B-Instruct-GGUF's identically named qwen2.5-0.5b-instruct-q4_0.gguf"}
+ ]}

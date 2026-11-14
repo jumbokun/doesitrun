@@ -1,0 +1,41 @@
+{
+  "slug": "modelscope-evalscope",
+  "repo": "modelscope/evalscope",
+  "track": "cpu-gha",
+  "goal": "Install evalscope (Python >= 3.11) and make `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and the GSM8K dataset fetched. It must accept a `--work-dir <dir>` option for outputs and finish by writing an evaluation report.",
+  "check": "The hidden test runs the local-model GSM8K evaluation with limit 5 into a fresh output directory and verifies that a report file with a GSM8K score and 5 evaluated samples was produced.",
+  "started": "2026-11-13 23:47:32",
+  "agent": {
+    "secs": 703,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "29e9d9a6-c7c3-4f79-acb8-92458093c98c",
+    "num_turns": 12,
+    "cost_usd": 0.19947879999999996,
+    "is_error": false,
+    "final": "DONE: I rebuilt everything from scratch with `/work/setup.sh` and ran the GSM8K eval (limit 5) on CPU after sourcing `/work/env.sh`, and it wrote `gsm8k.json` with 5 samples scored (40% accuracy); this needed three fixes the README doesn't mention: CPU torch, accelerate, and pinning transformers below version 5."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 108
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 534,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 107
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:12:05"
+}

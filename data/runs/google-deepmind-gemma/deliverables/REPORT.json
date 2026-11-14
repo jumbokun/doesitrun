@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Pinned sentencepiece<0.2.2: sentencepiece 0.2.3 protobuf-7 gencode is incompatible with protobuf 6.x required by tensorflow-cpu 2.21 (VersionError on tokenizer import)"},
+  {"kind": "other", "detail": "Installed editable from the clone in a uv Python 3.12 venv with jax[cpu] instead of pip install gemma from PyPI"}
+ ]}

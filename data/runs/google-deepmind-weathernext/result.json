@@ -1,0 +1,41 @@
+{
+  "slug": "google-deepmind-weathernext",
+  "repo": "google-deepmind/weathernext",
+  "track": "cpu-gha",
+  "goal": "Install the weathernext package (pip install from the repo, with its jax/haiku/xarray_jax dependencies) so that the notebook's core flow works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-01.nc from the public bucket dm_graphcast, then run an autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Use the GPU attention setting (attention_type 'triblockdiag_mha') if the CPU needs it. Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
+  "check": "A standalone script re-runs the Mini-model 2-member ensemble rollout on the sample data and checks the predictions are finite, physically plausible 2m temperatures with ensemble spread and writes a NetCDF output.",
+  "started": "2026-11-13 23:31:01",
+  "agent": {
+    "secs": 319,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "bf186636-ca5c-4607-80b3-a3359527a7fb",
+    "num_turns": 13,
+    "cost_usd": 0.3756421999999999,
+    "is_error": false,
+    "final": "y switches when it detects a GPU.\n- **Downloads:** the weights and sample data come from the public bucket over plain HTTPS, so no credentials are needed.\n- **Pinning:** the setup pins the package versions and the repo commit so a fresh run reproduces this setup.\n\nThe test script is `/work/scripts/test_rollout.py` (about 1.5 minutes on CPU). Details are in `/work/NOTES.md` and `/work/REPORT.json`."
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 13,
+    "mem": "12g",
+    "oracle": {
+      "pass": false,
+      "secs": 4
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-11-13 23:37:04"
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "paddlepaddle-paddleclas",
+  "repo": "PaddlePaddle/PaddleClas",
+  "track": "cpu-gha",
+  "goal": "Install PaddleClas (paddlepaddle CPU plus the paddleclas package/CLI from the repo at /work/PaddleClas) so that `paddleclas --model_name=ResNet50 --infer_imgs=docs/images/inference_deployment/whl_demo.jpg` run from /work/PaddleClas downloads the pretrained inference model and prints the top-5 predictions. The Python API `PaddleClas(model_name='ResNet50').predict(path)` must work too.",
+  "check": "The CLI and the Python API both classify the bundled demo image, with the top-1 prediction being class id 8 'hen' at high confidence.",
+  "started": "2026-11-14 00:01:07",
+  "agent": {
+    "secs": 247,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "9b417893-128c-4752-b269-1069060dfc42",
+    "num_turns": 18,
+    "cost_usd": 0.40997720000000004,
+    "is_error": false,
+    "final": "thing from scratch with `/work/setup.sh` and it worked: the `paddleclas` CLI and `PaddleClas(model_name='ResNet50').predict(...)` both put class 8 'hen' first at 0.97968. The fixes were Python 3.11, `paddlepaddle==2.6.2`, adding libGL/glib and setuptools, a `sys.path` patch in `__init__.py` for `ppcls`, and `PYTHONSAFEPATH=1` in `env.sh`. All are listed in `/work/NOTES.md` and `/work/REPORT.json`."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 1,
+    "lines_changed": 8,
+    "files": [
+      {
+        "path": "__init__.py",
+        "added": 8,
+        "removed": 0
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 91,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 5
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:07:16"
+}

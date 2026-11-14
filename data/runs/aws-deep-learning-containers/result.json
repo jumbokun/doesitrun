@@ -1,0 +1,41 @@
+{
+  "slug": "aws-deep-learning-containers",
+  "repo": "aws/deep-learning-containers",
+  "track": "cpu-gha",
+  "goal": "Get the llama.cpp CPU server from the README-linked docs/llama-cpp/deployment/ec2.md serving ggml-org/Qwen2.5-0.5B-Instruct-GGUF (qwen2.5-0.5b-instruct-q4_0.gguf, --ctx-size 4096) on port 8080 on CPU. The public.ecr.aws/deep-learning-containers/llama-cpp:server-cpu-v1 image is the documented route; if Docker is unavailable, an equivalent llama-server (llama.cpp) build with the same model is acceptable. /work/run.sh must start the server in the background and return only once http://localhost:8080/health is ready; /v1/chat/completions must then answer a chat request.",
+  "check": "The hidden test starts the server via run.sh, then checks that /health returns 200 and a chat completion request on localhost:8080 returns HTTP 200 with a non-empty assistant message that is relevant to the question asked.",
+  "started": "2026-11-14 00:25:19",
+  "agent": {
+    "secs": 456,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "91125b26-53a2-4cc3-af83-7f5086b8a9a9",
+    "num_turns": 10,
+    "cost_usd": 0.25268260000000003,
+    "is_error": false,
+    "final": "s once `/health` is ready, and `/v1/chat/completions` answered correctly (\"The capital of France is Paris…\"). One thing to know: the model repo named in the docs, `ggml-org/Qwen2.5-0.5B-Instruct-GGUF`, returns 401, so `setup.sh` falls back to the same-named file from the official `Qwen/Qwen2.5-0.5B-Instruct-GGUF` repo. I re-ran `setup.sh` in this sandbox but haven't tested it on a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 378,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 1
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:39:39"
+}

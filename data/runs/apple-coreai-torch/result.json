@@ -1,0 +1,41 @@
+{
+  "slug": "apple-coreai-torch",
+  "repo": "apple/coreai-torch",
+  "track": "cpu-gha",
+  "goal": "Install coreai-torch from the cloned repo (coreai-core==1.0.0b3 and torch come from PyPI; Python >=3.11 is required, CPU-only torch is fine). Then run the quickstart pipeline on CPU: export a small nn.Module with torch.export, run_decompositions(get_decomp_table()), convert with TorchConverter().add_exported_program(...).to_coreai(), save_asset to an .aimodel, load the executable and run function 'main' via coreai.runtime.NDArray. The Core AI output must match PyTorch. Put the environment setup in /work/env.sh (activating it must make `python` import coreai_torch).",
+  "check": "A script converts, compiles and runs a small MLP through Core AI and checks that the output matches PyTorch within 1e-4.",
+  "started": "2026-11-14 00:26:55",
+  "agent": {
+    "secs": 70,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "e5fed484-86ff-432a-8186-3fcfb5621f74",
+    "num_turns": 8,
+    "cost_usd": 0.17524360000000003,
+    "is_error": false,
+    "final": "DONE: coreai-torch installs from the clone and the quickstart MLP runs on CPU through Core AI, matching PyTorch to about 3e-8 (well inside 1e-4), and a from-scratch re-run of `/work/setup.sh` reproduced it."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 8,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 6
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:28:47"
+}

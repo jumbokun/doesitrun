@@ -1,0 +1,41 @@
+{
+  "slug": "google-deepmind-gemma",
+  "repo": "google-deepmind/gemma",
+  "track": "cpu-gha",
+  "goal": "Install the gemma package from the clone at /work/gemma with JAX for CPU, and make a text-only chat work with the official ChatSampler API. Use model gm.nn.Gemma3_270M() with params from gm.ckpts.load_params(gm.ckpts.CheckpointPath.GEMMA3_270M_IT), which downloads from the public gs://gemma-data bucket. Then call sampler.chat('What is the capital of France?') and get a sensible text answer. Put whatever environment activation is needed in /work/env.sh.",
+  "check": "A Python script using gm.nn.Gemma3_270M, load_params(GEMMA3_270M_IT) and ChatSampler.chat generates a non-empty text answer to a factual question, and a second multi-turn call also returns text.",
+  "started": "2026-11-13 23:31:44",
+  "agent": {
+    "secs": 205,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "abf39d64-4542-44cd-9289-7185b7bb3887",
+    "num_turns": 7,
+    "cost_usd": 0.13578600000000002,
+    "is_error": false,
+    "final": "DONE: I rebuilt everything from scratch and the chat test passed: Gemma3_270M said \"The capital of France is Paris.\" and a second multi-turn question also got a text answer, after one fix: pinning `sentencepiece<0.2.2`, because its newest release breaks against the protobuf version tensorflow allows."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 32
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 46,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 32
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 23:37:20"
+}

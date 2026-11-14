@@ -1,0 +1,41 @@
+{
+  "slug": "apple-game-center-tools",
+  "repo": "apple/game-center-tools",
+  "track": "cpu-gha",
+  "goal": "Get scripts/genrulesinput.py in /work/game-center-tools running (it needs the Python 'requests' module). Feed it via stdin the JSON [{\"secondsInQueue\":20,\"skill\":1},{\"secondsInQueue\":10,\"skill\":50},[{\"skill\":20},{\"skill\":30}]] and it must print the generated matchmaking input JSON with requests and players. Make /work/env.sh set up the environment so python3 scripts/genrulesinput.py works.",
+  "check": "The hidden test pipes the README example into the script and checks the output JSON has 3 requests, 4 players and the expected skill values.",
+  "started": "2026-11-14 00:31:25",
+  "agent": {
+    "secs": 19,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "5de7359b-8ebb-4d6b-86c8-043f5d8a6346",
+    "num_turns": 4,
+    "cost_usd": 0.0743148,
+    "is_error": false,
+    "final": "DONE: I cloned the repo and installed `requests` in a uv venv at /work/venv, and with that venv activated, piping the example JSON into `python3 scripts/genrulesinput.py` printed 3 requests and 4 players with skills [1, 50, 20, 30] and no code changes. I ran this setup here and did not re-run setup.sh on a fresh container."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 1,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 0
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:32:06"
+}

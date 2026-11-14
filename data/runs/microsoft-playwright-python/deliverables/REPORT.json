@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "README has no install-from-source steps; used AGENTS.md flow: venv, local-requirements.txt, upstream.py checkout, python -m build --wheel, install wheel"},
+  {"kind": "system_package", "detail": "Installed Node.js v26.13.1 (NODE_VERSION) from nodejs.org; npm is needed to build the driver from .upstream/"},
+  {"kind": "other", "detail": "Set PLAYWRIGHT_BROWSERS_PATH=/opt/ms-playwright so the browser location is fixed and env.sh can point to it"}
+ ]}

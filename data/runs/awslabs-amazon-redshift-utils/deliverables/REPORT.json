@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Created a Python 3.12 venv with uv and installed requirements.txt (README only says boto3 must be pre-installed)"},
+  {"kind": "other", "detail": "manifestgen.py lacks the executable bit in git; chmod +x needed for ./manifestgen.py"}
+ ]}

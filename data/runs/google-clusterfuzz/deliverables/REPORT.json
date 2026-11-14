@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Installed Python 3.11 via uv (image has 3.12) and created /work/venv; ran pipenv sync --dev inside it"},
+  {"kind": "dependency_pin", "detail": "pipenv==2022.8.5 needs pkg_resources; installed setuptools<70 first"},
+  {"kind": "system_package", "detail": "Installed lsb-release, sudo, golang-go, openjdk, xvfb, google-cloud-cli + datastore/pubsub emulators by hand instead of running install_deps_linux.bash (which needs docker-ce etc.)"},
+  {"kind": "system_package", "detail": "Current gcloud (593) requires Java 25+ for the datastore emulator; installed openjdk-25-jre-headless and made it the default java (repo's 591 pin + Java 17 fails)"},
+  {"kind": "undocumented_step", "detail": "Go is never installed by install_deps; installed golang-go for the local GCS emulator (go run emulators/gcs.go)"},
+  {"kind": "code_patch", "detail": "Removed @handler.unsupported_on_local_server from login GET in src/appengine/handlers/login.py so /login returns 200 instead of 400 locally"}
+ ]}

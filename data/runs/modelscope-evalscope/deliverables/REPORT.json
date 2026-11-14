@@ -1,0 +1,17 @@
+{
+ "readme_path_worked_as_written": false,
+ "interventions": [
+  {
+   "kind": "undocumented_step",
+   "detail": "Installed CPU torch (download.pytorch.org/whl/cpu); it is not in core requirements but is required for local-model eval"
+  },
+  {
+   "kind": "undocumented_step",
+   "detail": "Installed accelerate; transformers from_pretrained with device_map requires it"
+  },
+  {
+   "kind": "dependency_pin",
+   "detail": "Pinned transformers<5; 5.x apply_chat_template fails on evalscope's pydantic ChatMessage objects"
+  }
+ ]
+}

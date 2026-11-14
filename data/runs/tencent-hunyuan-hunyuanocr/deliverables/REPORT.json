@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "Installed cmake (plus libssl-dev, pkg-config) via apt; not in base image and not mentioned in README"},
+  {"kind": "dependency_pin", "detail": "Pinned upstream llama.cpp to commit 9183a552 (>= b11103) for reproducibility; CPU-only build with -DGGML_CUDA=OFF"},
+  {"kind": "undocumented_step", "detail": "Installed llama.cpp requirements-convert_hf_to_gguf.txt (gguf etc.) and CPU-only torch; docs list only huggingface_hub/transformers/torch/openai"}
+ ]}

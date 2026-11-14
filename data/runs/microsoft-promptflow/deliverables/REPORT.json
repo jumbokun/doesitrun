@@ -1,0 +1,4 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "other", "detail": "Installed into a uv venv (Python 3.12) because Ubuntu 24.04 system pip is externally-managed (PEP 668)"}
+ ]}

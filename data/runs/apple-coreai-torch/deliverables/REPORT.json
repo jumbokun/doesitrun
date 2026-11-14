@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "dependency_pin", "detail": "Installed CPU-only torch==2.13.0 from download.pytorch.org/whl/cpu (via uv venv + uv pip install -e .) instead of uv sync's default CUDA torch; 2.13.0 is the max validated version"},
+  {"kind": "other", "detail": "Quickstart notebook uses top-level await; wrapped in asyncio.run() for script use"}
+ ]}

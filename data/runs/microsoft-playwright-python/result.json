@@ -1,0 +1,41 @@
+{
+  "slug": "microsoft-playwright-python",
+  "repo": "microsoft/playwright-python",
+  "track": "cpu-gha",
+  "goal": "Install the playwright-python package from the repo clone and download the browsers (e.g. `playwright install --with-deps chromium`). Run the README sync example, at least with Chromium launched headless, so that it opens a page and writes a screenshot PNG. Make `python` (via /work/env.sh) able to `import playwright` and launch Chromium.",
+  "check": "A script run with the environment launches headless Chromium, loads a local page, and produces a valid screenshot PNG and the expected page title and text.",
+  "started": "2026-11-13 23:38:54",
+  "agent": {
+    "secs": 245,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "17e83417-ffda-4f76-a77e-a9ac9e0e1424",
+    "num_turns": 14,
+    "cost_usd": 0.348159,
+    "is_error": false,
+    "final": "DONE: After a full from-scratch run of `/work/setup.sh` (old clone, Node.js and browsers removed first), `/work/env.sh` gives a `python` that imports playwright from the repo-built wheel and launches headless Chromium. It loads local and remote pages and writes valid PNG screenshots, including the README sync example with Chromium."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 90,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 3
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 23:44:57"
+}

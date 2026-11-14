@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.11 via uv instead of README's Python 3.7 (unavailable, and incompatible with torch>=2.6 in requirements.txt)"},
+  {"kind": "dependency_pin", "detail": "requirements.txt pins (numpy==1.15.4, scipy==1.1.0, nibabel==2.4.1) conflict with torch>=2.6; installed torch 2.6.0+cpu, numpy 2.2.6, nibabel 5.5.0, scipy 1.17.1"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch wheel from download.pytorch.org/whl/cpu"},
+  {"kind": "code_patch", "detail": "datasets/brains18.py: replace removed nibabel get_data() with np.asanyarray(img.dataobj)"},
+  {"kind": "code_patch", "detail": "train.py/test.py/datasets/brains18.py: scipy.ndimage.interpolation.zoom -> scipy.ndimage.zoom"}
+ ]}

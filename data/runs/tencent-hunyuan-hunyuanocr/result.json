@@ -1,0 +1,41 @@
+{
+  "slug": "tencent-hunyuan-hunyuanocr",
+  "repo": "Tencent-Hunyuan/HunyuanOCR",
+  "track": "cpu-gha",
+  "goal": "Build upstream llama.cpp on CPU, download tencent/HunyuanOCR from Hugging Face (exclude v1.0/*, skip DFlash), convert to hyocr-f16.gguf and mmproj-hyocr-f16.gguf via convert_hf_to_gguf.py, and serve with llama-server (section 4.1: port 8080, --alias HYVL, --jinja, -fa on, modest ctx-size). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
+  "check": "The hidden test sends a generated image containing text to the server's chat completions endpoint and verifies the response is HTTP 200 and contains the text in the image.",
+  "started": "2026-11-13 23:58:48",
+  "agent": {
+    "secs": 628,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "4e5ff66b-a4e6-4c7c-8be0-cd5ab455ee8c",
+    "num_turns": 11,
+    "cost_usd": 0.2837988,
+    "is_error": false,
+    "final": "DONE — the server answered a generated \"Hello World 2024\" image with HTTP 200 and the exact text \"Hello World 2024\" (about 7 s on 4 CPU cores), and setup only needed small fixes: installing cmake, pinning llama.cpp and adding the converter's Python requirements."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 11
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 325,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 14
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:15:32"
+}

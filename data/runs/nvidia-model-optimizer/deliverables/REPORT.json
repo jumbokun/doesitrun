@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from the PyTorch CPU index before the editable install, so the CUDA torch wheel isn't pulled in"},
+  {"kind": "dependency_pin", "detail": "Ran `pip install -e .` with transformers>=5.5,<5.19 and accelerate instead of `.[dev]`, which drags in GPU-only extras (cupy-cuda13x, onnxruntime-gpu, deepspeed)"}
+ ]}

@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.9 venv; parl pins grpcio==1.37.0/pyzmq==22.3.0 that have no py3.12 wheels"},
+  {"kind": "dependency_pin", "detail": "Overrode parl's protobuf<=3.20.0 pin to protobuf==3.20.3 because paddlepaddle 2.6.2+ needs protobuf>=3.20.2"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools<70 because parl imports pkg_resources, which a fresh venv lacks"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 and paddlepaddle==2.6.2 for gym 0.26.2 compatibility (np.bool8)"},
+  {"kind": "other", "detail": "Installed parl from the clone non-editably; the uv editable install did not make parl importable"}
+ ]}

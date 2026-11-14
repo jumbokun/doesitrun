@@ -897,5 +897,267 @@
     "evidence": [
       "owner 'aws' is Amazon org account (AWS)"
     ]
+  },
+  "amazon-science/chronos-forecasting": {
+    "repo": "amazon-science/chronos-forecasting",
+    "company": "Amazon",
+    "team": "Amazon Science",
+    "confidence": "high",
+    "evidence": [
+      "owner 'amazon-science' is Amazon org account (Amazon Science)"
+    ]
+  },
+  "apple/app-store-server-library-python": {
+    "repo": "apple/app-store-server-library-python",
+    "company": "Apple",
+    "team": "Apple",
+    "confidence": "high",
+    "evidence": [
+      "owner 'apple' is Apple org account (Apple)"
+    ]
+  },
+  "apple/coreai-optimization": {
+    "repo": "apple/coreai-optimization",
+    "company": "Apple",
+    "team": "Apple",
+    "confidence": "high",
+    "evidence": [
+      "owner 'apple' is Apple org account (Apple)"
+    ]
+  },
+  "apple/coreai-torch": {
+    "repo": "apple/coreai-torch",
+    "company": "Apple",
+    "team": "Apple",
+    "confidence": "high",
+    "evidence": [
+      "owner 'apple' is Apple org account (Apple)"
+    ]
+  },
+  "apple/dnikit": {
+    "repo": "apple/dnikit",
+    "company": "Apple",
+    "team": "Apple",
+    "confidence": "high",
+    "evidence": [
+      "owner 'apple' is Apple org account (Apple)"
+    ]
+  },
+  "apple/game-center-tools": {
+    "repo": "apple/game-center-tools",
+    "company": "Apple",
+    "team": "Apple",
+    "confidence": "high",
+    "evidence": [
+      "owner 'apple' is Apple org account (Apple)"
+    ]
+  },
+  "aws/aws-sam-cli": {
+    "repo": "aws/aws-sam-cli",
+    "company": "Amazon",
+    "team": "AWS",
+    "confidence": "high",
+    "evidence": [
+      "owner 'aws' is Amazon org account (AWS)"
+    ]
+  },
+  "aws/deep-learning-containers": {
+    "repo": "aws/deep-learning-containers",
+    "company": "Amazon",
+    "team": "AWS",
+    "confidence": "high",
+    "evidence": [
+      "owner 'aws' is Amazon org account (AWS)"
+    ]
+  },
+  "aws/serverless-application-model": {
+    "repo": "aws/serverless-application-model",
+    "company": "Amazon",
+    "team": "AWS",
+    "confidence": "high",
+    "evidence": [
+      "owner 'aws' is Amazon org account (AWS)"
+    ]
+  },
+  "awslabs/amazon-redshift-utils": {
+    "repo": "awslabs/amazon-redshift-utils",
+    "company": "Amazon",
+    "team": "AWS Labs",
+    "confidence": "high",
+    "evidence": [
+      "owner 'awslabs' is Amazon org account (AWS Labs)"
+    ]
+  },
+  "awslabs/aws-support-tools": {
+    "repo": "awslabs/aws-support-tools",
+    "company": "Amazon",
+    "team": "AWS Labs",
+    "confidence": "high",
+    "evidence": [
+      "owner 'awslabs' is Amazon org account (AWS Labs)"
+    ]
+  },
+  "awslabs/gluonts": {
+    "repo": "awslabs/gluonts",
+    "company": "Amazon",
+    "team": "AWS Labs",
+    "confidence": "high",
+    "evidence": [
+      "owner 'awslabs' is Amazon org account (AWS Labs)"
+    ]
+  },
+  "facebookresearch/Kats": {
+    "repo": "facebookresearch/Kats",
+    "company": "Meta",
+    "team": "FAIR",
+    "confidence": "high",
+    "evidence": [
+      "owner 'facebookresearch' is Meta org account (FAIR)"
+    ]
+  },
+  "google/agents-cli": {
+    "repo": "google/agents-cli",
+    "company": "Google",
+    "team": "Google Cloud",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)",
+      "README mentions 'Google Cloud' -> team Google Cloud (low)"
+    ]
+  },
+  "google/clusterfuzz": {
+    "repo": "google/clusterfuzz",
+    "company": "Google",
+    "team": "Google",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google' is Google org account (Google)"
+    ]
+  },
+  "google-deepmind/gemma": {
+    "repo": "google-deepmind/gemma",
+    "company": "Google",
+    "team": "Google DeepMind",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-deepmind' is Google org account (Google DeepMind)"
+    ]
+  },
+  "google-deepmind/weathernext": {
+    "repo": "google-deepmind/weathernext",
+    "company": "Google",
+    "team": "Google DeepMind",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-deepmind' is Google org account (Google DeepMind)"
+    ]
+  },
+  "google-research/arxiv-latex-cleaner": {
+    "repo": "google-research/arxiv-latex-cleaner",
+    "company": "Google",
+    "team": "Google Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'google-research' is Google org account (Google Research)"
+    ]
+  },
+  "microsoft/playwright-python": {
+    "repo": "microsoft/playwright-python",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "microsoft/promptflow": {
+    "repo": "microsoft/promptflow",
+    "company": "Microsoft",
+    "team": "Microsoft",
+    "confidence": "high",
+    "evidence": [
+      "owner 'microsoft' is Microsoft org account (Microsoft)"
+    ]
+  },
+  "modelscope/evalscope": {
+    "repo": "modelscope/evalscope",
+    "company": "Alibaba",
+    "team": "ModelScope",
+    "confidence": "high",
+    "evidence": [
+      "owner 'modelscope' is Alibaba org account (ModelScope)"
+    ]
+  },
+  "NVIDIA/Model-Optimizer": {
+    "repo": "NVIDIA/Model-Optimizer",
+    "company": "NVIDIA",
+    "team": "NVIDIA",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+    ]
+  },
+  "NVlabs/GR00T-WholeBodyControl": {
+    "repo": "NVlabs/GR00T-WholeBodyControl",
+    "company": "NVIDIA",
+    "team": "NVIDIA Research",
+    "confidence": "high",
+    "evidence": [
+      "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+    ]
+  },
+  "openai/gpt-oss": {
+    "repo": "openai/gpt-oss",
+    "company": "OpenAI",
+    "team": "OpenAI",
+    "confidence": "high",
+    "evidence": [
+      "owner 'openai' is OpenAI org account (OpenAI)"
+    ]
+  },
+  "PaddlePaddle/PaddleClas": {
+    "repo": "PaddlePaddle/PaddleClas",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "PaddlePaddle/PARL": {
+    "repo": "PaddlePaddle/PARL",
+    "company": "Baidu",
+    "team": "PaddlePaddle",
+    "confidence": "high",
+    "evidence": [
+      "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+    ]
+  },
+  "QwenLM/Qwen-MM-Plugins": {
+    "repo": "QwenLM/Qwen-MM-Plugins",
+    "company": "Alibaba",
+    "team": "Qwen",
+    "confidence": "high",
+    "evidence": [
+      "owner 'QwenLM' is Alibaba org account (Qwen)"
+    ]
+  },
+  "Tencent-Hunyuan/HunyuanOCR": {
+    "repo": "Tencent-Hunyuan/HunyuanOCR",
+    "company": "Tencent",
+    "team": "Hunyuan",
+    "confidence": "high",
+    "evidence": [
+      "owner 'Tencent-Hunyuan' is Tencent org account (Hunyuan)"
+    ]
+  },
+  "Tencent/MedicalNet": {
+    "repo": "Tencent/MedicalNet",
+    "company": "Tencent",
+    "team": "Tencent",
+    "confidence": "high",
+    "evidence": [
+      "owner 'Tencent' is Tencent org account (Tencent)"
+    ]
   }
 }

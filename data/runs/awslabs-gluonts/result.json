@@ -1,0 +1,41 @@
+{
+  "slug": "awslabs-gluonts",
+  "repo": "awslabs/gluonts",
+  "track": "cpu-gha",
+  "goal": "Install gluonts with torch support (pip install \"gluonts[torch]\" or from the clone) so the README Simple Example works on CPU. It must train DeepAREstimator(prediction_length=12, freq monthly, max_epochs small) on a monthly PandasDataset split with gluonts.dataset.split, then produce forecasts via model.predict(test_data.input) and plot them (use a headless matplotlib backend). Write /work/env.sh that activates the environment where python can import gluonts and torch.",
+  "check": "A Python script using the README's DeepAR flow on a locally generated monthly series trains, yields 3 finite 12-step probabilistic forecasts and saves a plot image.",
+  "started": "2026-11-14 00:22:31",
+  "agent": {
+    "secs": 63,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7bea916d-4ae0-4964-a1ba-2ec3be16838d",
+    "num_turns": 8,
+    "cost_usd": 0.1310606,
+    "is_error": false,
+    "final": "DONE — I installed gluonts with torch support on CPU from the clone, and both a locally generated monthly series and the README Simple Example trained DeepAR, gave 3 finite 12-step forecasts each and saved a plot image."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 7,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 10
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-14 00:24:16"
+}

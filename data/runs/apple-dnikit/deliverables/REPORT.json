@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.10 venv via uv (package classifiers list up to 3.10)"},
+  {"kind": "undocumented_step", "detail": "Installed from repo source with [test] extra since pytest.ini requires mypy/flake8/cov plugins"},
+  {"kind": "dependency_pin", "detail": "Pinned pytest<8 because pytest-flake8 fails to load with newer pytest"},
+  {"kind": "other", "detail": "Set PYTEST_ADDOPTS=--cov-fail-under=0 since pytest.ini's 80% coverage gate fails on a single test file"}
+ ]}

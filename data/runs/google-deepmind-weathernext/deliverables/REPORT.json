@@ -1,0 +1,8 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.12: gdm-xarray-jax v0.1.1 requires >=3.12 although setup.py classifiers list 3.10/3.11"},
+  {"kind": "dependency_pin", "detail": "Installed h5py (h5netcdf no longer depends on it) so the sample NetCDF can be read"},
+  {"kind": "undocumented_step", "detail": "Downloaded weights and sample data via anonymous HTTPS from storage.googleapis.com/dm_graphcast instead of Colab/GCS client; installed google-cloud-storage"},
+  {"kind": "gpu_compat", "detail": "Set attention_type='triblockdiag_mha' on CPU; default splash_mha Pallas kernel fails on CPU backend"},
+  {"kind": "dependency_pin", "detail": "Froze resolved package versions into scripts/requirements.lock and pinned repo commit for reproducibility"}
+ ]}

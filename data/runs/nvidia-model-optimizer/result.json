@@ -1,0 +1,41 @@
+{
+  "slug": "nvidia-model-optimizer",
+  "repo": "NVIDIA/Model-Optimizer",
+  "track": "cpu-gha",
+  "goal": "Install nvidia-modelopt from the cloned repo (CPU-only torch, plus transformers) so that `import modelopt.torch.quantization as mtq` works. Then run post-training quantization: take a small Hugging Face causal LM (e.g. a tiny randomly initialised LlamaForCausalLM), call mtq.quantize(model, mtq.INT8_DEFAULT_CFG, forward_loop) with a calibration forward loop on CPU, and confirm the model has calibrated TensorQuantizer modules and still produces finite logits.",
+  "check": "A hidden script quantizes a small Llama model with INT8_DEFAULT_CFG on CPU and verifies quantizers were inserted and calibrated and that outputs are finite and slightly different from the original.",
+  "started": "2026-11-13 23:45:38",
+  "agent": {
+    "secs": 73,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "dcc78d8e-5707-42e2-96f9-17f4f5dadc6d",
+    "num_turns": 7,
+    "cost_usd": 0.1356118,
+    "is_error": false,
+    "final": "andom Llama inserted 56 quantizers, all 28 enabled ones were calibrated, and the logits stayed finite with a max difference of about 0.013 from the unquantized model.\n\nI didn't follow the README's `pip install -e .[dev]`; I installed CPU-only torch first, then the repo itself with just transformers and accelerate added, and the notes say so. I haven't re-run `setup.sh` on a fresh container myself."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 6
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 29,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 5
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 23:47:54"
+}

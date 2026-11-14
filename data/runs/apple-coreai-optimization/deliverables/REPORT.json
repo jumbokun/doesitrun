@@ -1,0 +1,6 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "finalize() requires coreai-torch; installed the optional extra coreai-opt[coreai] (coreai-torch==0.4.3, coreai-core==1.0.0b3)"},
+  {"kind": "gpu_compat", "detail": "Installed CPU-only torch from download.pytorch.org/whl/cpu instead of the default CUDA build"},
+  {"kind": "dependency_pin", "detail": "Pinned torch==2.13.0 and torchao==0.18.0 (the range validated by coreai-opt CI and coreai-torch) instead of the latest torch 2.15"}
+ ]}

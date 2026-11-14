@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Installed from the local clone into a uv venv (README only documents pip install from PyPI)"},
+  {"kind": "undocumented_step", "detail": "Bundled test certs lack authority identifiers; must set verifier._chain_verifier.enable_strict_checks = False (as tests/util.py does) for testNotification to verify"}
+ ]}

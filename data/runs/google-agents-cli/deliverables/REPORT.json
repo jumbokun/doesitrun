@@ -1,0 +1,5 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "undocumented_step", "detail": "Installed from cloned repo into a uv venv (uv pip install .) instead of `uvx google-agents-cli setup`, so agents-cli persists on PATH via env.sh"},
+  {"kind": "other", "detail": "Skipped Node.js/npx prerequisite; create only warns about skills query and still succeeds"}
+ ]}

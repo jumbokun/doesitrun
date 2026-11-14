@@ -1,0 +1,10 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.11: numpy==1.24.4 pin has no py3.12 wheel and fails to build (distutils removed)"},
+  {"kind": "dependency_pin", "detail": "Pinned paddlepaddle==2.6.2; Paddle 3.x makes predictor look for inference.json but downloaded model is .pdmodel"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0t64 for opencv-python (libGL.so.1 missing)"},
+  {"kind": "dependency_pin", "detail": "Installed setuptools into the uv venv; paddle imports it at import time"},
+  {"kind": "code_patch", "detail": "__init__.py appends package dir to sys.path so ppcls absolute 'import ppcls' works under editable install"},
+  {"kind": "undocumented_step", "detail": "Set PYTHONSAFEPATH=1 so repo-root paddleclas.py doesn't shadow the installed package when running python from /work/PaddleClas"},
+  {"kind": "doc_error", "detail": "Python API example uses docs/images/deployment/whl_demo.jpg; real path is docs/images/inference_deployment/whl_demo.jpg"}
+ ]}

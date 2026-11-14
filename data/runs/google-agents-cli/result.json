@@ -1,0 +1,41 @@
+{
+  "slug": "google-agents-cli",
+  "repo": "google/agents-cli",
+  "track": "cpu-gha",
+  "goal": "Install google-agents-cli from the cloned repo (or PyPI) so the `agents-cli` command works (Python 3.11+, uv available). Then `agents-cli create caveman-agent -y --skip-checks -o <some dir>` must scaffold a complete ADK Python agent project (pyproject.toml, app/agent.py defining root_agent) without any API key or Google Cloud login. Make `agents-cli` available on PATH via /work/env.sh.",
+  "check": "The hidden test runs `agents-cli create` into a fresh directory and verifies the generated project files (pyproject.toml, app/agent.py with root_agent) exist and are valid.",
+  "started": "2026-11-13 23:32:16",
+  "agent": {
+    "secs": 44,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "7c4bc1a3-8654-414f-a1ea-430a4936663a",
+    "num_turns": 6,
+    "cost_usd": 0.11637520000000001,
+    "is_error": false,
+    "final": "ttempts to reach the Google Cloud metadata server. These are harmless and the command still reports success.\n- **No changes to the project:** I didn't need any code patches or version pins.\n\n`NOTES.md` and `REPORT.json` record both deviations, with `readme_path_worked_as_written: false`.\n\nDONE — `agents-cli` installs from the cloned repo and scaffolds the caveman-agent project with no credentials."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 4
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 2,
+    "mem": "12g",
+    "oracle": {
+      "pass": true,
+      "secs": 4
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-13 23:33:34"
+}
