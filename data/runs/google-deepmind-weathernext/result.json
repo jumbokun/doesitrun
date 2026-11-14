@@ -37,5 +37,20 @@
     },
     "class": "fail: other"
   },
-  "finished": "2026-11-13 23:37:04"
+  "finished": "2026-11-13 23:37:04",
+  "audit": {
+    "verdict": "oracle_defect",
+    "reason": "The oracle failed only because its helper script /work/oracle_py/run_wn.py does not exist in this sandbox (python: can't open file ... Errno 2), so the oracle depends on a file from its own environment. Running the notebook's core flow myself (fiddle config WeatherNextCyclones_Mini, Mini <2024 weights, steps-01 sample, fgn with triblockdiag_mha, chunked_prediction_generator_multiple_runs with 2 members) on CPU worked: 2m_temperature was finite, ranged 209-315 K, had nonzero ensemble spread, and a 52 MB NetCDF was written.",
+    "evidence_cmd": "ls /work/oracle_py; source /work/env.sh; python -I /tmp/aud/run.py /work/data/sample_steps-01.nc '/work/data/WeatherNextCyclones_Mini_<2024.npz' /tmp/aud/pred.nc",
+    "evidence_out": "ls: cannot access '/work/oracle_py': No such file or directory | dims ('sample','time','batch','lat','lon') (2,1,1,181,360) finite True min/max 209.09 314.75 spread 0.249 / WROTE / pred.nc 52689301 bytes",
+    "setup_ok": true,
+    "oracle_rerun_pass": false,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 190,
+      "num_turns": 8,
+      "cost_usd": 0.19969339999999997
+    },
+    "audited": "2026-11-14 00:48:57"
+  }
 }

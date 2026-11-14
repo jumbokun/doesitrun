@@ -43,5 +43,20 @@
     },
     "class": "fail: other"
   },
-  "finished": "2026-11-14 00:24:43"
+  "finished": "2026-11-14 00:24:43",
+  "audit": {
+    "verdict": "oracle_defect",
+    "reason": "The script runs correctly with bc installed and is unmodified upstream code (git diff shows only a mode change): the gp3, io2 and st1 outputs all match the oracle's expectations. The oracle fails only on its io1 assertion. It expects 'throughput is 2500.00 MiB/s', but the upstream io1 function deliberately caps throughput at 500 MiB/s for <=32000 IOPS (io1 limit), and the README never promises otherwise; the goal also only names gp3, io2 and st1.",
+    "evidence_cmd": "source /work/env.sh; cd $VLC_DIR; printf 'io1\\n10000\\n' | bash volume_Limit_calculator.sh; git -C /work/aws-support-tools diff --stat",
+    "evidence_out": "> Maximum available IOPS are equal to the provisioned IOPS i.e 10000\n> Maximum Available throughput is 500 MiB/s ; diff: only old mode 100644 -> new mode 100755",
+    "setup_ok": true,
+    "oracle_rerun_pass": false,
+    "auditor": {
+      "model": "claude-opus-5-5",
+      "secs": 22,
+      "num_turns": 5,
+      "cost_usd": 0.0871232
+    },
+    "audited": "2026-11-14 00:46:42"
+  }
 }

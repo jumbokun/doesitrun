@@ -1204,111 +1204,6 @@
           "corrected": false
         },
         {
-          "repo": "apple/app-store-server-library-python",
-          "slug": "apple-app-store-server-l-eeba5",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "aws/aws-sam-cli",
-          "slug": "aws-aws-sam-cli",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 1.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/amazon-redshift-utils",
-          "slug": "awslabs-amazon-redshift-utils",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.4,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/aws-support-tools",
-          "slug": "awslabs-aws-support-tools",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.8,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "google-deepmind/weathernext",
-          "slug": "google-deepmind-weathernext",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 5.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "modelscope/FunClip",
           "slug": "modelscope-funclip",
           "score": 0,
@@ -1351,6 +1246,90 @@
           "corrected": false
         },
         {
+          "repo": "apple/app-store-server-library-python",
+          "slug": "apple-app-store-server-l-eeba5",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The bundled test certs have no Authority Key Identifier, so the default strict chain checks reject them. The repo's own test helper (tests/util.py:38) sets verifier._chain_verifier.enable_strict_checks = False for this reason ('We don't have authority identifiers on test certs'), and with that setting the repo's notification-decoding test passes here. The oracle builds the verifier without disabling strict checks, and the README never says Apple's test certs pass strict verification, so the bug is in the oracle; the signature part already passed.",
+          "corrected": false
+        },
+        {
+          "repo": "aws/aws-sam-cli",
+          "slug": "aws-aws-sam-cli",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 1.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The oracle's sam init call leaves out --dependency-manager. SAM CLI requires that flag with --runtime/--app-template in --no-interactive mode, and its error message says so explicitly. When I added --dependency-manager pip, sam init created the project and sam build produced .aws-sam/build/template.yaml and HelloWorldFunction/app.py, so the install works.",
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/amazon-redshift-utils",
+          "slug": "awslabs-amazon-redshift-utils",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.4,
+          "files_patched": 1,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "manifestgen.py wrote exactly OUTFILE-000..003.json, and between them they hold 101 unique entries (26/25/25/25) with the correct total size, mandatory=true, and the empty file left out. The oracle failed only because of a slicing bug: f[-8:] gives '000.json' (8 chars), but the expected strings like '-000.json' are 9 chars, so the filename assertion can never pass.",
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/aws-support-tools",
+          "slug": "awslabs-aws-support-tools",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.8,
+          "files_patched": 1,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The script runs correctly with bc installed and is unmodified upstream code (git diff shows only a mode change): the gp3, io2 and st1 outputs all match the oracle's expectations. The oracle fails only on its io1 assertion. It expects 'throughput is 2500.00 MiB/s', but the upstream io1 function deliberately caps throughput at 500 MiB/s for <=32000 IOPS (io1 limit), and the README never promises otherwise; the goal also only names gp3, io2 and st1.",
+          "corrected": false
+        },
+        {
           "repo": "facebookresearch/pytorch3d",
           "slug": "facebookresearch-pytorch3d",
           "score": null,
@@ -1369,6 +1348,27 @@
           ],
           "audit": "oracle_defect",
           "audit_reason": "The PyTorch3D pipeline itself worked: the cow mesh loaded, rendered to (1,256,256,4) on CPU, and passed the coverage (0.123) and texture std assertions. The oracle only crashed afterwards at `import matplotlib`, which it used just to save a PNG. matplotlib is an optional extra (setup.py 'all'; INSTALL.md lists it as needed only for tutorials/examples), and the stated goal only required import pytorch3d plus the render pipeline.",
+          "corrected": false
+        },
+        {
+          "repo": "google-deepmind/weathernext",
+          "slug": "google-deepmind-weathernext",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 5.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The oracle failed only because its helper script /work/oracle_py/run_wn.py does not exist in this sandbox (python: can't open file ... Errno 2), so the oracle depends on a file from its own environment. Running the notebook's core flow myself (fiddle config WeatherNextCyclones_Mini, Mini <2024 weights, steps-01 sample, fgn with triblockdiag_mha, chunked_prediction_generator_multiple_runs with 2 members) on CPU worked: 2m_temperature was finite, ranged 209-315 K, had nonzero ensemble spread, and a 52 MB NetCDF was written.",
           "corrected": false
         },
         {
@@ -1459,6 +1459,28 @@
       ],
       "companies": [
         {
+          "company": "Amazon",
+          "n": 7,
+          "mean": 97.9,
+          "teams": [
+            {
+              "team": "AWS Labs",
+              "n": 2,
+              "mean": 99.2
+            },
+            {
+              "team": "Amazon Science",
+              "n": 1,
+              "mean": 98.5
+            },
+            {
+              "team": "AWS",
+              "n": 4,
+              "mean": 97.1
+            }
+          ]
+        },
+        {
           "company": "OpenAI",
           "n": 2,
           "mean": 96.8,
@@ -1500,6 +1522,28 @@
           ]
         },
         {
+          "company": "Google",
+          "n": 10,
+          "mean": 90.7,
+          "teams": [
+            {
+              "team": "Google DeepMind",
+              "n": 2,
+              "mean": 96.9
+            },
+            {
+              "team": "Google",
+              "n": 5,
+              "mean": 91.0
+            },
+            {
+              "team": "Google Research",
+              "n": 3,
+              "mean": 86.1
+            }
+          ]
+        },
+        {
           "company": "Meta",
           "n": 2,
           "mean": 89.9,
@@ -1508,6 +1552,23 @@
               "team": "FAIR",
               "n": 2,
               "mean": 89.9
+            }
+          ]
+        },
+        {
+          "company": "Apple",
+          "n": 6,
+          "mean": 85.9,
+          "teams": [
+            {
+              "team": "Apple",
+              "n": 5,
+              "mean": 90.9
+            },
+            {
+              "team": "MLX",
+              "n": 1,
+              "mean": 60.7
             }
           ]
         },
@@ -1529,28 +1590,6 @@
           ]
         },
         {
-          "company": "Google",
-          "n": 11,
-          "mean": 82.5,
-          "teams": [
-            {
-              "team": "Google",
-              "n": 5,
-              "mean": 91.0
-            },
-            {
-              "team": "Google Research",
-              "n": 3,
-              "mean": 86.1
-            },
-            {
-              "team": "Google DeepMind",
-              "n": 3,
-              "mean": 64.6
-            }
-          ]
-        },
-        {
           "company": "Alibaba",
           "n": 7,
           "mean": 79.1,
@@ -1564,45 +1603,6 @@
               "team": "ModelScope",
               "n": 6,
               "mean": 76.0
-            }
-          ]
-        },
-        {
-          "company": "Apple",
-          "n": 7,
-          "mean": 73.6,
-          "teams": [
-            {
-              "team": "Apple",
-              "n": 6,
-              "mean": 75.8
-            },
-            {
-              "team": "MLX",
-              "n": 1,
-              "mean": 60.7
-            }
-          ]
-        },
-        {
-          "company": "Amazon",
-          "n": 10,
-          "mean": 68.5,
-          "teams": [
-            {
-              "team": "Amazon Science",
-              "n": 1,
-              "mean": 98.5
-            },
-            {
-              "team": "AWS",
-              "n": 5,
-              "mean": 77.6
-            },
-            {
-              "team": "AWS Labs",
-              "n": 4,
-              "mean": 49.6
             }
           ]
         },
@@ -3661,90 +3661,6 @@
           "corrected": false
         },
         {
-          "repo": "apple/app-store-server-library-python",
-          "slug": "apple-app-store-server-l-eeba5",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "aws/aws-sam-cli",
-          "slug": "aws-aws-sam-cli",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 1.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/amazon-redshift-utils",
-          "slug": "awslabs-amazon-redshift-utils",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.4,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
-          "repo": "awslabs/aws-support-tools",
-          "slug": "awslabs-aws-support-tools",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 0.8,
-          "files_patched": 1,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false
-        },
-        {
           "repo": "bytedance/Dolphin",
           "slug": "bytedance-dolphin",
           "score": 0,
@@ -3784,27 +3700,6 @@
           ],
           "audit": "repo_failure",
           "audit_reason": "The da3 CLI crashes at import with ModuleNotFoundError: No module named 'addict', before any inference happens. src/depth_anything_3/model/da3.py imports addict unconditionally, but pyproject.toml does not list addict as a dependency, so the README's `pip install -e .` cannot give a working CLI. The installer's setup.sh did try to add addict/scikit-learn by hand, but they are not in the venv now, so the install is broken in this sandbox. The oracle's checks are not the cause.",
-          "corrected": false
-        },
-        {
-          "repo": "google-deepmind/weathernext",
-          "slug": "google-deepmind-weathernext",
-          "score": 0,
-          "why": "agent could not reproduce",
-          "agent_minutes": 5.3,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "fail: other",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
           "corrected": false
         },
         {
@@ -3935,6 +3830,90 @@
           "corrected": false
         },
         {
+          "repo": "apple/app-store-server-library-python",
+          "slug": "apple-app-store-server-l-eeba5",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The bundled test certs have no Authority Key Identifier, so the default strict chain checks reject them. The repo's own test helper (tests/util.py:38) sets verifier._chain_verifier.enable_strict_checks = False for this reason ('We don't have authority identifiers on test certs'), and with that setting the repo's notification-decoding test passes here. The oracle builds the verifier without disabling strict checks, and the README never says Apple's test certs pass strict verification, so the bug is in the oracle; the signature part already passed.",
+          "corrected": false
+        },
+        {
+          "repo": "aws/aws-sam-cli",
+          "slug": "aws-aws-sam-cli",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 1.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The oracle's sam init call leaves out --dependency-manager. SAM CLI requires that flag with --runtime/--app-template in --no-interactive mode, and its error message says so explicitly. When I added --dependency-manager pip, sam init created the project and sam build produced .aws-sam/build/template.yaml and HelloWorldFunction/app.py, so the install works.",
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/amazon-redshift-utils",
+          "slug": "awslabs-amazon-redshift-utils",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.4,
+          "files_patched": 1,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "manifestgen.py wrote exactly OUTFILE-000..003.json, and between them they hold 101 unique entries (26/25/25/25) with the correct total size, mandatory=true, and the empty file left out. The oracle failed only because of a slicing bug: f[-8:] gives '000.json' (8 chars), but the expected strings like '-000.json' are 9 chars, so the filename assertion can never pass.",
+          "corrected": false
+        },
+        {
+          "repo": "awslabs/aws-support-tools",
+          "slug": "awslabs-aws-support-tools",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 0.8,
+          "files_patched": 1,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The script runs correctly with bc installed and is unmodified upstream code (git diff shows only a mode change): the gp3, io2 and st1 outputs all match the oracle's expectations. The oracle fails only on its io1 assertion. It expects 'throughput is 2500.00 MiB/s', but the upstream io1 function deliberately caps throughput at 500 MiB/s for <=32000 IOPS (io1 limit), and the README never promises otherwise; the goal also only names gp3, io2 and st1.",
+          "corrected": false
+        },
+        {
           "repo": "bytedance/UI-TARS",
           "slug": "bytedance-ui-tars",
           "score": null,
@@ -3995,6 +3974,27 @@
           ],
           "audit": "oracle_defect",
           "audit_reason": "The PyTorch3D pipeline itself worked: the cow mesh loaded, rendered to (1,256,256,4) on CPU, and passed the coverage (0.123) and texture std assertions. The oracle only crashed afterwards at `import matplotlib`, which it used just to save a PNG. matplotlib is an optional extra (setup.py 'all'; INSTALL.md lists it as needed only for tutorials/examples), and the stated goal only required import pytorch3d plus the render pipeline.",
+          "corrected": false
+        },
+        {
+          "repo": "google-deepmind/weathernext",
+          "slug": "google-deepmind-weathernext",
+          "score": null,
+          "why": "not scored: the pre-registered audit found the hidden oracle defective",
+          "agent_minutes": 5.3,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "fail: other",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": "oracle_defect",
+          "audit_reason": "The oracle failed only because its helper script /work/oracle_py/run_wn.py does not exist in this sandbox (python: can't open file ... Errno 2), so the oracle depends on a file from its own environment. Running the notebook's core flow myself (fiddle config WeatherNextCyclones_Mini, Mini <2024 weights, steps-01 sample, fgn with triblockdiag_mha, chunked_prediction_generator_multiple_runs with 2 members) on CPU worked: 2m_temperature was finite, ranged 209-315 K, had nonzero ensemble spread, and a 52 MB NetCDF was written.",
           "corrected": false
         },
         {
@@ -4148,6 +4148,28 @@
       ],
       "companies": [
         {
+          "company": "Amazon",
+          "n": 7,
+          "mean": 97.9,
+          "teams": [
+            {
+              "team": "AWS Labs",
+              "n": 2,
+              "mean": 99.2
+            },
+            {
+              "team": "Amazon Science",
+              "n": 1,
+              "mean": 98.5
+            },
+            {
+              "team": "AWS",
+              "n": 4,
+              "mean": 97.1
+            }
+          ]
+        },
+        {
           "company": "Microsoft",
           "n": 12,
           "mean": 94.5,
@@ -4168,6 +4190,23 @@
               "team": "FAIR",
               "n": 9,
               "mean": 92.8
+            }
+          ]
+        },
+        {
+          "company": "Apple",
+          "n": 7,
+          "mean": 87.7,
+          "teams": [
+            {
+              "team": "Apple",
+              "n": 5,
+              "mean": 90.9
+            },
+            {
+              "team": "MLX",
+              "n": 2,
+              "mean": 79.7
             }
           ]
         },
@@ -4218,19 +4257,24 @@
           ]
         },
         {
-          "company": "Apple",
-          "n": 8,
-          "mean": 76.7,
+          "company": "Google",
+          "n": 13,
+          "mean": 76.0,
           "teams": [
             {
-              "team": "MLX",
-              "n": 2,
-              "mean": 79.7
+              "team": "Google DeepMind",
+              "n": 3,
+              "mean": 91.4
             },
             {
-              "team": "Apple",
+              "team": "Google",
               "n": 6,
               "mean": 75.8
+            },
+            {
+              "team": "Google Research",
+              "n": 4,
+              "mean": 64.5
             }
           ]
         },
@@ -4248,50 +4292,6 @@
               "team": "NVIDIA Research",
               "n": 6,
               "mean": 67.3
-            }
-          ]
-        },
-        {
-          "company": "Google",
-          "n": 14,
-          "mean": 70.5,
-          "teams": [
-            {
-              "team": "Google",
-              "n": 6,
-              "mean": 75.8
-            },
-            {
-              "team": "Google DeepMind",
-              "n": 4,
-              "mean": 68.5
-            },
-            {
-              "team": "Google Research",
-              "n": 4,
-              "mean": 64.5
-            }
-          ]
-        },
-        {
-          "company": "Amazon",
-          "n": 10,
-          "mean": 68.5,
-          "teams": [
-            {
-              "team": "Amazon Science",
-              "n": 1,
-              "mean": 98.5
-            },
-            {
-              "team": "AWS",
-              "n": 5,
-              "mean": 77.6
-            },
-            {
-              "team": "AWS Labs",
-              "n": 4,
-              "mean": 49.6
             }
           ]
         },
