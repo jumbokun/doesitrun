@@ -13,6 +13,7 @@ import socket
 import subprocess
 import sys
 import threading
+import time
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import run_probe  # noqa: E402
@@ -71,6 +72,15 @@ def verify():
                     ("internet hf", "-o /dev/null -w %{http_code} https://huggingface.co/api/models?limit=1")]
         out = subprocess.run(["docker", "exec", name, "bash", "-c", curl_lines(targets + cloud + internet)],
                              capture_output=True, text=True).stdout
+        for _ in range(4):
+            # Egress right after container start is sometimes not ready within curl's 4 s; retry only the
+            # internet probes. The isolation probes above are never retried, so a leak cannot be retried away.
+            if "pypi -> 200" in out and "hf -> 200" in out:
+                break
+            time.sleep(5)
+            out += "\nretry:\n" + subprocess.run(
+                ["docker", "exec", name, "bash", "-c", curl_lines(internet).replace("-m 4", "-m 15")],
+                capture_output=True, text=True).stdout
         subprocess.run(["docker", "rm", "-f", name], capture_output=True)
 
         controls = [h for h in ("192.168.65.254", gateway("bridge")) if h]
