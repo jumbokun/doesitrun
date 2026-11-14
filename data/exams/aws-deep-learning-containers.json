@@ -12,10 +12,36 @@
     "cost_usd": 0.0828474,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "The docs/llama-cpp EC2 deployment guide shows a CPU-only llama-server container serving a 0.5B GGUF model (~400 MB, ungated) through an OpenAI-compatible API.",
+  "eligible": false,
+  "reason": "Reclassified on review: the only CPU route in docs/llama-cpp/deployment/ec2.md is `docker run` of the server-cpu-v1 image, and our sandbox has no Docker; the original goal allowed an upstream llama.cpp build instead, so its pass tested llama.cpp, not this repo.",
   "demo": "docs/llama-cpp/deployment/ec2.md, section 'CPU (x86)' (docker run of llama-cpp:server-cpu-v1 with Qwen2.5-0.5B-Instruct GGUF, then curl /health and /v1/chat/completions)",
-  "goal": "Get the llama.cpp CPU server from the README-linked docs/llama-cpp/deployment/ec2.md serving ggml-org/Qwen2.5-0.5B-Instruct-GGUF (qwen2.5-0.5b-instruct-q4_0.gguf, --ctx-size 4096) on port 8080 on CPU. The public.ecr.aws/deep-learning-containers/llama-cpp:server-cpu-v1 image is the documented route; if Docker is unavailable, an equivalent llama-server (llama.cpp) build with the same model is acceptable. /work/run.sh must start the server in the background and return only once http://localhost:8080/health is ready; /v1/chat/completions must then answer a chat request.",
-  "check": "The hidden test starts the server via run.sh, then checks that /health returns 200 and a chat completion request on localhost:8080 returns HTTP 200 with a non-empty assistant message that is relevant to the question asked.",
-  "server": true
+  "goal": "",
+  "check": "",
+  "server": true,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal leaks a workaround the docs don't give: 'if Docker is unavailable, an equivalent llama-server (llama.cpp) build with the same model is acceptable'. The probe followed it and built upstream ggml-org/llama.cpp from source. The pass therefore validates upstream llama.cpp, not the repo's deliverable (the server-cpu-v1 image or its entrypoint)",
+      "If the sandbox can't run Docker, the documented route is infeasible; then this slug should be recorded as not runnable here rather than credited as a pass",
+      "Documented model repo ggml-org/Qwen2.5-0.5B-Instruct-GGUF returns HTTP 401 today, so the doc command as written can't fetch the model (a repo/doc defect, not an oracle one)",
+      "The oracle is fine: health 200, chat 200, greedy 0.5B answer mentioning Paris, completion_tokens>0"
+    ],
+    "evidence": [
+      "data/exams/aws-deep-learning-containers.json goal - '...if Docker is unavailable, an equivalent llama-server (llama.cpp) build with the same model is acceptable'",
+      "docs/llama-cpp/deployment/ec2.md 'CPU (x86)' - only route is docker run public.ecr.aws/deep-learning-containers/llama-cpp:server-cpu-v1",
+      "data/runs/aws-deep-learning-containers/deliverables/setup.sh - clones ggml-org/llama.cpp and builds llama-server; REPORT.json intervention 'Docker unavailable'",
+      "curl https://huggingface.co/api/models/ggml-org/Qwen2.5-0.5B-Instruct-GGUF -> 401 (2026-11-14); Qwen/Qwen2.5-0.5B-Instruct-GGUF -> 200"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The docs/llama-cpp EC2 deployment guide shows a CPU-only llama-server container serving a 0.5B GGUF model (~400 MB, ungated) through an OpenAI-compatible API.",
+      "demo": "docs/llama-cpp/deployment/ec2.md, section 'CPU (x86)' (docker run of llama-cpp:server-cpu-v1 with Qwen2.5-0.5B-Instruct GGUF, then curl /health and /v1/chat/completions)",
+      "goal": "Get the llama.cpp CPU server from the README-linked docs/llama-cpp/deployment/ec2.md serving ggml-org/Qwen2.5-0.5B-Instruct-GGUF (qwen2.5-0.5b-instruct-q4_0.gguf, --ctx-size 4096) on port 8080 on CPU. The public.ecr.aws/deep-learning-containers/llama-cpp:server-cpu-v1 image is the documented route; if Docker is unavailable, an equivalent llama-server (llama.cpp) build with the same model is acceptable. /work/run.sh must start the server in the background and return only once http://localhost:8080/health is ready; /v1/chat/completions must then answer a chat request.",
+      "check": "The hidden test starts the server via run.sh, then checks that /health returns 200 and a chat completion request on localhost:8080 returns HTTP 200 with a non-empty assistant message that is relevant to the question asked.",
+      "server": true
+    }
+  }
 }

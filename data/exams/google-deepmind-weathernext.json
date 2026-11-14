@@ -14,8 +14,36 @@
   },
   "eligible": true,
   "reason": "The README quick start (wn2_demo notebook) runs the 1-degree WeatherNextCyclones_Mini model with public anonymous GCS weights (226 MB) and sample HRES data, feasible on CPU.",
-  "demo": "README 'Quick Start Guide' - docs/weathernext2/wn2_demo.ipynb (WeatherNextCyclones_Mini, 1.0 degree data)",
-  "goal": "Install the weathernext package (pip install from the repo, with its jax/haiku/xarray_jax dependencies) so that the notebook's core flow works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-01.nc from the public bucket dm_graphcast, then run an autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Use the GPU attention setting (attention_type 'triblockdiag_mha') if the CPU needs it. Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
-  "check": "A standalone script re-runs the Mini-model 2-member ensemble rollout on the sample data and checks the predictions are finite, physically plausible 2m temperatures with ensemble spread and writes a NetCDF output.",
-  "server": false
+  "demo": "README 'Quick Start Guide' - docs/weathernext2/wn2_demo.ipynb core flow (WeatherNextCyclones_Mini, 1.0 degree, steps-04 sample), plotting/tracker cells omitted",
+  "goal": "Install the weathernext package from /work/weathernext (pip install from the repo, as the notebook's install cell does) so the core flow of docs/weathernext2/wn2_demo.ipynb works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-04.nc from the public bucket dm_graphcast, then run the notebook's autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
+  "check": "A standalone script downloads the public weights and steps-04 sample, runs a 2-member, 4-step Mini-model ensemble rollout on CPU, and checks finite, physically plausible 2m temperatures, nonzero ensemble spread, a 6h forecast close to the sample's target, and a written NetCDF output.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle runs `python -I /work/oracle_py/run_wn.py`, a helper that is never copied into the sandbox (only oracles/<slug>.sh is), so it fails for every install — an oracle_defect",
+      "The `-I` flag also drops PYTHONPATH, which would wrongly fail an install that works through env.sh's PYTHONPATH",
+      "The steps-01 sample gives a single 6h step, so the 'autoregressive rollout' never feeds predictions back; v2 uses the notebook-listed steps-04 file (4 steps), so the goal's file name changes",
+      "The old oracle checked only file sizes and a 'WROTE' line; v2 inlines the notebook flow and checks finiteness, a plausible 2m-temperature range, nonzero ensemble spread and 6h RMSE against the sample's own target"
+    ],
+    "evidence": [
+      "oracles/google-deepmind-weathernext.sh:8 — `python -I /work/oracle_py/run_wn.py` (helper not in /oracle)",
+      "data/runs/google-deepmind-weathernext/result.json audit.evidence_out — 'ls: cannot access /work/oracle_py: No such file or directory'",
+      "src/google-deepmind-weathernext/docs/weathernext2/wn2_demo.ipynb:269 — 'Steps must be one of \"01\", \"04\", \"12\", \"20\", or \"30\"' (notebook default 20)",
+      "src/google-deepmind-weathernext/docs/weathernext2/wn2_demo.ipynb:397-398 — triblockdiag_mha is switched only for GPU; v2 applies it for any non-TPU backend inside the oracle itself",
+      "curl -I on storage.googleapis.com/dm_graphcast/weathernext2/dataset/...steps-04.nc — 200, 158535239 bytes (public, anonymous)",
+      "src/google-deepmind-weathernext/weathernext/utils/fiddle_config_io.py:135-143 — config name resolves to weathernext/weathernext2/configs/WeatherNextCyclones_Mini.json shipped as package_data"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The README quick start (wn2_demo notebook) runs the 1-degree WeatherNextCyclones_Mini model with public anonymous GCS weights (226 MB) and sample HRES data, feasible on CPU.",
+      "demo": "README 'Quick Start Guide' - docs/weathernext2/wn2_demo.ipynb (WeatherNextCyclones_Mini, 1.0 degree data)",
+      "goal": "Install the weathernext package (pip install from the repo, with its jax/haiku/xarray_jax dependencies) so that the notebook's core flow works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-01.nc from the public bucket dm_graphcast, then run an autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Use the GPU attention setting (attention_type 'triblockdiag_mha') if the CPU needs it. Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
+      "check": "A standalone script re-runs the Mini-model 2-member ensemble rollout on the sample data and checks the predictions are finite, physically plausible 2m temperatures with ensemble spread and writes a NetCDF output.",
+      "server": false
+    }
+  }
 }

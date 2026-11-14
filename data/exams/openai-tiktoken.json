@@ -15,7 +15,34 @@
   "eligible": true,
   "reason": "README quickstart is a pure-Python tokeniser demo that runs on CPU, needing only a Rust build and a public BPE vocab download (no key).",
   "demo": "README top quickstart: tiktoken.get_encoding('o200k_base') encode/decode round trip and encoding_for_model('gpt-4o')",
-  "goal": "Install tiktoken from the /work/tiktoken clone (it builds a Rust extension) so that `import tiktoken` works. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. Also cl100k_base should work.",
-  "check": "The hidden test runs Python that encodes and decodes text with several encodings and checks exact token ids and round trips.",
-  "server": false
+  "goal": "Install tiktoken from the /work/tiktoken clone so that `import tiktoken` works in the environment /work/env.sh activates. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. The gpt2 and cl100k_base encodings should work too.",
+  "check": "The hidden test runs Python outside the repo directory that encodes and decodes text with several encodings and checks exact token ids, special-token handling and round trips.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle bug (confirms the audit): `cd /work/tiktoken` puts the source package tiktoken/ (which has no compiled tiktoken._tiktoken) first on sys.path for `python -`. It shadows the correctly installed package, so a correct install fails with ImportError.",
+      "The goal leaks an install hint: '(it builds a Rust extension)'. The README only says `pip install tiktoken` and never mentions Rust; the need shows up only in setup.py/pyproject.toml.",
+      "v2 runs from a fresh mktemp dir and also adds the repo's own exact-id tests for gpt2, the special-token behaviour (allowed_special / ValueError) and encode_batch."
+    ],
+    "evidence": [
+      "src/openai-tiktoken@79dc2c05 setup.py:6-8 — RustExtension 'tiktoken._tiktoken' is built at install time; the checkout's tiktoken/ dir has only .py files (__init__, core, load, model, registry, _educational)",
+      "oracles/openai-tiktoken.sh:3 — `cd /work/tiktoken` before `python -`",
+      "data/runs/openai-tiktoken/result.json audit — the same body run from /tmp passes every assertion, including o200k 'hello world' == [24912, 2375]",
+      "src/openai-tiktoken README.md:15-18 — only `pip install tiktoken`, no mention of Rust; pyproject.toml:20,26 is where setuptools-rust and rustup appear",
+      "src/openai-tiktoken tests/test_encoding.py:15-22 — gpt2 [31373, 995], cl100k [15339, 1917], 'hello <|endoftext|>' with allowed_special='all' -> [15339, 220, 100257]",
+      "src/openai-tiktoken tiktoken/core.py:441-442 raise_disallowed_special_token -> ValueError; core.py:178 encode_batch; tiktoken/model.py:37-38 gpt-4o -> o200k_base, gpt-4 -> cl100k_base"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README quickstart is a pure-Python tokeniser demo that runs on CPU, needing only a Rust build and a public BPE vocab download (no key).",
+      "demo": "README top quickstart: tiktoken.get_encoding('o200k_base') encode/decode round trip and encoding_for_model('gpt-4o')",
+      "goal": "Install tiktoken from the /work/tiktoken clone (it builds a Rust extension) so that `import tiktoken` works. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. Also cl100k_base should work.",
+      "check": "The hidden test runs Python that encodes and decodes text with several encodings and checks exact token ids and round trips.",
+      "server": false
+    }
+  }
 }

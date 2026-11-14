@@ -12,10 +12,34 @@
     "cost_usd": 0.051070199999999996,
     "timed_out": false
   },
-  "eligible": false,
-  "reason": "Every README usage example (train, fine-tune, eval, decode) uses t5_mesh_transformer with Cloud TPU and GCS bucket flags and needs GCP setup, and the only easy quickstart is a TPU Colab notebook, so there is no demo that runs on CPU alone.",
-  "demo": "README Usage: Training / Fine-tuning / Decoding with t5_mesh_transformer",
-  "goal": "",
-  "check": "",
-  "server": false
+  "eligible": true,
+  "reason": "Re-included on review: Exclusion reason 'every README usage example uses t5_mesh_transformer with Cloud TPU' is false: the README's t5.models section links an official HfPyTorchModel usage example that explicitly selects torch.device('cpu') when CUDA is absent, and t5-base (220M) inference is easily CPU-feasible. No GPU/TPU requirement is stated for this path; the default vocabulary lives in the public gs://t5-data bucket.",
+  "demo": "README t5.models section -> linked HfPyTorchModel usage example (t5/models/hf_model.py docstring): HfPyTorchModel('t5-base', model_dir, device).predict(...) on CPU",
+  "goal": "Install the t5 library (README: pip install t5[gcp], or from the /work/text-to-text-transfer-transformer clone) so that the HfPyTorchModel usage example linked from the README's t5.models section works on this CPU-only machine: `t5.models.HfPyTorchModel('t5-base', <model_dir>, torch.device('cpu')).predict([...task-prefixed inputs...], sequence_length={'inputs': 32}, batch_size=2, output_file=<file>)` must load the pretrained t5-base checkpoint and write one decoded prediction per input to the output file. Provide /work/env.sh that activates this environment.",
+  "check": "The hidden test runs HfPyTorchModel.predict with t5-base on CPU on a few task-prefixed inputs (English-German and English-French translation, CoLA) and verifies the prediction file contains correct translations and CoLA labels.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "should_test",
+    "issues": [
+      "Exclusion reason 'every README usage example uses t5_mesh_transformer with Cloud TPU' is false: the README's t5.models section links an official HfPyTorchModel usage example that explicitly selects torch.device('cpu') when CUDA is absent, and t5-base (220M) inference is easily CPU-feasible. No GPU/TPU requirement is stated for this path; the default vocabulary lives in the public gs://t5-data bucket."
+    ],
+    "evidence": [
+      "src/google-research-text-to-25965/README.md:90-96 - HfPyTorchModel shim described; 'A usage example of HfPyTorchModel is available here' (link to hf_model.py)",
+      "src/google-research-text-to-25965/t5/models/hf_model.py:24-74 - example: 'if torch.cuda.is_available(): ... else: device = torch.device(\"cpu\")', HfPyTorchModel('t5-base', ...), model.predict(...)",
+      "src/google-research-text-to-25965/t5/models/hf_model.py:178-212,458-537 - constructor moves to cuda only when device.type=='cuda'; predict writes output_file",
+      "src/google-research-text-to-25965/t5/data/utils.py:20,24-25 - default vocab gs://t5-data/vocabs/cc_all.32000/sentencepiece.model",
+      "src/google-research-text-to-25965/README.md:156-162 - install: pip install t5[gcp]"
+    ],
+    "previous": {
+      "eligible": false,
+      "reason": "Every README usage example (train, fine-tune, eval, decode) uses t5_mesh_transformer with Cloud TPU and GCS bucket flags and needs GCP setup, and the only easy quickstart is a TPU Colab notebook, so there is no demo that runs on CPU alone.",
+      "demo": "README Usage: Training / Fine-tuning / Decoding with t5_mesh_transformer",
+      "goal": "",
+      "check": "",
+      "server": false
+    }
+  }
 }

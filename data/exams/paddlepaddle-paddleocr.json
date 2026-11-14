@@ -15,7 +15,29 @@
   "eligible": true,
   "reason": "README quick start offers a `paddleocr ocr` CLI using small PP-OCRv5 models that run on CPU with a few hundred MB of downloads.",
   "demo": "docs/quick_start.en.md / README: install paddlepaddle (CPU) + paddleocr, run `paddleocr ocr -i <image>`",
-  "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI work on CPU. It must download the default PP-OCRv5 models and run text detection and recognition on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
+  "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI (with --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False as in docs/quick_start.en.md) work on CPU. It must download the default text detection and recognition models and run them on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
   "check": "Runs the paddleocr OCR CLI on a freshly generated image with known English text and verifies the saved JSON contains the recognized words and a visualization image is written.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal says the CLI 'must download the default PP-OCRv5 models', but at the tested commit the default (lang=None, ocr_version=None) is PP-OCRv6_medium_det/rec; the goal misstates the repo (the probe spent effort caching v5 as well). The oracle is version-agnostic and correct: documented flags (docs/quick_start.en.md:57-61), saved JSON has top-level rec_texts, visualization png saved."
+    ],
+    "evidence": [
+      "src/paddlepaddle-paddleocr/paddleocr/_pipelines/ocr.py:330-331 - 'if lang is None and ppocr_version is None: return \"PP-OCRv6_medium_det\", \"PP-OCRv6_medium_rec\"'",
+      "src/paddlepaddle-paddleocr/README.md:47-49 - PP-OCRv6 is the current series",
+      "data/runs/paddlepaddle-paddleocr/result.json agent.final - 'current main defaults to PP-OCRv6 models, not PP-OCRv5'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README quick start offers a `paddleocr ocr` CLI using small PP-OCRv5 models that run on CPU with a few hundred MB of downloads.",
+      "demo": "docs/quick_start.en.md / README: install paddlepaddle (CPU) + paddleocr, run `paddleocr ocr -i <image>`",
+      "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI work on CPU. It must download the default PP-OCRv5 models and run text detection and recognition on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
+      "check": "Runs the paddleocr OCR CLI on a freshly generated image with known English text and verifies the saved JSON contains the recognized words and a visualization image is written.",
+      "server": false
+    }
+  }
 }

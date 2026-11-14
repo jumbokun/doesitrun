@@ -12,10 +12,36 @@
     "cost_usd": 0.0259249,
     "timed_out": false
   },
-  "eligible": false,
-  "reason": "Every README quickstart example (Hello World, MCP, AgentTool orchestration) calls the OpenAI API and requires a paid OPENAI_API_KEY; the project is also archived.",
-  "demo": "README Quickstart / Hello World",
-  "goal": "",
-  "check": "",
-  "server": false
+  "eligible": true,
+  "reason": "Re-included on review: The reason is true for the README's AgentChat samples (README.md:51 'The following samples call OpenAI API'), but the docs the README links include a key-free Core quickstart: Modifier/Checker agents counting down on SingleThreadedAgentRuntime with no model at all - a concrete CPU demo of AutoGen's core runtime.; AgentChat can be exercised without a key via the shipped ReplayChatCompletionClient (autogen_ext.models.replay), documented with usage examples; the README Hello World runs unchanged except for the model client.; 'Archived' is not an eligibility criterion; the packages are on PyPI (au",
+  "demo": "AutoGen Core quickstart (python/docs/src/user-guide/core-user-guide/quickstart.ipynb, in the docs the README links) plus README 'Hello World' run with the offline ReplayChatCompletionClient",
+  "goal": "Install AutoGen as the README says (pip install -U \"autogen-agentchat\" \"autogen-ext[openai]\") so that, with no API key: (1) the Core quickstart from the docs (Modifier and Checker agents on SingleThreadedAgentRuntime counting down from 10, wrapped in asyncio.run as the notebook's note says) runs and prints the countdown ending in '1 failed the check, stopping.'; and (2) the README Hello World (AssistantAgent('assistant', model_client=...).run(task=\"Say 'Hello World!'\")) runs end to end when the model client is autogen_ext.models.replay.ReplayChatCompletionClient(['Hello World!']). /work/env.sh must activate the environment.",
+  "check": "A hidden script runs the Core quickstart and the replay-client Hello World from a fresh directory and verifies the full countdown trace and that the assistant's final message is the replayed reply.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "should_test",
+    "issues": [
+      "The reason is true for the README's AgentChat samples (README.md:51 'The following samples call OpenAI API'), but the docs the README links include a key-free Core quickstart: Modifier/Checker agents counting down on SingleThreadedAgentRuntime with no model at all - a concrete CPU demo of AutoGen's core runtime.",
+      "AgentChat can be exercised without a key via the shipped ReplayChatCompletionClient (autogen_ext.models.replay), documented with usage examples; the README Hello World runs unchanged except for the model client.",
+      "'Archived' is not an eligibility criterion; the packages are on PyPI (autogen-core 0.7.5 at this commit) and installable the way the README says."
+    ],
+    "evidence": [
+      "README.md:39 - pip install -U \"autogen-agentchat\" \"autogen-ext[openai]\"; README.md:51 - OpenAI key needed for the samples that follow",
+      "python/docs/src/user-guide/core-user-guide/quickstart.ipynb - Modifier/Checker example; recorded output 'Modified 10 to 9' ... '1 failed the check, stopping.'; no model client",
+      "python/packages/autogen-ext/src/autogen_ext/models/replay/_replay_chat_completion_client.py - 'A mock chat completion client that replays predefined responses', with examples",
+      "python/packages/autogen-agentchat/src/autogen_agentchat/agents/_base_chat_agent.py:126-153 - run(task=str) returns TaskResult ending with the agent's chat_message",
+      "python/packages/autogen-core/pyproject.toml:7 - version 0.7.5"
+    ],
+    "previous": {
+      "eligible": false,
+      "reason": "Every README quickstart example (Hello World, MCP, AgentTool orchestration) calls the OpenAI API and requires a paid OPENAI_API_KEY; the project is also archived.",
+      "demo": "README Quickstart / Hello World",
+      "goal": "",
+      "check": "",
+      "server": false
+    }
+  }
 }

@@ -17,5 +17,30 @@
   "demo": "README Get Started, Option 2: pip install data_formulator && python -m data_formulator (web UI at http://localhost:5567)",
   "goal": "Install Data Formulator from the cloned repo (or pip) and start the web server with `python -m data_formulator` on port 5567 (frontend must be served at /). Provide /work/env.sh and /work/run.sh that start the server in the background and return once it is ready. No LLM API key is needed; the data upload/workspace API must work: uploading a CSV through POST /api/tables/create-table and reading it back through /api/tables/list-tables, get-table and sample-table.",
   "check": "The hidden test checks that the server serves the web UI and app-config, then uploads a generated CSV as a table and verifies it is listed and returns the correct rows and counts.",
-  "server": true
+  "server": true,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle's /api/tables/* curl calls omit the X-Workspace-Id header; the backend requires it by design (the frontend always sends it and the workspace is created lazily), so every table call fails on a correct install.",
+      "get-table was only substring-checked; v2 also checks total_rows and page length against the source's response fields."
+    ],
+    "evidence": [
+      "py-src/data_formulator/workspace_factory.py:120-135 - get_active_workspace_id reads X-Workspace-Id; get_workspace raises 'No active workspace. X-Workspace-Id header is required.'",
+      "py-src/data_formulator/workspace_factory.py:137-147 - unknown workspace ids are created on first use",
+      "py-src/data_formulator/auth/identity.py:165-180 - single-user localhost identity, no login",
+      "py-src/data_formulator/routes/tables.py:605-659 (sample-table rows/total_row_count), 661-705 (get-table total_rows/rows), 782-860 (create-table table_name/row_count/columns)",
+      "data/runs/microsoft-data-formulator/result.json audit - with the header, create-table returns success and list-tables shows the table"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Data Formulator's local web app (pip install data_formulator; python -m data_formulator) starts on CPU and its data loading/workspace features work without any LLM key.",
+      "demo": "README Get Started, Option 2: pip install data_formulator && python -m data_formulator (web UI at http://localhost:5567)",
+      "goal": "Install Data Formulator from the cloned repo (or pip) and start the web server with `python -m data_formulator` on port 5567 (frontend must be served at /). Provide /work/env.sh and /work/run.sh that start the server in the background and return once it is ready. No LLM API key is needed; the data upload/workspace API must work: uploading a CSV through POST /api/tables/create-table and reading it back through /api/tables/list-tables, get-table and sample-table.",
+      "check": "The hidden test checks that the server serves the web UI and app-config, then uploads a generated CSV as a table and verifies it is listed and returns the correct rows and counts.",
+      "server": true
+    }
+  }
 }

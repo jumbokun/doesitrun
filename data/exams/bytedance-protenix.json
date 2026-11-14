@@ -14,8 +14,34 @@
   },
   "eligible": true,
   "reason": "README gives a pip-installable `protenix pred` CLI that runs structure prediction from a JSON file with public weights, feasible on CPU for a small protein without MSA.",
-  "demo": "README 'Quick Prediction': protenix pred -i examples/input.json -o ./output -n protenix_base_default_v1.0.0",
-  "goal": "Install Protenix (CPU only, no GPU) so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically; avoid anything needing GPU-only kernels. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
-  "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with plausible atom count and a confidence summary json are produced.",
-  "server": false
+  "demo": "README 'Quick Prediction': protenix pred -i ... -o ... -n protenix_base_default_v1.0.0 (CPU-usable flags from inference_demo.sh / docs)",
+  "goal": "Install Protenix (README: pip install protenix, or from the /work/Protenix clone) on this CPU-only machine so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1 --trimul_kernel torch --triatt_kernel torch` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
+  "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with the full atom set and plausible backbone geometry, and a confidence summary json with a reasonable pLDDT.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle runs `protenix pred` without the documented kernel options; the CLI defaults are --trimul_kernel/--triatt_kernel 'cuequivariance' (CUDA-only), so a CPU user following the docs (who would pass --trimul_kernel torch --triatt_kernel torch) cannot make the oracle's exact command work without patching the repo; the passing run patched runner/inference.py to change the defaults. v2 passes the documented torch kernels.",
+      "Oracle is lenient: pipeline exit status ignored (no pipefail) and only file size / ATOM count are checked; a broken model that writes an atom cloud passes. v2 checks 76 CA atoms, CA-CA backbone spacing ~3.8 A, and summary pLDDT > 50 (the run reported ~76 with the same settings).",
+      "Goal phrase 'avoid anything needing GPU-only kernels' is a workaround hint; replaced by the documented flags in the command itself."
+    ],
+    "evidence": [
+      "src/bytedance-protenix/runner/batch_inference.py:628-641 - --trimul_kernel/--triatt_kernel default 'cuequivariance', 'torch' accepted",
+      "src/bytedance-protenix/inference_demo.sh header - documents -c/-p/-e/-d/--use_msa and kernel options incl. 'torch'",
+      "src/bytedance-protenix/docs/training_inference_instructions.md:101,109-111,131 - --use_msa false, dtype, kernel flags; CUDA kernels enabled by default",
+      "data/runs/bytedance-protenix/deliverables/NOTES.md item 4 - 'CLI defaults to cuequivariance ... crashes ... (and still exits 0)'; patched runner/inference.py",
+      "src/bytedance-protenix/runner/dumper.py:199,267 and protenix/model/sample_confidence.py:112 - output names and plddt on 0-100 scale"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README gives a pip-installable `protenix pred` CLI that runs structure prediction from a JSON file with public weights, feasible on CPU for a small protein without MSA.",
+      "demo": "README 'Quick Prediction': protenix pred -i examples/input.json -o ./output -n protenix_base_default_v1.0.0",
+      "goal": "Install Protenix (CPU only, no GPU) so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically; avoid anything needing GPU-only kernels. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
+      "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with plausible atom count and a confidence summary json are produced.",
+      "server": false
+    }
+  }
 }

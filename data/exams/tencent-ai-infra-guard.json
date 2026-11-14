@@ -17,5 +17,33 @@
   "demo": "Quick Start / infra-scan: aig-infra-scan -t <target> --json -o result.json",
   "goal": "Get the AI-Infra-Guard infrastructure scanner CLI (aig-infra-scan from infra-scan/, or the Go CLI built from cmd/cli) working so that `aig-infra-scan -t http://127.0.0.1:PORT --lang en --json -o result.json` scans a local HTTP service and reports the detected AI product. The command must be available on PATH (via /work/env.sh) and must use the bundled fingerprint rules from the repo's data/ directory. No LLM/API key is needed.",
   "check": "The hidden test starts a fake Ollama HTTP service locally, scans it with the CLI, and verifies the output identifies Ollama for that target.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Too lenient: the JSON report includes the raw HTTP response as a field named \"Resp\", so `grep -qi ollama result.json` matches the fake service's body 'Ollama is running' even when no fingerprint rule fires (e.g. data/fingerprints not loaded). The goal's own requirement ('must use the bundled fingerprint rules') is therefore never tested.",
+      "Falling back to grepping stdout when result.json is empty is also lenient: USAGE.md says --json -o writes the report to the file.",
+      "v2 parses the JSON array and requires fingerprints[].name=='ollama', version '0.1.20' extracted from /api/version, and at least one advisory (data/vuln_en/ollama has rules such as version <= \"0.3.14\").",
+      "The fixed `sleep 2` before scanning is replaced by a readiness poll."
+    ],
+    "evidence": [
+      "src/tencent-ai-infra-guard/common/runner/result.go:38-47 — HttpResult has `Resp string` with no json tag, so it is emitted as \"Resp\"",
+      "src/tencent-ai-infra-guard/common/runner/runner.go:346-357 — Resp: resp.DataStr is set for every target, fingerprinted or not; :563-568 — --json writes the ResultsJSON array to the -o file",
+      "src/tencent-ai-infra-guard/data/fingerprints/ollama.yaml — body matcher 'Ollama is running' and a version extractor on /api/version",
+      "src/tencent-ai-infra-guard/data/vuln_en/ollama/CVE-2024-12055.yaml — rule: version <= \"0.3.14\" (matches 0.1.20)",
+      "src/tencent-ai-infra-guard/infra-scan/USAGE.md:40-42,60 — -o / --json semantics",
+      "oracles/tencent-ai-infra-guard.sh:36 — grep -qi ollama on the file"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The README documents the aig-infra-scan CLI, a Go fingerprint/vulnerability scanner that runs offline on CPU with no API key.",
+      "demo": "Quick Start / infra-scan: aig-infra-scan -t <target> --json -o result.json",
+      "goal": "Get the AI-Infra-Guard infrastructure scanner CLI (aig-infra-scan from infra-scan/, or the Go CLI built from cmd/cli) working so that `aig-infra-scan -t http://127.0.0.1:PORT --lang en --json -o result.json` scans a local HTTP service and reports the detected AI product. The command must be available on PATH (via /work/env.sh) and must use the bundled fingerprint rules from the repo's data/ directory. No LLM/API key is needed.",
+      "check": "The hidden test starts a fake Ollama HTTP service locally, scans it with the CLI, and verifies the output identifies Ollama for that target.",
+      "server": false
+    }
+  }
 }

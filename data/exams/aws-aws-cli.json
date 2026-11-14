@@ -14,8 +14,35 @@
   },
   "eligible": true,
   "reason": "The README describes the aws CLI, and its offline commands (version, configure, skeleton generation) run on CPU with no account.",
-  "demo": "Installation from source (CLI dev version) and Getting Started: aws --version, aws configure, aws <service> <command> --generate-cli-skeleton",
-  "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run. `aws configure set/get` must work with a temporary config. `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton. No AWS credentials are needed.",
-  "check": "The hidden test checks that aws reports its version, that configure values round-trip through a temporary config file, and that a generated CLI skeleton is valid JSON containing expected keys.",
-  "server": false
+  "demo": "README 'CLI Dev Version' install from source + Getting Started (aws configure, a service command)",
+  "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run, `aws configure set/get` must work with a temporary config, `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton, and service commands must work against an endpoint given with `--endpoint-url`. No real AWS account is needed.",
+  "check": "The hidden test checks the version string, a configure round trip through temporary config files, generated CLI skeletons, and a signed service call with dummy credentials against a local stub endpoint, including --query output.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Coverage too thin: v1 tests only --version, configure set/get and --generate-cli-skeleton. None of these builds, signs or sends a request or parses a response, which is what every README 'Getting Started' command does, so a broken request/auth/parsing stack would pass.",
+      "The fix needs no AWS account: one DynamoDB list-tables call to a local stub through the documented --endpoint-url global option, with dummy keys set via `aws configure set`. It asserts the X-Amz-Target, the SigV4 Authorization credential scope, the parsed JSON output and the --query output.",
+      "The README says a source install must print `source` in `aws --version` (CLI Dev Version); v1 did not check this.",
+      "Goal and check updated to state that service calls against an --endpoint-url must work."
+    ],
+    "evidence": [
+      "src/aws-aws-cli@1e29ade9 README.rst:122-140 — Getting Started is credentials + service calls; README.rst:394-406 — dev install `pip install -r requirements-dev-lock.txt; pip install -e .`, and 'the word source should appear in the output' of aws --version",
+      "src/aws-aws-cli awscli/clidriver.py:561 + awscli/data/metadata.json — the version string appends '<distribution_source>/<machine>' = 'source/x86_64'",
+      "src/aws-aws-cli awscli/botocore/data/dynamodb/2012-08-10/service-2.json:2-15 — protocol json 1.0, targetPrefix DynamoDB_20120810, sigv4",
+      "src/aws-aws-cli awscli/botocore/configprovider.py:144 — default retry_mode is 'standard' (no legacy CRC32 check against the stub)",
+      "oracles/aws-aws-cli.sh — only version/configure/skeleton assertions"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The README describes the aws CLI, and its offline commands (version, configure, skeleton generation) run on CPU with no account.",
+      "demo": "Installation from source (CLI dev version) and Getting Started: aws --version, aws configure, aws <service> <command> --generate-cli-skeleton",
+      "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run. `aws configure set/get` must work with a temporary config. `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton. No AWS credentials are needed.",
+      "check": "The hidden test checks that aws reports its version, that configure values round-trip through a temporary config file, and that a generated CLI skeleton is valid JSON containing expected keys.",
+      "server": false
+    }
+  }
 }

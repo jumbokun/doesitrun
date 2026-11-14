@@ -15,7 +15,31 @@
   "eligible": true,
   "reason": "genrulesinput.py is a local CLI that generates matchmaking JSON from stdin with no credentials needed.",
   "demo": "README_genrulesinput.md Example 1: scripts/genrulesinput.py with 3 requests on stdin",
-  "goal": "Get scripts/genrulesinput.py in /work/game-center-tools running (it needs the Python 'requests' module). Feed it via stdin the JSON [{\"secondsInQueue\":20,\"skill\":1},{\"secondsInQueue\":10,\"skill\":50},[{\"skill\":20},{\"skill\":30}]] and it must print the generated matchmaking input JSON with requests and players. Make /work/env.sh set up the environment so python3 scripts/genrulesinput.py works.",
+  "goal": "Get scripts/genrulesinput.py in /work/game-center-tools running as README_genrulesinput.md describes. Feed it via stdin the JSON [{\"secondsInQueue\":20,\"skill\":1},{\"secondsInQueue\":10,\"skill\":50},[{\"skill\":20},{\"skill\":30}]] and it must print the generated matchmaking input JSON with requests and players. Make /work/env.sh set up the environment so python3 scripts/genrulesinput.py works.",
   "check": "The hidden test pipes the README example into the script and checks the output JSON has 3 requests, 4 players and the expected skill values.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal leaks a missing-dependency hint: '(it needs the Python 'requests' module)'. Neither README mentions it; the script imports requests at the top but never uses it",
+      "The oracle is correct: 3 requests, player skills [1,50,20,30], secondsInQueue [20,10,0], requestName 'r1' all follow from the source and match README Example 1"
+    ],
+    "evidence": [
+      "data/exams/apple-game-center-tools.json goal - 'it needs the Python 'requests' module'",
+      "README_genrulesinput.md - describes only 'a Python 3 script'; no install instructions",
+      "scripts/genrulesinput.py:11 - import requests (unused); :38-50 request fields and secondsInQueue default 0; :172-181 output requests/players/teams",
+      "data/runs/apple-game-center-tools/deliverables/NOTES.md:2 - probe installed requests"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "genrulesinput.py is a local CLI that generates matchmaking JSON from stdin with no credentials needed.",
+      "demo": "README_genrulesinput.md Example 1: scripts/genrulesinput.py with 3 requests on stdin",
+      "goal": "Get scripts/genrulesinput.py in /work/game-center-tools running (it needs the Python 'requests' module). Feed it via stdin the JSON [{\"secondsInQueue\":20,\"skill\":1},{\"secondsInQueue\":10,\"skill\":50},[{\"skill\":20},{\"skill\":30}]] and it must print the generated matchmaking input JSON with requests and players. Make /work/env.sh set up the environment so python3 scripts/genrulesinput.py works.",
+      "check": "The hidden test pipes the README example into the script and checks the output JSON has 3 requests, 4 players and the expected skill values.",
+      "server": false
+    }
+  }
 }

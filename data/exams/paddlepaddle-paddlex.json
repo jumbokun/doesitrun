@@ -17,5 +17,29 @@
   "demo": "README Quick Start > CLI Usage: paddlex --pipeline OCR ...",
   "goal": "Install PaddlePaddle (CPU) and PaddleX from the repo clone (with the OCR extras needed), then run the README OCR command: `paddlex --pipeline OCR --input <image> --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False --save_path <dir> --device cpu`. It must download the models, recognize text in a local image with printed English text, print the result with rec_texts, and save result image/JSON files to the save path.",
   "check": "The hidden test runs the OCR CLI on a generated image of printed text on CPU and verifies the saved output files and that the recognized text contains the expected words.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Recognition check is vacuous: `tr A-Z a-z < log.txt | grep -q paddle` matches PaddleX's own log output (model names/paths under ~/.paddlex, 'PaddleX' messages) whether or not the image text was recognized; the 'rec_texts' grep only shows the key was printed. v2 reads rec_texts from the saved <stem>_res.json and requires both generated lines.",
+      "Pipeline exit status is ignored (no pipefail); v2 sets pipefail."
+    ],
+    "evidence": [
+      "oracles/paddlepaddle-paddlex.sh:22-23 - grep 'paddle' over the whole CLI log",
+      "src/paddlepaddle-paddlex/paddlex/inference/common/result/mixin.py:216-245 - save_to_json writes <stem>_<key>.json",
+      "src/paddlepaddle-paddlex/paddlex/inference/pipelines/ocr/result.py:113,185 - 'ocr_res_img' visualization and rec_texts in JSON",
+      "src/paddlepaddle-paddlex/README_en.md:635-641 - documented OCR command"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README Quick Start CLI runs the OCR pipeline with small PP-OCRv5 models that work on CPU.",
+      "demo": "README Quick Start > CLI Usage: paddlex --pipeline OCR ...",
+      "goal": "Install PaddlePaddle (CPU) and PaddleX from the repo clone (with the OCR extras needed), then run the README OCR command: `paddlex --pipeline OCR --input <image> --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False --save_path <dir> --device cpu`. It must download the models, recognize text in a local image with printed English text, print the result with rec_texts, and save result image/JSON files to the save path.",
+      "check": "The hidden test runs the OCR CLI on a generated image of printed text on CPU and verifies the saved output files and that the recognized text contains the expected words.",
+      "server": false
+    }
+  }
 }

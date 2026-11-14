@@ -12,10 +12,37 @@
     "cost_usd": 0.026009400000000002,
     "timed_out": false
   },
-  "eligible": false,
-  "reason": "Every README demo (adk run, adk web, adk eval) calls Gemini models and needs a Google API key or Vertex credentials.",
-  "demo": "Quick Start / Run Locally (adk run)",
-  "goal": "",
-  "check": "",
-  "server": false
+  "eligible": true,
+  "reason": "Re-included on review: The exclusion reason ('every README demo ... calls Gemini') ignores the README-linked runnable samples: the README points to contributing/samples/ 'for runnable example agents', and several Workflow samples there use only function nodes, with no model or key; Workflow Runtime is the README's first key feature, and `adk run path/to/my_agent \"hello\"` (README Run Locally + cli_run single-step mode) runs those samples on CPU in seconds; This also matches google-adk-recipes, which was tested on the same keyless Workflow path of this library",
+  "demo": "README 'Run Locally' (`adk run path/to/my_agent \"hello\"`) on the README-linked runnable samples contributing/samples/workflows/fan_out_fan_in and contributing/samples/workflows/state (function-node Workflows, no model)",
+  "goal": "Install google-adk from the clone at /work/adk-python (Python 3.11+, e.g. pip install -e .) so the `adk` CLI works. Then single-step runs of two sample workflows must work: `adk run contributing/samples/workflows/fan_out_fan_in \"Hello World\"` and `adk run contributing/samples/workflows/state \"hello adk\"`. These workflows use only function nodes, so no model or API key is involved. Write /work/env.sh so that `adk` is on PATH.",
+  "check": "The hidden test runs both sample workflows with `adk run` in single-step mode and checks the workflow outputs: the fanned-out uppercase, character count and reversed string, and the state-derived final result.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "should_test",
+    "issues": [
+      "The exclusion reason ('every README demo ... calls Gemini') ignores the README-linked runnable samples: the README points to contributing/samples/ 'for runnable example agents', and several Workflow samples there use only function nodes, with no model or key",
+      "Workflow Runtime is the README's first key feature, and `adk run path/to/my_agent \"hello\"` (README Run Locally + cli_run single-step mode) runs those samples on CPU in seconds",
+      "This also matches google-adk-recipes, which was tested on the same keyless Workflow path of this library"
+    ],
+    "evidence": [
+      "src/google-adk-python/README.md:148-156 — Run Locally: `adk run path/to/my_agent`, `adk web`",
+      "src/google-adk-python/README.md:203-206 — 'Samples: See contributing/samples/ for runnable example agents'",
+      "src/google-adk-python/contributing/samples/workflows/fan_out_fan_in/agent.py — make_uppercase/count_characters/reverse_string -> JoinNode -> aggregate, no Agent/model",
+      "src/google-adk-python/contributing/samples/workflows/state/agent.py + tests/go.json — deterministic output 'Final Result: GO (Original was: go)!'",
+      "src/google-adk-python/src/google/adk/cli/cli_tools_click.py:1098-1160 — cli_run takes an optional QUERY (single-step mode) plus --in_memory and --jsonl",
+      "src/google-adk-python/src/google/adk/cli/cli.py:800-810 — run_once_cli returns 1 on any exception"
+    ],
+    "previous": {
+      "eligible": false,
+      "reason": "Every README demo (adk run, adk web, adk eval) calls Gemini models and needs a Google API key or Vertex credentials.",
+      "demo": "Quick Start / Run Locally (adk run)",
+      "goal": "",
+      "check": "",
+      "server": false
+    }
+  }
 }

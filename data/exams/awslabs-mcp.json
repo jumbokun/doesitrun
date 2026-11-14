@@ -14,8 +14,34 @@
   },
   "eligible": true,
   "reason": "The AWS Documentation MCP server (src/aws-documentation-mcp-server) runs on CPU over stdio and needs no AWS credentials, only public internet access to docs.aws.amazon.com.",
-  "demo": "README -> src/aws-documentation-mcp-server (AWS Documentation MCP Server): install and start the stdio server, then call its read_documentation tool",
-  "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation. Calling read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown.",
-  "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, calls read_documentation on a Lambda docs page and verifies that substantial Lambda-related text comes back.",
-  "server": false
+  "demo": "README -> src/aws-documentation-mcp-server (AWS Documentation MCP Server): install and start the stdio server, then call its read_documentation and search_documentation tools",
+  "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation; read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown, and search_documentation must return AWS documentation results for a query.",
+  "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, reads a Lambda docs page and checks that substantial Lambda markdown comes back, and runs a documentation search and checks it returns docs.aws.amazon.com results.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Too lenient: `'lambda' in t.lower()` is always true, because read_documentation prefixes its output with 'AWS Documentation from <url>:' and the URL contains 'lambda'. isError is never checked; only the >500-char length guards against an error page.",
+      "search_documentation, a headline README feature that needs no credentials, is only checked for presence in the tool list and never called.",
+      "v2 checks isError, counts 'lambda' in the page body after the header line, and calls search_documentation, asserting docs.aws.amazon.com result URLs and no error result. Goal and check updated to mention search."
+    ],
+    "evidence": [
+      "src/awslabs-mcp@5abaf6ad src/aws-documentation-mcp-server/awslabs/aws_documentation_mcp_server/util.py:281 — result = f'AWS Documentation from {url}:\\n\\n{truncated_content}'",
+      "server_utils.py fetch_markdown (raises DocumentationToolError at ~204/232) — a fetch failure becomes an MCP isError result",
+      "server_aws.py:381-402 search_documentation -> SearchResponse; :498-515 failures become one SearchResult with url='' and title 'Error searching AWS docs...'",
+      "src/aws-documentation-mcp-server/README.md:9-10 — Read Documentation and Search Documentation are the first two features; pyproject.toml:38-39 console script",
+      "oracles/awslabs-mcp.sh:22 — `assert len(t) > 500 and \"lambda\" in t.lower()`"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The AWS Documentation MCP server (src/aws-documentation-mcp-server) runs on CPU over stdio and needs no AWS credentials, only public internet access to docs.aws.amazon.com.",
+      "demo": "README -> src/aws-documentation-mcp-server (AWS Documentation MCP Server): install and start the stdio server, then call its read_documentation tool",
+      "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation. Calling read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown.",
+      "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, calls read_documentation on a Lambda docs page and verifies that substantial Lambda-related text comes back.",
+      "server": false
+    }
+  }
 }

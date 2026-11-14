@@ -14,8 +14,33 @@
   },
   "eligible": true,
   "reason": "MotionBricks subproject ships synthetic-data training scripts that read configs from the repo and can run a few steps on CPU with no gated resources.",
-  "demo": "motionbricks/README.md Training section: python scripts/train_vqvae.py (synthetic data)",
-  "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. The script uses the hparams.yaml/skeleton/stats files under motionbricks/out/motionbricks_vqvae/version_1 and synthetic data; the large LFS checkpoints are not needed. Provide /work/env.sh that activates the environment.",
-  "check": "Running the VQVAE synthetic-data training for 20 steps on CPU exits successfully, logs the start banner and 'Training complete.' with no traceback.",
-  "server": false
+  "demo": "motionbricks/README.md Training: python scripts/train_vqvae.py and python scripts/train_root.py (synthetic data)",
+  "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make both `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` and `python scripts/train_root.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. Both scripts train on synthetic data using the configs under motionbricks/out/; train_pose.py (which needs the pretrained VQVAE checkpoint) is not required. Provide /work/env.sh that activates the environment.",
+  "check": "Running the VQVAE and the root-model synthetic-data training for 20 steps each on CPU exits successfully, logs each start banner, reaches 20 steps and prints 'Training complete.' with no traceback.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Coverage is one of the two CPU-feasible training scripts. motionbricks/README.md Training lists train_vqvae.py, train_pose.py and train_root.py; train_root.py needs no checkpoint ('no VQVAE needed') and is just as cheap, but the oracle runs only train_vqvae.py, so a broken root-model/backbone path would still pass.",
+      "No correctness bug in the original oracle: the banner, 'Training complete.' and step-count greps match scripts/train_vqvae.py:131-135 and Lightning's max_steps stop message.",
+      "Note (not counted against the test): motionbricks/README.md:77 lists 'a CUDA-capable GPU' as a requirement, but the training scripts set accelerator='auto' and the run passed on CPU, so testing training is fine."
+    ],
+    "evidence": [
+      "src/nvlabs-gr00t-wholebodycontrol/motionbricks/README.md:183-187 — three training commands; root 'no VQVAE needed', pose 'requires pretrained VQVAE checkpoint'",
+      "src/nvlabs-gr00t-wholebodycontrol/motionbricks/scripts/train_root.py:28-31,143,148 — reads out/motionbricks_root/version_1 (git ls-files: plain yaml/npy/p files, only checkpoints/*.ckpt are LFS), prints 'Starting root model training for N steps...' and 'Training complete.'",
+      "src/nvlabs-gr00t-wholebodycontrol/motionbricks/motionbricks/motion_backbone/models/root_model.py:72-73 — the root model loads no VQVAE",
+      "src/nvlabs-gr00t-wholebodycontrol/motionbricks/scripts/train_vqvae.py:44,131 — accelerator 'auto'; start banner text"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "MotionBricks subproject ships synthetic-data training scripts that read configs from the repo and can run a few steps on CPU with no gated resources.",
+      "demo": "motionbricks/README.md Training section: python scripts/train_vqvae.py (synthetic data)",
+      "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. The script uses the hparams.yaml/skeleton/stats files under motionbricks/out/motionbricks_vqvae/version_1 and synthetic data; the large LFS checkpoints are not needed. Provide /work/env.sh that activates the environment.",
+      "check": "Running the VQVAE synthetic-data training for 20 steps on CPU exits successfully, logs the start banner and 'Training complete.' with no traceback.",
+      "server": false
+    }
+  }
 }

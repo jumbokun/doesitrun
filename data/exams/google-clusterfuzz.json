@@ -15,7 +15,35 @@
   "eligible": true,
   "reason": "Docs describe a local ClusterFuzz instance (butler.py run_server --bootstrap) that runs on CPU with local emulators and no credentials.",
   "demo": "docs/getting-started/local_instance.md: python butler.py run_server --bootstrap",
-  "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install deps as needed, with local datastore emulator, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
-  "check": "The hidden test starts the server via run.sh and verifies http://localhost:9000/ and /login return HTTP 200 with ClusterFuzz page content.",
-  "server": true
+  "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install the prerequisites the docs list; local emulators, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages, and the bootstrap must populate the local datastore. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
+  "check": "The hidden test starts the server via run.sh, verifies http://localhost:9000/ returns a ClusterFuzz page, and that the Fuzzers page lists the default fuzzers created by --bootstrap.",
+  "server": true,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle (and check text) require GET /login == 200, but login.Handler.get is decorated @handler.unsupported_on_local_server, which returns HTTP 400 on the local dev server by design; a correct install that follows local_instance.md cannot pass.",
+      "The recorded pass came only from the probe agent deleting that decorator from repo source (repo_diff: src/appengine/handlers/login.py, 1 line removed); the test rewarded a source patch, not the documented setup.",
+      "Coverage was thin: only '/' and '/login' HTML; nothing verified that the --bootstrap datastore seeding (what makes the local instance usable) worked."
+    ],
+    "evidence": [
+      "src/appengine/handlers/login.py:35 - @handler.unsupported_on_local_server on Handler.get",
+      "src/appengine/libs/handler.py:147-160 - raises EarlyExitError('This feature is not available in local App Engine Development environment.', 400)",
+      "data/runs/google-clusterfuzz/result.json repo_diff - src/appengine/handlers/login.py removed 1 line; deliverables/setup.sh step 5 strips the decorator",
+      "src/local/butler/run_server.py:28-42 - --bootstrap runs 'butler.py run setup --non-dry-run --local' in a thread after 10 s",
+      "src/local/butler/scripts/setup.py:332-358 - creates afl, libFuzzer, honggfuzz, googlefuzztest, centipede Fuzzer entities",
+      "src/appengine/handlers/fuzzers.py:50-78 + src/appengine/templates/fuzzers.html:51 + src/appengine/handlers/base_handler.py:93-96 - /fuzzers embeds the fuzzer list as base64 JSON",
+      "src/appengine/libs/auth.py:64,160-162 - local development user is user@localhost and admin"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Docs describe a local ClusterFuzz instance (butler.py run_server --bootstrap) that runs on CPU with local emulators and no credentials.",
+      "demo": "docs/getting-started/local_instance.md: python butler.py run_server --bootstrap",
+      "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install deps as needed, with local datastore emulator, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
+      "check": "The hidden test starts the server via run.sh and verifies http://localhost:9000/ and /login return HTTP 200 with ClusterFuzz page content.",
+      "server": true
+    }
+  }
 }

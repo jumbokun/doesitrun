@@ -17,5 +17,32 @@
   "demo": "README Quick Start: Installation (from source, make install) and Basic Usage / Output Formats: skillspector scan ./skill/ --no-llm --format json --output report.json",
   "goal": "Install SkillSpector from the clone at /work/SkillSpector (Python 3.12+, venv/uv, as in README) so that the `skillspector` command works. Then `skillspector scan tests/fixtures/malicious_skill --no-llm --format json --output report.json` and the same for tests/fixtures/safe_skill, plus `--format markdown`, must succeed without any API key. The malicious fixture must yield security findings and more than the safe one. Put the `skillspector` command on PATH via /work/env.sh.",
   "check": "The hidden test scans a malicious and a safe fixture skill with static analysis only and verifies that valid JSON and Markdown reports are produced, with more findings for the malicious skill.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle runs the malicious scan under set -e, but a completed scan with risk_score > 50 exits 1 by contract, so a correct install aborts the oracle",
+      "Oracle looks for a 'findings' key; the documented JSON report schema uses 'issues', so the count would have failed even with the exit code handled",
+      "v1 never checked risk score / recommendation or that the Markdown file is a real report (only size > 300 bytes)"
+    ],
+    "evidence": [
+      "src/nvidia-skillspector@235f796 README.md:815-823 - exit 1 = 'Scan completed and risk_score > 50'",
+      "README.md:835-860 - top-level keys skill, risk_assessment, components, issues, metadata",
+      "tests/integration/test_graph_scanner.py:95-105 - malicious fixture expected risk_score >= 50",
+      "src/skillspector/nodes/analyzers/static_patterns_data_exfiltration.py:75 - E2 pattern matches helper.py's os.environ.items() loop",
+      "src/skillspector/nodes/report.py:1525,1677,1734 - skill name from manifest; markdown headings '# SkillSpector Security Report' and '## Issues (N)'",
+      "data/runs/nvidia-skillspector/deliverables/NOTES.md - 7 issues / score 100 vs 0 for safe fixture, exit 1 documented"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "SkillSpector is a CLI static scanner whose README documents `skillspector scan <dir> --no-llm` which runs offline on CPU with no API key.",
+      "demo": "README Quick Start: Installation (from source, make install) and Basic Usage / Output Formats: skillspector scan ./skill/ --no-llm --format json --output report.json",
+      "goal": "Install SkillSpector from the clone at /work/SkillSpector (Python 3.12+, venv/uv, as in README) so that the `skillspector` command works. Then `skillspector scan tests/fixtures/malicious_skill --no-llm --format json --output report.json` and the same for tests/fixtures/safe_skill, plus `--format markdown`, must succeed without any API key. The malicious fixture must yield security findings and more than the safe one. Put the `skillspector` command on PATH via /work/env.sh.",
+      "check": "The hidden test scans a malicious and a safe fixture skill with static analysis only and verifies that valid JSON and Markdown reports are produced, with more findings for the malicious skill.",
+      "server": false
+    }
+  }
 }

@@ -15,7 +15,34 @@
   "eligible": true,
   "reason": "E5 README offers an MTEB evaluation command with the small public intfloat/e5-small-v2 model; a single small STS task is feasible on CPU, though the script hardcodes CUDA and must be adapted.",
   "demo": "unilm/e5 README, 'Evaluate on the MTEB Benchmark' (scripts/eval_mteb_except_retrieval.sh intfloat/e5-small-v2), restricted via --dry-run to the STS12 task",
-  "goal": "In /work/unilm/e5, get mteb_except_retrieval_eval.py running on CPU only with intfloat/e5-small-v2 (install requirements.txt; the script currently calls .cuda()/fp16/autocast, so make it work without a GPU). The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
+  "goal": "In /work/unilm/e5, install requirements.txt and get the README's MTEB evaluation (mteb_except_retrieval_eval.py, as called by scripts/eval_mteb_except_retrieval.sh) working on this CPU-only machine with intfloat/e5-small-v2. The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
   "check": "The hidden test runs that command into a fresh directory and verifies the STS12 result JSON exists with a cosine-similarity Spearman score in the plausible range for e5-small-v2.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal leaks the exact workaround: 'the script currently calls .cuda()/fp16/autocast, so make it work without a GPU'. The README gives no such instruction; this hands the probe the diagnosis.",
+      "The chosen demo has CUDA-only code paths at this commit (encoder.cuda(), move_to_cuda, torch.cuda.amp.autocast, batch_size = 64 * torch.cuda.device_count() = 0 on CPU), so the README command cannot run on CPU without modifying repo code. By the benchmark's own rule (CUDA-only code path) this repo arguably should have been excluded; if it stays tested, the goal must not pre-diagnose the fix.",
+      "Oracle is otherwise correct: --dry-run with --task-types STS evaluates only STS12, the score is read from test.cos_sim.spearman (mteb==1.0.2 layout), and 0.6-0.9 is plausible for e5-small-v2."
+    ],
+    "evidence": [
+      "e5/mteb_except_retrieval_eval.py:42-49 - torch_dtype=float16, self.encoder.cuda(), gpu_count = torch.cuda.device_count()",
+      "e5/mteb_except_retrieval_eval.py:69-75 - batch_size = 64 * self.gpu_count; move_to_cuda; torch.cuda.amp.autocast()",
+      "e5/mteb_except_retrieval_eval.py:99 - dry-run keeps only Banking77Classification, ImdbClassification, STS12",
+      "e5/utils.py:24-42 - move_to_cuda calls .cuda(non_blocking=True)",
+      "e5/README.md 'Evaluate on the MTEB Benchmark' - just `bash scripts/eval_mteb_except_retrieval.sh intfloat/e5-small-v2`, no CPU guidance",
+      "e5/requirements.txt - mteb==1.0.2"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "E5 README offers an MTEB evaluation command with the small public intfloat/e5-small-v2 model; a single small STS task is feasible on CPU, though the script hardcodes CUDA and must be adapted.",
+      "demo": "unilm/e5 README, 'Evaluate on the MTEB Benchmark' (scripts/eval_mteb_except_retrieval.sh intfloat/e5-small-v2), restricted via --dry-run to the STS12 task",
+      "goal": "In /work/unilm/e5, get mteb_except_retrieval_eval.py running on CPU only with intfloat/e5-small-v2 (install requirements.txt; the script currently calls .cuda()/fp16/autocast, so make it work without a GPU). The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
+      "check": "The hidden test runs that command into a fresh directory and verifies the STS12 result JSON exists with a cosine-similarity Spearman score in the plausible range for e5-small-v2.",
+      "server": false
+    }
+  }
 }

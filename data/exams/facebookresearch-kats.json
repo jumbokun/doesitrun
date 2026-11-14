@@ -15,7 +15,32 @@
   "eligible": true,
   "reason": "Kats README gives pure-Python CPU examples (Prophet forecast, CUSUM detection, TsFeatures) on bundled data.",
   "demo": "README 'Examples': Forecasting, Detection, TSFeatures",
-  "goal": "Install Kats (pip install kats or from the clone; a compatible Python/dependency set is needed) so that the three README snippets run from /work/Kats: ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
+  "goal": "Install Kats (pip install kats, or from the /work/Kats clone) so that the three README example snippets run from /work/Kats: the ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in the snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
   "check": "A hidden script runs all three snippets from the repo root and verifies a 30-row forecast, a detected change point near the simulated shift, and a populated feature dict.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal leaks an install hint the README does not give: '(... a compatible Python/dependency set is needed)' tells the probe that the README's `pip install kats` will not work as-is and that version pinning is required. The README only says `pip install kats`.",
+      "Oracle is sound: it runs the three README snippets (paths adjusted to the repo root as the goal states) and checks a 30-row non-null forecast, a CUSUM change point inside the shifted window, and >30 TsFeatures; all match the source."
+    ],
+    "evidence": [
+      "README.md 'Installation in Python' - only `pip install --upgrade pip; pip install kats` (and the MINIMAL_KATS=1 variant)",
+      "data/exams/facebookresearch-kats.json goal - 'a compatible Python/dependency set is needed'",
+      "kats/models/prophet.py:512 - predict() returns column 'fcst'",
+      "kats/detectors/detector_consts.py:131 - CUSUMChangePoint.start_time",
+      "kats/tsfeatures/tsfeatures.py:385-427 - with no selected_features every feature group defaults on (agent got 40 features)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Kats README gives pure-Python CPU examples (Prophet forecast, CUSUM detection, TsFeatures) on bundled data.",
+      "demo": "README 'Examples': Forecasting, Detection, TSFeatures",
+      "goal": "Install Kats (pip install kats or from the clone; a compatible Python/dependency set is needed) so that the three README snippets run from /work/Kats: ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
+      "check": "A hidden script runs all three snippets from the repo root and verifies a 30-row forecast, a detected change point near the simulated shift, and a populated feature dict.",
+      "server": false
+    }
+  }
 }

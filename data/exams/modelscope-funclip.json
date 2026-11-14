@@ -15,7 +15,35 @@
   "eligible": true,
   "reason": "README section C offers a CLI (videoclipper.py stage 1 recognize, stage 2 clip) using public ~2GB Paraformer models from ModelScope that run on CPU without any key.",
   "demo": "README 'C. Use FunClip in command line' (python funclip/videoclipper.py --stage 1 / --stage 2)",
-  "goal": "Get FunClip's command-line demo working: download the example video examples/2022云栖大会_片段.mp4 (URL in README section C), then run `python funclip/videoclipper.py --stage 1 --file examples/2022云栖大会_片段.mp4 --output_dir ./output` to produce the recognition result and output/total.srt. Then run stage 2 with --dest_text '我们把它跟乡村振兴去结合起来，利用我们的设计的能力' --start_ost 0 --end_ost 100 --output_file ./output/res.mp4 to produce a clipped video and its SRT. Both stages must complete on CPU.",
-  "check": "The hidden test runs both CLI stages on the example video and verifies the full SRT contains recognized Chinese text and the clipped mp4 and its SRT exist with a plausible short duration.",
-  "server": false
+  "goal": "Get FunClip's command-line demo (README section C) working on CPU: download the example video from the README's URL, run `python funclip/videoclipper.py --stage 1 --file <video> --output_dir <dir>` to produce the recognition result and <dir>/total.srt, then run `--stage 2` on the same video and output dir with --dest_text set to a sentence copied from that recognition result, --start_ost 0 --end_ost 100 --output_file <dir>/res.mp4, to produce a clipped video and its SRT.",
+  "check": "The hidden test runs stage 1 on the README example video, takes a sentence from total.srt as --dest_text, runs stage 2, and checks that a short clipped mp4 and its SRT with Chinese text were written.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "The oracle downloads with wget, which is not in the base image, so it died at line 7 before testing anything. This is an oracle defect, even though the README also uses wget.",
+      "The README's literal --dest_text is not spoken in the README's example video. The audit re-run got 'No period found' in stage 2, and the probe's NOTES found the sentence only in 2022云栖大会_片段2.mp4. A fixed stage-2 sentence therefore makes the test hinge on a mismatched README asset rather than on clipping. v2 takes the sentence from the stage-1 total.srt, which is the documented workflow.",
+      "Stage 2 with --output_dir always writes <name>_no{N}.mp4, so --output_file ./output/res.mp4 yields res_no0.mp4. v2 accepts either name: the README pins the name, but the suffix is cosmetic and not the core clipping function.",
+      "Separately, stage 2 at this commit crashes as soon as any match is found: VideoClipper(None) never sets .lang, and video_clip reads self.lang. This is a repo bug, which the probe also patched."
+    ],
+    "evidence": [
+      "oracles/modelscope-funclip.sh:7 — `timeout 600 wget -q ...`; result.json replay took 0 s, and the audit says 'wget isn't installed'",
+      "src/modelscope-funclip/README.md:161-177 — wget download plus the stage 1 / stage 2 commands with the fixed dest_text",
+      "src/modelscope-funclip/funclip/videoclipper.py:524 — stage 1 tells the user to copy a text segment from the recognition result into stage 2",
+      "src/modelscope-funclip/funclip/videoclipper.py:124-127,528,344 — VideoClipper.__init__ sets no lang; stage 2 builds VideoClipper(None); video_clip reads self.lang once a period is found -> AttributeError",
+      "src/modelscope-funclip/funclip/videoclipper.py:388-392 — the output name becomes '{name}_no{GLOBAL_COUNT}.mp4' when output_dir is set",
+      "data/runs/modelscope-funclip/deliverables/NOTES.md items 2-4 — the README video lacks the sentence; the lang crash; res_no0.mp4"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README section C offers a CLI (videoclipper.py stage 1 recognize, stage 2 clip) using public ~2GB Paraformer models from ModelScope that run on CPU without any key.",
+      "demo": "README 'C. Use FunClip in command line' (python funclip/videoclipper.py --stage 1 / --stage 2)",
+      "goal": "Get FunClip's command-line demo working: download the example video examples/2022云栖大会_片段.mp4 (URL in README section C), then run `python funclip/videoclipper.py --stage 1 --file examples/2022云栖大会_片段.mp4 --output_dir ./output` to produce the recognition result and output/total.srt. Then run stage 2 with --dest_text '我们把它跟乡村振兴去结合起来，利用我们的设计的能力' --start_ost 0 --end_ost 100 --output_file ./output/res.mp4 to produce a clipped video and its SRT. Both stages must complete on CPU.",
+      "check": "The hidden test runs both CLI stages on the example video and verifies the full SRT contains recognized Chinese text and the clipped mp4 and its SRT exist with a plausible short duration.",
+      "server": false
+    }
+  }
 }

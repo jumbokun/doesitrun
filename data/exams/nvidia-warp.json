@@ -17,5 +17,29 @@
   "demo": "README 'Running Examples': python -m warp.examples.core.example_mesh",
   "goal": "Install warp-lang with the examples extra (pip install warp-lang[examples], or from the repo clone) so that `python -m warp.examples.core.example_mesh --device cpu --num-frames 20 --stage-path <out>/mesh.usd` runs on CPU and writes a time-sampled USD file. Also a simple custom wp.kernel must launch on the CPU device. Write /work/env.sh so that it activates the environment where python can import warp and pxr.",
   "check": "The hidden test runs the mesh example on CPU and verifies the USD file is written with animated frames and that a small Warp kernel computes correct results.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle defines a @wp.kernel inside `python -I -c`; Warp needs the kernel's source file (inspect) and rejects string-defined code, so a correct install always fails",
+      "v1 checked USD prim count and end time only; v2 also checks the particle PointInstancer is time-sampled and that particles fall under gravity (the simulation actually ran)"
+    ],
+    "evidence": [
+      "src/nvidia-warp@67e04c4 README.md:88-108 - pip install warp-lang[examples]; python -m warp.examples.<subdir>.<example>",
+      "warp/examples/core/example_mesh.py:82,149-168 - 1000 particles, --device/--stage-path/--num-frames, step+render per frame",
+      "warp/_src/render/render_usd.py:162-169 time code = round(t*60); :972-984 render_points writes PointInstancer positions per time code",
+      "data/runs/nvidia-warp/result.json audit - the same kernel saved to a file compiles and passes on CPU; mesh USD 1.79 MB, 6 prims"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Warp is pip-installable and its README documents running examples via python -m warp.examples.<subdir>.<example>, which work on CPU.",
+      "demo": "README 'Running Examples': python -m warp.examples.core.example_mesh",
+      "goal": "Install warp-lang with the examples extra (pip install warp-lang[examples], or from the repo clone) so that `python -m warp.examples.core.example_mesh --device cpu --num-frames 20 --stage-path <out>/mesh.usd` runs on CPU and writes a time-sampled USD file. Also a simple custom wp.kernel must launch on the CPU device. Write /work/env.sh so that it activates the environment where python can import warp and pxr.",
+      "check": "The hidden test runs the mesh example on CPU and verifies the USD file is written with animated frames and that a small Warp kernel computes correct results.",
+      "server": false
+    }
+  }
 }

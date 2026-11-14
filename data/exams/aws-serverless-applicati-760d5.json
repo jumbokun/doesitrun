@@ -15,7 +15,34 @@
   "eligible": true,
   "reason": "The README's getting-started SAM template can be transformed to CloudFormation locally on CPU via bin/sam-translate.py with no cloud account.",
   "demo": "README 'Getting started' template transformed with bin/sam-translate.py translate",
-  "goal": "Install the SAM transform (samtranslator and its dependencies, boto3 included) from the repo. Save the README's Getting started template (AWS::Serverless::Function with nodejs24.x InlineCode) as a file. Run `python bin/sam-translate.py translate --template-file=<file> --output-template=<out.json>` and produce the transformed CloudFormation JSON, with an AWS::Lambda::Function and an IAM role. Dummy AWS credentials and region env vars may be needed, and no real AWS access is needed.",
+  "goal": "Install the SAM transform (samtranslator) from the repo following its README. Save the README's Getting started template (AWS::Serverless::Function with nodejs24.x InlineCode) as a file. Run `python bin/sam-translate.py translate --template-file=<file> --output-template=<out.json>` and produce the transformed CloudFormation JSON, with an AWS::Lambda::Function and an IAM role as in the README's 'Under the hood' example. No real AWS access is needed.",
   "check": "The output JSON exists and contains a Lambda Function resource with the expected handler and inline code, plus a generated IAM role resource.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "The goal leaks a workaround that neither the README nor DEVELOPMENT_GUIDE gives: 'Dummy AWS credentials and region env vars may be needed'. Without the hint the probe would have to discover the NoRegionError from bin/sam-translate.py:28 itself, and its final message confirms it hit that error.",
+      "'boto3 included' is an unneeded dependency hint, since boto3 is already in requirements/base.txt.",
+      "The oracle itself is fine: it sets the dummy region and credentials itself (justified by sam-translate.py:28), and its assertions match the README's 'Under the hood' output."
+    ],
+    "evidence": [
+      "src/aws-serverless-applicati-760d5@6e52163a bin/sam-translate.py:17,28 — `iam_client = boto3.client(\"iam\")` at import time needs a region",
+      "README.md:19-80 — the Getting started template and the expected transformed Lambda Function + IAM Role; README.md:86-101 — venv + make init; nothing about credentials or region for translation",
+      "DEVELOPMENT_GUIDE.md:215,231 — documents bin/sam-translate.py usage, with no region/credential note",
+      "requirements/base.txt:1 — boto3 is a base dependency",
+      "data/runs/aws-serverless-applicati-760d5/result.json agent.final — 'it fails with \"AWS Region cannot be found\" without a region'",
+      "oracles/aws-serverless-applicati-760d5.sh:4 — the oracle exports AWS_DEFAULT_REGION and dummy keys itself"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The README's getting-started SAM template can be transformed to CloudFormation locally on CPU via bin/sam-translate.py with no cloud account.",
+      "demo": "README 'Getting started' template transformed with bin/sam-translate.py translate",
+      "goal": "Install the SAM transform (samtranslator and its dependencies, boto3 included) from the repo. Save the README's Getting started template (AWS::Serverless::Function with nodejs24.x InlineCode) as a file. Run `python bin/sam-translate.py translate --template-file=<file> --output-template=<out.json>` and produce the transformed CloudFormation JSON, with an AWS::Lambda::Function and an IAM role. Dummy AWS credentials and region env vars may be needed, and no real AWS access is needed.",
+      "check": "The output JSON exists and contains a Lambda Function resource with the expected handler and inline code, plus a generated IAM role resource.",
+      "server": false
+    }
+  }
 }

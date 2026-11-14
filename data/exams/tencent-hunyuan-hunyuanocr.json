@@ -14,8 +14,34 @@
   },
   "eligible": true,
   "reason": "README offers a CPU llama.cpp GGUF deployment of the ~1B HunyuanOCR model with an OpenAI-compatible server, no gated weights.",
-  "demo": "docs/llama_cpp.md (linked from README): build llama.cpp, download tencent/HunyuanOCR, convert to GGUF, run llama-server base model only",
-  "goal": "Build upstream llama.cpp on CPU, download tencent/HunyuanOCR from Hugging Face (exclude v1.0/*, skip DFlash), convert to hyocr-f16.gguf and mmproj-hyocr-f16.gguf via convert_hf_to_gguf.py, and serve with llama-server (section 4.1: port 8080, --alias HYVL, --jinja, -fa on, modest ctx-size). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
-  "check": "The hidden test sends a generated image containing text to the server's chat completions endpoint and verifies the response is HTTP 200 and contains the text in the image.",
-  "server": true
+  "demo": "docs/llama_cpp.md (linked from README): build upstream llama.cpp, download tencent/HunyuanOCR, convert to GGUF, run llama-server base model (section 4.1)",
+  "goal": "Following docs/llama_cpp.md (linked from the README), build upstream llama.cpp for CPU, download tencent/HunyuanOCR from Hugging Face (excluding v1.0/*; the optional DFlash draft may be skipped), convert it to hyocr-f16.gguf and mmproj-hyocr-f16.gguf with convert_hf_to_gguf.py, and serve the base model with llama-server as in section 4.1 (port 8080, alias HYVL, --jinja). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
+  "check": "The hidden test sends one of the repo's bundled OCR test pages (llama_cpp/test_assets) with the official document-parsing prompt to the chat completions endpoint and verifies HTTP 200 and that the response contains the page's text.",
+  "server": true,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle depends on PIL (from PIL import Image...) inside the probe's env, but the documented conversion/client env installs only huggingface_hub, transformers, torch, openai (docs/llama_cpp.md section 2); a docs-following install without pillow fails the oracle with ImportError. The passing run installed pillow only because the check text said 'generated image'.",
+      "The repo ships 26 OCR test pages (llama_cpp/test_assets/ocr) and docs/llama_cpp.md 6.3 shows the expected output for ocr/0.png; v2 sends that page with the official doc_parse prompt using only the stdlib, which also exercises a real document page instead of two synthetic lines.",
+      "Goal adds 'modest ctx-size', which deviates from the documented section 4.1 command (--ctx-size 10240); removed. Check text updated to the bundled page."
+    ],
+    "evidence": [
+      "oracles/tencent-hunyuan-hunyuanocr.sh:6-7 - python3 imports PIL in the env.sh venv",
+      "src/tencent-hunyuan-hunyuanocr/docs/llama_cpp.md:44-50 - venv gets 'huggingface_hub transformers torch openai' only",
+      "data/runs/tencent-hunyuan-hunyuanocr/deliverables/setup.sh - agent added pillow beyond the docs",
+      "src/tencent-hunyuan-hunyuanocr/docs/llama_cpp.md section 6.3 - ocr/0.png sample output 'ring, and Jacobson semisimple, by Corollary 8.35(ii)]...'",
+      "src/tencent-hunyuan-hunyuanocr/inference/utils/tasks.py:26 - official doc_parse prompt"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README offers a CPU llama.cpp GGUF deployment of the ~1B HunyuanOCR model with an OpenAI-compatible server, no gated weights.",
+      "demo": "docs/llama_cpp.md (linked from README): build llama.cpp, download tencent/HunyuanOCR, convert to GGUF, run llama-server base model only",
+      "goal": "Build upstream llama.cpp on CPU, download tencent/HunyuanOCR from Hugging Face (exclude v1.0/*, skip DFlash), convert to hyocr-f16.gguf and mmproj-hyocr-f16.gguf via convert_hf_to_gguf.py, and serve with llama-server (section 4.1: port 8080, --alias HYVL, --jinja, -fa on, modest ctx-size). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
+      "check": "The hidden test sends a generated image containing text to the server's chat completions endpoint and verifies the response is HTTP 200 and contains the text in the image.",
+      "server": true
+    }
+  }
 }

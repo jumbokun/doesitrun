@@ -17,5 +17,31 @@
   "demo": "EBS/VolumeLimitCalculator/Readme.md: install bc, chmod +x and run ./volume_Limit_calculator.sh",
   "goal": "Get EBS/VolumeLimitCalculator/volume_Limit_calculator.sh running as the README describes (needs the bc package installed). It reads answers from stdin (volume type, then size/IOPS/throughput) and prints the maximum available IOPS and throughput. It must work for gp3, io2 and st1 inputs fed via stdin.",
   "check": "The hidden test pipes several volume configurations into the script and checks the printed IOPS and throughput figures match the expected values.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "io1 assertion expects 'throughput is 2500.00 MiB/s' but the script caps io1 <=32000 IOPS at 500 MiB/s (min(500, 2500.00) -> 500); a correct install always fails",
+      "io1 isn't in the goal's list of volume types; v2 keeps it with the corrected value, adds the gp3 blank-answer defaults (3000/125) and anchors the matches"
+    ],
+    "evidence": [
+      "EBS/VolumeLimitCalculator/volume_Limit_calculator.sh:174-187 - io1 max_available_throughput=500 when IOPS<=32000, baseline=min(500, IOPS/4)",
+      "EBS/VolumeLimitCalculator/volume_Limit_calculator.sh:206-212 - io2 min(4000, IOPS*256/1024) -> 2500.00",
+      "EBS/VolumeLimitCalculator/volume_Limit_calculator.sh:238-252 - st1 1000 GiB -> 244.14 burst / 39.06 baseline",
+      "EBS/VolumeLimitCalculator/volume_Limit_calculator.sh:117-139 - gp3 blank IOPS/throughput default to 3000/125",
+      "oracles/awslabs-aws-support-tools.sh:14 - grep 'throughput is 2500.00 MiB/s' io1.txt",
+      "data/runs/awslabs-aws-support-tools/result.json audit evidence_out - io1 prints 'Maximum Available throughput is 500 MiB/s'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "EBS VolumeLimitCalculator is a self-contained bash script with a documented run command that works offline on CPU.",
+      "demo": "EBS/VolumeLimitCalculator/Readme.md: install bc, chmod +x and run ./volume_Limit_calculator.sh",
+      "goal": "Get EBS/VolumeLimitCalculator/volume_Limit_calculator.sh running as the README describes (needs the bc package installed). It reads answers from stdin (volume type, then size/IOPS/throughput) and prints the maximum available IOPS and throughput. It must work for gp3, io2 and st1 inputs fed via stdin.",
+      "check": "The hidden test pipes several volume configurations into the script and checks the printed IOPS and throughput figures match the expected values.",
+      "server": false
+    }
+  }
 }

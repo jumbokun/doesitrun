@@ -16,6 +16,29 @@
   "reason": "README offers Ollama for gpt-oss-20b (~13 GB MXFP4 download, no gating) which can run on CPU within 16 GB RAM, though tight.",
   "demo": "README 'Ollama' section: ollama pull gpt-oss:20b; ollama run gpt-oss:20b",
   "goal": "Install Ollama, pull gpt-oss:20b and make the Ollama server run it on CPU. Write /work/run.sh that starts the Ollama server (listening on 127.0.0.1:11434), pulls gpt-oss:20b if missing and waits until the server is ready; also write /work/env.sh (sets any PATH/env needed, e.g. so `ollama` is found). The model must answer a chat prompt such as 'What is 2+2?' through the server.",
-  "check": "The hidden test starts the server via run.sh, sends a short chat request to the gpt-oss:20b model over HTTP and checks for a 200 response with a non-empty generated answer.",
-  "server": true
+  "check": "The hidden test starts the server via run.sh, sends a short arithmetic chat request to the gpt-oss:20b model over HTTP and checks for a 200 response whose generated text contains the correct answer.",
+  "server": true,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Too lenient: v1 only asserts the reply text is non-empty and completion_tokens>0, so a model that loads but decodes garbage passes. The prompt has a known answer (4) that is never checked.",
+      "v2 asserts the answer 4/four appears in content or reasoning (gpt-oss is a reasoning model), that the text is mostly printable, and uses temperature 0. Check sentence updated to match."
+    ],
+    "evidence": [
+      "src/openai-gpt-oss@27702013 README.md:176-190 — the Ollama section (`ollama pull/run gpt-oss:20b`) is the README's consumer-hardware path; the reference torch/triton implementations need CUDA on Linux (README.md:226)",
+      "oracles/openai-gpt-oss.sh:13-14 — `len(txt.strip())>0` and completion_tokens>0 are the only content assertions",
+      "data/runs/openai-gpt-oss/result.json — oracle 10 s, replay 44 s, so a content check costs nothing"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README offers Ollama for gpt-oss-20b (~13 GB MXFP4 download, no gating) which can run on CPU within 16 GB RAM, though tight.",
+      "demo": "README 'Ollama' section: ollama pull gpt-oss:20b; ollama run gpt-oss:20b",
+      "goal": "Install Ollama, pull gpt-oss:20b and make the Ollama server run it on CPU. Write /work/run.sh that starts the Ollama server (listening on 127.0.0.1:11434), pulls gpt-oss:20b if missing and waits until the server is ready; also write /work/env.sh (sets any PATH/env needed, e.g. so `ollama` is found). The model must answer a chat prompt such as 'What is 2+2?' through the server.",
+      "check": "The hidden test starts the server via run.sh, sends a short chat request to the gpt-oss:20b model over HTTP and checks for a 200 response with a non-empty generated answer.",
+      "server": true
+    }
+  }
 }

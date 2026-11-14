@@ -16,6 +16,31 @@
   "reason": "Chalice CLI quickstart can create a project and serve it locally with `chalice local` on CPU without AWS credentials.",
   "demo": "README Quickstart: chalice new-project, then run the app locally with chalice local",
   "goal": "Install chalice from the repo clone and make the quickstart work offline: `chalice new-project helloworld` then `chalice local --port 8000` inside that project (no AWS deploy, no credentials). Write /work/run.sh so it creates the project at /work/helloworld (if missing), starts `chalice local --port 8000` in the background (nohup), and waits until http://127.0.0.1:8000/ responds. Write /work/env.sh to activate the environment where chalice is installed.",
-  "check": "A fresh new-project is scaffolded in a temp dir, and the local server on port 8000 returns HTTP 200 with the JSON {\"hello\": \"world\"} for GET /.",
-  "server": true
+  "check": "The local server on port 8000 returns {\"hello\": \"world\"} for GET /, and a freshly scaffolded project with a couple of extra routes is served with chalice local and answers them correctly.",
+  "server": true,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "The oracle scaffolds its own project with `chalice new-project` but never serves it. The only HTTP check hits the project that run.sh created, so the oracle never runs the demo on an input it controls.",
+      "Only the template's single GET / route is exercised. Path parameters and request bodies, the routing that the generated app.py itself documents, are never tested.",
+      "v2 appends the two example routes from the generated app.py's comments to the oracle's project and serves it with `chalice local --port 8765 --no-autoreload`. It checks GET /, GET /hello/{name}, a POST JSON echo and that an unknown route does not return 200, and keeps the run.sh GET / check. Check sentence updated."
+    ],
+    "evidence": [
+      "oracles/aws-chalice.sh:5-11 — demoapp is created and grepped, but curl only targets port 8000 (run.sh's /work/helloworld)",
+      "src/aws-chalice@ed8eca1d chalice/cli/__init__.py:410-427 — new-project default type is 'legacy'; chalice/templates/0009-legacy/app.py:6-27 — GET / {'hello':'world'} plus the commented /hello/{name} and POST /users json_body examples",
+      "src/aws-chalice chalice/cli/__init__.py:104-113 — chalice local --host/--port/--autoreload options; chalice/local.py:524 — unknown routes return 403 'Missing Authentication Token'",
+      "src/aws-chalice README.rst:168-205 — Quickstart new-project + app.py"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Chalice CLI quickstart can create a project and serve it locally with `chalice local` on CPU without AWS credentials.",
+      "demo": "README Quickstart: chalice new-project, then run the app locally with chalice local",
+      "goal": "Install chalice from the repo clone and make the quickstart work offline: `chalice new-project helloworld` then `chalice local --port 8000` inside that project (no AWS deploy, no credentials). Write /work/run.sh so it creates the project at /work/helloworld (if missing), starts `chalice local --port 8000` in the background (nohup), and waits until http://127.0.0.1:8000/ responds. Write /work/env.sh to activate the environment where chalice is installed.",
+      "check": "A fresh new-project is scaffolded in a temp dir, and the local server on port 8000 returns HTTP 200 with the JSON {\"hello\": \"world\"} for GET /.",
+      "server": true
+    }
+  }
 }

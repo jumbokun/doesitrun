@@ -17,5 +17,31 @@
   "demo": "README 'Getting started > Usage' INT8 weight-only quantization snippet",
   "goal": "Install coreai-opt (pip install coreai-opt or from source, Python>=3.11, CPU torch) and run the README Usage snippet: build the small Sequential model, Quantizer(model, QuantizerConfig.presets.w8()), prepare(example_inputs) and finalize(). It must run without errors and the prepared model must give a finite (1,10) output close to the original model's.",
   "check": "A script runs the README quantization flow on a small model and verifies finalize succeeds and the quantized model's output is finite, correctly shaped and close to the float output.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Too lenient: it only checks that the prepared model's output is within 0.2 of the float output, which a no-op quantizer would also pass. The finalized model (the README's 'Finalize for Core AI export' result) is never run",
+      "v2 runs the finalized model, as the repo's own preset test does. It checks shape, finiteness and a small error against float (<0.05), and requires a non-zero difference so the INT8 weights must actually take effect",
+      "Drops `python -I`, which would ignore a PYTHONPATH-based from-source setup that the goal allows; no shadowing risk because the package is in src/"
+    ],
+    "evidence": [
+      "README.md 'Usage' - Quantizer(model, QuantizerConfig.presets.w8()); prepare(example_inputs); finalize()",
+      "src/coreai_opt/quantization/quantizer.py:526-533 - finalize replaces fake quantization with Core AI quantized ops",
+      "src/coreai_opt/quantization/_graph/_prepare_for_export.py:729-790 - weights replaced by pre-quantized constexpr_blockwise_shift_scale ops",
+      "tests/test_quantization_preset.py:258-266 - finalized_model(simple_linear_model_input) is called directly",
+      "data/runs/apple-coreai-optimization/deliverables/NOTES.md - prepared output differs from float by ~1.8e-3"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README Usage snippet quantizes a small PyTorch model with coreai_opt on CPU, no gated resources.",
+      "demo": "README 'Getting started > Usage' INT8 weight-only quantization snippet",
+      "goal": "Install coreai-opt (pip install coreai-opt or from source, Python>=3.11, CPU torch) and run the README Usage snippet: build the small Sequential model, Quantizer(model, QuantizerConfig.presets.w8()), prepare(example_inputs) and finalize(). It must run without errors and the prepared model must give a finite (1,10) output close to the original model's.",
+      "check": "A script runs the README quantization flow on a small model and verifies finalize succeeds and the quantized model's output is finite, correctly shaped and close to the float output.",
+      "server": false
+    }
+  }
 }

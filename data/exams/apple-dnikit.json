@@ -14,8 +14,35 @@
   },
   "eligible": true,
   "reason": "DNIKit's core Duplicates introspector runs on CPU with pip-installable deps and no credentials or large downloads.",
-  "demo": "docs Duplicates introspector (docs/introspectors/data_introspection/duplicates.rst): Duplicates.introspect on a pipeline producer",
-  "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(pipeline(StubProducer({...numpy responses...}), ...), threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, and the repo's src/dnikit/tests/test_duplicates.py must pass with pytest.",
-  "check": "Runs Duplicates on synthetic responses with planted near-duplicates and verifies clusters are found (more in the more-duplicated response), then runs the repo's duplicates unit tests.",
-  "server": false
+  "demo": "docs introspectors: Duplicates (duplicates.rst), DimensionReduction PCA (dimension_reduction.rst) and Familiarity (familiarity.rst) on StubProducer pipelines",
+  "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates, DimensionReduction, Familiarity`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(..., threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, DimensionReduction with Strategy.PCA must reduce responses, Familiarity.introspect must fit and score responses, and the repo's src/dnikit/tests/test_duplicates.py and the PCA tests in test_dimension_reduction.py must pass with pytest.",
+  "check": "Runs Duplicates on synthetic responses with planted near-duplicates (more clusters in the more-duplicated response), reduces synthetic data with PCA, fits Familiarity and checks in-distribution samples score higher than far-away ones, then runs the repo's duplicates and PCA unit tests.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Unit-test step can't fail. `! grep -q failed` never trips set -e (bash ignores failures of !-negated commands), and the pytest exit status is lost in `| tail | tee`. A run with failing tests still passes as long as 'passed' appears in the summary",
+      "Coverage is narrow: only Duplicates on stub data. The base package also ships DimensionReduction and Familiarity, both used in the docs' Duplicates and Familiarity pipelines. v2 adds a PCA shape check, a Familiarity fit/score check (in-distribution scores above far-away samples) and the PCA unit tests, with pytest's exit status checked directly. The goal names these"
+    ],
+    "evidence": [
+      "oracles/apple-dnikit.sh:42-44 - pytest ... | tail -5 | tee; grep -q passed; ! grep -q failed",
+      "bash manual (set -e): the shell does not exit if a failing command's return status is inverted with !",
+      "docs/introspectors/data_introspection/duplicates.rst:40-72 - pipeline uses DimensionReduction PCA then Duplicates",
+      "docs/introspectors/data_introspection/familiarity.rst:38-133 - Familiarity.introspect then score via pipeline, metadata[familiarity.meta_key]",
+      "docs/general/installation.rst - base dnikit includes Familiarity, PFA, INA, DimensionReduction",
+      "src/dnikit/tests/test_dimension_reduction.py:44-72 - test_pca / test_pca_single need only scikit-learn (a base dependency)",
+      "src/dnikit/tests/test_familiarity.py:86-96 - scores are log-likelihoods (negative, higher = more familiar)"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "DNIKit's core Duplicates introspector runs on CPU with pip-installable deps and no credentials or large downloads.",
+      "demo": "docs Duplicates introspector (docs/introspectors/data_introspection/duplicates.rst): Duplicates.introspect on a pipeline producer",
+      "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(pipeline(StubProducer({...numpy responses...}), ...), threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, and the repo's src/dnikit/tests/test_duplicates.py must pass with pytest.",
+      "check": "Runs Duplicates on synthetic responses with planted near-duplicates and verifies clusters are found (more in the more-duplicated response), then runs the repo's duplicates unit tests.",
+      "server": false
+    }
+  }
 }

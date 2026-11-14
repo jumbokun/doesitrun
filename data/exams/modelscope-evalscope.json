@@ -14,8 +14,39 @@
   },
   "eligible": true,
   "reason": "README Quick Start Method 2 evaluates a 0.5B local model on GSM8K with --limit 5, feasible on CPU with small downloads and no keys.",
-  "demo": "README Quick Start, Method 2: Evaluate a Local Model (evalscope eval)",
-  "goal": "Install evalscope (Python >= 3.11) and make `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and the GSM8K dataset fetched. It must accept a `--work-dir <dir>` option for outputs and finish by writing an evaluation report.",
-  "check": "The hidden test runs the local-model GSM8K evaluation with limit 5 into a fresh output directory and verifies that a report file with a GSM8K score and 5 evaluated samples was produced.",
-  "server": false
+  "demo": "README Quick Start, Method 2: Evaluate a Local Model (evalscope eval --datasets gsm8k arc --limit 5)",
+  "goal": "Install evalscope (Python >= 3.11) and make the README Method 2 command `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k arc --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and both datasets fetched. It must accept a `--work-dir <dir>` option for outputs and write the evaluation reports there.",
+  "check": "The hidden test runs the local-model gsm8k + arc evaluation with limit 5 into a fresh work dir and verifies a report with a score for each dataset (5 gsm8k samples) and review files whose model answers are non-empty.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Too lenient: `[ -n \"$rev\" ] && [ \"$(wc -l < \"$rev\")\" -ge 5 ]` stays silent under set -e when the first test fails, because set -e ignores failures in an && list other than the last command. A missing reviews file therefore still prints ORACLE PASS (verified: bash -c 'set -e; rev=\"\"; [ -n \"$rev\" ] && [ 1 -ge 5 ]; echo REACHED' prints REACHED).",
+      "Too lenient: the '5 evaluated samples' assertion `'\"num\": 5' in s or ... or 'gsm8k' in s.lower()` is always true for a gsm8k report, so the sample count is never checked.",
+      "There is no check that the model actually produced answers; a run where every generation errors could still write a report with score 0. v2 requires a non-empty assistant message in every review row.",
+      "Demo narrowed: README Method 2 is `--datasets gsm8k arc --limit 5`, and the exam dropped arc. v2 restores the README command.",
+      "The inner `timeout 5400` is longer than ORACLE_SEC=3600 (cosmetic)."
+    ],
+    "evidence": [
+      "oracles/modelscope-evalscope.sh:16 — the always-true disjunction; :19-20 — find, then `[ -n ] && [ ]` under set -e",
+      "src/modelscope-evalscope/README.md:201-210 — the Method 2 command with `--datasets gsm8k arc --limit 5`",
+      "src/modelscope-evalscope/evalscope/api/evaluator/cache.py:235,303-319 — reviews/<model>/<bench>_<subset>.jsonl and reports/<model>/<bench>.json",
+      "src/modelscope-evalscope/evalscope/report/report.py:216-225,293-302 — the report has metrics[].score and metrics[].num",
+      "src/modelscope-evalscope/evalscope/api/evaluator/cache.py:428-451 — review rows carry the chat messages, including the assistant answer",
+      "src/modelscope-evalscope/evalscope/benchmarks/arc/arc_adapter.py:48; benchmarks/gsm8k/gsm8k_adapter.py:67 — subsets ARC-Easy/ARC-Challenge; gsm8k has only 'main'",
+      "src/modelscope-evalscope/evalscope/arguments.py:94 — --work-dir exists",
+      "data/runs/modelscope-evalscope/deliverables/NOTES.md item 1 — with torch missing, 'The CLI still exits 0', so the exit status alone means nothing"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README Quick Start Method 2 evaluates a 0.5B local model on GSM8K with --limit 5, feasible on CPU with small downloads and no keys.",
+      "demo": "README Quick Start, Method 2: Evaluate a Local Model (evalscope eval)",
+      "goal": "Install evalscope (Python >= 3.11) and make `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and the GSM8K dataset fetched. It must accept a `--work-dir <dir>` option for outputs and finish by writing an evaluation report.",
+      "check": "The hidden test runs the local-model GSM8K evaluation with limit 5 into a fresh output directory and verifies that a report file with a GSM8K score and 5 evaluated samples was produced.",
+      "server": false
+    }
+  }
 }

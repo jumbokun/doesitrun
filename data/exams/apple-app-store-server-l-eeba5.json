@@ -14,8 +14,34 @@
   },
   "eligible": true,
   "reason": "Pure-Python library whose README Usage examples (signed-data verification, promotional offer signatures) run offline on CPU using bundled test keys/certs with no Apple account needed.",
-  "demo": "README Usage: 'Verification Usage' (SignedDataVerifier) and 'Promotional Offer Signature Creation'",
-  "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8 and tests/resources/mock_signed_data/testNotification, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification via verify_and_decode_notification, and make PromotionalOfferSignatureCreator produce a signature. No Apple credentials or network API calls are needed.",
-  "check": "A Python script imports the library, creates a promotional offer signature that verifies against the test key, and decodes the bundled test notification as type TEST.",
-  "server": false
+  "demo": "README Usage: 'Verification Usage' (SignedDataVerifier), 'Receipt Usage' (ReceiptUtility) and 'Promotional Offer Signature Creation'",
+  "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8, tests/resources/mock_signed_data/{testNotification,transactionInfo} and tests/resources/xcode/xcode-app-receipt-with-transaction, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification and the transaction, make PromotionalOfferSignatureCreator produce a signature, and make ReceiptUtility extract the transaction id from the Xcode app receipt. No Apple credentials or network API calls are needed.",
+  "check": "A Python script imports the installed library, creates a promotional offer signature that verifies against the test key, decodes the bundled notification (type TEST) and transaction, checks that a wrong bundle id is rejected, and extracts the transaction id from the bundled Xcode receipt.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "The verifier is built with default strict X509 checks, which the bundled test certs can't pass (they have no authority key identifiers). The repo's own tests disable strict checks for this reason, so a correct install always fails",
+      "Coverage is thin: of the README's offline usage sections only signature creation and notification decoding are tested. v2 adds transaction decoding, a negative check (a wrong bundle id must be rejected, so an accept-everything verifier fails) and README 'Receipt Usage' (ReceiptUtility on the bundled Xcode receipt -> '0'). The goal and check are updated to name these"
+    ],
+    "evidence": [
+      "tests/util.py:36-39 - verifier._chain_verifier.enable_strict_checks = False # We don't have authority identifiers on test certs",
+      "appstoreserverlibrary/signed_data_verifier.py:190,215-216 - _ChainVerifier(enable_strict_checks=True) sets X509_STRICT",
+      "tests/test_payload_verification.py:34-38,74-85 - notification TEST, transaction SANDBOX, wrong bundle -> INVALID_APP_IDENTIFIER",
+      "tests/test_receipt_utility.py:25-31 - xcode-app-receipt-with-transaction -> transaction id '0'",
+      "appstoreserverlibrary/promotional_offer.py:32-38 - payload joined with U+2063",
+      "data/runs/apple-app-store-server-l-eeba5/result.json audit - repo test passes with strict checks off; signature part already passed"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "Pure-Python library whose README Usage examples (signed-data verification, promotional offer signatures) run offline on CPU using bundled test keys/certs with no Apple account needed.",
+      "demo": "README Usage: 'Verification Usage' (SignedDataVerifier) and 'Promotional Offer Signature Creation'",
+      "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8 and tests/resources/mock_signed_data/testNotification, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification via verify_and_decode_notification, and make PromotionalOfferSignatureCreator produce a signature. No Apple credentials or network API calls are needed.",
+      "check": "A Python script imports the library, creates a promotional offer signature that verifies against the test key, and decodes the bundled test notification as type TEST.",
+      "server": false
+    }
+  }
 }

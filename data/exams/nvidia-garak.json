@@ -14,8 +14,35 @@
   },
   "eligible": true,
   "reason": "garak is a CLI LLM vulnerability scanner whose README documents running probes against built-in test generators with no GPU or API key.",
-  "demo": "README usage: python -m garak --list_probes and a scan with a test generator (-t test.Repeat -p test.Test)",
-  "goal": "Install garak from the cloned repo so that `python -m garak --list_probes` works. Then run `python -m garak -t test.Repeat -p test.Test -d always.Pass --report_prefix <somedir>/run`; the scan must complete and write a report .jsonl file.",
-  "check": "The hidden test checks that the probe list is printed and that a scan run writes a non-empty report JSONL containing attempt entries for the test.Test probe.",
-  "server": false
+  "demo": "README 'Getting started' (--list_probes), 'Intro to generators / Test' (test.Repeat) and 'Examples' (huggingface gpt2 x probes.dan.Dan_11_0)",
+  "goal": "Install garak from the cloned repo so that `python -m garak --list_probes` works. Then these scans must complete on CPU and write report JSONL files under a `--report_prefix` you pass: `python -m garak -t test.Repeat -p test.Test -d always.Pass`, and the README example against the local Hugging Face GPT-2 model, `python3 -m garak --target_type huggingface --target_name gpt2 --spec probes.dan.Dan_11_0` (gpt2 is public). The local gpt2 generator must actually generate text.",
+  "check": "The hidden test lists probes, runs the test generator and the README's Hugging Face GPT-2 example (plus a short-prompt probe on the same local gpt2 generator), and checks the report JSONL attempts, detector evaluations and that gpt2 produced text.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Demo choice: v1 only runs the test.Repeat generator + test.Test probe + always.Pass detector, the plumbing path the README describes as 'For testing'. The README 'Examples' section has a CPU-feasible substantive demo (huggingface gpt2 x probes.dan.Dan_11_0) that v1 never touches, so a broken torch/transformers local-model path would pass",
+      "Leniency: list_probes check `grep 'probes: test' || grep encoding` - the first pattern cannot match because ANSI codes sit between 'probes: ' and the name, so only a bare substring 'encoding' is checked",
+      "Leniency: v1 does not check that Repeat echoes the prompts or that an eval entry was written"
+    ],
+    "evidence": [
+      "src/nvidia-garak@c74f436 README.md:116-120 - example `python3 -m garak --target_type huggingface --target_name gpt2 --spec probes.dan.Dan_11_0`",
+      "README.md:229-232 - test generators are 'For testing'",
+      "garak/command.py:233-239 - list output is f'{BRIGHT}{color}probes: {RESET}' + name",
+      "garak/generators/test.py:34-37 - Repeat returns prompt.last_message(); garak/attempt.py:281-289 - attempt JSON (probe_classname, prompt.turns, outputs[].text); garak/evaluators/base.py:213-222 - eval record",
+      "garak/probes/dan.py:54 - primary detector dan.DAN; garak/data/dan/Dan_11_0.json - 4730-char prompt, near gpt2's 1024-token context, so v2 does not assert DAN outputs; it checks real gpt2 text on the short test.Test prompts instead",
+      "garak/generators/huggingface.py:35 models_to_deprefix=['gpt2']; garak/cli.py:131 --generations"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "garak is a CLI LLM vulnerability scanner whose README documents running probes against built-in test generators with no GPU or API key.",
+      "demo": "README usage: python -m garak --list_probes and a scan with a test generator (-t test.Repeat -p test.Test)",
+      "goal": "Install garak from the cloned repo so that `python -m garak --list_probes` works. Then run `python -m garak -t test.Repeat -p test.Test -d always.Pass --report_prefix <somedir>/run`; the scan must complete and write a report .jsonl file.",
+      "check": "The hidden test checks that the probe list is printed and that a scan run writes a non-empty report JSONL containing attempt entries for the test.Test probe.",
+      "server": false
+    }
+  }
 }

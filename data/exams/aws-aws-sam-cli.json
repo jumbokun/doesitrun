@@ -17,5 +17,30 @@
   "demo": "README Get Started: Hello World app via `sam init` then `sam build`",
   "goal": "Install aws-sam-cli from the cloned repo so the `sam` command works. Then `sam init --no-interactive` with the hello-world template, Zip package type and the machine's Python runtime must create a project, and `sam build` inside it must produce .aws-sam/build with the built template and function code. No AWS credentials or Docker are available or needed.",
   "check": "The hidden test generates a Hello World app with sam init, runs sam build, and checks that the build output template and function code exist.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle bug (confirms the audit): SAM CLI rejects `sam init --no-interactive --runtime ... --app-template hello-world --package-type Zip` without --dependency-manager, failing with 'Missing parameter --dependency-manager'.",
+      "v2 adds `--dependency-manager pip`, disables telemetry, and also checks that the built HelloWorldFunction/app.py contains the generated lambda_handler."
+    ],
+    "evidence": [
+      "src/aws-aws-sam-cli@199c33a4 samcli/commands/init/command.py:45-49 — the non-interactive combination is [name, runtime, dependency_manager, app_template]",
+      "samcli/commands/init/command.py:119-129 — Zip package type with no location and no dependency_manager -> click.UsageError('Missing parameter --dependency-manager')",
+      "oracles/aws-aws-sam-cli.sh:8 — no --dependency-manager",
+      "data/runs/aws-aws-sam-cli/result.json audit — with --dependency-manager pip, init+build produced .aws-sam/build/template.yaml and HelloWorldFunction/app.py",
+      "samcli/lib/init/templates/cookiecutter-aws-sam-hello-python/{{cookiecutter.project_name}}/hello_world/app.py:6 — def lambda_handler"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "SAM CLI is a pip-installable CLI whose README quickstart (sam init / sam build) runs locally on CPU without AWS credentials.",
+      "demo": "README Get Started: Hello World app via `sam init` then `sam build`",
+      "goal": "Install aws-sam-cli from the cloned repo so the `sam` command works. Then `sam init --no-interactive` with the hello-world template, Zip package type and the machine's Python runtime must create a project, and `sam build` inside it must produce .aws-sam/build with the built template and function code. No AWS credentials or Docker are available or needed.",
+      "check": "The hidden test generates a Hello World app with sam init, runs sam build, and checks that the build output template and function code exist.",
+      "server": false
+    }
+  }
 }

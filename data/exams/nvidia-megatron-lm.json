@@ -15,7 +15,32 @@
   "eligible": true,
   "reason": "The quickstart's Data Preparation section gives a CPU-only tools/preprocess_data.py CLI with an openly downloadable tokenizer, while the GPU training examples are skipped.",
   "demo": "docs/get-started/quickstart.md 'Data Preparation': python tools/preprocess_data.py (JSONL -> .bin/.idx)",
-  "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir with the GPT-2 tokenizer files> --workers 2 --append-eod` runs on CPU. The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset. The GPT-2 tokenizer (openai-community/gpt2 on Hugging Face, not gated) is downloaded as a directory containing tokenizer.json, tokenizer_config.json, vocab.json and merges.txt.",
-  "check": "Runs the preprocessing CLI on a generated 20-document JSONL and verifies the output files load as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token.",
-  "server": false
+  "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir> --workers 2 --append-eod` runs on CPU, where <dir> is a local copy of the GPT-2 tokenizer from Hugging Face (openai-community/gpt2, not gated: config.json, tokenizer.json, tokenizer_config.json, vocab.json, merges.txt). The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset.",
+  "check": "Runs the preprocessing CLI on a generated 20-document JSONL with a downloaded GPT-2 tokenizer directory and verifies the output loads as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle (and goal) hand Megatron a 4-file GPT-2 tokenizer dir without config.json. openai-community/gpt2's tokenizer_config.json is only {model_max_length}, so HF AutoTokenizer cannot resolve GPT2Tokenizer: transformers 4.x raises 'Unrecognized model' (unless the path contains 'gpt2'), 5.x falls back to a generic backend with eos_token=None",
+      "This is an incomplete input the oracle built, not a Megatron defect: Megatron's HuggingFaceTokenizer only calls AutoTokenizer.from_pretrained(path), which works on a normal HF download (with config.json)",
+      "Goal text pins the same incomplete 4-file list, so the goal must change too"
+    ],
+    "evidence": [
+      "src/nvidia-megatron-lm@19895da megatron/core/tokenizers/text/libraries/huggingface_tokenizer.py:109-122 - plain AutoTokenizer.from_pretrained; :402-405 eod is None when eos_token is None",
+      "transformers 5.19.0 (pinned by Megatron's uv.lock per NOTES.md) models/auto/tokenization_auto.py:805-811 - AutoConfig failure falls back to PreTrainedConfig (no model_type) -> generic TokenizersBackend; models/gpt2/tokenization_gpt2.py:101 - GPT2Tokenizer defaults eos_token='<|endoftext|>', reached only when config.json gives model_type gpt2",
+      "data/runs/nvidia-megatron-lm/result.json audit evidence_out - the same 4 files load when the dir is named gpt2 and fail under /tmp/a1/tok: name-dependent behaviour of an incomplete input",
+      "docs/get-started/quickstart.md 'Preprocess the Data' - only says --tokenizer-model is a path to the tokenizer; nothing about a stripped file set"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The quickstart's Data Preparation section gives a CPU-only tools/preprocess_data.py CLI with an openly downloadable tokenizer, while the GPU training examples are skipped.",
+      "demo": "docs/get-started/quickstart.md 'Data Preparation': python tools/preprocess_data.py (JSONL -> .bin/.idx)",
+      "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir with the GPT-2 tokenizer files> --workers 2 --append-eod` runs on CPU. The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset. The GPT-2 tokenizer (openai-community/gpt2 on Hugging Face, not gated) is downloaded as a directory containing tokenizer.json, tokenizer_config.json, vocab.json and merges.txt.",
+      "check": "Runs the preprocessing CLI on a generated 20-document JSONL and verifies the output files load as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token.",
+      "server": false
+    }
+  }
 }

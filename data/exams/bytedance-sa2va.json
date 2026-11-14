@@ -15,7 +15,31 @@
   "eligible": true,
   "reason": "README Quick Start offers a script demo and the public (ungated) Sa2VA-1B model (~2-3 GB) can run on CPU for a few small frames.",
   "demo": "projects/sa2va/README.md Quick Start, Option 1: python projects/sa2va/demo/demo.py FOLDER --model_path ByteDance/Sa2VA-1B --work-dir OUT --text ...",
-  "goal": "Get projects/sa2va/demo/demo.py running on CPU with the ByteDance/Sa2VA-1B model (smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir. Note flash_attn and a CUDA GPU are unavailable, so CPU fallbacks may be needed.",
-  "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and mask-overlay images are written to the output directory.",
-  "server": false
+  "goal": "Get projects/sa2va/demo/demo.py (projects/sa2va/README.md Quick Start, option 1) running on this CPU-only machine with the public ByteDance/Sa2VA-1B model (a smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir.",
+  "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and that overlay images with a visible predicted mask are written to the output directory.",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle does not check that a mask was predicted: demo.py writes an overlay for every frame whenever '[SEG]' is in the text, so empty masks still produce >5 KB jpgs that pass. v2 compares each overlay with its input frame and requires a visible, not-whole-frame green mask (the man is in every sampled frame).",
+      "Goal leaks a workaround: 'Note flash_attn and a CUDA GPU are unavailable, so CPU fallbacks may be needed' points the probe at dropping flash_attn from projects/sa2va/demo/requirements.txt and adding CPU fallbacks; the README says neither. Removed."
+    ],
+    "evidence": [
+      "src/bytedance-sa2va/projects/sa2va/demo/demo.py visualize() and final loop - overlay written per frame regardless of mask content; draw_binary_masks green, alpha 0.4",
+      "oracles/bytedance-sa2va.sh:22-25 - only greps text and checks jpg count/size",
+      "src/bytedance-sa2va/projects/sa2va/demo/requirements.txt - lists flash_attn; README Quick Start (projects/sa2va/README.md:76-88) gives no CPU advice",
+      "src/bytedance-sa2va/assets/videos/gf_exp1.mp4 frames 0/150/300/450 (inspected) - the man is visible in all sampled frames"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README Quick Start offers a script demo and the public (ungated) Sa2VA-1B model (~2-3 GB) can run on CPU for a few small frames.",
+      "demo": "projects/sa2va/README.md Quick Start, Option 1: python projects/sa2va/demo/demo.py FOLDER --model_path ByteDance/Sa2VA-1B --work-dir OUT --text ...",
+      "goal": "Get projects/sa2va/demo/demo.py running on CPU with the ByteDance/Sa2VA-1B model (smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir. Note flash_attn and a CUDA GPU are unavailable, so CPU fallbacks may be needed.",
+      "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and mask-overlay images are written to the output directory.",
+      "server": false
+    }
+  }
 }

@@ -17,5 +17,31 @@
   "demo": "src/ManifestGenerator/README.md, 'CSV Input' mode: ./manifestgen.py --prefix=OUTFILE --num=4 --csv --input-file=INPUT.csv",
   "goal": "Install the dependencies for src/ManifestGenerator (boto3 per its requirements.txt) and make manifestgen.py run in CSV input mode. Given a CSV with header file_name,file_size and S3 URL rows, run `./manifestgen.py --prefix=<out>/OUTFILE --num=4 --csv --input-file=<csv>`. It must write OUTFILE-000.json to OUTFILE-003.json, with the entries split across them. No AWS credentials are needed. Put the environment setup in /work/env.sh so that python3 can import boto3.",
   "check": "The hidden test generates a CSV of S3 file URLs and sizes, runs the generator for 4 manifests, and checks that the manifest JSON files are valid and together contain every non-empty entry once, with the correct sizes.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Filename assertion can never pass: f[-8:] yields '000.json' (8 chars) but the expected strings are '-000.json' (9 chars); a correct install always fails",
+      "Per-file entry count only checked as >=25; iter_batch gives the remainder to the first batches, so the exact split [26,25,25,25] and per-URL sizes can be asserted"
+    ],
+    "evidence": [
+      "oracles/awslabs-amazon-redshift-utils.sh:22 - assert [f[-8:] for f in fs]==['-000.json',...]",
+      "python: repr('/tmp/x/OUTFILE-000.json'[-8:]) -> '000.json', len('-000.json') -> 9",
+      "src/ManifestGenerator/manifestgen.py:150 - out_name = f'{args.prefix}-{i:03d}.json'",
+      "src/ManifestGenerator/manifestgen.py:69-82 - iter_batch spreads remainder over first batches",
+      "src/ManifestGenerator/manifestgen.py:38 - rows with size 0 skipped",
+      "data/runs/awslabs-amazon-redshift-utils/result.json audit - manifests 26/25/25/25, 101 unique entries, correct total size"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The Manifest Generator utility has a CSV input mode that runs fully offline on CPU with only boto3 needed.",
+      "demo": "src/ManifestGenerator/README.md, 'CSV Input' mode: ./manifestgen.py --prefix=OUTFILE --num=4 --csv --input-file=INPUT.csv",
+      "goal": "Install the dependencies for src/ManifestGenerator (boto3 per its requirements.txt) and make manifestgen.py run in CSV input mode. Given a CSV with header file_name,file_size and S3 URL rows, run `./manifestgen.py --prefix=<out>/OUTFILE --num=4 --csv --input-file=<csv>`. It must write OUTFILE-000.json to OUTFILE-003.json, with the entries split across them. No AWS credentials are needed. Put the environment setup in /work/env.sh so that python3 can import boto3.",
+      "check": "The hidden test generates a CSV of S3 file URLs and sizes, runs the generator for 4 manifests, and checks that the manifest JSON files are valid and together contain every non-empty entry once, with the correct sizes.",
+      "server": false
+    }
+  }
 }

@@ -44,6 +44,17 @@
     "check": "The hidden test writes the README example scripts itself, runs them with the installed fire and checks the printed outputs (Hello World!, Hello David!, 20, 30, help text)."
   },
   {
+    "slug": "google-adk-python",
+    "repo": "google/adk-python",
+    "dir": "adk-python",
+    "company": "Google",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install google-adk from the clone at /work/adk-python (Python 3.11+, e.g. pip install -e .) so the `adk` CLI works. Then single-step runs of two sample workflows must work: `adk run contributing/samples/workflows/fan_out_fan_in \"Hello World\"` and `adk run contributing/samples/workflows/state \"hello adk\"`. These workflows use only function nodes, so no model or API key is involved. Write /work/env.sh so that `adk` is on PATH.",
+    "check": "The hidden test runs both sample workflows with `adk run` in single-step mode and checks the workflow outputs: the fanned-out uppercase, character count and reversed string, and the state-derived final result."
+  },
+  {
     "slug": "google-research-harness2",
     "repo": "google-research/harness2",
     "dir": "harness2",
@@ -99,17 +110,6 @@
     "check": "The hidden test runs the random agent headless on the CollectMineralShards map for a short episode and checks it completes and reports a score."
   },
   {
-    "slug": "google-trax",
-    "repo": "google/trax",
-    "dir": "trax",
-    "company": "Google",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Install trax so that the README's pre-trained Transformer translation snippet works on CPU: build trax.models.Transformer in predict mode, init_from_file gs://trax-ml/models/translation/ende_wmt32k.pkl.gz, tokenize 'It is nice to learn new things today!' with vocab ende_32k.subword, decode with autoregressive_sample (temperature=0.0), detokenize and print the German translation. It should print something like 'Es ist schön, heute neue Dinge zu lernen!'.",
-    "check": "A script running the README translation snippet exits successfully and prints a German translation of the sentence containing expected German words."
-  },
-  {
     "slug": "google-deepmind-weathernext",
     "repo": "google-deepmind/weathernext",
     "dir": "weathernext",
@@ -117,8 +117,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the weathernext package (pip install from the repo, with its jax/haiku/xarray_jax dependencies) so that the notebook's core flow works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-01.nc from the public bucket dm_graphcast, then run an autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Use the GPU attention setting (attention_type 'triblockdiag_mha') if the CPU needs it. Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
-    "check": "A standalone script re-runs the Mini-model 2-member ensemble rollout on the sample data and checks the predictions are finite, physically plausible 2m temperatures with ensemble spread and writes a NetCDF output."
+    "goal": "Install the weathernext package from /work/weathernext (pip install from the repo, as the notebook's install cell does) so the core flow of docs/weathernext2/wn2_demo.ipynb works on CPU: load fiddle config 'weathernext2/configs/WeatherNextCyclones_Mini', load weights weathernext2/params/WeatherNextCyclones_Mini_<2024.npz and the sample file weathernext2/dataset/source-hres_forecast_init-2024-10-07 00:00:00_res-1.0_levels-13_steps-04.nc from the public bucket dm_graphcast, then run the notebook's autoregressive ensemble rollout (fgn model, rollout.chunked_prediction_generator_multiple_runs). Write /work/env.sh that activates the environment so `python` can import weathernext, xarray_jax, jax and haiku.",
+    "check": "A standalone script downloads the public weights and steps-04 sample, runs a 2-member, 4-step Mini-model ensemble rollout on CPU, and checks finite, physically plausible 2m temperatures, nonzero ensemble spread, a 6h forecast close to the sample's target, and a written NetCDF output."
   },
   {
     "slug": "google-research-arxiv-la-b23d9",
@@ -130,6 +130,17 @@
     "server": false,
     "goal": "Install arxiv-latex-cleaner (from the repo clone or pip) so that `arxiv_latex_cleaner <folder> --resize_images --im_size 100 --images_allowlist='{\"images/im2_included.jpg\":50}'` (or `python -m arxiv_latex_cleaner`) runs on a copy of test_data/tex and produces the <folder>_arXiv output directory. Comments must be stripped, unused files/images removed, and images resized.",
     "check": "The hidden test runs the cleaner on a copy of the bundled sample LaTeX project and inspects the output folder for removed comments, removed unused/aux files, kept used files and resized images."
+  },
+  {
+    "slug": "google-research-text-to-25965",
+    "repo": "google-research/text-to-text-transfer-transformer",
+    "dir": "text-to-text-transfer-transformer",
+    "company": "Google",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install the t5 library (README: pip install t5[gcp], or from the /work/text-to-text-transfer-transformer clone) so that the HfPyTorchModel usage example linked from the README's t5.models section works on this CPU-only machine: `t5.models.HfPyTorchModel('t5-base', <model_dir>, torch.device('cpu')).predict([...task-prefixed inputs...], sequence_length={'inputs': 32}, batch_size=2, output_file=<file>)` must load the pretrained t5-base checkpoint and write one decoded prediction per input to the output file. Provide /work/env.sh that activates this environment.",
+    "check": "The hidden test runs HfPyTorchModel.predict with t5-base on CPU on a few task-prefixed inputs (English-German and English-French translation, CoLA) and verifies the prediction file contains correct translations and CoLA labels."
   },
   {
     "slug": "google-agents-cli",
@@ -161,8 +172,8 @@
     "gpu": false,
     "mem": "12g",
     "server": true,
-    "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install deps as needed, with local datastore emulator, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
-    "check": "The hidden test starts the server via run.sh and verifies http://localhost:9000/ and /login return HTTP 200 with ClusterFuzz page content."
+    "goal": "Get the local ClusterFuzz web server running as described in docs/getting-started/local_instance.md, using `python butler.py run_server --bootstrap` (install the prerequisites the docs list; local emulators, no cloud credentials). The web interface must be listening on http://localhost:9000 and serve pages, and the bootstrap must populate the local datastore. Provide /work/env.sh (environment setup) and /work/run.sh (starts the server in background and returns only once it is ready).",
+    "check": "The hidden test starts the server via run.sh, verifies http://localhost:9000/ returns a ClusterFuzz page, and that the Fuzzers page lists the default fuzzers created by --bootstrap."
   },
   {
     "slug": "facebookresearch-detectron2",
@@ -282,7 +293,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install Kats (pip install kats or from the clone; a compatible Python/dependency set is needed) so that the three README snippets run from /work/Kats: ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
+    "goal": "Install Kats (pip install kats, or from the /work/Kats clone) so that the three README example snippets run from /work/Kats: the ProphetModel forecast of kats/data/air_passengers.csv for 30 steps with freq='MS', CUSUMDetector on the simulated increasing series, and TsFeatures().transform on air_passengers. Paths in the snippets should be relative to /work/Kats (kats/data/air_passengers.csv). /work/env.sh must activate the environment.",
     "check": "A hidden script runs all three snippets from the repo root and verifies a 30-row forecast, a detected change point near the simulated shift, and a populated feature dict."
   },
   {
@@ -295,6 +306,17 @@
     "server": false,
     "goal": "Install markitdown from the cloned source with its optional dependencies (pip install -e 'packages/markitdown[all]' in a venv). Then the `markitdown` CLI must convert the sample files packages/markitdown/tests/test_files/test.docx, test.xlsx, test.pptx and test.pdf to Markdown, both with `-o out.md` and via stdout redirect. Write /work/env.sh so that sourcing it makes the `markitdown` command available on PATH.",
     "check": "The hidden test converts the bundled docx, xlsx, pptx and pdf samples with the markitdown CLI and checks the Markdown output contains the expected headings and known text strings."
+  },
+  {
+    "slug": "microsoft-autogen",
+    "repo": "microsoft/autogen",
+    "dir": "autogen",
+    "company": "Microsoft",
+    "gpu": false,
+    "mem": "12g",
+    "server": false,
+    "goal": "Install AutoGen as the README says (pip install -U \"autogen-agentchat\" \"autogen-ext[openai]\") so that, with no API key: (1) the Core quickstart from the docs (Modifier and Checker agents on SingleThreadedAgentRuntime counting down from 10, wrapped in asyncio.run as the notebook's note says) runs and prints the countdown ending in '1 failed the check, stopping.'; and (2) the README Hello World (AssistantAgent('assistant', model_client=...).run(task=\"Say 'Hello World!'\")) runs end to end when the model client is autogen_ext.models.replay.ReplayChatCompletionClient(['Hello World!']). /work/env.sh must activate the environment.",
+    "check": "A hidden script runs the Core quickstart and the replay-client Hello World from a fresh directory and verifies the full countdown trace and that the assistant's final message is the replayed reply."
   },
   {
     "slug": "microsoft-vibevoice",
@@ -348,7 +370,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "In /work/unilm/e5, get mteb_except_retrieval_eval.py running on CPU only with intfloat/e5-small-v2 (install requirements.txt; the script currently calls .cuda()/fp16/autocast, so make it work without a GPU). The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
+    "goal": "In /work/unilm/e5, install requirements.txt and get the README's MTEB evaluation (mteb_except_retrieval_eval.py, as called by scripts/eval_mteb_except_retrieval.sh) working on this CPU-only machine with intfloat/e5-small-v2. The command `python mteb_except_retrieval_eval.py --model-name-or-path intfloat/e5-small-v2 --task-types STS --dry-run --output-dir <dir>` must finish and write the STS12 MTEB result JSON in the output dir.",
     "check": "The hidden test runs that command into a fresh directory and verifies the STS12 result JSON exists with a cosine-similarity Spearman score in the plausible range for e5-small-v2."
   },
   {
@@ -447,8 +469,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir with the GPT-2 tokenizer files> --workers 2 --append-eod` runs on CPU. The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset. The GPT-2 tokenizer (openai-community/gpt2 on Hugging Face, not gated) is downloaded as a directory containing tokenizer.json, tokenizer_config.json, vocab.json and merges.txt.",
-    "check": "Runs the preprocessing CLI on a generated 20-document JSONL and verifies the output files load as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token."
+    "goal": "Install Megatron-LM enough that `python tools/preprocess_data.py --input data.jsonl --output-prefix out --tokenizer-type HuggingFaceTokenizer --tokenizer-model <dir> --workers 2 --append-eod` runs on CPU, where <dir> is a local copy of the GPT-2 tokenizer from Hugging Face (openai-community/gpt2, not gated: config.json, tokenizer.json, tokenizer_config.json, vocab.json, merges.txt). The input is a JSONL file with a `text` field per line. It must produce out_text_document.bin and out_text_document.idx, which load with megatron.core.datasets.indexed_dataset.IndexedDataset.",
+    "check": "Runs the preprocessing CLI on a generated 20-document JSONL with a downloaded GPT-2 tokenizer directory and verifies the output loads as an indexed dataset with 20 documents that decode back to the original text and end with the EOD token."
   },
   {
     "slug": "nvlabs-stylegan",
@@ -491,8 +513,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install garak from the cloned repo so that `python -m garak --list_probes` works. Then run `python -m garak -t test.Repeat -p test.Test -d always.Pass --report_prefix <somedir>/run`; the scan must complete and write a report .jsonl file.",
-    "check": "The hidden test checks that the probe list is printed and that a scan run writes a non-empty report JSONL containing attempt entries for the test.Test probe."
+    "goal": "Install garak from the cloned repo so that `python -m garak --list_probes` works. Then these scans must complete on CPU and write report JSONL files under a `--report_prefix` you pass: `python -m garak -t test.Repeat -p test.Test -d always.Pass`, and the README example against the local Hugging Face GPT-2 model, `python3 -m garak --target_type huggingface --target_name gpt2 --spec probes.dan.Dan_11_0` (gpt2 is public). The local gpt2 generator must actually generate text.",
+    "check": "The hidden test lists probes, runs the test generator and the README's Hugging Face GPT-2 example (plus a short-prompt probe on the same local gpt2 generator), and checks the report JSONL attempts, detector evaluations and that gpt2 produced text."
   },
   {
     "slug": "nvlabs-sana",
@@ -557,8 +579,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. The script uses the hparams.yaml/skeleton/stats files under motionbricks/out/motionbricks_vqvae/version_1 and synthetic data; the large LFS checkpoints are not needed. Provide /work/env.sh that activates the environment.",
-    "check": "Running the VQVAE synthetic-data training for 20 steps on CPU exits successfully, logs the start banner and 'Training complete.' with no traceback."
+    "goal": "Install the motionbricks subproject (cd motionbricks; pip install -e .) in a CPU-only environment, then make both `python scripts/train_vqvae.py --max_steps 20 --batch_size 4 --num_samples 40` and `python scripts/train_root.py --max_steps 20 --batch_size 4 --num_samples 40` run from the motionbricks directory to completion and print 'Training complete.'. Both scripts train on synthetic data using the configs under motionbricks/out/; train_pose.py (which needs the pretrained VQVAE checkpoint) is not required. Provide /work/env.sh that activates the environment.",
+    "check": "Running the VQVAE and the root-model synthetic-data training for 20 steps each on CPU exits successfully, logs each start banner, reaches 20 steps and prints 'Training complete.' with no traceback."
   },
   {
     "slug": "qwenlm-qwen3",
@@ -656,8 +678,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get FunClip's command-line demo working: download the example video examples/2022云栖大会_片段.mp4 (URL in README section C), then run `python funclip/videoclipper.py --stage 1 --file examples/2022云栖大会_片段.mp4 --output_dir ./output` to produce the recognition result and output/total.srt. Then run stage 2 with --dest_text '我们把它跟乡村振兴去结合起来，利用我们的设计的能力' --start_ost 0 --end_ost 100 --output_file ./output/res.mp4 to produce a clipped video and its SRT. Both stages must complete on CPU.",
-    "check": "The hidden test runs both CLI stages on the example video and verifies the full SRT contains recognized Chinese text and the clipped mp4 and its SRT exist with a plausible short duration."
+    "goal": "Get FunClip's command-line demo (README section C) working on CPU: download the example video from the README's URL, run `python funclip/videoclipper.py --stage 1 --file <video> --output_dir <dir>` to produce the recognition result and <dir>/total.srt, then run `--stage 2` on the same video and output dir with --dest_text set to a sentence copied from that recognition result, --start_ost 0 --end_ost 100 --output_file <dir>/res.mp4, to produce a clipped video and its SRT.",
+    "check": "The hidden test runs stage 1 on the README example video, takes a sentence from total.srt as --dest_text, runs stage 2, and checks that a short clipped mp4 and its SRT with Chinese text were written."
   },
   {
     "slug": "modelscope-clearervoice-studio",
@@ -678,8 +700,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install evalscope (Python >= 3.11) and make `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and the GSM8K dataset fetched. It must accept a `--work-dir <dir>` option for outputs and finish by writing an evaluation report.",
-    "check": "The hidden test runs the local-model GSM8K evaluation with limit 5 into a fresh output directory and verifies that a report file with a GSM8K score and 5 evaluated samples was produced."
+    "goal": "Install evalscope (Python >= 3.11) and make the README Method 2 command `evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k arc --limit 5` run to completion on CPU, with the model auto-downloaded from ModelScope and both datasets fetched. It must accept a `--work-dir <dir>` option for outputs and write the evaluation reports there.",
+    "check": "The hidden test runs the local-model gsm8k + arc evaluation with limit 5 into a fresh work dir and verifies a report with a score for each dataset (5 gsm8k samples) and review files whose model answers are non-empty."
   },
   {
     "slug": "qwenlm-qwen-mm-plugins",
@@ -748,17 +770,6 @@
     "check": "The hidden test runs the lineart T2I-Adapter SDXL pipeline on CPU with a synthetic control image at 512x512 and verifies a non-trivial generated PNG is produced."
   },
   {
-    "slug": "tencent-hunyuan-hunyuan3d-1",
-    "repo": "Tencent-Hunyuan/Hunyuan3D-1",
-    "dir": "Hunyuan3D-1",
-    "company": "Tencent",
-    "gpu": false,
-    "mem": "12g",
-    "server": false,
-    "goal": "Get `python main.py --image_prompt ./demos/example_000.png --save_folder <out> --max_faces_num 10000 --use_lite --device cpu` working in /work/Hunyuan3D-1 on CPU only. Download only the needed weights (mvd_lite and svrm from tencent/Hunyuan3D-1 into ./weights, not the 16 GB full set). The run must produce views.jpg and a mesh .obj file in the save folder. Put the environment setup in /work/env.sh.",
-    "check": "The hidden test runs the lite image-to-3D command on a bundled demo image with CPU and reduced steps, then checks that the views image and a non-trivial mesh OBJ with vertices and faces were written."
-  },
-  {
     "slug": "tencent-tencent-ml-images",
     "repo": "Tencent/tencent-ml-images",
     "dir": "tencent-ml-images",
@@ -810,7 +821,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. The code was written for old PyTorch, nibabel and scipy, so it may need compatibility fixes for the installed library versions. Do not use the Google Drive pretrained weights.",
+    "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. Do not use the Google Drive pretrained weights.",
     "check": "Running train.py --ci_test on CPU exits successfully, logs at least one finite loss value and prints 'Finished training'."
   },
   {
@@ -821,8 +832,8 @@
     "gpu": false,
     "mem": "12g",
     "server": true,
-    "goal": "Build upstream llama.cpp on CPU, download tencent/HunyuanOCR from Hugging Face (exclude v1.0/*, skip DFlash), convert to hyocr-f16.gguf and mmproj-hyocr-f16.gguf via convert_hf_to_gguf.py, and serve with llama-server (section 4.1: port 8080, --alias HYVL, --jinja, -fa on, modest ctx-size). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
-    "check": "The hidden test sends a generated image containing text to the server's chat completions endpoint and verifies the response is HTTP 200 and contains the text in the image."
+    "goal": "Following docs/llama_cpp.md (linked from the README), build upstream llama.cpp for CPU, download tencent/HunyuanOCR from Hugging Face (excluding v1.0/*; the optional DFlash draft may be skipped), convert it to hyocr-f16.gguf and mmproj-hyocr-f16.gguf with convert_hf_to_gguf.py, and serve the base model with llama-server as in section 4.1 (port 8080, alias HYVL, --jinja). /work/run.sh must start this server in the background and return only once it is ready to answer /v1/chat/completions on 127.0.0.1:8080 with an image input.",
+    "check": "The hidden test sends one of the repo's bundled OCR test pages (llama_cpp/test_assets) with the official document-parsing prompt to the chat completions endpoint and verifies HTTP 200 and that the response contains the page's text."
   },
   {
     "slug": "bytedance-ui-tars",
@@ -887,8 +898,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install Protenix (CPU only, no GPU) so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically; avoid anything needing GPU-only kernels. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
-    "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with plausible atom count and a confidence summary json are produced."
+    "goal": "Install Protenix (README: pip install protenix, or from the /work/Protenix clone) on this CPU-only machine so that `protenix pred -i <input.json> -o <outdir> -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1 --trimul_kernel torch --triatt_kernel torch` works on a small single-chain protein JSON (format like examples/input.json) and writes predicted structure .cif files plus confidence json under the output directory. Model weights are downloaded automatically. Provide /work/env.sh (activating the environment) and make the command work from /work/Protenix.",
+    "check": "The hidden test runs protenix pred on a 76-residue protein and verifies a predicted mmCIF with the full atom set and plausible backbone geometry, and a confidence summary json with a reasonable pLDDT."
   },
   {
     "slug": "bytedance-piano-transcription",
@@ -920,8 +931,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get projects/sa2va/demo/demo.py running on CPU with the ByteDance/Sa2VA-1B model (smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir. Note flash_attn and a CUDA GPU are unavailable, so CPU fallbacks may be needed.",
-    "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and mask-overlay images are written to the output directory."
+    "goal": "Get projects/sa2va/demo/demo.py (projects/sa2va/README.md Quick Start, option 1) running on this CPU-only machine with the public ByteDance/Sa2VA-1B model (a smaller variant than the README's 8B) on a folder of a few video frame images. Run it from the repo root with PYTHONPATH=. and a referring-segmentation prompt such as '<image>Please segment the man.'; it must print the model output containing [SEG] and save mask-overlay images into the --work-dir.",
+    "check": "Runs the demo on a few frames extracted from assets/videos/gf_exp1.mp4 and verifies the output text contains [SEG] and that overlay images with a visible predicted mask are written to the output directory."
   },
   {
     "slug": "bytedance-seed-m3-agent",
@@ -942,7 +953,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI work on CPU. It must download the default PP-OCRv5 models and run text detection and recognition on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
+    "goal": "Install the CPU build of PaddlePaddle and PaddleOCR from the repo's documented instructions, and make the `paddleocr ocr -i <image> --save_path <dir>` CLI (with --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False as in docs/quick_start.en.md) work on CPU. It must download the default text detection and recognition models and run them on a local image containing English text. The output directory must contain the result JSON (with rec_texts) and a visualization image. Put the environment setup in /work/env.sh so that the `paddleocr` command and the python packages are available after sourcing it.",
     "check": "Runs the paddleocr OCR CLI on a freshly generated image with known English text and verifies the saved JSON contains the recognized words and a visualization image is written."
   },
   {
@@ -953,7 +964,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the Transformers dependencies from the README (CPU torch is fine) and load baidu/Unlimited-OCR-2 with trust_remote_code on CPU (the README uses .cuda(); the remote code also hardcodes cuda, so it must be made to work on CPU). Then run model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and get correct OCR text back. The model is loaded via AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, torch_dtype=torch.float32) with no explicit .cuda().",
+    "goal": "Install the Transformers dependencies from the README (a CPU build of torch is fine) and make the README's single-page Transformers inference work on this CPU-only machine. The hidden test loads the model with AutoTokenizer.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True) and AutoModel.from_pretrained('baidu/Unlimited-OCR-2', trust_remote_code=True, use_safetensors=True, torch_dtype=torch.float32).eval() with no .cuda() call (there is no GPU), then runs model.infer(tokenizer, image_file=<a page image>, output_path=<dir>, save_results=True) on a simple text image and expects correct OCR text back.",
     "check": "A hidden script generates an image containing known text lines, runs model.infer on CPU through the standard HF loading path, and verifies the returned text contains the expected words."
   },
   {
@@ -986,8 +997,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained(...).generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
-    "check": "The hidden test runs the tokenizer and text-generation snippets and verifies the expected token ids and that generated text is non-empty and extends the prompt."
+    "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-0.6B-Base', dtype='bfloat16').eval().generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
+    "check": "The hidden test runs the README tokenizer and text-generation snippets and verifies the expected token ids and that the model generates a sensible Chinese continuation (including a simple factual completion)."
   },
   {
     "slug": "paddlepaddle-paddlespeech",
@@ -1108,7 +1119,7 @@
     "mem": "12g",
     "server": true,
     "goal": "Install Ollama, pull gpt-oss:20b and make the Ollama server run it on CPU. Write /work/run.sh that starts the Ollama server (listening on 127.0.0.1:11434), pulls gpt-oss:20b if missing and waits until the server is ready; also write /work/env.sh (sets any PATH/env needed, e.g. so `ollama` is found). The model must answer a chat prompt such as 'What is 2+2?' through the server.",
-    "check": "The hidden test starts the server via run.sh, sends a short chat request to the gpt-oss:20b model over HTTP and checks for a 200 response with a non-empty generated answer."
+    "check": "The hidden test starts the server via run.sh, sends a short arithmetic chat request to the gpt-oss:20b model over HTTP and checks for a 200 response whose generated text contains the correct answer."
   },
   {
     "slug": "openai-tiktoken",
@@ -1118,8 +1129,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install tiktoken from the /work/tiktoken clone (it builds a Rust extension) so that `import tiktoken` works. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. Also cl100k_base should work.",
-    "check": "The hidden test runs Python that encodes and decodes text with several encodings and checks exact token ids and round trips."
+    "goal": "Install tiktoken from the /work/tiktoken clone so that `import tiktoken` works in the environment /work/env.sh activates. Then the README snippet must run: get_encoding('o200k_base'), encode and decode 'hello world' round trip, and encoding_for_model('gpt-4o'). The vocab files download from the public internet on first use. The gpt2 and cl100k_base encodings should work too.",
+    "check": "The hidden test runs Python outside the repo directory that encodes and decodes text with several encodings and checks exact token ids, special-token handling and round trips."
   },
   {
     "slug": "aws-aws-cli",
@@ -1129,8 +1140,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run. `aws configure set/get` must work with a temporary config. `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton. No AWS credentials are needed.",
-    "check": "The hidden test checks that aws reports its version, that configure values round-trip through a temporary config file, and that a generated CLI skeleton is valid JSON containing expected keys."
+    "goal": "Install the AWS CLI v2 from the /work/aws-cli checkout so that the `aws` command works from the shell set up by /work/env.sh. `aws --version` must run, `aws configure set/get` must work with a temporary config, `aws ec2 run-instances --generate-cli-skeleton` must print a JSON skeleton, and service commands must work against an endpoint given with `--endpoint-url`. No real AWS account is needed.",
+    "check": "The hidden test checks the version string, a configure round trip through temporary config files, generated CLI skeletons, and a signed service call with dummy credentials against a local stub endpoint, including --query output."
   },
   {
     "slug": "aws-chalice",
@@ -1141,7 +1152,7 @@
     "mem": "12g",
     "server": true,
     "goal": "Install chalice from the repo clone and make the quickstart work offline: `chalice new-project helloworld` then `chalice local --port 8000` inside that project (no AWS deploy, no credentials). Write /work/run.sh so it creates the project at /work/helloworld (if missing), starts `chalice local --port 8000` in the background (nohup), and waits until http://127.0.0.1:8000/ responds. Write /work/env.sh to activate the environment where chalice is installed.",
-    "check": "A fresh new-project is scaffolded in a temp dir, and the local server on port 8000 returns HTTP 200 with the JSON {\"hello\": \"world\"} for GET /."
+    "check": "The local server on port 8000 returns {\"hello\": \"world\"} for GET /, and a freshly scaffolded project with a couple of extra routes is served with chalice local and answers them correctly."
   },
   {
     "slug": "awslabs-mcp",
@@ -1151,8 +1162,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation. Calling read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown.",
-    "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, calls read_documentation on a Lambda docs page and verifies that substantial Lambda-related text comes back."
+    "goal": "Install the awslabs.aws-documentation-mcp-server package from /work/mcp/src/aws-documentation-mcp-server (Python >=3.10, for example with uv or pip) into the environment that /work/env.sh activates. The `awslabs.aws-documentation-mcp-server` command, or `python -m awslabs.aws_documentation_mcp_server.server`, must start the stdio MCP server. Through an MCP client, the tools list must include read_documentation and search_documentation; read_documentation on https://docs.aws.amazon.com/lambda/latest/dg/welcome.html must return the page content as markdown, and search_documentation must return AWS documentation results for a query.",
+    "check": "The hidden test starts the installed server over stdio with an MCP client, lists the tools, reads a Lambda docs page and checks that substantial Lambda markdown comes back, and runs a documentation search and checks it returns docs.aws.amazon.com results."
   },
   {
     "slug": "aws-serverless-applicati-760d5",
@@ -1162,7 +1173,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the SAM transform (samtranslator and its dependencies, boto3 included) from the repo. Save the README's Getting started template (AWS::Serverless::Function with nodejs24.x InlineCode) as a file. Run `python bin/sam-translate.py translate --template-file=<file> --output-template=<out.json>` and produce the transformed CloudFormation JSON, with an AWS::Lambda::Function and an IAM role. Dummy AWS credentials and region env vars may be needed, and no real AWS access is needed.",
+    "goal": "Install the SAM transform (samtranslator) from the repo following its README. Save the README's Getting started template (AWS::Serverless::Function with nodejs24.x InlineCode) as a file. Run `python bin/sam-translate.py translate --template-file=<file> --output-template=<out.json>` and produce the transformed CloudFormation JSON, with an AWS::Lambda::Function and an IAM role as in the README's 'Under the hood' example. No real AWS access is needed.",
     "check": "The output JSON exists and contains a Lambda Function resource with the expected handler and inline code, plus a generated IAM role resource."
   },
   {
@@ -1185,7 +1196,7 @@
     "mem": "12g",
     "server": false,
     "goal": "Install the chronos-forecasting package from the repo clone (plus pandas with pyarrow) so that `from chronos import Chronos2Pipeline` works. Then load amazon/chronos-2 with device_map='cpu' and run pipeline.predict_df on a long-format DataFrame (columns id, timestamp, target) with prediction_length=24 and quantile_levels=[0.1,0.5,0.9]. The README's electricity_price parquet example is the reference; it must produce a forecast DataFrame with predictions and quantile columns. Provide /work/env.sh that activates the environment so `python` can import chronos.",
-    "check": "The hidden test runs a CPU forecast on a synthetic multi-series dataset and verifies the output has the right shape, the quantile columns, finite values and ordered quantiles."
+    "check": "The hidden test runs CPU forecasts on synthetic multi-series data, with and without future covariates, and verifies the output has the right shape, the quantile columns, finite values and ordered quantiles."
   },
   {
     "slug": "awslabs-gluonts",
@@ -1221,17 +1232,6 @@
     "check": "The hidden test pipes several volume configurations into the script and checks the printed IOPS and throughput figures match the expected values."
   },
   {
-    "slug": "aws-deep-learning-containers",
-    "repo": "aws/deep-learning-containers",
-    "dir": "deep-learning-containers",
-    "company": "Amazon",
-    "gpu": false,
-    "mem": "12g",
-    "server": true,
-    "goal": "Get the llama.cpp CPU server from the README-linked docs/llama-cpp/deployment/ec2.md serving ggml-org/Qwen2.5-0.5B-Instruct-GGUF (qwen2.5-0.5b-instruct-q4_0.gguf, --ctx-size 4096) on port 8080 on CPU. The public.ecr.aws/deep-learning-containers/llama-cpp:server-cpu-v1 image is the documented route; if Docker is unavailable, an equivalent llama-server (llama.cpp) build with the same model is acceptable. /work/run.sh must start the server in the background and return only once http://localhost:8080/health is ready; /v1/chat/completions must then answer a chat request.",
-    "check": "The hidden test starts the server via run.sh, then checks that /health returns 200 and a chat completion request on localhost:8080 returns HTTP 200 with a non-empty assistant message that is relevant to the question asked."
-  },
-  {
     "slug": "ml-explore-mlx-examples",
     "repo": "ml-explore/mlx-examples",
     "dir": "mlx-examples",
@@ -1250,7 +1250,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install mlx-lm from /work/mlx-lm (with an mlx CPU backend on Linux, e.g. mlx[cpu]) so that `mlx_lm.generate --prompt \"How tall is Mt Everest?\" --max-tokens 64` runs on CPU using the default model mlx-community/Llama-3.2-3B-Instruct-4bit and prints a generated answer. The Python API load/generate with the same model must also work. Put needed environment activation in /work/env.sh.",
+    "goal": "Install mlx-lm from /work/mlx-lm so that `mlx_lm.generate --prompt \"How tall is Mt Everest?\" --max-tokens 64` runs on this Linux CPU machine with the default model mlx-community/Llama-3.2-3B-Instruct-4bit and prints a generated answer. The README's Python API (load/generate) with the same model must also work. Put needed environment activation in /work/env.sh.",
     "check": "The hidden test runs the CLI generate command and the Python API on the default model and checks that non-empty, sensible generated text about Everest is produced."
   },
   {
@@ -1261,7 +1261,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install coremltools (from the clone or pip) with PyTorch and scikit-learn, using a Python/torch combination that coremltools supports and that works on Linux x86 CPU. Then make this work: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors on Linux.",
+    "goal": "Install coremltools (from the clone or pip) together with PyTorch and scikit-learn. Then make this work on Linux: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors.",
     "check": "A hidden script converts a small conv/linear torch model to an mlprogram package and a sklearn model, then checks the saved files and model spec contents."
   },
   {
@@ -1272,8 +1272,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8 and tests/resources/mock_signed_data/testNotification, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification via verify_and_decode_notification, and make PromotionalOfferSignatureCreator produce a signature. No Apple credentials or network API calls are needed.",
-    "check": "A Python script imports the library, creates a promotional offer signature that verifies against the test key, and decodes the bundled test notification as type TEST."
+    "goal": "Install the library from the repo (pip install of the clone, Python 3.8+) so that `appstoreserverlibrary` imports. Then, using the bundled test files tests/resources/certs/testCA.der, tests/resources/certs/testSigningKey.p8, tests/resources/mock_signed_data/{testNotification,transactionInfo} and tests/resources/xcode/xcode-app-receipt-with-transaction, make SignedDataVerifier (online checks disabled, SANDBOX, bundle id com.example, app id 1234) decode the notification and the transaction, make PromotionalOfferSignatureCreator produce a signature, and make ReceiptUtility extract the transaction id from the Xcode app receipt. No Apple credentials or network API calls are needed.",
+    "check": "A Python script imports the installed library, creates a promotional offer signature that verifies against the test key, decodes the bundled notification (type TEST) and transaction, checks that a wrong bundle id is rejected, and extracts the transaction id from the bundled Xcode receipt."
   },
   {
     "slug": "apple-coreai-torch",
@@ -1305,8 +1305,8 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(pipeline(StubProducer({...numpy responses...}), ...), threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, and the repo's src/dnikit/tests/test_duplicates.py must pass with pytest.",
-    "check": "Runs Duplicates on synthetic responses with planted near-duplicates and verifies clusters are found (more in the more-duplicated response), then runs the repo's duplicates unit tests."
+    "goal": "Install dnikit from /work/dnikit/src/dnikit (core package; pip install dnikit also works, but use the repo source so it matches) so that `from dnikit.introspectors import Duplicates, DimensionReduction, Familiarity`, `from dnikit.base import pipeline, Batch` and `from dnikit.samples import StubProducer` work in the python from /work/env.sh. Then Duplicates.introspect(..., threshold=Duplicates.ThresholdStrategy.Percentile(98)) must find duplicate clusters in synthetic data, DimensionReduction with Strategy.PCA must reduce responses, Familiarity.introspect must fit and score responses, and the repo's src/dnikit/tests/test_duplicates.py and the PCA tests in test_dimension_reduction.py must pass with pytest.",
+    "check": "Runs Duplicates on synthetic responses with planted near-duplicates (more clusters in the more-duplicated response), reduces synthetic data with PCA, fits Familiarity and checks in-distribution samples score higher than far-away ones, then runs the repo's duplicates and PCA unit tests."
   },
   {
     "slug": "apple-game-center-tools",
@@ -1316,7 +1316,7 @@
     "gpu": false,
     "mem": "12g",
     "server": false,
-    "goal": "Get scripts/genrulesinput.py in /work/game-center-tools running (it needs the Python 'requests' module). Feed it via stdin the JSON [{\"secondsInQueue\":20,\"skill\":1},{\"secondsInQueue\":10,\"skill\":50},[{\"skill\":20},{\"skill\":30}]] and it must print the generated matchmaking input JSON with requests and players. Make /work/env.sh set up the environment so python3 scripts/genrulesinput.py works.",
+    "goal": "Get scripts/genrulesinput.py in /work/game-center-tools running as README_genrulesinput.md describes. Feed it via stdin the JSON [{\"secondsInQueue\":20,\"skill\":1},{\"secondsInQueue\":10,\"skill\":50},[{\"skill\":20},{\"skill\":30}]] and it must print the generated matchmaking input JSON with requests and players. Make /work/env.sh set up the environment so python3 scripts/genrulesinput.py works.",
     "check": "The hidden test pipes the README example into the script and checks the output JSON has 3 requests, 4 players and the expected skill values."
   }
 ]

@@ -12,10 +12,36 @@
     "cost_usd": 0.0790269,
     "timed_out": false
   },
-  "eligible": true,
-  "reason": "README offers a lite image-to-3D CLI (main.py --use_lite) with bundled demo images; lite weights are about 6 GB and the device is a flag, so CPU is plausible.",
+  "eligible": false,
+  "reason": "Reclassified on review: README.md:197-198 says the lite pipeline needs 22 GB VRAM and the mesh stage uses an nvdiffrast CUDA context (svrm.py:132), so the demo cannot run on CPU; the original exam's 'device is a flag' was a guess the README contradicts.",
   "demo": "README Inference: image to 3D, lite pipeline (scripts/image_to_3d_lite.sh)",
-  "goal": "Get `python main.py --image_prompt ./demos/example_000.png --save_folder <out> --max_faces_num 10000 --use_lite --device cpu` working in /work/Hunyuan3D-1 on CPU only. Download only the needed weights (mvd_lite and svrm from tencent/Hunyuan3D-1 into ./weights, not the 16 GB full set). The run must produce views.jpg and a mesh .obj file in the save folder. Put the environment setup in /work/env.sh.",
-  "check": "The hidden test runs the lite image-to-3D command on a bundled demo image with CPU and reduced steps, then checks that the views image and a non-trivial mesh OBJ with vertices and faces were written.",
-  "server": false
+  "goal": "",
+  "check": "",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "This repo should not have been eligible. The README says the lite pipeline needs 22 GB VRAM (18 GB with --save_memory) and installs CUDA wheels (cu121), pytorch3d and nvdiffrast. The examiner's 'device is a flag, so CPU is plausible' was a guess that the README contradicts.",
+      "The code ties the reconstruction stage to CUDA: SVRM mesh export uses context_type='cuda' -> nvdiffrast RasterizeCudaContext, plus hard .cuda() calls and .half() weights.",
+      "The README has no CPU-feasible demo (every inference path goes through mvd + svrm), so no replacement exam is proposed."
+    ],
+    "evidence": [
+      "src/tencent-hunyuan-hunyuan3d-1/README.md:197-198 — 'Inference Lite-pipeline requires 22GB VRAM (18G VRAM with --save_memory)'",
+      "src/tencent-hunyuan-hunyuan3d-1/README.md:93-99 — torch and requirements from the cu121 index, plus pytorch3d and nvdiffrast",
+      "src/tencent-hunyuan-hunyuan3d-1/svrm/ldm/models/svrm.py:132 — export_mesh_with_uv(context_type='cuda'); svrm/ldm/modules/rendering_neus/rasterize.py:17-18 — dr.RasterizeCudaContext",
+      "src/tencent-hunyuan-hunyuan3d-1/svrm/ldm/utils/ops.py:368,372 — hard .cuda(); svrm/ldm/models/svrm.py:120-121 — .half() model",
+      "data/runs/tencent-hunyuan-hunyuan3d-1/result.json — the agent timed out at 5400 s after patching 4 files for CPU (svrm.py, attention.py, predictor.py, image_to_views.py) and delivered no setup.sh"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README offers a lite image-to-3D CLI (main.py --use_lite) with bundled demo images; lite weights are about 6 GB and the device is a flag, so CPU is plausible.",
+      "demo": "README Inference: image to 3D, lite pipeline (scripts/image_to_3d_lite.sh)",
+      "goal": "Get `python main.py --image_prompt ./demos/example_000.png --save_folder <out> --max_faces_num 10000 --use_lite --device cpu` working in /work/Hunyuan3D-1 on CPU only. Download only the needed weights (mvd_lite and svrm from tencent/Hunyuan3D-1 into ./weights, not the 16 GB full set). The run must produce views.jpg and a mesh .obj file in the save folder. Put the environment setup in /work/env.sh.",
+      "check": "The hidden test runs the lite image-to-3D command on a bundled demo image with CPU and reduced steps, then checks that the views image and a non-trivial mesh OBJ with vertices and faces were written.",
+      "server": false
+    }
+  }
 }

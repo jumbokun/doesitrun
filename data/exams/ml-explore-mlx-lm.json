@@ -14,8 +14,36 @@
   },
   "eligible": true,
   "reason": "README Quick Start runs mlx_lm.generate with a public ~2GB 4-bit model; mlx has a Linux CPU build.",
-  "demo": "README Quick Start: mlx_lm.generate --prompt \"How tall is Mt Everest?\"",
-  "goal": "Install mlx-lm from /work/mlx-lm (with an mlx CPU backend on Linux, e.g. mlx[cpu]) so that `mlx_lm.generate --prompt \"How tall is Mt Everest?\" --max-tokens 64` runs on CPU using the default model mlx-community/Llama-3.2-3B-Instruct-4bit and prints a generated answer. The Python API load/generate with the same model must also work. Put needed environment activation in /work/env.sh.",
+  "demo": "README Quick Start: mlx_lm.generate --prompt \"How tall is Mt Everest?\" (default model mlx-community/Llama-3.2-3B-Instruct-4bit) plus README Python API load/generate",
+  "goal": "Install mlx-lm from /work/mlx-lm so that `mlx_lm.generate --prompt \"How tall is Mt Everest?\" --max-tokens 64` runs on this Linux CPU machine with the default model mlx-community/Llama-3.2-3B-Instruct-4bit and prints a generated answer. The README's Python API (load/generate) with the same model must also work. Put needed environment activation in /work/env.sh.",
   "check": "The hidden test runs the CLI generate command and the Python API on the default model and checks that non-empty, sensible generated text about Everest is produced.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Goal leaks an install hint the README doesn't give: '(with an mlx CPU backend on Linux, e.g. mlx[cpu])'. The README only says 'pip install mlx-lm' (Apple silicon), and pyproject makes mlx a Darwin-only dependency, so finding the [cpu] extra is the main install hurdle",
+      "Inner timeouts (CLI 3000 s + API 1500 s = 4500 s) exceed ORACLE_SEC=3600",
+      "The CLI content regex is applied to the whole merged stdout+stderr log rather than the generated block; v2 extracts the text between the '==========' frames",
+      "Observation: the pass relied on a 4-line probe patch to mlx_lm/utils.py (cast to float32 on CPU). The probe reports ~490 s per forward pass unpatched, so the unpatched README path likely can't finish in budget on this CPU"
+    ],
+    "evidence": [
+      "data/exams/ml-explore-mlx-lm.json goal - 'with an mlx CPU backend on Linux, e.g. mlx[cpu]'",
+      "README.md:1-27 - 'on Apple silicon with MLX', install 'pip install mlx-lm'; no Linux/[cpu] mention",
+      "pyproject.toml:24 - mlx>=0.32.3; platform_system == 'Darwin'; pyproject.toml:48 - cpu = ['mlx[cpu]>=0.32.3']",
+      "oracles/ml-explore-mlx-lm.sh:5,21 - timeout 3000 and timeout 1500",
+      "mlx_lm/generate.py:51,59,180-183,804-827 - greedy default, default model, verbose framing and 'Generation:' line",
+      "data/runs/ml-explore-mlx-lm/result.json repo_diff - mlx_lm/utils.py +4 lines; deliverables/NOTES.md item 2"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README Quick Start runs mlx_lm.generate with a public ~2GB 4-bit model; mlx has a Linux CPU build.",
+      "demo": "README Quick Start: mlx_lm.generate --prompt \"How tall is Mt Everest?\"",
+      "goal": "Install mlx-lm from /work/mlx-lm (with an mlx CPU backend on Linux, e.g. mlx[cpu]) so that `mlx_lm.generate --prompt \"How tall is Mt Everest?\" --max-tokens 64` runs on CPU using the default model mlx-community/Llama-3.2-3B-Instruct-4bit and prints a generated answer. The Python API load/generate with the same model must also work. Put needed environment activation in /work/env.sh.",
+      "check": "The hidden test runs the CLI generate command and the Python API on the default model and checks that non-empty, sensible generated text about Everest is produced.",
+      "server": false
+    }
+  }
 }

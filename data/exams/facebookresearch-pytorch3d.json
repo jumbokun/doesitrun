@@ -17,5 +17,30 @@
   "demo": "README Tutorials: Render textured meshes (docs/tutorials/render_textured_meshes.ipynb)",
   "goal": "Install PyTorch3D (CPU build) from the /work/pytorch3d clone so that `import pytorch3d` works. Then the tutorial's core pipeline must work on CPU: load docs/tutorials/data/cow_mesh/cow.obj with pytorch3d.io.load_objs_as_meshes, and render it with a FoVPerspectiveCameras + MeshRasterizer + SoftPhongShader + PointLights MeshRenderer to an RGBA image.",
   "check": "A hidden script loads the bundled cow mesh, renders it on CPU, and checks the image shape and that it contains non-background textured pixels.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Oracle imports matplotlib only to save the PNG; matplotlib is an optional extra the goal never required, so a correct install failed after all render assertions had passed.",
+      "Texture loading was only checked indirectly (RGB std); v2 also asserts a TexturesUV map was loaded from cow.mtl/cow_texture.png."
+    ],
+    "evidence": [
+      "setup.py:183-185 - install_requires=['iopath']; matplotlib only in extras 'all'",
+      "INSTALL.md 'Tests/Linting and Demos' - matplotlib needed only for the notebook tutorials/examples",
+      "pytorch3d/io/obj_io.py:21 - from PIL import Image (PIL is a hard import of pytorch3d.io, safe for saving)",
+      "data/runs/facebookresearch-pytorch3d/result.json audit - coverage 0.123 passed, then ModuleNotFoundError: matplotlib",
+      "docs/tutorials/data/cow_mesh/cow.obj:2 mtllib cow.mtl; cow.mtl:2 map_Kd cow_texture.png"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The 'Render textured meshes' tutorial runs on CPU with a cow mesh bundled in the repo.",
+      "demo": "README Tutorials: Render textured meshes (docs/tutorials/render_textured_meshes.ipynb)",
+      "goal": "Install PyTorch3D (CPU build) from the /work/pytorch3d clone so that `import pytorch3d` works. Then the tutorial's core pipeline must work on CPU: load docs/tutorials/data/cow_mesh/cow.obj with pytorch3d.io.load_objs_as_meshes, and render it with a FoVPerspectiveCameras + MeshRasterizer + SoftPhongShader + PointLights MeshRenderer to an RGBA image.",
+      "check": "A hidden script loads the bundled cow mesh, renders it on CPU, and checks the image shape and that it contains non-background textured pixels.",
+      "server": false
+    }
+  }
 }

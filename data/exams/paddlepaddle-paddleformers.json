@@ -15,7 +15,31 @@
   "eligible": true,
   "reason": "README quickstart shows tokenizer and text generation with Qwen/Qwen3-0.6B-Base (~1.2GB, ungated), feasible on CPU.",
   "demo": "README 快速体验: 使用 tokenizer and 文本生成 (Qwen/Qwen3-0.6B-Base)",
-  "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained(...).generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
-  "check": "The hidden test runs the tokenizer and text-generation snippets and verifies the expected token ids and that generated text is non-empty and extends the prompt.",
-  "server": false
+  "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained('Qwen/Qwen3-0.6B-Base', dtype='bfloat16').eval().generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
+  "check": "The hidden test runs the README tokenizer and text-generation snippets and verifies the expected token ids and that the model generates a sensible Chinese continuation (including a simple factual completion).",
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_both",
+    "issues": [
+      "Oracle content check is too lenient: it only requires the decoded generation to be longer than the prompt + 3 chars, so garbage output (e.g. a broken dtype fallback emitting repeated tokens) passes. v2 adds a CJK-content check on the README generation and a greedy factual completion ('中华人民共和国的首都是' -> contains '北京') via the documented decode_strategy kwarg.",
+      "Check text says the generated text 'extends the prompt', but generate() returns only the new tokens (the README snippet decodes outputs[0]); this misled the probe (the run explicitly worried about it). Check reworded."
+    ],
+    "evidence": [
+      "oracles/paddlepaddle-paddleformers.sh:24-28 - only a length check on the decoded text",
+      "src/paddlepaddle-paddleformers/README.md:301-311 - generation snippet decodes outputs[0] (new tokens)",
+      "src/paddlepaddle-paddleformers/paddleformers/generation/utils.py:900 and generation/configuration_utils.py:131-140,198-201 - decode_strategy='greedy_search' kwarg",
+      "data/runs/paddlepaddle-paddleformers/result.json repair.final - 'generate returns only the new tokens, not the prompt'"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "README quickstart shows tokenizer and text generation with Qwen/Qwen3-0.6B-Base (~1.2GB, ungated), feasible on CPU.",
+      "demo": "README 快速体验: 使用 tokenizer and 文本生成 (Qwen/Qwen3-0.6B-Base)",
+      "goal": "Get the PaddleFormers README quickstart working on CPU only: install paddleformers (CPU PaddlePaddle) so that AutoTokenizer.from_pretrained('Qwen/Qwen3-0.6B-Base') encodes '中华人民共和国' to [105492, 104773], and AutoModelForCausalLM.from_pretrained(...).generate(...) on the prompt '请给我一段大模型的简短介绍：' produces decoded text. The 'python' from /work/env.sh must be able to import paddleformers and paddle.",
+      "check": "The hidden test runs the tokenizer and text-generation snippets and verifies the expected token ids and that generated text is non-empty and extends the prompt.",
+      "server": false
+    }
+  }
 }

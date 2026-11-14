@@ -14,8 +14,33 @@
   },
   "eligible": true,
   "reason": "coremltools is a pip-installable converter whose documented PyTorch conversion workflow runs on CPU-only Linux with a tiny model.",
-  "demo": "README Install + Guide 'Converting from PyTorch' (ct.convert on a traced torch model, save .mlpackage)",
-  "goal": "Install coremltools (from the clone or pip) with PyTorch and scikit-learn, using a Python/torch combination that coremltools supports and that works on Linux x86 CPU. Then make this work: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors on Linux.",
+  "demo": "README Install + Guide 'Converting from PyTorch' (ct.convert on a traced torch model, save .mlpackage) and the scikit-learn converter",
+  "goal": "Install coremltools (from the clone or pip) together with PyTorch and scikit-learn. Then make this work on Linux: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors.",
   "check": "A hidden script converts a small conv/linear torch model to an mlprogram package and a sklearn model, then checks the saved files and model spec contents.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal hints at the version trap: 'using a Python/torch combination that coremltools supports and that works on Linux x86 CPU'. The caps (torch <= 2.8.0; sklearn <= 1.5.1, else the sklearn converter is silently disabled) live only in source, not in the README or install docs. The hint is mild and gives no numbers, but it points at the hurdle",
+      "The oracle itself is sound: it traces and converts a conv/relu/linear model to mlprogram, saves an .mlpackage, checks spec type, I/O names and MIL op types, and converts sklearn LinearRegression. Prediction is correctly not required (README: predictions on macOS only)"
+    ],
+    "evidence": [
+      "data/exams/apple-coremltools.json goal - 'using a Python/torch combination that coremltools supports and that works on Linux x86 CPU'",
+      "coremltools/_deps/__init__.py:56-57,166 - _SKLEARN_MAX_VERSION='1.5.1', _TORCH_MAX_VERSION='2.8.0'; :67-82 out-of-range sklearn disables conversion",
+      "docs-guides/source/installing-coremltools.md:7 - only Python versions listed, no torch/sklearn caps",
+      "README.md 'With coremltools, you can' - 'Verify conversion/creation (on macOS) by making predictions'",
+      "data/runs/apple-coremltools/deliverables/setup.sh - pins torch==2.7.1, scikit-learn==1.5.1"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "coremltools is a pip-installable converter whose documented PyTorch conversion workflow runs on CPU-only Linux with a tiny model.",
+      "demo": "README Install + Guide 'Converting from PyTorch' (ct.convert on a traced torch model, save .mlpackage)",
+      "goal": "Install coremltools (from the clone or pip) with PyTorch and scikit-learn, using a Python/torch combination that coremltools supports and that works on Linux x86 CPU. Then make this work: trace a small torch.nn model with torch.jit.trace, convert it with ct.convert(..., convert_to='mlprogram') using a TensorType input named 'x', save it as an .mlpackage, and also convert a scikit-learn LinearRegression via ct.converters.sklearn.convert and save it. Prediction needs macOS and is not required; conversion and saving must work without errors on Linux.",
+      "check": "A hidden script converts a small conv/linear torch model to an mlprogram package and a sklearn model, then checks the saved files and model spec contents.",
+      "server": false
+    }
+  }
 }

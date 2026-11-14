@@ -14,8 +14,32 @@
   },
   "eligible": true,
   "reason": "The repo bundles a toy MRBrainS18 volume and train.py has a --ci_test CPU mode that trains a tiny 3D-ResNet10 for one epoch with no downloads.",
-  "demo": "Demo section: python train.py (run in its CPU-only CI form via --ci_test on toy_data)",
-  "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. The code was written for old PyTorch, nibabel and scipy, so it may need compatibility fixes for the installed library versions. Do not use the Google Drive pretrained weights.",
+  "demo": "Demo section: python train.py, run in its CPU-only CI form (--ci_test) on the bundled toy_data",
+  "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. Do not use the Google Drive pretrained weights.",
   "check": "Running train.py --ci_test on CPU exits successfully, logs at least one finite loss value and prints 'Finished training'.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_goal",
+    "issues": [
+      "Goal leaks a workaround the README does not give: 'The code was written for old PyTorch, nibabel and scipy, so it may need compatibility fixes for the installed library versions' tells the probe to patch the code for modern libraries (exactly what the passing run did: get_data -> dataobj, ndimage.interpolation.zoom -> ndimage.zoom).",
+      "Oracle itself is correct: train.py --ci_test overrides all paths/sizes (train.py:113-125), logs 'loss = {:.3f}' (train.py:76-78) via logging to stderr (captured by 2>&1), prints 'Finished training' then exit() with code 0 (train.py:97-99). ci_test is the repo's own CPU path over bundled toy_data (README.md:106); the full README demo needs Google Drive data and multi-epoch GPU training."
+    ],
+    "evidence": [
+      "data/exams/tencent-medicalnet.json goal - 'may need compatibility fixes for the installed library versions'",
+      "src/tencent-medicalnet/README.md:79-87 - README only says Python 3.7 / PyTorch 0.4.1 and pip install -r requirements.txt, no patching advice",
+      "src/tencent-medicalnet/train.py:76-78,97-99,111-125 - loss log format, finish marker, ci_test overrides",
+      "data/runs/tencent-medicalnet/deliverables/NOTES.md - run patched brains18.py/train.py/test.py for nibabel 5 / scipy"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "The repo bundles a toy MRBrainS18 volume and train.py has a --ci_test CPU mode that trains a tiny 3D-ResNet10 for one epoch with no downloads.",
+      "demo": "Demo section: python train.py (run in its CPU-only CI form via --ci_test on toy_data)",
+      "goal": "Get `python train.py --ci_test` to run in /work/MedicalNet on CPU. It trains a 3D-ResNet10 segmentation model for one epoch on the bundled toy_data/MRBrainS18 volume (070.nii.gz and its label), logs a per-batch loss, and prints 'Finished training'. The code was written for old PyTorch, nibabel and scipy, so it may need compatibility fixes for the installed library versions. Do not use the Google Drive pretrained weights.",
+      "check": "Running train.py --ci_test on CPU exits successfully, logs at least one finite loss value and prints 'Finished training'.",
+      "server": false
+    }
+  }
 }

@@ -17,5 +17,32 @@
   "demo": "GETTING_STARTED.md 'Inference Demo with Pre-trained Models' (demo/demo.py with mask_rcnn_R_50_FPN_3x)",
   "goal": "Install detectron2 (CPU-only PyTorch build) so that `cd demo && python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input <image.jpg> --output <dir> --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl MODEL.DEVICE cpu` runs and writes a visualized image with predicted instance masks. Put the needed environment activation in /work/env.sh.",
   "check": "The hidden test runs the demo on a COCO photo and verifies an annotated output image of the same size, visibly differing from the input, is written.",
-  "server": false
+  "server": false,
+  "revision": {
+    "rev": 2,
+    "date": "2026-11-14",
+    "by": "fairness review (every maintained-set exam re-checked against the source)",
+    "verdict": "fix_oracle",
+    "issues": [
+      "Lenient: the only content check is a mean pixel difference > 3 between input and output; it never checks that the model detected anything, although demo.py logs 'detected N instances' for each image.",
+      "`python demo.py ... | tee` under plain `set -e` ignores demo.py's exit status (later file checks happened to catch a crash); v2 uses pipefail.",
+      "Minor: the input photo is fetched from images.cocodataset.org because the repo bundles none; kept (with --retry) since the weights come from the network anyway.",
+      "Goal is fair. Note demo.py at this commit imports `vision.fair.detectron2.demo.predictor` (a Meta-internal path), so the README command fails until patched - a genuine repo defect, not an oracle problem."
+    ],
+    "evidence": [
+      "demo/demo.py:17 - from vision.fair.detectron2.demo.predictor import VisualizationDemo",
+      "demo/demo.py:113-123 - logger.info('{}: detected {} instances in {:.2f}s'); output saved to os.path.join(args.output, basename) when --output is a dir",
+      "demo/demo.py:62-65 - --confidence-threshold default 0.5",
+      "GETTING_STARTED.md:16-32 - demo command, MODEL.DEVICE cpu, --output",
+      "oracles/facebookresearch-detectron2.sh - only size/diff checks; `| tee` without pipefail"
+    ],
+    "previous": {
+      "eligible": true,
+      "reason": "GETTING_STARTED.md gives a demo.py CPU inference command with a public model-zoo checkpoint (~170MB), no credentials.",
+      "demo": "GETTING_STARTED.md 'Inference Demo with Pre-trained Models' (demo/demo.py with mask_rcnn_R_50_FPN_3x)",
+      "goal": "Install detectron2 (CPU-only PyTorch build) so that `cd demo && python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml --input <image.jpg> --output <dir> --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl MODEL.DEVICE cpu` runs and writes a visualized image with predicted instance masks. Put the needed environment activation in /work/env.sh.",
+      "check": "The hidden test runs the demo on a COCO photo and verifies an annotated output image of the same size, visibly differing from the input, is written.",
+      "server": false
+    }
+  }
 }
