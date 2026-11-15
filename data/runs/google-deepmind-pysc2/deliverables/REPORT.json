@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Used Python 3.11 venv via uv (image ships 3.12; setup.py lists up to 3.11)"},
+  {"kind": "dependency_pin", "detail": "Pinned protobuf<3.21 because s2clientprotocol generated protos fail with protobuf 4+"},
+  {"kind": "dependency_pin", "detail": "Pinned numpy<2 as a precaution for old code"},
+  {"kind": "code_patch", "detail": "sc_process._launch forwarded extra_ports kwarg to subprocess.Popen (TypeError); drop it before Popen"},
+  {"kind": "system_package", "detail": "Installed unzip to extract the SC2 Linux package and mini_games.zip"},
+  {"kind": "undocumented_step", "detail": "Chose SC2.4.10 Linux package and extracted with Blizzard's EULA archive password"}
+ ]}

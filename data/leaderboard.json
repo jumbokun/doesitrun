@@ -3408,6 +3408,28 @@
           "public_reason": null
         },
         {
+          "repo": "microsoft/JARVIS",
+          "slug": "microsoft-jarvis",
+          "score": 88.6,
+          "why": "1 min, 1 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 1,
+          "lines_patched": 29,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "NVlabs/Sana",
           "slug": "nvlabs-sana",
           "score": 88.1,
@@ -3555,6 +3577,28 @@
           "attribution_confidence": "high",
           "attribution_evidence": [
             "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "google-deepmind/pysc2",
+          "slug": "google-deepmind-pysc2",
+          "score": 84.0,
+          "why": "6 min, 1 repo files patched",
+          "agent_minutes": 6.0,
+          "files_patched": 1,
+          "lines_patched": 1,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -3978,18 +4022,6 @@
           ]
         },
         {
-          "company": "Microsoft",
-          "n": 11,
-          "mean": 97.8,
-          "teams": [
-            {
-              "team": "Microsoft",
-              "n": 11,
-              "mean": 97.8
-            }
-          ]
-        },
-        {
           "company": "OpenAI",
           "n": 5,
           "mean": 97.8,
@@ -3998,6 +4030,18 @@
               "team": "OpenAI",
               "n": 5,
               "mean": 97.8
+            }
+          ]
+        },
+        {
+          "company": "Microsoft",
+          "n": 12,
+          "mean": 97.0,
+          "teams": [
+            {
+              "team": "Microsoft",
+              "n": 12,
+              "mean": 97.0
             }
           ]
         },
@@ -4049,13 +4093,13 @@
         },
         {
           "company": "Google",
-          "n": 16,
+          "n": 17,
           "mean": 84.4,
           "teams": [
             {
               "team": "Google DeepMind",
-              "n": 3,
-              "mean": 95.5
+              "n": 4,
+              "mean": 92.6
             },
             {
               "team": "Google",

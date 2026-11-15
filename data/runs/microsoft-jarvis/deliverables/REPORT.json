@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "conda not available; created Python 3.8 venv with uv instead of conda create"},
+  {"kind": "code_patch", "detail": "generate_graph.py output path tool_file.replace('tools','graph') overwrote tool_desc.json; now writes graph_desc.json beside the input"},
+  {"kind": "doc_error", "detail": "README example passes --tool_desc tool_desc.json with --data_dir, but script ignored data_dir; patched to resolve tool_desc relative to data_dir"},
+  {"kind": "other", "detail": "set MPLBACKEND=Agg in env.sh for headless rendering in visualize_graph.py"}
+ ]}
