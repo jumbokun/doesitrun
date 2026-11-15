@@ -1,0 +1,52 @@
+{
+  "slug": "groundingdino",
+  "repo": "IDEA-Research/GroundingDINO",
+  "track": "gpu-rtx5060",
+  "goal": "Install GroundingDINO per its README WITH its CUDA extension compiled (so `from groundingdino import _C` works — the README warns about `NameError: name '_C' is not defined`), download the Swin-T OGC weights into weights/, and make the README GPU demo `demo/inference_on_a_image.py` work on .asset/cat_dog.jpeg.",
+  "check": "imports `groundingdino._C`, then runs demo/inference_on_a_image.py with groundingdino/config/GroundingDINO_SwinT_OGC.py and weights/groundingdino_swint_ogc.pth on .asset/cat_dog.jpeg with text 'cat . dog .' on the GPU (no --cpu-only) and requires pred.jpg",
+  "started": "2026-11-15 12:49:41",
+  "agent": {
+    "secs": 1289,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "aceb5b6e-0a90-4cbf-94da-93ca92cecd41",
+    "num_turns": 17,
+    "cost_usd": 0.3765378,
+    "is_error": false,
+    "final": "DONE — the CUDA extension now builds and imports on the RTX 5060, and the README GPU demo wrote `pred.jpg` (it found a cat at 0.82 and a dog at 0.57); a scratch re-run of `setup.sh` also built and imported `_C`, though that run reused the downloaded weights."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 16
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 5,
+    "files": [
+      {
+        "path": "groundingdino/__init__.py",
+        "added": 1,
+        "removed": 0
+      },
+      {
+        "path": "groundingdino/models/GroundingDINO/csrc/MsDeformAttn/ms_deform_attn_cuda.cu",
+        "added": 2,
+        "removed": 2
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 305,
+    "mem": "4g",
+    "oracle": {
+      "pass": true,
+      "secs": 20
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-15 13:16:58"
+}

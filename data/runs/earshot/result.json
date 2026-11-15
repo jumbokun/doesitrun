@@ -1,0 +1,41 @@
+{
+  "slug": "earshot",
+  "repo": "Leonxlnx/earshot",
+  "track": "gpu-rtx5060",
+  "goal": "Install earshot per its README Install section (CPU only). From /work/earshot, `python -m earshot doctor --load` must report both models loaded with no problems; then render a bank sound with `python -m earshot sfx render whoosh_fast/crisp -o w.wav` and run the README's listening commands on it: `python -m earshot describe w.wav --json` and `python -m earshot match w.wav \"a fast air whoosh\" --alts \"a dog barking\" \"a person talking\" --json`.",
+  "check": "runs doctor --load (no problems, both models loaded), renders whoosh_fast/crisp, then requires describe to return tags and AudioSet labels and match to return a verdict that prefers the whoosh description over the two unrelated alternatives",
+  "started": "2026-11-15 12:20:27",
+  "agent": {
+    "secs": 389,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "e289f802-3c57-4d82-96d8-625d111c62e5",
+    "num_turns": 9,
+    "cost_usd": 0.17284860000000002,
+    "is_error": false,
+    "final": "hose same steps and also downloads the models up front with `earshot doctor --fetch`, which the README documents. It also installs libsndfile1 and python3-venv as a precaution; this image didn't need them. `REPORT.json` marks the README path as having worked as written, with ffmpeg as the single intervention. I made no code changes.\n\nFiles are in /work:\n- setup.sh\n- env.sh\n- NOTES.md\n- REPORT.json"
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 9
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 346,
+    "mem": "5g",
+    "oracle": {
+      "pass": true,
+      "secs": 26
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-15 12:33:22"
+}

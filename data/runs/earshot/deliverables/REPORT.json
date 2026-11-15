@@ -1,0 +1,4 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [
+  {"kind": "system_package", "detail": "apt-get install ffmpeg (README requires ffmpeg/ffprobe on PATH but gives no install step)"}
+ ]}

@@ -1,0 +1,9 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Created a Python 3.10 uv venv; old pins (scikit-image 0.17.2, scikit-learn 0.24.2) cannot install on system Python 3.12"},
+  {"kind": "dependency_pin", "detail": "Relaxed pins to scikit-image 0.19.3, scikit-learn 1.3.2, numpy<2; skipped unused tensorflow"},
+  {"kind": "gpu_compat", "detail": "Installed torch 2.7.1+cu128 / torchvision 0.22.1 (torch not listed in requirements; cu128 needed for sm_120)"},
+  {"kind": "system_package", "detail": "apt install libgl1 libglib2.0-0 for opencv-python (libGL.so.1 missing)"},
+  {"kind": "system_package", "detail": "apt install unzip to extract big-lama.zip"},
+  {"kind": "code_patch", "detail": "Pass weights_only=False to torch.load in saicinpainting/training/trainers/__init__.py (PyTorch>=2.6 default rejects Lightning checkpoint)"}
+ ]}

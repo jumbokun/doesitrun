@@ -1,0 +1,12 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "python_version", "detail": "Created a uv venv (Python 3.12) since system pip on Ubuntu 24.04 is externally-managed"},
+  {"kind": "gpu_compat", "detail": "Installed torch 2.7.1/torchvision 0.22.1 cu128 wheels and set TORCH_CUDA_ARCH_LIST=12.0 for Blackwell sm_120"},
+  {"kind": "undocumented_step", "detail": "pip install -e . must use --no-build-isolation (with FORCE_CUDA=1) so the CUDA extension builds against the installed torch"},
+  {"kind": "system_package", "detail": "Installed python3-dev because Python.h was missing during the extension build"},
+  {"kind": "code_patch", "detail": "ms_deform_attn_cuda.cu: AT_DISPATCH_FLOATING_TYPES(value.type()) -> value.scalar_type() for torch>=2.6"},
+  {"kind": "code_patch", "detail": "Added 'import torch' to groundingdino/__init__.py so that 'from groundingdino import _C' can resolve libc10.so"},
+  {"kind": "dependency_pin", "detail": "Pinned transformers==4.44.2 and numpy<2.3 for compatibility with GroundingDINO's BERT wrapper"},
+  {"kind": "system_package", "detail": "Installed libgl1 and libglib2.0-0 for opencv-python"},
+  {"kind": "other", "detail": "Used curl instead of wget (not present) to download the weights"}
+ ]}

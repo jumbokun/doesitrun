@@ -1,0 +1,2 @@
+{"readme_path_worked_as_written": true,
+ "interventions": [{"kind": "python_version", "detail": "System Python is 3.12; provisioned Python 3.13 via uv and created a venv (README states 3.13+ but host lacks it)"}]}

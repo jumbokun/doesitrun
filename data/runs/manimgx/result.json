@@ -1,0 +1,41 @@
+{
+  "slug": "manimgx",
+  "repo": "academa-labs/manimgx",
+  "track": "gpu-rtx5060",
+  "goal": "Install ManimGX so that the README's 'From Python to MP4' example (scene.py with the Hello3D ThreeDScene, rendered via `manimgx render scene.py`) produces Hello3D.mp4.",
+  "check": "renders that exact README scene with `manimgx render scene.py` and checks a ~6 second Hello3D.mp4 is produced",
+  "started": "2026-11-15 12:16:06",
+  "agent": {
+    "secs": 194,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "e35d1962-bd41-44ce-8532-bcd2a63d7d19",
+    "num_turns": 5,
+    "cost_usd": 0.150484,
+    "is_error": false,
+    "final": ". No GPU was needed, because the package falls back to a software renderer it ships with. I didn't need any system packages, version pins or code changes.\n\n`NOTES.md` and `REPORT.json` record this, with the Python version as the single intervention.\n\nDONE — the README's Hello3D scene renders a 6-second 1080p60 `Hello3D.mp4` on CPU after a fresh `setup.sh` run, using a uv-provided Python 3.13 venv."
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 7
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 34,
+    "mem": "5g",
+    "oracle": {
+      "pass": true,
+      "secs": 8
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-15 12:20:14"
+}
