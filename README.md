@@ -7,32 +7,41 @@ A sandboxed AI agent tries, a hidden test decides, and the agent's installer is 
 
 [![Does it run? leaderboard](docs/screenshot.png)](https://jumbokun.github.io/doesitrun/)
 
-### Maintained repos only (2026-11-14) — the headline view
+### Maintained repos only (2026-11-15) — the headline view
 
 Archived or quiet repos are often unmaintained on purpose, so the leaderboard leads with repos that GitHub
 reported **not archived and pushed to since 2026-08-13** ([`data/active.json`](data/active.json), registered before
 the new repos were examined): 117 of the 267 candidates across 11 companies, every one screened, no per-company cap.
 
-**Every test in this set was then re-checked against the repo source** before the numbers below were run
-([`data/reviews/2026-11-14-fairness.json`](data/reviews/2026-11-14-fairness.json)): does it run the README's main
-CPU demo and check its real output, does the goal hint at anything the README doesn't say, does every assertion
-hold for a correct install, can a broken install slip through, and is every exclusion reason true. 29 tests and 44
-exclusions held; 40 tests were rewritten, 3 excluded repos turned out testable and 2 tested ones should have been
-excluded (Hunyuan3D-1's README states 22 GB VRAM; deep-learning-containers' only CPU route is Docker). Revised tests
-were committed before the re-run; superseded runs are kept in `data/runs/<slug>/v1/`. Two rewritten tests had shell
-typos, found on their first run, fixed and re-run.
+**Every test was checked against the repo source, then every pass against its raw log, before the numbers below.**
+Three rounds, each kept in the repo:
+
+1. [`data/reviews/2026-11-14-fairness.json`](data/reviews/2026-11-14-fairness.json): does each test run the README's
+   main CPU demo and check its real output, does the goal hint at anything the README doesn't say, does every
+   assertion hold for a correct install, can a broken install slip through, is every exclusion reason true.
+   40 tests were rewritten.
+2. [`data/reviews/2026-11-15-second-review.json`](data/reviews/2026-11-15-second-review.json): each pass re-read from
+   its oracle trace, each counted patch checked for whether the demo needed it (changes it did not need are waived,
+   not scored), and every failure given one verified reason.
+3. One exclusion rule, applied by script ([`readme_gpu_sweep.py`](readme_gpu_sweep.py)): a repo is left out for
+   needing a GPU only when its README says so in words. A `device="cuda"` default in sample code does not count.
+   This excluded GR00T (motionbricks/README.md:77) and T2I-Adapter (README.md:101) and brought back Unlimited-OCR.
+
+Revised tests were committed before each re-run; superseded runs are kept in `data/runs/<slug>/v1/`, `v2/`.
 
 | | |
 |---|---|
-| Out of scope | 46 of 117: the README or its docs say it needs a paid API key, cloud account, GPU, gated model, >15 GB download or Docker, or there is no runnable demo |
-| Tested | **71** |
-| README demo ran (hidden test passed) | **71 / 71**, median agent time 2.0 min; all 71 installers replayed on a fresh machine first try |
-| Had to change the repo's own code to get there | **15 / 71** — e.g. detectron2's `demo/demo.py` imports a Meta-internal path (`vision.fair.detectron2...`) since 2024-09, FunClip's stage 2 crashes on a missing attribute, unilm/e5's MTEB script is CUDA-only though the README doesn't say so |
+| Out of scope | 50 of 117: the README or its docs say it needs a paid API key, cloud account, GPU, gated model, >15 GB download or Docker, or there is no runnable demo |
+| Tested | **67** |
+| README demo ran (hidden test passed) | **67 / 67**, median agent time 1.9 min; all 67 installers replayed on a fresh machine first try |
+| Had to change the repo's own code to get there | **7 / 67** — detectron2's `demo/demo.py` imports a Meta-internal path (`vision.fair.detectron2...`) since 2024-09; FunClip's stage 2 crashes on an attribute only stage 1 sets; Sa2VA's `demo.py` passes a `processor=` argument its own checkpoints' `predict_forward` does not take; plus PaddleClas, T5, garak and ModelScope |
 
-Company means in this view: Amazon 99 (9), OpenAI 98 (3), NVIDIA 95 (7), Google 94 (13), Microsoft 94 (11),
-Tencent 93 (3), Meta 91 (3), Apple 90 (7), Baidu 86 (6), Alibaba 82 (7), ByteDance 76 (2). Several n are small.
-Scores count only files whose content changed (since 2026-11-14; chmod-only and demo-overwritten binaries used to
-cost 10 points each).
+Company means in this view: Apple 99 (6), Amazon 99 (9), OpenAI 98 (3), Microsoft 98 (10), Google 96 (13),
+NVIDIA 94 (6), Tencent 93 (3), Baidu 91 (5), Meta 90 (3), Alibaba 82 (7), ByteDance 76 (2). Several n are small.
+Scores count only files whose content changed and that the demo needed.
+
+**All CPU repos (maintained or not): 105 tested, 102 ran, 14 changed repo code.** The 3 that did not run have dead
+model links in their READMEs (BERT and trax: Google Storage 403; SPADE: Google Drive 404).
 
 ### Results so far (2026-10-27)
 

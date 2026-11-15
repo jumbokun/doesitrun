@@ -234,3 +234,26 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   count as patched; this had cost timesfm 40 points for running its own examples. 6 CPU scores changed.
   Upstream evidence worth reporting: detectron2 demo/demo.py:17 imports vision.fair.detectron2.demo.predictor
   since ebe8b454 (2024-09-09); issue #5364 auto-closed, workaround in its comments, still in main.
+- 2026-11-15: second review (data/reviews/2026-11-15-second-review.json) of the CPU runs outside the maintained set,
+  the GPU pilot, and every maintained pass re-read from its raw oracle trace. Found: old repos whose README needs a
+  GPU had CPU goals; lenient oracles; Qwen-Agent's pass relied on a 67-line sandbox bypass; Depth-Anything-3's
+  failure came from the oracle pre-creating the export folder; Dolphin OOM at the 12 GB cap (docs now say the
+  container gets 12 GB of the runner's 16 GB). New review fields in result.json: patched_waived (changes the demo
+  did not need, not scored), rerun_pending (unscored), public_reason (one verified sentence for a non-pass).
+  Rerun of 25 (run 43640243086): 23 passed; JARVIS and PySC2 failed on our oracles (JARVIS read the graph only from
+  tool_desc.json, the file the buggy generate_graph.py overwrites, and the agent had fixed that; PySC2 wanted 250
+  scripted steps from a 241-step episode), fixed and re-run (43655706386), both passed.
+- 2026-11-15: third check, after the owner asked why errors kept appearing. Root causes: the reviews checked tests,
+  not the sentences in the README/post (the "unilm README never mentions a GPU" line came from a reviewer verdict
+  that was relayed without opening e5/README.md, whose line 56 says "on GPU machines"); and the GPU exclusion rule
+  was never written down, so reviewers applied it differently (Unlimited-OCR excluded for a .cuda() in sample
+  code while GR00T and T2I-Adapter, whose READMEs state a GPU requirement, were tested). Rule now: excluded only if
+  the README says in words that the demo needs a GPU, a GPU memory minimum or GPU machines; checked by
+  readme_gpu_sweep.py over every tested README. Applied: GR00T and T2I-Adapter excluded, Unlimited-OCR's v2 pass
+  restored. Each counted patch of the 25 reruns checked against source; waived: PaddleCV MODEL_ZOO (rewritten by
+  its own setup.py:69-72), ML-Images tfrecord.py -idx (README passes a directory), 6 PocketFlow *_run.py off the
+  demo path, m3-agent CPU fallback + display toggle, GPT-2 stdin EOF. Kept: PaddleGAN (its own --cpu mode
+  segfaults on the bundled test image), PySC2 sc_process.py (extra_ports reaches Popen since 0df53d3, 2023-04-19).
+  Maintained view: 67 tested, 67 ran, all replay first try, median 1.9 min, 7 changed repo code (detectron2,
+  FunClip, Sa2VA, PaddleClas, T5, garak, ModelScope). All CPU: 105 tested, 102 ran (BERT/trax 403, SPADE 404),
+  14 changed repo code. GPU pilot: 5 of 11 unscored, rerun pending on the owner's GPU.
