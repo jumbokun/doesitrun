@@ -48,5 +48,15 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-15 13:16:58"
+  "finished": "2026-11-15 13:16:58",
+  "review": {
+    "by": "GPU rerun check 2026-11-15 (each counted patch checked against source)",
+    "patched_waived": [
+      {
+        "path": "groundingdino/__init__.py",
+        "why": "Not needed by the demo: it only makes a bare `from groundingdino import _C` work, which our goal text asked for literally. The package imports torch before _C itself, and the v2 test imports torch first.",
+        "evidence": "groundingdino/models/GroundingDINO/ms_deform_attn.py:21-31 `import torch` precedes `from groundingdino import _C`; oracles/groundingdino.sh `import torch; from groundingdino import _C`; second-review verdict for groundingdino"
+      }
+    ]
+  }
 }

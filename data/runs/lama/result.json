@@ -43,5 +43,15 @@
     },
     "class": "pass"
   },
-  "finished": "2026-11-15 12:49:29"
+  "finished": "2026-11-15 12:49:29",
+  "review": {
+    "by": "GPU rerun check 2026-11-15 (each counted patch checked against source)",
+    "patched_waived": [
+      {
+        "path": "saicinpainting/training/trainers/__init__.py",
+        "why": "Not needed on the README path: the README pins torch==1.8.0, whose torch.load unpickles the checkpoint fully. The patch only follows from the agent installing torch 2.7.1 (PyTorch >= 2.6 defaults weights_only=True) for the Blackwell GPU named in our prompt, and bin/predict.py runs on CPU anyway.",
+        "evidence": "lama README.md:77 `pip install torch==1.8.0 torchvision==0.9.0`; bin/predict.py:44 `device = torch.device(\"cpu\")`; runs/lama NOTES.md 'PyTorch >= 2.6 defaults torch.load(weights_only=True)'"
+      }
+    ]
+  }
 }
