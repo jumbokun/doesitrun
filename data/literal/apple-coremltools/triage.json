@@ -3,5 +3,6 @@
   "verdict": "test",
   "step": "oracle script: import numpy as np, torch, torch.nn as nn; import coremltools as ct (torch conversion + sklearn)",
   "error": "ModuleNotFoundError: No module named 'torch'",
-  "why": "README.md:35 only says pip install coremltools and gives no demo; the test converts a PyTorch model and a scikit-learn model, which the README never asks for."
+  "why": "README.md:35 only says pip install coremltools and gives no demo; the test converts a PyTorch model and a scikit-learn model, which the README never asks for.",
+  "short": "README has no demo"
 }

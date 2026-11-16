@@ -3,5 +3,6 @@
   "verdict": "test",
   "step": "oracle line: code=$(curl -s ... http://127.0.0.1:8000/) against /work/run.sh server",
   "error": "+ code=000",
-  "why": "README.rst only has chalice deploy (needs AWS) and never starts a local server on port 8000; run.sh is empty (marked mismatch), so the test checks a server the README never describes."
+  "why": "README.rst only has chalice deploy (needs AWS) and never starts a local server on port 8000; run.sh is empty (marked mismatch), so the test checks a server the README never describes.",
+  "short": "README has no local server"
 }

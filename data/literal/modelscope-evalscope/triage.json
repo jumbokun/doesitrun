@@ -3,5 +3,6 @@
   "verdict": "readme",
   "step": "README.md:L182 pip install evalscope, then README.md:L206-209 Method 2 evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct",
   "error": "ImportError: `torch` not found. Please run `pip install torch` to use llm_ckpt.",
-  "why": "The README's Method 2 local-model command needs torch, but its only install step (pip install evalscope) does not install torch and the README does not mention it."
+  "why": "The README's Method 2 local-model command needs torch, but its only install step (pip install evalscope) does not install torch and the README does not mention it.",
+  "short": "Eval needs torch"
 }

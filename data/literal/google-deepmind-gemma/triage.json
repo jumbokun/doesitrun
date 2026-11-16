@@ -3,5 +3,6 @@
   "verdict": "env",
   "step": "README.md:L27 pip install gemma (after L22 pip install jax); setup.log has no pip output",
   "error": "setup.sh timed out",
-  "why": "setup.log holds only the timeout line (no pip output was captured), the script is just the two README installs, and a pip dry-run of jax+gemma resolves in about 24 s here, so the 90-minute hang is most likely a stalled or very slow download/resolve of gemma's huge dependency tree (kauldron, tensorflow, xmanager, google-cloud-aiplatform) in the harness, not a README error; exact stage cannot be proven from the log."
+  "why": "setup.log holds only the timeout line (no pip output was captured), the script is just the two README installs, and a pip dry-run of jax+gemma resolves in about 24 s here, so the 90-minute hang is most likely a stalled or very slow download/resolve of gemma's huge dependency tree (kauldron, tensorflow, xmanager, google-cloud-aiplatform) in the harness, not a README error; exact stage cannot be proven from the log.",
+  "short": "Install ran past 90 min"
 }

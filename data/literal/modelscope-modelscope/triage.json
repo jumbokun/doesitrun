@@ -1,7 +1,8 @@
 {
- "slug": "modelscope-modelscope",
- "verdict": "readme",
- "step": "README.md:L251 pip install modelscope[nlp] -f ...",
- "error": "cannot import name 'add_model_info_to_auto_map' from 'transformers.utils' (/work/.venv/lib/python3.12/site-packages/transformers/utils/__init__.py)",
- "why": "The README's nlp install pulls an unpinned transformers 5.23.0 that removed a function modelscope 1.40.3 imports, so the NLP pipeline cannot import."
+  "slug": "modelscope-modelscope",
+  "verdict": "readme",
+  "step": "README.md:L251 pip install modelscope[nlp] -f ...",
+  "error": "cannot import name 'add_model_info_to_auto_map' from 'transformers.utils' (/work/.venv/lib/python3.12/site-packages/transformers/utils/__init__.py)",
+  "why": "The README's nlp install pulls an unpinned transformers 5.23.0 that removed a function modelscope 1.40.3 imports, so the NLP pipeline cannot import.",
+  "short": "Unpinned transformers"
 }

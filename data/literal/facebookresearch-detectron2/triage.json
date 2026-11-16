@@ -3,5 +3,6 @@
   "verdict": "readme",
   "step": "INSTALL.md:L20 python -m pip install -e detectron2",
   "error": "ModuleNotFoundError: No module named 'torch'",
-  "why": "INSTALL.md:L20 builds in pip's isolated build env, where setup.py imports torch, so it fails right after the README's own torch install (no --no-build-isolation mentioned)."
+  "why": "INSTALL.md:L20 builds in pip's isolated build env, where setup.py imports torch, so it fails right after the README's own torch install (no --no-build-isolation mentioned).",
+  "short": "Build isolation hides torch"
 }

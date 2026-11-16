@@ -1,7 +1,8 @@
 {
- "slug": "awslabs-gluonts",
- "verdict": "readme",
- "step": "README.md:L54-L88 Simple Example (imports matplotlib) after install at L24",
- "error": "ModuleNotFoundError: No module named 'matplotlib'",
- "why": "The README's example imports matplotlib.pyplot but its install line gluonts[torch] does not install matplotlib and no README line adds it."
+  "slug": "awslabs-gluonts",
+  "verdict": "readme",
+  "step": "README.md:L54-L88 Simple Example (imports matplotlib) after install at L24",
+  "error": "ModuleNotFoundError: No module named 'matplotlib'",
+  "why": "The README's example imports matplotlib.pyplot but its install line gluonts[torch] does not install matplotlib and no README line adds it.",
+  "short": "Example needs matplotlib"
 }

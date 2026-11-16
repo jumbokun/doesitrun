@@ -1,7 +1,8 @@
 {
- "slug": "microsoft-vibevoice",
- "verdict": "readme",
- "step": "docs/vibevoice-realtime-0.5b.md:L100 pip install -e .[streamingtts] then L120 demo",
- "error": "_pickle.UnpicklingError: Weights only load failed. In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.",
- "why": "The documented pip install leaves torch unpinned (got 2.15.0) and the demo's weights_only=True load of the bundled voice preset fails with it; only the GPU docker image (older torch) is verified, and that is the step we skipped as GPU-only."
+  "slug": "microsoft-vibevoice",
+  "verdict": "readme",
+  "step": "docs/vibevoice-realtime-0.5b.md:L100 pip install -e .[streamingtts] then L120 demo",
+  "error": "_pickle.UnpicklingError: Weights only load failed. In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.",
+  "why": "The documented pip install leaves torch unpinned (got 2.15.0) and the demo's weights_only=True load of the bundled voice preset fails with it; only the GPU docker image (older torch) is verified, and that is the step we skipped as GPU-only.",
+  "short": "Unpinned torch breaks demo"
 }

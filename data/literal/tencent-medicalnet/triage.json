@@ -3,5 +3,6 @@
   "verdict": "readme",
   "step": "README.md:L91 Install Python 3.7.0 then README.md:L92 pip install -r requirements.txt",
   "error": "error: No interpreter found for Python 3.7 in managed installations or search path",
-  "why": "The README requires Python 3.7.0 (not installable on Ubuntu 24.04, uv has no 3.7) and its requirements.txt contradicts it: torch>=2.6.0 needs Python 3.9+ while numpy==1.15.4 and scipy==1.1.0 need 3.7 or older, so no single Python satisfies the README."
+  "why": "The README requires Python 3.7.0 (not installable on Ubuntu 24.04, uv has no 3.7) and its requirements.txt contradicts it: torch>=2.6.0 needs Python 3.9+ while numpy==1.15.4 and scipy==1.1.0 need 3.7 or older, so no single Python satisfies the README.",
+  "short": "Python 3.7 + torch 2.6"
 }

@@ -1,7 +1,8 @@
 {
- "slug": "google-deepmind-weathernext",
- "verdict": "test",
- "step": "test: xarray.load_dataset(data.nc) in run_wn.py",
- "error": "ImportError: No module named 'h5py', backend not available. Please install 'h5py' into your Python environment.",
- "why": "The README only gives the pip install and a weights link; reading the .nc forecast input comes from the Colab notebook (where h5py exists) and the test's own flow, which the README never describes."
+  "slug": "google-deepmind-weathernext",
+  "verdict": "test",
+  "step": "test: xarray.load_dataset(data.nc) in run_wn.py",
+  "error": "ImportError: No module named 'h5py', backend not available. Please install 'h5py' into your Python environment.",
+  "why": "The README only gives the pip install and a weights link; reading the .nc forecast input comes from the Colab notebook (where h5py exists) and the test's own flow, which the README never describes.",
+  "short": "Test needs h5py"
 }

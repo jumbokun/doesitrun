@@ -1,7 +1,8 @@
 {
- "slug": "bytedance-sa2va",
- "verdict": "env",
- "step": "projects/sa2va/README.md:L85 python projects/sa2va/demo/demo.py ... (test, CPU-only box)",
- "error": "ValueError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: Flash Attention 2 is not available on CPU. Please make sure torch can access a CUDA device.",
- "why": "Setup passed; the model's remote code enables FlashAttention2 which needs a CUDA GPU, and the README demo (8B, multi-GPU split_model) targets GPU while this box is CPU-only."
+  "slug": "bytedance-sa2va",
+  "verdict": "env",
+  "step": "projects/sa2va/README.md:L85 python projects/sa2va/demo/demo.py ... (test, CPU-only box)",
+  "error": "ValueError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: Flash Attention 2 is not available on CPU. Please make sure torch can access a CUDA device.",
+  "why": "Setup passed; the model's remote code enables FlashAttention2 which needs a CUDA GPU, and the README demo (8B, multi-GPU split_model) targets GPU while this box is CPU-only.",
+  "short": "Needs a GPU (FlashAttn)"
 }

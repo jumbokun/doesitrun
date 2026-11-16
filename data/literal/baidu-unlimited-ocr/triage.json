@@ -3,5 +3,6 @@
   "verdict": "env",
   "step": "README.md:L92-93 loads model with torch_dtype=torch.bfloat16 ... .cuda() (README demo is GPU-only); test runs model.infer on CPU with float32",
   "error": "RuntimeError: Input type (c10::BFloat16) and bias type (float) should be the same",
-  "why": "The README demo targets an A800 GPU with bf16 and .cuda(); the CPU-only box with the test's float32 override hits a dtype mismatch inside the model's own infer code, which says nothing about the README steps (install itself succeeded)."
+  "why": "The README demo targets an A800 GPU with bf16 and .cuda(); the CPU-only box with the test's float32 override hits a dtype mismatch inside the model's own infer code, which says nothing about the README steps (install itself succeeded).",
+  "short": "Needs a GPU (bf16)"
 }
