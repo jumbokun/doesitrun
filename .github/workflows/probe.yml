@@ -16,7 +16,7 @@ on:
         description: "Concurrent agent jobs (subscription rate limits)"
         default: "3"
       mode:
-        description: "probe = run repos; audit = pre-registered oracle audit of failed runs"
+        description: "probe = run repos; audit = pre-registered oracle audit of failed runs; literal = README-as-written, no agent"
         default: "probe"
 
 permissions:
@@ -67,7 +67,9 @@ jobs:
         with:
           node-version: "22"
       - run: npm install -g @anthropic-ai/claude-code@2.1.311  # pinned: this process holds the token
+        if: inputs.mode != 'literal'
       - name: Check Claude login
+        if: inputs.mode != 'literal'
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
         run: |
@@ -86,6 +88,7 @@ jobs:
           MODE: ${{ inputs.mode }}
         run: |
           if [ "$MODE" = "audit" ]; then python run_probe.py "--repos=$REPOS_FILE" --audit "$SLUG"
+          elif [ "$MODE" = "literal" ]; then python run_probe.py "--repos=$REPOS_FILE" --literal "$SLUG"
           else python run_probe.py "--repos=$REPOS_FILE" "$SLUG"; fi
       - uses: actions/upload-artifact@v7
         if: always()
@@ -95,6 +98,7 @@ jobs:
           # data/runs/<slug>/... and any number of them merge cleanly on download.
           path: |
             data/runs/${{ matrix.slug }}/
+            data/literal/${{ matrix.slug }}/
             .gitattributes
       - uses: actions/upload-artifact@v7
         if: always()
@@ -121,7 +125,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          n=$(ls _runs/data/runs 2>/dev/null | wc -l)
+          n=$(ls _runs/data/runs _runs/data/literal 2>/dev/null | grep -vc ':$')
           echo "run records downloaded: $n"
           [ "$n" -gt 0 ] || { echo "no run records"; exit 0; }
           git config user.name "doesitrun-bot"
@@ -130,9 +134,10 @@ jobs:
           # files, so always rebuild on top of the latest main instead of rebasing generated output.
           for attempt in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
-            cp -r _runs/data/runs/. data/runs/
+            [ -d _runs/data/runs ] && cp -r _runs/data/runs/. data/runs/
+            [ -d _runs/data/literal ] && mkdir -p data/literal && cp -r _runs/data/literal/. data/literal/
             python leaderboard.py > /dev/null
-            git add data/runs data/leaderboard.json data/attribution.json LEADERBOARD.md
+            mkdir -p data/literal && git add data/runs data/literal data/leaderboard.json data/attribution.json LEADERBOARD.md
             git diff --cached --quiet && { echo "nothing new"; exit 0; }
             git commit -q -m "Record ${{ inputs.mode }} results ($n repos)"
             if git push -q origin HEAD:main; then echo "pushed on attempt $attempt"; break; fi

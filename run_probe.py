@@ -518,6 +518,46 @@ def replay_and_save(cfg, res, rundir, key="replay"):
     print(json.dumps(res, ensure_ascii=False), flush=True)
 
 
+DATA_LITERAL = ROOT / "data" / "literal"
+
+
+def literal_run(cfg):
+    """README-as-written track (literal/RULES.md): no agent. Fresh container, repo cloned at the pinned
+    commit, a plain venv activated, then literal/<slug>/setup.sh (README lines copied verbatim) and the
+    same hidden oracle. One attempt; the setup and oracle logs are kept with the result."""
+    slug, d = cfg["slug"], ROOT / "literal" / cfg["slug"]
+    m = re.search(r"^# literal: (\S+/\S+) @ ([0-9a-f]{40})$", (d / "setup.sh").read_text(encoding="utf-8"), re.M)
+    repo, sha = m.group(1), m.group(2)
+    name, out = f"rr-{slug}-literal", DATA_LITERAL / slug
+    out.mkdir(parents=True, exist_ok=True)
+    res = {"slug": slug, "repo": repo, "commit": sha, "track": TRACK, "started": time.strftime("%Y-%m-%d %H:%M:%S")}
+    start_container(name, cfg)
+    prep = sh(["docker", "exec", "-w", "/work", name, "bash", "-c",
+               f"git clone -q https://github.com/{repo} /work/{cfg['dir']} && git -C /work/{cfg['dir']} checkout -q {sha}"
+               " && python3 -m venv /work/.venv"], timeout=1800)
+    res["prep_ok"] = prep.returncode == 0
+    for f in ("setup.sh", "env.sh", "run.sh"):
+        if (d / f).exists():
+            sh(["docker", "cp", str(d / f), f"{name}:/work/{f}"])
+    t0 = time.time()
+    try:
+        p = sh(["docker", "exec", "-w", "/work", name, "bash", "-c", "source /work/.venv/bin/activate && bash /work/setup.sh"],
+               timeout=REPLAY_SETUP_SEC)
+        ok, log = p.returncode == 0, prep.stdout + prep.stderr + p.stdout + p.stderr
+    except subprocess.TimeoutExpired:
+        ok, log = False, "setup.sh timed out"
+    res["setup"] = {"ok": ok and res["prep_ok"], "secs": round(time.time() - t0)}
+    (out / "setup.log").write_text("\n".join(log.splitlines()[-300:]) + "\n", encoding="utf-8", newline="\n")
+    res["oracle"] = oracle(name, slug, out / "oracle.log") if res["setup"]["ok"] else {"pass": False, "skipped": "setup failed"}
+    if (out / "oracle.log").exists():
+        tail = (out / "oracle.log").read_text(encoding="utf-8").splitlines()[-300:]
+        (out / "oracle.log").write_text("\n".join(tail) + "\n", encoding="utf-8", newline="\n")
+    res["finished"] = time.strftime("%Y-%m-%d %H:%M:%S")
+    (out / "result.json").write_text(json.dumps(res, indent=2), encoding="utf-8", newline="\n")
+    sh(["docker", "rm", "-f", name])
+    return res
+
+
 if __name__ == "__main__":
     import firewall_check
     if not firewall_check.verify():
@@ -534,9 +574,12 @@ if __name__ == "__main__":
         for company in args[1:]:
             exam_active(company)
         sys.exit(0)
-    mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary", "--repair", "--audit") else None
+    mode = args.pop(0) if args and args[0] in ("--replay-only", "--replay-supplementary", "--repair", "--audit", "--literal") else None
     cfgs = {c["slug"]: c for c in json.loads((ROOT / repos_file).read_text(encoding="utf-8"))}
     for slug in args:
+        if mode == "--literal":
+            literal_run(cfgs[slug])
+            continue
         if mode == "--audit":
             audit(cfgs[slug], json.loads((DATA_RUNS / slug / "result.json").read_text(encoding="utf-8")))
             continue
