@@ -70,6 +70,30 @@ def repo_score(res):
     return round(100 - min(50, minutes) - min(40, 10 * files), 1), f"{minutes:.0f} min, {files} repo files patched"
 
 
+TIER_RANK = {"as-written": 0, "readme-broken": 1, "not-judged": 2, "pending": 3}
+
+
+def literal_of(slug):
+    """README-as-written verdict (literal/RULES.md). A pass is a pass. A failure counts against the README only
+    when its triage says so AND the triage's quoted error line is in the current run's logs (a rerun after a
+    script or harness fix makes an old triage stale: then the repo is 'pending' until it is triaged again)."""
+    d = DATA / "literal" / slug
+    if not (d / "result.json").exists():
+        return None
+    res = json.loads((d / "result.json").read_text(encoding="utf-8"))
+    if res.get("oracle", {}).get("pass"):
+        return {"tier": "as-written"}
+    tri = d / "triage.json"
+    if tri.exists():
+        t = json.loads(tri.read_text(encoding="utf-8"))
+        logs = "".join((d / f).read_text(encoding="utf-8", errors="replace") for f in ("setup.log", "oracle.log")
+                       if (d / f).exists())
+        if t.get("error") and t["error"] in logs:
+            tier = {"readme": "readme-broken", "test": "not-judged", "env": "not-judged"}.get(t["verdict"], "pending")
+            return {"tier": tier, "verdict": t["verdict"], "step": t.get("step"), "why": t.get("why"), "short": t.get("short")}
+    return {"tier": "pending"}
+
+
 def company_table(rows):
     groups = {}
     for r in rows:
@@ -113,6 +137,7 @@ def main():
             "corrected": bool(res.get("correction")),
             # One verified sentence for readers on why a run did not pass (data/reviews); never the raw audit text.
             "public_reason": (res.get("review") or {}).get("public_reason"),
+            "literal": literal_of(res["slug"]),
         })
     ATTR_CACHE.write_text(json.dumps(cache, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
 
@@ -140,7 +165,8 @@ def main():
           "repo; a hidden, pre-registered oracle decides success. Scores from different hardware are never "
           "mixed. Method: README.md; full notebook: WORKLOG.md.", ""]
     for t in order:
-        rows = sorted(tracks[t], key=lambda r: (r["score"] is None, -(r["score"] or 0)))
+        rows = sorted(tracks[t], key=lambda r: (TIER_RANK.get((r.get("literal") or {}).get("tier"), 9),
+                                                r["score"] is None, -(r["score"] or 0)))
         companies = company_table(rows)
         out["tracks"].append({"track": t, "label": labels.get(t, t), "repos": rows, "companies": companies,
                               "view_of": "cpu-gha" if t == MAINTAINED else "gpu-rtx5060"})

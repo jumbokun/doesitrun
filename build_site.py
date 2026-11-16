@@ -87,9 +87,49 @@ def score_cell(r):
             f'<span class="bar" aria-hidden="true"><i style="width:{max(2, s):.0f}%"></i></span></td>')
 
 
+TIERS = {  # README-as-written tiers (literal/RULES.md), in board order
+    "as-written": ("Works as written", "README works as written", "A fresh machine, the README's own commands copied line by line, no AI: the demo ran."),
+    "readme-broken": ("README broken", "README broken: ran only after the AI fixed it", "Following the README exactly fails at the step shown; the agent got it running anyway."),
+    "not-judged": ("Not judged", "Not judged as written", "The hidden test needs more than the README's demo shows, or the demo needs a GPU or more time than a CPU runner has."),
+    "pending": ("Pending", "Being reviewed", "Ran as written and failed; the failure is still being checked."),
+}
+
+
+def tier_of(r):
+    return (r.get("literal") or {}).get("tier")
+
+
+def readme_cell(r):
+    t = tier_of(r)
+    if not t:
+        return '<td class="num d-only"><span class="dim">–</span></td>'
+    lab, _, _ = TIERS[t]
+    why = (r.get("literal") or {}).get("why") or ""
+    if t != "as-written":
+        lab = (r.get("literal") or {}).get("short") or lab
+    cls = {"as-written": "ok", "readme-broken": "neg", "not-judged": "dim", "pending": "dim"}[t]
+    mark = CHECK if t == "as-written" else CROSS if t == "readme-broken" else "–"
+    if t == "as-written":
+        lab = "yes"
+    return (f'<td class="rd d-only"><span class="{cls}" title="{esc(why)}">{mark} {esc(lab)}</span></td>')
+
+
 def repo_table(t):
     rows = []
-    for i, r in enumerate(t["repos"], 1):
+    lit = any(tier_of(r) for r in t["repos"])
+    all_replay = all(r["replay"] == "pass" for r in t["repos"] if (r["score"] or 0) > 0)  # then the stats line says it
+    counts = {}
+    for r in t["repos"]:
+        counts[tier_of(r)] = counts.get(tier_of(r), 0) + 1
+    prev, i = object(), 0
+    for r in t["repos"]:
+        if lit and tier_of(r) != prev:
+            prev, i = tier_of(r), 0
+            if prev in TIERS:
+                _, head, desc = TIERS[prev]
+                rows.append(f'<tr class="grp"><td colspan="9"><b>{esc(head)}</b> <span class="mono">{counts[prev]}</span>'
+                            f'<span class="gdesc">{esc(desc)}</span></td></tr>')
+        i += 1
         owner, name = r["repo"].split("/", 1)
         st = status(r)
         files = patched_paths(r["slug"]) if r["files_patched"] else []
@@ -99,24 +139,26 @@ def repo_table(t):
         if st in ("failed", "unscored"):
             note = (f'<div class="note neg">{esc(r["public_reason"])}</div>' if r.get("public_reason")
                     else '<div class="note">Did not pass; see the run log.</div>' if st == "failed" else "")
+        lit_m = f' · {esc(TIERS[tier_of(r)][0])}' if tier_of(r) in TIERS else ""
         team = "" if r["team"] in (r["company"], None, owner) else f' · {esc(r["team"])}'
         rows.append(f"""
-<tr data-st="{st}" data-q="{esc((r['repo'] + ' ' + r['company'] + ' ' + (r['team'] or '')).lower())}">
+<tr data-st="{st}" data-tier="{esc(tier_of(r) or '')}" data-q="{esc((r['repo'] + ' ' + r['company'] + ' ' + (r['team'] or '')).lower())}">
   <td class="rank">{i}</td>
   <td class="repo"><a href="https://github.com/{esc(r['repo'])}" rel="noopener"><span class="owner">{esc(owner)}/</span>{esc(name)}</a>
-    <div class="sub m-only">{esc(r['company'])}{team} · {mins(r['agent_minutes'])} min</div>{note}</td>
+    <div class="sub m-only">{esc(r['company'])}{team} · {mins(r['agent_minutes'])} min{lit_m}</div>{note}</td>
   <td class="co d-only"{f' title="{esc(r["team"])}"' if team else ''}>{esc(r['company'])}</td>
+  {readme_cell(r) if lit else ''}
   {score_cell(r)}
   <td class="num d-only">{mins(r['agent_minutes'])}<span class="unit"> min</span></td>
   <td class="num d-only">{changed}</td>
-  <td class="num d-only">{replay_cell(r)}</td>
+  {'' if all_replay else f'<td class="num d-only">{replay_cell(r)}</td>'}
   <td class="num d-only"><a class="log" href="{REPO_URL}/tree/main/data/runs/{esc(r['slug'])}" rel="noopener" title="Run record: result, install script, agent notes">log</a></td>
 </tr>""")
     return f"""
 <table class="board">
-  <thead><tr><th class="rank">#</th><th>Repo</th><th class="d-only">Company</th><th class="score" title="100 − agent minutes (max 50) − 10 per repo file changed (max 40); 0 if it never ran">Score</th>
+  <thead><tr><th class="rank">#</th><th>Repo</th><th class="d-only">Company</th>{'<th class="d-only" title="Does the README work when followed exactly, with no AI?">README</th>' if lit else ''}<th class="score" title="100 − agent minutes (max 50) − 10 per repo file changed (max 40); 0 if it never ran">Score</th>
     <th class="num d-only">Time</th><th class="num d-only" title="Repo files whose content had to change">Files patched</th>
-    <th class="num d-only" title="The install script works again on a fresh machine">Replays</th><th class="num d-only">Log</th></tr></thead>
+    {'' if all_replay else '<th class="num d-only" title="The install script works again on a fresh machine">Replays</th>'}<th class="num d-only">Log</th></tr></thead>
   <tbody>{''.join(rows)}</tbody>
 </table>"""
 
@@ -129,16 +171,20 @@ def company_table(t):
         teams = " · ".join(f'{esc(x["team"])} <span class="mono">{x["mean"]:.0f}</span>' for x in c["teams"]) \
             if len(c["teams"]) > 1 else ""
         small = ' <span class="flag" title="Fewer than 3 repos: not a verdict on the company">few repos</span>' if c["n"] < 3 else ""
+        lit = [r for r in repos if tier_of(r) in ("as-written", "readme-broken")]
+        aw = sum(1 for r in lit if tier_of(r) == "as-written")
+        aw_cell = (f'<td class="num">{aw}<span class="unit">/{len(lit)}</span></td>' if any(tier_of(r) for r in t["repos"]) else "")
         rows.append(f"""
 <tr>
   <td class="rank">{i}</td>
   <td class="repo"><span class="cname">{esc(c['company'])}</span>{small}{f'<div class="sub">{teams}</div>' if teams else ''}</td>
   <td class="score {tone(c['mean'])}"><b>{c['mean']:.1f}</b><span class="bar" aria-hidden="true"><i style="width:{max(2, c['mean']):.0f}%"></i></span></td>
   <td class="num">{ran}<span class="unit">/{len(repos)}</span></td>
+  {aw_cell}
 </tr>""")
     return f"""
 <table class="board">
-  <thead><tr><th class="rank">#</th><th>Company</th><th class="score">Mean score</th><th class="num">Ran</th></tr></thead>
+  <thead><tr><th class="rank">#</th><th>Company</th><th class="score">Mean score</th><th class="num">Ran</th>{'<th class="num" title="Judged repos whose README works as written">README as written</th>' if any(tier_of(r) for r in t["repos"]) else ''}</tr></thead>
   <tbody>{''.join(rows)}</tbody>
 </table>"""
 
@@ -166,6 +212,17 @@ def not_tested(track, all_exams):
     return out
 
 
+def finding_lit(rows, ran):
+    n = {k: sum(1 for r in rows if tier_of(r) == k) for k in TIERS}
+    judged = n["as-written"] + n["readme-broken"]
+    if not judged:
+        return ""
+    return (f'<p class="finding lead"><b class="mono">{n["as-written"]}/{judged}</b> READMEs work exactly as written, no AI'
+            f'<span class="sep">·</span><b class="mono">{n["readme-broken"]}</b> break at a step the agent had to fix'
+            + (f'<span class="sep">·</span><b class="mono">{n["not-judged"] + n["pending"]}</b> not judged' if n["not-judged"] + n["pending"] else "")
+            + '</p>')
+
+
 def track_panel(t, idx, all_exams, pushed_since):
     rows = t["repos"]
     ran = [r for r in rows if (r["score"] or 0) > 0]
@@ -177,7 +234,10 @@ def track_panel(t, idx, all_exams, pushed_since):
     nt = not_tested(t["track"], all_exams)
     _, note = TRACK_TABS.get(t["track"], (t["track"], t["label"]))
     note = note.format(pushed_since=pushed_since or "")
-    chips = [("all", f"All {len(rows)}")] + ([("ran-patched", f"Code changed {patched}")] if patched else [])
+    chips = [("all", f"All {len(rows)}")]
+    tiers = {k: sum(1 for r in rows if tier_of(r) == k) for k in TIERS}
+    chips += [(k, f"{TIERS[k][0]} {n}") for k, n in tiers.items() if n]
+    chips += [("ran-patched", f"Code changed {patched}")] if patched else []
     if failed:
         chips.append(("failed", f"Did not run {failed}"))
     if unscored:
@@ -189,7 +249,7 @@ def track_panel(t, idx, all_exams, pushed_since):
                f'<a href="method.html#not-tested">See the list</a></p>') if nt else ""
     return f"""
 <section class="track" id="t-{esc(t['track'])}" data-track="{esc(t['track'])}"{'' if idx == 0 else ' hidden'}>
-  <p class="finding"><b class="mono">{len(ran)}/{len(rows)}</b> README demos ran
+  {finding_lit(rows, ran)}<p class="finding"><b class="mono">{len(ran)}/{len(rows)}</b> README demos ran{" with the agent's help" if tiers["as-written"] else ""}
     <span class="sep">·</span> median <b class="mono">{med:.0f} min</b>
     <span class="sep">·</span> <b class="mono">{patched}</b> needed changes to the repo's code
     <span class="sep">·</span> <b class="mono">{first}/{len(ran)}</b> installs replay on a fresh machine</p>
@@ -312,6 +372,12 @@ table.board { width:100%; border-collapse:collapse; border:1px solid var(--line)
 .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
 .ok { color:var(--ink); } .warn { color:var(--warn); } .neg { color:var(--neg); } .dim { color:var(--ink-3); }
 .chg { color:var(--ink); font-weight:600; cursor:help; text-decoration:underline dotted var(--ink-3); text-underline-offset:3px; }
+tr.grp td { background:var(--fill); padding:14px 12px; border-top:1px solid var(--line); }
+tr.grp b { font-weight:600; text-transform:uppercase; letter-spacing:.04em; font-size:12px; }
+tr.grp .mono { color:var(--ink-3); margin-left:6px; font-size:12px; }
+.gdesc { display:block; color:var(--ink-3); font-size:12px; margin-top:4px; }
+.rd { font-size:12px; white-space:nowrap; }
+.finding.lead { font-size:16px; color:var(--ink); }
 .flag { font-size:12px; color:var(--ink-3); margin-left:6px; text-transform:uppercase; }
 .after { font-size:12px; color:var(--ink-3); margin-top:12px; }
 .empty { padding:24px 0; color:var(--ink-3); }
@@ -338,9 +404,9 @@ footer { margin:48px 0 0; padding:24px 0; border-top:1px solid var(--line); font
   .note { padding-bottom:10px; }
   .board td.repo:has(.note) { padding-top:10px; }
   .repo a { white-space:nowrap; }
-  .board td.repo { min-width:300px; }
+  .board td.repo { min-width:260px; }
 
-  .score .bar { display:inline-block; vertical-align:middle; width:96px; height:12px; background:var(--fill); margin-left:12px; }
+  .score .bar { display:inline-block; vertical-align:middle; width:72px; height:12px; background:var(--fill); margin-left:12px; }
   .score .bar i { display:block; height:100%; background:var(--bar); }
   .score.neg .bar i { background:var(--neg); }
 }
@@ -368,15 +434,17 @@ JS = """
   seg.forEach(function (b) { b.addEventListener('click', function () { setView(b.dataset.v); }); });
   document.querySelectorAll('section.track').forEach(function (sec) {
     var f = 'all', q = '';
-    var rows = sec.querySelectorAll('[data-view="repos"] tbody tr');
+    var rows = sec.querySelectorAll('[data-view="repos"] tbody tr:not(.grp)');
+    var grps = sec.querySelectorAll('[data-view="repos"] tbody tr.grp');
     var empty = sec.querySelector('.empty');
     function apply() {
       var n = 0;
       rows.forEach(function (r) {
-        var ok = (f === 'all' || r.dataset.st === f) && (!q || r.dataset.q.indexOf(q) >= 0);
+        var ok = (f === 'all' || r.dataset.st === f || r.dataset.tier === f) && (!q || r.dataset.q.indexOf(q) >= 0);
         r.hidden = !ok; if (ok) n++;
       });
       empty.hidden = n > 0;
+      grps.forEach(function (g) { g.hidden = f !== 'all' || !!q; });
     }
     sec.querySelectorAll('.chip').forEach(function (c) {
       c.addEventListener('click', function () {
