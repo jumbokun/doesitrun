@@ -144,7 +144,7 @@ def repo_table(t):
         rows.append(f"""
 <tr data-st="{st}" data-tier="{esc(tier_of(r) or '')}" data-q="{esc((r['repo'] + ' ' + r['company'] + ' ' + (r['team'] or '')).lower())}">
   <td class="rank">{i}</td>
-  <td class="repo"><a href="https://github.com/{esc(r['repo'])}" rel="noopener"><span class="owner">{esc(owner)}/</span>{esc(name)}</a>
+  <td class="repo"><a href="https://github.com/{esc(r['repo'])}" rel="noopener"><span class="owner">{esc(owner)}/</span><wbr><span class="nm">{esc(name)}</span></a>
     <div class="sub m-only">{esc(r['company'])}{team} · {mins(r['agent_minutes'])} min{lit_m}</div>{note}</td>
   <td class="co d-only"{f' title="{esc(r["team"])}"' if team else ''}>{esc(r['company'])}</td>
   {readme_cell(r) if lit else ''}
@@ -338,7 +338,7 @@ h1 { font:400 40px/1.05 var(--mono); letter-spacing:-.04em; text-transform:upper
 .finding .sep { color:var(--ink-3); margin:0 6px; }
 .tnote { margin-top:4px; font-size:12px; color:var(--ink-3); }
 .tools { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:16px 0 12px; }
-.chips { display:flex; border:1px solid var(--line); }
+.chips { display:flex; border:1px solid var(--line); max-width:100%; overflow-x:auto; }
 .chip { background:var(--bg); border:0; border-left:1px solid var(--line); color:var(--ink-2); font:500 13px/1 var(--mono); padding:0 12px; min-height:44px; cursor:pointer; white-space:nowrap; }
 .chip:first-child { border-left:0; }
 .chip.on { background:var(--fill); color:var(--ink); }
@@ -376,7 +376,7 @@ tr.grp td { background:var(--fill); padding:14px 12px; border-top:1px solid var(
 tr.grp b { font-weight:600; text-transform:uppercase; letter-spacing:.04em; font-size:12px; }
 tr.grp .mono { color:var(--ink-3); margin-left:6px; font-size:12px; }
 .gdesc { display:block; color:var(--ink-3); font-size:12px; margin-top:4px; }
-.rd { font-size:12px; white-space:nowrap; }
+.rd { font-size:12px; min-width:150px; max-width:200px; }
 .finding.lead { font-size:16px; color:var(--ink); }
 .flag { font-size:12px; color:var(--ink-3); margin-left:6px; text-transform:uppercase; }
 .after { font-size:12px; color:var(--ink-3); margin-top:12px; }
@@ -403,13 +403,15 @@ footer { margin:48px 0 0; padding:24px 0; border-top:1px solid var(--line); font
   .board th { padding:18px 16px; }
   .note { padding-bottom:10px; }
   .board td.repo:has(.note) { padding-top:10px; }
-  .repo a { white-space:nowrap; }
-  .board td.repo { min-width:260px; }
+  .repo .owner, .repo .nm { white-space:nowrap; }
+  .board td.repo { min-width:220px; }
 
   .score .bar { display:inline-block; vertical-align:middle; width:72px; height:12px; background:var(--fill); margin-left:12px; }
   .score .bar i { display:block; height:100%; background:var(--bar); }
   .score.neg .bar i { background:var(--neg); }
 }
+@media (min-width:768px) and (max-width:1099px) { .score .bar { display:none; } }
+@media (min-width:1100px) { .rd { min-width:210px; max-width:none; white-space:nowrap; } }
 """
 
 
