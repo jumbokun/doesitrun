@@ -1,13 +1,43 @@
 # Does it run?
 
-**How hard is it to get a GitHub repo's README demo actually running?**
-A sandboxed AI agent tries, a hidden test decides, and the agent's installer is replayed on a brand-new machine.
+**Do big companies' READMEs work as written?**
+Each README is first run exactly as written: its own commands, copied line by line, on a fresh Linux box with no AI.
+Then a sandboxed AI agent gets the same README and a clean box. A hidden test checks the demo's output both times.
 
 **Live leaderboard → https://jumbokun.github.io/doesitrun/**
 
 [![Does it run? leaderboard](docs/screenshot.png)](https://jumbokun.github.io/doesitrun/)
 
-### Maintained repos only (2026-11-15) — the headline view
+### README as written (2026-11-16) — the headline
+
+Of the 67 maintained CPU repos below, **34 READMEs work exactly as written**, with no AI. **16 break** at a named
+step, and the AI agent got every one of them running anyway. 17 are not judged: the hidden test needs more than the
+README's demo, the demo needs a GPU, or the container lacked something a normal machine has.
+
+| Company | README works as written | Not judged |
+|---|---|---|
+| NVIDIA | 4 / 4 | 2 |
+| OpenAI | 2 / 2 | 1 |
+| Amazon | 6 / 7 | 2 |
+| Google | 7 / 9 | 4 |
+| Microsoft | 7 / 9 | 1 |
+| Apple | 2 / 3 | 3 |
+| Tencent | 2 / 3 | 0 |
+| Alibaba | 3 / 6 | 1 |
+| Baidu | 1 / 4 | 1 |
+| Meta | 0 / 3 | 0 |
+| ByteDance | 0 / 0 | 2 |
+
+Where the 16 break, each checked against the log line it quotes ([`data/literal/<repo>/triage.json`](data/literal)):
+a missing install step (pnpm, pipenv, matplotlib, torch, coreai-torch, setuptools), a version pin that no longer
+installs on current Python (Kats, PaddleClas, PARL, MedicalNet), an unpinned dependency that has since broken the demo
+(ModelScope's transformers, VibeVoice's torch, pytorch3d's mkl), a build that cannot see torch (detectron2), and two demos
+that crash as written (FunClip stage 2, PaddleX OCR on the README's CPU build).
+
+Rules and the line-by-line verifier: [`literal/RULES.md`](literal/RULES.md), [`literal_check.py`](literal_check.py).
+Small n per company; one run each.
+
+### Maintained repos only (2026-11-15) — with the AI agent
 
 Archived or quiet repos are often unmaintained on purpose, so the leaderboard leads with repos that GitHub
 reported **not archived and pushed to since 2026-08-13** ([`data/active.json`](data/active.json), registered before
@@ -208,8 +238,8 @@ Suggest a repo or dispute a result: open an issue.
 **Does it run?** 测的是：一个 GitHub 仓库的 README 演示，到底有多难真正跑起来。
 
 做法是让一个 AI Agent 在隔离的沙箱里照着 README 去装、去跑，由一个事先写好、Agent 看不到的测试来判定成功，
-最后再把 Agent 写的安装脚本放到一台全新的机器上重放一遍。榜单按公司汇总；有独立 GitHub 组织账号的团队
+最后再把 Agent 写的安装脚本放到一台全新的机器上重放一遍。在这之前，每个 README 先不经 AI、照原文一行一行跑一遍，看它写的能不能直接用。榜单按公司汇总；有独立 GitHub 组织账号的团队
 （比如谷歌下面的 DeepMind、Google Research）再单独拆分。
 
 只算最近三个月还在更新、没有归档的仓库。CPU 赛道：11 家公司的 117 个仓库里，能在普通机器上测的 67 个，
-README 演示全部跑通，安装脚本在新机器上都一次复现，其中 7 个要改仓库自己的代码。GPU 赛道按同样规则留下 5 个，全部跑通。
+README 演示全部跑通，安装脚本在新机器上都一次复现，其中 7 个要改仓库自己的代码。GPU 赛道按同样规则留下 5 个，全部跑通。不用 AI、照原文跑：67 个里 34 个直接能用，16 个在某一步出错，17 个不判定。

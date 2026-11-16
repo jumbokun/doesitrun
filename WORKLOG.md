@@ -273,3 +273,16 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   README now publish only the maintained views: CPU 67 and GPU 5 (manimgx, earshot, UniMate, kev, NanoJev, per
   data/active_gpu.json, checked with the GitHub API on 2026-11-16). Raw runs of the others stay in data/runs/.
   STORY.md (the 80-repo batch) is no longer linked.
+
+## README as written (literal track, 2026-11-16)
+
+- Question reframed by the owner: how well do big companies maintain their READMEs? Every maintained CPU repo is run
+  first from a script of the README's own commands (`literal/<slug>/`, verified line by line by `literal_check.py`),
+  on a fresh container with no agent; the same hidden oracle decides.
+- Three rounds. Round 1: 25/67 pass. Failures triaged into readme / script / env / test with the quoted log line
+  machine-checked. Script and container causes were fixed (missed README steps; cmake, python3-dev, libGL,
+  lsb-release added to the start state; `uv venv --seed` so `pip` lands in the venv; Ollama server started) and rerun.
+- Final: 34 work as written, 16 README broken (agent ran all 16), 17 not judged. Tier logic in
+  `leaderboard.py:literal_of`: a triage counts only if its error line is in the current logs, so a rerun makes old
+  triage stale ("pending").
+- Known gap: when setup.sh times out the harness keeps only "setup.sh timed out", not the output (Gemma, twice).
