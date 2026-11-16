@@ -510,8 +510,8 @@ def index_page(tracks, all_exams, pushed_since):
 <main>
 <div class="hero">
 <h1>Does it run?</h1>
-<p class="lede">An AI agent gets a clean Linux box and a big-company repo's README, and has to get the README's own demo running.
-  A hidden test checks the output.</p>
+<p class="lede">Do big companies' READMEs work as written? A script runs each README's own commands, line by line, on a fresh
+  Linux box with no AI. Then an AI agent gets the same README and a clean box. A hidden test checks the demo's output both times.</p>
 <div class="cta"><a class="btn primary" href="method.html">How it works →</a><a class="btn" href="{REPO_URL}/tree/main/data/runs">Every run log →</a></div>
 </div>
 <div class="switch"><div class="tabs" role="tablist" aria-label="Track">{tabs}</div>
@@ -521,7 +521,7 @@ def index_page(tracks, all_exams, pushed_since):
 </main>
 <script>{JS}</script>"""
     return shell("Does it run? GitHub repo reproducibility leaderboard",
-                 "An AI agent tries to run each big-company repo's README demo on a clean machine; a hidden test decides.",
+                 "Do big companies' READMEs work as written? Each README is run line by line with no AI, then by an AI agent; a hidden test decides.",
                  body, "index.html")
 
 
@@ -541,7 +541,7 @@ def method_page(tracks, all_exams, pushed_since):
 <h1>Method</h1>
 <p class="lede">How each repo is run and scored, and which repos were left out.</p>
 
-<h2>A run</h2>
+<h2>With an AI agent</h2>
 <ul>
   <li>The agent (Claude Code, Opus 5.5 pinned on the CPU tracks) has one tool, <code>docker exec</code>, into a throwaway
     container on a CPU-only GitHub-hosted runner (4 vCPU, 16 GB RAM, of which the container may use 12 GB; the prompts say 16 GB). No host access; private networks and cloud metadata are
@@ -553,6 +553,23 @@ def method_page(tracks, all_exams, pushed_since):
     demo, a broken install cannot pass, and the task never hints at anything the README doesn't say. Revised tests are
     committed before they are re-run; superseded runs are kept. Each verdict and its evidence:
     <a href="{REPO_URL}/tree/main/data/reviews">data/reviews</a>.</li>
+</ul>
+
+<h2>README as written</h2>
+<ul>
+  <li>Before any AI touches it, each README is run exactly as written: a script of the README's own commands, copied
+    verbatim. Every line cites the file and line it came from at the pinned commit, and
+    <a href="{REPO_URL}/blob/main/literal_check.py">literal_check.py</a> fetches each cited line and confirms the command is
+    on it. The rules: <a href="{REPO_URL}/blob/main/literal/RULES.md">literal/RULES.md</a>.</li>
+  <li>The machine starts as a developer's would: Ubuntu 24.04 with git, curl, build tools, cmake, Python 3.12 with venv,
+    pip and uv, and a few common system libraries. The script may fill in a placeholder the README asks you to fill,
+    install a prerequisite the README names in words, and change directory. Nothing else.</li>
+  <li>The same hidden test then checks the demo. A pass means the README works as written.</li>
+  <li>A failure counts against the README only after triage: the exact error line is quoted from the log (a script
+    checks it is there) and the failing README step is named. A failure caused by our script or by the container is
+    fixed and run again. When the hidden test needs more than the README's demo, or the demo needs a GPU or more time
+    than a CPU runner has, the repo is marked not judged.</li>
+  <li>Scripts, logs and triage for every repo: <a href="{REPO_URL}/tree/main/data/literal">data/literal</a>.</li>
 </ul>
 
 <h2>The score</h2>
