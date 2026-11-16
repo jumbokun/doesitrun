@@ -7,6 +7,7 @@ command must appear there verbatim (whitespace and a shell prompt aside). Prints
 exits 1 if there are any.
 """
 import functools
+import html
 import pathlib
 import re
 import sys
@@ -15,7 +16,10 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent
 LIT = ROOT / "literal"
 HEADER = re.compile(r"^# literal: (\S+/\S+) @ ([0-9a-f]{40})$", re.M)
-TAG = re.compile(r"\s+#\s*(glue\b.*|prereq\b.*|placeholder\b.*|[\w./-]+:L\d+(?:-L\d+)?)\s*$")
+TAG = re.compile(r"\s+#\s*(glue\b.*|prereq\b.*|placeholder\b.*|link\b.*|[\w./-]+:L\d+(?:-L\d+)?|https?://\S+)\s*$")
+# "download it from <link>": fetch exactly the URL the doc links to, nothing else
+LINK_CMD = re.compile(r"(?:curl -\w+ -o \S+|curl -\w+ -O|wget(?: -O \S+)?) (\S+)")
+PIP_PREREQ = re.compile(r"(python3? -m )?pip install( [A-Za-z0-9_.\-\[\]]+)+")  # named packages, no versions
 CITE = re.compile(r"^([\w./-]+):L(\d+)(?:-L(\d+))?$")
 GLUE_OK = [
     r"set -e", r"cd \S+", r"mkdir -p \S+", r"source /work/\.venv/bin/activate",
@@ -45,7 +49,23 @@ def fetch(repo, sha, path):
         return r.read().decode("utf-8", "replace").split("\n")
 
 
+@functools.lru_cache(maxsize=None)
+def page_raw(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "doesitrun-literal-check"})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        return r.read().decode("utf-8", "replace")
+
+
+@functools.lru_cache(maxsize=None)
+def page_text(url):
+    raw = re.sub(r"(?is)<(script|style)\b.*?</\1>", " ", page_raw(url))
+    raw = re.sub(r"(?i)</?(span|code|a|em|strong|b|i|kbd|var|samp)\b[^>]*>", "", raw)  # inline: no gap
+    return norm(html.unescape(re.sub(r"<[^>]+>", " ", raw)))
+
+
 def cited_text(repo, sha, cite):
+    if cite.startswith("http"):
+        return page_text(cite)
     m = CITE.match(cite)
     if not m:
         raise ValueError(f"bad citation {cite!r}")
@@ -88,6 +108,15 @@ def check_file(slug, f, repo, sha):
                     inner = re.sub(r"^nohup (.+) > /work/server\.log 2>&1 &$", r"\1", cmd)
                     if not pm or norm(inner) not in cited_text(repo, sha, pm.group(1)):
                         probs.append(f"{where}: nohup command not found at its #= citation")
+            elif tag.startswith("link"):
+                lm, cm = re.match(r"link\s+(\S+)$", tag), LINK_CMD.fullmatch(cmd)
+                if not lm or not cm:
+                    probs.append(f"{where}: link needs '# link <cite>' and a plain curl/wget of one URL")
+                    continue
+                c = lm.group(1)
+                hay = html.unescape(page_raw(c)) if c.startswith("http") else cited_text(repo, sha, c)
+                if cm.group(1).strip("'\"") not in hay:
+                    probs.append(f"{where}: {cm.group(1)} is not linked at {c}")
             elif tag.startswith("prereq"):
                 pm = re.match(r'prereq\s+([\w./-]+:L\d+(?:-L\d+)?)\s+"(.+)"$', tag)
                 if not pm:
@@ -95,7 +124,13 @@ def check_file(slug, f, repo, sha):
                     continue
                 if pm.group(2).lower() not in cited_text(repo, sha, pm.group(1)).lower():
                     probs.append(f"{where}: quoted words not on {pm.group(1)}")
-                if not any(re.fullmatch(p, cmd) for p in PREREQ_OK):
+                if re.fullmatch(PIP_PREREQ, cmd):
+                    words = cited_text(repo, sha, pm.group(1)).lower()
+                    for pkg in cmd.split("install", 1)[1].split():
+                        base = re.sub(r"\[.*\]$", "", pkg).lower().replace("_", "-").removesuffix("-python").split("-")[0]
+                        if base not in words.replace("_", "-"):
+                            probs.append(f"{where}: prereq package {pkg!r} is not named on {pm.group(1)}")
+                elif not any(re.fullmatch(p, cmd) for p in PREREQ_OK):
                     probs.append(f"{where}: prereq is not a standard installer: {cmd[:80]}")
             elif tag.startswith("placeholder"):
                 pm = re.match(r"placeholder\s+([\w./-]+:L\d+(?:-L\d+)?)\s+(.+)$", tag)

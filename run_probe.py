@@ -534,7 +534,8 @@ def literal_run(cfg):
     start_container(name, cfg)
     prep = sh(["docker", "exec", "-w", "/work", name, "bash", "-c",
                f"git clone -q https://github.com/{repo} /work/{cfg['dir']} && git -C /work/{cfg['dir']} checkout -q {sha}"
-               " && python3 -m venv /work/.venv"], timeout=1800)
+               " && python3 -m venv /work/.venv"
+               " && apt-get update -qq && apt-get install -y -qq wget unzip sudo >/dev/null"], timeout=1800)
     res["prep_ok"] = prep.returncode == 0
     for f in ("setup.sh", "env.sh", "run.sh"):
         if (d / f).exists():
