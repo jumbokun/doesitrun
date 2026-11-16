@@ -22,9 +22,8 @@ OUT = ROOT / "_site"
 REPO_URL = "https://github.com/jumbokun/doesitrun"
 
 TRACK_TABS = {  # short tab name, one-line note under the tabs
-    "cpu-gha-maintained": ("Maintained", "Repos not archived and pushed to since {pushed_since}. CPU-only GitHub runner, 4 vCPU; the container gets 12 GB of its 16 GB RAM."),
-    "cpu-gha": ("All CPU", "Every CPU run, including archived and quiet repos. CPU-only GitHub runner, 4 vCPU; the container gets 12 GB of its 16 GB RAM."),
-    "gpu-rtx5060": ("GPU", "Earlier pilot on one RTX 5060 laptop GPU (8 GB). Old PyTorch pins have no kernels for it."),
+    "cpu-gha-maintained": ("CPU", "Only repos not archived and pushed to since {pushed_since}. CPU-only GitHub runner, 4 vCPU; the container gets 12 GB of its 16 GB RAM."),
+    "gpu-rtx5060-maintained": ("GPU", "Only repos not archived and pushed to since {pushed_since}. One RTX 5060 laptop GPU (8 GB)."),
 }
 
 
@@ -158,7 +157,7 @@ def active_slugs():
 
 def not_tested(track, all_exams):
     """Exams ruled out before any run, for the tracks that come from exams."""
-    if track == "gpu-rtx5060":
+    if track.startswith("gpu"):
         return []
     out = [e for e in all_exams if not e.get("eligible")]
     if track == "cpu-gha-maintained":
@@ -178,7 +177,7 @@ def track_panel(t, idx, all_exams, pushed_since):
     nt = not_tested(t["track"], all_exams)
     _, note = TRACK_TABS.get(t["track"], (t["track"], t["label"]))
     note = note.format(pushed_since=pushed_since or "")
-    chips = [("all", f"All {len(rows)}"), ("ran-patched", f"Code changed {patched}")]
+    chips = [("all", f"All {len(rows)}")] + ([("ran-patched", f"Code changed {patched}")] if patched else [])
     if failed:
         chips.append(("failed", f"Did not run {failed}"))
     if unscored:
@@ -215,9 +214,7 @@ def write_badges(tracks):
     """shields.io endpoint JSON per repo and track: _site/badge/<track>/<owner>/<repo>.json.
     Embed: https://img.shields.io/endpoint?url=https://jumbokun.github.io/doesitrun/badge/<track>/<owner>/<repo>.json"""
     for t in tracks:
-        if t.get("view_of"):
-            continue  # a filtered view of another track: its badges are that track's
-        short = "CPU" if t["track"] == "cpu-gha" else "GPU"
+        short = "CPU" if t["track"].startswith("cpu") else "GPU"
         for r in t["repos"]:
             if r["score"] is None:
                 msg, color = f"{short} · not scored", "lightgrey"
@@ -226,7 +223,7 @@ def write_badges(tracks):
             else:
                 msg = f"{short} · {r['score']:.0f}/100"
                 color = "brightgreen" if r["score"] >= 75 else "yellow" if r["score"] >= 50 else "orange"
-            path = OUT / "badge" / t["track"] / (r["repo"] + ".json")
+            path = OUT / "badge" / (t.get("view_of") or t["track"]) / (r["repo"] + ".json")
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(json.dumps({"schemaVersion": 1, "label": "does it run?", "message": msg, "color": color,
                                          "cacheSeconds": 86400}).encode("utf-8"))
@@ -405,7 +402,7 @@ FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox
 def shell(title, desc, body, current):
     sha = os.environ.get("GITHUB_SHA", "local")[:7]
     built = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
-    nav = [("index.html", "Leaderboard"), ("method.html", "Method"), (f"{REPO_URL}/blob/main/STORY.md", "Story"), (REPO_URL, "GitHub")]
+    nav = [("index.html", "Leaderboard"), ("method.html", "Method"), (REPO_URL, "GitHub")]
     links = "".join(f'<a href="{h}"{" class=\"l-board\"" if h == "index.html" else ""}'
                     f'{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in nav)
     return f"""<!doctype html>

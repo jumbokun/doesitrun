@@ -23,6 +23,7 @@ import attribute  # noqa: E402
 DATA = ROOT / "data"
 ATTR_CACHE = DATA / "attribution.json"
 MAINTAINED = "cpu-gha-maintained"
+GPU_MAINTAINED = "gpu-rtx5060-maintained"
 TRACK_LABELS = {"cpu-gha": "CPU · GitHub-hosted runner (4 vCPU, 16 GB)",
                 "gpu-rtx5060": "GPU · RTX 5060 Laptop 8 GB"}
 
@@ -125,6 +126,14 @@ def main():
         tracks[MAINTAINED] = [r for r in tracks["cpu-gha"] if r["slug"] in slugs]
         labels[MAINTAINED] = f"CPU · maintained repos only (not archived, pushed since {active['pushed_since']})"
         order.insert(0, MAINTAINED)
+    gpu_active = DATA / "active_gpu.json"
+    if "gpu-rtx5060" in tracks and gpu_active.exists():
+        g = json.loads(gpu_active.read_text(encoding="utf-8"))
+        keep = {x["slug"] for x in g["repos"] if x["maintained"]}
+        tracks[GPU_MAINTAINED] = [r for r in tracks["gpu-rtx5060"] if r["slug"] in keep]
+        labels[GPU_MAINTAINED] = f"GPU · RTX 5060 Laptop 8 GB · maintained repos only (not archived, pushed since {g['pushed_since']})"
+    # Publish only the maintained views: archived or quiet repos stay in data/runs as raw logs, off the board.
+    order = [t for t in (MAINTAINED, GPU_MAINTAINED) if t in tracks]
     out = {"tracks": []}
     md = ["# Reproducibility leaderboard", "",
           "How hard is it to get a GitHub repo's README demo actually running? A sandboxed agent tries each "
@@ -134,7 +143,7 @@ def main():
         rows = sorted(tracks[t], key=lambda r: (r["score"] is None, -(r["score"] or 0)))
         companies = company_table(rows)
         out["tracks"].append({"track": t, "label": labels.get(t, t), "repos": rows, "companies": companies,
-                              **({"view_of": "cpu-gha"} if t == MAINTAINED else {})})
+                              "view_of": "cpu-gha" if t == MAINTAINED else "gpu-rtx5060"})
         md += [f"## {labels.get(t, t)} — {len(rows)} repos", "",
                "| # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |",
                "|---|---|---|---|---|---|---|"]
