@@ -1,0 +1,7 @@
+{
+ "slug": "apple-dnikit",
+ "verdict": "env",
+ "step": "README.md:L12 pip install dnikit",
+ "error": "      src/annoymodule.cc:17:10: fatal error: Python.h: No such file or directory",
+ "why": "The README step is a plain PyPI install, but the dependency annoy has no wheel and builds from source, and the harness image has build-essential without python3-dev headers."
+}

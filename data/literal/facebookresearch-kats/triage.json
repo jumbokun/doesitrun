@@ -1,0 +1,7 @@
+{
+  "slug": "facebookresearch-kats",
+  "verdict": "readme",
+  "step": "README.md:L38 pip install kats",
+  "error": "ERROR: Failed to build 'numpy' when calling build backend hook get_requires_for_build_wheel",
+  "why": "pip install kats 0.2.0 pins numpy<1.22 (1.21.x), which has no Python 3.12 wheel and its sdist needs distutils, so the README's one install command fails on any current Python and the README names no supported Python version."
+}

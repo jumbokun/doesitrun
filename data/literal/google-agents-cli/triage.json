@@ -1,0 +1,7 @@
+{
+ "slug": "google-agents-cli",
+ "verdict": "env",
+ "step": "test: agents-cli create ... (agents-cli not on PATH)",
+ "error": "timeout: failed to run command 'agents-cli': No such file or directory",
+ "why": "Setup output says 'CLI: agents-cli installed' but the test shell (venv only, env.sh) does not have the tool install directory on PATH, so the binary the README setup installed is not found."
+}

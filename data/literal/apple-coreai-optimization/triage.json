@@ -1,0 +1,7 @@
+{
+  "slug": "apple-coreai-optimization",
+  "verdict": "readme",
+  "step": "README.md:L70 finalized_model = quantizer.finalize() (Usage snippet, after README.md:L16 pip install coreai-opt)",
+  "error": "ImportError: coreai-torch package is required for MLIR export. Install it with: pip install coreai-torch",
+  "why": "The README's own Usage snippet calls quantizer.finalize(), which needs the coreai-torch package, but the install step (pip install coreai-opt) does not pull it in and the README only lists coreai-torch under 'Related projects'."
+}

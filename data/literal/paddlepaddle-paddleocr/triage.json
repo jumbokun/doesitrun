@@ -1,0 +1,7 @@
+{
+  "slug": "paddlepaddle-paddleocr",
+  "verdict": "env",
+  "step": "oracle: paddleocr ocr -i in.png (README install steps succeeded)",
+  "error": "ImportError: libGL.so.1: cannot open shared object file: No such file or directory",
+  "why": "The install worked; importing the full opencv wheel needs libGL.so.1, which the minimal Ubuntu container lacks (a harness image gap, not a README step)."
+}

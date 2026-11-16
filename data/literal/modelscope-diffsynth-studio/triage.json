@@ -1,0 +1,7 @@
+{
+  "slug": "modelscope-diffsynth-studio",
+  "verdict": "env",
+  "step": "oracle: Stable Diffusion v1.5 text-to-image on CPU (timeout 5400 python run.py)",
+  "error": "oracle timed out",
+  "why": "Install (README.md:L304) succeeded; the test's CPU-only Stable Diffusion run plus model download exceeded the 3600 s run limit on a GPU-targeted repo."
+}

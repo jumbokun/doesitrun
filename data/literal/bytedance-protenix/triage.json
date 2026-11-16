@@ -1,0 +1,7 @@
+{
+  "slug": "bytedance-protenix",
+  "verdict": "env",
+  "step": "README.md:L52 pip install --upgrade protenix --index-url https://pypi.org/simple",
+  "error": "sklearn_extra/utils/_cyfht.c:41:10: fatal error: Python.h: No such file or directory",
+  "why": "scikit-learn-extra is compiled from source and needs the python3-dev headers, which the harness image (python3, venv, build-essential) lacks and the README does not list."
+}

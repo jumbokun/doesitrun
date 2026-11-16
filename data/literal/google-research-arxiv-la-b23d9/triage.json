@@ -1,0 +1,7 @@
+{
+  "slug": "google-research-arxiv-la-b23d9",
+  "verdict": "readme",
+  "step": "README.md:L46 python setup.py install",
+  "error": "ModuleNotFoundError: No module named 'setuptools'",
+  "why": "The README's source-install command python setup.py install imports setuptools, which a plain Python 3.12 venv no longer ships, and the README adds no step to install it (the PyPI line at L23 would work, but the source path as written fails)."
+}

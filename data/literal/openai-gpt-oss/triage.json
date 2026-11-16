@@ -1,0 +1,7 @@
+{
+ "slug": "openai-gpt-oss",
+ "verdict": "env",
+ "step": "README.md:L178 installing Ollama (curl -fsSL https://ollama.com/install.sh | sh)",
+ "error": "ERROR: This version requires zstd for extraction. Please install zstd and try again:",
+ "why": "The Ollama installer needs zstd, which the harness image lacks; the README only says to install Ollama, so this is a missing base tool, not a wrong README step."
+}

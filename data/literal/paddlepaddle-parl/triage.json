@@ -1,0 +1,8 @@
+{
+ "slug": "paddlepaddle-parl",
+ "verdict": "script",
+ "step": "docs/installation_guide.md:L6 prereq line: uv venv --python 3.10 /work/.venv",
+ "error": "error: Failed to create virtual environment",
+ "why": "Our script recreated /work/.venv, which the harness already provides, without clearing it, so uv refused; the README itself was never reached.",
+ "fix": "uv venv --clear --python 3.10 /work/.venv  # prereq docs/installation_guide.md:L6 \"3.7 - 3.10\"\nsource /work/.venv/bin/activate  # prereq docs/installation_guide.md:L6 \"3.7 - 3.10\""
+}

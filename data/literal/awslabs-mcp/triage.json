@@ -1,0 +1,7 @@
+{
+  "slug": "awslabs-mcp",
+  "verdict": "test",
+  "step": "oracle: python client.py spawning awslabs.aws-documentation-mcp-server from the env.sh environment",
+  "error": "ModuleNotFoundError: No module named 'mcp'",
+  "why": "The server README (L31-L47) only shows an MCP client config launching `uvx awslabs.aws-documentation-mcp-server@latest` and installs nothing into a venv; the test expects an installed package and the mcp client library."
+}

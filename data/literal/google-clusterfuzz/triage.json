@@ -1,0 +1,8 @@
+{
+  "slug": "google-clusterfuzz",
+  "verdict": "script",
+  "step": "docs/getting-started/local_instance.md:L54 python butler.py run_server --bootstrap",
+  "error": "+ code=000",
+  "why": "The script skipped the Getting started prerequisites page (docs/getting-started/prerequisites.md: Python 3.11, local/install_deps.bash at L93) so the server never came up on port 9000; harness had Python 3.12 and no server log was kept.",
+  "fix": "uv python install 3.11  # prereq docs/getting-started/prerequisites.md:L62 \"Download Python 3.11\"\nlocal/install_deps.bash  # docs/getting-started/prerequisites.md:L93"
+}

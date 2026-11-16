@@ -1,0 +1,8 @@
+{
+  "slug": "nvidia-megatron-lm",
+  "verdict": "script",
+  "step": "README.md:L39 uv pip install -e . then tools/preprocess_data.py",
+  "error": "ModuleNotFoundError: No module named 'torch'",
+  "why": "README.md:L26 lists PyTorch 2.6.0+ as a requirement and the editable install does not pull it in; the script skipped installing PyTorch.",
+  "fix": "uv pip install torch  # prereq README.md:L26 \"PyTorch\""
+}

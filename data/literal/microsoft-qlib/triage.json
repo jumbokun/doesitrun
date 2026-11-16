@@ -1,0 +1,7 @@
+{
+  "slug": "microsoft-qlib",
+  "verdict": "env",
+  "step": "README.md:L225 pip install .",
+  "error": "qlib/data/_libs/rolling.cpp:42:10: fatal error: Python.h: No such file or directory",
+  "why": "Building the Cython extension needs the python3-dev headers, which the harness image lacks; the README's steps are otherwise fine."
+}

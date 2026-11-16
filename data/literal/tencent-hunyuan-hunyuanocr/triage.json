@@ -1,0 +1,7 @@
+{
+  "slug": "tencent-hunyuan-hunyuanocr",
+  "verdict": "env",
+  "step": "docs/llama_cpp.md:L32 cmake -B build -DLLAMA_BUILD_EXAMPLES=ON",
+  "error": "/work/setup.sh: line 10: cmake: command not found",
+  "why": "The container image has build-essential but no cmake, the standard build tool the llama.cpp build assumes every dev machine has."
+}

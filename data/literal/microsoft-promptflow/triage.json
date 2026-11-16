@@ -1,0 +1,8 @@
+{
+  "slug": "microsoft-promptflow",
+  "verdict": "script",
+  "step": "README.md:L53 uv venv --python 3.11 /work/.venv",
+  "error": "error: Failed to create virtual environment",
+  "why": "The script recreated /work/.venv, which the harness already provides, so uv refused; the README itself never reached its pip install.",
+  "fix": "uv venv --clear --python 3.11 /work/.venv  # prereq README.md:L53 \"python>=3.9, <=3.11 is recommended\""
+}

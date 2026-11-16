@@ -1,0 +1,7 @@
+{
+  "slug": "paddlepaddle-paddleclas",
+  "verdict": "readme",
+  "step": "docs/en/inference_deployment/whl_deploy_en.md:L37 pip install -v -e .",
+  "error": "ModuleNotFoundError: No module named 'distutils'",
+  "why": "The repo's requirements.txt pins numpy==1.24.4 (no Python 3.12 wheel), so pip builds it from source with setuptools 59.2.0 and crashes; the README states no Python version and its install pages (README_en.md:L54-L55) are dead links."
+}

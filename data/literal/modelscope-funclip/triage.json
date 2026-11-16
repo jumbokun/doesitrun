@@ -1,0 +1,7 @@
+{
+  "slug": "modelscope-funclip",
+  "verdict": "readme",
+  "step": "README.md:L171 python funclip/videoclipper.py --stage 2 --file ... --dest_text ...",
+  "error": "AttributeError: 'VideoClipper' object has no attribute 'lang'",
+  "why": "The README's CLI stage 2 command crashes in video_clip() (videoclipper.py:344) because the CLI path never sets self.lang, whatever dest_text is given."
+}

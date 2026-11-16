@@ -1,0 +1,8 @@
+{
+  "slug": "nvidia-skillspector",
+  "verdict": "script",
+  "step": "README.md:L64 uv venv .venv && source .venv/bin/activate (skipped) before README.md:L68 make install",
+  "error": "timeout: failed to run command 'skillspector': No such file or directory",
+  "why": "Our script skipped the README's venv step and ran make install under the harness venv; make install runs uv sync, which ignored VIRTUAL_ENV and built a project .venv inside /work/SkillSpector, so the skillspector command never landed on the harness PATH.",
+  "fix": "cd /work/SkillSpector  # glue README.md:L61 implies being inside the clone\nuv venv .venv && source .venv/bin/activate  # README.md:L64\nmake install  # README.md:L68\n(and env.sh must source /work/SkillSpector/.venv/bin/activate instead of /work/.venv)"
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "awslabs-aws-support-tools",
+  "verdict": "script",
+  "step": "EBS/VolumeLimitCalculator/Readme.md:L5-L10 \"install bc\" / apt-get install bc",
+  "error": "./volume_Limit_calculator.sh: line 177: bc: command not found",
+  "why": "The tool's own Readme.md (linked from the root README table) says to apt-get install bc first, and setup.sh skipped it as a 'mismatch'.",
+  "fix": "# prereq EBS/VolumeLimitCalculator/Readme.md:L5 \"install bc\"\napt-get update\napt-get install -y bc  # EBS/VolumeLimitCalculator/Readme.md:L10"
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "google-langextract",
+  "verdict": "env",
+  "step": "README.md:L407 Ollama install (curl -fsSL https://ollama.com/install.sh | sh)",
+  "error": "ERROR: This version requires zstd for extraction. Please install zstd and try again:",
+  "why": "The container image lacks zstd, which Ollama's installer needs; the README just says 'Install Ollama from ollama.com'."
+}

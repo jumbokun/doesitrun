@@ -1,0 +1,7 @@
+{
+  "slug": "microsoft-pyright",
+  "verdict": "readme",
+  "step": "docs/build-debug.md:L6 pnpm run install:all (README.md:L17 points to the build docs)",
+  "error": "/work/setup.sh: line 11: pnpm: command not found",
+  "why": "docs/build-debug.md tells the reader to install nodejs 16.x and then run pnpm, but never says to install pnpm, and nodejs 16 does not ship it."
+}

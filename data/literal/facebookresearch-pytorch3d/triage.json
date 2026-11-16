@@ -1,0 +1,7 @@
+{
+  "slug": "facebookresearch-pytorch3d",
+  "verdict": "readme",
+  "step": "INSTALL.md:L23 conda install pytorch=1.13.0 torchvision pytorch-cuda=11.6 -c pytorch -c nvidia, then L129 pip install -e .",
+  "error": "ImportError: /opt/conda/envs/pytorch3d/lib/python3.9/site-packages/torch/lib/libtorch_cpu.so: undefined symbol: iJIT_NotifyEvent",
+  "why": "The README's pinned pytorch 1.13.0 gets an mkl 2025 from conda-forge, and importing torch then fails, so the install's own setup.py cannot run."
+}

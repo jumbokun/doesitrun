@@ -1,0 +1,8 @@
+{
+  "slug": "nvlabs-sana",
+  "verdict": "script",
+  "step": "README.md:L147 cd Sana && ./environment_setup.sh sana (needs conda; docs/installation.md:L4 recommends Anaconda/Miniconda)",
+  "error": "./environment_setup.sh: line 25: conda: command not found",
+  "why": "The linked docs/installation.md names Anaconda/Miniconda as the requirement and the RULES say to install Miniforge for conda-only installs, but setup.sh skipped that prereq.",
+  "fix": "curl -fsSL https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh -o /tmp/miniforge.sh  # prereq docs/installation.md:L4 \"Miniconda\"\nbash /tmp/miniforge.sh -b -p /opt/conda  # prereq docs/installation.md:L4 \"Miniconda\"\nsource /opt/conda/etc/profile.d/conda.sh  # prereq docs/installation.md:L4 \"Miniconda\"\ncd /work/Sana && ./environment_setup.sh sana  # README.md:L147"
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "google-deepmind-sonnet",
+  "verdict": "test",
+  "step": "oracle: python examples/simple_mnist.py",
+  "error": "ModuleNotFoundError: No module named 'tensorflow_datasets'",
+  "why": "The README's install and verify snippet work; the README only links Colab notebooks and never mentions examples/simple_mnist.py or tensorflow-datasets."
+}

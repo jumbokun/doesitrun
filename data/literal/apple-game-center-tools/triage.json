@@ -1,0 +1,8 @@
+{
+  "slug": "apple-game-center-tools",
+  "verdict": "script",
+  "step": "test: python3 scripts/genrulesinput.py (import requests at scripts/genrulesinput.py:11)",
+  "error": "ModuleNotFoundError: No module named 'requests'",
+  "why": "README_testrules.md:L25 (linked from README.md:L6) tells the reader to run `pip3 install requests` for these scripts, and the script skipped it.",
+  "fix": "pip3 install requests  # README_testrules.md:L25"
+}
