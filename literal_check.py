@@ -19,16 +19,17 @@ HEADER = re.compile(r"^# literal: (\S+/\S+) @ ([0-9a-f]{40})$", re.M)
 TAG = re.compile(r"\s+#\s*(glue\b.*|prereq\b.*|placeholder\b.*|link\b.*|[\w./-]+:L\d+(?:-L\d+)?|https?://\S+)\s*$")
 # "download it from <link>": fetch exactly the URL the doc links to, nothing else
 LINK_CMD = re.compile(r"(?:curl -\w+ -o \S+|curl -\w+ -O|wget(?: -O \S+)?) (\S+)")
-PIP_PREREQ = re.compile(r"(python3? -m )?pip install( [A-Za-z0-9_.\-\[\]]+)+")  # named packages, no versions
+PIP_PREREQ = re.compile(r"(python3? -m |uv )?pip install( [A-Za-z0-9_.\-\[\]]+)+")  # named packages, no versions
 CITE = re.compile(r"^([\w./-]+):L(\d+)(?:-L(\d+))?$")
 GLUE_OK = [
-    r"set -e", r"cd \S+", r"mkdir -p \S+", r"source /work/\.venv/bin/activate",
+    r"set -e", r"export PATH=\"?\$HOME/\.local/bin:\$PATH\"?", r"cd \S+", r"mkdir -p \S+", r"source /work/\S*\.venv/bin/activate",
+    r"conda activate [\w.-]+",  # an env the cited README command itself created
     r"nohup .+ > /work/server\.log 2>&1 &",
     r"for i in \$\(seq 1 \d+\); do curl -s\S* .+ && break; sleep \d+; done",
 ]
 PREREQ_OK = [
     r"apt-get update", r"apt-get install -y [\w.+\- ]+", r"(DEBIAN_FRONTEND=noninteractive )?apt-get install -y [\w.+\- ]+",
-    r"uv venv --python [\d.]+ /work/\.venv", r"source /work/\.venv/bin/activate",
+    r"uv venv (--clear )?--python [\d.]+ (--clear )?/work/\.venv", r"source /work/\.venv/bin/activate",
     r"curl -[\w]+ \S+ (-o|>) \S+", r"bash \S+\.sh -b -p \S+", r"source \S+/(etc/profile\.d/conda\.sh|bin/activate)",
     r"curl -[\w]+ https://deb\.nodesource\.com/\S+ \| (sudo -E )?bash -?", r"curl -[\w]+ \S+ \| (sudo )?(ba)?sh(\s.*)?",
     r"(\S+/)?conda (init|config) .+", r"export PATH=\S+",
