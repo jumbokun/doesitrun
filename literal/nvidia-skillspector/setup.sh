@@ -5,6 +5,5 @@ set -e  # glue strict mode
 # choice: README.md:L56 "From source" (the test runs the clone); README.md:L46 uv tool install is the first alternative but installs from GitHub, not the clone
 # skip README.md:L60 git clone, the harness clones to /work/SkillSpector
 cd /work/SkillSpector  # glue README.md:L61 implies being inside the clone
-# skip README.md:L64 create a virtual environment: the harness provides the activated venv /work/.venv
-source /work/.venv/bin/activate  # glue the harness venv
+uv venv .venv && source .venv/bin/activate  # README.md:L64
 make install  # README.md:L68
