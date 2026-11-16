@@ -24,7 +24,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "awslabs/amazon-redshift-utils",
@@ -46,7 +49,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "google-research/harness2",
@@ -68,7 +74,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "google/yapf",
@@ -90,7 +99,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "awslabs/aws-support-tools",
@@ -112,29 +124,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "google-research/arxiv-latex-cleaner",
-          "slug": "google-research-arxiv-la-b23d9",
-          "score": 99.4,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 0.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-research' is Google org account (Google Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "microsoft/SkillOpt",
@@ -157,7 +150,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "google/agents-cli",
@@ -180,7 +176,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "google-research/timesfm",
@@ -202,7 +201,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "microsoft/agent-framework",
@@ -224,7 +226,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "NVIDIA/SkillSpector",
@@ -246,7 +251,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "microsoft/autogen",
@@ -269,7 +277,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "NVIDIA/warp",
@@ -291,51 +302,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "apple/app-store-server-library-python",
-          "slug": "apple-app-store-server-l-eeba5",
-          "score": 99.0,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.0,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "awslabs/gluonts",
-          "slug": "awslabs-gluonts",
-          "score": 99.0,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "openai/whisper",
@@ -357,29 +327,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "apple/coremltools",
-          "slug": "apple-coremltools",
-          "score": 98.9,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "microsoft/markitdown",
@@ -401,7 +352,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "apple/coreai-torch",
@@ -423,29 +377,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "aws/chalice",
-          "slug": "aws-chalice",
-          "score": 98.8,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'aws' is Amazon org account (AWS)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "NVIDIA/Model-Optimizer",
@@ -467,7 +402,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "google/adk-recipes",
@@ -489,7 +427,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "microsoft/promptflow",
@@ -511,7 +452,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "openai/tiktoken",
@@ -533,7 +477,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "aws/serverless-application-model",
@@ -555,51 +502,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "awslabs/mcp",
-          "slug": "awslabs-mcp",
-          "score": 98.6,
-          "why": "1 min, 0 repo files patched",
-          "agent_minutes": 1.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Amazon",
-          "team": "AWS Labs",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'awslabs' is Amazon org account (AWS Labs)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "apple/dnikit",
-          "slug": "apple-dnikit",
-          "score": 98.5,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.5,
-          "files_patched": 0,
-          "lines_patched": 7,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "aws/aws-sam-cli",
@@ -621,29 +527,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "Tencent/MedicalNet",
-          "slug": "tencent-medicalnet",
-          "score": 98.5,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Tencent",
-          "team": "Tencent",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'Tencent' is Tencent org account (Tencent)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "amazon-science/chronos-forecasting",
@@ -665,7 +552,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "google/adk-python",
@@ -688,7 +578,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "google/langextract",
@@ -710,73 +603,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "microsoft/pyright",
-          "slug": "microsoft-pyright",
-          "score": 98.3,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "apple/coreai-optimization",
-          "slug": "apple-coreai-optimization",
-          "score": 98.1,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 1.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Apple",
-          "team": "Apple",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'apple' is Apple org account (Apple)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "PaddlePaddle/PARL",
-          "slug": "paddlepaddle-parl",
-          "score": 98.0,
-          "why": "2 min, 0 repo files patched",
-          "agent_minutes": 2.0,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "Tencent/AI-Infra-Guard",
@@ -798,7 +628,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "QwenLM/Qwen-MM-Plugins",
@@ -820,51 +653,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "google-deepmind/sonnet",
-          "slug": "google-deepmind-sonnet",
-          "score": 97.3,
-          "why": "3 min, 0 repo files patched",
-          "agent_minutes": 2.7,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "NVIDIA/Megatron-LM",
-          "slug": "nvidia-megatron-lm",
-          "score": 97.2,
-          "why": "3 min, 0 repo files patched",
-          "agent_minutes": 2.8,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "aws/aws-cli",
@@ -886,117 +678,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "microsoft/VibeVoice",
-          "slug": "microsoft-vibevoice",
-          "score": 96.8,
-          "why": "3 min, 0 repo files patched",
-          "agent_minutes": 3.2,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "PaddlePaddle/PaddleX",
-          "slug": "paddlepaddle-paddlex",
-          "score": 96.7,
-          "why": "3 min, 0 repo files patched",
-          "agent_minutes": 3.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "google-deepmind/gemma",
-          "slug": "google-deepmind-gemma",
-          "score": 96.6,
-          "why": "3 min, 0 repo files patched",
-          "agent_minutes": 3.4,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "openai/gpt-oss",
-          "slug": "openai-gpt-oss",
-          "score": 96.0,
-          "why": "4 min, 0 repo files patched",
-          "agent_minutes": 4.0,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "OpenAI",
-          "team": "OpenAI",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'openai' is OpenAI org account (OpenAI)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "microsoft/playwright-python",
-          "slug": "microsoft-playwright-python",
-          "score": 95.9,
-          "why": "4 min, 0 repo files patched",
-          "agent_minutes": 4.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "microsoft/data-formulator",
@@ -1019,7 +704,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "modelscope/ms-swift",
@@ -1041,7 +729,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "microsoft/qlib",
@@ -1063,7 +754,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "modelscope/FunASR",
@@ -1085,7 +779,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "PaddlePaddle/PaddleOCR",
@@ -1107,227 +804,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "facebookresearch/Kats",
-          "slug": "facebookresearch-kats",
-          "score": 93.9,
-          "why": "6 min, 0 repo files patched",
-          "agent_minutes": 6.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "google-deepmind/weathernext",
-          "slug": "google-deepmind-weathernext",
-          "score": 92.5,
-          "why": "7 min, 0 repo files patched",
-          "agent_minutes": 7.5,
-          "files_patched": 0,
-          "lines_patched": 5,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google DeepMind",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-deepmind' is Google org account (Google DeepMind)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "modelscope/DiffSynth-Studio",
-          "slug": "modelscope-diffsynth-studio",
-          "score": 92.5,
-          "why": "7 min, 0 repo files patched",
-          "agent_minutes": 7.5,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "ModelScope",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'modelscope' is Alibaba org account (ModelScope)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "facebookresearch/pytorch3d",
-          "slug": "facebookresearch-pytorch3d",
-          "score": 91.1,
-          "why": "9 min, 0 repo files patched",
-          "agent_minutes": 8.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "bytedance/Protenix",
-          "slug": "bytedance-protenix",
-          "score": 89.4,
-          "why": "11 min, 0 repo files patched",
-          "agent_minutes": 10.6,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "NVlabs/Sana",
-          "slug": "nvlabs-sana",
-          "score": 88.1,
-          "why": "12 min, 0 repo files patched",
-          "agent_minutes": 11.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "NVIDIA",
-          "team": "NVIDIA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "google/clusterfuzz",
-          "slug": "google-clusterfuzz",
-          "score": 87.0,
-          "why": "13 min, 0 repo files patched",
-          "agent_minutes": 13.0,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google' is Google org account (Google)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "facebookresearch/detectron2",
-          "slug": "facebookresearch-detectron2",
-          "score": 86.5,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 3.5,
-          "files_patched": 1,
-          "lines_patched": 2,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Meta",
-          "team": "FAIR",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'facebookresearch' is Meta org account (FAIR)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "PaddlePaddle/PaddleClas",
-          "slug": "paddlepaddle-paddleclas",
-          "score": 85.9,
-          "why": "4 min, 1 repo files patched",
-          "agent_minutes": 4.1,
-          "files_patched": 1,
-          "lines_patched": 8,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Baidu",
-          "team": "PaddlePaddle",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "google-research/text-to-text-transfer-transformer",
-          "slug": "google-research-text-to-25965",
-          "score": 85.0,
-          "why": "5 min, 1 repo files patched",
-          "agent_minutes": 5.0,
-          "files_patched": 1,
-          "lines_patched": 10,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Google",
-          "team": "Google Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'google-research' is Google org account (Google Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "NVIDIA/garak",
@@ -1349,29 +829,10 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
-        },
-        {
-          "repo": "modelscope/modelscope",
-          "slug": "modelscope-modelscope",
-          "score": 83.9,
-          "why": "6 min, 1 repo files patched",
-          "agent_minutes": 6.1,
-          "files_patched": 1,
-          "lines_patched": 3,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Alibaba",
-          "team": "ModelScope",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'modelscope' is Alibaba org account (ModelScope)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
           "repo": "Tencent-Hunyuan/HunyuanOCR",
@@ -1393,51 +854,416 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "as-written"
+          }
         },
         {
-          "repo": "baidu/Unlimited-OCR",
-          "slug": "baidu-unlimited-ocr",
-          "score": 77.9,
-          "why": "22 min, 0 repo files patched",
-          "agent_minutes": 22.1,
+          "repo": "google-research/arxiv-latex-cleaner",
+          "slug": "google-research-arxiv-la-b23d9",
+          "score": 99.4,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 0.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L46 python setup.py install",
+            "why": "The README's source-install command python setup.py install imports setuptools, which a plain Python 3.12 venv no longer ships, and the README adds no step to install it (the PyPI line at L23 would work, but the source path as written fails).",
+            "short": "setup.py needs setuptools"
+          }
+        },
+        {
+          "repo": "awslabs/gluonts",
+          "slug": "awslabs-gluonts",
+          "score": 99.0,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L54-L88 Simple Example (imports matplotlib) after install at L24",
+            "why": "The README's example imports matplotlib.pyplot but its install line gluonts[torch] does not install matplotlib and no README line adds it.",
+            "short": "Example needs matplotlib"
+          }
+        },
+        {
+          "repo": "Tencent/MedicalNet",
+          "slug": "tencent-medicalnet",
+          "score": 98.5,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Tencent",
+          "team": "Tencent",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'Tencent' is Tencent org account (Tencent)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L91 Install Python 3.7.0 then README.md:L92 pip install -r requirements.txt",
+            "why": "The README requires Python 3.7.0 (not installable on Ubuntu 24.04, uv has no 3.7) and its requirements.txt contradicts it: torch>=2.6.0 needs Python 3.9+ while numpy==1.15.4 and scipy==1.1.0 need 3.7 or older, so no single Python satisfies the README.",
+            "short": "Python 3.7 + torch 2.6"
+          }
+        },
+        {
+          "repo": "microsoft/pyright",
+          "slug": "microsoft-pyright",
+          "score": 98.3,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "docs/build-debug.md:L6 pnpm run install:all (README.md:L17 points to the build docs)",
+            "why": "docs/build-debug.md tells the reader to install nodejs 16.x and then run pnpm, but never says to install pnpm, and nodejs 16 does not ship it.",
+            "short": "Never says install pnpm"
+          }
+        },
+        {
+          "repo": "apple/coreai-optimization",
+          "slug": "apple-coreai-optimization",
+          "score": 98.1,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L70 finalized_model = quantizer.finalize() (Usage snippet, after README.md:L16 pip install coreai-opt)",
+            "why": "The README's own Usage snippet calls quantizer.finalize(), which needs the coreai-torch package, but the install step (pip install coreai-opt) does not pull it in and the README only lists coreai-torch under 'Related projects'.",
+            "short": "Usage needs coreai-torch"
+          }
+        },
+        {
+          "repo": "PaddlePaddle/PARL",
+          "slug": "paddlepaddle-parl",
+          "score": 98.0,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 2.0,
           "files_patched": 0,
           "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
           "company": "Baidu",
-          "team": "Baidu",
+          "team": "PaddlePaddle",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'baidu' is Baidu org account (Baidu)"
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
           ],
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "docs/installation_guide.md:L32 pip install parl gym (Python 3.10, inside the guide's 3.7 - 3.10 range)",
+            "why": "The guide allows Python 3.7 - 3.10; on 3.10, pip install parl pulls its pinned grpcio==1.37.0, which has no 3.10 wheel, and building it from source fails (No module named 'pkg_resources').",
+            "short": "grpcio 1.37 pin fails on 3.10"
+          }
         },
         {
-          "repo": "bytedance/Sa2VA",
-          "slug": "bytedance-sa2va",
-          "score": 62.7,
-          "why": "27 min, 1 repo files patched",
-          "agent_minutes": 27.4,
-          "files_patched": 1,
-          "lines_patched": 37,
+          "repo": "microsoft/VibeVoice",
+          "slug": "microsoft-vibevoice",
+          "score": 96.8,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.2,
+          "files_patched": 0,
+          "lines_patched": 0,
           "replay": "pass",
           "replay_supplementary": "not run",
           "replay_after_repair": "not run",
-          "company": "ByteDance",
-          "team": "ByteDance",
+          "company": "Microsoft",
+          "team": "Microsoft",
           "attribution_confidence": "high",
           "attribution_evidence": [
-            "owner 'bytedance' is ByteDance org account (ByteDance)"
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
           ],
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "docs/vibevoice-realtime-0.5b.md:L100 pip install -e .[streamingtts] then L120 demo",
+            "why": "The documented pip install leaves torch unpinned (got 2.15.0) and the demo's weights_only=True load of the bundled voice preset fails with it; only the GPU docker image (older torch) is verified, and that is the step we skipped as GPU-only.",
+            "short": "Unpinned torch breaks demo"
+          }
+        },
+        {
+          "repo": "PaddlePaddle/PaddleX",
+          "slug": "paddlepaddle-paddlex",
+          "score": 96.7,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L630 paddlex --pipeline OCR (CPU build from README.md:L596)",
+            "why": "The README's CPU install (paddlepaddle==3.3.0, L596) and its own OCR command with --device cpu (L625) crash inside Paddle's oneDNN backend.",
+            "short": "OCR crashes on README's CPU build"
+          }
+        },
+        {
+          "repo": "facebookresearch/Kats",
+          "slug": "facebookresearch-kats",
+          "score": 93.9,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 6.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L38 pip install kats",
+            "why": "pip install kats 0.2.0 pins numpy<1.22 (1.21.x), which has no Python 3.12 wheel and its sdist needs distutils, so the README's one install command fails on any current Python and the README names no supported Python version.",
+            "short": "Pins numpy<1.22, no 3.12"
+          }
+        },
+        {
+          "repo": "facebookresearch/pytorch3d",
+          "slug": "facebookresearch-pytorch3d",
+          "score": 91.1,
+          "why": "9 min, 0 repo files patched",
+          "agent_minutes": 8.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "INSTALL.md:L23 conda install pytorch=1.13.0 torchvision pytorch-cuda=11.6 -c pytorch -c nvidia, then L129 pip install -e .",
+            "why": "The README's pinned pytorch 1.13.0 gets an mkl 2025 from conda-forge, and importing torch then fails, so the install's own setup.py cannot run.",
+            "short": "torch 1.13 import fails"
+          }
+        },
+        {
+          "repo": "google/clusterfuzz",
+          "slug": "google-clusterfuzz",
+          "score": 87.0,
+          "why": "13 min, 0 repo files patched",
+          "agent_minutes": 13.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google' is Google org account (Google)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "docs/getting-started/prerequisites.md:L93 local/install_deps.bash",
+            "why": "The prerequisites page installs Python 3.11 and then runs local/install_deps.bash, which calls python3.11 -m pipenv; no step in the docs installs pipenv (the page also lists Ubuntu up to 20.04 as supported).",
+            "short": "Docs never install pipenv"
+          }
+        },
+        {
+          "repo": "facebookresearch/detectron2",
+          "slug": "facebookresearch-detectron2",
+          "score": 86.5,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 3.5,
+          "files_patched": 1,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Meta",
+          "team": "FAIR",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'facebookresearch' is Meta org account (FAIR)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "INSTALL.md:L20 python -m pip install -e detectron2",
+            "why": "INSTALL.md:L20 builds in pip's isolated build env, where setup.py imports torch, so it fails right after the README's own torch install (no --no-build-isolation mentioned).",
+            "short": "Build isolation hides torch"
+          }
+        },
+        {
+          "repo": "PaddlePaddle/PaddleClas",
+          "slug": "paddlepaddle-paddleclas",
+          "score": 85.9,
+          "why": "4 min, 1 repo files patched",
+          "agent_minutes": 4.1,
+          "files_patched": 1,
+          "lines_patched": 8,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "PaddlePaddle",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'PaddlePaddle' is Baidu org account (PaddlePaddle)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "docs/en/inference_deployment/whl_deploy_en.md:L37 pip install -v -e .",
+            "why": "The repo's requirements.txt pins numpy==1.24.4 (no Python 3.12 wheel), so pip builds it from source with setuptools 59.2.0 and crashes; the README states no Python version and its install pages (README_en.md:L54-L55) are dead links.",
+            "short": "numpy pin fails on 3.12"
+          }
+        },
+        {
+          "repo": "modelscope/modelscope",
+          "slug": "modelscope-modelscope",
+          "score": 83.9,
+          "why": "6 min, 1 repo files patched",
+          "agent_minutes": 6.1,
+          "files_patched": 1,
+          "lines_patched": 3,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L251 pip install modelscope[nlp] -f ...",
+            "why": "The README's nlp install pulls an unpinned transformers 5.23.0 that removed a function modelscope 1.40.3 imports, so the NLP pipeline cannot import.",
+            "short": "Unpinned transformers"
+          }
         },
         {
           "repo": "modelscope/FunClip",
@@ -1459,7 +1285,14 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L171 python funclip/videoclipper.py --stage 2 --file ... --dest_text ...",
+            "why": "The README's CLI stage 2 command crashes in video_clip() (videoclipper.py:344) because the CLI path never sets self.lang, whatever dest_text is given.",
+            "short": "Stage 2 CLI crashes"
+          }
         },
         {
           "repo": "modelscope/evalscope",
@@ -1481,7 +1314,507 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": {
+            "tier": "readme-broken",
+            "verdict": "readme",
+            "step": "README.md:L182 pip install evalscope, then README.md:L206-209 Method 2 evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct",
+            "why": "The README's Method 2 local-model command needs torch, but its only install step (pip install evalscope) does not install torch and the README does not mention it.",
+            "short": "Eval needs torch"
+          }
+        },
+        {
+          "repo": "apple/app-store-server-library-python",
+          "slug": "apple-app-store-server-l-eeba5",
+          "score": 99.0,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle t.py line 32: verifier(...).verify_and_decode_transaction(tx)",
+            "why": "README.md:L18 installs the PyPI release (3.1.2) whose method is verify_and_decode_signed_transaction; the test calls a method name that exists only in the repo source, which the README never mentions or tells you to install.",
+            "short": "Test calls unreleased API"
+          }
+        },
+        {
+          "repo": "apple/coremltools",
+          "slug": "apple-coremltools",
+          "score": 98.9,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle script: import numpy as np, torch, torch.nn as nn; import coremltools as ct (torch conversion + sklearn)",
+            "why": "README.md:35 only says pip install coremltools and gives no demo; the test converts a PyTorch model and a scikit-learn model, which the README never asks for.",
+            "short": "README has no demo"
+          }
+        },
+        {
+          "repo": "aws/chalice",
+          "slug": "aws-chalice",
+          "score": 98.8,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'aws' is Amazon org account (AWS)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle line: code=$(curl -s ... http://127.0.0.1:8000/) against /work/run.sh server",
+            "why": "README.rst only has chalice deploy (needs AWS) and never starts a local server on port 8000; run.sh is empty (marked mismatch), so the test checks a server the README never describes.",
+            "short": "README has no local server"
+          }
+        },
+        {
+          "repo": "awslabs/mcp",
+          "slug": "awslabs-mcp",
+          "score": 98.6,
+          "why": "1 min, 0 repo files patched",
+          "agent_minutes": 1.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Amazon",
+          "team": "AWS Labs",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'awslabs' is Amazon org account (AWS Labs)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle: python client.py spawning awslabs.aws-documentation-mcp-server from the env.sh environment",
+            "why": "The server README (L31-L47) only shows an MCP client config launching `uvx awslabs.aws-documentation-mcp-server@latest` and installs nothing into a venv; the test expects an installed package and the mcp client library.",
+            "short": "Test needs a local install"
+          }
+        },
+        {
+          "repo": "apple/dnikit",
+          "slug": "apple-dnikit",
+          "score": 98.5,
+          "why": "2 min, 0 repo files patched",
+          "agent_minutes": 1.5,
+          "files_patched": 0,
+          "lines_patched": 7,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Apple",
+          "team": "Apple",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'apple' is Apple org account (Apple)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle: repo unit tests",
+            "why": "The README demo ran (DNIKIT_OK); the hidden test also runs the repo's unit tests, which need pytest, and the README never installs it.",
+            "short": "Demo ran; test needs pytest"
+          }
+        },
+        {
+          "repo": "google-deepmind/sonnet",
+          "slug": "google-deepmind-sonnet",
+          "score": 97.3,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 2.7,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle: python examples/simple_mnist.py",
+            "why": "The README's install and verify snippet work; the README only links Colab notebooks and never mentions examples/simple_mnist.py or tensorflow-datasets.",
+            "short": "Test runs unlisted example"
+          }
+        },
+        {
+          "repo": "NVIDIA/Megatron-LM",
+          "slug": "nvidia-megatron-lm",
+          "score": 97.2,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 2.8,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVIDIA' is NVIDIA org account (NVIDIA)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle: tools/preprocess_data.py with a GPT-2 tokenizer",
+            "why": "The README install worked; the hidden test tokenises with Hugging Face transformers, which the README neither installs nor mentions.",
+            "short": "Test needs transformers"
+          }
+        },
+        {
+          "repo": "google-deepmind/gemma",
+          "slug": "google-deepmind-gemma",
+          "score": 96.6,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.4,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "env",
+            "step": "README.md:L27 pip install gemma (after L22 pip install jax); setup.log has no pip output",
+            "why": "setup.log holds only the timeout line (no pip output was captured), the script is just the two README installs, and a pip dry-run of jax+gemma resolves in about 24 s here, so the 90-minute hang is most likely a stalled or very slow download/resolve of gemma's huge dependency tree (kauldron, tensorflow, xmanager, google-cloud-aiplatform) in the harness, not a README error; exact stage cannot be proven from the log.",
+            "short": "Install ran past 90 min"
+          }
+        },
+        {
+          "repo": "openai/gpt-oss",
+          "slug": "openai-gpt-oss",
+          "score": 96.0,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.0,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "OpenAI",
+          "team": "OpenAI",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'openai' is OpenAI org account (OpenAI)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "env",
+            "step": "README.md:L182 ollama pull gpt-oss:20b",
+            "why": "The README's Ollama path works on a normal Linux machine, where the installer starts the server through systemd; a container has no systemd, and a 20B model is beyond a CPU runner anyway.",
+            "short": "Container has no systemd"
+          }
+        },
+        {
+          "repo": "microsoft/playwright-python",
+          "slug": "microsoft-playwright-python",
+          "score": 95.9,
+          "why": "4 min, 0 repo files patched",
+          "agent_minutes": 4.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "env",
+            "step": "oracle: launch Chromium after playwright install",
+            "why": "The install steps worked; Chromium needs desktop libraries (libnspr4 and others) that a minimal container lacks and a normal Ubuntu desktop has.",
+            "short": "Container lacks browser libs"
+          }
+        },
+        {
+          "repo": "google-deepmind/weathernext",
+          "slug": "google-deepmind-weathernext",
+          "score": 92.5,
+          "why": "7 min, 0 repo files patched",
+          "agent_minutes": 7.5,
+          "files_patched": 0,
+          "lines_patched": 5,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google DeepMind",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-deepmind' is Google org account (Google DeepMind)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "test: xarray.load_dataset(data.nc) in run_wn.py",
+            "why": "The README only gives the pip install and a weights link; reading the .nc forecast input comes from the Colab notebook (where h5py exists) and the test's own flow, which the README never describes.",
+            "short": "Test needs h5py"
+          }
+        },
+        {
+          "repo": "modelscope/DiffSynth-Studio",
+          "slug": "modelscope-diffsynth-studio",
+          "score": 92.5,
+          "why": "7 min, 0 repo files patched",
+          "agent_minutes": 7.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Alibaba",
+          "team": "ModelScope",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'modelscope' is Alibaba org account (ModelScope)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "env",
+            "step": "oracle: Stable Diffusion v1.5 text-to-image on CPU (timeout 5400 python run.py)",
+            "why": "Install (README.md:L304) succeeded; the test's CPU-only Stable Diffusion run plus model download exceeded the 3600 s run limit on a GPU-targeted repo.",
+            "short": "CPU run past time limit"
+          }
+        },
+        {
+          "repo": "bytedance/Protenix",
+          "slug": "bytedance-protenix",
+          "score": 89.4,
+          "why": "11 min, 0 repo files patched",
+          "agent_minutes": 10.6,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle: protenix pred on CPU",
+            "why": "The README install worked, but prediction needs CUDA; the README never offers a CPU path, so a CPU-only run cannot judge it.",
+            "short": "Needs a GPU"
+          }
+        },
+        {
+          "repo": "NVlabs/Sana",
+          "slug": "nvlabs-sana",
+          "score": 88.1,
+          "why": "12 min, 0 repo files patched",
+          "agent_minutes": 11.9,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "NVIDIA",
+          "team": "NVIDIA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'NVlabs' is NVIDIA org account (NVIDIA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "README.md:L147 ./environment_setup.sh sana",
+            "why": "The setup script builds flash-attn, which needs a CUDA GPU toolchain; the README targets GPUs, so a CPU-only runner cannot judge it.",
+            "short": "Needs a GPU (flash-attn)"
+          }
+        },
+        {
+          "repo": "google-research/text-to-text-transfer-transformer",
+          "slug": "google-research-text-to-25965",
+          "score": 85.0,
+          "why": "5 min, 1 repo files patched",
+          "agent_minutes": 5.0,
+          "files_patched": 1,
+          "lines_patched": 10,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Google",
+          "team": "Google Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'google-research' is Google org account (Google Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "test",
+            "step": "oracle: import torch; t5.models.HfPyTorchModel('t5-base', ...)",
+            "why": "README.md:L161 installs t5[gcp] for the MtfModel path; the test exercises the HfPyTorchModel that the README calls experimental (L92-L95) and gives no install for.",
+            "short": "Test uses other model path"
+          }
+        },
+        {
+          "repo": "baidu/Unlimited-OCR",
+          "slug": "baidu-unlimited-ocr",
+          "score": 77.9,
+          "why": "22 min, 0 repo files patched",
+          "agent_minutes": 22.1,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Baidu",
+          "team": "Baidu",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'baidu' is Baidu org account (Baidu)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "env",
+            "step": "README.md:L92-93 loads model with torch_dtype=torch.bfloat16 ... .cuda() (README demo is GPU-only); test runs model.infer on CPU with float32",
+            "why": "The README demo targets an A800 GPU with bf16 and .cuda(); the CPU-only box with the test's float32 override hits a dtype mismatch inside the model's own infer code, which says nothing about the README steps (install itself succeeded).",
+            "short": "Needs a GPU (bf16)"
+          }
+        },
+        {
+          "repo": "bytedance/Sa2VA",
+          "slug": "bytedance-sa2va",
+          "score": 62.7,
+          "why": "27 min, 1 repo files patched",
+          "agent_minutes": 27.4,
+          "files_patched": 1,
+          "lines_patched": 37,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "ByteDance",
+          "team": "ByteDance",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'bytedance' is ByteDance org account (ByteDance)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null,
+          "literal": {
+            "tier": "not-judged",
+            "verdict": "env",
+            "step": "projects/sa2va/README.md:L85 python projects/sa2va/demo/demo.py ... (test, CPU-only box)",
+            "why": "Setup passed; the model's remote code enables FlashAttention2 which needs a CUDA GPU, and the README demo (8B, multi-GPU split_model) targets GPU while this box is CPU-only.",
+            "short": "Needs a GPU (FlashAttn)"
+          }
         }
       ],
       "companies": [
@@ -1682,7 +2015,8 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": null
         },
         {
           "repo": "Leonxlnx/earshot",
@@ -1702,7 +2036,8 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": null
         },
         {
           "repo": "Friedrich-M/UniMate",
@@ -1725,7 +2060,8 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": null
         },
         {
           "repo": "jaredpalmer/kev",
@@ -1745,7 +2081,8 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": null
         },
         {
           "repo": "TianyuCodings/NanoJev",
@@ -1767,7 +2104,8 @@
           "audit": null,
           "audit_reason": null,
           "corrected": false,
-          "public_reason": null
+          "public_reason": null,
+          "literal": null
         }
       ],
       "companies": [
