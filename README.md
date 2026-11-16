@@ -75,8 +75,8 @@ ported 4 files to TF2's compat API; ml-explore/mlx-lm describes itself as Apple-
 it took 29 minutes. Two aws-cli and one chalice attempts were refused by the pre-run firewall check (no internet
 from the sandbox at that moment) and rerun; refused attempts record nothing.
 
-**GPU track — 11 repos on an RTX 5060 8 GB:** 11/11 ran, 8/11 installers replayed first try. All six
-2020–23 repos needed a newer PyTorch than they pin (old pins have no Blackwell kernels), and five of the six
+**GPU track — 11 repos on an RTX 5060 8 GB:** 11/11 ran, 9/11 installers replayed first try. All six
+2020–23 repos needed a newer PyTorch than they pin (old pins have no Blackwell kernels), and four of the six
 also needed patches to their own code.
 
 The live page is the source of truth; this table is a snapshot. One run per repo: treat small gaps as noise.
@@ -225,8 +225,8 @@ Requires the Claude Code CLI logged in. To add a repo, append it to a repos file
 ## Limitations
 
 - **One run per repo.** Run-to-run variance is not measured yet; treat small gaps as noise.
-- **One agent.** Scores compare repos under the same agent (CPU track: Claude Opus 5.5, pinned; the earlier GPU
-  track ran Opus 5). A different agent would move every score.
+- **One agent.** Scores compare repos under the same agent (CPU track: Claude Opus 5.5, pinned; GPU track: Opus 5
+  for six repos, Opus 5.5 for the five rerun on 2026-11-15/16). A different agent would move every score.
 - **AI-written tests.** 10 of 18 failed hidden tests were the test's fault; every failure is audited, audits of
   borderline cases are not perfectly stable, and one audit was corrected on review (Megatron-LM, see below).
 - **Hardware.** The CPU track judges CUDA-first repos on a path their authors may not prioritise. The GPU track is

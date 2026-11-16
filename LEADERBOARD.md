@@ -216,20 +216,23 @@ How hard is it to get a GitHub repo's README demo actually running? A sandboxed 
 
 | # | repo | score | agent | repo files patched | fresh-container replay | company / team (confidence) |
 |---|---|---|---|---|---|---|
-| 1 | [NVlabs/stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch) | 77.1 | 23 min | 0 (0 lines) | pass | NVIDIA / NVIDIA Research (high) |
-| 2 | [Friedrich-M/UniMate](https://github.com/Friedrich-M/UniMate) | 72.4 | 28 min | 0 (0 lines) | pass | Academia / Berkeley (low) |
-| 3 | [jaredpalmer/kev](https://github.com/jaredpalmer/kev) | 69.1 | 31 min | 0 (0 lines) | pass | Independent / jaredpalmer (none) |
-| 4 | [TianyuCodings/NanoJev](https://github.com/TianyuCodings/NanoJev) | 66.9 | 33 min | 0 (0 lines) | pass | Independent / TianyuCodings (none) |
-| 5 | [GuyTevet/motion-diffusion-model](https://github.com/GuyTevet/motion-diffusion-model) | 58.5 | 32 min | 1 (5 lines) | fail: installer not self-contained; replay_supplementary: fail: download timeout; replay_after_repair: pass | Independent / GuyTevet (none) |
-| 6 | [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7) | 54.0 | 16 min | 3 (6 lines) | fail: download timeout; replay_supplementary: pass | Academia / Institute of Information Science, Academia Sinica (medium) |
-| 7 | [Leonxlnx/earshot](https://github.com/Leonxlnx/earshot) | not scored (oracle defect) | 22 min | 0 (0 lines) | pass | Independent / Leonxlnx (none) |
-| 8 | [IDEA-Research/GroundingDINO](https://github.com/IDEA-Research/GroundingDINO) | not scored (oracle defect) | 48 min | 2 (5 lines) | fail: download timeout; replay_supplementary: pass | IDEA / IDEA Research (high) |
-| 9 | [advimman/lama](https://github.com/advimman/lama) | not scored (oracle defect) | 21 min | 4 (57 lines) | pass | Samsung / Samsung AI Center (medium) |
-| 10 | [academa-labs/manimgx](https://github.com/academa-labs/manimgx) | not scored (oracle defect) | 6 min | 0 (0 lines) | pass | Independent / academa-labs (none) |
-| 11 | [microsoft/Bringing-Old-Photos-Back-to-Life](https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life) | not scored (oracle defect) | 37 min | 2 (8 lines) | pass | Microsoft / Microsoft (high) |
+| 1 | [academa-labs/manimgx](https://github.com/academa-labs/manimgx) | 96.8 | 3 min | 0 (0 lines) | pass | Independent / academa-labs (none) |
+| 2 | [Leonxlnx/earshot](https://github.com/Leonxlnx/earshot) | 93.5 | 6 min | 0 (0 lines) | pass | Independent / Leonxlnx (none) |
+| 3 | [advimman/lama](https://github.com/advimman/lama) | 88.9 | 11 min | 0 (2 lines) | pass | Samsung / Samsung AI Center (medium) |
+| 4 | [NVlabs/stylegan2-ada-pytorch](https://github.com/NVlabs/stylegan2-ada-pytorch) | 77.1 | 23 min | 0 (0 lines) | pass | NVIDIA / NVIDIA Research (high) |
+| 5 | [Friedrich-M/UniMate](https://github.com/Friedrich-M/UniMate) | 72.4 | 28 min | 0 (0 lines) | pass | Academia / Berkeley (low) |
+| 6 | [jaredpalmer/kev](https://github.com/jaredpalmer/kev) | 69.1 | 31 min | 0 (0 lines) | pass | Independent / jaredpalmer (none) |
+| 7 | [IDEA-Research/GroundingDINO](https://github.com/IDEA-Research/GroundingDINO) | 68.5 | 22 min | 1 (5 lines) | pass | IDEA / IDEA Research (high) |
+| 8 | [TianyuCodings/NanoJev](https://github.com/TianyuCodings/NanoJev) | 66.9 | 33 min | 0 (0 lines) | pass | Independent / TianyuCodings (none) |
+| 9 | [microsoft/Bringing-Old-Photos-Back-to-Life](https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life) | 66.2 | 14 min | 2 (8 lines) | pass | Microsoft / Microsoft (high) |
+| 10 | [GuyTevet/motion-diffusion-model](https://github.com/GuyTevet/motion-diffusion-model) | 58.5 | 32 min | 1 (5 lines) | fail: installer not self-contained; replay_supplementary: fail: download timeout; replay_after_repair: pass | Independent / GuyTevet (none) |
+| 11 | [WongKinYiu/yolov7](https://github.com/WongKinYiu/yolov7) | 54.0 | 16 min | 3 (6 lines) | fail: download timeout; replay_supplementary: pass | Academia / Institute of Information Science, Academia Sinica (medium) |
 
 | company | n | mean | teams |
 |---|---|---|---|
+| Samsung ⚠ n<3 | 1 | 88.9 | Samsung AI Center 88.9 (n=1) |
 | NVIDIA ⚠ n<3 | 1 | 77.1 | NVIDIA Research 77.1 (n=1) |
-| Independent | 3 | 64.8 | jaredpalmer 69.1 (n=1); TianyuCodings 66.9 (n=1); GuyTevet 58.5 (n=1) |
+| Independent | 5 | 77.0 | academa-labs 96.8 (n=1); Leonxlnx 93.5 (n=1); jaredpalmer 69.1 (n=1); TianyuCodings 66.9 (n=1); GuyTevet 58.5 (n=1) |
+| IDEA ⚠ n<3 | 1 | 68.5 | IDEA Research 68.5 (n=1) |
+| Microsoft ⚠ n<3 | 1 | 66.2 | Microsoft 66.2 (n=1) |
 | Academia ⚠ n<3 | 2 | 63.2 | Berkeley 72.4 (n=1); Institute of Information Science, Academia Sinica 54.0 (n=1) |

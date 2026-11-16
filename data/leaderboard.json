@@ -4176,6 +4176,68 @@
       "label": "GPU · RTX 5060 Laptop 8 GB",
       "repos": [
         {
+          "repo": "academa-labs/manimgx",
+          "slug": "manimgx",
+          "score": 96.8,
+          "why": "3 min, 0 repo files patched",
+          "agent_minutes": 3.2,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
+          "team": "academa-labs",
+          "attribution_confidence": "none",
+          "attribution_evidence": [],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "Leonxlnx/earshot",
+          "slug": "earshot",
+          "score": 93.5,
+          "why": "6 min, 0 repo files patched",
+          "agent_minutes": 6.5,
+          "files_patched": 0,
+          "lines_patched": 0,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Independent",
+          "team": "Leonxlnx",
+          "attribution_confidence": "none",
+          "attribution_evidence": [],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "advimman/lama",
+          "slug": "lama",
+          "score": 88.9,
+          "why": "11 min, 0 repo files patched",
+          "agent_minutes": 11.1,
+          "files_patched": 0,
+          "lines_patched": 2,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Samsung",
+          "team": "Samsung AI Center",
+          "attribution_confidence": "medium",
+          "attribution_evidence": [
+            "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "NVlabs/stylegan2-ada-pytorch",
           "slug": "stylegan2ada",
           "score": 77.1,
@@ -4241,6 +4303,28 @@
           "public_reason": null
         },
         {
+          "repo": "IDEA-Research/GroundingDINO",
+          "slug": "groundingdino",
+          "score": 68.5,
+          "why": "21 min, 1 repo files patched",
+          "agent_minutes": 21.5,
+          "files_patched": 1,
+          "lines_patched": 5,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "IDEA",
+          "team": "IDEA Research",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
           "repo": "TianyuCodings/NanoJev",
           "slug": "nanojev",
           "score": 66.9,
@@ -4256,6 +4340,29 @@
           "attribution_confidence": "none",
           "attribution_evidence": [
             "paper arXiv:2610.21244 has no affiliation data in OpenAlex"
+          ],
+          "audit": null,
+          "audit_reason": null,
+          "corrected": false,
+          "public_reason": null
+        },
+        {
+          "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+          "slug": "oldphotos",
+          "score": 66.2,
+          "why": "14 min, 2 repo files patched",
+          "agent_minutes": 13.8,
+          "files_patched": 2,
+          "lines_patched": 8,
+          "replay": "pass",
+          "replay_supplementary": "not run",
+          "replay_after_repair": "not run",
+          "company": "Microsoft",
+          "team": "Microsoft",
+          "attribution_confidence": "high",
+          "attribution_evidence": [
+            "owner 'microsoft' is Microsoft org account (Microsoft)",
+            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
           ],
           "audit": null,
           "audit_reason": null,
@@ -4305,116 +4412,21 @@
           "audit_reason": null,
           "corrected": false,
           "public_reason": null
-        },
-        {
-          "repo": "Leonxlnx/earshot",
-          "slug": "earshot",
-          "score": null,
-          "why": "not scored: the hidden test was revised after review and this run predates it",
-          "agent_minutes": 22.1,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Independent",
-          "team": "Leonxlnx",
-          "attribution_confidence": "none",
-          "attribution_evidence": [],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
-        },
-        {
-          "repo": "IDEA-Research/GroundingDINO",
-          "slug": "groundingdino",
-          "score": null,
-          "why": "not scored: the hidden test was revised after review and this run predates it",
-          "agent_minutes": 47.6,
-          "files_patched": 2,
-          "lines_patched": 5,
-          "replay": "fail: download timeout",
-          "replay_supplementary": "pass",
-          "replay_after_repair": "not run",
-          "company": "IDEA",
-          "team": "IDEA Research",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'IDEA-Research' is IDEA org account (IDEA Research)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
-        },
-        {
-          "repo": "advimman/lama",
-          "slug": "lama",
-          "score": null,
-          "why": "not scored: the hidden test was revised after review and this run predates it",
-          "agent_minutes": 21.0,
-          "files_patched": 4,
-          "lines_patched": 57,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Samsung",
-          "team": "Samsung AI Center",
-          "attribution_confidence": "medium",
-          "attribution_evidence": [
-            "paper arXiv:2109.07161 author affiliation 'Samsung (Russia)' (OpenAlex)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
-        },
-        {
-          "repo": "academa-labs/manimgx",
-          "slug": "manimgx",
-          "score": null,
-          "why": "not scored: the hidden test was revised after review and this run predates it",
-          "agent_minutes": 5.9,
-          "files_patched": 0,
-          "lines_patched": 0,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Independent",
-          "team": "academa-labs",
-          "attribution_confidence": "none",
-          "attribution_evidence": [],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
-        },
-        {
-          "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
-          "slug": "oldphotos",
-          "score": null,
-          "why": "not scored: the hidden test was revised after review and this run predates it",
-          "agent_minutes": 37.0,
-          "files_patched": 2,
-          "lines_patched": 8,
-          "replay": "pass",
-          "replay_supplementary": "not run",
-          "replay_after_repair": "not run",
-          "company": "Microsoft",
-          "team": "Microsoft",
-          "attribution_confidence": "high",
-          "attribution_evidence": [
-            "owner 'microsoft' is Microsoft org account (Microsoft)",
-            "README mentions 'Microsoft Research' -> team Microsoft Research (low)"
-          ],
-          "audit": null,
-          "audit_reason": null,
-          "corrected": false,
-          "public_reason": "The hidden test was revised after review; this GPU run is not scored until it is re-run on the GPU machine."
         }
       ],
       "companies": [
+        {
+          "company": "Samsung",
+          "n": 1,
+          "mean": 88.9,
+          "teams": [
+            {
+              "team": "Samsung AI Center",
+              "n": 1,
+              "mean": 88.9
+            }
+          ]
+        },
         {
           "company": "NVIDIA",
           "n": 1,
@@ -4429,9 +4441,19 @@
         },
         {
           "company": "Independent",
-          "n": 3,
-          "mean": 64.8,
+          "n": 5,
+          "mean": 77.0,
           "teams": [
+            {
+              "team": "academa-labs",
+              "n": 1,
+              "mean": 96.8
+            },
+            {
+              "team": "Leonxlnx",
+              "n": 1,
+              "mean": 93.5
+            },
             {
               "team": "jaredpalmer",
               "n": 1,
@@ -4446,6 +4468,30 @@
               "team": "GuyTevet",
               "n": 1,
               "mean": 58.5
+            }
+          ]
+        },
+        {
+          "company": "IDEA",
+          "n": 1,
+          "mean": 68.5,
+          "teams": [
+            {
+              "team": "IDEA Research",
+              "n": 1,
+              "mean": 68.5
+            }
+          ]
+        },
+        {
+          "company": "Microsoft",
+          "n": 1,
+          "mean": 66.2,
+          "teams": [
+            {
+              "team": "Microsoft",
+              "n": 1,
+              "mean": 66.2
             }
           ]
         },

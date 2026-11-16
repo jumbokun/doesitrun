@@ -257,3 +257,14 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   Maintained view: 67 tested, 67 ran, all replay first try, median 1.9 min, 7 changed repo code (detectron2,
   FunClip, Sa2VA, PaddleClas, T5, garak, ModelScope). All CPU: 105 tested, 102 ran (BERT/trax 403, SPADE 404),
   14 changed repo code. GPU pilot: 5 of 11 unscored, rerun pending on the owner's GPU.
+- 2026-11-15/16: GPU pilot reruns of the 5 unscored rows on the owner's RTX 5060 (Opus 5.5, v2 tests). All 5 pass
+  and replay first try: manimgx 3 min, earshot 6, lama 11, groundingdino 22, oldphotos 14. Waived: lama
+  trainers/__init__.py (README pins torch==1.8.0, whose torch.load unpickles fully; bin/predict.py:44 runs on CPU)
+  and groundingdino/__init__.py (only serves a bare `from groundingdino import _C` our goal text asked for).
+  Kept: groundingdino ms_deform_attn_cuda.cu (torch unpinned, `value.type()` no longer compiles) and oldphotos
+  align_warp_back_multiple_dlib(.py,_HR.py) (scikit-image unpinned; newer warp returns a uint8 mask, the in-place
+  float scale fails and final_output silently keeps un-enhanced images). Two oldphotos attempts invalidated, not
+  scored: laptop slept in Modern Standby (Popen.wait timeout does not count standby time, so the 90-min budget
+  never fired; fix: SetThreadExecutionState keep-awake for the run) and a 0.5 MB/s GitHub Releases download
+  (75 of 90 agent minutes; archived in data/runs/oldphotos/v2/). Measure link speed before a run that downloads
+  multi-GB checkpoints. GPU track now: 11/11 ran, 9/11 replay first try, 4 of 6 pre-2024 repos changed repo code.
