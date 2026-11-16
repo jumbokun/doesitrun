@@ -1,0 +1,17 @@
+{
+  "slug": "google-agents-cli",
+  "repo": "google/agents-cli",
+  "commit": "6eedbdc2f44c388cbfc5f305eb83b9924cfefebb",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:47:34",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 23
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "finished": "2026-11-16 07:48:07"
+}

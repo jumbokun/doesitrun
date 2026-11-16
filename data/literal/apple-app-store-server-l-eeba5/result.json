@@ -1,0 +1,17 @@
+{
+  "slug": "apple-app-store-server-l-eeba5",
+  "repo": "apple/app-store-server-library-python",
+  "commit": "e5ffded5c978668fdc1a0bba1c747c7a8017fd80",
+  "track": "cpu-gha",
+  "started": "2026-11-16 08:00:53",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 2
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "finished": "2026-11-16 08:01:05"
+}

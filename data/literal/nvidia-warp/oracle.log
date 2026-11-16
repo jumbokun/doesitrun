@@ -1,0 +1,100 @@
+Warp CUDA warning: Could not find or load the NVIDIA CUDA driver. GPU execution will not be available.
+Warp 1.19.0 initialized:
+   CUDA Toolkit 13.4, CUDA driver not available (NVRTC compilation available)
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /root/.cache/warp/1.19.0
+    Module __main__ 2c0b8f3 load on device 'cpu' took 2544.02 ms  (compiled)
+step took 2545.83 ms
+render took 7.45 ms
+step took 0.62 ms
+render took 0.44 ms
+step took 0.54 ms
+render took 0.34 ms
+step took 0.52 ms
+render took 0.32 ms
+step took 0.52 ms
+render took 0.33 ms
+step took 0.51 ms
+render took 0.33 ms
+step took 0.52 ms
+render took 0.34 ms
+step took 0.51 ms
+render took 0.33 ms
+step took 0.49 ms
+render took 0.29 ms
+step took 0.51 ms
+render took 0.31 ms
+step took 0.51 ms
+render took 0.31 ms
+step took 0.53 ms
+render took 0.32 ms
+step took 0.52 ms
+render took 0.34 ms
+step took 0.50 ms
+render took 0.33 ms
+step took 0.51 ms
+render took 0.31 ms
+step took 0.52 ms
+render took 0.32 ms
+step took 0.53 ms
+render took 0.32 ms
+step took 0.53 ms
+render took 0.31 ms
+step took 0.53 ms
+render took 0.31 ms
+step took 0.55 ms
+render took 0.33 ms
+Saved the USD stage file at '/tmp/oracle_xB8R/mesh.usd'
+prims 6 end 20.0
+mean y first/last 20.041119373321532 19.48266761493683
+Warp 1.19.0 initialized:
+   CUDA Toolkit 13.4, CUDA driver not available (NVRTC compilation available)
+   Devices:
+     "cpu"      : "x86_64"
+   Kernel cache:
+     /root/.cache/warp/1.19.0
+Module __main__ 61e69b9 load on device 'cpu' took 1916.84 ms  (compiled)
+kernel ok
+ORACLE PASS
++ set -e
++ set -o pipefail
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
+++ mktemp -d /tmp/oracle_XXXX
++ OUT=/tmp/oracle_xB8R
++ cd /tmp/oracle_xB8R
++ timeout 1500 python -m warp.examples.core.example_mesh --device cpu --num-frames 20 --stage-path /tmp/oracle_xB8R/mesh.usd
++ tee /tmp/oracle_xB8R/log.txt
++ test -s /tmp/oracle_xB8R/mesh.usd
++ python -I - /tmp/oracle_xB8R/mesh.usd
++ cat
++ python -I /tmp/oracle_xB8R/kern.py
++ tee /tmp/oracle_xB8R/kern.txt
+Warp CUDA warning: Could not find or load the NVIDIA CUDA driver. GPU execution will not be available.
++ grep -q 'kernel ok' /tmp/oracle_xB8R/kern.txt
++ echo 'ORACLE PASS'

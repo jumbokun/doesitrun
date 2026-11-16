@@ -1,0 +1,17 @@
+{
+  "slug": "aws-serverless-applicati-760d5",
+  "repo": "aws/serverless-application-model",
+  "commit": "6e52163a5760ec16a2bc84d70fd385205e2811f6",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:59:57",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 15
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "finished": "2026-11-16 08:00:42"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-data-formulator",
+  "repo": "microsoft/data-formulator",
+  "commit": "5477f0e236426dc8f74a498ec400414fba7fbc0f",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:51:21",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 0
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 15
+  },
+  "finished": "2026-11-16 07:51:47"
+}

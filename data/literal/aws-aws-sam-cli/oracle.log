@@ -1,0 +1,51 @@
+SAM CLI, version 1.172.1
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/aws-sam-cli
++ export SAM_CLI_TELEMETRY=0
++ SAM_CLI_TELEMETRY=0
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.98EPRu
++ cd /tmp/oracle.98EPRu
++ sam --version
++ grep -i 'SAM CLI'
+++ python3 -c 'import sys;print("python%d.%d"%sys.version_info[:2])'
++ PY=python3.12
++ timeout 600 sam init --no-interactive --name myapp --runtime python3.12 --dependency-manager pip --app-template hello-world --package-type Zip --no-tracing --no-application-insights --no-input
++ cd myapp
++ test -f template.yaml
++ grep -q AWS::Serverless::Function template.yaml
++ grep -q HelloWorldFunction template.yaml
++ find . -path ./.aws-sam -prune -o -name app.py -print
++ grep -q .
++ timeout 900 sam build
++ test -f .aws-sam/build/template.yaml
++ grep -q HelloWorldFunction .aws-sam/build/template.yaml
++ test -f .aws-sam/build/HelloWorldFunction/app.py
++ grep -q 'def lambda_handler' .aws-sam/build/HelloWorldFunction/app.py
++ echo ORACLE PASS

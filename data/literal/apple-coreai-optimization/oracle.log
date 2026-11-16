@@ -1,0 +1,65 @@
+/tmp/oracle.nKMV69/t.py:2: UntestedTorchVersionWarning: coreai-opt has not been tested with torch 2.15.0+cu132. The highest tested torch version is 2.14. If you want to silence this message please run: warnings.filterwarnings('ignore', category=coreai_opt.UntestedTorchVersionWarning)
+  from coreai_opt.quantization import Quantizer, QuantizerConfig
+W1116 08:02:12.698000 284 torch/utils/_pytree.py:646] <enum 'KernelPreference'> is an Enum subclass and is now natively supported by torch.compile as an opaque value type. Calling register_constant() on Enum subclasses is deprecated and will be an error in a future release.
+Traceback (most recent call last):
+  File "/work/.venv/lib/python3.12/site-packages/coreai_opt/_utils/import_utils.py", line 40, in lazy_import_module
+    return import_func()
+           ^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/coreai_opt/quantization/_graph/_prepare_for_export.py", line 760, in _import_coreai_torch
+    import coreai_torch._compression.custom_layers  # noqa: PLC0415, F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'coreai_torch'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/oracle.nKMV69/t.py", line 15, in <module>
+    finalized_model = quantizer.finalize()
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/coreai_opt/quantization/quantizer.py", line 576, in finalize
+    return self._quantizer.finalize(model, backend, mmap_dir=mmap_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/coreai_opt/quantization/_graph/quantizer.py", line 1211, in finalize
+    finalized_model = prepare_for_mlir_export(finalized_model, mmap_dir=mmap_dir)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/coreai_opt/quantization/_graph/_prepare_for_export.py", line 762, in prepare_for_mlir_export
+    lazy_import_coreai_torch(_import_coreai_torch)
+  File "/work/.venv/lib/python3.12/site-packages/coreai_opt/_utils/import_utils.py", line 59, in lazy_import_coreai_torch
+    return lazy_import_module(import_func, error_message)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/coreai_opt/_utils/import_utils.py", line 42, in lazy_import_module
+    raise ImportError(error_message) from e
+ImportError: coreai-torch package is required for MLIR export. Install it with: pip install coreai-torch
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/coreai-optimization
+++ mktemp -d /tmp/oracle.XXXXXX
++ D=/tmp/oracle.nKMV69
++ cat
++ timeout 1500 python /tmp/oracle.nKMV69/t.py
++ tee /tmp/oracle.nKMV69/out.txt
++ grep -q QUANT_OK /tmp/oracle.nKMV69/out.txt

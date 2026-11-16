@@ -1,0 +1,4 @@
+debconf: delaying package configuration, since apt-utils is not installed
+./environment_setup.sh: line 25: conda: command not found
+./environment_setup.sh: line 27: conda: command not found
+./environment_setup.sh: line 34: conda: command not found

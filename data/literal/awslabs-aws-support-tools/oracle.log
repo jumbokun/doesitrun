@@ -1,0 +1,98 @@
+Enter Volume Type:
+Enter Volume Size in GiB:
+Enter Provisioned IOPS, if volume was created via CLI without provisioned IOPS please press Enter:
+Enter Provisioned Throughput in MiB/s, if volume was created via CLI without provisioned Throughput please press Enter:
++----------------------------------------------------+
+
+> Maximum available IOPS for your volume are 4000
+> Maximum Available throughput is 250 MiB/s
+
++----------------------------------------------------+
+Enter Volume Type:
+Enter Volume Size in GiB:
+Enter Provisioned IOPS, if volume was created via CLI without provisioned IOPS please press Enter:
+Enter Provisioned Throughput in MiB/s, if volume was created via CLI without provisioned Throughput please press Enter:
++----------------------------------------------------+
+
+> Maximum available IOPS for your volume are 3000
+> Maximum Available throughput is 125 MiB/s
+
++----------------------------------------------------+
+Enter Volume Type:
+Enter Provisioned IOPS:
++----------------------------------------------------+
+
+> Maximum available IOPS are equal to the provisioned IOPS i.e 10000
+> Maximum Available throughput is  MiB/s
+
++----------------------------------------------------+
+Enter Volume Type:
+Enter Provisioned IOPS:
++----------------------------------------------------+
+
+> Maximum available IOPS are equal to the provisioned IOPS i.e 10000
+> Maximum Available throughput is  MiB/s
+
++----------------------------------------------------+
+Enter Volume Type:
+Enter Volume Size in GiB:
++----------------------------------------------------+
+
+> Maximum Available throughput using burst balance is  MiB/s, if burst bucket is empty maximum available throughput will be  MiB/s 
+
++----------------------------------------------------+
++ set -e
++ source /work/env.sh
+++ set -e
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/aws-support-tools
+++ mktemp -d /tmp/oracle.XXXXXX
++ out=/tmp/oracle.5llMI3
++ cd EBS/VolumeLimitCalculator
++ S=./volume_Limit_calculator.sh
++ printf 'gp3\n100\n4000\n250\n'
++ timeout 60 bash ./volume_Limit_calculator.sh
++ printf 'gp3\n100\n\n\n'
++ timeout 60 bash ./volume_Limit_calculator.sh
++ printf 'io2\n10000\n'
++ timeout 60 bash ./volume_Limit_calculator.sh
+./volume_Limit_calculator.sh: line 207: bc: command not found
+./volume_Limit_calculator.sh: line 24: bc: command not found
++ printf 'io1\n10000\n'
++ timeout 60 bash ./volume_Limit_calculator.sh
+./volume_Limit_calculator.sh: line 177: bc: command not found
+./volume_Limit_calculator.sh: line 24: bc: command not found
++ printf 'st1\n1000\n'
++ timeout 60 bash ./volume_Limit_calculator.sh
+./volume_Limit_calculator.sh: line 240: bc: command not found
+./volume_Limit_calculator.sh: line 242: bc: command not found
++ cat /tmp/oracle.5llMI3/gp3.txt /tmp/oracle.5llMI3/gp3def.txt /tmp/oracle.5llMI3/io1.txt /tmp/oracle.5llMI3/io2.txt /tmp/oracle.5llMI3/st1.txt
++ grep -Eq 'IOPS for your volume are 4000$' /tmp/oracle.5llMI3/gp3.txt
++ grep -Eq 'throughput is 250 MiB/s$' /tmp/oracle.5llMI3/gp3.txt
++ grep -Eq 'IOPS for your volume are 3000$' /tmp/oracle.5llMI3/gp3def.txt
++ grep -Eq 'throughput is 125 MiB/s$' /tmp/oracle.5llMI3/gp3def.txt
++ grep -Eq 'IOPS are equal to the provisioned IOPS i.e 10000$' /tmp/oracle.5llMI3/io2.txt
++ grep -Eq 'throughput is 2500.00 MiB/s$' /tmp/oracle.5llMI3/io2.txt

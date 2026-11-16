@@ -1,0 +1,300 @@
+              You can read more about "package data files" on setuptools documentation page:
+      
+              - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
+      
+      
+              [^1]: For Python, any directory (with suitable naming) can be imported,
+                    even if it does not contain any `.py` files.
+                    On the other hand, currently there is no concept of package data
+                    directory, all directories are treated like packages.
+              ********************************************************************************
+      
+      !!
+        check.warn(importable)
+      creating build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/account.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/backtest.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/decision.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/exchange.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/executor.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/high_performance_ds.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/position.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/profit_attribution.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/report.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/signal.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      copying qlib/backtest/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
+      creating build/lib.linux-x86_64-cpython-312/qlib/cli
+      copying qlib/cli/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/cli
+      copying qlib/cli/data.py -> build/lib.linux-x86_64-cpython-312/qlib/cli
+      copying qlib/cli/run.py -> build/lib.linux-x86_64-cpython-312/qlib/cli
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib
+      copying qlib/contrib/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
+      copying qlib/contrib/evaluate.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
+      copying qlib/contrib/evaluate_portfolio.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
+      copying qlib/contrib/torch.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/data.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/dataset.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/handler.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/highfreq_handler.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/highfreq_processor.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/highfreq_provider.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/loader.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      copying qlib/contrib/data/processor.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/data/utils
+      copying qlib/contrib/data/utils/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data/utils
+      copying qlib/contrib/data/utils/sepdf.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data/utils
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/eva
+      copying qlib/contrib/eva/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/eva
+      copying qlib/contrib/eva/alpha.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/eva
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/meta
+      copying qlib/contrib/meta/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
+      copying qlib/contrib/meta/data_selection/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
+      copying qlib/contrib/meta/data_selection/dataset.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
+      copying qlib/contrib/meta/data_selection/model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
+      copying qlib/contrib/meta/data_selection/net.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
+      copying qlib/contrib/meta/data_selection/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/catboost_model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/double_ensemble.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/gbdt.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/highfreq_gdbt_model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/linear.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_adarnn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_add.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_alstm.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_alstm_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_gats.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_gats_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_general_nn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_gru.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_gru_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_hist.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_igmtf.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_krnn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_localformer.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_localformer_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_lstm.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_lstm_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_nn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_sandwich.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_sfm.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_tabnet.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_tcn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_tcn_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_tcts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_tra.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_transformer.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_transformer_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/pytorch_utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/tcn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      copying qlib/contrib/model/xgboost.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/online
+      copying qlib/contrib/online/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
+      copying qlib/contrib/online/manager.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
+      copying qlib/contrib/online/online_model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
+      copying qlib/contrib/online/operator.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
+      copying qlib/contrib/online/user.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
+      copying qlib/contrib/online/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/ops
+      copying qlib/contrib/ops/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/ops
+      copying qlib/contrib/ops/high_freq.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/ops
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report
+      copying qlib/contrib/report/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report
+      copying qlib/contrib/report/graph.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report
+      copying qlib/contrib/report/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_model
+      copying qlib/contrib/report/analysis_model/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_model
+      copying qlib/contrib/report/analysis_model/analysis_model_performance.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_model
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      copying qlib/contrib/report/analysis_position/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      copying qlib/contrib/report/analysis_position/cumulative_return.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      copying qlib/contrib/report/analysis_position/parse_position.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      copying qlib/contrib/report/analysis_position/rank_label.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      copying qlib/contrib/report/analysis_position/report.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      copying qlib/contrib/report/analysis_position/risk_analysis.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      copying qlib/contrib/report/analysis_position/score_ic.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
+      copying qlib/contrib/report/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
+      copying qlib/contrib/report/data/ana.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
+      copying qlib/contrib/report/data/base.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
+      copying qlib/contrib/rolling/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
+      copying qlib/contrib/rolling/__main__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
+      copying qlib/contrib/rolling/base.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
+      copying qlib/contrib/rolling/ddgda.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
+      copying qlib/contrib/strategy/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
+      copying qlib/contrib/strategy/cost_control.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
+      copying qlib/contrib/strategy/order_generator.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
+      copying qlib/contrib/strategy/rule_strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
+      copying qlib/contrib/strategy/signal_strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
+      copying qlib/contrib/strategy/optimizer/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
+      copying qlib/contrib/strategy/optimizer/base.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
+      copying qlib/contrib/strategy/optimizer/enhanced_indexing.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
+      copying qlib/contrib/strategy/optimizer/optimizer.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
+      copying qlib/contrib/tuner/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
+      copying qlib/contrib/tuner/config.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
+      copying qlib/contrib/tuner/launcher.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
+      copying qlib/contrib/tuner/pipeline.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
+      copying qlib/contrib/tuner/space.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
+      copying qlib/contrib/tuner/tuner.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
+      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/workflow
+      copying qlib/contrib/workflow/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/workflow
+      copying qlib/contrib/workflow/record_temp.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/workflow
+      creating build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/base.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/cache.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/client.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/data.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/expression_parser.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/filter.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/inst_processor.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/ops.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      copying qlib/data/pit.py -> build/lib.linux-x86_64-cpython-312/qlib/data
+      creating build/lib.linux-x86_64-cpython-312/qlib/data/_libs
+      copying qlib/data/_libs/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data/_libs
+      copying qlib/data/_libs/expanding.pyx -> build/lib.linux-x86_64-cpython-312/qlib/data/_libs
+      copying qlib/data/_libs/rolling.pyx -> build/lib.linux-x86_64-cpython-312/qlib/data/_libs
+      creating build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      copying qlib/data/dataset/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      copying qlib/data/dataset/handler.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      copying qlib/data/dataset/loader.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      copying qlib/data/dataset/processor.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      copying qlib/data/dataset/storage.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      copying qlib/data/dataset/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      copying qlib/data/dataset/weight.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
+      creating build/lib.linux-x86_64-cpython-312/qlib/data/storage
+      copying qlib/data/storage/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data/storage
+      copying qlib/data/storage/file_storage.py -> build/lib.linux-x86_64-cpython-312/qlib/data/storage
+      copying qlib/data/storage/storage.py -> build/lib.linux-x86_64-cpython-312/qlib/data/storage
+      creating build/lib.linux-x86_64-cpython-312/qlib/model
+      copying qlib/model/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model
+      copying qlib/model/base.py -> build/lib.linux-x86_64-cpython-312/qlib/model
+      copying qlib/model/trainer.py -> build/lib.linux-x86_64-cpython-312/qlib/model
+      copying qlib/model/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/model
+      creating build/lib.linux-x86_64-cpython-312/qlib/model/ens
+      copying qlib/model/ens/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/ens
+      copying qlib/model/ens/ensemble.py -> build/lib.linux-x86_64-cpython-312/qlib/model/ens
+      copying qlib/model/ens/group.py -> build/lib.linux-x86_64-cpython-312/qlib/model/ens
+      creating build/lib.linux-x86_64-cpython-312/qlib/model/interpret
+      copying qlib/model/interpret/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/interpret
+      copying qlib/model/interpret/base.py -> build/lib.linux-x86_64-cpython-312/qlib/model/interpret
+      creating build/lib.linux-x86_64-cpython-312/qlib/model/meta
+      copying qlib/model/meta/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
+      copying qlib/model/meta/dataset.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
+      copying qlib/model/meta/model.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
+      copying qlib/model/meta/task.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
+      creating build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
+      copying qlib/model/riskmodel/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
+      copying qlib/model/riskmodel/base.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
+      copying qlib/model/riskmodel/poet.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
+      copying qlib/model/riskmodel/shrink.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
+      copying qlib/model/riskmodel/structured.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
+      creating build/lib.linux-x86_64-cpython-312/qlib/rl
+      copying qlib/rl/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
+      copying qlib/rl/aux_info.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
+      copying qlib/rl/interpreter.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
+      copying qlib/rl/reward.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
+      copying qlib/rl/seed.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
+      copying qlib/rl/simulator.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
+      creating build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
+      copying qlib/rl/contrib/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
+      copying qlib/rl/contrib/backtest.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
+      copying qlib/rl/contrib/naive_config_parser.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
+      copying qlib/rl/contrib/train_onpolicy.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
+      copying qlib/rl/contrib/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
+      creating build/lib.linux-x86_64-cpython-312/qlib/rl/data
+      copying qlib/rl/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
+      copying qlib/rl/data/base.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
+      copying qlib/rl/data/integration.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
+      copying qlib/rl/data/native.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
+      copying qlib/rl/data/pickle_styled.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
+      creating build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/interpreter.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/network.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/policy.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/reward.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/simulator_qlib.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/simulator_simple.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/state.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      copying qlib/rl/order_execution/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
+      creating build/lib.linux-x86_64-cpython-312/qlib/rl/strategy
+      copying qlib/rl/strategy/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/strategy
+      copying qlib/rl/strategy/single_order.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/strategy
+      creating build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
+      copying qlib/rl/trainer/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
+      copying qlib/rl/trainer/api.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
+      copying qlib/rl/trainer/callbacks.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
+      copying qlib/rl/trainer/trainer.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
+      copying qlib/rl/trainer/vessel.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
+      creating build/lib.linux-x86_64-cpython-312/qlib/rl/utils
+      copying qlib/rl/utils/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
+      copying qlib/rl/utils/data_queue.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
+      copying qlib/rl/utils/env_wrapper.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
+      copying qlib/rl/utils/finite_env.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
+      copying qlib/rl/utils/log.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
+      creating build/lib.linux-x86_64-cpython-312/qlib/strategy
+      copying qlib/strategy/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/strategy
+      copying qlib/strategy/base.py -> build/lib.linux-x86_64-cpython-312/qlib/strategy
+      creating build/lib.linux-x86_64-cpython-312/qlib/tests
+      copying qlib/tests/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
+      copying qlib/tests/config.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
+      copying qlib/tests/data.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
+      copying qlib/tests/test_config_validation.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
+      creating build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/data.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/exceptions.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/file.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/index_data.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/mod.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/objm.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/paral.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/pickle_utils.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/resam.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/serial.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      copying qlib/utils/time.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
+      creating build/lib.linux-x86_64-cpython-312/qlib/workflow
+      copying qlib/workflow/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
+      copying qlib/workflow/exp.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
+      copying qlib/workflow/expm.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
+      copying qlib/workflow/record_temp.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
+      copying qlib/workflow/recorder.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
+      copying qlib/workflow/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
+      creating build/lib.linux-x86_64-cpython-312/qlib/workflow/online
+      copying qlib/workflow/online/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
+      copying qlib/workflow/online/manager.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
+      copying qlib/workflow/online/strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
+      copying qlib/workflow/online/update.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
+      copying qlib/workflow/online/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
+      creating build/lib.linux-x86_64-cpython-312/qlib/workflow/task
+      copying qlib/workflow/task/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
+      copying qlib/workflow/task/collect.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
+      copying qlib/workflow/task/gen.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
+      copying qlib/workflow/task/manage.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
+      copying qlib/workflow/task/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
+      running build_ext
+      Compiling qlib/data/_libs/rolling.pyx because it changed.
+      [1/1] Cythonizing qlib/data/_libs/rolling.pyx
+      building 'qlib.data._libs.rolling' extension
+      x86_64-linux-gnu-g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -fPIC -I/tmp/pip-build-env-ub1yotgf/overlay/lib/python3.12/site-packages/numpy/_core/include -I/work/.venv/include -I/usr/include/python3.12 -c qlib/data/_libs/rolling.cpp -o build/temp.linux-x86_64-cpython-312/qlib/data/_libs/rolling.o
+      qlib/data/_libs/rolling.cpp:42:10: fatal error: Python.h: No such file or directory
+         42 | #include "Python.h"
+            |          ^~~~~~~~~~
+      compilation terminated.
+      error: Command '['x86_64-linux-gnu-g++', '-fno-strict-overflow', '-Wsign-compare', '-DNDEBUG', '-g', '-O2', '-Wall', '-fPIC', '-I/tmp/pip-build-env-ub1yotgf/overlay/lib/python3.12/site-packages/numpy/_core/include', '-I/work/.venv/include', '-I/usr/include/python3.12', '-c', 'qlib/data/_libs/rolling.cpp', '-o', 'build/temp.linux-x86_64-cpython-312/qlib/data/_libs/rolling.o']' returned non-zero exit status 1.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for pyqlib
+ERROR: Could not build wheels for pyqlib, which is required to install pyproject.toml-based projects

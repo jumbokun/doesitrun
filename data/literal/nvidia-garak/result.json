@@ -1,0 +1,17 @@
+{
+  "slug": "nvidia-garak",
+  "repo": "NVIDIA/garak",
+  "commit": "892779207cbc38f65a738ef9cbdfbc1e83aa0b55",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:52:06",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 132
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 58
+  },
+  "finished": "2026-11-16 07:55:26"
+}

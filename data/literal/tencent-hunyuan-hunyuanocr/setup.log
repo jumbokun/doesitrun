@@ -1,0 +1,23 @@
+Encountered 19 files that should have been pointers, but weren't:
+	HunyuanOCR_v1.0/assets/guwan1.png
+	HunyuanOCR_v1.0/assets/hyocr-head-img.png
+	HunyuanOCR_v1.0/assets/hyocr-pipeline-v1.png
+	HunyuanOCR_v1.0/assets/ie_parallel.jpg
+	HunyuanOCR_v1.0/assets/parsing_chart1.png
+	HunyuanOCR_v1.0/assets/parsing_rgsj.png
+	HunyuanOCR_v1.0/assets/parsing_rgsjz_2.png
+	HunyuanOCR_v1.0/assets/qikai1.png
+	HunyuanOCR_v1.0/assets/qrcode_for_hunyuanocr_wechat.jpg
+	HunyuanOCR_v1.0/assets/show_res_parsing_fig.png
+	HunyuanOCR_v1.0/assets/spotting1_cropped.png
+	HunyuanOCR_v1.0/assets/translation2.png
+	HunyuanOCR_v1.0/assets/vis_document_23.jpg
+	HunyuanOCR_v1.0/assets/vis_ie_1.png
+	HunyuanOCR_v1.0/assets/vis_parsing_chart1.png
+	HunyuanOCR_v1.0/assets/vis_parsing_chart2.png
+	HunyuanOCR_v1.0/assets/vis_parsing_chart3.png
+	HunyuanOCR_v1.0/assets/vis_parsing_fig.png
+	HunyuanOCR_v1.0/assets/vis_parsing_table.png
+debconf: delaying package configuration, since apt-utils is not installed
+Cloning into 'llama.cpp'...
+/work/setup.sh: line 10: cmake: command not found

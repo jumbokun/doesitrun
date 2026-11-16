@@ -1,0 +1,300 @@
+Downloading agent_framework_redis-1.0.0b261112-py3-none-any.whl (30 kB)
+Downloading agent_framework_tools-1.0.0b261112-py3-none-any.whl (49 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 49.6/49.6 kB 32.5 MB/s eta 0:00:00
+Downloading mcp-2.3.0-py3-none-any.whl (368 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 368.7/368.7 kB 172.3 MB/s eta 0:00:00
+Downloading mcp_types-2.3.0-py3-none-any.whl (69 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.1/69.1 kB 47.1 MB/s eta 0:00:00
+Downloading msgspec-0.22.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (230 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 230.4/230.4 kB 123.3 MB/s eta 0:00:00
+Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.3/60.3 kB 41.2 MB/s eta 0:00:00
+Downloading pydantic-2.14.3-py3-none-any.whl (494 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.1/494.1 kB 205.5 MB/s eta 0:00:00
+Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 305.3 MB/s eta 0:00:00
+Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 246.9 MB/s eta 0:00:00
+Downloading regex-2026.11.15-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (809 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 809.2/809.2 kB 259.1 MB/s eta 0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 29.2 MB/s eta 0:00:00
+Downloading a2a_sdk-1.3.0-py3-none-any.whl (282 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 282.4/282.4 kB 150.5 MB/s eta 0:00:00
+Downloading ag_ui_protocol-0.1.22-py3-none-any.whl (22 kB)
+Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 314.9 MB/s eta 0:00:00
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading anthropic-2.8.0-py3-none-any.whl (2.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.5/2.5 MB 328.1 MB/s eta 0:00:00
+Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 90.9 MB/s eta 0:00:00
+Downloading azure_ai_agentserver_core-2.3.0-py3-none-any.whl (225 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 225.9/225.9 kB 136.9 MB/s eta 0:00:00
+Downloading azure_ai_agentserver_invocations-1.3.0-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.5/62.5 kB 41.9 MB/s eta 0:00:00
+Downloading azure_ai_agentserver_responses-2.4.0-py3-none-any.whl (445 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 445.9/445.9 kB 197.7 MB/s eta 0:00:00
+Downloading azure_ai_contentunderstanding-1.2.0b3-py3-none-any.whl (127 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.2/127.2 kB 78.8 MB/s eta 0:00:00
+Downloading azure_ai_inference-1.0.0b9-py3-none-any.whl (124 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 124.9/124.9 kB 85.0 MB/s eta 0:00:00
+Downloading azure_ai_projects-2.11.0-py3-none-any.whl (692 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 692.8/692.8 kB 243.3 MB/s eta 0:00:00
+Downloading azure_core-1.41.0-py3-none-any.whl (220 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 220.9/220.9 kB 136.5 MB/s eta 0:00:00
+Downloading azure_cosmos-4.17.1-py3-none-any.whl (505 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 505.8/505.8 kB 228.0 MB/s eta 0:00:00
+Downloading azure_functions-1.26.0-py3-none-any.whl (123 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 123.9/123.9 kB 87.4 MB/s eta 0:00:00
+Downloading azure_functions_durable-1.7.0-py3-none-any.whl (165 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 165.5/165.5 kB 110.4 MB/s eta 0:00:00
+Downloading azure_search_documents-12.1.0-py3-none-any.whl (485 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 485.1/485.1 kB 209.3 MB/s eta 0:00:00
+Downloading boto3-1.44.3-py3-none-any.whl (140 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.2/140.2 kB 95.3 MB/s eta 0:00:00
+Downloading botocore-1.44.3-py3-none-any.whl (16.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 319.0 MB/s eta 0:00:00
+Downloading claude_agent_sdk-0.2.182-py3-none-manylinux_2_17_x86_64.whl (161.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.8/161.8 MB 68.1 MB/s eta 0:00:00
+Downloading durabletask-1.13.0-py3-none-any.whl (221 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.4/221.4 kB 109.7 MB/s eta 0:00:00
+Downloading durabletask_azuremanaged-1.13.0-py3-none-any.whl (30 kB)
+Downloading fastapi-0.162.7-py3-none-any.whl (152 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 152.4/152.4 kB 93.9 MB/s eta 0:00:00
+Downloading filetype-1.2.0-py2.py3-none-any.whl (19 kB)
+Downloading foundry_local_sdk-2.4.1-cp311-abi3-manylinux_2_28_x86_64.whl (15.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.0/15.0 MB 260.2 MB/s eta 0:00:00
+Downloading onnxruntime-1.31.0-cp312-cp312-manylinux_2_28_x86_64.whl (23.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.8/23.8 MB 208.3 MB/s eta 0:00:00
+Downloading onnxruntime_genai_core-0.19.0-py3-none-manylinux_2_28_x86_64.whl (11.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.4/11.4 MB 287.5 MB/s eta 0:00:00
+Downloading github_copilot_sdk-1.0.34-py3-none-any.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 283.0 MB/s eta 0:00:00
+Downloading google_genai-3.3.0-py3-none-any.whl (1.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 300.5 MB/s eta 0:00:00
+Downloading tenacity-9.1.4-py3-none-any.whl (28 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 51.0 MB/s eta 0:00:00
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 54.6 MB/s eta 0:00:00
+Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 71.4 MB/s eta 0:00:00
+Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.1/85.1 kB 58.7 MB/s eta 0:00:00
+Downloading hyperlight_sandbox-0.9.0-py3-none-any.whl (6.8 kB)
+Downloading hyperlight_sandbox_backend_wasm-0.9.0-cp312-cp312-manylinux_2_28_x86_64.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 179.1 MB/s eta 0:00:00
+Downloading hyperlight_sandbox_python_guest-0.9.0-py3-none-any.whl (21.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 21.8/21.8 MB 224.9 MB/s eta 0:00:00
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.6/90.6 kB 53.4 MB/s eta 0:00:00
+Downloading mem0ai-2.2.1-py3-none-any.whl (351 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 351.9/351.9 kB 175.3 MB/s eta 0:00:00
+Downloading microsoft_agents_copilotstudio_client-1.9.0-py3-none-any.whl (27 kB)
+Downloading microsoft_agents_hosting_core-1.9.0-py3-none-any.whl (243 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.9/243.9 kB 129.6 MB/s eta 0:00:00
+Downloading microsoft_agents_activity-1.9.0-py3-none-any.whl (148 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 148.8/148.8 kB 92.8 MB/s eta 0:00:00
+Downloading mistralai-3.7.0-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 216.5 MB/s eta 0:00:00
+Downloading msal-1.39.0-py3-none-any.whl (131 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.6/131.6 kB 76.7 MB/s eta 0:00:00
+Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 289.5 MB/s eta 0:00:00
+Downloading ollama-0.6.3-py3-none-any.whl (16 kB)
+Downloading openai-3.51.0-py3-none-any.whl (2.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.4/2.4 MB 318.2 MB/s eta 0:00:00
+Downloading openai_chatkit-1.6.5-py3-none-any.whl (44 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.1/44.1 kB 27.5 MB/s eta 0:00:00
+Downloading opentelemetry_sdk-1.45.2-py3-none-any.whl (141 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 141.8/141.8 kB 89.3 MB/s eta 0:00:00
+Downloading opentelemetry_semantic_conventions-0.66b2-py3-none-any.whl (206 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.3/206.3 kB 118.8 MB/s eta 0:00:00
+Downloading powerfx-0.0.34-py3-none-any.whl (3.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 268.0 MB/s eta 0:00:00
+Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 219.6/219.6 kB 119.7 MB/s eta 0:00:00
+Downloading pythonnet-3.0.5-py3-none-any.whl (297 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 297.5/297.5 kB 145.0 MB/s eta 0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 98.6 MB/s eta 0:00:00
+Downloading pydantic_monty-1.6.0-py3-none-any.whl (7.5 kB)
+Downloading pydantic_monty_client-1.6.0-cp312-cp312-manylinux_2_28_x86_64.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 309.3 MB/s eta 0:00:00
+Downloading pydantic_monty_runtime-1.6.0-py3-none-manylinux_2_28_x86_64.whl (15.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.1/15.1 MB 257.1 MB/s eta 0:00:00
+Downloading pyjwt-2.15.1-py3-none-any.whl (33 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 129.7 MB/s eta 0:00:00
+Downloading python_multipart-0.0.33-py3-none-any.whl (32 kB)
+Downloading redis-7.2.0-py3-none-any.whl (394 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 394.9/394.9 kB 120.9 MB/s eta 0:00:00
+Downloading redisvl-0.32.0-py3-none-any.whl (467 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 467.7/467.7 kB 205.6 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading sse_starlette-3.7.0-py3-none-any.whl (18 kB)
+Downloading starlette-1.10.0-py3-none-any.whl (80 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.6/80.6 kB 53.5 MB/s eta 0:00:00
+Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.4/87.4 kB 59.1 MB/s eta 0:00:00
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading annotated_doc-0.0.6-py3-none-any.whl (5.3 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 43.1 MB/s eta 0:00:00
+Downloading azure_identity-1.27.0-py3-none-any.whl (203 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 203.5/203.5 kB 120.2 MB/s eta 0:00:00
+Downloading azure_storage_blob-12.31.1-py3-none-any.whl (455 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 455.9/455.9 kB 192.6 MB/s eta 0:00:00
+Downloading click-8.5.1-py3-none-any.whl (126 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 82.6 MB/s eta 0:00:00
+Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 310.7 MB/s eta 0:00:00
+Downloading culsans-0.11.0-py3-none-any.whl (21 kB)
+Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Downloading docstring_parser-0.18.0-py3-none-any.whl (22 kB)
+Downloading eval_type_backport-0.4.0-py3-none-any.whl (6.4 kB)
+Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 138.9 MB/s eta 0:00:00
+Downloading furl-2.1.4-py2.py3-none-any.whl (27 kB)
+Downloading google_api_core-2.44.0-py3-none-any.whl (225 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 225.6/225.6 kB 129.2 MB/s eta 0:00:00
+Downloading google_auth-2.62.2-py3-none-any.whl (270 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 270.1/270.1 kB 152.1 MB/s eta 0:00:00
+Downloading googleapis_common_protos-1.76.0-py3-none-any.whl (307 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 161.3 MB/s eta 0:00:00
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading httptools-0.9.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (552 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 552.8/552.8 kB 223.6 MB/s eta 0:00:00
+Downloading hypercorn-0.18.0-py3-none-any.whl (61 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.6/61.6 kB 37.5 MB/s eta 0:00:00
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 48.0 MB/s eta 0:00:00
+Downloading isodate-0.7.2-py3-none-any.whl (22 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 85.4 MB/s eta 0:00:00
+Downloading jiter-0.19.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (338 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 338.1/338.1 kB 159.4 MB/s eta 0:00:00
+Downloading jmespath-1.1.0-py3-none-any.whl (20 kB)
+Downloading json_rpc-1.15.0-py2.py3-none-any.whl (39 kB)
+Downloading jsonpath_ng-1.16.0-py3-none-any.whl (86 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.2/86.2 kB 58.1 MB/s eta 0:00:00
+Downloading jsonpath_python-1.1.6-py3-none-any.whl (14 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading microsoft_opentelemetry-1.6.0-py3-none-any.whl (245 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 245.3/245.3 kB 142.2 MB/s eta 0:00:00
+Downloading opentelemetry_instrumentation_openai_agents_v2-0.1.0-py3-none-any.whl (25 kB)
+Downloading opentelemetry_instrumentation_openai_v2-2.3b0-py3-none-any.whl (18 kB)
+Downloading opentelemetry_util_genai-0.3b0-py3-none-any.whl (28 kB)
+Downloading ml_dtypes-0.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (409 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 409.9/409.9 kB 181.7 MB/s eta 0:00:00
+Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (516 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.8/516.8 kB 214.4 MB/s eta 0:00:00
+Downloading openai_agents-0.24.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 118.1 MB/s eta 0:00:00
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 76.0 MB/s eta 0:00:00
+Downloading posthog-7.91.1-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 265.9 MB/s eta 0:00:00
+Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 143.2 MB/s eta 0:00:00
+Downloading protobuf-6.33.6-cp39-abi3-manylinux2014_x86_64.whl (323 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 323.4/323.4 kB 157.7 MB/s eta 0:00:00
+Downloading python_ulid-4.1.0-py3-none-any.whl (14 kB)
+Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.3/506.3 kB 203.5 MB/s eta 0:00:00
+Downloading qdrant_client-1.20.0-py3-none-any.whl (471 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 471.2/471.2 kB 208.0 MB/s eta 0:00:00
+Downloading grpcio-1.85.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (7.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.4/7.4 MB 326.6 MB/s eta 0:00:00
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 49.1 MB/s eta 0:00:00
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 85.6 MB/s eta 0:00:00
+Downloading rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (371 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 371.3/371.3 kB 179.3 MB/s eta 0:00:00
+Downloading s3transfer-0.19.3-py3-none-any.whl (90 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.3/90.3 kB 60.1 MB/s eta 0:00:00
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Downloading sqlalchemy-2.1.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 273.0 MB/s eta 0:00:00
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 87.9 MB/s eta 0:00:00
+Downloading uvloop-0.23.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 323.3 MB/s eta 0:00:00
+Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 458.4/458.4 kB 183.8 MB/s eta 0:00:00
+Downloading websockets-16.1.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (187 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 187.1/187.1 kB 102.9 MB/s eta 0:00:00
+Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 228.7/228.7 kB 135.1 MB/s eta 0:00:00
+Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 27.8 MB/s eta 0:00:00
+Downloading aiologic-0.17.1-py3-none-any.whl (161 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.3/161.3 kB 103.3 MB/s eta 0:00:00
+Downloading azure_core_tracing_opentelemetry-1.0.0b13-py3-none-any.whl (12 kB)
+Downloading azure_monitor_opentelemetry_exporter-1.0.0b59-py2.py3-none-any.whl (259 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 259.6/259.6 kB 145.4 MB/s eta 0:00:00
+Downloading backoff-2.2.1-py3-none-any.whl (15 kB)
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 144.9 MB/s eta 0:00:00
+Downloading clr_loader-0.2.10-py3-none-any.whl (56 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.5/56.5 kB 38.6 MB/s eta 0:00:00
+Downloading griffelib-2.4.1-py3-none-any.whl (172 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 173.0/173.0 kB 109.6 MB/s eta 0:00:00
+Downloading h2-4.4.1-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 41.0 MB/s eta 0:00:00
+Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading msal_extensions-1.3.1-py3-none-any.whl (20 kB)
+Downloading opentelemetry_exporter_otlp_proto_http-1.45.2-py3-none-any.whl (22 kB)
+Downloading opentelemetry_exporter_http_transport-0.66b2-py3-none-any.whl (12 kB)
+Downloading opentelemetry_exporter_otlp_common-0.66b2-py3-none-any.whl (12 kB)
+Downloading opentelemetry_exporter_otlp_proto_common-1.45.2-py3-none-any.whl (15 kB)
+Downloading opentelemetry_proto-1.45.2-py3-none-any.whl (72 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.5/72.5 kB 53.4 MB/s eta 0:00:00
+Downloading opentelemetry_instrumentation-0.66b2-py3-none-any.whl (36 kB)
+Downloading opentelemetry_instrumentation_django-0.66b2-py3-none-any.whl (18 kB)
+Downloading opentelemetry_instrumentation_wsgi-0.66b2-py3-none-any.whl (13 kB)
+Downloading opentelemetry_util_http-0.66b2-py3-none-any.whl (8.4 kB)
+Downloading opentelemetry_instrumentation_fastapi-0.66b2-py3-none-any.whl (14 kB)
+Downloading opentelemetry_instrumentation_asgi-0.66b2-py3-none-any.whl (15 kB)
+Downloading opentelemetry_instrumentation_flask-0.66b2-py3-none-any.whl (14 kB)
+Downloading opentelemetry_instrumentation_httpx-0.66b2-py3-none-any.whl (17 kB)
+Downloading opentelemetry_instrumentation_logging-0.66b2-py3-none-any.whl (15 kB)
+Downloading opentelemetry_instrumentation_psycopg2-0.66b2-py3-none-any.whl (11 kB)
+Downloading opentelemetry_instrumentation_dbapi-0.66b2-py3-none-any.whl (14 kB)
+Downloading opentelemetry_instrumentation_requests-0.66b2-py3-none-any.whl (13 kB)
+Downloading opentelemetry_instrumentation_urllib-0.66b2-py3-none-any.whl (13 kB)
+Downloading opentelemetry_instrumentation_urllib3-0.66b2-py3-none-any.whl (13 kB)
+Downloading opentelemetry_resource_detector_azure-0.3.0-py3-none-any.whl (14 kB)
+Downloading orderedmultidict-1.0.2-py2.py3-none-any.whl (11 kB)
+Downloading portalocker-4.4.2-py3-none-any.whl (129 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.7/129.7 kB 78.8 MB/s eta 0:00:00
+Downloading proto_plus-1.29.0-py3-none-any.whl (50 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.8/50.8 kB 29.6 MB/s eta 0:00:00
+Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 104.5 MB/s eta 0:00:00
+Downloading wrapt-1.17.3-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (88 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 kB 57.7 MB/s eta 0:00:00
+Downloading wsproto-1.3.2-py3-none-any.whl (24 kB)
+Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Downloading priority-2.0.0-py3-none-any.whl (8.9 kB)
+Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 41.4 MB/s eta 0:00:00
+Downloading hpack-4.2.0-py3-none-any.whl (34 kB)
+Downloading hyperframe-6.1.0-py3-none-any.whl (13 kB)
+Downloading msrest-0.7.1-py3-none-any.whl (85 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.4/85.4 kB 50.1 MB/s eta 0:00:00
+Downloading pyasn1-0.6.5-py3-none-any.whl (84 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.8/84.8 kB 56.2 MB/s eta 0:00:00
+Downloading asgiref-3.13.0-py3-none-any.whl (27 kB)
+Downloading requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+Downloading oauthlib-4.0.1-py3-none-any.whl (161 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.9/161.9 kB 96.5 MB/s eta 0:00:00
+Installing collected packages: pytz, onnxruntime-genai-core, json-rpc, flatbuffers, filetype, wrapt, websockets, uvloop, urllib3, typing-extensions, truststore, tenacity, sniffio, six, rpds-py, regex, redis, pyyaml, python-ulid, python-multipart, python-dotenv, pyjwt, pydantic-monty-runtime, pycparser, pyasn1, psutil, protobuf, propcache, priority, portalocker, packaging, opentelemetry-util-http, oauthlib, numpy, multidict, msgspec, MarkupSafe, jsonpath-python, jsonpath-ng, jmespath, jiter, isodate, idna, hyperlight-sandbox-python-guest, hyperlight-sandbox-backend-wasm, hyperlight-sandbox, hyperframe, httptools, hpack, h11, griffelib, frozenlist, eval-type-backport, docstring-parser, distro, click, charset_normalizer, certifi, backoff, attrs, asgiref, annotated-types, annotated-doc, aiohappyeyeballs, yarl, wsproto, werkzeug, uvicorn, typing-inspection, sqlalchemy, requests, referencing, python-dateutil, pydantic-monty-client, pydantic-core, pyasn1-modules, proto-plus, orderedmultidict, opentelemetry-proto, opentelemetry-api, onnxruntime, ml-dtypes, jinja2, httpcore2, httpcore, h2, grpcio, googleapis-common-protos, cffi, anyio, aiosignal, aiologic, watchfiles, starlette, requests-oauthlib, pydantic-monty, pydantic, posthog, opentelemetry-semantic-conventions, opentelemetry-exporter-otlp-proto-common, opentelemetry-exporter-http-transport, jsonschema-specifications, hypercorn, httpx2, httpx, furl, durabletask, culsans, cryptography, clr_loader, botocore, azure-functions, azure-core, aiohttp, sse-starlette, s3transfer, redisvl, pythonnet, opentelemetry-sdk, opentelemetry-instrumentation, openai, ollama, msrest, mistralai, microsoft-agents-activity, mcp-types, jsonschema, google-auth, github-copilot-sdk, fastapi, azure-storage-blob, azure-search-documents, azure-cosmos, azure-core-tracing-opentelemetry, azure-ai-inference, azure-ai-contentunderstanding, anthropic, agent-framework-core, ag-ui-protocol, qdrant-client, powerfx, opentelemetry-util-genai, opentelemetry-resource-detector-azure, opentelemetry-instrumentation-wsgi, opentelemetry-instrumentation-urllib3, opentelemetry-instrumentation-urllib, opentelemetry-instrumentation-requests, opentelemetry-instrumentation-openai-v2, opentelemetry-instrumentation-logging, opentelemetry-instrumentation-httpx, opentelemetry-instrumentation-dbapi, opentelemetry-instrumentation-asgi, opentelemetry-exporter-otlp-common, msal, microsoft-agents-hosting-core, mcp, google-api-core, foundry-local-sdk, boto3, azure-functions-durable, agent-framework-tools, agent-framework-redis, agent-framework-purview, agent-framework-orchestrations, agent-framework-openai, agent-framework-ollama, agent-framework-monty, agent-framework-mistral, agent-framework-hyperlight, agent-framework-github-copilot, agent-framework-devui, agent-framework-azure-cosmos, agent-framework-azure-ai-search, agent-framework-anthropic, agent-framework-ag-ui, opentelemetry-instrumentation-psycopg2, opentelemetry-instrumentation-openai-agents-v2, opentelemetry-instrumentation-flask, opentelemetry-instrumentation-fastapi, opentelemetry-instrumentation-django, opentelemetry-exporter-otlp-proto-http, openai-agents, msal-extensions, microsoft-agents-copilotstudio-client, mem0ai, google-genai, claude-agent-sdk, agent-framework-foundry-local, agent-framework-declarative, agent-framework-bedrock, a2a-sdk, openai-chatkit, azure-identity, agent-framework-mem0, agent-framework-gemini, agent-framework-copilotstudio, agent-framework-claude, agent-framework-a2a, durabletask-azuremanaged, azure-monitor-opentelemetry-exporter, azure-ai-projects, agent-framework-chatkit, microsoft-opentelemetry, agent-framework-foundry, agent-framework-durabletask, azure-ai-agentserver-core, agent-framework-azurefunctions, agent-framework-azure-contentunderstanding, azure-ai-agentserver-responses, azure-ai-agentserver-invocations, agent-framework-foundry-hosting, agent-framework
+Successfully installed MarkupSafe-3.0.4 a2a-sdk-1.3.0 ag-ui-protocol-0.1.22 agent-framework-1.26.0 agent-framework-a2a-1.0.0b261112 agent-framework-ag-ui-1.8.1 agent-framework-anthropic-1.0.0b261112 agent-framework-azure-ai-search-1.0.0b261106 agent-framework-azure-contentunderstanding-1.0.0b261106 agent-framework-azure-cosmos-1.0.0b261112 agent-framework-azurefunctions-1.0.0b260922 agent-framework-bedrock-1.0.0b261112 agent-framework-chatkit-1.0.0b261106 agent-framework-claude-1.0.0b261112 agent-framework-copilotstudio-1.0.0b261106 agent-framework-core-1.26.0 agent-framework-declarative-1.5.1 agent-framework-devui-1.0.0b261112 agent-framework-durabletask-1.0.0 agent-framework-foundry-1.16.2 agent-framework-foundry-hosting-1.0.0b261112 agent-framework-foundry-local-1.0.0b261106 agent-framework-gemini-1.0.0b261112 agent-framework-github-copilot-2.2.0 agent-framework-hyperlight-1.0.0b261112 agent-framework-mem0-1.0.0b261112 agent-framework-mistral-1.0.0b261112 agent-framework-monty-1.0.0b261112 agent-framework-ollama-1.0.0b261112 agent-framework-openai-1.18.2 agent-framework-orchestrations-1.4.2 agent-framework-purview-1.0.0b261112 agent-framework-redis-1.0.0b261112 agent-framework-tools-1.0.0b261112 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiologic-0.17.1 aiosignal-1.4.0 annotated-doc-0.0.6 annotated-types-0.8.0 anthropic-2.8.0 anyio-4.16.0 asgiref-3.13.0 attrs-26.1.0 azure-ai-agentserver-core-2.3.0 azure-ai-agentserver-invocations-1.3.0 azure-ai-agentserver-responses-2.4.0 azure-ai-contentunderstanding-1.2.0b3 azure-ai-inference-1.0.0b9 azure-ai-projects-2.11.0 azure-core-1.41.0 azure-core-tracing-opentelemetry-1.0.0b13 azure-cosmos-4.17.1 azure-functions-1.26.0 azure-functions-durable-1.7.0 azure-identity-1.27.0 azure-monitor-opentelemetry-exporter-1.0.0b59 azure-search-documents-12.1.0 azure-storage-blob-12.31.1 backoff-2.2.1 boto3-1.44.3 botocore-1.44.3 certifi-2026.10.23 cffi-2.0.0 charset_normalizer-3.5.2 claude-agent-sdk-0.2.182 click-8.5.1 clr_loader-0.2.10 cryptography-50.0.2 culsans-0.11.0 distro-1.9.0 docstring-parser-0.18.0 durabletask-1.13.0 durabletask-azuremanaged-1.13.0 eval-type-backport-0.4.0 fastapi-0.162.7 filetype-1.2.0 flatbuffers-25.12.19 foundry-local-sdk-2.4.1 frozenlist-1.8.0 furl-2.1.4 github-copilot-sdk-1.0.34 google-api-core-2.44.0 google-auth-2.62.2 google-genai-3.3.0 googleapis-common-protos-1.76.0 griffelib-2.4.1 grpcio-1.85.1 h11-0.16.0 h2-4.4.1 hpack-4.2.0 httpcore-1.0.9 httpcore2-2.16.0 httptools-0.9.0 httpx-0.28.1 httpx2-2.16.0 hypercorn-0.18.0 hyperframe-6.1.0 hyperlight-sandbox-0.9.0 hyperlight-sandbox-backend-wasm-0.9.0 hyperlight-sandbox-python-guest-0.9.0 idna-3.20 isodate-0.7.2 jinja2-3.1.6 jiter-0.19.0 jmespath-1.1.0 json-rpc-1.15.0 jsonpath-ng-1.16.0 jsonpath-python-1.1.6 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 mcp-2.3.0 mcp-types-2.3.0 mem0ai-2.2.1 microsoft-agents-activity-1.9.0 microsoft-agents-copilotstudio-client-1.9.0 microsoft-agents-hosting-core-1.9.0 microsoft-opentelemetry-1.6.0 mistralai-3.7.0 ml-dtypes-0.6.0 msal-1.39.0 msal-extensions-1.3.1 msgspec-0.22.0 msrest-0.7.1 multidict-7.2.1 numpy-2.5.5 oauthlib-4.0.1 ollama-0.6.3 onnxruntime-1.31.0 onnxruntime-genai-core-0.19.0 openai-3.51.0 openai-agents-0.24.0 openai-chatkit-1.6.5 opentelemetry-api-1.45.2 opentelemetry-exporter-http-transport-0.66b2 opentelemetry-exporter-otlp-common-0.66b2 opentelemetry-exporter-otlp-proto-common-1.45.2 opentelemetry-exporter-otlp-proto-http-1.45.2 opentelemetry-instrumentation-0.66b2 opentelemetry-instrumentation-asgi-0.66b2 opentelemetry-instrumentation-dbapi-0.66b2 opentelemetry-instrumentation-django-0.66b2 opentelemetry-instrumentation-fastapi-0.66b2 opentelemetry-instrumentation-flask-0.66b2 opentelemetry-instrumentation-httpx-0.66b2 opentelemetry-instrumentation-logging-0.66b2 opentelemetry-instrumentation-openai-agents-v2-0.1.0 opentelemetry-instrumentation-openai-v2-2.3b0 opentelemetry-instrumentation-psycopg2-0.66b2 opentelemetry-instrumentation-requests-0.66b2 opentelemetry-instrumentation-urllib-0.66b2 opentelemetry-instrumentation-urllib3-0.66b2 opentelemetry-instrumentation-wsgi-0.66b2 opentelemetry-proto-1.45.2 opentelemetry-resource-detector-azure-0.3.0 opentelemetry-sdk-1.45.2 opentelemetry-semantic-conventions-0.66b2 opentelemetry-util-genai-0.3b0 opentelemetry-util-http-0.66b2 orderedmultidict-1.0.2 packaging-26.3 portalocker-4.4.2 posthog-7.91.1 powerfx-0.0.34 priority-2.0.0 propcache-0.5.4 proto-plus-1.29.0 protobuf-6.33.6 psutil-7.2.2 pyasn1-0.6.5 pyasn1-modules-0.4.2 pycparser-3.12 pydantic-2.14.3 pydantic-core-2.50.4 pydantic-monty-1.6.0 pydantic-monty-client-1.6.0 pydantic-monty-runtime-1.6.0 pyjwt-2.15.1 python-dateutil-2.9.0.post0 python-dotenv-1.2.4 python-multipart-0.0.33 python-ulid-4.1.0 pythonnet-3.0.5 pytz-2026.6 pyyaml-6.0.3 qdrant-client-1.20.0 redis-7.2.0 redisvl-0.32.0 referencing-0.37.0 regex-2026.11.15 requests-2.34.2 requests-oauthlib-2.0.0 rpds-py-2026.9.1 s3transfer-0.19.3 six-1.17.0 sniffio-1.3.1 sqlalchemy-2.1.8 sse-starlette-3.7.0 starlette-1.10.0 tenacity-9.1.4 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.5 urllib3-2.8.0 uvicorn-0.54.0 uvloop-0.23.0 watchfiles-1.3.0 websockets-16.1.1 werkzeug-3.1.9 wrapt-1.17.3 wsproto-1.3.2 yarl-1.25.1

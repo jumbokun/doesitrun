@@ -1,0 +1,45 @@
+[00:00.000 --> 00:08.000]  And so, my fellow Americans ask not what your country can do for you
+[00:08.000 --> 00:11.000]  ask what you can do for your country.
+ and so, my fellow americans ask not what your country can do for you ask what you can do for your country.
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/whisper
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.RpV0XF
++ timeout 1800 whisper tests/jfk.flac --model tiny.en --device cpu --fp16 False --output_dir /tmp/oracle.RpV0XF --output_format all
+
+  0%|                                              | 0.00/72.1M [00:00<?, ?iB/s]
+  8%|██▊                                  | 5.56M/72.1M [00:00<00:01, 58.3MiB/s]
+ 46%|█████████████████▍                    | 33.1M/72.1M [00:00<00:00, 193MiB/s]
+ 75%|████████████████████████████▍         | 54.0M/72.1M [00:00<00:00, 205MiB/s]
+100%|██████████████████████████████████████| 72.1M/72.1M [00:00<00:00, 190MiB/s]
++ test -s /tmp/oracle.RpV0XF/jfk.txt
++ test -s /tmp/oracle.RpV0XF/jfk.srt
++ test -s /tmp/oracle.RpV0XF/jfk.json
++ python - /tmp/oracle.RpV0XF/jfk.json
++ echo 'ORACLE PASS'

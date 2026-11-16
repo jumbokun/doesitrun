@@ -1,0 +1,144 @@
+[CodeStamp] warmup-window-page-switches-v4 sha256=86da9c563870 mtime=2026-11-16 07:58:09 switches=local_window:1,page_prefill:0 file=/root/.cache/huggingface/modules/transformers_modules/baidu/Unlimited-OCR-2/cb16b920ec2249c4b280f3aa67942e00b5099122/_sparse_base_impl.py
+[PageRope] mode=page2d head_dim=128 tok_theta=10000.0 fallback_1d_theta=500000.0 page_pairs=1 page_theta=256.0 page_mod=2 tok_freq_mode=resample page_span=0
+[PageRope] pairs page/1 tok/63 capacity page=3pages tok=27143tokens
+[PageRope main] mode=page2d head_dim=128 page_pairs=1 page_theta=256.0 tok_theta=10000.0 tok_freq_mode=resample page_mod=2 capacity page=3pages tok=27143tokens
+[DASH] differentiable DASH attention active (entmax router, block_size=32, local_window=128, index_dim=128, main_rope=page2d, idx_rope=page2d, page_bucket=True); first dash layer_idx=0
+[PageRope layer=0 row0] n_pages=1 page_mod=2 folded_pages=[0, 1] prompt(page0)[0-4#5] uniq_coords=1299/1299 p1:img#1293 txt#0 ok=False
+
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/Unlimited-OCR
+++ mktemp -d /tmp/oracle_XXXXXX
++ OUT=/tmp/oracle_I7Qpqo
++ python - /tmp/oracle_I7Qpqo
++ cat
++ timeout 6000 python /tmp/oracle_I7Qpqo/run.py /tmp/oracle_I7Qpqo
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- deepencoder.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- packing_patch.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- sparse_gather_triton.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- configuration_deepseek_v2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- _sparse_base_impl.py
+- packing_patch.py
+- sparse_gather_triton.py
+- configuration_deepseek_v2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- sparse_gather_e2e_triton.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- dash_attention.py
+- sparse_gather_e2e_triton.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- modeling_deepseekv2.py
+- _sparse_base_impl.py
+- dash_attention.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- conversation.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/baidu/Unlimited-OCR-2:
+- modeling_unlimitedocr.py
+- deepencoder.py
+- modeling_deepseekv2.py
+- conversation.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]
+Fetching 2 files:  50%|█████     | 1/2 [00:43<00:43, 43.21s/it]
+Fetching 2 files: 100%|██████████| 2/2 [00:49<00:00, 24.96s/it]
+Fetching 2 files: 100%|██████████| 2/2 [00:49<00:00, 24.96s/it]
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:11<00:11, 11.23s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 17.99s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:33<00:00, 16.98s/it]
+Traceback (most recent call last):
+  File "/tmp/oracle_I7Qpqo/run.py", line 8, in <module>
+    text = model.infer(tok, image_file=os.path.join(out, "page_1.png"),
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/baidu/Unlimited-OCR-2/cb16b920ec2249c4b280f3aa67942e00b5099122/modeling_unlimitedocr.py", line 1087, in infer
+    res = self._uocr_generate(
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/baidu/Unlimited-OCR-2/cb16b920ec2249c4b280f3aa67942e00b5099122/modeling_unlimitedocr.py", line 1162, in _uocr_generate
+    out = self.model(input_ids=ids, past_key_values=cache, use_cache=True,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/baidu/Unlimited-OCR-2/cb16b920ec2249c4b280f3aa67942e00b5099122/modeling_unlimitedocr.py", line 735, in forward
+    local_features_1 = sam_model(patches)
+                       ^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/baidu/Unlimited-OCR-2/cb16b920ec2249c4b280f3aa67942e00b5099122/deepencoder.py", line 697, in forward
+    x = self.patch_embed(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/baidu/Unlimited-OCR-2/cb16b920ec2249c4b280f3aa67942e00b5099122/deepencoder.py", line 997, in forward
+    x = self.proj(x)
+        ^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1778, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1789, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 565, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 560, in _conv_forward
+    return F.conv2d(
+           ^^^^^^^^^
+RuntimeError: Input type (c10::BFloat16) and bias type (float) should be the same

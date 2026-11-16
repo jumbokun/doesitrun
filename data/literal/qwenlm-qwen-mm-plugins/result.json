@@ -1,0 +1,17 @@
+{
+  "slug": "qwenlm-qwen-mm-plugins",
+  "repo": "QwenLM/Qwen-MM-Plugins",
+  "commit": "eea016154bf6e85a9a2d45331e7ae4e786a412c1",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:54:03",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 39
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "finished": "2026-11-16 07:54:53"
+}

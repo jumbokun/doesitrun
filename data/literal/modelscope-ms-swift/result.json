@@ -1,0 +1,17 @@
+{
+  "slug": "modelscope-ms-swift",
+  "repo": "modelscope/ms-swift",
+  "commit": "f63220b5026556b47c1e9835a8101e0ad7cd10f2",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:52:32",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 116
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 297
+  },
+  "finished": "2026-11-16 07:59:40"
+}

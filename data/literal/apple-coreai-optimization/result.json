@@ -1,0 +1,17 @@
+{
+  "slug": "apple-coreai-optimization",
+  "repo": "apple/coreai-optimization",
+  "commit": "e632f9fa4f0cdc6ea9ac0ea6f3bd13c34a45b62c",
+  "track": "cpu-gha",
+  "started": "2026-11-16 08:00:50",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 69
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 12
+  },
+  "finished": "2026-11-16 08:02:22"
+}

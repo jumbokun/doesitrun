@@ -1,0 +1,17 @@
+{
+  "slug": "awslabs-mcp",
+  "repo": "awslabs/mcp",
+  "commit": "2ed7f904ae146f5d8bc8e775cbdf69d95e8484ef",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:57:54",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 1
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "finished": "2026-11-16 07:58:10"
+}

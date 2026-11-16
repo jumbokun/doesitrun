@@ -1,0 +1,5 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Traceback (most recent call last):
+  File "/work/arxiv-latex-cleaner/setup.py", line 18, in <module>
+    from setuptools import setup
+ModuleNotFoundError: No module named 'setuptools'

@@ -1,0 +1,17 @@
+{
+  "slug": "modelscope-evalscope",
+  "repo": "modelscope/evalscope",
+  "commit": "95d873680be8023bf6630f7f12e9791f6fbbf4bf",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:53:09",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 51
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 45
+  },
+  "finished": "2026-11-16 07:54:56"
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "tencent-medicalnet",
+  "repo": "Tencent/MedicalNet",
+  "commit": "20f76aaab5cac8056eaf50b79ed97c09dbfbd3bd",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:54:30",
+  "prep_ok": true,
+  "setup": {
+    "ok": false,
+    "secs": 0
+  },
+  "oracle": {
+    "pass": false,
+    "skipped": "setup failed"
+  },
+  "finished": "2026-11-16 07:54:38"
+}

@@ -1,0 +1,73 @@
+aws-cli/2.40.3 Python/3.12.3 Linux/7.0.0-1017-azure source/x86_64.ubuntu.24
+service call ok
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/aws-cli
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.HuAoAA
++ export AWS_CONFIG_FILE=/tmp/oracle.HuAoAA/config AWS_SHARED_CREDENTIALS_FILE=/tmp/oracle.HuAoAA/creds
++ AWS_CONFIG_FILE=/tmp/oracle.HuAoAA/config
++ AWS_SHARED_CREDENTIALS_FILE=/tmp/oracle.HuAoAA/creds
++ export AWS_PAGER= AWS_EC2_METADATA_DISABLED=true
++ AWS_PAGER=
++ AWS_EC2_METADATA_DISABLED=true
++ unset AWS_PROFILE AWS_DEFAULT_REGION AWS_REGION AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
++ timeout 120 aws --version
++ tee /tmp/oracle.HuAoAA/ver.txt
++ grep -q '^aws-cli/2\.' /tmp/oracle.HuAoAA/ver.txt
++ grep -q source /tmp/oracle.HuAoAA/ver.txt
++ timeout 120 aws configure set region eu-west-1
++ timeout 120 aws configure set output json
++ timeout 120 aws configure set aws_access_key_id AKIDEXAMPLEORACLE
++ timeout 120 aws configure set aws_secret_access_key oracle-secret-not-real
+++ timeout 120 aws configure get region
++ '[' eu-west-1 = eu-west-1 ']'
++ grep -q eu-west-1 /tmp/oracle.HuAoAA/config
++ grep -q AKIDEXAMPLEORACLE /tmp/oracle.HuAoAA/creds
++ timeout 120 aws ec2 run-instances --generate-cli-skeleton
++ python3 -I - /tmp/oracle.HuAoAA/skel.json
++ timeout 120 aws s3api put-object --generate-cli-skeleton
++ grep -q '"Bucket"' /tmp/oracle.HuAoAA/s3.json
++ cat
++ STUB=421
++ python3 -I /tmp/oracle.HuAoAA/stub.py /tmp/oracle.HuAoAA/requests.log /tmp/oracle.HuAoAA/port
++ trap 'kill $STUB 2>/dev/null || true' EXIT
+++ seq 50
++ for i in $(seq 50)
++ '[' -s /tmp/oracle.HuAoAA/port ']'
++ sleep 0.2
++ for i in $(seq 50)
++ '[' -s /tmp/oracle.HuAoAA/port ']'
++ break
+++ cat /tmp/oracle.HuAoAA/port
++ PORT=40531
++ timeout 120 aws dynamodb list-tables --endpoint-url http://127.0.0.1:40531 --output json
++ timeout 120 aws dynamodb list-tables --endpoint-url http://127.0.0.1:40531 --query 'TableNames[1]' --output text
++ python3 -I - /tmp/oracle.HuAoAA/list.json /tmp/oracle.HuAoAA/q.txt /tmp/oracle.HuAoAA/requests.log
++ echo ORACLE PASS
++ kill 421

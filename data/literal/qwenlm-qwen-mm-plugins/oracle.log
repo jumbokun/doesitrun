@@ -1,0 +1,39 @@
+client ok
+total 320
+-rw-r--r-- 1 root root 147651 Nov 16 07:54 crop.png
+-rw-r--r-- 1 root root 173265 Nov 16 07:54 sample_page_1.png
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ cd /work/Qwen-MM-Plugins
+++ source .venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/Qwen-MM-Plugins/.venv
++++ VIRTUAL_ENV=/work/Qwen-MM-Plugins/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/Qwen-MM-Plugins/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/Qwen-MM-Plugins
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.XcW5ZS
++ cat
++ timeout 600 python3 /tmp/oracle.XcW5ZS/client.py /work/Qwen-MM-Plugins /tmp/oracle.XcW5ZS/out
++ ls -l /tmp/oracle.XcW5ZS/out
++ echo 'ORACLE PASS'

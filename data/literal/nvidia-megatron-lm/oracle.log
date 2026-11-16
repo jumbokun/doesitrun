@@ -1,0 +1,48 @@
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/Megatron-LM
+++ mktemp -d /tmp/oracle.XXXXXX
++ D=/tmp/oracle.NozgqV
++ mkdir -p /tmp/oracle.NozgqV/gpt2
++ for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
++ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/config.json https://huggingface.co/openai-community/gpt2/resolve/main/config.json
++ for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
++ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/tokenizer.json https://huggingface.co/openai-community/gpt2/resolve/main/tokenizer.json
++ for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
++ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/tokenizer_config.json https://huggingface.co/openai-community/gpt2/resolve/main/tokenizer_config.json
++ for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
++ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/vocab.json https://huggingface.co/openai-community/gpt2/resolve/main/vocab.json
++ for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
++ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/merges.txt https://huggingface.co/openai-community/gpt2/resolve/main/merges.txt
++ python -I - /tmp/oracle.NozgqV/data.jsonl
++ timeout 1200 python tools/preprocess_data.py --input /tmp/oracle.NozgqV/data.jsonl --output-prefix /tmp/oracle.NozgqV/out --tokenizer-type HuggingFaceTokenizer --tokenizer-model /tmp/oracle.NozgqV/gpt2 --workers 2 --append-eod
+Traceback (most recent call last):
+  File "/work/Megatron-LM/tools/preprocess_data.py", line 24, in <module>
+    from megatron.core.tokenizers.utils.build_tokenizer import build_tokenizer
+  File "/work/Megatron-LM/megatron/core/__init__.py", line 3, in <module>
+    import torch
+ModuleNotFoundError: No module named 'torch'

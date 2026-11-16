@@ -1,0 +1,300 @@
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 14489 files and directories currently installed.)
+Preparing to unpack .../00-apt-transport-https_2.8.4ubuntu0.1_all.deb ...
+Unpacking apt-transport-https (2.8.4ubuntu0.1) ...
+Selecting previously unselected package gpgconf.
+Preparing to unpack .../01-gpgconf_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking gpgconf (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package libksba8:amd64.
+Preparing to unpack .../02-libksba8_1.6.6-1build1_amd64.deb ...
+Unpacking libksba8:amd64 (1.6.6-1build1) ...
+Selecting previously unselected package dirmngr.
+Preparing to unpack .../03-dirmngr_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking dirmngr (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package gnupg-utils.
+Preparing to unpack .../04-gnupg-utils_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking gnupg-utils (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package gpg.
+Preparing to unpack .../05-gpg_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking gpg (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package pinentry-curses.
+Preparing to unpack .../06-pinentry-curses_1.2.1-3ubuntu5_amd64.deb ...
+Unpacking pinentry-curses (1.2.1-3ubuntu5) ...
+Selecting previously unselected package gpg-agent.
+Preparing to unpack .../07-gpg-agent_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking gpg-agent (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package gpgsm.
+Preparing to unpack .../08-gpgsm_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking gpgsm (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package keyboxd.
+Preparing to unpack .../09-keyboxd_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking keyboxd (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package gnupg.
+Preparing to unpack .../10-gnupg_2.4.4-2ubuntu17.6_all.deb ...
+Unpacking gnupg (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package gnupg-l10n.
+Preparing to unpack .../11-gnupg-l10n_2.4.4-2ubuntu17.6_all.deb ...
+Unpacking gnupg-l10n (2.4.4-2ubuntu17.6) ...
+Selecting previously unselected package gpg-wks-client.
+Preparing to unpack .../12-gpg-wks-client_2.4.4-2ubuntu17.6_amd64.deb ...
+Unpacking gpg-wks-client (2.4.4-2ubuntu17.6) ...
+Setting up libksba8:amd64 (1.6.6-1build1) ...
+Setting up pinentry-curses (1.2.1-3ubuntu5) ...
+Setting up apt-transport-https (2.8.4ubuntu0.1) ...
+Setting up gnupg-l10n (2.4.4-2ubuntu17.6) ...
+Setting up gpgconf (2.4.4-2ubuntu17.6) ...
+Setting up gpg (2.4.4-2ubuntu17.6) ...
+Setting up gnupg-utils (2.4.4-2ubuntu17.6) ...
+Setting up gpg-agent (2.4.4-2ubuntu17.6) ...
+Setting up gpgsm (2.4.4-2ubuntu17.6) ...
+Setting up dirmngr (2.4.4-2ubuntu17.6) ...
+Setting up keyboxd (2.4.4-2ubuntu17.6) ...
+Setting up gnupg (2.4.4-2ubuntu17.6) ...
+Setting up gpg-wks-client (2.4.4-2ubuntu17.6) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.12) ...
+Get:1 https://deb.nodesource.com/node_26.x nodistro InRelease [12.1 kB]
+Get:2 https://deb.nodesource.com/node_26.x nodistro/main amd64 Packages [5221 B]
+Hit:3 http://security.ubuntu.com/ubuntu noble-security InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:5 http://archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease
+Fetched 17.4 kB in 1s (29.2 kB/s)
+Reading package lists...
+Building dependency tree...
+Reading state information...
+All packages are up to date.
+[1;34m2026-11-16 07:47:50 - Repository configured successfully.[0m
+[38;5;79m2026-11-16 07:47:50 - To install Node.js, run: apt install nodejs -y[0m
+[38;5;79m2026-11-16 07:47:50 - You can use N|solid Runtime as a node.js alternative[0m
+[1;32m2026-11-16 07:47:50 - To install N|solid Runtime, run: apt install nsolid -y 
+[0m
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  nodejs
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 42.3 MB of archives.
+After this operation, 290 MB of additional disk space will be used.
+Get:1 https://deb.nodesource.com/node_26.x nodistro/main amd64 nodejs amd64 26.13.1-1nodesource1 [42.3 MB]
+Fetched 42.3 MB in 1s (61.5 MB/s)
+Selecting previously unselected package nodejs.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 14687 files and directories currently installed.)
+Preparing to unpack .../nodejs_26.13.1-1nodesource1_amd64.deb ...
+Unpacking nodejs (26.13.1-1nodesource1) ...
+Setting up nodejs (26.13.1-1nodesource1) ...
+Setting up...
+
+ █▀█ █▀▀ █▀▀ █▄ █ ▀█▀ █▀   █▀▀ █  █
+ █▀█ █▄█ ██▄ █ ▀█  █  ▄█   █▄▄ █▄ █
+
+ Give your coding agent the power to build ADK projects.
+
+ 1. Authentication
+ ─────────────────
+
+  Not authenticated. Run 'agents-cli login -i' to sign in with Google Cloud or a Gemini API key.
+
+ 2. CLI Installation
+ ───────────────────
+
+  ▸ uv tool install google-agents-cli
+
+ 3. Skills Installation
+ ──────────────────────
+
+  ▸ npx -y skills@1.5.9 add https://github.com/google/agents-cli -y -g
+
+[38;5;250m███████╗██╗  ██╗██╗██╗     ██╗     ███████╗[0m
+[38;5;248m██╔════╝██║ ██╔╝██║██║     ██║     ██╔════╝[0m
+[38;5;245m███████╗█████╔╝ ██║██║     ██║     ███████╗[0m
+[38;5;243m╚════██║██╔═██╗ ██║██║     ██║     ╚════██║[0m
+[38;5;240m███████║██║  ██╗██║███████╗███████╗███████║[0m
+[38;5;238m╚══════╝╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝[0m
+
+┌   skills 
+│
+│  Tip: use the --yes (-y) and --global (-g) flags to install without prompts.
+[?25l│
+◇  Source: https://github.com/google/agents-cli.git
+[?25h[?25l│
+◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository.[999D[J◇  Repository cloned
+[?25h[?25l│
+[999D[J◇  Found 7 skills
+[?25h│
+●  Installing all 7 skills
+[?25l│
+[999D[J◇  56 agents
+[?25h│
+●  Installing to all agents
+
+│
+◇  Installation Summary ────────────────────────────────────────────────────╮
+│                                                                           │
+│  ~/.agents/skills/google-agents-cli-adk-code                              │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more             │
+│    symlink → AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                           │
+│  ~/.agents/skills/google-agents-cli-deploy                                │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more             │
+│    symlink → AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                           │
+│  ~/.agents/skills/google-agents-cli-eval                                  │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more             │
+│    symlink → AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                           │
+│  ~/.agents/skills/google-agents-cli-observability                         │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more             │
+│    symlink → AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                           │
+│  ~/.agents/skills/google-agents-cli-publish                               │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more             │
+│    symlink → AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                           │
+│  ~/.agents/skills/google-agents-cli-scaffold                              │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more             │
+│    symlink → AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                           │
+│  ~/.agents/skills/google-agents-cli-workflow                              │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more             │
+│    symlink → AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                           │
+├───────────────────────────────────────────────────────────────────────────╯
+│
+◇  Security Risk Assessments ──────────────────────────────────────────────────────────╮
+│                                                                                      │
+│                                   Gen               Socket            Snyk           │
+│  google-agents-cli-adk-code       Safe              0 alerts          Low Risk       │
+│  google-agents-cli-deploy         Safe              0 alerts          Low Risk       │
+│  google-agents-cli-eval           Safe              0 alerts          Critical Risk  │
+│  google-agents-cli-observability  Safe              0 alerts          Med Risk       │
+│  google-agents-cli-publish        Safe              0 alerts          Low Risk       │
+│  google-agents-cli-scaffold       Safe              0 alerts          Low Risk       │
+│  google-agents-cli-workflow       Safe              0 alerts          Low Risk       │
+│                                                                                      │
+│  Details: https://skills.sh/google/agents-cli                                        │
+│                                                                                      │
+├──────────────────────────────────────────────────────────────────────────────────────╯
+[?25l│
+[999D[J◒  Installing skills[999D[J◐  Installing skills[999D[J◓  Installing skills[999D[J◑  Installing skills[999D[J◒  Installing skills[999D[J◐  Installing skills[999D[J◓  Installing skills[999D[J◑  Installing skills[999D[J◒  Installing skills.[999D[J◇  Installation complete
+[?25h
+│
+◇  Installed 7 skills ───────────────────────────────────────────────────────╮
+│                                                                            │
+│  ✓ ~/.agents/skills/google-agents-cli-adk-code                             │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more              │
+│    symlinked: AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│  ✓ ~/.agents/skills/google-agents-cli-deploy                               │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more              │
+│    symlinked: AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│  ✓ ~/.agents/skills/google-agents-cli-eval                                 │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more              │
+│    symlinked: AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│  ✓ ~/.agents/skills/google-agents-cli-observability                        │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more              │
+│    symlinked: AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│  ✓ ~/.agents/skills/google-agents-cli-publish                              │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more              │
+│    symlinked: AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│  ✓ ~/.agents/skills/google-agents-cli-scaffold                             │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more              │
+│    symlinked: AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│  ✓ ~/.agents/skills/google-agents-cli-workflow                             │
+│    universal: Amp, Antigravity, Cline, Codex, Cursor +11 more              │
+│    symlinked: AiderDesk, Augment, IBM Bob, Claude Code, OpenClaw +35 more  │
+│                                                                            │
+├────────────────────────────────────────────────────────────────────────────╯
+
+│
+└  Done!  Review skills before use; they run with full agent permissions.
+
+
+ 4. Summary
+ ──────────
+
+  Auth:   Not authenticated
+  CLI:    agents-cli installed
+  Skills: Installed
+  Scope:  global
+
+  Done.
+
+  Coding agent? Read /root/.agents/skills/google-agents-cli-workflow/SKILL.md now.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+debconf: delaying package configuration, since apt-utils is not installed
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+debconf: delaying package configuration, since apt-utils is not installed
+Downloading pydantic-core (2.2MiB)
+Downloading pygments (1.2MiB)
+Downloading google-cloud-aiplatform (9.0MiB)
+Downloading grpcio (7.0MiB)
+Downloading numpy (15.0MiB)
+Downloading cryptography (4.5MiB)
+Downloading google-genai (1.2MiB)
+Downloading pandas (11.5MiB)
+Downloading google-agents-cli (1.6MiB)
+ Downloaded pygments
+ Downloaded google-genai
+ Downloaded google-agents-cli
+ Downloaded pydantic-core
+ Downloaded cryptography
+ Downloaded grpcio
+ Downloaded google-cloud-aiplatform
+ Downloaded numpy
+ Downloaded pandas
+Installed 76 packages in 93ms
+Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
+Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
+Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
+Authentication failed using Compute Engine authentication due to unavailable metadata server.
+Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
+Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
+Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
+Authentication failed using Compute Engine authentication due to unavailable metadata server.

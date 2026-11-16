@@ -1,0 +1,17 @@
+{
+  "slug": "google-adk-recipes",
+  "repo": "google/adk-recipes",
+  "commit": "e05958ea5c6577c84e04c0f5063fe1e8544f5b00",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:29",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 1
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 5
+  },
+  "finished": "2026-11-16 07:48:54"
+}

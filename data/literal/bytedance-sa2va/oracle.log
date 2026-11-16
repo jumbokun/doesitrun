@@ -1,0 +1,121 @@
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- configuration_internlm2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- configuration_phi3.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- configuration_intern_vit.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- configuration_sa2va_chat.py
+- configuration_internlm2.py
+- configuration_phi3.py
+- configuration_intern_vit.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- modeling_phi3.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- flash_attention.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- sam2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- templates.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- modeling_intern_vit.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- modeling_internlm2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+A new version of the following files was downloaded from https://huggingface.co/ByteDance/Sa2VA-1B:
+- modeling_sa2va_chat.py
+- modeling_phi3.py
+- flash_attention.py
+- sam2.py
+- templates.py
+- modeling_intern_vit.py
+- modeling_internlm2.py
+. Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+/tmp/sa2va_env/lib/python3.11/site-packages/timm/models/layers/__init__.py:48: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+`torch_dtype` is deprecated! Use `dtype` instead!
+Traceback (most recent call last):
+  File "/work/Sa2VA/projects/sa2va/demo/demo.py", line 81, in <module>
+    model = AutoModelForCausalLM.from_pretrained(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/models/auto/auto_factory.py", line 597, in from_pretrained
+    return model_class.from_pretrained(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 277, in _wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 4971, in from_pretrained
+    model = cls(config, *model_args, **model_kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.cache/huggingface/modules/transformers_modules/ByteDance/Sa2VA_hyphen_1B/82faf06c93f6ce3fdc0ad3d45b57fd52c463daeb/modeling_sa2va_chat.py", line 133, in __init__
+    self.language_model = Qwen2ForCausalLM(config.llm_config)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/models/qwen2/modeling_qwen2.py", line 409, in __init__
+    super().__init__(config)
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2076, in __init__
+    self.config._attn_implementation_internal = self._check_and_adjust_attn_implementation(
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2686, in _check_and_adjust_attn_implementation
+    applicable_attn_implementation = self.get_correct_attn_implementation(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2714, in get_correct_attn_implementation
+    self._flash_attn_2_can_dispatch(is_init_check)
+  File "/tmp/sa2va_env/lib/python3.11/site-packages/transformers/modeling_utils.py", line 2432, in _flash_attn_2_can_dispatch
+    raise ValueError(
+ValueError: FlashAttention2 has been toggled on, but it cannot be used due to the following error: Flash Attention 2 is not available on CPU. Please make sure torch can access a CUDA device.
++ set -e
++ source /work/env.sh
+++ set -e
+++ cd /work/Sa2VA
+++ source projects/sa2va/.venv/bin/activate
++++ '[' -n x ']'
++++ '[' projects/sa2va/.venv/bin/activate = /oracle/bytedance-sa2va.sh ']'
++++ '[' false = true ']'
++++ deactivate nondestructive
++++ unset -f pydoc
++++ '[' -z '' ']'
++++ '[' -z '' ']'
++++ hash -r
++++ '[' -z '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ VIRTUAL_ENV=/tmp/sa2va_env
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV
++++ '[' false = true ']'
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/tmp/sa2va_env/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' x '!=' x ']'
+++++ basename /tmp/sa2va_env
++++ VIRTUAL_ENV_PROMPT=sa2va_env
++++ export VIRTUAL_ENV_PROMPT
++++ '[' -z '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(sa2va_env) '
++++ export PS1
++++ alias pydoc
++++ true
++++ hash -r
++ cd /work/Sa2VA
++ export PYTHONPATH=.
++ PYTHONPATH=.
+++ mktemp -d /tmp/sa2va_oracle.XXXXXX
++ O=/tmp/sa2va_oracle.2vCLTU
++ mkdir -p /tmp/sa2va_oracle.2vCLTU/frames /tmp/sa2va_oracle.2vCLTU/out
++ python - /tmp/sa2va_oracle.2vCLTU/frames
++ timeout 5400 python projects/sa2va/demo/demo.py /tmp/sa2va_oracle.2vCLTU/frames --model_path ByteDance/Sa2VA-1B --work-dir /tmp/sa2va_oracle.2vCLTU/out --text '<image>Please segment the man.'
++ tee /tmp/sa2va_oracle.2vCLTU/log.txt
++ grep -q 'The output is:' /tmp/sa2va_oracle.2vCLTU/log.txt

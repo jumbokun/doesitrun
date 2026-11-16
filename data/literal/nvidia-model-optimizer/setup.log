@@ -1,0 +1,300 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 21.7 MB/s eta 0:00:00
+Downloading shibuya-2026.7.12-py3-none-any.whl (104 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.1/104.1 kB 76.6 MB/s eta 0:00:00
+Downloading sphinx-9.1.1-py3-none-any.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 251.3 MB/s eta 0:00:00
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 93.7 MB/s eta 0:00:00
+Downloading sphinx_argparse-0.6.1-py3-none-any.whl (18 kB)
+Downloading sphinx_copybutton-0.5.2-py3-none-any.whl (13 kB)
+Downloading sphinx_togglebutton-0.4.5-py3-none-any.whl (44 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.9/44.9 kB 27.7 MB/s eta 0:00:00
+Downloading sphinxext_rediraffe-0.3.0-py3-none-any.whl (7.2 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 304.1 MB/s eta 0:00:00
+Downloading torchvision-0.29.2-py3-none-manylinux_2_28_x86_64.whl (7.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.6/7.6 MB 177.9 MB/s eta 0:00:00
+Downloading triton-3.9.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (285.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 285.7/285.7 MB 4.6 MB/s eta 0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 23.4 MB/s eta 0:00:00
+Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+Downloading filelock-4.2.10-py3-none-any.whl (218 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 218.0/218.0 kB 91.3 MB/s eta 0:00:00
+Downloading nox-2026.10.20-py3-none-any.whl (99 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.1/99.1 kB 65.7 MB/s eta 0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 103.7 MB/s eta 0:00:00
+Downloading timm-1.0.31-py3-none-any.whl (2.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.8/2.8 MB 222.9 MB/s eta 0:00:00
+Downloading torch_geometric-2.8.1-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 248.1 MB/s eta 0:00:00
+Downloading uv-0.13.8-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.4/17.4 MB 274.3 MB/s eta 0:00:00
+Downloading accelerate-1.15.0-py3-none-any.whl (394 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 394.3/394.3 kB 75.8 MB/s eta 0:00:00
+Downloading alabaster-1.0.0-py3-none-any.whl (13 kB)
+Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 97.3 MB/s eta 0:00:00
+Downloading argcomplete-3.7.2-py3-none-any.whl (43 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.3/43.3 kB 30.7 MB/s eta 0:00:00
+Downloading ast_serialize-0.13.1-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 290.1 MB/s eta 0:00:00
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 48.1 MB/s eta 0:00:00
+Downloading babel-2.18.0-py3-none-any.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 313.5 MB/s eta 0:00:00
+Downloading cachetools-7.3.2-py3-none-any.whl (19 kB)
+Downloading cfgv-3.5.0-py2.py3-none-any.whl (7.4 kB)
+Downloading click-8.5.1-py3-none-any.whl (126 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 81.4 MB/s eta 0:00:00
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading colorlog-6.12.0-py3-none-any.whl (12 kB)
+Downloading cuda_pathfinder-1.9.0-py3-none-any.whl (63 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.4/63.4 kB 46.2 MB/s eta 0:00:00
+Downloading databricks_sdk-0.167.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 253.9 MB/s eta 0:00:00
+Downloading datasets-5.2.0-py3-none-any.whl (608 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 608.3/608.3 kB 236.4 MB/s eta 0:00:00
+Downloading dependency_groups-1.3.2-py3-none-any.whl (9.8 kB)
+Downloading diffusers-0.43.0-py3-none-any.whl (6.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.5/6.5 MB 172.5 MB/s eta 0:00:00
+Downloading docutils-0.22.4-py3-none-any.whl (633 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 633.2/633.2 kB 225.9 MB/s eta 0:00:00
+Downloading execnet-2.1.2-py3-none-any.whl (40 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.7/40.7 kB 27.1 MB/s eta 0:00:00
+Downloading fastapi-0.163.1-py3-none-any.whl (154 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 154.5/154.5 kB 105.3 MB/s eta 0:00:00
+Downloading gitpython-3.2.1-py3-none-any.whl (231 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 231.5/231.5 kB 144.6 MB/s eta 0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 53.3 MB/s eta 0:00:00
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 51.7 MB/s eta 0:00:00
+Downloading huggingface_hub-2.4.0-py3-none-any.whl (857 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 857.0/857.0 kB 243.1 MB/s eta 0:00:00
+Downloading humanize-4.17.0-py3-none-any.whl (133 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.7/133.7 kB 84.4 MB/s eta 0:00:00
+Downloading hydra_core-1.3.8-py3-none-any.whl (168 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 168.9/168.9 kB 104.4 MB/s eta 0:00:00
+Downloading omegaconf-2.3.1-py3-none-any.whl (79 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 kB 58.6 MB/s eta 0:00:00
+Downloading identify-2.6.20-py2.py3-none-any.whl (99 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.5/99.5 kB 71.8 MB/s eta 0:00:00
+Downloading imagesize-2.0.1-py3-none-any.whl (14 kB)
+Downloading importlib_metadata-10.2.0-py3-none-any.whl (34 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading librt-0.16.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (531 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 532.0/532.0 kB 123.1 MB/s eta 0:00:00
+Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 203.7 MB/s eta 0:00:00
+Downloading mypy_extensions-1.2.0-py3-none-any.whl (5.1 kB)
+Downloading nltk-3.10.4-py3-none-any.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 193.2 MB/s eta 0:00:00
+Downloading nodeenv-1.12.0-py3-none-any.whl (39 kB)
+Downloading nvidia_nvjitlink-13.5.37-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (46.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.6/46.6 MB 132.3 MB/s eta 0:00:00
+Downloading onnx-1.21.0-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (17.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.6/17.6 MB 211.9 MB/s eta 0:00:00
+Downloading ml_dtypes-0.6.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (409 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 409.9/409.9 kB 144.3 MB/s eta 0:00:00
+Downloading onnx_graphsurgeon-0.6.1-py2.py3-none-any.whl (59 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.3/59.3 kB 36.9 MB/s eta 0:00:00
+Downloading onnxconverter_common-1.16.0-py2.py3-none-any.whl (89 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.5/89.5 kB 61.7 MB/s eta 0:00:00
+Downloading onnxruntime_gpu-1.30.0-cp312-cp312-manylinux_2_28_x86_64.whl (246.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 246.7/246.7 MB 5.4 MB/s eta 0:00:00
+Downloading onnxslim-0.1.99-py3-none-any.whl (248 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 248.6/248.6 kB 1.5 MB/s eta 0:00:00
+Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.3/60.3 kB 365.4 kB/s eta 0:00:00
+Downloading opentelemetry_proto-1.45.2-py3-none-any.whl (72 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 72.5/72.5 kB 455.9 kB/s eta 0:00:00
+Downloading opentelemetry_sdk-1.45.2-py3-none-any.whl (141 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 141.8/141.8 kB 892.8 kB/s eta 0:00:00
+Downloading opentelemetry_semantic_conventions-0.66b2-py3-none-any.whl (206 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 206.3/206.3 kB 1.7 MB/s eta 0:00:00
+Downloading pathspec-1.1.1-py3-none-any.whl (57 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.3/57.3 kB 310.8 kB/s eta 0:00:00
+Downloading peft-0.21.3-py3-none-any.whl (835 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 835.4/835.4 kB 23.4 MB/s eta 0:00:00
+Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 242.3 MB/s eta 0:00:00
+Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading polygraphy-0.53.6-py3-none-any.whl (485 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 485.4/485.4 kB 198.9 MB/s eta 0:00:00
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 179.1 MB/s eta 0:00:00
+Downloading pydantic_settings-2.16.3-py3-none-any.whl (82 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 82.7/82.7 kB 65.0 MB/s eta 0:00:00
+Downloading python_discovery-1.9.5-py3-none-any.whl (44 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.4/44.4 kB 32.4 MB/s eta 0:00:00
+Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
+Downloading python_multipart-0.0.33-py3-none-any.whl (32 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 57.2 MB/s eta 0:00:00
+Downloading roman_numerals-4.1.0-py3-none-any.whl (7.7 kB)
+Downloading sentencepiece-0.2.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 200.3 MB/s eta 0:00:00
+Downloading snowballstemmer-3.1.1-py3-none-any.whl (104 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 104.2/104.2 kB 78.3 MB/s eta 0:00:00
+Downloading sphinxcontrib_applehelp-2.0.0-py3-none-any.whl (119 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.3/119.3 kB 88.7 MB/s eta 0:00:00
+Downloading sphinxcontrib_devhelp-2.0.0-py3-none-any.whl (82 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 82.5/82.5 kB 64.4 MB/s eta 0:00:00
+Downloading sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl (98 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.7/98.7 kB 71.8 MB/s eta 0:00:00
+Downloading sphinxcontrib_jsmath-2.0.0-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.1/78.1 kB 60.4 MB/s eta 0:00:00
+Downloading sphinxcontrib_qthelp-2.0.0-py3-none-any.whl (88 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.7/88.7 kB 64.5 MB/s eta 0:00:00
+Downloading sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl (92 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.1/92.1 kB 67.2 MB/s eta 0:00:00
+Downloading sqlparse-0.6.1-py3-none-any.whl (51 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 51.2/51.2 kB 36.5 MB/s eta 0:00:00
+Downloading starlette-1.10.0-py3-none-any.whl (80 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.6/80.6 kB 57.4 MB/s eta 0:00:00
+Downloading stevedore-5.10.0-py3-none-any.whl (56 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.8/56.8 kB 41.4 MB/s eta 0:00:00
+Downloading transformers-5.18.0-py3-none-any.whl (12.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.6/12.6 MB 196.7 MB/s eta 0:00:00
+Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.4/87.4 kB 61.4 MB/s eta 0:00:00
+Downloading virtualenv-21.15.6-py3-none-any.whl (5.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.7/5.7 MB 308.0 MB/s eta 0:00:00
+Downloading watchfiles-1.3.0-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (458 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 458.4/458.4 kB 186.2 MB/s eta 0:00:00
+Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (226 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.3/226.3 kB 132.3 MB/s eta 0:00:00
+Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 293.7 MB/s eta 0:00:00
+Downloading cupy_cuda13x-14.2.0-cp312-cp312-manylinux2014_x86_64.whl (69.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.4/69.4 MB 106.8 MB/s eta 0:00:00
+Downloading fire-0.7.1-py3-none-any.whl (115 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 115.9/115.9 kB 71.8 MB/s eta 0:00:00
+Downloading immutabledict-4.3.1-py3-none-any.whl (5.0 kB)
+Downloading lief-1.0.0-cp312-abi3-manylinux_2_28_x86_64.whl (3.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.7/3.7 MB 162.2 MB/s eta 0:00:00
+Downloading lru_dict-1.4.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (31 kB)
+Downloading nvidia_cuda_cccl-13.3.5.0.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 MB 194.1 MB/s eta 0:00:00
+Downloading onnxscript-0.7.2-py3-none-any.whl (754 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 754.2/754.2 kB 240.0 MB/s eta 0:00:00
+Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 291.2 MB/s eta 0:00:00
+Downloading pygments_styles-0.3.0-py3-none-any.whl (36 kB)
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.4/126.4 kB 80.8 MB/s eta 0:00:00
+Downloading tiktoken-0.14.0-cp312-cp312-manylinux_2_28_x86_64.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 271.0 MB/s eta 0:00:00
+Downloading typeguard-4.6.0-py3-none-any.whl (36 kB)
+Using cached wheel-0.48.0-py3-none-any.whl (33 kB)
+Downloading wonderwords-3.0.1-py3-none-any.whl (51 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 51.7/51.7 kB 35.6 MB/s eta 0:00:00
+Downloading xxhash-4.1.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (472 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 472.2/472.2 kB 174.9 MB/s eta 0:00:00
+Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Downloading annotated_doc-0.0.6-py3-none-any.whl (5.3 kB)
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 90.9 MB/s eta 0:00:00
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 147.8 MB/s eta 0:00:00
+Downloading dill-0.4.1-py3-none-any.whl (120 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 120.0/120.0 kB 80.3 MB/s eta 0:00:00
+Downloading distlib-0.4.4-py2.py3-none-any.whl (472 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 472.1/472.1 kB 196.3 MB/s eta 0:00:00
+Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 153.1 MB/s eta 0:00:00
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 47.3 MB/s eta 0:00:00
+Downloading google_auth-2.62.2-py3-none-any.whl (270 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 270.1/270.1 kB 151.4 MB/s eta 0:00:00
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading hf_xet-1.8.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 270.1 MB/s eta 0:00:00
+Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 69.6 MB/s eta 0:00:00
+Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.1/85.1 kB 62.1 MB/s eta 0:00:00
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 45.8 MB/s eta 0:00:00
+Downloading lazy_importer-0.1.0-py3-none-any.whl (12 kB)
+Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (516 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.8/516.8 kB 203.3 MB/s eta 0:00:00
+Downloading multiprocess-0.70.19-py312-none-any.whl (150 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 150.3/150.3 kB 98.4 MB/s eta 0:00:00
+Downloading onnx_ir-1.1.0-py3-none-any.whl (192 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 192.2/192.2 kB 127.0 MB/s eta 0:00:00
+Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 148.4 MB/s eta 0:00:00
+Downloading pyarrow-26.0.1-cp312-cp312-manylinux_2_28_x86_64.whl (55.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.0/55.0 MB 154.2 MB/s eta 0:00:00
+Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 62.3 MB/s eta 0:00:00
+Downloading tokenizers-0.23.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 271.7 MB/s eta 0:00:00
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 90.1 MB/s eta 0:00:00
+Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 82.2 MB/s eta 0:00:00
+Downloading zipp-4.1.2-py3-none-any.whl (10 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading einops-0.8.2-py3-none-any.whl (65 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.6/65.6 kB 47.8 MB/s eta 0:00:00
+Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Downloading hjson-3.1.0-py3-none-any.whl (54 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.0/54.0 kB 40.5 MB/s eta 0:00:00
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 156.6 MB/s eta 0:00:00
+Downloading mako-1.4.3-py3-none-any.whl (80 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 57.1 MB/s eta 0:00:00
+Downloading msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (475 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 475.7/475.7 kB 127.1 MB/s eta 0:00:00
+Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Downloading pybind11-3.1.0-py3-none-any.whl (319 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 319.4/319.4 kB 168.5 MB/s eta 0:00:00
+Downloading termcolor-3.3.0-py3-none-any.whl (7.7 kB)
+Downloading typer-0.29.1-py3-none-any.whl (121 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 121.1/121.1 kB 87.0 MB/s eta 0:00:00
+Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 299.4 MB/s eta 0:00:00
+Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 114.8 MB/s eta 0:00:00
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 164.4 MB/s eta 0:00:00
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.8/221.8 kB 137.2 MB/s eta 0:00:00
+Downloading pyasn1-0.6.5-py3-none-any.whl (84 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.8/84.8 kB 60.0 MB/s eta 0:00:00
+Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 41.3 MB/s eta 0:00:00
+Checking if build backend supports build_editable: started
+Checking if build backend supports build_editable: finished with status 'done'
+Building wheels for collected packages: nvidia-modelopt, deepspeed, antlr4-python3-runtime, cppimport
+  Building editable for nvidia-modelopt (pyproject.toml): started
+  Building editable for nvidia-modelopt (pyproject.toml): finished with status 'done'
+  Created wheel for nvidia-modelopt: filename=nvidia_modelopt-0.50.0.dev4+g6c8540991-0.editable-py3-none-any.whl size=7255 sha256=ec5896c6c06cb6b54683d1ea8f9124f19f65e80a2a25e2e8c9c2d7789181f421
+  Stored in directory: /tmp/pip-ephem-wheel-cache-shou46gr/wheels/58/dc/31/8e46ca78ddc6893dba6e9cc62ec2a373b45ac8d83b3dadab5f
+  Building wheel for deepspeed (pyproject.toml): started
+  Building wheel for deepspeed (pyproject.toml): finished with status 'done'
+  Created wheel for deepspeed: filename=deepspeed-0.20.0-py3-none-any.whl size=2258407 sha256=645a1ef65a3e0b889f4f71af2caac76689adf99f5741c9b8d1d8c469cb1cc055
+  Stored in directory: /root/.cache/pip/wheels/ba/d9/55/1024d19de4418804974470c62324e4d0285e95b637b8c2278f
+  Building wheel for antlr4-python3-runtime (pyproject.toml): started
+  Building wheel for antlr4-python3-runtime (pyproject.toml): finished with status 'done'
+  Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.9.3-py3-none-any.whl size=144590 sha256=a481bd17e2a0a2456aa83eae6cc578fc5dfc940aa5a9661652018d47dc666b34
+  Stored in directory: /root/.cache/pip/wheels/1f/be/48/13754633f1d08d1fbfc60d5e80ae1e5d7329500477685286cd
+  Building wheel for cppimport (pyproject.toml): started
+  Building wheel for cppimport (pyproject.toml): finished with status 'done'
+  Created wheel for cppimport: filename=cppimport-26.4.17-py3-none-any.whl size=18786 sha256=283066ece7f2426625890c3c92a65bfe656d397120fcf92079fcd449bde61f49
+  Stored in directory: /root/.cache/pip/wheels/61/04/ef/0e7d3685e15c25df1f461860424fb12c439c0b93007b3e6ae3
+Successfully built nvidia-modelopt deepspeed antlr4-python3-runtime cppimport
+Installing collected packages: py-cpuinfo, nvidia-ml-py, nvidia-cusparselt-cu13, mpmath, hjson, flatbuffers, distlib, cuda-toolkit, antlr4-python3-runtime, zipp, xxhash, wonderwords, websockets, uv, urllib3, tzdata, typing-extensions, truststore, triton, tqdm, termcolor, sympy, stevedore, sqlparse, sphinxcontrib-serializinghtml, sphinxcontrib-qthelp, sphinxcontrib-jsmath, sphinxcontrib-htmlhelp, sphinxcontrib-devhelp, sphinxcontrib-applehelp, snowballstemmer, smmap, shellingham, setuptools, sentencepiece, safetensors, ruff, roman-numerals, regex, PyYAML, python-multipart, python-dotenv, pyparsing, pygments, pycparser, pybind11, pyasn1, pyarrow, pulp, psutil, protobuf, propcache, polygraphy, pluggy, platformdirs, pillow, pathspec, packaging, nvidia-nvtx, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, nvidia-cuda-cccl, numpy, nodeenv, ninja, networkx, mypy_extensions, multidict, msgpack, mdurl, MarkupSafe, lru-dict, lief, librt, lazy-importer, iniconfig, immutabledict, imagesize, idna, identify, humanize, hf-xet, h11, fsspec, frozenlist, filelock, execnet, einops, docutils, dill, defusedxml, cuda-pathfinder, coverage, colorlog, colorama, cloudpickle, click, charset_normalizer, cfgv, certifi, cachetools, babel, attrs, ast-serialize, argcomplete, annotated-types, annotated-doc, alabaster, aiohappyeyeballs, yarl, wheel, uvicorn, typing-inspection, typeguard, scipy, requests, python-discovery, python-dateutil, pytest, pygments-styles, pydantic-core, pyasn1-modules, opentelemetry-proto, opentelemetry-api, onnxruntime-gpu, omegaconf, nvidia-nvshmem-cu13, nvidia-cusparse, nvidia-cufft, nvidia-cublas, mypy, multiprocess, ml_dtypes, markdown-it-py, mako, joblib, jinja2, importlib_metadata, httpcore2, httpcore, gitdb, fire, dependency-groups, cupy-cuda13x, cuda-bindings, cffi, anyio, aiosignal, watchfiles, virtualenv, tiktoken, starlette, sphinx, rich, pytest-xdist, pytest-timeout, pytest-rerunfailures, pytest-instafail, pytest-cov, pydantic, pandas, opentelemetry-semantic-conventions, onnx, nvidia-cusolver, nvidia-cudnn-cu13, nltk, hydra-core, httpx2, httpx, gitpython, cryptography, cppimport, aiohttp, typer, torch-geometric, sphinxext-rediraffe, sphinx-togglebutton, sphinx-inline-tabs, sphinx-copybutton, sphinx-autobuild, sphinx-argparse, shibuya, pydantic-settings, pre-commit, opentelemetry-sdk, onnxslim, onnxconverter-common, onnx_ir, onnx-graphsurgeon, nox, huggingface_hub, google-auth, fastapi, bandit, torch, tokenizers, onnxscript, diffusers, datasets, databricks-sdk, autodoc_pydantic, transformers, torchvision, nvidia-modelopt, mlflow-skinny, deepspeed, accelerate, torchprofile, timm, peft
+Successfully installed MarkupSafe-3.0.4 PyYAML-6.0.3 accelerate-1.15.0 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 alabaster-1.0.0 annotated-doc-0.0.6 annotated-types-0.8.0 antlr4-python3-runtime-4.9.3 anyio-4.16.0 argcomplete-3.7.2 ast-serialize-0.13.1 attrs-26.1.0 autodoc_pydantic-2.2.0 babel-2.18.0 bandit-1.9.4 cachetools-7.3.2 certifi-2026.10.23 cffi-2.1.1 cfgv-3.5.0 charset_normalizer-3.5.2 click-8.5.1 cloudpickle-3.1.2 colorama-0.4.6 colorlog-6.12.0 coverage-7.17.3 cppimport-26.4.17 cryptography-50.0.2 cuda-bindings-13.5.0 cuda-pathfinder-1.9.0 cuda-toolkit-13.2.2 cupy-cuda13x-14.2.0 databricks-sdk-0.167.0 datasets-5.2.0 deepspeed-0.20.0 defusedxml-0.7.1 dependency-groups-1.3.2 diffusers-0.43.0 dill-0.4.1 distlib-0.4.4 docutils-0.22.4 einops-0.8.2 execnet-2.1.2 fastapi-0.163.1 filelock-4.2.10 fire-0.7.1 flatbuffers-25.12.19 frozenlist-1.8.0 fsspec-2026.9.0 gitdb-4.0.12 gitpython-3.2.1 google-auth-2.62.2 h11-0.16.0 hf-xet-1.8.0 hjson-3.1.0 httpcore-1.0.9 httpcore2-2.16.0 httpx-0.28.1 httpx2-2.16.0 huggingface_hub-2.4.0 humanize-4.17.0 hydra-core-1.3.8 identify-2.6.20 idna-3.20 imagesize-2.0.1 immutabledict-4.3.1 importlib_metadata-10.2.0 iniconfig-2.3.1 jinja2-3.1.6 joblib-1.6.0 lazy-importer-0.1.0 librt-0.16.0 lief-1.0.0 lru-dict-1.4.1 mako-1.4.3 markdown-it-py-4.3.0 mdurl-0.1.2 ml_dtypes-0.6.0 mlflow-skinny-3.18.0 mpmath-1.3.0 msgpack-1.2.4 multidict-7.2.1 multiprocess-0.70.19 mypy-2.4.0 mypy_extensions-1.2.0 networkx-3.7 ninja-1.13.2 nltk-3.10.4 nodeenv-1.12.0 nox-2026.10.20 numpy-2.5.5 nvidia-cublas-13.4.1.3 nvidia-cuda-cccl-13.3.5.0.6 nvidia-cuda-cupti-13.2.86 nvidia-cuda-nvrtc-13.2.86 nvidia-cuda-runtime-13.2.86 nvidia-cudnn-cu13-9.26.0.51 nvidia-cufft-12.2.0.57 nvidia-cufile-1.17.1.22 nvidia-cusolver-12.2.0.11 nvidia-cusparse-12.7.10.12 nvidia-cusparselt-cu13-0.8.1 nvidia-ml-py-13.615.71 nvidia-modelopt-0.50.0.dev4+g6c8540991 nvidia-nccl-cu13-2.30.7 nvidia-nvjitlink-13.5.37 nvidia-nvshmem-cu13-3.7.2 nvidia-nvtx-13.2.86 omegaconf-2.3.1 onnx-1.21.0 onnx-graphsurgeon-0.6.1 onnx_ir-1.1.0 onnxconverter-common-1.16.0 onnxruntime-gpu-1.30.0 onnxscript-0.7.2 onnxslim-0.1.99 opentelemetry-api-1.45.2 opentelemetry-proto-1.45.2 opentelemetry-sdk-1.45.2 opentelemetry-semantic-conventions-0.66b2 packaging-26.3 pandas-3.1.1 pathspec-1.1.1 peft-0.21.3 pillow-13.0.0 platformdirs-4.14.5 pluggy-1.7.0 polygraphy-0.53.6 pre-commit-4.7.0 propcache-0.5.4 protobuf-7.36.2 psutil-7.2.2 pulp-3.3.2 py-cpuinfo-9.0.0 pyarrow-26.0.1 pyasn1-0.6.5 pyasn1-modules-0.4.2 pybind11-3.1.0 pycparser-3.12 pydantic-2.14.3 pydantic-core-2.50.4 pydantic-settings-2.16.3 pygments-2.21.0 pygments-styles-0.3.0 pyparsing-3.3.3 pytest-9.2.0 pytest-cov-7.1.0 pytest-instafail-0.5.0 pytest-rerunfailures-16.7 pytest-timeout-2.4.0 pytest-xdist-3.8.0 python-dateutil-4.0.0 python-discovery-1.9.5 python-dotenv-1.2.4 python-multipart-0.0.33 regex-2026.11.15 requests-2.34.2 rich-15.0.0 roman-numerals-4.1.0 ruff-0.17.3 safetensors-0.8.0 scipy-1.18.1 sentencepiece-0.2.3 setuptools-84.2.1 shellingham-1.5.4 shibuya-2026.7.12 smmap-5.0.3 snowballstemmer-3.1.1 sphinx-9.1.1 sphinx-argparse-0.6.1 sphinx-autobuild-2025.8.25 sphinx-copybutton-0.5.2 sphinx-inline-tabs-2025.12.21.14 sphinx-togglebutton-0.4.5 sphinxcontrib-applehelp-2.0.0 sphinxcontrib-devhelp-2.0.0 sphinxcontrib-htmlhelp-2.1.0 sphinxcontrib-jsmath-2.0.0 sphinxcontrib-qthelp-2.0.0 sphinxcontrib-serializinghtml-2.0.0 sphinxext-rediraffe-0.3.0 sqlparse-0.6.1 starlette-1.10.0 stevedore-5.10.0 sympy-1.14.0 termcolor-3.3.0 tiktoken-0.14.0 timm-1.0.31 tokenizers-0.23.3 torch-2.15.0 torch-geometric-2.8.1 torchprofile-0.0.4 torchvision-0.29.2 tqdm-4.70.1 transformers-5.18.0 triton-3.9.0 truststore-0.10.5 typeguard-4.6.0 typer-0.29.1 typing-extensions-4.16.0 typing-inspection-0.4.5 tzdata-2026.6 urllib3-2.8.0 uv-0.13.8 uvicorn-0.54.0 virtualenv-21.15.6 watchfiles-1.3.0 websockets-17.4 wheel-0.48.0 wonderwords-3.0.1 xxhash-4.1.0 yarl-1.25.1 zipp-4.1.2

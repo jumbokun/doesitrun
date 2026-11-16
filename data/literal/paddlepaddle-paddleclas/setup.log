@@ -1,0 +1,234 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Using pip 24.0 from /work/.venv/lib/python3.12/site-packages/pip (python 3.12)
+Obtaining file:///work/PaddleClas
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting prettytable (from paddleclas==2.6.0)
+  Obtaining dependency information for prettytable from https://files.pythonhosted.org/packages/fe/be/2e6798ace5cc036f5d05d36b7b2fd85346f1a708c87060890b070d0ec607/prettytable-3.18.0-py3-none-any.whl.metadata
+  Downloading prettytable-3.18.0-py3-none-any.whl.metadata (37 kB)
+Collecting ujson (from paddleclas==2.6.0)
+  Obtaining dependency information for ujson from https://files.pythonhosted.org/packages/57/68/55905e7264c99b00af466accb4a61ce4a041af96ea7e881fa030ebb6fa06/ujson-6.1.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading ujson-6.1.0-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (10.0 kB)
+Collecting opencv-python<=4.6.0.66 (from paddleclas==2.6.0)
+  Obtaining dependency information for opencv-python<=4.6.0.66 from https://files.pythonhosted.org/packages/af/bf/8d189a5c43460f6b5c8eb81ead8732e94b9f73ef8d9abba9e8f5a61a6531/opencv_python-4.6.0.66-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata
+  Downloading opencv_python-4.6.0.66-cp36-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting pillow>=9.0.0 (from paddleclas==2.6.0)
+  Obtaining dependency information for pillow>=9.0.0 from https://files.pythonhosted.org/packages/e6/99/fdf65cc539e266ab93546c261bdf98411fe165c6e4e13f9dbf597097192b/pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting tqdm (from paddleclas==2.6.0)
+  Obtaining dependency information for tqdm from https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl.metadata
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 24.4 MB/s eta 0:00:00
+Collecting PyYAML>=5.1 (from paddleclas==2.6.0)
+  Obtaining dependency information for PyYAML>=5.1 from https://files.pythonhosted.org/packages/8b/9d/b3589d3877982d4f2329302ef98a8026e7f4443c765c46cfecc8858c6b4b/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting visualdl>=2.2.0 (from paddleclas==2.6.0)
+  Obtaining dependency information for visualdl>=2.2.0 from https://files.pythonhosted.org/packages/ea/b5/37726c750a4f4598660998327c3566b2d2ed5a1a5f44e9f0dde875602447/visualdl-2.5.3-py3-none-any.whl.metadata
+  Downloading visualdl-2.5.3-py3-none-any.whl.metadata (25 kB)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.10'): https://files.pythonhosted.org/packages/99/f1/c00d6be56e1a718a3068079e3ec8ce044d7179345280f6a3f5066068af0d/scipy-1.6.2.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.7,<3.10)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.10'): https://files.pythonhosted.org/packages/fe/fd/8704c7b7b34cdac850485e638346025ca57c5a859934b9aa1be5399b33b7/scipy-1.6.3.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.7,<3.10)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.10'): https://files.pythonhosted.org/packages/bb/bb/944f559d554df6c9adf037aa9fc982a9706ee0e96c0d5beac701cb158900/scipy-1.7.0.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.7,<3.10)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.10'): https://files.pythonhosted.org/packages/47/33/a24aec22b7be7fdb10ec117a95e1e4099890d8bbc6646902f443fc7719d1/scipy-1.7.1.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.7,<3.10)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.11'): https://files.pythonhosted.org/packages/0e/23/58c4f995475a2a97cb5f4a032aedaf881ad87cd976a7180c55118d105a1d/scipy-1.7.2.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.7,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.11'): https://files.pythonhosted.org/packages/61/67/1a654b96309c991762ee9bc39c363fc618076b155fe52d295211cf2536c7/scipy-1.7.3.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.7,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.11'): https://files.pythonhosted.org/packages/c0/ad/e3c052ed4e0027a8abef0a5e8441a044427d252d17d9aee06d56e62fc698/scipy-1.8.0rc1.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.11'): https://files.pythonhosted.org/packages/29/d2/151a54944b333e465f98804dced31dab1284f3c37b752b9cefa710b64681/scipy-1.8.0rc2.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.11'): https://files.pythonhosted.org/packages/e4/26/83dd1c6378513a6241d984bda9f08c512b6e35fff13fba3acc1b3c195f02/scipy-1.8.0rc3.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.11'): https://files.pythonhosted.org/packages/22/78/056cc43e7737811b6f50886788a940f852773dd9804f5365952805db9648/scipy-1.8.0rc4.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.11'): https://files.pythonhosted.org/packages/b4/a2/4faa34bf0cdbefd5c706625f1234987795f368eb4e97bde9d6f46860843e/scipy-1.8.0.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.11'): https://files.pythonhosted.org/packages/26/b5/9330f004b9a3b2b6a31f59f46f1617ce9ca15c0e7fe64288c20385a05c9d/scipy-1.8.1.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.12'): https://files.pythonhosted.org/packages/87/82/8b9bf8bb8030f1eef281ad2af87cc648e06e4a4974c2b9201a57d991b12c/scipy-1.9.0rc1.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.12)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.12'): https://files.pythonhosted.org/packages/5a/87/27f9ee75c32138d6eaabff2b91744c97a3fdbbbdd78948372dac93e0079f/scipy-1.9.0rc2.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.12)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.12'): https://files.pythonhosted.org/packages/57/72/484c38e5b814b48b41ac6432ef69077f2e7c8094925d3ce17bc3d61359b0/scipy-1.9.0rc3.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.12)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.12'): https://files.pythonhosted.org/packages/a8/e3/4ec401f609d34162b7023a09165da491630879e4cfa2336667fe2102cd06/scipy-1.9.0.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.12)
+  Link requires a different Python (3.12.3 not in: '>=3.8,<3.12'): https://files.pythonhosted.org/packages/db/af/16906139f52bc6866c43401869ce247662739ad71afa11c6f18505eb0546/scipy-1.9.1.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:>=3.8,<3.12)
+  Link requires a different Python (3.12.3 not in: '<3.12,>=3.8'): https://files.pythonhosted.org/packages/a2/ce/2592c3b550cf8f68879d4ff2159f3c689ee6f032f8fc9059022074f7bd75/scipy-1.10.0rc1.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:<3.12,>=3.8)
+  Link requires a different Python (3.12.3 not in: '<3.12,>=3.8'): https://files.pythonhosted.org/packages/6b/a3/7de758a32569e06877a6b298bdf7b529ce97a33c55deb2b1637b0162fd9d/scipy-1.10.0rc2.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:<3.12,>=3.8)
+  Link requires a different Python (3.12.3 not in: '<3.12,>=3.8'): https://files.pythonhosted.org/packages/d6/bd/2d13a273d95f7b7d9903c906c486040b0aebb85e008f93a5dd0891f21f1f/scipy-1.10.0.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:<3.12,>=3.8)
+  Link requires a different Python (3.12.3 not in: '<3.12,>=3.8'): https://files.pythonhosted.org/packages/84/a9/2bf119f3f9cff1f376f924e39cfae18dec92a1514784046d185731301281/scipy-1.10.1.tar.gz (from https://pypi.org/simple/scipy/) (requires-python:<3.12,>=3.8)
+Collecting scipy>=1.0.0 (from paddleclas==2.6.0)
+  Obtaining dependency information for scipy>=1.0.0 from https://files.pythonhosted.org/packages/df/64/ff35eb9e54894cf471ff4716abd3c81eb0a0626869217ce3e6ba4ccf17d7/scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.4/62.4 kB 25.6 MB/s eta 0:00:00
+Collecting scikit-learn>=0.21.0 (from paddleclas==2.6.0)
+  Obtaining dependency information for scikit-learn>=0.21.0 from https://files.pythonhosted.org/packages/8e/57/a50162f3d29feb979ab6347c6debda506dfb525bcff3c50dd17606651c7e/scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting gast==0.3.3 (from paddleclas==2.6.0)
+  Obtaining dependency information for gast==0.3.3 from https://files.pythonhosted.org/packages/d6/84/759f5dd23fec8ba71952d97bcc7e2c9d7d63bdc582421f3cd4be845f0c98/gast-0.3.3-py2.py3-none-any.whl.metadata
+  Downloading gast-0.3.3-py2.py3-none-any.whl.metadata (1.1 kB)
+Collecting faiss-cpu (from paddleclas==2.6.0)
+  Obtaining dependency information for faiss-cpu from https://files.pythonhosted.org/packages/19/a8/82737cf7c2171287ca38c9e0b07e62607c4ab1cbfaaec5f8919595ca44b5/faiss_cpu-1.16.0-cp310-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata
+  Downloading faiss_cpu-1.16.0-cp310-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (7.8 kB)
+Collecting easydict (from paddleclas==2.6.0)
+  Obtaining dependency information for easydict from https://files.pythonhosted.org/packages/42/ed/53e3d72924f49159deed93cba6be12ee94d4ddddc03f7c7118783a4e1409/easydict-1.14-py3-none-any.whl.metadata
+  Downloading easydict-1.14-py3-none-any.whl.metadata (2.9 kB)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.11'): https://files.pythonhosted.org/packages/3a/be/650f9c091ef71cb01d735775d554e068752d3ff63d7943b26316dc401749/numpy-1.21.2.zip (from https://pypi.org/simple/numpy/) (requires-python:>=3.7,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.11'): https://files.pythonhosted.org/packages/5f/d6/ad58ded26556eaeaa8c971e08b6466f17c4ac4d786cd3d800e26ce59cc01/numpy-1.21.3.zip (from https://pypi.org/simple/numpy/) (requires-python:>=3.7,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.11'): https://files.pythonhosted.org/packages/fb/48/b0708ebd7718a8933f0d3937513ef8ef2f4f04529f1f66ca86d873043921/numpy-1.21.4.zip (from https://pypi.org/simple/numpy/) (requires-python:>=3.7,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.11'): https://files.pythonhosted.org/packages/c2/a8/a924a09492bdfee8c2ec3094d0a13f2799800b4fdc9c890738aeeb12c72e/numpy-1.21.5.zip (from https://pypi.org/simple/numpy/) (requires-python:>=3.7,<3.11)
+  Link requires a different Python (3.12.3 not in: '>=3.7,<3.11'): https://files.pythonhosted.org/packages/45/b7/de7b8e67f2232c26af57c205aaad29fe17754f793404f59c8a730c7a191a/numpy-1.21.6.zip (from https://pypi.org/simple/numpy/) (requires-python:>=3.7,<3.11)
+Collecting numpy==1.24.4 (from paddleclas==2.6.0)
+  Downloading numpy-1.24.4.tar.gz (10.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.9/10.9 MB 113.7 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Running command pip subprocess to install build dependencies
+  Collecting setuptools==72.1.0
+    Downloading setuptools-72.1.0-py3-none-any.whl.metadata (6.6 kB)
+  Downloading setuptools-72.1.0-py3-none-any.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 45.9 MB/s eta 0:00:00
+  Installing collected packages: setuptools
+  Successfully installed setuptools-72.1.0
+  Running command Checking if build backend supports build_editable
+  Running command Getting requirements to build editable
+  running egg_info
+  creating paddleclas.egg-info
+  writing paddleclas.egg-info/PKG-INFO
+  writing dependency_links to paddleclas.egg-info/dependency_links.txt
+  writing entry points to paddleclas.egg-info/entry_points.txt
+  writing requirements to paddleclas.egg-info/requires.txt
+  writing top-level names to paddleclas.egg-info/top_level.txt
+  writing manifest file 'paddleclas.egg-info/SOURCES.txt'
+  reading manifest file 'paddleclas.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  adding license file 'LICENSE'
+  writing manifest file 'paddleclas.egg-info/SOURCES.txt'
+  Running command Preparing editable metadata (pyproject.toml)
+  running dist_info
+  creating /tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info
+  writing /tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/dependency_links.txt
+  writing entry points to /tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/entry_points.txt
+  writing requirements to /tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/requires.txt
+  writing top-level names to /tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  adding license file 'LICENSE'
+  writing manifest file '/tmp/pip-modern-metadata-o3uwf5yt/paddleclas.egg-info/SOURCES.txt'
+  creating '/tmp/pip-modern-metadata-o3uwf5yt/paddleclas-2.6.0.dist-info'
+  Running command pip subprocess to install build dependencies
+  Collecting setuptools==59.2.0
+    Downloading setuptools-59.2.0-py3-none-any.whl.metadata (5.0 kB)
+  Collecting wheel==0.37.0
+    Downloading wheel-0.37.0-py2.py3-none-any.whl.metadata (2.3 kB)
+  Collecting Cython<3.0,>=0.29.30
+    Downloading Cython-0.29.37-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (3.1 kB)
+  Downloading setuptools-59.2.0-py3-none-any.whl (952 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 952.0/952.0 kB 33.5 MB/s eta 0:00:00
+  Downloading wheel-0.37.0-py2.py3-none-any.whl (35 kB)
+  Downloading Cython-0.29.37-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 171.9 MB/s eta 0:00:00
+  Installing collected packages: wheel, setuptools, Cython
+  Successfully installed Cython-0.29.37 setuptools-59.2.0 wheel-0.37.0
+  Running command Getting requirements to build wheel
+ERROR: Exception:
+Traceback (most recent call last):
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/cli/base_command.py", line 180, in exc_logging_wrapper
+    status = run_func(*args)
+             ^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/cli/req_command.py", line 245, in wrapper
+    return func(self, options, args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/commands/install.py", line 377, in run
+    requirement_set = resolver.resolve(
+                      ^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/resolver.py", line 95, in resolve
+    result = self._result = resolver.resolve(
+                            ^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 546, in resolve
+    state = resolution.resolve(requirements, max_rounds=max_rounds)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 427, in resolve
+    failure_causes = self._attempt_to_pin_criterion(name)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 239, in _attempt_to_pin_criterion
+    criteria = self._get_updated_criteria(candidate)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 230, in _get_updated_criteria
+    self._add_to_criteria(criteria, requirement, parent=candidate)
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/resolvers.py", line 173, in _add_to_criteria
+    if not criterion.candidates:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/structs.py", line 156, in __bool__
+    return bool(self._sequence)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 155, in __bool__
+    return any(self)
+           ^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 143, in <genexpr>
+    return (c for c in iterator if id(c) not in self._incompatible_ids)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/found_candidates.py", line 47, in _iter_built
+    candidate = func()
+                ^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 182, in _make_candidate_from_link
+    base: Optional[BaseCandidate] = self._make_base_candidate_from_link(
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/factory.py", line 228, in _make_base_candidate_from_link
+    self._link_candidate_cache[link] = LinkCandidate(
+                                       ^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 290, in __init__
+    super().__init__(
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 156, in __init__
+    self.dist = self._prepare()
+                ^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 222, in _prepare
+    dist = self._prepare_distribution()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/candidates.py", line 301, in _prepare_distribution
+    return preparer.prepare_linked_requirement(self._ireq, parallel_builds=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 525, in prepare_linked_requirement
+    return self._prepare_linked_requirement(req, parallel_builds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 640, in _prepare_linked_requirement
+    dist = _get_prepared_distribution(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/operations/prepare.py", line 71, in _get_prepared_distribution
+    abstract_dist.prepare_distribution_metadata(
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/distributions/sdist.py", line 54, in prepare_distribution_metadata
+    self._install_build_reqs(finder)
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/distributions/sdist.py", line 124, in _install_build_reqs
+    build_reqs = self._get_build_requires_wheel()
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/distributions/sdist.py", line 101, in _get_build_requires_wheel
+    return backend.get_requires_for_build_wheel()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_internal/utils/misc.py", line 745, in get_requires_for_build_wheel
+    return super().get_requires_for_build_wheel(config_settings=cs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_impl.py", line 166, in get_requires_for_build_wheel
+    return self._call_hook('get_requires_for_build_wheel', {
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_impl.py", line 321, in _call_hook
+    raise BackendUnavailable(data.get('traceback', ''))
+pip._vendor.pyproject_hooks._impl.BackendUnavailable: Traceback (most recent call last):
+  File "/work/.venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/_in_process.py", line 77, in _build_backend
+    obj = import_module(mod_path)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1310, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/tmp/pip-build-env-f8o2_7j4/overlay/lib/python3.12/site-packages/setuptools/__init__.py", line 10, in <module>
+    import distutils.core
+ModuleNotFoundError: No module named 'distutils'
+

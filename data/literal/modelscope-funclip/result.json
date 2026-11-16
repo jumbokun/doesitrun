@@ -1,0 +1,17 @@
+{
+  "slug": "modelscope-funclip",
+  "repo": "modelscope/FunClip",
+  "commit": "cdcb53fe3d4b37365178ae4f779296e72b7beb6a",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:53:16",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 140
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 371
+  },
+  "finished": "2026-11-16 08:01:58"
+}

@@ -1,0 +1,53 @@
+rc malicious=127 safe=127 markdown=127
+==> /tmp/oracle.H3fIYV/mal.log <==
+timeout: failed to run command 'skillspector': No such file or directory
+
+==> /tmp/oracle.H3fIYV/safe.log <==
+timeout: failed to run command 'skillspector': No such file or directory
+
+==> /tmp/oracle.H3fIYV/md.log <==
+timeout: failed to run command 'skillspector': No such file or directory
+malicious scan errored
++ set -e
++ source /work/env.sh
+++ set -e
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/SkillSpector
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.H3fIYV
++ set +e
++ timeout 900 skillspector scan tests/fixtures/malicious_skill --no-llm --format json --output /tmp/oracle.H3fIYV/mal.json
++ rc_mal=127
++ timeout 900 skillspector scan tests/fixtures/safe_skill --no-llm --format json --output /tmp/oracle.H3fIYV/safe.json
++ rc_safe=127
++ timeout 900 skillspector scan tests/fixtures/malicious_skill --no-llm --format markdown --output /tmp/oracle.H3fIYV/mal.md
++ rc_md=127
++ set -e
++ echo 'rc malicious=127 safe=127 markdown=127'
++ tail -n 5 /tmp/oracle.H3fIYV/mal.log /tmp/oracle.H3fIYV/safe.log /tmp/oracle.H3fIYV/md.log
++ case "$rc_mal" in
++ echo 'malicious scan errored'
++ exit 1

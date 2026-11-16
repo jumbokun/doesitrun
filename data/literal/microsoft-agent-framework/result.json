@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-agent-framework",
+  "repo": "microsoft/agent-framework",
+  "commit": "e2f52bc5a0c4b5e26901f63102fe509e51b48a92",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:50:58",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 44
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "finished": "2026-11-16 07:51:57"
+}

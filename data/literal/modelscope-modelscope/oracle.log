@@ -1,0 +1,300 @@
+
+pytorch_model.bin:  89%|████████▉ | 363M/407M [01:39<00:36, 1.20MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 363M/407M [01:40<00:31, 1.39MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 363M/407M [01:40<00:34, 1.28MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 363M/407M [01:40<00:35, 1.22MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 363M/407M [01:40<00:35, 1.24MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 363M/407M [01:40<00:35, 1.23MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 363M/407M [01:40<00:34, 1.24MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 364M/407M [01:40<00:35, 1.22MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 364M/407M [01:40<00:38, 1.12MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 364M/407M [01:41<00:35, 1.20MB/s][A
+
+pytorch_model.bin:  89%|████████▉ | 364M/407M [01:41<00:34, 1.25MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 364M/407M [01:41<00:36, 1.16MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 364M/407M [01:41<00:36, 1.15MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 364M/407M [01:41<00:36, 1.16MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 364M/407M [01:41<00:37, 1.14MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 365M/407M [01:41<00:37, 1.14MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 365M/407M [01:41<00:36, 1.15MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 365M/407M [01:41<00:36, 1.15MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 365M/407M [01:41<00:37, 1.13MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 365M/407M [01:42<00:35, 1.17MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 365M/407M [01:42<00:26, 1.58MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 366M/407M [01:42<00:23, 1.79MB/s][A
+
+pytorch_model.bin:  90%|████████▉ | 366M/407M [01:42<00:16, 2.44MB/s][A
+
+pytorch_model.bin:  90%|█████████ | 366M/407M [01:42<00:14, 2.87MB/s][A
+
+pytorch_model.bin:  90%|█████████ | 367M/407M [01:42<00:13, 2.92MB/s][A
+
+pytorch_model.bin:  90%|█████████ | 367M/407M [01:43<00:28, 1.40MB/s][A
+
+pytorch_model.bin:  91%|█████████ | 369M/407M [01:43<00:11, 3.32MB/s][A
+
+pytorch_model.bin:  91%|█████████ | 369M/407M [01:43<00:12, 2.94MB/s][A
+
+pytorch_model.bin:  91%|█████████ | 369M/407M [01:43<00:16, 2.26MB/s][A
+
+pytorch_model.bin:  91%|█████████ | 370M/407M [01:44<00:13, 2.65MB/s][A
+
+pytorch_model.bin:  91%|█████████▏| 371M/407M [01:44<00:09, 3.89MB/s][A
+
+pytorch_model.bin:  91%|█████████▏| 372M/407M [01:44<00:10, 3.18MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 372M/407M [01:44<00:12, 2.74MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 373M/407M [01:45<00:21, 1.58MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 373M/407M [01:45<00:15, 2.20MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 374M/407M [01:45<00:21, 1.53MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 374M/407M [01:46<00:17, 1.83MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 375M/407M [01:46<00:16, 1.96MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 375M/407M [01:46<00:19, 1.60MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 375M/407M [01:46<00:18, 1.67MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 375M/407M [01:46<00:22, 1.40MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 376M/407M [01:47<00:22, 1.37MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 376M/407M [01:47<00:21, 1.43MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 376M/407M [01:47<00:20, 1.54MB/s][A
+
+pytorch_model.bin:  92%|█████████▏| 376M/407M [01:47<00:17, 1.78MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 377M/407M [01:47<00:14, 2.02MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 377M/407M [01:47<00:10, 2.85MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 377M/407M [01:47<00:09, 3.13MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 378M/407M [01:47<00:08, 3.28MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 378M/407M [01:47<00:08, 3.49MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 379M/407M [01:47<00:07, 3.82MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 379M/407M [01:48<00:06, 4.22MB/s][A
+
+pytorch_model.bin:  93%|█████████▎| 380M/407M [01:48<00:10, 2.50MB/s][A
+
+pytorch_model.bin:  94%|█████████▍| 382M/407M [01:48<00:04, 5.29MB/s][A
+
+pytorch_model.bin:  94%|█████████▍| 382M/407M [01:49<00:07, 3.20MB/s][A
+
+pytorch_model.bin:  94%|█████████▍| 384M/407M [01:49<00:04, 4.76MB/s][A
+
+pytorch_model.bin:  95%|█████████▍| 385M/407M [01:49<00:04, 4.89MB/s][A
+
+pytorch_model.bin:  95%|█████████▍| 385M/407M [01:49<00:04, 4.67MB/s][A
+
+pytorch_model.bin:  95%|█████████▍| 386M/407M [01:49<00:04, 4.42MB/s][A
+
+pytorch_model.bin:  95%|█████████▌| 387M/407M [01:49<00:04, 4.29MB/s][A
+
+pytorch_model.bin:  95%|█████████▌| 387M/407M [01:49<00:05, 3.93MB/s][A
+
+pytorch_model.bin:  95%|█████████▌| 388M/407M [01:50<00:04, 3.81MB/s][A
+
+pytorch_model.bin:  96%|█████████▌| 389M/407M [01:50<00:04, 4.38MB/s][A
+
+pytorch_model.bin:  96%|█████████▌| 389M/407M [01:50<00:07, 2.38MB/s][A
+
+pytorch_model.bin:  96%|█████████▌| 391M/407M [01:50<00:03, 4.11MB/s][A
+
+pytorch_model.bin:  96%|█████████▌| 391M/407M [01:51<00:04, 3.63MB/s][A
+
+pytorch_model.bin:  96%|█████████▋| 392M/407M [01:51<00:06, 2.15MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 393M/407M [01:51<00:04, 2.87MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 393M/407M [01:52<00:05, 2.48MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 394M/407M [01:52<00:05, 2.21MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 394M/407M [01:52<00:06, 2.09MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 394M/407M [01:52<00:06, 1.84MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 395M/407M [01:53<00:07, 1.69MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 395M/407M [01:53<00:06, 1.80MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 395M/407M [01:53<00:07, 1.56MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 395M/407M [01:53<00:07, 1.59MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 396M/407M [01:53<00:06, 1.64MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 396M/407M [01:53<00:06, 1.70MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 396M/407M [01:54<00:09, 1.19MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 396M/407M [01:54<00:08, 1.31MB/s][A
+
+pytorch_model.bin:  97%|█████████▋| 396M/407M [01:54<00:07, 1.44MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 397M/407M [01:54<00:07, 1.37MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 397M/407M [01:54<00:08, 1.23MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 397M/407M [01:54<00:09, 1.01MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 397M/407M [01:55<00:11, 830kB/s] [A
+
+pytorch_model.bin:  98%|█████████▊| 397M/407M [01:55<00:10, 933kB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 397M/407M [01:55<00:11, 808kB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 398M/407M [01:55<00:06, 1.41MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 399M/407M [01:55<00:03, 2.28MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 399M/407M [01:56<00:04, 1.86MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 399M/407M [01:56<00:03, 1.93MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 400M/407M [01:56<00:02, 2.94MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 400M/407M [01:56<00:02, 2.72MB/s][A
+
+pytorch_model.bin:  98%|█████████▊| 401M/407M [01:56<00:02, 2.73MB/s][A
+
+pytorch_model.bin:  99%|█████████▊| 401M/407M [01:56<00:02, 2.44MB/s][A
+
+pytorch_model.bin:  99%|█████████▊| 401M/407M [01:56<00:02, 2.64MB/s][A
+
+pytorch_model.bin:  99%|█████████▊| 402M/407M [01:57<00:02, 2.24MB/s][A
+
+pytorch_model.bin:  99%|█████████▉| 402M/407M [01:57<00:02, 2.33MB/s][A
+
+pytorch_model.bin:  99%|█████████▉| 402M/407M [01:57<00:01, 2.89MB/s][A
+
+pytorch_model.bin:  99%|█████████▉| 403M/407M [01:57<00:01, 3.15MB/s][A
+
+pytorch_model.bin:  99%|█████████▉| 403M/407M [01:57<00:01, 3.05MB/s][A
+
+pytorch_model.bin:  99%|█████████▉| 404M/407M [01:57<00:01, 2.68MB/s][A
+
+pytorch_model.bin:  99%|█████████▉| 405M/407M [01:58<00:00, 3.10MB/s][A
+
+pytorch_model.bin: 100%|█████████▉| 405M/407M [01:58<00:00, 2.39MB/s][A
+
+pytorch_model.bin: 100%|█████████▉| 406M/407M [01:58<00:00, 3.32MB/s][A
+
+pytorch_model.bin: 100%|█████████▉| 406M/407M [01:59<00:00, 1.71MB/s][A
+
+                                                                     [A
+Downloading: 100%|██████████| 10/10 [02:00<00:00, 34.63s/file]
+Downloading: 100%|██████████| 10/10 [02:00<00:00, 12.01s/file]
+2026-11-16 07:59:18,142 - modelscope - WARNING - Use allow_remote=True. Will invoke codes from /root/.cache/modelscope/models/damo--nlp_structbert_word-segmentation_chinese-base/snapshots/master. Please make sure that you can trust the external codes.
+Traceback (most recent call last):
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/utils/import_utils.py", line 491, in _get_module
+    return importlib.import_module('.' + module_name, self.__name__)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/preprocessors/nlp/token_classification_preprocessor.py", line 16, in <module>
+    from .transformers_tokenizer import NLPTokenizer
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/preprocessors/nlp/transformers_tokenizer.py", line 7, in <module>
+    from transformers import AutoTokenizer
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2704, in __getattr__
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2935, in _get_module
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2933, in _get_module
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/transformers/models/auto/tokenization_auto.py", line 26, in <module>
+    from ...modeling_gguf_pytorch_utils import load_gguf_checkpoint
+  File "/work/.venv/lib/python3.12/site-packages/transformers/modeling_gguf_pytorch_utils.py", line 23, in <module>
+    from .integrations import (
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2704, in __getattr__
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2935, in _get_module
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2933, in _get_module
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/transformers/integrations/ggml.py", line 27, in <module>
+    from .. import AddedToken
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2704, in __getattr__
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2935, in _get_module
+  File "/work/.venv/lib/python3.12/site-packages/transformers/utils/import_utils.py", line 2933, in _get_module
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/transformers/tokenization_utils_base.py", line 38, in <module>
+    from .utils import (
+ImportError: cannot import name 'add_model_info_to_auto_map' from 'transformers.utils' (/work/.venv/lib/python3.12/site-packages/transformers/utils/__init__.py)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/tmp/oracle_out.j4AH/t.py", line 3, in <module>
+    p = pipeline('word-segmentation', model='damo/nlp_structbert_word-segmentation_chinese-base')
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/pipelines/builder.py", line 273, in pipeline
+    return build_pipeline(
+           ^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/pipelines/builder.py", line 78, in build_pipeline
+    return build_from_cfg(
+           ^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/utils/registry.py", line 183, in build_from_cfg
+    LazyImportModule.import_module(sig)
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/utils/import_utils.py", line 521, in import_module
+    importlib.import_module(module_name)
+  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/pipelines/nlp/word_segmentation_pipeline.py", line 13, in <module>
+    from modelscope.preprocessors import (
+  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/utils/import_utils.py", line 467, in __getattr__
+    value = getattr(module, name)
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/utils/import_utils.py", line 466, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/modelscope/utils/import_utils.py", line 493, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import modelscope.preprocessors.nlp.token_classification_preprocessor because of the following error (look up to see its traceback):
+cannot import name 'add_model_info_to_auto_map' from 'transformers.utils' (/work/.venv/lib/python3.12/site-packages/transformers/utils/__init__.py)

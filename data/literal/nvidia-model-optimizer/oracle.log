@@ -1,0 +1,100 @@
+/work/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+/work/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+Registered <class 'transformers.models.llama.modeling_llama.LlamaAttention'> to _QuantAttention for KV Cache quantization
+Inserted 56 quantizers
+max diff 0.013964295387268066 quantizers 56
+model.embed_tokens.weight_quantizer                                              TensorQuantizer(disabled)
+model.embed_tokens.input_quantizer                                               HardDisabledTensorQuantizer(disabled)
+model.embed_tokens.output_quantizer                                              TensorQuantizer(disabled)
+model.layers.0.self_attn.q_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=3.84e+00 calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.q_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.0.self_attn.q_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[3.72e-02, 7.78e-02](64) calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.k_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=3.84e+00 calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.k_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.0.self_attn.k_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[3.67e-02, 6.67e-02](64) calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.v_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=3.84e+00 calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.v_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.0.self_attn.v_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[3.49e-02, 8.28e-02](64) calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.o_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=5.36e-01 calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.o_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.0.self_attn.o_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[3.75e-02, 7.18e-02](64) calibrator=MaxCalibrator quant)
+model.layers.0.self_attn.q_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.0.self_attn.k_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.0.self_attn.v_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.0.self_attn.p_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.0.mlp.gate_proj.input_quantizer                                     TensorQuantizer(8 bit fake per-tensor amax=3.86e+00 calibrator=MaxCalibrator quant)
+model.layers.0.mlp.gate_proj.output_quantizer                                    TensorQuantizer(disabled)
+model.layers.0.mlp.gate_proj.weight_quantizer                                    TensorQuantizer(8 bit fake axis=0 amax=[3.44e-02, 6.83e-02](128) calibrator=MaxCalibrator quant)
+model.layers.0.mlp.up_proj.input_quantizer                                       TensorQuantizer(8 bit fake per-tensor amax=3.86e+00 calibrator=MaxCalibrator quant)
+model.layers.0.mlp.up_proj.output_quantizer                                      TensorQuantizer(disabled)
+model.layers.0.mlp.up_proj.weight_quantizer                                      TensorQuantizer(8 bit fake axis=0 amax=[3.53e-02, 8.51e-02](128) calibrator=MaxCalibrator quant)
+model.layers.0.mlp.down_proj.input_quantizer                                     TensorQuantizer(8 bit fake per-tensor amax=1.35e-01 calibrator=MaxCalibrator quant)
+model.layers.0.mlp.down_proj.output_quantizer                                    TensorQuantizer(disabled)
+model.layers.0.mlp.down_proj.weight_quantizer                                    TensorQuantizer(8 bit fake axis=0 amax=[4.00e-02, 7.57e-02](64) calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.q_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=3.84e+00 calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.q_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.1.self_attn.q_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[2.85e-02, 9.32e-02](64) calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.k_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=3.84e+00 calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.k_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.1.self_attn.k_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[4.03e-02, 7.42e-02](64) calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.v_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=3.84e+00 calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.v_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.1.self_attn.v_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[3.77e-02, 7.08e-02](64) calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.o_proj.input_quantizer                                  TensorQuantizer(8 bit fake per-tensor amax=5.63e-01 calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.o_proj.output_quantizer                                 TensorQuantizer(disabled)
+model.layers.1.self_attn.o_proj.weight_quantizer                                 TensorQuantizer(8 bit fake axis=0 amax=[3.85e-02, 7.66e-02](64) calibrator=MaxCalibrator quant)
+model.layers.1.self_attn.q_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.1.self_attn.k_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.1.self_attn.v_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.1.self_attn.p_bmm_quantizer                                         TensorQuantizer(disabled)
+model.layers.1.mlp.gate_proj.input_quantizer                                     TensorQuantizer(8 bit fake per-tensor amax=4.25e+00 calibrator=MaxCalibrator quant)
+model.layers.1.mlp.gate_proj.output_quantizer                                    TensorQuantizer(disabled)
+model.layers.1.mlp.gate_proj.weight_quantizer                                    TensorQuantizer(8 bit fake axis=0 amax=[3.52e-02, 7.49e-02](128) calibrator=MaxCalibrator quant)
+model.layers.1.mlp.up_proj.input_quantizer                                       TensorQuantizer(8 bit fake per-tensor amax=4.25e+00 calibrator=MaxCalibrator quant)
+model.layers.1.mlp.up_proj.output_quantizer                                      TensorQuantizer(disabled)
+model.layers.1.mlp.up_proj.weight_quantizer                                      TensorQuantizer(8 bit fake axis=0 amax=[3.39e-02, 7.59e-02](128) calibrator=MaxCalibrator quant)
+model.layers.1.mlp.down_proj.input_quantizer                                     TensorQuantizer(8 bit fake per-tensor amax=1.54e-01 calibrator=MaxCalibrator quant)
+model.layers.1.mlp.down_proj.output_quantizer                                    TensorQuantizer(disabled)
+model.layers.1.mlp.down_proj.weight_quantizer                                    TensorQuantizer(8 bit fake axis=0 amax=[4.54e-02, 7.49e-02](64) calibrator=MaxCalibrator quant)
+lm_head.input_quantizer                                                          TensorQuantizer(disabled)
+lm_head.output_quantizer                                                         TensorQuantizer(disabled)
+lm_head.weight_quantizer                                                         TensorQuantizer(disabled)
+56 TensorQuantizers found in model
+QUANT_OK
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/Model-Optimizer
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.7UbFhX
++ cat
++ timeout 900 python /tmp/oracle.7UbFhX/t.py
++ tee /tmp/oracle.7UbFhX/log.txt
++ grep -q QUANT_OK /tmp/oracle.7UbFhX/log.txt
++ echo 'ORACLE PASS'

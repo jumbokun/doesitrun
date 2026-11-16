@@ -1,0 +1,17 @@
+{
+  "slug": "modelscope-modelscope",
+  "repo": "modelscope/modelscope",
+  "commit": "987d79f0029f6438197a8093a406848467336dfd",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:53:49",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 175
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 153
+  },
+  "finished": "2026-11-16 07:59:30"
+}

@@ -1,0 +1,65 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Collecting app-store-server-library
+  Downloading app_store_server_library-3.1.2-py3-none-any.whl.metadata (7.2 kB)
+Collecting attrs>=21.3.0 (from app-store-server-library)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting PyJWT<3,>=2.6.0 (from app-store-server-library)
+  Downloading pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting requests<3,>=2.28.0 (from app-store-server-library)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting cryptography>=43.0.0 (from app-store-server-library)
+  Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
+Collecting pyOpenSSL>=23.1.1 (from app-store-server-library)
+  Downloading pyopenssl-26.4.0-py3-none-any.whl.metadata (22 kB)
+Collecting asn1==3.2.0 (from app-store-server-library)
+  Downloading asn1-3.2.0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting cattrs>=23.1.2 (from app-store-server-library)
+  Downloading cattrs-26.2.1-py3-none-any.whl.metadata (8.5 kB)
+Collecting enum-compat (from asn1==3.2.0->app-store-server-library)
+  Downloading enum_compat-0.0.3-py3-none-any.whl.metadata (954 bytes)
+Collecting typing-extensions>=4.14.0 (from cattrs>=23.1.2->app-store-server-library)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting cffi>=2.0.0 (from cryptography>=43.0.0->app-store-server-library)
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting charset_normalizer<4,>=2 (from requests<3,>=2.28.0->app-store-server-library)
+  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 28.3 MB/s eta 0:00:00
+Collecting idna<4,>=2.5 (from requests<3,>=2.28.0->app-store-server-library)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests<3,>=2.28.0->app-store-server-library)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting certifi>=2023.5.7 (from requests<3,>=2.28.0->app-store-server-library)
+  Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography>=43.0.0->app-store-server-library)
+  Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+Downloading app_store_server_library-3.1.2-py3-none-any.whl (131 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.5/131.5 kB 13.6 MB/s eta 0:00:00
+Downloading asn1-3.2.0-py2.py3-none-any.whl (17 kB)
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 48.7 MB/s eta 0:00:00
+Downloading cattrs-26.2.1-py3-none-any.whl (74 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.8/74.8 kB 55.9 MB/s eta 0:00:00
+Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 112.7 MB/s eta 0:00:00
+Downloading pyjwt-2.15.1-py3-none-any.whl (33 kB)
+Downloading pyopenssl-26.4.0-py3-none-any.whl (56 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.0/56.0 kB 40.0 MB/s eta 0:00:00
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 51.3 MB/s eta 0:00:00
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 90.8 MB/s eta 0:00:00
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.8/221.8 kB 142.4 MB/s eta 0:00:00
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 147.8 MB/s eta 0:00:00
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 49.0 MB/s eta 0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 31.4 MB/s eta 0:00:00
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 90.1 MB/s eta 0:00:00
+Downloading enum_compat-0.0.3-py3-none-any.whl (1.3 kB)
+Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 45.4 MB/s eta 0:00:00
+Installing collected packages: enum-compat, urllib3, typing-extensions, PyJWT, pycparser, idna, charset_normalizer, certifi, attrs, asn1, requests, cffi, cattrs, cryptography, pyOpenSSL, app-store-server-library
+Successfully installed PyJWT-2.15.1 app-store-server-library-3.1.2 asn1-3.2.0 attrs-26.1.0 cattrs-26.2.1 certifi-2026.10.23 cffi-2.1.1 charset_normalizer-3.5.2 cryptography-50.0.2 enum-compat-0.0.3 idna-3.20 pyOpenSSL-26.4.0 pycparser-3.12 requests-2.34.2 typing-extensions-4.16.0 urllib3-2.8.0

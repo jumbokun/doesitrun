@@ -1,0 +1,17 @@
+{
+  "slug": "nvidia-warp",
+  "repo": "NVIDIA/warp",
+  "commit": "b3044050e8f2c4550fd358672ad5e72683459ae9",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:51:57",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 16
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 6
+  },
+  "finished": "2026-11-16 07:52:44"
+}

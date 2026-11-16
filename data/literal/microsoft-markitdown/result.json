@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-markitdown",
+  "repo": "microsoft/markitdown",
+  "commit": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:34",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 13
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "finished": "2026-11-16 07:48:58"
+}

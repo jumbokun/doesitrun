@@ -1,0 +1,300 @@
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 406.3/406.3 kB 179.9 MB/s eta 0:00:00
+Downloading cuequivariance_torch-0.8.0-py3-none-any.whl (216 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.8/216.8 kB 111.4 MB/s eta 0:00:00
+Downloading fair_esm-2.0.0-py3-none-any.whl (93 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 93.1/93.1 kB 66.8 MB/s eta 0:00:00
+Downloading gemmi-0.6.7-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 208.3 MB/s eta 0:00:00
+Downloading icecream-2.1.7-py3-none-any.whl (14 kB)
+Downloading ipdb-0.13.13-py3-none-any.whl (12 kB)
+Downloading ipywidgets-8.1.7-py3-none-any.whl (139 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 139.8/139.8 kB 95.9 MB/s eta 0:00:00
+Downloading matplotlib-3.10.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 268.7 MB/s eta 0:00:00
+Downloading ml_collections-1.1.0-py3-none-any.whl (76 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.7/76.7 kB 55.8 MB/s eta 0:00:00
+Downloading numpy-2.4.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.4/16.4 MB 200.1 MB/s eta 0:00:00
+Downloading optree-0.17.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (408 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 408.8/408.8 kB 163.3 MB/s eta 0:00:00
+Downloading pandas-2.3.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 217.4 MB/s eta 0:00:00
+Downloading pdbeccdutils-1.0.0-py3-none-any.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 93.0 MB/s eta 0:00:00
+Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl (321 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 321.1/321.1 kB 82.6 MB/s eta 0:00:00
+Downloading py3dmol-2.5.2-py2.py3-none-any.whl (7.2 kB)
+Downloading PyYAML-6.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (767 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 767.5/767.5 kB 53.8 MB/s eta 0:00:00
+Downloading rdkit-2025.9.3-cp312-cp312-manylinux_2_28_x86_64.whl (36.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 36.4/36.4 MB 144.9 MB/s eta 0:00:00
+Downloading scikit_learn-1.7.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.5/9.5 MB 205.7 MB/s eta 0:00:00
+Downloading torch-2.7.1-cp312-cp312-manylinux_2_28_x86_64.whl (821.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 821.0/821.0 MB 1.6 MB/s eta 0:00:00
+Downloading torchaudio-2.7.1-cp312-cp312-manylinux_2_28_x86_64.whl (3.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 138.1 MB/s eta 0:00:00
+Downloading torchvision-0.22.1-cp312-cp312-manylinux_2_28_x86_64.whl (7.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.5/7.5 MB 284.2 MB/s eta 0:00:00
+Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 53.5 MB/s eta 0:00:00
+Downloading triton-3.3.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (155.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.7/155.7 MB 42.9 MB/s eta 0:00:00
+Downloading wandb-0.21.1-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (22.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 22.4/22.4 MB 248.4 MB/s eta 0:00:00
+Downloading cuequivariance_ops_cu12-0.8.0-py3-none-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (30.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30.7/30.7 MB 136.6 MB/s eta 0:00:00
+Downloading nvidia_cublas_cu12-12.6.4.1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (393.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 393.1/393.1 MB 2.8 MB/s eta 0:00:00
+Downloading nvidia_cuda_cupti_cu12-12.6.80-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 196.1 MB/s eta 0:00:00
+Downloading nvidia_cuda_nvrtc_cu12-12.6.77-py3-none-manylinux2014_x86_64.whl (23.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 176.1 MB/s eta 0:00:00
+Downloading nvidia_cuda_runtime_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (897 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 897.7/897.7 kB 232.6 MB/s eta 0:00:00
+Downloading nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl (571.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 571.0/571.0 MB 2.1 MB/s eta 0:00:00
+Downloading nvidia_cufft_cu12-11.3.0.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (200.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.2/200.2 MB 6.6 MB/s eta 0:00:00
+Downloading nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 231.8 MB/s eta 0:00:00
+Downloading nvidia_curand_cu12-10.3.7.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (56.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 114.1 MB/s eta 0:00:00
+Downloading nvidia_cusolver_cu12-11.7.1.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (158.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 158.2/158.2 MB 62.4 MB/s eta 0:00:00
+Downloading nvidia_cusparse_cu12-12.5.4.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (216.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.6/216.6 MB 42.0 MB/s eta 0:00:00
+Downloading nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl (156.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 156.8/156.8 MB 59.1 MB/s eta 0:00:00
+Downloading nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (201.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 201.3/201.3 MB 5.7 MB/s eta 0:00:00
+Downloading nvidia_nvjitlink_cu12-12.6.85-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (19.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.7/19.7 MB 177.0 MB/s eta 0:00:00
+Downloading nvidia_nvtx_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.3/89.3 kB 58.1 MB/s eta 0:00:00
+Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 213.9 MB/s eta 0:00:00
+Downloading pydantic-2.14.3-py3-none-any.whl (494 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.1/494.1 kB 176.9 MB/s eta 0:00:00
+Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 243.8 MB/s eta 0:00:00
+Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 160.0 MB/s eta 0:00:00
+Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+Downloading asttokens-3.0.2-py3-none-any.whl (28 kB)
+Downloading biotraj-1.2.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 244.9 MB/s eta 0:00:00
+Downloading click-8.5.1-py3-none-any.whl (126 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 85.2 MB/s eta 0:00:00
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading comm-0.2.3-py3-none-any.whl (7.3 kB)
+Downloading contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (383 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 383.2/383.2 kB 99.4 MB/s eta 0:00:00
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading executing-2.3.0-py3-none-any.whl (29 kB)
+Downloading fonttools-4.68.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 235.7 MB/s eta 0:00:00
+Downloading gitpython-3.2.1-py3-none-any.whl (231 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 231.5/231.5 kB 133.0 MB/s eta 0:00:00
+Downloading ipython-9.18.1-py3-none-any.whl (649 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 649.8/649.8 kB 158.6 MB/s eta 0:00:00
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 165.4 MB/s eta 0:00:00
+Downloading jupyterlab_widgets-3.0.17-py3-none-any.whl (217 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 217.3/217.3 kB 133.7 MB/s eta 0:00:00
+Downloading kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 215.1 MB/s eta 0:00:00
+Downloading msgpack-1.2.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (475 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 475.7/475.7 kB 201.5 MB/s eta 0:00:00
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 250.8 MB/s eta 0:00:00
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 kB 99.6 MB/s eta 0:00:00
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 234.7 MB/s eta 0:00:00
+Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.4/126.4 kB 91.4 MB/s eta 0:00:00
+Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 63.5 MB/s eta 0:00:00
+Downloading pytz-2026.6-py2.py3-none-any.whl (506 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 506.3/506.3 kB 200.5 MB/s eta 0:00:00
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 54.1 MB/s eta 0:00:00
+Downloading sentry_sdk-2.75.0-py3-none-any.whl (555 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 555.2/555.2 kB 156.6 MB/s eta 0:00:00
+Using cached setuptools-84.2.1-py3-none-any.whl (876 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 274.6 MB/s eta 0:00:00
+Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+Downloading traitlets-5.16.1-py3-none-any.whl (86 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.2/86.2 kB 61.4 MB/s eta 0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 32.2 MB/s eta 0:00:00
+Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 182.5 MB/s eta 0:00:00
+Downloading widgetsnbextension-4.0.16-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 264.2 MB/s eta 0:00:00
+Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.7/137.7 kB 91.5 MB/s eta 0:00:00
+Downloading cuequivariance-0.13.0-py3-none-any.whl (250 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.8/250.8 kB 60.3 MB/s eta 0:00:00
+Downloading decorator-5.3.1-py3-none-any.whl (10 kB)
+Downloading einops-0.8.2-py3-none-any.whl (65 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.6/65.6 kB 45.1 MB/s eta 0:00:00
+Downloading filelock-4.2.10-py3-none-any.whl (218 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 218.0/218.0 kB 133.8 MB/s eta 0:00:00
+Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.7/221.7 kB 137.4 MB/s eta 0:00:00
+Downloading hjson-3.1.0-py3-none-any.whl (54 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.0/54.0 kB 42.6 MB/s eta 0:00:00
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 95.1 MB/s eta 0:00:00
+Downloading ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (183 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 183.4/183.4 kB 50.6 MB/s eta 0:00:00
+Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 100.9 MB/s eta 0:00:00
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 150.3 MB/s eta 0:00:00
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 53.0 MB/s eta 0:00:00
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 53.5 MB/s eta 0:00:00
+Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl (8.1 kB)
+Downloading jedi-0.20.1-py2.py3-none-any.whl (4.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.9/4.9 MB 238.8 MB/s eta 0:00:00
+Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Downloading matplotlib_inline-0.2.2-py3-none-any.whl (9.5 kB)
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 196.8 MB/s eta 0:00:00
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 48.8 MB/s eta 0:00:00
+Downloading prompt_toolkit-3.0.53-py3-none-any.whl (392 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 392.3/392.3 kB 200.8 MB/s eta 0:00:00
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 89.1 MB/s eta 0:00:00
+Downloading nvidia_ml_py-13.615.71-py3-none-any.whl (58 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.1/58.1 kB 42.5 MB/s eta 0:00:00
+Downloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 71.9/71.9 kB 54.6 MB/s eta 0:00:00
+Downloading parso-0.8.7-py2.py3-none-any.whl (107 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 107.0/107.0 kB 77.2 MB/s eta 0:00:00
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Downloading smmap-5.0.3-py3-none-any.whl (24 kB)
+Downloading wcwidth-0.9.4-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (785 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 785.9/785.9 kB 233.4 MB/s eta 0:00:00
+Downloading pure_eval-0.2.4-py3-none-any.whl (11 kB)
+Building wheels for collected packages: deepspeed, modelcif, scikit-learn-extra, ihm
+  Building wheel for deepspeed (pyproject.toml): started
+  Building wheel for deepspeed (pyproject.toml): finished with status 'done'
+  Created wheel for deepspeed: filename=deepspeed-0.17.5-py3-none-any.whl size=1726486 sha256=a2c8c26834b470590f675b7e69f57cc27eb6477db371d58993e4f5720ad9a218
+  Stored in directory: /root/.cache/pip/wheels/59/3a/01/079b5f719e6fd280d79f210f54f5e5c6cbc7b956c9905ea274
+  Building wheel for modelcif (pyproject.toml): started
+  Building wheel for modelcif (pyproject.toml): finished with status 'done'
+  Created wheel for modelcif: filename=modelcif-1.4-py3-none-any.whl size=46068 sha256=f55a8147f10857a954943b8d0562c3247020051f9a0343008b6a5c5c6295be4c
+  Stored in directory: /root/.cache/pip/wheels/86/f7/3e/2781f31e8ec02be77ee004f001eb61a922c4d2fbb031f86568
+  Building wheel for scikit-learn-extra (pyproject.toml): started
+  Building wheel for scikit-learn-extra (pyproject.toml): finished with status 'error'
+  Building wheel for ihm (pyproject.toml): started
+  Building wheel for ihm (pyproject.toml): finished with status 'done'
+  Created wheel for ihm: filename=ihm-2.13-cp312-cp312-linux_x86_64.whl size=192527 sha256=43410558cbbd57da6aa8cc6a1e41b45490fccf9b7bdfd538084221c3e75bb7a7
+  Stored in directory: /root/.cache/pip/wheels/7d/ae/eb/70166e7c1fa8d17c571250f5722002d7fe52f6af0a114fcadb
+Successfully built deepspeed modelcif ihm
+Failed to build scikit-learn-extra
+  error: subprocess-exited-with-error
+  
+  × Building wheel for scikit-learn-extra (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [82 lines of output]
+      /tmp/pip-build-env-vuymjj_u/overlay/lib/python3.12/site-packages/setuptools/dist.py:599: SetuptoolsDeprecationWarning: Invalid dash-separated key 'description-file' in 'metadata' (setup.cfg), please use the underscore name 'description_file' instead.
+      !!
+      
+              ********************************************************************************
+              Usage of dash-separated 'description-file' will not be supported in future
+              versions. Please use the underscore name 'description_file' instead.
+              (Affected: scikit-learn-extra).
+      
+              Available configuration options are listed in:
+              https://setuptools.pypa.io/en/latest/userguide/declarative_config.html
+      
+              This deprecation is overdue, please update your project and remove deprecated
+              calls to avoid build errors in the future.
+      
+              See https://github.com/pypa/setuptools/discussions/5011 for details.
+              ********************************************************************************
+      
+      !!
+        opt = self._enforce_underscore(opt, section)
+      /tmp/pip-build-env-vuymjj_u/overlay/lib/python3.12/site-packages/setuptools/dist.py:765: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+      !!
+      
+              ********************************************************************************
+              Please consider removing the following classifiers in favor of a SPDX license expression:
+      
+              License :: OSI Approved
+      
+              See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+              ********************************************************************************
+      
+      !!
+        self._finalize_license_expression()
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-312/benchmarks
+      copying benchmarks/bench_rbfsampler_fastfood.py -> build/lib.linux-x86_64-cpython-312/benchmarks
+      copying benchmarks/__init__.py -> build/lib.linux-x86_64-cpython-312/benchmarks
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra
+      copying sklearn_extra/_version.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra
+      copying sklearn_extra/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra
+      creating build/lib.linux-x86_64-cpython-312/benchmarks/_bench
+      copying benchmarks/_bench/robust_plot_synthetic.py -> build/lib.linux-x86_64-cpython-312/benchmarks/_bench
+      copying benchmarks/_bench/eigenpro_plot_synthetic.py -> build/lib.linux-x86_64-cpython-312/benchmarks/_bench
+      copying benchmarks/_bench/__init__.py -> build/lib.linux-x86_64-cpython-312/benchmarks/_bench
+      copying benchmarks/_bench/eigenpro_plot_noisy_mnist.py -> build/lib.linux-x86_64-cpython-312/benchmarks/_bench
+      copying benchmarks/_bench/eigenpro_plot_mnist.py -> build/lib.linux-x86_64-cpython-312/benchmarks/_bench
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_approximation
+      copying sklearn_extra/kernel_approximation/_fastfood.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_approximation
+      copying sklearn_extra/kernel_approximation/test_fastfood.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_approximation
+      copying sklearn_extra/kernel_approximation/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_approximation
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/robust
+      copying sklearn_extra/robust/robust_weighted_estimator.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/robust
+      copying sklearn_extra/robust/mean_estimators.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/robust
+      copying sklearn_extra/robust/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/robust
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_methods
+      copying sklearn_extra/kernel_methods/_eigenpro.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_methods
+      copying sklearn_extra/kernel_methods/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_methods
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/tests
+      copying sklearn_extra/tests/test_common.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/tests
+      copying sklearn_extra/tests/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/tests
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster
+      copying sklearn_extra/cluster/_commonnn.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster
+      copying sklearn_extra/cluster/_k_medoids.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster
+      copying sklearn_extra/cluster/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_approximation/tests
+      copying sklearn_extra/kernel_approximation/tests/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_approximation/tests
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_methods/tests
+      copying sklearn_extra/kernel_methods/tests/test_eigenpro.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_methods/tests
+      copying sklearn_extra/kernel_methods/tests/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/kernel_methods/tests
+      creating build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster/tests
+      copying sklearn_extra/cluster/tests/test_commonnn.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster/tests
+      copying sklearn_extra/cluster/tests/test_k_medoids.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster/tests
+      copying sklearn_extra/cluster/tests/__init__.py -> build/lib.linux-x86_64-cpython-312/sklearn_extra/cluster/tests
+      running build_ext
+      building 'sklearn_extra.utils._cyfht' extension
+      x86_64-linux-gnu-gcc -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -fPIC -I/tmp/pip-build-env-vuymjj_u/overlay/lib/python3.12/site-packages/numpy/core/include -I/work/.venv/include -I/usr/include/python3.12 -c sklearn_extra/utils/_cyfht.c -o build/temp.linux-x86_64-cpython-312/sklearn_extra/utils/_cyfht.o
+      sklearn_extra/utils/_cyfht.c:41:10: fatal error: Python.h: No such file or directory
+         41 | #include "Python.h"
+            |          ^~~~~~~~~~
+      compilation terminated.
+      error: Command '['x86_64-linux-gnu-gcc', '-fno-strict-overflow', '-Wsign-compare', '-DNDEBUG', '-g', '-O2', '-Wall', '-fPIC', '-I/tmp/pip-build-env-vuymjj_u/overlay/lib/python3.12/site-packages/numpy/core/include', '-I/work/.venv/include', '-I/usr/include/python3.12', '-c', 'sklearn_extra/utils/_cyfht.c', '-o', 'build/temp.linux-x86_64-cpython-312/sklearn_extra/utils/_cyfht.o']' returned non-zero exit status 1.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for scikit-learn-extra
+ERROR: Could not build wheels for scikit-learn-extra, which is required to install pyproject.toml-based projects

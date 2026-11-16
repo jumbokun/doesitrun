@@ -1,0 +1,17 @@
+{
+  "slug": "awslabs-amazon-redshift-utils",
+  "repo": "awslabs/amazon-redshift-utils",
+  "commit": "c4b4708d0d5068e7653f20c1340df97d4cf2e650",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:59:21",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 3
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 0
+  },
+  "finished": "2026-11-16 07:59:36"
+}

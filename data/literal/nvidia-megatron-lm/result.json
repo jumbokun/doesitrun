@@ -1,0 +1,17 @@
+{
+  "slug": "nvidia-megatron-lm",
+  "repo": "NVIDIA/Megatron-LM",
+  "commit": "c71687a40a302ca51917f85f963afee73a8fb8ce",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:50:35",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 2
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 1
+  },
+  "finished": "2026-11-16 07:50:58"
+}

@@ -1,0 +1,6 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Downloading cpython-3.10.22-linux-x86_64-gnu (download) (28.0MiB)
+ Downloaded cpython-3.10.22-linux-x86_64-gnu (download)
+Installed Python 3.10.22 in 547ms
+ + cpython-3.10.22-linux-x86_64-gnu (python3.10)
+warning: `/root/.local/bin` is not on your PATH. To use installed Python executables, run `export PATH="/root/.local/bin:$PATH"` or `uv python update-shell`.

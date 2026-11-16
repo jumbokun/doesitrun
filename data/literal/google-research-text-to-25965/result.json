@@ -1,0 +1,17 @@
+{
+  "slug": "google-research-text-to-25965",
+  "repo": "google-research/text-to-text-transfer-transformer",
+  "commit": "42909aa15d1fbd16c69333aa474a00ae8ed9fde4",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:29",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 73
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "finished": "2026-11-16 07:49:49"
+}

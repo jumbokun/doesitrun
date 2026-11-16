@@ -1,0 +1,12 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Using Python 3.12.3 environment at: /work/.venv
+Resolved 3 packages in 965ms
+   Building megatron-core @ file:///work/Megatron-LM
+Downloading numpy (15.0MiB)
+ Downloaded numpy
+      Built megatron-core @ file:///work/Megatron-LM
+Prepared 2 packages in 521ms
+Installed 3 packages in 169ms
+ + megatron-core==0.21.0+c71687a40 (from file:///work/Megatron-LM)
+ + numpy==2.5.5
+ + packaging==26.3

@@ -1,0 +1,17 @@
+{
+  "slug": "google-deepmind-sonnet",
+  "repo": "google-deepmind/sonnet",
+  "commit": "1c3b3e4dad22de663e992107531d2966fd7904aa",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:42",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 27
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 3
+  },
+  "finished": "2026-11-16 07:49:19"
+}

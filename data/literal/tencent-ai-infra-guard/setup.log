@@ -1,0 +1,7 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Collecting aig-infra-scan
+  Downloading aig_infra_scan-0.1.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.2 kB)
+Downloading aig_infra_scan-0.1.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (75.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 75.0/75.0 MB 64.1 MB/s eta 0:00:00
+Installing collected packages: aig-infra-scan
+Successfully installed aig-infra-scan-0.1.0

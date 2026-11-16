@@ -1,0 +1,17 @@
+{
+  "slug": "baidu-unlimited-ocr",
+  "repo": "baidu/Unlimited-OCR",
+  "commit": "37cf646758611a3b81f53863d1e91128a98d58b1",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:56:04",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 89
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 106
+  },
+  "finished": "2026-11-16 07:59:50"
+}

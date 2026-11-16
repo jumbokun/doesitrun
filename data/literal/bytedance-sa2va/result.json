@@ -1,0 +1,17 @@
+{
+  "slug": "bytedance-sa2va",
+  "repo": "bytedance/Sa2VA",
+  "commit": "c2c28a683627c6900e9652c253e205e9ecf4e563",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:55:00",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 83
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 47
+  },
+  "finished": "2026-11-16 07:57:20"
+}

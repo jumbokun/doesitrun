@@ -1,0 +1,9 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Downloading cpython-3.11.18-linux-x86_64-gnu (download) (29.4MiB)
+ Downloaded cpython-3.11.18-linux-x86_64-gnu (download)
+Using CPython 3.11.18
+Creating virtual environment at: .venv
+error: Failed to create virtual environment
+  cause: A virtual environment already exists at: .venv
+
+hint: Use the `--clear` flag or set `UV_VENV_CLEAR=1` to replace the existing virtual environment

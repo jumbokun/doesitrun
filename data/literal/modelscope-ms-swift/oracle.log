@@ -1,0 +1,300 @@
+        (rotary_emb): Qwen2RotaryEmbedding()
+      )
+      (lm_head): Linear(in_features=896, out_features=151936, bias=False)
+    )
+  )
+)
+[INFO:swift] model_parameter_info: PeftModelForCausalLM: 498.4319M Params (4.3991M Trainable [0.8826%]), 0.0001M Buffers.
+[INFO:swift] use_reentrant: True
+[INFO:swift] The logging file will be saved in: /tmp/oracle.3BNsxp/out/v0-20261116-075502/logging.jsonl
+
+Train:   0%|          | 0/8 [00:00<?, ?it/s]/work/.venv/lib/python3.12/site-packages/torch/utils/data/dataloader.py:759: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.
+  super().__init__(loader)
+[INFO:swift] use_logits_to_keep: True
+
+Train:  12%|█▎        | 1/8 [00:02<00:16,  2.31s/it]
+                                                    
+
+Train:  12%|█▎        | 1/8 [00:02<00:16,  2.31s/it]
+Train:  12%|█▎        | 1/8 [00:02<00:16,  2.31s/it]
+Train:  25%|██▌       | 2/8 [00:04<00:12,  2.12s/it]
+                                                    
+
+Train:  25%|██▌       | 2/8 [00:04<00:12,  2.12s/it]
+Train:  25%|██▌       | 2/8 [00:04<00:12,  2.12s/it]
+Train:  38%|███▊      | 3/8 [00:06<00:10,  2.04s/it]
+Train:  50%|█████     | 4/8 [00:08<00:07,  1.98s/it]
+                                                    
+
+Train:  50%|█████     | 4/8 [00:08<00:07,  1.98s/it]
+Train:  50%|█████     | 4/8 [00:08<00:07,  1.98s/it]
+Train:  62%|██████▎   | 5/8 [00:10<00:05,  1.98s/it]
+Train:  75%|███████▌  | 6/8 [00:12<00:04,  2.18s/it]
+                                                    
+
+Train:  75%|███████▌  | 6/8 [00:12<00:04,  2.18s/it]
+Train:  75%|███████▌  | 6/8 [00:12<00:04,  2.18s/it]
+Train:  88%|████████▊ | 7/8 [00:15<00:02,  2.28s/it]
+Train: 100%|██████████| 8/8 [00:17<00:00,  2.18s/it]
+                                                    
+
+Train: 100%|██████████| 8/8 [00:17<00:00,  2.18s/it]
+Train: 100%|██████████| 8/8 [00:17<00:00,  2.18s/it][INFO:swift] Saving model checkpoint to /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8
+
+                                                    
+
+Train: 100%|██████████| 8/8 [00:17<00:00,  2.18s/it]
+Train: 100%|██████████| 8/8 [00:17<00:00,  2.18s/it]
+Train: 100%|██████████| 8/8 [00:17<00:00,  2.15s/it]
+[INFO:swift] last_model_checkpoint: /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8
+[INFO:swift] best_model_checkpoint: None
+[INFO:swift] images_dir: /tmp/oracle.3BNsxp/out/v0-20261116-075502/images
+[INFO:swift] End time of running main: 2026-11-16 07:59:17.177494
+{'loss': '2.844', 'grad_norm': '16.36', 'learning_rate': '9.619e-05', 'token_acc': '0.4648', 'epoch': '0.03333', 'global_step/max_steps': '1/8', 'elapsed_time': '2s', 'remaining_time': '16s', 'train_speed(s/it)': '2.306'}
+{'loss': '2.836', 'grad_norm': '20.23', 'learning_rate': '8.536e-05', 'token_acc': '0.4889', 'epoch': '0.06667', 'global_step/max_steps': '2/8', 'elapsed_time': '4s', 'remaining_time': '13s', 'train_speed(s/it)': '2.144'}
+{'loss': '1.959', 'grad_norm': '14.14', 'learning_rate': '5e-05', 'token_acc': '0.6098', 'epoch': '0.1333', 'global_step/max_steps': '4/8', 'elapsed_time': '8s', 'remaining_time': '8s', 'train_speed(s/it)': '2.031'}
+{'loss': '2.104', 'grad_norm': '9.098', 'learning_rate': '1.464e-05', 'token_acc': '0.4589', 'epoch': '0.2', 'global_step/max_steps': '6/8', 'elapsed_time': '13s', 'remaining_time': '4s', 'train_speed(s/it)': '2.109'}
+{'loss': '1.743', 'grad_norm': '10.81', 'learning_rate': '0', 'token_acc': '0.5946', 'epoch': '0.2667', 'global_step/max_steps': '8/8', 'elapsed_time': '17s', 'remaining_time': '0s', 'train_speed(s/it)': '2.138'}
+{'train_runtime': '17.18', 'train_samples_per_second': '0.931', 'train_steps_per_second': '0.466', 'train_loss': '2.162', 'epoch': '0.2667', 'global_step/max_steps': '8/8', 'elapsed_time': '17s', 'remaining_time': '0s', 'train_speed(s/it)': '2.147'}
+run sh: `/work/.venv/bin/python3 /work/ms-swift/swift/cli/infer.py --adapters /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8 --val_dataset /tmp/oracle.3BNsxp/q.jsonl --max_new_tokens 64 --temperature 0 --max_batch_size 1 --result_path /tmp/oracle.3BNsxp/res.jsonl`
+/work/.venv/lib/python3.12/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+[INFO:swift] Successfully registered `/work/ms-swift/swift/dataset/data/dataset_info.json`.
+[INFO:swift] Successfully loaded /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8/args.json.
+[INFO:swift] rank: -1, local_rank: -1, world_size: 1, local_world_size: 1
+[INFO:swift] Downloading the model from ModelScope Hub, model_id: Qwen/Qwen2.5-0.5B-Instruct
+2026-11-16 07:59:26,146 | INFO    | modelscope_hub.download | Downloading 10 files from Qwen/Qwen2.5-0.5B-Instruct@master
+
+Downloading:   0%|          | 0/10 [00:00<?, ?file/s]
+Downloading: 100%|██████████| 10/10 [00:00<00:00, 1390.87file/s]
+[INFO:swift] Loading the model using model_dir: /root/.cache/modelscope/models/Qwen--Qwen2.5-0.5B-Instruct/snapshots/master
+[WARNING:swift] Loading model from '/root/.cache/modelscope/models/Qwen--Qwen2.5-0.5B-Instruct/snapshots/master' with trust_remote_code=True. This will execute custom Python code shipped in the model repository (e.g. configuration_*.py, modeling_*.py, tokenization_*.py). Only proceed if you trust the source of this model.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[INFO:swift] Because len(args.val_dataset) > 0, setting split_dataset_ratio: 0.0
+[INFO:swift] Setting args.eval_human: False
+[INFO:swift] Setting args.lazy_tokenize: False
+[INFO:swift] args: InferArguments(use_ray=False, ray_exp_name=None, device_groups=None, model='Qwen/Qwen2.5-0.5B-Instruct', model_type='qwen2', model_revision=None, task_type='causal_lm', torch_dtype=torch.float32, attn_impl=None, experts_impl=None, new_special_tokens=[], num_labels=None, problem_type=None, rope_scaling=None, device_map=None, max_memory={}, max_model_len=None, local_repo_path=None, init_strategy=None, template='qwen2_5', system=None, max_length=32768, truncation_strategy='delete', max_pixels=None, agent_template=None, norm_bbox=None, use_chat_template=True, padding_side='right', padding_free=False, loss_scale='default', sequence_parallel_size=1, is_binary_loss_scale=None, template_backend='swift', response_prefix=None, enable_thinking=None, preserve_thinking=None, add_non_thinking_prefix=True, disable_ignore_empty_think=False, dataset=[], val_dataset=['/tmp/oracle.3BNsxp/q.jsonl'], cached_dataset=[], cached_val_dataset=[], split_dataset_ratio=0.0, data_seed=42, dataset_num_proc=1, load_from_cache_file=False, dataset_shuffle=True, val_dataset_shuffle=False, streaming=False, interleave_prob=None, stopping_strategy='first_exhausted', shuffle_buffer_size=1000, download_mode='reuse_dataset_if_exists', columns={}, strict=False, remove_unused_columns=True, disable_auto_column_mapping=False, model_name=None, model_author=None, custom_dataset_info=[], decision_drop_instructions=0.0, decision_subsample_options=0, decision_state_as_text=0.0, decision_shuffle_fields=False, quant_method=None, quant_bits=None, hqq_axis=None, bnb_4bit_compute_dtype=torch.float32, bnb_4bit_quant_type='nf4', bnb_4bit_use_double_quant=True, bnb_4bit_quant_storage=None, entropack_target_bpp=None, entropack_linear_type=None, max_new_tokens=64, temperature=0.0, top_k=None, top_p=None, repetition_penalty=None, num_beams=1, stream=False, stop_words=[], logprobs=False, top_logprobs=None, structured_outputs_regex=None, tuner_backend='peft', tuner_type='lora', adapters=['/tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8'], external_plugins=[], custom_register_path=[], trust_remote_plugins=False, seed=42, model_kwargs={}, enable_npu_model_patch=True, load_args=True, load_data_args=False, packing=False, packing_length=None, packing_num_proc=1, packing_strategy='binpack', lazy_tokenize=False, use_hf=False, hub_token=None, ddp_timeout=18000000, ddp_backend=None, ignore_args_error=False, use_swift_lora=False, vllm_gpu_memory_utilization=0.9, vllm_tensor_parallel_size=1, vllm_pipeline_parallel_size=1, vllm_enable_expert_parallel=False, vllm_max_num_seqs=256, vllm_max_model_len=None, vllm_disable_custom_all_reduce=True, vllm_enforce_eager=False, vllm_limit_mm_per_prompt=None, vllm_max_lora_rank=16, vllm_enable_prefix_caching=None, vllm_use_async_engine=False, vllm_quantization=None, vllm_reasoning_parser=None, vllm_disable_cascade_attn=False, vllm_mm_processor_cache_gb=None, vllm_speculative_config=None, vllm_engine_kwargs={}, vllm_data_parallel_size=1, sglang_tp_size=1, sglang_pp_size=1, sglang_dp_size=1, sglang_ep_size=1, sglang_enable_ep_moe=False, sglang_mem_fraction_static=None, sglang_context_length=None, sglang_disable_cuda_graph=False, sglang_quantization=None, sglang_kv_cache_dtype='auto', sglang_enable_dp_attention=False, sglang_disable_custom_all_reduce=True, sglang_speculative_algorithm=None, sglang_speculative_num_steps=None, sglang_speculative_eagle_topk=None, sglang_speculative_num_draft_tokens=None, lmdeploy_tp=1, lmdeploy_session_len=None, lmdeploy_cache_max_entry_count=0.8, lmdeploy_quant_policy=0, lmdeploy_vision_batch_size=1, merge_lora=False, safe_serialization=True, max_shard_size='5GB', infer_backend='transformers', result_path='/tmp/oracle.3BNsxp/res.jsonl', write_batch_size=1000, metric=None, max_batch_size=1, val_dataset_sample=None, reranker_use_activation=True)
+[INFO:swift] Global seed set to 42
+[INFO:swift] Downloading the model from ModelScope Hub, model_id: Qwen/Qwen2.5-0.5B-Instruct
+2026-11-16 07:59:27,974 | INFO    | modelscope_hub.download | Downloading 11 files from Qwen/Qwen2.5-0.5B-Instruct@master
+
+Downloading:   0%|          | 0/11 [00:00<?, ?file/s]
+Downloading: 100%|██████████| 11/11 [00:00<00:00, 16.18file/s]
+Downloading: 100%|██████████| 11/11 [00:00<00:00, 16.18file/s]
+[INFO:swift] Loading the model using model_dir: /root/.cache/modelscope/models/Qwen--Qwen2.5-0.5B-Instruct/snapshots/master
+[WARNING:swift] Loading model from '/root/.cache/modelscope/models/Qwen--Qwen2.5-0.5B-Instruct/snapshots/master' with trust_remote_code=True. This will execute custom Python code shipped in the model repository (e.g. configuration_*.py, modeling_*.py, tokenization_*.py). Only proceed if you trust the source of this model.
+[WARNING:swift] Loading config from '/root/.cache/modelscope/models/Qwen--Qwen2.5-0.5B-Instruct/snapshots/master' with trust_remote_code=True. Custom Python code from the model repository will be executed. Only use models from sources you trust.
+[transformers] The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[WARNING:swift] Loading tokenizer/processor from '/root/.cache/modelscope/models/Qwen--Qwen2.5-0.5B-Instruct/snapshots/master' with trust_remote_code=True. Custom Python code from the model repository will be executed. Only use models from sources you trust.
+[INFO:swift] model_kwargs: {'device_map': 'cpu', 'dtype': torch.float32}
+
+Loading weights:   0%|          | 0/290 [00:00<?, ?it/s]
+Loading weights:   0%|          | 1/290 [00:00<00:31,  9.08it/s]
+Loading weights:  88%|████████▊ | 256/290 [00:00<00:00, 1439.96it/s]
+Loading weights: 100%|██████████| 290/290 [00:00<00:00, 1292.63it/s]
+[INFO:swift] default_system: 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.'
+[INFO:swift] max_length: 32768
+[INFO:swift] response_prefix: None
+[INFO:swift] agent_template: hermes
+[INFO:swift] model: PeftModelForCausalLM(
+  (base_model): LoraModel(
+    (model): Qwen2ForCausalLM(
+      (model): Qwen2Model(
+        (embed_tokens): Embedding(151936, 896)
+        (layers): ModuleList(
+          (0-23): 24 x Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): lora.Linear(
+                (base_layer): Linear(in_features=896, out_features=896, bias=True)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=896, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=896, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (k_proj): lora.Linear(
+                (base_layer): Linear(in_features=896, out_features=128, bias=True)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=896, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=128, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (v_proj): lora.Linear(
+                (base_layer): Linear(in_features=896, out_features=128, bias=True)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=896, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=128, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (o_proj): lora.Linear(
+                (base_layer): Linear(in_features=896, out_features=896, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=896, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=896, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+            )
+            (mlp): Qwen2MLP(
+              (gate_proj): lora.Linear(
+                (base_layer): Linear(in_features=896, out_features=4864, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=896, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=4864, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (up_proj): lora.Linear(
+                (base_layer): Linear(in_features=896, out_features=4864, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=896, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=4864, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (down_proj): lora.Linear(
+                (base_layer): Linear(in_features=4864, out_features=896, bias=False)
+                (lora_dropout): ModuleDict(
+                  (default): Dropout(p=0.05, inplace=False)
+                )
+                (lora_A): ModuleDict(
+                  (default): Linear(in_features=4864, out_features=8, bias=False)
+                )
+                (lora_B): ModuleDict(
+                  (default): Linear(in_features=8, out_features=896, bias=False)
+                )
+                (lora_embedding_A): ParameterDict()
+                (lora_embedding_B): ParameterDict()
+                (lora_magnitude_vector): ModuleDict()
+              )
+              (act_fn): SiLUActivation()
+            )
+            (input_layernorm): Qwen2RMSNorm((896,), eps=1e-06)
+            (post_attention_layernorm): Qwen2RMSNorm((896,), eps=1e-06)
+          )
+        )
+        (norm): Qwen2RMSNorm((896,), eps=1e-06)
+        (rotary_emb): Qwen2RotaryEmbedding()
+      )
+      (lm_head): Linear(in_features=896, out_features=151936, bias=False)
+    )
+  )
+)
+[INFO:swift] Start time of running main: 2026-11-16 07:59:29.347327
+[INFO:swift] swift.__version__: 4.7.0.dev0
+[INFO:swift] request_config: RequestConfig(max_tokens=64, temperature=0.0, top_k=None, top_p=None, min_p=None, repetition_penalty=None, num_beams=1, stop=[], seed=None, stream=False, logprobs=False, top_logprobs=None, prompt_logprobs=None, n=1, best_of=None, presence_penalty=0.0, frequency_penalty=0.0, length_penalty=1.0, return_details=False, structured_outputs_regex=None)
+
+Generating train split: 0 examples [00:00, ? examples/s]
+Generating train split: 2 examples [00:00, 1804.39 examples/s]
+
+Map (num_proc=1):   0%|          | 0/2 [00:00<?, ? examples/s]
+Map (num_proc=1): 100%|██████████| 2/2 [00:00<00:00,  8.10 examples/s]
+Map (num_proc=1): 100%|██████████| 2/2 [00:00<00:00,  5.48 examples/s]
+[INFO:swift] val_dataset: Dataset({
+    features: ['messages', 'dataset'],
+    num_rows: 2
+})
+
+  0%|          | 0/2 [00:00<?, ?it/s]
+ 50%|█████     | 1/2 [00:05<00:05,  5.20s/it]
+100%|██████████| 2/2 [00:09<00:00,  4.44s/it]
+100%|██████████| 2/2 [00:09<00:00,  4.56s/it]
+[INFO:swift] The inference results have been saved to result_path: `/tmp/oracle.3BNsxp/res.jsonl`.
+[INFO:swift] End time of running main: 2026-11-16 07:59:39.094094
+{'num_prompt_tokens': 69, 'num_generated_tokens': 112, 'num_samples': 2, 'runtime': 9.113391482999987, 'samples/s': 0.21945726832110488, 'tokens/s': 12.289607025981873}
+[{'response': 'I am an artificial intelligence named after the character "Wukong" in the Chinese novel "Journey to the West". I was created by Alibaba Cloud and designed for various tasks such as text generation, summarization, and translation. My purpose is to assist users with their inquiries and provide them with accurate information.', 'labels': None, 'logprobs': None, 'messages': [{'role': 'user', 'content': 'Who are you?'}, {'role': 'assistant', 'content': 'I am an artificial intelligence named after the character "Wukong" in the Chinese novel "Journey to the West". I was created by Alibaba Cloud and designed for various tasks such as text generation, summarization, and translation. My purpose is to assist users with their inquiries and provide them with accurate information.'}], 'dataset': '/tmp/oracle.3BNsxp/q.jsonl'}, {'response': 'The answer to "what is 1+1" is 2.\n\nThis is because addition is the process of combining two or more numbers into one number. In this case, adding 1 and 1 results in 2.', 'labels': None, 'logprobs': None, 'messages': [{'role': 'user', 'content': 'What is 1+1?'}, {'role': 'assistant', 'content': 'The answer to "what is 1+1" is 2.\n\nThis is because addition is the process of combining two or more numbers into one number. In this case, adding 1 and 1 results in 2.'}], 'dataset': '/tmp/oracle.3BNsxp/q.jsonl'}]
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ set -e
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/ms-swift
++ export CUDA_VISIBLE_DEVICES=
++ CUDA_VISIBLE_DEVICES=
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.3BNsxp
++ timeout 3000 swift sft --model Qwen/Qwen2.5-0.5B-Instruct --tuner_type lora --dataset swift/self-cognition#60 --torch_dtype float32 --num_train_epochs 1 --max_steps 8 --per_device_train_batch_size 1 --gradient_accumulation_steps 2 --learning_rate 1e-4 --lora_rank 8 --lora_alpha 32 --target_modules all-linear --split_dataset_ratio 0 --save_steps 8 --logging_steps 2 --max_length 512 --dataloader_num_workers 0 --model_author swift --model_name swift-robot --output_dir /tmp/oracle.3BNsxp/out
++ tee /tmp/oracle.3BNsxp/train.log
+++ tail -1
++++ sort
++++ find /tmp/oracle.3BNsxp/out -type d -name 'checkpoint-*'
+++ ls -d /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8
++ CK=/tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8
++ test -n /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8
++ test -s /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8/adapter_model.safetensors
++ test -s /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8/adapter_config.json
+++ stat -c %s /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8/adapter_model.safetensors
++ test 17640136 -gt 100000
++ cat
++ timeout 1500 swift infer --adapters /tmp/oracle.3BNsxp/out/v0-20261116-075502/checkpoint-8 --val_dataset /tmp/oracle.3BNsxp/q.jsonl --max_new_tokens 64 --temperature 0 --max_batch_size 1 --result_path /tmp/oracle.3BNsxp/res.jsonl
++ tee /tmp/oracle.3BNsxp/infer.log
++ test -s /tmp/oracle.3BNsxp/res.jsonl
++ python - /tmp/oracle.3BNsxp/res.jsonl
++ echo ORACLE PASS

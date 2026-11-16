@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-playwright-python",
+  "repo": "microsoft/playwright-python",
+  "commit": "86a5f5a81010b1dbd155263e99782442b61d0cb2",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:50:28",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 20
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 3
+  },
+  "finished": "2026-11-16 07:50:59"
+}

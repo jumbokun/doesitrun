@@ -1,0 +1,52 @@
+Workflow 1 (introspection-based types):
+['DLROW OLLEH']
+Final state: WorkflowRunState.IDLE
+
+Workflow 2 (explicit @handler types):
+['!!!DLROW OLLEH']
+Final state: WorkflowRunState.IDLE
+['DLROW OLLEH']
+['!!!DLROW OLLEH']
+RESULT ['KROWEMARF TNEGA']
+RESULT ['KROWEMARF TNEGA']
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/agent-framework
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.d7wdb4
++ timeout 600 python python/samples/03-workflows/_start-here/step1_executors_and_edges.py
++ cat /tmp/oracle.d7wdb4/out.txt
++ grep -F '['\''DLROW OLLEH'\'']' /tmp/oracle.d7wdb4/out.txt
++ grep -F '['\''!!!DLROW OLLEH'\'']' /tmp/oracle.d7wdb4/out.txt
+++ grep -c WorkflowRunState.IDLE /tmp/oracle.d7wdb4/out.txt
++ '[' 2 -ge 2 ']'
++ cat
++ timeout 300 python /tmp/oracle.d7wdb4/custom.py /work/agent-framework/python/samples/03-workflows/_start-here
++ tee /tmp/oracle.d7wdb4/c.txt
++ grep -F 'RESULT ['\''KROWEMARF TNEGA'\'']' /tmp/oracle.d7wdb4/c.txt
++ echo 'ORACLE PASS'

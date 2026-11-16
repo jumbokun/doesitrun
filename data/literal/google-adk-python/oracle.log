@@ -1,0 +1,52 @@
+Log setup complete: /tmp/agents_log/agent.20261116_074857.log
+To access latest log: tail -F /tmp/agents_log/agent.latest.log
+{"author": "root_agent", "session_id": "84bb8544-face-476f-a3e7-c3e4fe3aa1df", "node_path": "root_agent@1/make_uppercase@1", "id": "f71d3cde-636b-4318-a8ad-525c455a440e", "invocationId": "e-0293e369-7bcd-43c9-a454-d959345e9a1e", "output": "HELLO WORLD", "nodeInfo": {"path": "root_agent@1/make_uppercase@1", "outputFor": ["root_agent@1/make_uppercase@1"]}, "branch": "make_uppercase@1", "timestamp": 1794815337.6987095}
+{"author": "root_agent", "session_id": "84bb8544-face-476f-a3e7-c3e4fe3aa1df", "node_path": "root_agent@1/count_characters@1", "id": "dedeb231-d282-411e-aa09-833fb7d1c19e", "invocationId": "e-0293e369-7bcd-43c9-a454-d959345e9a1e", "output": 11, "nodeInfo": {"path": "root_agent@1/count_characters@1", "outputFor": ["root_agent@1/count_characters@1"]}, "branch": "count_characters@1", "timestamp": 1794815337.6989803}
+{"author": "root_agent", "session_id": "84bb8544-face-476f-a3e7-c3e4fe3aa1df", "node_path": "root_agent@1/reverse_string@1", "id": "764c5387-36cd-4cef-90ab-0496ff47a011", "invocationId": "e-0293e369-7bcd-43c9-a454-d959345e9a1e", "output": "dlroW olleH", "nodeInfo": {"path": "root_agent@1/reverse_string@1", "outputFor": ["root_agent@1/reverse_string@1"]}, "branch": "reverse_string@1", "timestamp": 1794815337.699107}
+{"author": "root_agent", "session_id": "84bb8544-face-476f-a3e7-c3e4fe3aa1df", "node_path": "root_agent@1/join_for_results@1", "id": "ea705bdb-42ba-497f-bd3b-93b5a177a206", "invocationId": "e-0293e369-7bcd-43c9-a454-d959345e9a1e", "output": {"count_characters": 11, "make_uppercase": "HELLO WORLD", "reverse_string": "dlroW olleH"}, "nodeInfo": {"path": "root_agent@1/join_for_results@1", "outputFor": ["root_agent@1/join_for_results@1"]}, "timestamp": 1794815337.7004719}
+{"author": "root_agent", "session_id": "84bb8544-face-476f-a3e7-c3e4fe3aa1df", "node_path": "root_agent@1/aggregate@1", "id": "ac7680ab-0f7f-403e-98bb-768adaab4ea9", "content": {"parts": [{"text": "Uppercase: HELLO WORLD\n\nCharacter Count: 11\n\nReversed: dlroW olleH\n\n"}], "role": "user"}, "invocationId": "e-0293e369-7bcd-43c9-a454-d959345e9a1e", "nodeInfo": {"path": "root_agent@1/aggregate@1"}, "timestamp": 1794815337.7017608}
+Log setup complete: /tmp/agents_log/agent.20261116_074857.log
+To access latest log: tail -F /tmp/agents_log/agent.latest.log
+{"author": "state_sample", "session_id": "e3fedba0-586c-4a85-b1ec-55fc710ea08c", "node_path": "state_sample@1/process_initial_input@1", "id": "01aeef77-2d6f-4dba-b04a-89e6b7171ed6", "invocationId": "e-a829dde3-cd53-424d-8756-11e37b2cc66c", "actions": {"stateDelta": {"original_text": "hello adk"}}, "output": "hello adk", "nodeInfo": {"path": "state_sample@1/process_initial_input@1", "outputFor": ["state_sample@1/process_initial_input@1"]}, "timestamp": 1794815338.4843707}
+{"author": "state_sample", "session_id": "e3fedba0-586c-4a85-b1ec-55fc710ea08c", "node_path": "state_sample@1/update_state_via_event@1", "id": "ddbac77d-b698-4069-9118-897a24a13ce6", "invocationId": "e-a829dde3-cd53-424d-8756-11e37b2cc66c", "actions": {"stateDelta": {"uppercased_text": "HELLO ADK"}}, "nodeInfo": {"path": "state_sample@1/update_state_via_event@1"}, "timestamp": 1794815338.4855695}
+{"author": "state_sample", "session_id": "e3fedba0-586c-4a85-b1ec-55fc710ea08c", "node_path": "state_sample@1/read_state_via_ctx@1", "id": "b32cfc4c-cb73-4886-b5d5-6f762f514a6c", "invocationId": "e-a829dde3-cd53-424d-8756-11e37b2cc66c", "actions": {"stateDelta": {"appended_text": "HELLO ADK (Original was: hello adk)"}}, "output": "HELLO ADK (Original was: hello adk)", "nodeInfo": {"path": "state_sample@1/read_state_via_ctx@1", "outputFor": ["state_sample@1/read_state_via_ctx@1"]}, "timestamp": 1794815338.4866}
+{"author": "state_sample", "session_id": "e3fedba0-586c-4a85-b1ec-55fc710ea08c", "node_path": "state_sample@1/read_state_via_param@1", "id": "9fd96022-790a-4824-9b21-d1f94199af2c", "invocationId": "e-a829dde3-cd53-424d-8756-11e37b2cc66c", "output": "Final Result: HELLO ADK (Original was: hello adk)!", "nodeInfo": {"path": "state_sample@1/read_state_via_param@1", "outputFor": ["state_sample@1/read_state_via_param@1", "state_sample@1"]}, "timestamp": 1794815338.4875917}
+events 5 4
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/adk-python
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.fYS44U
++ S=contributing/samples/workflows
++ test -f contributing/samples/workflows/fan_out_fan_in/agent.py
++ test -f contributing/samples/workflows/state/agent.py
++ timeout 600 adk run --in_memory --jsonl contributing/samples/workflows/fan_out_fan_in 'Hello World'
++ timeout 600 adk run --in_memory --jsonl contributing/samples/workflows/state 'hello adk'
++ cat /tmp/oracle.fYS44U/fan.jsonl /tmp/oracle.fYS44U/state.jsonl
++ python3 - /tmp/oracle.fYS44U/fan.jsonl /tmp/oracle.fYS44U/state.jsonl
++ echo ORACLE PASS

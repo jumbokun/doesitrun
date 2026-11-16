@@ -1,0 +1,165 @@
+Using device: cpu
+Found 25 voice files in /work/VibeVoice/demo/voices/streaming_model
+Available voices: de-spk0_man, de-spk1_woman, en-carter_man, en-davis_man, en-emma_woman, en-frank_man, en-grace_woman, en-mike_man, fr-spk0_man, fr-spk1_woman, in-samuel_man, it-spk0_woman, it-spk1_man, jp-spk0_man, jp-spk1_woman, kr-spk0_woman, kr-spk1_man, nl-spk0_man, nl-spk1_woman, pl-spk0_man, pl-spk1_woman, pt-spk0_woman, pt-spk1_man, sp-spk0_woman, sp-spk1_man
+Reading script from: /tmp/oracle_out.ubxsnD/oracle_in.txt
+Loading processor & model from microsoft/VibeVoice-Realtime-0.5B
+Using device: cpu, torch_dtype: torch.float32, attn_implementation: sdpa
+Language model attention: sdpa
+Using voice preset for Carter: /work/VibeVoice/demo/voices/streaming_model/en-Carter_man.pt
++ set -e
++ source /work/env.sh
+++ set -e
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/VibeVoice
+++ mktemp -d /tmp/oracle_out.XXXXXX
++ OUT=/tmp/oracle_out.ubxsnD
++ printf 'Hello there. This is a short test of the VibeVoice real time speech model running on a CPU.\n'
++ timeout 5400 python demo/realtime_model_inference_from_file.py --model_path microsoft/VibeVoice-Realtime-0.5B --txt_path /tmp/oracle_out.ubxsnD/oracle_in.txt --speaker_name Carter --output_dir /tmp/oracle_out.ubxsnD/out --device cpu
+loading file vocab.json from cache at /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987/vocab.json
+loading file merges.txt from cache at /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987/merges.txt
+loading file tokenizer.json from cache at /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987/tokenizer.json
+loading file added_tokens.json from cache at None
+loading file special_tokens_map.json from cache at None
+loading file tokenizer_config.json from cache at /root/.cache/huggingface/hub/models--Qwen--Qwen2.5-0.5B/snapshots/060db6499f32faf8b98477b0a26969ef7d8b9987/tokenizer_config.json
+loading file chat_template.jinja from cache at None
+The tokenizer class you load from this checkpoint is not the same type as the class this function is called from. It may result in unexpected tokenization. 
+The tokenizer class you load from this checkpoint is 'Qwen2Tokenizer'. 
+The class this function is called from is 'VibeVoiceTextTokenizerFast'.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+loading configuration file config.json from cache at /root/.cache/huggingface/hub/models--microsoft--VibeVoice-Realtime-0.5B/snapshots/6bce5f06044837fe6d2c5d7a71a84f0416bd57e4/config.json
+Model config VibeVoiceStreamingConfig {
+  "acoustic_tokenizer_config": {
+    "causal": true,
+    "channels": 1,
+    "conv_bias": true,
+    "conv_norm": "none",
+    "corpus_normalize": 0.0,
+    "decoder_depths": null,
+    "decoder_n_filters": 32,
+    "decoder_ratios": [
+      8,
+      5,
+      5,
+      4,
+      2,
+      2
+    ],
+    "disable_last_norm": true,
+    "encoder_depths": "3-3-3-3-3-3-8",
+    "encoder_n_filters": 32,
+    "encoder_ratios": [
+      8,
+      5,
+      5,
+      4,
+      2,
+      2
+    ],
+    "fix_std": 0.5,
+    "layer_scale_init_value": 1e-06,
+    "layernorm": "RMSNorm",
+    "layernorm_elementwise_affine": true,
+    "layernorm_eps": 1e-05,
+    "mixer_layer": "depthwise_conv",
+    "model_type": "vibevoice_acoustic_tokenizer",
+    "pad_mode": "constant",
+    "std_dist_type": "gaussian",
+    "vae_dim": 64,
+    "weight_init_value": 0.01
+  },
+  "acoustic_vae_dim": 64,
+  "architectures": [
+    "VibeVoiceStreamingForConditionalGenerationInference"
+  ],
+  "decoder_config": {
+    "attention_dropout": 0.0,
+    "hidden_act": "silu",
+    "hidden_size": 896,
+    "initializer_range": 0.02,
+    "intermediate_size": 4864,
+    "max_position_embeddings": 8192,
+    "max_window_layers": 24,
+    "model_type": "qwen2",
+    "num_attention_heads": 14,
+    "num_hidden_layers": 24,
+    "num_key_value_heads": 2,
+    "rms_norm_eps": 1e-06,
+    "rope_scaling": null,
+    "rope_theta": 1000000.0,
+    "sliding_window": null,
+    "torch_dtype": "bfloat16",
+    "use_cache": true,
+    "use_sliding_window": false,
+    "vocab_size": 151936
+  },
+  "diffusion_head_config": {
+    "ddpm_batch_mul": 4,
+    "ddpm_beta_schedule": "cosine",
+    "ddpm_num_inference_steps": 20,
+    "ddpm_num_steps": 1000,
+    "diffusion_type": "ddpm",
+    "head_ffn_ratio": 3.0,
+    "head_layers": 4,
+    "hidden_size": 896,
+    "latent_size": 64,
+    "model_type": "vibevoice_diffusion_head",
+    "prediction_type": "v_prediction",
+    "rms_norm_eps": 1e-05,
+    "speech_vae_dim": 64
+  },
+  "model_type": "vibevoice_streaming",
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.51.3",
+  "tts_backbone_num_hidden_layers": 20
+}
+
+loading weights file model.safetensors from cache at /root/.cache/huggingface/hub/models--microsoft--VibeVoice-Realtime-0.5B/snapshots/6bce5f06044837fe6d2c5d7a71a84f0416bd57e4/model.safetensors
+Instantiating VibeVoiceStreamingForConditionalGenerationInference model under default dtype torch.float32.
+Generate config GenerationConfig {}
+
+Instantiating Qwen2Model model under default dtype torch.float32.
+Instantiating Qwen2Model model under default dtype torch.float32.
+Instantiating VibeVoiceAcousticTokenizerModel model under default dtype torch.float32.
+Instantiating VibeVoiceDiffusionHead model under default dtype torch.float32.
+All model checkpoint weights were used when initializing VibeVoiceStreamingForConditionalGenerationInference.
+
+Some weights of VibeVoiceStreamingForConditionalGenerationInference were not initialized from the model checkpoint at microsoft/VibeVoice-Realtime-0.5B and are newly initialized: ['model.acoustic_tokenizer.encoder.downsample_layers.0.0.conv.conv.bias', 'model.acoustic_tokenizer.encoder.downsample_layers.0.0.conv.conv.weight', 'model.acoustic_tokenizer.encoder.downsample_layers.1.0.conv.conv.bias', 'model.acoustic_tokenizer.encoder.downsample_layers.1.0.conv.conv.weight', 'model.acoustic_tokenizer.encoder.downsample_layers.2.0.conv.conv.bias', 'model.acoustic_tokenizer.encoder.downsample_layers.2.0.conv.conv.weight', 'model.acoustic_tokenizer.encoder.downsample_layers.3.0.conv.conv.bias', 'model.acoustic_tokenizer.encoder.downsample_layers.3.0.conv.conv.weight', 'model.acoustic_tokenizer.encoder.downsample_layers.4.0.conv.conv.bias', 'model.acoustic_tokenizer.encoder.downsample_layers.4.0.conv.conv.weight', 'model.acoustic_tokenizer.encoder.downsample_layers.5.0.conv.conv.bias', 'model.acoustic_tokenizer.encoder.downsample_layers.5.0.conv.conv.weight', 'model.acoustic_tokenizer.encoder.downsample_layers.6.0.conv.conv.bias', 'model.acoustic_tokenizer.encoder.downsample_layers.6.0.conv.conv.weight', 'model.acoustic_tokenizer.encoder.head.conv.conv.bias', 'model.acoustic_tokenizer.encoder.head.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.0.0.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.0.0.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.0.0.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.0.0.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.0.0.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.0.0.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.0.0.gamma', 'model.acoustic_tokenizer.encoder.stages.0.0.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.0.0.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.0.0.norm.weight', 'model.acoustic_tokenizer.encoder.stages.0.1.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.0.1.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.0.1.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.0.1.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.0.1.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.0.1.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.0.1.gamma', 'model.acoustic_tokenizer.encoder.stages.0.1.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.0.1.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.0.1.norm.weight', 'model.acoustic_tokenizer.encoder.stages.0.2.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.0.2.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.0.2.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.0.2.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.0.2.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.0.2.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.0.2.gamma', 'model.acoustic_tokenizer.encoder.stages.0.2.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.0.2.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.0.2.norm.weight', 'model.acoustic_tokenizer.encoder.stages.1.0.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.1.0.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.1.0.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.1.0.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.1.0.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.1.0.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.1.0.gamma', 'model.acoustic_tokenizer.encoder.stages.1.0.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.1.0.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.1.0.norm.weight', 'model.acoustic_tokenizer.encoder.stages.1.1.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.1.1.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.1.1.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.1.1.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.1.1.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.1.1.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.1.1.gamma', 'model.acoustic_tokenizer.encoder.stages.1.1.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.1.1.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.1.1.norm.weight', 'model.acoustic_tokenizer.encoder.stages.1.2.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.1.2.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.1.2.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.1.2.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.1.2.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.1.2.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.1.2.gamma', 'model.acoustic_tokenizer.encoder.stages.1.2.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.1.2.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.1.2.norm.weight', 'model.acoustic_tokenizer.encoder.stages.2.0.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.2.0.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.2.0.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.2.0.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.2.0.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.2.0.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.2.0.gamma', 'model.acoustic_tokenizer.encoder.stages.2.0.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.2.0.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.2.0.norm.weight', 'model.acoustic_tokenizer.encoder.stages.2.1.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.2.1.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.2.1.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.2.1.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.2.1.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.2.1.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.2.1.gamma', 'model.acoustic_tokenizer.encoder.stages.2.1.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.2.1.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.2.1.norm.weight', 'model.acoustic_tokenizer.encoder.stages.2.2.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.2.2.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.2.2.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.2.2.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.2.2.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.2.2.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.2.2.gamma', 'model.acoustic_tokenizer.encoder.stages.2.2.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.2.2.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.2.2.norm.weight', 'model.acoustic_tokenizer.encoder.stages.3.0.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.3.0.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.3.0.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.3.0.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.3.0.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.3.0.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.3.0.gamma', 'model.acoustic_tokenizer.encoder.stages.3.0.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.3.0.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.3.0.norm.weight', 'model.acoustic_tokenizer.encoder.stages.3.1.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.3.1.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.3.1.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.3.1.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.3.1.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.3.1.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.3.1.gamma', 'model.acoustic_tokenizer.encoder.stages.3.1.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.3.1.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.3.1.norm.weight', 'model.acoustic_tokenizer.encoder.stages.3.2.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.3.2.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.3.2.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.3.2.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.3.2.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.3.2.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.3.2.gamma', 'model.acoustic_tokenizer.encoder.stages.3.2.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.3.2.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.3.2.norm.weight', 'model.acoustic_tokenizer.encoder.stages.4.0.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.4.0.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.4.0.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.4.0.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.4.0.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.4.0.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.4.0.gamma', 'model.acoustic_tokenizer.encoder.stages.4.0.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.4.0.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.4.0.norm.weight', 'model.acoustic_tokenizer.encoder.stages.4.1.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.4.1.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.4.1.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.4.1.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.4.1.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.4.1.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.4.1.gamma', 'model.acoustic_tokenizer.encoder.stages.4.1.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.4.1.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.4.1.norm.weight', 'model.acoustic_tokenizer.encoder.stages.4.2.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.4.2.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.4.2.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.4.2.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.4.2.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.4.2.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.4.2.gamma', 'model.acoustic_tokenizer.encoder.stages.4.2.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.4.2.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.4.2.norm.weight', 'model.acoustic_tokenizer.encoder.stages.5.0.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.5.0.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.5.0.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.5.0.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.5.0.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.5.0.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.5.0.gamma', 'model.acoustic_tokenizer.encoder.stages.5.0.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.5.0.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.5.0.norm.weight', 'model.acoustic_tokenizer.encoder.stages.5.1.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.5.1.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.5.1.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.5.1.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.5.1.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.5.1.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.5.1.gamma', 'model.acoustic_tokenizer.encoder.stages.5.1.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.5.1.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.5.1.norm.weight', 'model.acoustic_tokenizer.encoder.stages.5.2.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.5.2.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.5.2.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.5.2.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.5.2.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.5.2.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.5.2.gamma', 'model.acoustic_tokenizer.encoder.stages.5.2.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.5.2.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.5.2.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.0.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.0.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.0.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.0.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.0.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.0.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.0.gamma', 'model.acoustic_tokenizer.encoder.stages.6.0.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.0.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.0.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.1.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.1.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.1.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.1.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.1.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.1.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.1.gamma', 'model.acoustic_tokenizer.encoder.stages.6.1.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.1.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.1.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.2.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.2.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.2.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.2.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.2.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.2.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.2.gamma', 'model.acoustic_tokenizer.encoder.stages.6.2.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.2.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.2.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.3.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.3.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.3.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.3.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.3.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.3.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.3.gamma', 'model.acoustic_tokenizer.encoder.stages.6.3.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.3.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.3.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.4.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.4.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.4.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.4.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.4.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.4.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.4.gamma', 'model.acoustic_tokenizer.encoder.stages.6.4.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.4.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.4.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.5.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.5.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.5.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.5.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.5.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.5.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.5.gamma', 'model.acoustic_tokenizer.encoder.stages.6.5.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.5.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.5.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.6.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.6.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.6.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.6.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.6.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.6.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.6.gamma', 'model.acoustic_tokenizer.encoder.stages.6.6.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.6.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.6.norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.7.ffn.linear1.bias', 'model.acoustic_tokenizer.encoder.stages.6.7.ffn.linear1.weight', 'model.acoustic_tokenizer.encoder.stages.6.7.ffn.linear2.bias', 'model.acoustic_tokenizer.encoder.stages.6.7.ffn.linear2.weight', 'model.acoustic_tokenizer.encoder.stages.6.7.ffn_gamma', 'model.acoustic_tokenizer.encoder.stages.6.7.ffn_norm.weight', 'model.acoustic_tokenizer.encoder.stages.6.7.gamma', 'model.acoustic_tokenizer.encoder.stages.6.7.mixer.conv.conv.conv.bias', 'model.acoustic_tokenizer.encoder.stages.6.7.mixer.conv.conv.conv.weight', 'model.acoustic_tokenizer.encoder.stages.6.7.norm.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Generation config file not found, using a generation config created from the model config.
+Traceback (most recent call last):
+  File "/work/VibeVoice/demo/realtime_model_inference_from_file.py", line 311, in <module>
+    main()
+  File "/work/VibeVoice/demo/realtime_model_inference_from_file.py", line 228, in main
+    all_prefilled_outputs = torch.load(voice_sample, map_location=target_device, weights_only=True)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/serialization.py", line 1615, in load
+    raise pickle.UnpicklingError(_get_wo_message(str(e))) from None
+_pickle.UnpicklingError: Weights only load failed. In PyTorch 2.6, we changed the default value of the `weights_only` argument in `torch.load` from `False` to `True`. Re-running `torch.load` with `weights_only` set to `False` will likely succeed, but it can result in arbitrary code execution. Do it only if you got the file from a trusted source.
+Please file an issue with the following so that we can make `weights_only=True` compatible with your use case: WeightsUnpickler error: 
+
+Can only SETITEMS for dict, collections.OrderedDict, collections.Counter, but got <class 'transformers.modeling_outputs.BaseModelOutputWithPast'>
+
+Check the documentation of torch.load to learn more about types accepted by default with weights_only https://pytorch.org/docs/stable/generated/torch.load.html.

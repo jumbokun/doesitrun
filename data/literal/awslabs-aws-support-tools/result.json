@@ -1,0 +1,17 @@
+{
+  "slug": "awslabs-aws-support-tools",
+  "repo": "awslabs/aws-support-tools",
+  "commit": "6e0b264d7ac7e3019d05c21b4365636f86779810",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:59:57",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 0
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "finished": "2026-11-16 08:00:05"
+}

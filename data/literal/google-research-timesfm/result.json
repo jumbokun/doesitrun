@@ -1,0 +1,17 @@
+{
+  "slug": "google-research-timesfm",
+  "repo": "google-research/timesfm",
+  "commit": "918df02c9d366b2145bc5876135fa2131d3ed2a6",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:30",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 16
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 19
+  },
+  "finished": "2026-11-16 07:49:12"
+}

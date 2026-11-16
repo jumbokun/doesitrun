@@ -1,0 +1,17 @@
+{
+  "slug": "apple-coreai-torch",
+  "repo": "apple/coreai-torch",
+  "commit": "31908ce231d0794dd966f9fae610da5f95041288",
+  "track": "cpu-gha",
+  "started": "2026-11-16 08:01:06",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 77
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 3
+  },
+  "finished": "2026-11-16 08:02:36"
+}

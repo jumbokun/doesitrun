@@ -1,0 +1,300 @@
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.046', 'batch_size': '1', 'rtf': '0.031'}, :  24%|[34m██▎       [0m| 12/51 [00:00<00:01, 22.32it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  25%|[34m██▌       [0m| 13/51 [00:00<00:01, 22.32it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  27%|[34m██▋       [0m| 14/51 [00:00<00:01, 22.32it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  29%|[34m██▉       [0m| 15/51 [00:00<00:01, 22.28it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  29%|[34m██▉       [0m| 15/51 [00:00<00:01, 22.28it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  31%|[34m███▏      [0m| 16/51 [00:00<00:01, 22.28it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  33%|[34m███▎      [0m| 17/51 [00:00<00:01, 22.28it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  35%|[34m███▌      [0m| 18/51 [00:00<00:01, 20.72it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.074', 'batch_size': '1', 'rtf': '0.050'}, :  35%|[34m███▌      [0m| 18/51 [00:00<00:01, 20.72it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  37%|[34m███▋      [0m| 19/51 [00:00<00:01, 20.72it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  39%|[34m███▉      [0m| 20/51 [00:00<00:01, 20.72it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  41%|[34m████      [0m| 21/51 [00:00<00:01, 21.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  41%|[34m████      [0m| 21/51 [00:00<00:01, 21.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  43%|[34m████▎     [0m| 22/51 [00:01<00:01, 21.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  45%|[34m████▌     [0m| 23/51 [00:01<00:01, 21.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  47%|[34m████▋     [0m| 24/51 [00:01<00:01, 21.71it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  47%|[34m████▋     [0m| 24/51 [00:01<00:01, 21.71it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  49%|[34m████▉     [0m| 25/51 [00:01<00:01, 21.71it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  51%|[34m█████     [0m| 26/51 [00:01<00:01, 21.71it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  53%|[34m█████▎    [0m| 27/51 [00:01<00:01, 21.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  53%|[34m█████▎    [0m| 27/51 [00:01<00:01, 21.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  55%|[34m█████▍    [0m| 28/51 [00:01<00:01, 21.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  57%|[34m█████▋    [0m| 29/51 [00:01<00:01, 21.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  59%|[34m█████▉    [0m| 30/51 [00:01<00:00, 22.01it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  59%|[34m█████▉    [0m| 30/51 [00:01<00:00, 22.01it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  61%|[34m██████    [0m| 31/51 [00:01<00:00, 22.01it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  63%|[34m██████▎   [0m| 32/51 [00:01<00:00, 22.01it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  65%|[34m██████▍   [0m| 33/51 [00:01<00:00, 22.00it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  65%|[34m██████▍   [0m| 33/51 [00:01<00:00, 22.00it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.046', 'batch_size': '1', 'rtf': '0.031'}, :  67%|[34m██████▋   [0m| 34/51 [00:01<00:00, 22.00it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.046', 'batch_size': '1', 'rtf': '0.031'}, :  69%|[34m██████▊   [0m| 35/51 [00:01<00:00, 22.00it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.046', 'batch_size': '1', 'rtf': '0.031'}, :  71%|[34m███████   [0m| 36/51 [00:01<00:00, 21.86it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  71%|[34m███████   [0m| 36/51 [00:01<00:00, 21.86it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  73%|[34m███████▎  [0m| 37/51 [00:01<00:00, 21.86it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  75%|[34m███████▍  [0m| 38/51 [00:01<00:00, 21.86it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  76%|[34m███████▋  [0m| 39/51 [00:01<00:00, 21.97it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  76%|[34m███████▋  [0m| 39/51 [00:01<00:00, 21.97it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.074', 'batch_size': '1', 'rtf': '0.049'}, :  78%|[34m███████▊  [0m| 40/51 [00:01<00:00, 21.97it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  80%|[34m████████  [0m| 41/51 [00:01<00:00, 21.97it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  82%|[34m████████▏ [0m| 42/51 [00:01<00:00, 20.68it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  82%|[34m████████▏ [0m| 42/51 [00:01<00:00, 20.68it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  84%|[34m████████▍ [0m| 43/51 [00:01<00:00, 20.68it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  86%|[34m████████▋ [0m| 44/51 [00:02<00:00, 20.68it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  88%|[34m████████▊ [0m| 45/51 [00:02<00:00, 21.20it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  88%|[34m████████▊ [0m| 45/51 [00:02<00:00, 21.20it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  90%|[34m█████████ [0m| 46/51 [00:02<00:00, 21.20it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  92%|[34m█████████▏[0m| 47/51 [00:02<00:00, 21.20it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  94%|[34m█████████▍[0m| 48/51 [00:02<00:00, 21.40it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  94%|[34m█████████▍[0m| 48/51 [00:02<00:00, 21.40it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  96%|[34m█████████▌[0m| 49/51 [00:02<00:00, 21.40it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  98%|[34m█████████▊[0m| 50/51 [00:02<00:00, 21.40it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, : 100%|[34m██████████[0m| 51/51 [00:02<00:00, 21.72it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, : 100%|[34m██████████[0m| 51/51 [00:02<00:00, 21.72it/s][A
+
+rtf_avg: 0.030: 100%|[34m██████████[0m| 51/51 [00:02<00:00, 21.72it/s]                                                                                          [A
+rtf_avg: 0.030: 100%|[34m██████████[0m| 51/51 [00:02<00:00, 21.70it/s]
+
+
+  0%|[34m          [0m| 0/1 [00:00<?, ?it/s][A2026-11-16 08:01:50,975 [INFO] Attempting to parse hotwords as str...
+2026-11-16 08:01:50,975 [INFO] Hotword list: ['<s>'].
+
+
+100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.59s/it][A
+
+{'load_data': '0.000', 'extract_feat': '0.019', 'forward': '2.591', 'batch_size': '1', 'rtf': '0.066'}, : 100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.59s/it][A
+
+rtf_avg: 0.066: 100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.59s/it]                                                                                          [A
+rtf_avg: 0.066: 100%|[34m██████████[0m| 1/1 [00:02<00:00,  2.59s/it]
+
+
+  0%|[34m          [0m| 0/52 [00:00<?, ?it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :   2%|[34m▏         [0m| 1/52 [00:00<00:02, 22.53it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :   4%|[34m▍         [0m| 2/52 [00:00<00:02, 22.58it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :   6%|[34m▌         [0m| 3/52 [00:00<00:02, 22.51it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :   6%|[34m▌         [0m| 3/52 [00:00<00:02, 22.51it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :   8%|[34m▊         [0m| 4/52 [00:00<00:02, 22.51it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  10%|[34m▉         [0m| 5/52 [00:00<00:02, 22.51it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  12%|[34m█▏        [0m| 6/52 [00:00<00:02, 22.27it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  12%|[34m█▏        [0m| 6/52 [00:00<00:02, 22.27it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  13%|[34m█▎        [0m| 7/52 [00:00<00:02, 22.27it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  15%|[34m█▌        [0m| 8/52 [00:00<00:01, 22.27it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  17%|[34m█▋        [0m| 9/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  17%|[34m█▋        [0m| 9/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  19%|[34m█▉        [0m| 10/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  21%|[34m██        [0m| 11/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  23%|[34m██▎       [0m| 12/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  23%|[34m██▎       [0m| 12/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.052', 'batch_size': '1', 'rtf': '0.035'}, :  25%|[34m██▌       [0m| 13/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  27%|[34m██▋       [0m| 14/52 [00:00<00:01, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  29%|[34m██▉       [0m| 15/52 [00:00<00:01, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  29%|[34m██▉       [0m| 15/52 [00:00<00:01, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  31%|[34m███       [0m| 16/52 [00:00<00:01, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  33%|[34m███▎      [0m| 17/52 [00:00<00:01, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  35%|[34m███▍      [0m| 18/52 [00:00<00:01, 22.18it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  35%|[34m███▍      [0m| 18/52 [00:00<00:01, 22.18it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  37%|[34m███▋      [0m| 19/52 [00:00<00:01, 22.18it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  38%|[34m███▊      [0m| 20/52 [00:00<00:01, 22.18it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  40%|[34m████      [0m| 21/52 [00:00<00:01, 22.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  40%|[34m████      [0m| 21/52 [00:00<00:01, 22.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  42%|[34m████▏     [0m| 22/52 [00:00<00:01, 22.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.072', 'batch_size': '1', 'rtf': '0.048'}, :  44%|[34m████▍     [0m| 23/52 [00:01<00:01, 22.29it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.072', 'batch_size': '1', 'rtf': '0.048'}, :  46%|[34m████▌     [0m| 24/52 [00:01<00:01, 20.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  46%|[34m████▌     [0m| 24/52 [00:01<00:01, 20.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.046', 'batch_size': '1', 'rtf': '0.031'}, :  48%|[34m████▊     [0m| 25/52 [00:01<00:01, 20.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  50%|[34m█████     [0m| 26/52 [00:01<00:01, 20.96it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  52%|[34m█████▏    [0m| 27/52 [00:01<00:01, 21.39it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  52%|[34m█████▏    [0m| 27/52 [00:01<00:01, 21.39it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  54%|[34m█████▍    [0m| 28/52 [00:01<00:01, 21.39it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  56%|[34m█████▌    [0m| 29/52 [00:01<00:01, 21.39it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  58%|[34m█████▊    [0m| 30/52 [00:01<00:01, 21.77it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  58%|[34m█████▊    [0m| 30/52 [00:01<00:01, 21.77it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  60%|[34m█████▉    [0m| 31/52 [00:01<00:00, 21.77it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  62%|[34m██████▏   [0m| 32/52 [00:01<00:00, 21.77it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  63%|[34m██████▎   [0m| 33/52 [00:01<00:00, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.030'}, :  63%|[34m██████▎   [0m| 33/52 [00:01<00:00, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  65%|[34m██████▌   [0m| 34/52 [00:01<00:00, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  67%|[34m██████▋   [0m| 35/52 [00:01<00:00, 21.99it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  69%|[34m██████▉   [0m| 36/52 [00:01<00:00, 22.12it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  69%|[34m██████▉   [0m| 36/52 [00:01<00:00, 22.12it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  71%|[34m███████   [0m| 37/52 [00:01<00:00, 22.12it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  73%|[34m███████▎  [0m| 38/52 [00:01<00:00, 22.12it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  75%|[34m███████▌  [0m| 39/52 [00:01<00:00, 22.33it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  75%|[34m███████▌  [0m| 39/52 [00:01<00:00, 22.33it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.045', 'batch_size': '1', 'rtf': '0.030'}, :  77%|[34m███████▋  [0m| 40/52 [00:01<00:00, 22.33it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  79%|[34m███████▉  [0m| 41/52 [00:01<00:00, 22.33it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  81%|[34m████████  [0m| 42/52 [00:01<00:00, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  81%|[34m████████  [0m| 42/52 [00:01<00:00, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  83%|[34m████████▎ [0m| 43/52 [00:01<00:00, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  85%|[34m████████▍ [0m| 44/52 [00:01<00:00, 22.43it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  87%|[34m████████▋ [0m| 45/52 [00:02<00:00, 21.09it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.073', 'batch_size': '1', 'rtf': '0.049'}, :  87%|[34m████████▋ [0m| 45/52 [00:02<00:00, 21.09it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  88%|[34m████████▊ [0m| 46/52 [00:02<00:00, 21.09it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  90%|[34m█████████ [0m| 47/52 [00:02<00:00, 21.09it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  92%|[34m█████████▏[0m| 48/52 [00:02<00:00, 21.59it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  92%|[34m█████████▏[0m| 48/52 [00:02<00:00, 21.59it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  94%|[34m█████████▍[0m| 49/52 [00:02<00:00, 21.59it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  96%|[34m█████████▌[0m| 50/52 [00:02<00:00, 21.59it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.003', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, :  98%|[34m█████████▊[0m| 51/52 [00:02<00:00, 21.95it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.044', 'batch_size': '1', 'rtf': '0.029'}, :  98%|[34m█████████▊[0m| 51/52 [00:02<00:00, 21.95it/s][A
+
+{'load_data': '0.000', 'extract_feat': '0.002', 'forward': '0.043', 'batch_size': '1', 'rtf': '0.029'}, : 100%|[34m██████████[0m| 52/52 [00:02<00:00, 21.95it/s][A
+
+rtf_avg: 0.030: 100%|[34m██████████[0m| 52/52 [00:02<00:00, 21.95it/s]                                                                                          [A
+rtf_avg: 0.030: 100%|[34m██████████[0m| 52/52 [00:02<00:00, 21.94it/s]
+
+
+  0%|[34m          [0m| 0/1 [00:00<?, ?it/s][A
+
+100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.62it/s][A
+
+{'load_data': 0.0, 'extract_feat': 0.0, 'forward': '0.382', 'batch_size': '1', 'rtf': '-0.382'}, : 100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.62it/s][A
+
+rtf_avg: -0.382: 100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.62it/s]                                                                                  [A
+rtf_avg: -0.382: 100%|[34m██████████[0m| 1/1 [00:00<00:00,  2.61it/s]
+
+100%|[31m██████████[0m| 1/1 [00:22<00:00, 22.87s/it]
+rtf_avg: 0.128, time_speech:  178.500, time_escape: 22.869: 100%|[31m██████████[0m| 1/1 [00:22<00:00, 22.87s/it]
+rtf_avg: 0.128, time_speech:  178.500, time_escape: 22.869: 100%|[31m██████████[0m| 1/1 [00:22<00:00, 22.87s/it]
+2026-11-16 08:01:56,310 [WARNING] Write total subtitle to /tmp/oracle.hh3se0/output/total.srt
+2026-11-16 08:01:56,311 [WARNING] Recognition successed. You can copy the text segment from below and use stage 2.
++ test -s /tmp/oracle.hh3se0/output/total.srt
++ python - /tmp/oracle.hh3se0/output/total.srt /tmp/oracle.hh3se0/dest.txt
+++ cat /tmp/oracle.hh3se0/dest.txt
++ DEST=$'\345\271\266\344\270\224\346\210\221\344\273\254\345\234\250\350\277\207\345\216\273\344\272\224\345\271\264\345\275\223\344\270\255\347\273\223\350\257\206\347\232\204\345\220\204\344\275\215\347\232\204\344\274\231\344\274\264\344\273\254\345\225\212'
++ timeout 1200 python funclip/videoclipper.py --stage 2 --file /tmp/oracle.hh3se0/in/demo.mp4 --output_dir /tmp/oracle.hh3se0/output --dest_text $'\345\271\266\344\270\224\346\210\221\344\273\254\345\234\250\350\277\207\345\216\273\344\272\224\345\271\264\345\275\223\344\270\255\347\273\223\350\257\206\347\232\204\345\220\204\344\275\215\347\232\204\344\274\231\344\274\264\344\273\254\345\225\212' --start_ost 0 --end_ost 100 --output_file /tmp/oracle.hh3se0/output/res.mp4
+/work/FunClip/.venv/bin/python funclip/videoclipper.py --stage 2 --file /tmp/oracle.hh3se0/in/demo.mp4 --output_dir /tmp/oracle.hh3se0/output --dest_text 并且我们在过去五年当中结识的各位的伙伴们啊 --start_ost 0 --end_ost 100 --output_file /tmp/oracle.hh3se0/output/res.mp4
+WARNING:root:Initializing VideoClipper.
+Traceback (most recent call last):
+  File "/work/FunClip/funclip/videoclipper.py", line 570, in <module>
+    main()
+  File "/work/FunClip/funclip/videoclipper.py", line 566, in main
+    runner(**kwargs)
+  File "/work/FunClip/funclip/videoclipper.py", line 553, in runner
+    clip_video_file, message, srt_clip = audio_clipper.video_clip(dest_text, start_ost, end_ost, state, dest_spk=dest_spk)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/FunClip/funclip/videoclipper.py", line 344, in video_clip
+    if self.lang == 'en' and isinstance(sentences, str):
+       ^^^^^^^^^
+AttributeError: 'VideoClipper' object has no attribute 'lang'

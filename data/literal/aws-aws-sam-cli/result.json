@@ -1,0 +1,17 @@
+{
+  "slug": "aws-aws-sam-cli",
+  "repo": "aws/aws-sam-cli",
+  "commit": "0cfc34edec8e9068b216fbf39f193ed01d0eb13b",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:59:47",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 3
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 4
+  },
+  "finished": "2026-11-16 08:00:12"
+}

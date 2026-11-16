@@ -1,0 +1,17 @@
+{
+  "slug": "facebookresearch-pytorch3d",
+  "repo": "facebookresearch/pytorch3d",
+  "commit": "3eac7c62fed39a09768cd08119c5e1bf4daef559",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:35",
+  "prep_ok": true,
+  "setup": {
+    "ok": false,
+    "secs": 274
+  },
+  "oracle": {
+    "pass": false,
+    "skipped": "setup failed"
+  },
+  "finished": "2026-11-16 07:53:22"
+}

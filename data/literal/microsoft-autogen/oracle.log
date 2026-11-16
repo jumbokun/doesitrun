@@ -1,0 +1,103 @@
+--------------------------------------------------------------------------------
+Checker:
+10 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 10 to 9
+--------------------------------------------------------------------------------
+Checker:
+9 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 9 to 8
+--------------------------------------------------------------------------------
+Checker:
+8 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 8 to 7
+--------------------------------------------------------------------------------
+Checker:
+7 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 7 to 6
+--------------------------------------------------------------------------------
+Checker:
+6 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 6 to 5
+--------------------------------------------------------------------------------
+Checker:
+5 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 5 to 4
+--------------------------------------------------------------------------------
+Checker:
+4 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 4 to 3
+--------------------------------------------------------------------------------
+Checker:
+3 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 3 to 2
+--------------------------------------------------------------------------------
+Checker:
+2 passed the check, continue.
+--------------------------------------------------------------------------------
+Modifier:
+Modified 2 to 1
+--------------------------------------------------------------------------------
+Checker:
+1 failed the check, stopping.
+messages=[TextMessage(id='bad381e9-e4a1-42ba-ac7d-bea10e953d06', source='user', models_usage=None, metadata={}, created_at=datetime.datetime(2026, 11, 16, 7, 48, 37, 472216, tzinfo=datetime.timezone.utc), content="Say 'Hello World!'", type='TextMessage'), TextMessage(id='9fe01657-f8d7-42af-8360-10d9fcd956cb', source='assistant', models_usage=RequestUsage(prompt_tokens=23, completion_tokens=2), metadata={}, created_at=datetime.datetime(2026, 11, 16, 7, 48, 37, 472315, tzinfo=datetime.timezone.utc), content='Hello World!', type='TextMessage')] stop_reason=None
+HELLO_OK
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/autogen
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.KQd1pO
++ cd /tmp/oracle.KQd1pO
++ cat
++ timeout 300 python -I core_quickstart.py
++ cat core.txt
+++ grep -c '^Modified [0-9]* to [0-9]*$' core.txt
++ '[' 9 = 9 ']'
++ grep -qx 'Modified 2 to 1' core.txt
++ grep -qx '2 passed the check, continue.' core.txt
++ grep -qx '1 failed the check, stopping.' core.txt
++ cat
++ timeout 300 python -I hello_replay.py
++ tail -5 hello.txt
++ grep -qx HELLO_OK hello.txt
++ echo 'ORACLE PASS'

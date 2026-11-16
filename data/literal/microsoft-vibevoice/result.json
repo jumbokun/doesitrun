@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-vibevoice",
+  "repo": "microsoft/VibeVoice",
+  "commit": "16fb2cb1217c9934a886e1948ffb06120caa2df5",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:21",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 148
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 25
+  },
+  "finished": "2026-11-16 07:51:34"
+}

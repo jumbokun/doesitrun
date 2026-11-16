@@ -1,0 +1,17 @@
+{
+  "slug": "microsoft-autogen",
+  "repo": "microsoft/autogen",
+  "commit": "8390985108cb1e3881f5f7297765758d8ad2540c",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:48:10",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 9
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "finished": "2026-11-16 07:48:37"
+}

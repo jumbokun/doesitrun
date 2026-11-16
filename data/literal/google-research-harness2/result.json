@@ -1,0 +1,17 @@
+{
+  "slug": "google-research-harness2",
+  "repo": "google-research/harness2",
+  "commit": "6868817518876de8fd170c6a8354daca273b6191",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:49:45",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 1
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 1
+  },
+  "finished": "2026-11-16 07:49:54"
+}

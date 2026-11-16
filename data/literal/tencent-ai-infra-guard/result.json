@@ -1,0 +1,17 @@
+{
+  "slug": "tencent-ai-infra-guard",
+  "repo": "Tencent/AI-Infra-Guard",
+  "commit": "777859d766ad52ac8693186e82305fccff192da2",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:53:23",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 3
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 2
+  },
+  "finished": "2026-11-16 07:53:44"
+}

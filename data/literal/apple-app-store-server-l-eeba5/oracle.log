@@ -1,0 +1,42 @@
+signature ok
+notification decoded NotificationTypeV2.TEST
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/app-store-server-library-python
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.mwBqhD
++ cat
++ timeout 300 python /tmp/oracle.mwBqhD/t.py
++ tee /tmp/oracle.mwBqhD/out.txt
+Traceback (most recent call last):
+  File "/tmp/oracle.mwBqhD/t.py", line 32, in <module>
+    t = verifier(Environment.SANDBOX, 'com.example').verify_and_decode_transaction(tx)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SignedDataVerifier' object has no attribute 'verify_and_decode_transaction'. Did you mean: 'verify_and_decode_app_transaction'?
++ grep -q 'signature ok' /tmp/oracle.mwBqhD/out.txt
++ grep -q 'notification decoded' /tmp/oracle.mwBqhD/out.txt
++ grep -q 'transaction decoded' /tmp/oracle.mwBqhD/out.txt

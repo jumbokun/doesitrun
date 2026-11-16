@@ -1,0 +1,17 @@
+{
+  "slug": "apple-coremltools",
+  "repo": "apple/coremltools",
+  "commit": "a207b1a3452eafe02f2d870f486287834af2c82d",
+  "track": "cpu-gha",
+  "started": "2026-11-16 08:00:09",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 11
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 0
+  },
+  "finished": "2026-11-16 08:00:36"
+}

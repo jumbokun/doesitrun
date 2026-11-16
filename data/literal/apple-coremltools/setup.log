@@ -1,0 +1,51 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Collecting coremltools
+  Downloading coremltools-9.0-cp312-none-manylinux1_x86_64.whl.metadata (2.7 kB)
+Collecting numpy>=1.14.5 (from coremltools)
+  Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting protobuf>=3.1.0 (from coremltools)
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting sympy (from coremltools)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting tqdm (from coremltools)
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 6.8 MB/s eta 0:00:00
+Collecting packaging (from coremltools)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting attrs>=21.3.0 (from coremltools)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting cattrs (from coremltools)
+  Downloading cattrs-26.2.1-py3-none-any.whl.metadata (8.5 kB)
+Collecting pyaml (from coremltools)
+  Downloading pyaml-26.7.0-py3-none-any.whl.metadata (12 kB)
+Collecting typing-extensions>=4.14.0 (from cattrs->coremltools)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting PyYAML (from pyaml->coremltools)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy->coremltools)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Downloading coremltools-9.0-cp312-none-manylinux1_x86_64.whl (2.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 155.5 MB/s eta 0:00:00
+Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 34.3 MB/s eta 0:00:00
+Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 235.6 MB/s eta 0:00:00
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 129.0 MB/s eta 0:00:00
+Downloading cattrs-26.2.1-py3-none-any.whl (74 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.8/74.8 kB 31.1 MB/s eta 0:00:00
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 130.0/130.0 kB 58.1 MB/s eta 0:00:00
+Downloading pyaml-26.7.0-py3-none-any.whl (27 kB)
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 252.7 MB/s eta 0:00:00
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 35.4 MB/s eta 0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 155.4 MB/s eta 0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 21.8 MB/s eta 0:00:00
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 183.7 MB/s eta 0:00:00
+Installing collected packages: mpmath, typing-extensions, tqdm, sympy, PyYAML, protobuf, packaging, numpy, attrs, pyaml, cattrs, coremltools
+Successfully installed PyYAML-6.0.3 attrs-26.1.0 cattrs-26.2.1 coremltools-9.0 mpmath-1.3.0 numpy-2.5.5 packaging-26.3 protobuf-7.36.2 pyaml-26.7.0 sympy-1.14.0 tqdm-4.70.1 typing-extensions-4.16.0

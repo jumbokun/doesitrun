@@ -1,0 +1,102 @@
+Encountered 27 files that should have been pointers, but weren't:
+	docs/img/Eigenvalues_data.png
+	docs/img/arch_overview.gif
+	docs/img/dni-health.jpeg
+	docs/img/dni-pfa-correlation.gif
+	docs/img/fam2.png
+	docs/img/fam_deer_example.png
+	docs/img/fam_mnist_example.png
+	docs/img/generic_pipeline.png
+	docs/img/iua-show-heatmap.png
+	docs/img/iua-show-table.png
+	docs/img/pfa_recipe_example.png
+	docs/img/pfa_recipe_with_fs.png
+	docs/img/pfa_show_example.png
+	docs/img/response_producer.png
+	docs/img/responses.gif
+	docs/img/sample_pipeline.png
+	docs/notebooks/assets/Eig_dist.png
+	docs/notebooks/assets/Eigenvalues.png
+	docs/notebooks/assets/Energy.png
+	docs/notebooks/assets/Inference.png
+	docs/notebooks/assets/KL.png
+	docs/notebooks/assets/Pooling.png
+	docs/notebooks/assets/ResponseMatrix.png
+	docs/notebooks/assets/l1.png
+	docs/notebooks/assets/lstm.jpg
+	docs/notebooks/assets/max.png
+	docs/notebooks/assets/pearsons.png
+debconf: delaying package configuration, since apt-utils is not installed
+Collecting dnikit
+  Downloading dnikit-2.0.0-py3-none-any.whl.metadata (4.3 kB)
+Collecting annoy (from dnikit)
+  Downloading annoy-1.17.3.tar.gz (647 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 647.5/647.5 kB 34.2 MB/s eta 0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting numpy (from dnikit)
+  Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting scikit-learn (from dnikit)
+  Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+Collecting scipy>=1.10.0 (from scikit-learn->dnikit)
+  Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.4/62.4 kB 34.3 MB/s eta 0:00:00
+Collecting joblib>=1.4.0 (from scikit-learn->dnikit)
+  Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting narwhals>=2.0.1 (from scikit-learn->dnikit)
+  Downloading narwhals-2.28.0-py3-none-any.whl.metadata (15 kB)
+Collecting threadpoolctl>=3.5.0 (from scikit-learn->dnikit)
+  Downloading threadpoolctl-3.8.0-py3-none-any.whl.metadata (29 kB)
+Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn->dnikit)
+  Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+Downloading dnikit-2.0.0-py3-none-any.whl (133 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 61.6 MB/s eta 0:00:00
+Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 251.5 MB/s eta 0:00:00
+Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 235.7 MB/s eta 0:00:00
+Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 167.5 MB/s eta 0:00:00
+Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 490.6/490.6 kB 216.4 MB/s eta 0:00:00
+Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 190.2 MB/s eta 0:00:00
+Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+Building wheels for collected packages: annoy
+  Building wheel for annoy (pyproject.toml): started
+  Building wheel for annoy (pyproject.toml): finished with status 'error'
+Failed to build annoy
+  error: subprocess-exited-with-error
+  
+  × Building wheel for annoy (pyproject.toml) did not run successfully.
+  │ exit code: 1
+  ╰─> [17 lines of output]
+      /tmp/pip-build-env-azktpjdq/overlay/lib/python3.12/site-packages/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'tests_require'
+        warnings.warn(msg)
+      running bdist_wheel
+      running build
+      running build_py
+      creating build/lib.linux-x86_64-cpython-312/annoy
+      copying annoy/__init__.py -> build/lib.linux-x86_64-cpython-312/annoy
+      copying annoy/__init__.pyi -> build/lib.linux-x86_64-cpython-312/annoy
+      copying annoy/py.typed -> build/lib.linux-x86_64-cpython-312/annoy
+      running build_ext
+      building 'annoy.annoylib' extension
+      x86_64-linux-gnu-g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -fPIC -I/work/.venv/include -I/usr/include/python3.12 -c src/annoymodule.cc -o build/temp.linux-x86_64-cpython-312/src/annoymodule.o -D_CRT_SECURE_NO_WARNINGS -fpermissive -march=native -O3 -ffast-math -fno-associative-math -DANNOYLIB_MULTITHREADED_BUILD -std=c++14
+      src/annoymodule.cc:17:10: fatal error: Python.h: No such file or directory
+         17 | #include "Python.h"
+            |          ^~~~~~~~~~
+      compilation terminated.
+      error: Command '['x86_64-linux-gnu-g++', '-fno-strict-overflow', '-Wsign-compare', '-DNDEBUG', '-g', '-O2', '-Wall', '-fPIC', '-I/work/.venv/include', '-I/usr/include/python3.12', '-c', 'src/annoymodule.cc', '-o', 'build/temp.linux-x86_64-cpython-312/src/annoymodule.o', '-D_CRT_SECURE_NO_WARNINGS', '-fpermissive', '-march=native', '-O3', '-ffast-math', '-fno-associative-math', '-DANNOYLIB_MULTITHREADED_BUILD', '-std=c++14']' returned non-zero exit status 1.
+      [end of output]
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+  ERROR: Failed building wheel for annoy
+ERROR: Could not build wheels for annoy, which is required to install pyproject.toml-based projects

@@ -1,0 +1,48 @@
+Parsing /tmp/oracle.eCUK3p/in.csv...
+Generating batch 0, 26 entries, 0.00 GB.
+Writing manifest to file /tmp/oracle.eCUK3p/OUTFILE-000.json
+Generating batch 1, 25 entries, 0.00 GB.
+Writing manifest to file /tmp/oracle.eCUK3p/OUTFILE-001.json
+Generating batch 2, 25 entries, 0.00 GB.
+Writing manifest to file /tmp/oracle.eCUK3p/OUTFILE-002.json
+Generating batch 3, 25 entries, 0.00 GB.
+Writing manifest to file /tmp/oracle.eCUK3p/OUTFILE-003.json
+manifests ok [26, 25, 25, 25]
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/amazon-redshift-utils
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.eCUK3p
++ python3 - /tmp/oracle.eCUK3p/in.csv
++ cd src/ManifestGenerator
++ timeout 300 python3 ./manifestgen.py --prefix=/tmp/oracle.eCUK3p/OUTFILE --num=4 --csv --input-file=/tmp/oracle.eCUK3p/in.csv
++ cat /tmp/oracle.eCUK3p/log.txt
++ grep -q 'Generating batch 3' /tmp/oracle.eCUK3p/log.txt
++ grep -q 'Writing manifest to file' /tmp/oracle.eCUK3p/log.txt
++ python3 - /tmp/oracle.eCUK3p
++ echo 'ORACLE PASS'

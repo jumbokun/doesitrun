@@ -1,0 +1,34 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Requirement already satisfied: pip in ./.venv/lib/python3.12/site-packages (24.0)
+Collecting pip
+  Downloading pip-26.3-py3-none-any.whl.metadata (4.6 kB)
+Downloading pip-26.3-py3-none-any.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 57.8 MB/s eta 0:00:00
+Installing collected packages: pip
+  Attempting uninstall: pip
+    Found existing installation: pip 24.0
+    Uninstalling pip-24.0:
+      Successfully uninstalled pip-24.0
+Successfully installed pip-26.3
+Collecting kats
+  Downloading kats-0.2.0-py3-none-any.whl.metadata (9.4 kB)
+Collecting attrs>=21.2.0 (from kats)
+  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting deprecated>=1.2.12 (from kats)
+  Downloading deprecated-3.0.1-py3-none-any.whl.metadata (6.5 kB)
+Collecting matplotlib>=2.0.0 (from kats)
+  Downloading matplotlib-3.11.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (80 kB)
+Collecting numpy<1.22,>=1.21 (from kats)
+  Downloading numpy-1.21.1.zip (10.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.3/10.3 MB 111.2 MB/s  0:00:00
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  error: backend-unavailable
+  
+  × Cannot import build backend 'setuptools.build_meta:__legacy__'.
+  ╰─> ModuleNotFoundError: No module named 'distutils'
+  
+  note: This is likely not a problem with pip.
+ERROR: Failed to build 'numpy' when calling build backend hook get_requires_for_build_wheel

@@ -1,0 +1,55 @@
+univariate   id           timestamp target_name  ...       0.1       0.5        0.9
+0  a 2024-01-13 12:00:00      target  ...  9.504701  9.814440  10.146884
+1  a 2024-01-13 13:00:00      target  ...  8.714944  9.056808   9.383935
+2  a 2024-01-13 14:00:00      target  ...  8.043048  8.376611   8.729588
+3  a 2024-01-13 15:00:00      target  ...  7.385933  7.745143   8.127533
+4  a 2024-01-13 16:00:00      target  ...  6.941919  7.322803   7.693439
+
+[5 rows x 7 columns]
+covariates   id           timestamp target_name  ...        0.1        0.5        0.9
+0  p 2024-03-13 12:00:00      target  ...  23.743368  24.028936  24.308266
+1  p 2024-03-13 13:00:00      target  ...  23.744907  24.044527  24.337784
+2  p 2024-03-13 14:00:00      target  ...  23.764523  24.032423  24.307930
+3  p 2024-03-13 15:00:00      target  ...  23.751637  24.030857  24.314062
+4  p 2024-03-13 16:00:00      target  ...  23.749119  24.025856  24.314987
+
+[5 rows x 7 columns]
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/chronos-forecasting
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.RI36iY
++ export OUT
++ timeout 1800 python -
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 170/170 [00:00<00:00, 6095.12it/s]
++ test -s /tmp/oracle.RI36iY/pred.csv
++ test -s /tmp/oracle.RI36iY/pred_cov.csv
++ echo 'ORACLE PASS'

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="Data Formulator"
+      content="Concept-driven Visualization Authoring"
+    />
+    
+    <!-- Preload critical images for faster initial load -->
+    <link rel="preload" as="image" href="/gas_prices-thumbnail.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/global_energy-thumbnail.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/movies-thumbnail.webp" type="image/webp" />
+    <link rel="preload" as="image" href="/unemployment-thumbnail.webp" type="image/webp" />
+    
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Data Formulator</title>
+    <script type="module" crossorigin src="/DataFormulator.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-mui-2aNSrxN2.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-5p0AXN18.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-d3-DbaCuQ3q.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-utils-F-gQekO2.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-misc-DkG-QKsE.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-vega-LBE7ItZK.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-editor-CLIibN9C.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-markdown-DC4nSfcQ.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-N0lNNMfR.css">
+  </head>
+  <body>
+    <noscript>Run this app with javascript</noscript>
+    <div id="root"></div>
+  </body>
+</html>
+checks ok
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/data-formulator
++ timeout 1500 bash /work/run.sh
++ B=http://127.0.0.1:5567
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.JTSJLp
++ WS='X-Workspace-Id: oracle-ws-229'
++ python3 - /tmp/oracle.JTSJLp/sales.csv
++ curl -sf http://127.0.0.1:5567/ -o /tmp/oracle.JTSJLp/index.html
++ grep -qi '<html' /tmp/oracle.JTSJLp/index.html
++ curl -sf http://127.0.0.1:5567/api/app-config -o /tmp/oracle.JTSJLp/cfg.json
++ curl -sf -H 'X-Workspace-Id: oracle-ws-229' -F file=@/tmp/oracle.JTSJLp/sales.csv -F table_name=oracle_sales http://127.0.0.1:5567/api/tables/create-table -o /tmp/oracle.JTSJLp/create.json
++ curl -sf -H 'X-Workspace-Id: oracle-ws-229' http://127.0.0.1:5567/api/tables/list-tables -o /tmp/oracle.JTSJLp/list.json
++ curl -sf -H 'X-Workspace-Id: oracle-ws-229' 'http://127.0.0.1:5567/api/tables/get-table?table_name=oracle_sales&page_size=10' -o /tmp/oracle.JTSJLp/get.json
++ curl -sf -H 'X-Workspace-Id: oracle-ws-229' -H 'Content-Type: application/json' -d '{"table":"oracle_sales","size":100,"method":"head"}' http://127.0.0.1:5567/api/tables/sample-table -o /tmp/oracle.JTSJLp/sample.json
++ python3 - /tmp/oracle.JTSJLp
++ echo 'ORACLE PASS'

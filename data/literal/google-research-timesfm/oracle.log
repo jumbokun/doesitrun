@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+S1 (12,) (12, 9)
+S2 (12,) (12, 9)
+MV (3, 24) (3, 24, 9)
+SCRIPT OK
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/timesfm
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.I4DM3o
++ cat
++ timeout 3000 python /tmp/oracle.I4DM3o/t.py
++ tee /tmp/oracle.I4DM3o/log.txt
++ grep -q 'SCRIPT OK' /tmp/oracle.I4DM3o/log.txt
++ grep -q '^S1 (12,) (12, 9)' /tmp/oracle.I4DM3o/log.txt
++ grep -q '^MV (3, 24) (3, 24, 9)' /tmp/oracle.I4DM3o/log.txt
++ echo 'ORACLE PASS'

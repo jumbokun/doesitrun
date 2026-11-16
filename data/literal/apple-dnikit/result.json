@@ -1,0 +1,17 @@
+{
+  "slug": "apple-dnikit",
+  "repo": "apple/dnikit",
+  "commit": "2f39056311d6e0fbbe4e5f73da3767a5b5070dac",
+  "track": "cpu-gha",
+  "started": "2026-11-16 08:00:57",
+  "prep_ok": true,
+  "setup": {
+    "ok": false,
+    "secs": 3
+  },
+  "oracle": {
+    "pass": false,
+    "skipped": "setup failed"
+  },
+  "finished": "2026-11-16 08:01:11"
+}

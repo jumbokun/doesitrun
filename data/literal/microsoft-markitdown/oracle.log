@@ -1,0 +1,55 @@
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/markitdown
++ T=packages/markitdown/tests/test_files
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.Wvn1Vn
++ timeout 300 markitdown packages/markitdown/tests/test_files/test.docx -o /tmp/oracle.Wvn1Vn/docx.md
++ timeout 300 markitdown packages/markitdown/tests/test_files/test.xlsx
++ timeout 300 bash -c 'cat packages/markitdown/tests/test_files/test.pptx | markitdown -x .pptx > /tmp/oracle.Wvn1Vn/pptx.md'
++ timeout 300 markitdown packages/markitdown/tests/test_files/test.pdf -o /tmp/oracle.Wvn1Vn/pdf.md
++ for f in docx xlsx pptx pdf
+++ wc -c
++ test 4703 -gt 200
++ for f in docx xlsx pptx pdf
+++ wc -c
++ test 809 -gt 200
++ for f in docx xlsx pptx pdf
+++ wc -c
++ test 2049 -gt 200
++ for f in docx xlsx pptx pdf
+++ wc -c
++ test 5200 -gt 200
++ grep -q 314b0a30-5b04-470b-b9f7-eed2c2bec74a /tmp/oracle.Wvn1Vn/docx.md
++ grep -q '^# Abstract' /tmp/oracle.Wvn1Vn/docx.md
++ grep -q 'AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation' /tmp/oracle.Wvn1Vn/docx.md
++ grep -q 6ff4173b-42a5-4784-9b19-f49caff4d93d /tmp/oracle.Wvn1Vn/xlsx.md
++ grep -q '^## ' /tmp/oracle.Wvn1Vn/xlsx.md
++ grep -q 2cdda5c8-e50e-4db4-b5f0-9722a649f455 /tmp/oracle.Wvn1Vn/pptx.md
++ grep -q 'While there is contemporaneous exploration of multi-agent approaches' /tmp/oracle.Wvn1Vn/pdf.md
++ echo 'ORACLE PASS'

@@ -1,0 +1,17 @@
+{
+  "slug": "nvidia-model-optimizer",
+  "repo": "NVIDIA/Model-Optimizer",
+  "commit": "6c85409916c66e778c4569b17efca9de577622da",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:53:41",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 138
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 8
+  },
+  "finished": "2026-11-16 07:56:30"
+}

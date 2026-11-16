@@ -1,0 +1,76 @@
+    return self._process_work_item(item, context.model_prediction_dir)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/evaluator/evaluator.py", line 383, in _process_work_item
+    task_state = self._predict_sample(item.sample, model_prediction_dir) if item.needs_predict else item.task_state
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/evaluator/evaluator.py", line 524, in _predict_sample
+    task_state = self.benchmark.run_inference(model=self.model, sample=sample, output_dir=model_prediction_dir)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/api/benchmark/adapters/default_data_adapter.py", line 576, in run_inference
+    result = self._on_inference(model, sample)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/api/benchmark/adapters/default_data_adapter.py", line 463, in _on_inference
+    model_output = model.generate(input=sample.input, tools=sample.tools)
+                   ^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/api/model/lazy_model.py", line 113, in __getattr__
+    model = self._ensure_loaded()
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/utils/function_utils.py", line 45, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/api/model/lazy_model.py", line 72, in _ensure_loaded
+    model = get_model_with_task_config(task_config=task_config)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/api/model/model.py", line 325, in get_model_with_task_config
+    return get_model(
+           ^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/utils/function_utils.py", line 45, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/api/model/model.py", line 388, in get_model
+    modelapi_type = get_model_api(eval_type)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/api/registry.py", line 308, in get_model_api
+    return wrapped()
+           ^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/models/model_apis.py", line 84, in llm_ckpt
+    check_import('torch', package='torch', raise_error=True, feature_name='llm_ckpt')
+  File "/work/.venv/lib/python3.12/site-packages/evalscope/utils/import_utils.py", line 111, in check_import
+    raise ImportError(error_msg)
+ImportError: `torch` not found. Please run `pip install torch` to use llm_ckpt.
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
+++ mktemp -d /tmp/oracle_out.XXXXXX
++ OUT=/tmp/oracle_out.rw9SF1
++ cd /tmp/oracle_out.rw9SF1
++ timeout 3300 evalscope eval --model Qwen/Qwen2.5-0.5B-Instruct --datasets gsm8k arc --limit 5 --work-dir /tmp/oracle_out.rw9SF1/wd
++ tail -n 40
++ python - /tmp/oracle_out.rw9SF1/wd
+Traceback (most recent call last):
+  File "<stdin>", line 27, in <module>
+  File "<stdin>", line 6, in report
+AssertionError: no gsm8k report json found

@@ -1,0 +1,17 @@
+{
+  "slug": "google-research-arxiv-la-b23d9",
+  "repo": "google-research/arxiv-latex-cleaner",
+  "commit": "1bc61c148cb72a42c5769b91af7e1ea52de3a5bf",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:47:33",
+  "prep_ok": true,
+  "setup": {
+    "ok": false,
+    "secs": 0
+  },
+  "oracle": {
+    "pass": false,
+    "skipped": "setup failed"
+  },
+  "finished": "2026-11-16 07:47:44"
+}

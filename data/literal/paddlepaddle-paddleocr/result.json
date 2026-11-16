@@ -1,0 +1,17 @@
+{
+  "slug": "paddlepaddle-paddleocr",
+  "repo": "PaddlePaddle/PaddleOCR",
+  "commit": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:54:50",
+  "prep_ok": true,
+  "setup": {
+    "ok": true,
+    "secs": 51
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 1
+  },
+  "finished": "2026-11-16 07:57:38"
+}

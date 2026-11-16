@@ -1,0 +1,210 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Obtaining file:///work/markitdown/packages/markitdown
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Installing backend dependencies: started
+  Installing backend dependencies: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting beautifulsoup4 (from markitdown==0.1.9)
+  Downloading beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+Collecting certifi>=2026.10.19 (from markitdown==0.1.9)
+  Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+Collecting charset-normalizer (from markitdown==0.1.9)
+  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 7.4 MB/s eta 0:00:00
+Collecting defusedxml (from markitdown==0.1.9)
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting magika<2,>=0.6.1 (from markitdown==0.1.9)
+  Downloading magika-1.0.3-py3-none-manylinux_2_28_x86_64.whl.metadata (10 kB)
+Collecting markdownify (from markitdown==0.1.9)
+  Downloading markdownify-1.2.3-py3-none-any.whl.metadata (9.9 kB)
+Collecting requests (from markitdown==0.1.9)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting azure-ai-contentunderstanding>=1.2.0b1 (from markitdown==0.1.9)
+  Downloading azure_ai_contentunderstanding-1.2.0b3-py3-none-any.whl.metadata (43 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.7/43.7 kB 28.6 MB/s eta 0:00:00
+Collecting azure-ai-documentintelligence (from markitdown==0.1.9)
+  Downloading azure_ai_documentintelligence-1.0.2-py3-none-any.whl.metadata (53 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.0/53.0 kB 38.3 MB/s eta 0:00:00
+Collecting azure-identity (from markitdown==0.1.9)
+  Downloading azure_identity-1.27.0-py3-none-any.whl.metadata (96 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.1/96.1 kB 52.0 MB/s eta 0:00:00
+Collecting lxml (from markitdown==0.1.9)
+  Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+Collecting mammoth<2,>=1.12.2 (from markitdown==0.1.9)
+  Downloading mammoth-1.13.0-py2.py3-none-any.whl.metadata (26 kB)
+Collecting olefile (from markitdown==0.1.9)
+  Downloading olefile-0.47-py2.py3-none-any.whl.metadata (9.7 kB)
+Collecting openpyxl (from markitdown==0.1.9)
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting pandas (from markitdown==0.1.9)
+  Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
+Collecting pdfminer-six>=20251230 (from markitdown==0.1.9)
+  Downloading pdfminer_six-20260107-py3-none-any.whl.metadata (4.3 kB)
+Collecting pdfplumber>=0.11.9 (from markitdown==0.1.9)
+  Downloading pdfplumber-0.11.10-py3-none-any.whl.metadata (43 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.7/43.7 kB 29.7 MB/s eta 0:00:00
+Collecting pydub (from markitdown==0.1.9)
+  Downloading pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting python-pptx (from markitdown==0.1.9)
+  Downloading python_pptx-1.0.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting speechrecognition>=3.10.4 (from markitdown==0.1.9)
+  Downloading speechrecognition-3.17.0-py3-none-any.whl.metadata (28 kB)
+Collecting xlrd (from markitdown==0.1.9)
+  Downloading xlrd-2.0.2-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting youtube-transcript-api~=1.2.3 (from markitdown==0.1.9)
+  Downloading youtube_transcript_api-1.2.5-py3-none-any.whl.metadata (25 kB)
+Collecting isodate>=0.6.1 (from azure-ai-contentunderstanding>=1.2.0b1->markitdown==0.1.9)
+  Downloading isodate-0.7.2-py3-none-any.whl.metadata (11 kB)
+Collecting azure-core>=1.37.0 (from azure-ai-contentunderstanding>=1.2.0b1->markitdown==0.1.9)
+  Downloading azure_core-1.41.0-py3-none-any.whl.metadata (49 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.0/50.0 kB 35.1 MB/s eta 0:00:00
+Collecting typing-extensions>=4.6.0 (from azure-ai-contentunderstanding>=1.2.0b1->markitdown==0.1.9)
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting click>=8.1.7 (from magika<2,>=0.6.1->markitdown==0.1.9)
+  Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting onnxruntime>=1.17.0 (from magika<2,>=0.6.1->markitdown==0.1.9)
+  Downloading onnxruntime-1.32.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.8 kB)
+Collecting cobble<0.2,>=0.1.3 (from mammoth<2,>=1.12.2->markitdown==0.1.9)
+  Downloading cobble-0.1.4-py3-none-any.whl.metadata (2.7 kB)
+Collecting cryptography>=36.0.0 (from pdfminer-six>=20251230->markitdown==0.1.9)
+  Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
+Collecting Pillow>=12.2.0 (from pdfplumber>=0.11.9->markitdown==0.1.9)
+  Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+Collecting pypdfium2>=5.9.0 (from pdfplumber>=0.11.9->markitdown==0.1.9)
+  Downloading pypdfium2-5.15.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.2/64.2 kB 44.5 MB/s eta 0:00:00
+Collecting msal>=1.39.0 (from azure-identity->markitdown==0.1.9)
+  Downloading msal-1.39.0-py3-none-any.whl.metadata (11 kB)
+Collecting msal-extensions>=1.2.0 (from azure-identity->markitdown==0.1.9)
+  Downloading msal_extensions-1.3.1-py3-none-any.whl.metadata (7.8 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4->markitdown==0.1.9)
+  Downloading soupsieve-4.1.1-py3-none-any.whl.metadata (4.4 kB)
+Collecting six<2,>=1.15 (from markdownify->markitdown==0.1.9)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting et-xmlfile (from openpyxl->markitdown==0.1.9)
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting numpy>=2.0.2 (from pandas->markitdown==0.1.9)
+  Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting python-dateutil>=2.9.0 (from pandas->markitdown==0.1.9)
+  Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting XlsxWriter>=0.5.7 (from python-pptx->markitdown==0.1.9)
+  Downloading xlsxwriter-3.3.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting idna<4,>=2.5 (from requests->markitdown==0.1.9)
+  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting urllib3<3,>=1.26 (from requests->markitdown==0.1.9)
+  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting cffi>=2.0.0 (from cryptography>=36.0.0->pdfminer-six>=20251230->markitdown==0.1.9)
+  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting PyJWT<3,>=1.0.0 (from PyJWT[crypto]<3,>=1.0.0->msal>=1.39.0->azure-identity->markitdown==0.1.9)
+  Downloading pyjwt-2.15.1-py3-none-any.whl.metadata (3.5 kB)
+Collecting flatbuffers (from onnxruntime>=1.17.0->magika<2,>=0.6.1->markitdown==0.1.9)
+  Downloading flatbuffers-25.12.19-py2.py3-none-any.whl.metadata (1.0 kB)
+Collecting packaging (from onnxruntime>=1.17.0->magika<2,>=0.6.1->markitdown==0.1.9)
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting protobuf>=4.25.8 (from onnxruntime>=1.17.0->magika<2,>=0.6.1->markitdown==0.1.9)
+  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Collecting tzdata (from python-dateutil>=2.9.0->pandas->markitdown==0.1.9)
+  Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography>=36.0.0->pdfminer-six>=20251230->markitdown==0.1.9)
+  Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
+Downloading azure_ai_contentunderstanding-1.2.0b3-py3-none-any.whl (127 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 127.2/127.2 kB 81.3 MB/s eta 0:00:00
+Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 93.9 MB/s eta 0:00:00
+Downloading magika-1.0.3-py3-none-manylinux_2_28_x86_64.whl (16.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.2/16.2 MB 194.7 MB/s eta 0:00:00
+Downloading mammoth-1.13.0-py2.py3-none-any.whl (55 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.2/55.2 kB 35.7 MB/s eta 0:00:00
+Downloading pdfminer_six-20260107-py3-none-any.whl (6.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 316.2 MB/s eta 0:00:00
+Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 156.2 MB/s eta 0:00:00
+Downloading pdfplumber-0.11.10-py3-none-any.whl (60 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.0/60.0 kB 44.2 MB/s eta 0:00:00
+Downloading speechrecognition-3.17.0-py3-none-any.whl (32.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 32.9/32.9 MB 154.5 MB/s eta 0:00:00
+Downloading youtube_transcript_api-1.2.5-py3-none-any.whl (485 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 485.7/485.7 kB 115.3 MB/s eta 0:00:00
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading azure_ai_documentintelligence-1.0.2-py3-none-any.whl (106 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 106.0/106.0 kB 73.2 MB/s eta 0:00:00
+Downloading azure_identity-1.27.0-py3-none-any.whl (203 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 203.5/203.5 kB 87.7 MB/s eta 0:00:00
+Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 109.9/109.9 kB 76.5 MB/s eta 0:00:00
+Downloading lxml-6.1.3-cp312-cp312-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (5.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 291.1 MB/s eta 0:00:00
+Downloading markdownify-1.2.3-py3-none-any.whl (15 kB)
+Downloading olefile-0.47-py2.py3-none-any.whl (114 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 114.6/114.6 kB 85.0 MB/s eta 0:00:00
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.9/250.9 kB 156.9 MB/s eta 0:00:00
+Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 256.5 MB/s eta 0:00:00
+Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Downloading python_pptx-1.0.2-py3-none-any.whl (472 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 472.8/472.8 kB 199.2 MB/s eta 0:00:00
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 54.0 MB/s eta 0:00:00
+Downloading xlrd-2.0.2-py2.py3-none-any.whl (96 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.6/96.6 kB 73.4 MB/s eta 0:00:00
+Downloading azure_core-1.41.0-py3-none-any.whl (220 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 220.9/220.9 kB 97.1 MB/s eta 0:00:00
+Downloading click-8.5.1-py3-none-any.whl (126 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 126.2/126.2 kB 91.1 MB/s eta 0:00:00
+Downloading cobble-0.1.4-py3-none-any.whl (4.0 kB)
+Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 278.2 MB/s eta 0:00:00
+Downloading idna-3.20-py3-none-any.whl (69 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 44.7 MB/s eta 0:00:00
+Downloading isodate-0.7.2-py3-none-any.whl (22 kB)
+Downloading msal-1.39.0-py3-none-any.whl (131 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 131.6/131.6 kB 89.0 MB/s eta 0:00:00
+Downloading msal_extensions-1.3.1-py3-none-any.whl (20 kB)
+Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 285.5 MB/s eta 0:00:00
+Downloading onnxruntime-1.32.0-cp312-cp312-manylinux_2_28_x86_64.whl (27.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 27.8/27.8 MB 174.5 MB/s eta 0:00:00
+Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 276.7 MB/s eta 0:00:00
+Downloading pypdfium2-5.15.2-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 281.6 MB/s eta 0:00:00
+Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 63.8 MB/s eta 0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading soupsieve-4.1.1-py3-none-any.whl (55 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.1/55.1 kB 40.4 MB/s eta 0:00:00
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 31.3 MB/s eta 0:00:00
+Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 73.2 MB/s eta 0:00:00
+Downloading xlsxwriter-3.3.1-py3-none-any.whl (180 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 180.6/180.6 kB 113.9 MB/s eta 0:00:00
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.8/221.8 kB 125.9 MB/s eta 0:00:00
+Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 178.4 MB/s eta 0:00:00
+Downloading pyjwt-2.15.1-py3-none-any.whl (33 kB)
+Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 177.7 MB/s eta 0:00:00
+Downloading pycparser-3.12-py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 43.5 MB/s eta 0:00:00
+Checking if build backend supports build_editable: started
+Checking if build backend supports build_editable: finished with status 'done'
+Building wheels for collected packages: markitdown
+  Building editable for markitdown (pyproject.toml): started
+  Building editable for markitdown (pyproject.toml): finished with status 'done'
+  Created wheel for markitdown: filename=markitdown-0.1.9-py3-none-any.whl size=2744 sha256=ecc932fbfa223d9eed0c5c820dfe9f5dfc7a95bf1113e4a4497c6cb58b4ec316
+  Stored in directory: /tmp/pip-ephem-wheel-cache-dsas6wl6/wheels/0a/54/2b/5f9b2bf1188730a738d8a728d84585732932a577833df05636
+Successfully built markitdown
+Installing collected packages: pydub, flatbuffers, XlsxWriter, xlrd, urllib3, tzdata, typing-extensions, soupsieve, six, pypdfium2, PyJWT, pycparser, protobuf, Pillow, packaging, olefile, numpy, lxml, isodate, idna, et-xmlfile, defusedxml, cobble, click, charset-normalizer, certifi, speechrecognition, requests, python-pptx, python-dateutil, openpyxl, onnxruntime, mammoth, cffi, beautifulsoup4, youtube-transcript-api, pandas, markdownify, magika, cryptography, azure-core, pdfminer-six, markitdown, azure-ai-documentintelligence, azure-ai-contentunderstanding, pdfplumber, msal, msal-extensions, azure-identity
+Successfully installed Pillow-13.0.0 PyJWT-2.15.1 XlsxWriter-3.3.1 azure-ai-contentunderstanding-1.2.0b3 azure-ai-documentintelligence-1.0.2 azure-core-1.41.0 azure-identity-1.27.0 beautifulsoup4-4.15.0 certifi-2026.10.23 cffi-2.1.1 charset-normalizer-3.5.2 click-8.5.1 cobble-0.1.4 cryptography-50.0.2 defusedxml-0.7.1 et-xmlfile-2.0.0 flatbuffers-25.12.19 idna-3.20 isodate-0.7.2 lxml-6.1.3 magika-1.0.3 mammoth-1.13.0 markdownify-1.2.3 markitdown-0.1.9 msal-1.39.0 msal-extensions-1.3.1 numpy-2.5.5 olefile-0.47 onnxruntime-1.32.0 openpyxl-3.1.5 packaging-26.3 pandas-3.1.1 pdfminer-six-20260107 pdfplumber-0.11.10 protobuf-7.36.2 pycparser-3.12 pydub-0.25.1 pypdfium2-5.15.2 python-dateutil-4.0.0 python-pptx-1.0.2 requests-2.34.2 six-1.17.0 soupsieve-4.1.1 speechrecognition-3.17.0 typing-extensions-4.16.0 tzdata-2026.6 urllib3-2.8.0 xlrd-2.0.2 youtube-transcript-api-1.2.5

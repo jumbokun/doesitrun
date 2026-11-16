@@ -1,0 +1,17 @@
+{
+  "slug": "paddlepaddle-paddleclas",
+  "repo": "PaddlePaddle/PaddleClas",
+  "commit": "202ac79a99aa368f2c95cb1871bbc11574f685da",
+  "track": "cpu-gha",
+  "started": "2026-11-16 07:57:09",
+  "prep_ok": true,
+  "setup": {
+    "ok": false,
+    "secs": 6
+  },
+  "oracle": {
+    "pass": false,
+    "skipped": "setup failed"
+  },
+  "finished": "2026-11-16 07:57:29"
+}
