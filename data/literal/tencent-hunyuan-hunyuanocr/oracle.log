@@ -1,0 +1,44 @@
+{"status":"ok"}RESPONSE (first 800 chars): ring, and Jacobson semisimple, by Corollary 8.35(ii)]. The factor module $ J^q/J^{q+1} $ is an $ (R/J) $-module; hence, by Corollary 8.43, $ J^q/J^{q+1} $ is a semisimple module, and so it can be decomposed into a direct sum of (possibly infinitely many) simple $ (R/J) $-modules. But there can be only finitely many summands, for every $ (R/J) $-submodule of $ J^q/J^{q+1} $ is necessarily an $ R $-submodule, and $ J^q/J^{q+1} $ has the DCC on $ R $-submodules. Hence, there are simple $ (R/J) $-modules $ S_i $ with
+
+$$ J^q/J^{q+1}=S_1\oplus S_2\oplus\cdots\oplus S_p. $$
+
+Throwing away one simple summand at a time yields a series of $ J^q/J^{q+1} $ whose $ i $th factor module is
+
+$$ (S_i \oplus S_{i+1} \oplus \cdots \oplus S_p)/(S_{i+1} \oplus \cdots \oplus S_p) \cong S_i. $$
+
+Now the simple 
+matched ['jacobson', 'semisimple', 'corollary', 'composition series', 'maschke']
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/HunyuanOCR
++ timeout 1500 bash /work/run.sh
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.zkHirh
++ test -s llama_cpp/test_assets/ocr/0.png
++ timeout 2400 python3 - /tmp/oracle.zkHirh llama_cpp/test_assets/ocr/0.png
++ echo 'ORACLE PASS'

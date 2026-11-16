@@ -3,15 +3,15 @@
   "repo": "PaddlePaddle/PaddleOCR",
   "commit": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
   "track": "cpu-gha",
-  "started": "2026-11-16 07:54:50",
+  "started": "2026-11-16 11:38:46",
   "prep_ok": true,
   "setup": {
     "ok": true,
-    "secs": 51
+    "secs": 66
   },
   "oracle": {
-    "pass": false,
-    "secs": 1
+    "pass": true,
+    "secs": 29
   },
-  "finished": "2026-11-16 07:57:38"
+  "finished": "2026-11-16 11:42:33"
 }

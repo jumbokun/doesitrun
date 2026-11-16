@@ -1,3 +1,5 @@
+Processing data with 2 workers.
+Opening /tmp/oracle.mD798t/data.jsonl
 + set -e
 + source /work/env.sh
 ++ source /work/.venv/bin/activate
@@ -26,23 +28,68 @@
 +++ hash -r
 + cd /work/Megatron-LM
 ++ mktemp -d /tmp/oracle.XXXXXX
-+ D=/tmp/oracle.NozgqV
-+ mkdir -p /tmp/oracle.NozgqV/gpt2
++ D=/tmp/oracle.mD798t
++ mkdir -p /tmp/oracle.mD798t/gpt2
 + for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
-+ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/config.json https://huggingface.co/openai-community/gpt2/resolve/main/config.json
++ curl -fsSL --retry 3 -o /tmp/oracle.mD798t/gpt2/config.json https://huggingface.co/openai-community/gpt2/resolve/main/config.json
 + for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
-+ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/tokenizer.json https://huggingface.co/openai-community/gpt2/resolve/main/tokenizer.json
++ curl -fsSL --retry 3 -o /tmp/oracle.mD798t/gpt2/tokenizer.json https://huggingface.co/openai-community/gpt2/resolve/main/tokenizer.json
 + for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
-+ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/tokenizer_config.json https://huggingface.co/openai-community/gpt2/resolve/main/tokenizer_config.json
++ curl -fsSL --retry 3 -o /tmp/oracle.mD798t/gpt2/tokenizer_config.json https://huggingface.co/openai-community/gpt2/resolve/main/tokenizer_config.json
 + for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
-+ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/vocab.json https://huggingface.co/openai-community/gpt2/resolve/main/vocab.json
++ curl -fsSL --retry 3 -o /tmp/oracle.mD798t/gpt2/vocab.json https://huggingface.co/openai-community/gpt2/resolve/main/vocab.json
 + for f in config.json tokenizer.json tokenizer_config.json vocab.json merges.txt
-+ curl -fsSL --retry 3 -o /tmp/oracle.NozgqV/gpt2/merges.txt https://huggingface.co/openai-community/gpt2/resolve/main/merges.txt
-+ python -I - /tmp/oracle.NozgqV/data.jsonl
-+ timeout 1200 python tools/preprocess_data.py --input /tmp/oracle.NozgqV/data.jsonl --output-prefix /tmp/oracle.NozgqV/out --tokenizer-type HuggingFaceTokenizer --tokenizer-model /tmp/oracle.NozgqV/gpt2 --workers 2 --append-eod
++ curl -fsSL --retry 3 -o /tmp/oracle.mD798t/gpt2/merges.txt https://huggingface.co/openai-community/gpt2/resolve/main/merges.txt
++ python -I - /tmp/oracle.mD798t/data.jsonl
++ timeout 1200 python tools/preprocess_data.py --input /tmp/oracle.mD798t/data.jsonl --output-prefix /tmp/oracle.mD798t/out --tokenizer-type HuggingFaceTokenizer --tokenizer-model /tmp/oracle.mD798t/gpt2 --workers 2 --append-eod
+/work/Megatron-LM/megatron/core/optimizer/__init__.py:25: UserWarning: Transformer Engine and Apex are not installed. Falling back to Torch optimizers.
+  warnings.warn(
+/work/Megatron-LM/megatron/core/distributed/fsdp/src/megatron_fsdp/mixed_precision.py:115: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+  warnings.warn(
+/work/Megatron-LM/megatron/core/optimizer/optimizer.py:29: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_scale
+  warnings.warn(
+/work/Megatron-LM/megatron/core/optimizer/clip_grads.py:32: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier, multi_tensor_l2norm, and multi_tensor_scale
+  warnings.warn(
+/work/Megatron-LM/megatron/core/hyper_comm_grid.py:20: UserWarning: absl.logging is not installed. Using logging.getLogger(__name__) instead. Please install absl.logging with `pip install absl-py` to use absl.logging.
+  warnings.warn(
+/work/Megatron-LM/megatron/training/utils/common_utils.py:27: UserWarning: Transformer Engine and Apex are not installed. Falling back to local implementations of multi_tensor_applier and multi_tensor_l2norm
+  warnings.warn(
+/work/Megatron-LM/megatron/core/models/mimo/config/base_configs.py:12: UserWarning: MimoModelConfig is experimental and still under active development. The API may change without notice in future releases.
+  class MimoModelConfig:
+/work/Megatron-LM/megatron/core/extensions/transformer_engine_spec_provider.py:105: UserWarning: Only transformer-engine>=1.7.0 supports MoE experts, but your version is 0.0.0. Use local linear implementation instead.
+  warnings.warn(
+Process Process-1:
 Traceback (most recent call last):
-  File "/work/Megatron-LM/tools/preprocess_data.py", line 24, in <module>
-    from megatron.core.tokenizers.utils.build_tokenizer import build_tokenizer
-  File "/work/Megatron-LM/megatron/core/__init__.py", line 3, in <module>
-    import torch
-ModuleNotFoundError: No module named 'torch'
+  File "/work/Megatron-LM/megatron/core/tokenizers/text/libraries/huggingface_tokenizer.py", line 118, in __init__
+    self.tokenizer = AutoTokenizer.from_pretrained(
+                     ^^^^^^^^^^^^^
+NameError: name 'AutoTokenizer' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/work/Megatron-LM/tools/preprocess_data.py", line 312, in process_json_file
+    worker_performance = partition.process_json_file((name[input_key], name['output_prefix']))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/Megatron-LM/tools/preprocess_data.py", line 158, in process_json_file
+    tokenizer = build_tokenizer(self.args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/Megatron-LM/megatron/core/tokenizers/utils/build_tokenizer.py", line 122, in build_tokenizer
+    tokenizer = MegatronTokenizer.from_pretrained(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/Megatron-LM/megatron/core/tokenizers/megatron_tokenizer.py", line 88, in from_pretrained
+    tokenizer = tokenizer_cls(path=tokenizer_path, config=metadata, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/Megatron-LM/megatron/core/tokenizers/text/text_tokenizer.py", line 38, in __init__
+    self._tokenizer = self._restore_model(**kwargs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/Megatron-LM/megatron/core/tokenizers/text/text_tokenizer.py", line 63, in _restore_model
+    return library_class(self.path, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/Megatron-LM/megatron/core/tokenizers/text/libraries/huggingface_tokenizer.py", line 139, in __init__
+    raise ValueError(
+ValueError: Unable to instantiate HuggingFace AutoTokenizer for /tmp/oracle.mD798t/gpt2. Exception: name 'AutoTokenizer' is not defined

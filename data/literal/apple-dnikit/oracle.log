@@ -1,0 +1,44 @@
+duplicate clusters 8 70
+pca shapes [(100, 8), (100, 8), (100, 8)]
+familiarity mean in/out -7.225638791974795 -193.56647138257478
+DNIKIT_OK
+/work/.venv/bin/python: No module named pytest
+unit tests failed
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/dnikit
+++ mktemp -d /tmp/oracle_dnikit.XXXXXX
++ OUT=/tmp/oracle_dnikit.AeLcfp
++ cat
++ timeout 900 python /tmp/oracle_dnikit.AeLcfp/check.py /tmp/oracle_dnikit.AeLcfp
++ tee /tmp/oracle_dnikit.AeLcfp/check.txt
++ grep -q DNIKIT_OK /tmp/oracle_dnikit.AeLcfp/check.txt
++ test -s /tmp/oracle_dnikit.AeLcfp/result.json
++ timeout 900 python -m pytest -q -p no:cacheprovider -o addopts= src/dnikit/tests/test_duplicates.py src/dnikit/tests/test_dimension_reduction.py::test_pca src/dnikit/tests/test_dimension_reduction.py::test_pca_single
++ tail -30 /tmp/oracle_dnikit.AeLcfp/pytest.txt
++ echo 'unit tests failed'
++ exit 1

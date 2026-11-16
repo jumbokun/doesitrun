@@ -23,7 +23,7 @@ Enter Provisioned IOPS:
 +----------------------------------------------------+
 
 > Maximum available IOPS are equal to the provisioned IOPS i.e 10000
-> Maximum Available throughput is  MiB/s
+> Maximum Available throughput is 500 MiB/s
 
 +----------------------------------------------------+
 Enter Volume Type:
@@ -31,16 +31,17 @@ Enter Provisioned IOPS:
 +----------------------------------------------------+
 
 > Maximum available IOPS are equal to the provisioned IOPS i.e 10000
-> Maximum Available throughput is  MiB/s
+> Maximum Available throughput is 2500.00 MiB/s
 
 +----------------------------------------------------+
 Enter Volume Type:
 Enter Volume Size in GiB:
 +----------------------------------------------------+
 
-> Maximum Available throughput using burst balance is  MiB/s, if burst bucket is empty maximum available throughput will be  MiB/s 
+> Maximum Available throughput using burst balance is 244.14 MiB/s, if burst bucket is empty maximum available throughput will be 39.06 MiB/s 
 
 +----------------------------------------------------+
+ORACLE PASS
 + set -e
 + source /work/env.sh
 ++ set -e
@@ -70,7 +71,7 @@ Enter Volume Size in GiB:
 +++ hash -r
 + cd /work/aws-support-tools
 ++ mktemp -d /tmp/oracle.XXXXXX
-+ out=/tmp/oracle.5llMI3
++ out=/tmp/oracle.iYizSK
 + cd EBS/VolumeLimitCalculator
 + S=./volume_Limit_calculator.sh
 + printf 'gp3\n100\n4000\n250\n'
@@ -79,20 +80,19 @@ Enter Volume Size in GiB:
 + timeout 60 bash ./volume_Limit_calculator.sh
 + printf 'io2\n10000\n'
 + timeout 60 bash ./volume_Limit_calculator.sh
-./volume_Limit_calculator.sh: line 207: bc: command not found
-./volume_Limit_calculator.sh: line 24: bc: command not found
 + printf 'io1\n10000\n'
 + timeout 60 bash ./volume_Limit_calculator.sh
-./volume_Limit_calculator.sh: line 177: bc: command not found
-./volume_Limit_calculator.sh: line 24: bc: command not found
 + printf 'st1\n1000\n'
 + timeout 60 bash ./volume_Limit_calculator.sh
-./volume_Limit_calculator.sh: line 240: bc: command not found
-./volume_Limit_calculator.sh: line 242: bc: command not found
-+ cat /tmp/oracle.5llMI3/gp3.txt /tmp/oracle.5llMI3/gp3def.txt /tmp/oracle.5llMI3/io1.txt /tmp/oracle.5llMI3/io2.txt /tmp/oracle.5llMI3/st1.txt
-+ grep -Eq 'IOPS for your volume are 4000$' /tmp/oracle.5llMI3/gp3.txt
-+ grep -Eq 'throughput is 250 MiB/s$' /tmp/oracle.5llMI3/gp3.txt
-+ grep -Eq 'IOPS for your volume are 3000$' /tmp/oracle.5llMI3/gp3def.txt
-+ grep -Eq 'throughput is 125 MiB/s$' /tmp/oracle.5llMI3/gp3def.txt
-+ grep -Eq 'IOPS are equal to the provisioned IOPS i.e 10000$' /tmp/oracle.5llMI3/io2.txt
-+ grep -Eq 'throughput is 2500.00 MiB/s$' /tmp/oracle.5llMI3/io2.txt
++ cat /tmp/oracle.iYizSK/gp3.txt /tmp/oracle.iYizSK/gp3def.txt /tmp/oracle.iYizSK/io1.txt /tmp/oracle.iYizSK/io2.txt /tmp/oracle.iYizSK/st1.txt
++ grep -Eq 'IOPS for your volume are 4000$' /tmp/oracle.iYizSK/gp3.txt
++ grep -Eq 'throughput is 250 MiB/s$' /tmp/oracle.iYizSK/gp3.txt
++ grep -Eq 'IOPS for your volume are 3000$' /tmp/oracle.iYizSK/gp3def.txt
++ grep -Eq 'throughput is 125 MiB/s$' /tmp/oracle.iYizSK/gp3def.txt
++ grep -Eq 'IOPS are equal to the provisioned IOPS i.e 10000$' /tmp/oracle.iYizSK/io2.txt
++ grep -Eq 'throughput is 2500.00 MiB/s$' /tmp/oracle.iYizSK/io2.txt
++ grep -Eq 'IOPS are equal to the provisioned IOPS i.e 10000$' /tmp/oracle.iYizSK/io1.txt
++ grep -Eq 'throughput is 500 MiB/s$' /tmp/oracle.iYizSK/io1.txt
++ grep -q 'burst balance is 244.14 MiB/s' /tmp/oracle.iYizSK/st1.txt
++ grep -q 'will be 39.06 MiB/s' /tmp/oracle.iYizSK/st1.txt
++ echo 'ORACLE PASS'

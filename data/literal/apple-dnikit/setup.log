@@ -31,7 +31,7 @@ Collecting dnikit
   Downloading dnikit-2.0.0-py3-none-any.whl.metadata (4.3 kB)
 Collecting annoy (from dnikit)
   Downloading annoy-1.17.3.tar.gz (647 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 647.5/647.5 kB 34.2 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 647.5/647.5 kB 13.4 MB/s eta 0:00:00
   Installing build dependencies: started
   Installing build dependencies: finished with status 'done'
   Getting requirements to build wheel: started
@@ -46,7 +46,7 @@ Collecting scikit-learn (from dnikit)
   Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
 Collecting scipy>=1.10.0 (from scikit-learn->dnikit)
   Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.4/62.4 kB 34.3 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.4/62.4 kB 20.6 MB/s eta 0:00:00
 Collecting joblib>=1.4.0 (from scikit-learn->dnikit)
   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
 Collecting narwhals>=2.0.1 (from scikit-learn->dnikit)
@@ -56,47 +56,24 @@ Collecting threadpoolctl>=3.5.0 (from scikit-learn->dnikit)
 Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn->dnikit)
   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
 Downloading dnikit-2.0.0-py3-none-any.whl (133 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 61.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 15.6 MB/s eta 0:00:00
 Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 251.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 86.4 MB/s eta 0:00:00
 Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 235.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 153.3 MB/s eta 0:00:00
 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 167.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 306.1/306.1 kB 150.7 MB/s eta 0:00:00
 Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 490.6/490.6 kB 216.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 490.6/490.6 kB 199.2 MB/s eta 0:00:00
 Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 190.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 156.7 MB/s eta 0:00:00
 Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
 Building wheels for collected packages: annoy
   Building wheel for annoy (pyproject.toml): started
-  Building wheel for annoy (pyproject.toml): finished with status 'error'
-Failed to build annoy
-  error: subprocess-exited-with-error
-  
-  × Building wheel for annoy (pyproject.toml) did not run successfully.
-  │ exit code: 1
-  ╰─> [17 lines of output]
-      /tmp/pip-build-env-azktpjdq/overlay/lib/python3.12/site-packages/setuptools/_distutils/dist.py:318: UserWarning: Unknown distribution option: 'tests_require'
-        warnings.warn(msg)
-      running bdist_wheel
-      running build
-      running build_py
-      creating build/lib.linux-x86_64-cpython-312/annoy
-      copying annoy/__init__.py -> build/lib.linux-x86_64-cpython-312/annoy
-      copying annoy/__init__.pyi -> build/lib.linux-x86_64-cpython-312/annoy
-      copying annoy/py.typed -> build/lib.linux-x86_64-cpython-312/annoy
-      running build_ext
-      building 'annoy.annoylib' extension
-      x86_64-linux-gnu-g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -fPIC -I/work/.venv/include -I/usr/include/python3.12 -c src/annoymodule.cc -o build/temp.linux-x86_64-cpython-312/src/annoymodule.o -D_CRT_SECURE_NO_WARNINGS -fpermissive -march=native -O3 -ffast-math -fno-associative-math -DANNOYLIB_MULTITHREADED_BUILD -std=c++14
-      src/annoymodule.cc:17:10: fatal error: Python.h: No such file or directory
-         17 | #include "Python.h"
-            |          ^~~~~~~~~~
-      compilation terminated.
-      error: Command '['x86_64-linux-gnu-g++', '-fno-strict-overflow', '-Wsign-compare', '-DNDEBUG', '-g', '-O2', '-Wall', '-fPIC', '-I/work/.venv/include', '-I/usr/include/python3.12', '-c', 'src/annoymodule.cc', '-o', 'build/temp.linux-x86_64-cpython-312/src/annoymodule.o', '-D_CRT_SECURE_NO_WARNINGS', '-fpermissive', '-march=native', '-O3', '-ffast-math', '-fno-associative-math', '-DANNOYLIB_MULTITHREADED_BUILD', '-std=c++14']' returned non-zero exit status 1.
-      [end of output]
-  
-  note: This error originates from a subprocess, and is likely not a problem with pip.
-  ERROR: Failed building wheel for annoy
-ERROR: Could not build wheels for annoy, which is required to install pyproject.toml-based projects
+  Building wheel for annoy (pyproject.toml): finished with status 'done'
+  Created wheel for annoy: filename=annoy-1.17.3-cp312-cp312-linux_x86_64.whl size=518443 sha256=b1ec93bd7331b2d63dc8d855372f4e8de8ce90b584ecc3f98cee724642accb34
+  Stored in directory: /root/.cache/pip/wheels/db/b9/53/a3b2d1fe1743abadddec6aa541294b24fdbc39d7800bc57311
+Successfully built annoy
+Installing collected packages: annoy, threadpoolctl, numpy, narwhals, cloudpickle, scipy, joblib, scikit-learn, dnikit
+Successfully installed annoy-1.17.3 cloudpickle-3.1.2 dnikit-2.0.0 joblib-1.6.0 narwhals-2.28.0 numpy-2.5.5 scikit-learn-1.9.1 scipy-1.18.1 threadpoolctl-3.8.0

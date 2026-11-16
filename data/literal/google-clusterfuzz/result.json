@@ -3,15 +3,15 @@
   "repo": "google/clusterfuzz",
   "commit": "fb2712c4018ae75ded9ee72770028c50fe1184d4",
   "track": "cpu-gha",
-  "started": "2026-11-16 07:47:42",
+  "started": "2026-11-16 11:39:43",
   "prep_ok": true,
   "setup": {
-    "ok": true,
-    "secs": 0
+    "ok": false,
+    "secs": 1
   },
   "oracle": {
     "pass": false,
-    "secs": 1201
+    "skipped": "setup failed"
   },
-  "finished": "2026-11-16 08:07:57"
+  "finished": "2026-11-16 11:40:03"
 }

@@ -17,7 +17,7 @@
 (Reading database ... 90%
 (Reading database ... 95%
 (Reading database ... 100%
-(Reading database ... 14489 files and directories currently installed.)
+(Reading database ... 18986 files and directories currently installed.)
 Preparing to unpack .../00-apt-transport-https_2.8.4ubuntu0.1_all.deb ...
 Unpacking apt-transport-https (2.8.4ubuntu0.1) ...
 Selecting previously unselected package gpgconf.
@@ -72,19 +72,19 @@ Setting up gpg-wks-client (2.4.4-2ubuntu17.6) ...
 Processing triggers for libc-bin (2.39-0ubuntu8.12) ...
 Get:1 https://deb.nodesource.com/node_26.x nodistro InRelease [12.1 kB]
 Get:2 https://deb.nodesource.com/node_26.x nodistro/main amd64 Packages [5221 B]
-Hit:3 http://security.ubuntu.com/ubuntu noble-security InRelease
-Hit:4 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:3 http://archive.ubuntu.com/ubuntu noble InRelease
+Hit:4 http://security.ubuntu.com/ubuntu noble-security InRelease
 Hit:5 http://archive.ubuntu.com/ubuntu noble-updates InRelease
 Hit:6 http://archive.ubuntu.com/ubuntu noble-backports InRelease
-Fetched 17.4 kB in 1s (29.2 kB/s)
+Fetched 17.4 kB in 0s (36.3 kB/s)
 Reading package lists...
 Building dependency tree...
 Reading state information...
 All packages are up to date.
-[1;34m2026-11-16 07:47:50 - Repository configured successfully.[0m
-[38;5;79m2026-11-16 07:47:50 - To install Node.js, run: apt install nodejs -y[0m
-[38;5;79m2026-11-16 07:47:50 - You can use N|solid Runtime as a node.js alternative[0m
-[1;32m2026-11-16 07:47:50 - To install N|solid Runtime, run: apt install nsolid -y 
+[1;34m2026-11-16 11:39:45 - Repository configured successfully.[0m
+[38;5;79m2026-11-16 11:39:45 - To install Node.js, run: apt install nodejs -y[0m
+[38;5;79m2026-11-16 11:39:45 - You can use N|solid Runtime as a node.js alternative[0m
+[1;32m2026-11-16 11:39:45 - To install N|solid Runtime, run: apt install nsolid -y 
 [0m
 Reading package lists...
 Building dependency tree...
@@ -95,7 +95,7 @@ The following NEW packages will be installed:
 Need to get 42.3 MB of archives.
 After this operation, 290 MB of additional disk space will be used.
 Get:1 https://deb.nodesource.com/node_26.x nodistro/main amd64 nodejs amd64 26.13.1-1nodesource1 [42.3 MB]
-Fetched 42.3 MB in 1s (61.5 MB/s)
+Fetched 42.3 MB in 1s (59.1 MB/s)
 Selecting previously unselected package nodejs.
 (Reading database ... 
 (Reading database ... 5%
@@ -118,7 +118,7 @@ Selecting previously unselected package nodejs.
 (Reading database ... 90%
 (Reading database ... 95%
 (Reading database ... 100%
-(Reading database ... 14687 files and directories currently installed.)
+(Reading database ... 19184 files and directories currently installed.)
 Preparing to unpack .../nodejs_26.13.1-1nodesource1_amd64.deb ...
 Unpacking nodejs (26.13.1-1nodesource1) ...
 Setting up nodejs (26.13.1-1nodesource1) ...
@@ -127,7 +127,7 @@ Setting up...
  █▀█ █▀▀ █▀▀ █▄ █ ▀█▀ █▀   █▀▀ █  █
  █▀█ █▄█ ██▄ █ ▀█  █  ▄█   █▄▄ █▄ █
 
- Give your coding agent the power to build ADK projects.
+ From prototype to production — one CLI away.
 
  1. Authentication
  ─────────────────
@@ -157,7 +157,7 @@ Setting up...
 [?25l│
 ◇  Source: https://github.com/google/agents-cli.git
 [?25h[?25l│
-◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository.[999D[J◇  Repository cloned
+◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository[999D[J◐  Cloning repository[999D[J◓  Cloning repository[999D[J◑  Cloning repository[999D[J◒  Cloning repository.[999D[J◐  Cloning repository.[999D[J◇  Repository cloned
 [?25h[?25l│
 [999D[J◇  Found 7 skills
 [?25h│
@@ -215,7 +215,7 @@ Setting up...
 │                                                                                      │
 ├──────────────────────────────────────────────────────────────────────────────────────╯
 [?25l│
-[999D[J◒  Installing skills[999D[J◐  Installing skills[999D[J◓  Installing skills[999D[J◑  Installing skills[999D[J◒  Installing skills[999D[J◐  Installing skills[999D[J◓  Installing skills[999D[J◑  Installing skills[999D[J◒  Installing skills.[999D[J◇  Installation complete
+[999D[J◒  Installing skills[999D[J◐  Installing skills[999D[J◓  Installing skills[999D[J◑  Installing skills[999D[J◒  Installing skills[999D[J◐  Installing skills[999D[J◓  Installing skills[999D[J◑  Installing skills[999D[J◒  Installing skills.[999D[J◐  Installing skills.[999D[J◓  Installing skills.[999D[J◑  Installing skills.[999D[J◒  Installing skills.[999D[J◇  Installation complete
 [?25h
 │
 ◇  Installed 7 skills ───────────────────────────────────────────────────────╮
@@ -271,17 +271,17 @@ debconf: delaying package configuration, since apt-utils is not installed
 WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
 
 debconf: delaying package configuration, since apt-utils is not installed
+Downloading cryptography (4.5MiB)
 Downloading pydantic-core (2.2MiB)
 Downloading pygments (1.2MiB)
-Downloading google-cloud-aiplatform (9.0MiB)
-Downloading grpcio (7.0MiB)
 Downloading numpy (15.0MiB)
-Downloading cryptography (4.5MiB)
-Downloading google-genai (1.2MiB)
 Downloading pandas (11.5MiB)
+Downloading google-genai (1.2MiB)
+Downloading grpcio (7.0MiB)
+Downloading google-cloud-aiplatform (9.0MiB)
 Downloading google-agents-cli (1.6MiB)
- Downloaded pygments
  Downloaded google-genai
+ Downloaded pygments
  Downloaded google-agents-cli
  Downloaded pydantic-core
  Downloaded cryptography
@@ -289,7 +289,7 @@ Downloading google-agents-cli (1.6MiB)
  Downloaded google-cloud-aiplatform
  Downloaded numpy
  Downloaded pandas
-Installed 76 packages in 93ms
+Installed 76 packages in 50ms
 Compute Engine Metadata server unavailable on attempt 1 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
 Compute Engine Metadata server unavailable on attempt 2 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))
 Compute Engine Metadata server unavailable on attempt 3 of 3. Reason: HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: / (Caused by NewConnectionError("HTTPConnection(host='169.254.169.254', port=80): Failed to establish a new connection: [Errno 111] Connection refused"))

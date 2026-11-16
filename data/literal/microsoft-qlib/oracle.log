@@ -1,0 +1,149 @@
+ 'Rank IC': np.float64(0.05028689799700301),
+ 'Rank ICIR': np.float64(0.42237426071299644)}
+
+Downloading artifacts:   0%|          | 0/1 [00:00<?, ?it/s]
+Downloading artifacts:   0%|          | 0/1 [00:00<?, ?it/s]
+
+Downloading artifacts:   0%|          | 0/1 [00:00<?, ?it/s]
+Downloading artifacts: 100%|██████████| 1/1 [00:00<00:00, 774.14it/s]
+Downloading artifacts: 100%|██████████| 1/1 [00:00<00:00, 741.44it/s]
+[1073:MainThread](2026-11-16 11:43:03,137) INFO - qlib.backtest caller - [__init__.py:93] - Create new exchange
+[1073:MainThread](2026-11-16 11:43:10,298) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[1073:MainThread](2026-11-16 11:43:10,300) WARNING - qlib.online operator - [exchange.py:219] - $close field data contains nan.
+[1073:MainThread](2026-11-16 11:43:19,737) WARNING - qlib.BaseExecutor - [executor.py:121] - `common_infra` is not set for <qlib.backtest.executor.SimulatorExecutor object at 0x7fcfc7a406b0>
+
+backtest loop:   0%|          | 0/871 [00:00<?, ?it/s]/work/.venv/lib/python3.12/site-packages/qlib/utils/index_data.py:492: RuntimeWarning: Mean of empty slice
+  return np.nanmean(self.data)
+
+backtest loop:   2%|▏         | 15/871 [00:00<00:05, 147.63it/s]
+backtest loop:   3%|▎         | 30/871 [00:00<00:05, 144.67it/s]
+backtest loop:   5%|▌         | 47/871 [00:00<00:05, 153.03it/s]
+backtest loop:   7%|▋         | 63/871 [00:00<00:05, 151.90it/s]
+backtest loop:   9%|▉         | 79/871 [00:00<00:05, 154.03it/s]
+backtest loop:  11%|█         | 95/871 [00:00<00:05, 154.54it/s]
+backtest loop:  13%|█▎        | 111/871 [00:00<00:05, 151.12it/s]
+backtest loop:  15%|█▍        | 128/871 [00:00<00:04, 155.14it/s]
+backtest loop:  17%|█▋        | 144/871 [00:00<00:04, 151.90it/s]
+backtest loop:  18%|█▊        | 160/871 [00:01<00:04, 152.82it/s]
+backtest loop:  20%|██        | 176/871 [00:01<00:04, 153.47it/s]
+backtest loop:  22%|██▏       | 192/871 [00:01<00:04, 155.18it/s]
+backtest loop:  24%|██▍       | 208/871 [00:01<00:04, 155.17it/s]
+backtest loop:  26%|██▌       | 224/871 [00:01<00:04, 151.52it/s]
+backtest loop:  28%|██▊       | 240/871 [00:01<00:04, 152.15it/s]
+backtest loop:  29%|██▉       | 256/871 [00:01<00:04, 152.78it/s]
+backtest loop:  31%|███       | 272/871 [00:01<00:03, 152.58it/s]
+backtest loop:  33%|███▎      | 288/871 [00:01<00:03, 145.86it/s]
+backtest loop:  35%|███▍      | 304/871 [00:02<00:03, 147.97it/s]
+backtest loop:  37%|███▋      | 319/871 [00:02<00:03, 148.31it/s]
+backtest loop:  38%|███▊      | 334/871 [00:02<00:03, 145.28it/s]
+backtest loop:  40%|████      | 350/871 [00:02<00:03, 147.96it/s]
+backtest loop:  42%|████▏     | 365/871 [00:02<00:03, 148.12it/s]
+backtest loop:  44%|████▎     | 380/871 [00:02<00:03, 147.42it/s]
+backtest loop:  45%|████▌     | 395/871 [00:02<00:03, 147.76it/s]
+backtest loop:  47%|████▋     | 410/871 [00:02<00:03, 148.37it/s]
+backtest loop:  49%|████▉     | 425/871 [00:02<00:02, 148.81it/s]
+backtest loop:  51%|█████     | 440/871 [00:02<00:02, 149.16it/s]
+backtest loop:  52%|█████▏    | 455/871 [00:03<00:02, 149.33it/s]
+backtest loop:  54%|█████▍    | 470/871 [00:03<00:02, 149.29it/s]
+backtest loop:  56%|█████▌    | 485/871 [00:03<00:02, 148.20it/s]
+backtest loop:  57%|█████▋    | 500/871 [00:03<00:02, 144.53it/s]
+backtest loop:  59%|█████▉    | 515/871 [00:03<00:02, 145.33it/s]
+backtest loop:  61%|██████    | 530/871 [00:03<00:02, 146.20it/s]
+backtest loop:  63%|██████▎   | 545/871 [00:03<00:02, 146.43it/s]
+backtest loop:  64%|██████▍   | 561/871 [00:03<00:02, 148.38it/s]
+backtest loop:  66%|██████▌   | 576/871 [00:03<00:02, 144.36it/s]
+backtest loop:  68%|██████▊   | 591/871 [00:03<00:01, 145.42it/s]
+backtest loop:  70%|██████▉   | 606/871 [00:04<00:01, 146.06it/s]
+backtest loop:  71%|███████▏  | 621/871 [00:04<00:01, 146.71it/s]
+backtest loop:  73%|███████▎  | 636/871 [00:04<00:01, 146.66it/s]
+backtest loop:  75%|███████▍  | 651/871 [00:04<00:01, 112.16it/s]
+backtest loop:  76%|███████▋  | 666/871 [00:04<00:01, 120.13it/s]
+backtest loop:  78%|███████▊  | 680/871 [00:04<00:01, 123.00it/s]
+backtest loop:  80%|███████▉  | 695/871 [00:04<00:01, 128.96it/s]
+backtest loop:  82%|████████▏ | 710/871 [00:04<00:01, 133.77it/s]
+backtest loop:  83%|████████▎ | 725/871 [00:04<00:01, 137.43it/s]
+backtest loop:  85%|████████▍ | 740/871 [00:05<00:00, 137.04it/s]
+backtest loop:  87%|████████▋ | 755/871 [00:05<00:00, 140.02it/s]
+backtest loop:  88%|████████▊ | 770/871 [00:05<00:00, 141.94it/s]
+backtest loop:  90%|█████████ | 785/871 [00:05<00:00, 143.66it/s]
+backtest loop:  92%|█████████▏| 800/871 [00:05<00:00, 144.40it/s]
+backtest loop:  94%|█████████▎| 815/871 [00:05<00:00, 141.77it/s]
+backtest loop:  95%|█████████▌| 830/871 [00:05<00:00, 143.53it/s]
+backtest loop:  97%|█████████▋| 845/871 [00:05<00:00, 144.80it/s]
+backtest loop:  99%|█████████▊| 860/871 [00:05<00:00, 145.84it/s]
+backtest loop: 100%|██████████| 871/871 [00:06<00:00, 145.04it/s]
+[1073:MainThread](2026-11-16 11:43:25,771) INFO - qlib.workflow - [record_temp.py:527] - Portfolio analysis record 'port_analysis_1day.pkl' has been saved as the artifact of the Experiment 795892802474262965
+[1073:MainThread](2026-11-16 11:43:25,776) INFO - qlib.workflow - [record_temp.py:552] - Indicator analysis record 'indicator_analysis_1day.pkl' has been saved as the artifact of the Experiment 795892802474262965
+[1073:MainThread](2026-11-16 11:43:26,212) INFO - qlib.timer - [log.py:127] - Time cost: 0.000s | waiting `async_log` Done
+'The following are analysis results of benchmark return(1day).'
+                       risk
+mean               0.000477
+std                0.012295
+annualized_return  0.113561
+information_ratio  0.598699
+max_drawdown      -0.370479
+'The following are analysis results of the excess return without cost(1day).'
+                       risk
+mean               0.000727
+std                0.005843
+annualized_return  0.173037
+information_ratio  1.919468
+max_drawdown      -0.098167
+'The following are analysis results of the excess return with cost(1day).'
+                       risk
+mean               0.000531
+std                0.005841
+annualized_return  0.126390
+information_ratio  1.402488
+max_drawdown      -0.108244
+'The following are analysis results of indicators(1day).'
+     value
+ffr    1.0
+pa     0.0
+pos    0.0
+IC mean 0.04842723271565856 n 871
+report rows 871
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/qlib
+++ mktemp -d /tmp/oracle.XXXXXX
++ OUT=/tmp/oracle.rYvfsp
++ '[' '!' -d /root/.qlib/qlib_data/cn_data/calendars ']'
++ sed -e 's/num_threads: 20/num_threads: 4/' examples/benchmarks/LightGBM/workflow_config_lightgbm_Alpha158.yaml
++ mkdir -p /tmp/oracle.rYvfsp/run
++ cd /tmp/oracle.rYvfsp/run
++ timeout 6000 python -c '
+import sys
+from qlib.cli.run import run
+run()
+' /tmp/oracle.rYvfsp/cfg.yaml
++ tail -40 /tmp/oracle.rYvfsp/log.txt
++ grep -q 'information_ratio\|excess_return_with_cost' /tmp/oracle.rYvfsp/log.txt
++ grep -q IC /tmp/oracle.rYvfsp/log.txt
++ python - /tmp/oracle.rYvfsp
++ echo 'ORACLE PASS'

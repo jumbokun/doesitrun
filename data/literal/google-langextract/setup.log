@@ -18,33 +18,33 @@ Collecting exceptiongroup>=1.1.0 (from langextract==1.7.2)
   Downloading exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
 Collecting google-genai>=1.39.0 (from langextract==1.7.2)
   Downloading google_genai-3.3.0-py3-none-any.whl.metadata (61 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.4/61.4 kB 7.0 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.4/61.4 kB 12.6 MB/s eta 0:00:00
 Collecting google-cloud-storage>=2.14.0 (from langextract==1.7.2)
   Downloading google_cloud_storage-3.17.1-py3-none-any.whl.metadata (14 kB)
 Collecting ml-collections>=0.1.0 (from langextract==1.7.2)
   Downloading ml_collections-1.1.0-py3-none-any.whl.metadata (22 kB)
 Collecting more-itertools>=8.0.0 (from langextract==1.7.2)
   Downloading more_itertools-11.2.1-py3-none-any.whl.metadata (42 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 15.1 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 5.1 MB/s eta 0:00:00
 Collecting numpy>=1.20.0 (from langextract==1.7.2)
   Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
 Collecting pandas>=1.3.0 (from langextract==1.7.2)
   Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
 Collecting pydantic>=1.8.0 (from langextract==1.7.2)
   Downloading pydantic-2.14.3-py3-none-any.whl.metadata (141 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 141.5/141.5 kB 23.4 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 141.5/141.5 kB 37.8 MB/s eta 0:00:00
 Collecting python-dotenv>=0.19.0 (from langextract==1.7.2)
   Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
 Collecting PyYAML>=6.0 (from langextract==1.7.2)
   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
 Collecting regex>=2023.0.0 (from langextract==1.7.2)
   Downloading regex-2026.11.15-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 17.8 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 19.0 MB/s eta 0:00:00
 Collecting requests>=2.25.0 (from langextract==1.7.2)
   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
 Collecting tqdm>=4.64.0 (from langextract==1.7.2)
   Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 24.8 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 34.5 MB/s eta 0:00:00
 Collecting typing-extensions>=4.0.0 (from langextract==1.7.2)
   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
 Collecting aiohappyeyeballs>=2.5.0 (from aiohttp>=3.8.0->langextract==1.7.2)
@@ -61,7 +61,7 @@ Collecting propcache>=0.2.0 (from aiohttp>=3.8.0->langextract==1.7.2)
   Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
 Collecting yarl<2.0,>=1.25.1 (from aiohttp>=3.8.0->langextract==1.7.2)
   Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.6/111.6 kB 51.3 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.6/111.6 kB 63.5 MB/s eta 0:00:00
 Collecting google-auth<3.0.0,>=2.26.1 (from google-cloud-storage>=2.14.0->langextract==1.7.2)
   Downloading google_auth-2.62.2-py3-none-any.whl.metadata (6.0 kB)
 Collecting google-api-core<3.0.0,>=2.27.0 (from google-cloud-storage>=2.14.0->langextract==1.7.2)
@@ -75,7 +75,7 @@ Collecting google-crc32c<2.0.0,>=1.6.0 (from google-cloud-storage>=2.14.0->lange
 Collecting anyio<5.0.0,>=4.8.0 (from google-genai>=1.39.0->langextract==1.7.2)
   Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
 Collecting httpx2<3.0.0,>=2.0.0 (from google-genai>=1.39.0->langextract==1.7.2)
-  Downloading httpx2-2.16.0-py3-none-any.whl.metadata (10 kB)
+  Downloading httpx2-2.16.2-py3-none-any.whl.metadata (10.0 kB)
 Collecting tenacity<9.2.0,>=8.2.3 (from google-genai>=1.39.0->langextract==1.7.2)
   Downloading tenacity-9.1.4-py3-none-any.whl.metadata (1.2 kB)
 Collecting websockets<18.0,>=13.0.0 (from google-genai>=1.39.0->langextract==1.7.2)
@@ -94,7 +94,7 @@ Collecting typing-inspection>=0.4.4 (from pydantic>=1.8.0->langextract==1.7.2)
   Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
 Collecting charset_normalizer<4,>=2 (from requests>=2.25.0->langextract==1.7.2)
   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 13.8 MB/s eta 0:00:00
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 27.3 MB/s eta 0:00:00
 Collecting idna<4,>=2.5 (from requests>=2.25.0->langextract==1.7.2)
   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
 Collecting urllib3<3,>=1.26 (from requests>=2.25.0->langextract==1.7.2)
@@ -113,11 +113,11 @@ Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0.0,>=2.26.1->google-cloud-
   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
 Collecting cryptography>=38.0.3 (from google-auth<3.0.0,>=2.26.1->google-cloud-storage>=2.14.0->langextract==1.7.2)
   Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
-Collecting httpcore2==2.16.0 (from httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
-  Downloading httpcore2-2.16.0-py3-none-any.whl.metadata (27 kB)
+Collecting httpcore2==2.16.2 (from httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
+  Downloading httpcore2-2.16.2-py3-none-any.whl.metadata (28 kB)
 Collecting truststore>=0.10 (from httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
   Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
-Collecting h11>=0.16 (from httpcore2==2.16.0->httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
+Collecting h11>=0.16 (from httpcore2==2.16.2->httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
 Collecting tzdata (from python-dateutil>=2.9.0->pandas>=1.3.0->langextract==1.7.2)
   Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
@@ -128,113 +128,173 @@ Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth<3.0.0,>
 Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth<3.0.0,>=2.26.1->google-cloud-storage>=2.14.0->langextract==1.7.2)
   Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
 Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.7/137.7 kB 67.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.7/137.7 kB 89.1 MB/s eta 0:00:00
 Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 92.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 266.4 MB/s eta 0:00:00
 Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
 Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
 Downloading google_cloud_storage-3.17.1-py3-none-any.whl (345 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.7/345.7 kB 82.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.7/345.7 kB 186.3 MB/s eta 0:00:00
 Downloading google_genai-3.3.0-py3-none-any.whl (1.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 119.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 279.4 MB/s eta 0:00:00
 Downloading ml_collections-1.1.0-py3-none-any.whl (76 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.7/76.7 kB 37.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.7/76.7 kB 57.0 MB/s eta 0:00:00
 Downloading more_itertools-11.2.1-py3-none-any.whl (74 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.4/74.4 kB 34.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.4/74.4 kB 55.7 MB/s eta 0:00:00
 Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 103.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 305.7 MB/s eta 0:00:00
 Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 104.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 350.2 MB/s eta 0:00:00
 Downloading pydantic-2.14.3-py3-none-any.whl (494 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.1/494.1 kB 3.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.1/494.1 kB 206.6 MB/s eta 0:00:00
 Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 145.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 293.0 MB/s eta 0:00:00
 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
 Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 108.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 269.7 MB/s eta 0:00:00
 Downloading regex-2026.11.15-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (809 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 809.2/809.2 kB 126.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 809.2/809.2 kB 260.5 MB/s eta 0:00:00
 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 34.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 48.7 MB/s eta 0:00:00
 Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 35.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 58.1 MB/s eta 0:00:00
 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 20.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 29.6 MB/s eta 0:00:00
 Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
 Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
 Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 57.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 94.6 MB/s eta 0:00:00
 Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 30.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 50.2 MB/s eta 0:00:00
 Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 61.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 94.2 MB/s eta 0:00:00
 Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 92.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 154.9 MB/s eta 0:00:00
 Downloading distro-1.9.0-py3-none-any.whl (20 kB)
 Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 90.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 153.0 MB/s eta 0:00:00
 Downloading google_api_core-2.44.0-py3-none-any.whl (225 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 225.6/225.6 kB 83.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 225.6/225.6 kB 132.1 MB/s eta 0:00:00
 Downloading google_auth-2.62.2-py3-none-any.whl (270 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 270.1/270.1 kB 87.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 270.1/270.1 kB 150.2 MB/s eta 0:00:00
 Downloading google_cloud_core-2.8.0-py3-none-any.whl (31 kB)
 Downloading google_crc32c-1.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (36 kB)
 Downloading google_resumable_media-2.11.0-py3-none-any.whl (81 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.5/81.5 kB 39.3 MB/s eta 0:00:00
-Downloading httpx2-2.16.0-py3-none-any.whl (97 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 44.2 MB/s eta 0:00:00
-Downloading httpcore2-2.16.0-py3-none-any.whl (85 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.1/85.1 kB 36.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.5/81.5 kB 64.8 MB/s eta 0:00:00
+Downloading httpx2-2.16.2-py3-none-any.whl (97 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 68.0 MB/s eta 0:00:00
+Downloading httpcore2-2.16.2-py3-none-any.whl (85 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.6/85.6 kB 61.2 MB/s eta 0:00:00
 Downloading idna-3.20-py3-none-any.whl (69 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 21.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 49.7 MB/s eta 0:00:00
 Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (516 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.8/516.8 kB 136.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.8/516.8 kB 214.3 MB/s eta 0:00:00
 Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 89.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 150.2 MB/s eta 0:00:00
 Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 35.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 68.1 MB/s eta 0:00:00
 Downloading tenacity-9.1.4-py3-none-any.whl (28 kB)
 Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 65.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 99.1 MB/s eta 0:00:00
 Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (226 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.3/226.3 kB 94.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.3/226.3 kB 142.0 MB/s eta 0:00:00
 Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 42.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 83.8 MB/s eta 0:00:00
 Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
 Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 49.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 317.4 MB/s eta 0:00:00
 Downloading googleapis_common_protos-1.76.0-py3-none-any.whl (307 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 115.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 175.5 MB/s eta 0:00:00
 Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.3/60.3 kB 25.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.3/60.3 kB 48.3 MB/s eta 0:00:00
 Downloading proto_plus-1.29.0-py3-none-any.whl (50 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.8/50.8 kB 16.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.8/50.8 kB 39.6 MB/s eta 0:00:00
 Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 132.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 174.1 MB/s eta 0:00:00
 Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 80.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 126.1 MB/s eta 0:00:00
 Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
 Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 123.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 185.1 MB/s eta 0:00:00
 Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.8/221.8 kB 83.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.8/221.8 kB 139.3 MB/s eta 0:00:00
 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
 Downloading pyasn1-0.6.5-py3-none-any.whl (84 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.8/84.8 kB 39.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.8/84.8 kB 63.1 MB/s eta 0:00:00
 Downloading pycparser-3.12-py3-none-any.whl (62 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 29.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 44.6 MB/s eta 0:00:00
 Building wheels for collected packages: langextract
   Building editable for langextract (pyproject.toml): started
   Building editable for langextract (pyproject.toml): finished with status 'done'
-  Created wheel for langextract: filename=langextract-1.7.2-0.editable-py3-none-any.whl size=15802 sha256=31bb3dd621bff7b8daa4760f470261f7e931ee7a4f0b64138ce83b907452f236
-  Stored in directory: /tmp/pip-ephem-wheel-cache-1hgpo924/wheels/26/6b/34/ec4d0ac2a0c0e64c13f638b325021cf9cc0cc7e4498aaded3e
+  Created wheel for langextract: filename=langextract-1.7.2-0.editable-py3-none-any.whl size=15802 sha256=0434dc500e8a7999ef80825eeea801a26ca0cf77d3c58ed81c3df27688227b93
+  Stored in directory: /tmp/pip-ephem-wheel-cache-k4ubfw1y/wheels/26/6b/34/ec4d0ac2a0c0e64c13f638b325021cf9cc0cc7e4498aaded3e
 Successfully built langextract
 Installing collected packages: websockets, urllib3, tzdata, typing-extensions, truststore, tqdm, tenacity, sniffio, regex, PyYAML, python-dotenv, pycparser, pyasn1, protobuf, propcache, numpy, multidict, more-itertools, idna, h11, google-crc32c, frozenlist, distro, charset_normalizer, certifi, attrs, async_timeout, annotated-types, aiohappyeyeballs, absl-py, yarl, typing-inspection, requests, python-dateutil, pydantic-core, pyasn1-modules, proto-plus, opentelemetry-api, ml-collections, httpcore2, googleapis-common-protos, google-resumable-media, exceptiongroup, cffi, anyio, aiosignal, pydantic, pandas, httpx2, cryptography, aiohttp, google-auth, google-api-core, google-genai, google-cloud-core, google-cloud-storage, langextract
-Successfully installed PyYAML-6.0.3 absl-py-2.5.1 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 annotated-types-0.8.0 anyio-4.16.0 async_timeout-5.0.1 attrs-26.1.0 certifi-2026.10.23 cffi-2.1.1 charset_normalizer-3.5.2 cryptography-50.0.2 distro-1.9.0 exceptiongroup-1.3.1 frozenlist-1.8.0 google-api-core-2.44.0 google-auth-2.62.2 google-cloud-core-2.8.0 google-cloud-storage-3.17.1 google-crc32c-1.9.0 google-genai-3.3.0 google-resumable-media-2.11.0 googleapis-common-protos-1.76.0 h11-0.16.0 httpcore2-2.16.0 httpx2-2.16.0 idna-3.20 langextract-1.7.2 ml-collections-1.1.0 more-itertools-11.2.1 multidict-7.2.1 numpy-2.5.5 opentelemetry-api-1.45.2 pandas-3.1.1 propcache-0.5.4 proto-plus-1.29.0 protobuf-7.36.2 pyasn1-0.6.5 pyasn1-modules-0.4.2 pycparser-3.12 pydantic-2.14.3 pydantic-core-2.50.4 python-dateutil-4.0.0 python-dotenv-1.2.4 regex-2026.11.15 requests-2.34.2 sniffio-1.3.1 tenacity-9.1.4 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.5 tzdata-2026.6 urllib3-2.8.0 websockets-17.4 yarl-1.25.1
-ERROR: This version requires zstd for extraction. Please install zstd and try again:
-  - Debian/Ubuntu: sudo apt-get install zstd
-  - RHEL/CentOS/Fedora: sudo dnf install zstd
-  - Arch: sudo pacman -S zstd
+Successfully installed PyYAML-6.0.3 absl-py-2.5.1 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 annotated-types-0.8.0 anyio-4.16.0 async_timeout-5.0.1 attrs-26.1.0 certifi-2026.10.23 cffi-2.1.1 charset_normalizer-3.5.2 cryptography-50.0.2 distro-1.9.0 exceptiongroup-1.3.1 frozenlist-1.8.0 google-api-core-2.44.0 google-auth-2.62.2 google-cloud-core-2.8.0 google-cloud-storage-3.17.1 google-crc32c-1.9.0 google-genai-3.3.0 google-resumable-media-2.11.0 googleapis-common-protos-1.76.0 h11-0.16.0 httpcore2-2.16.2 httpx2-2.16.2 idna-3.20 langextract-1.7.2 ml-collections-1.1.0 more-itertools-11.2.1 multidict-7.2.1 numpy-2.5.5 opentelemetry-api-1.45.2 pandas-3.1.1 propcache-0.5.4 proto-plus-1.29.0 protobuf-7.36.2 pyasn1-0.6.5 pyasn1-modules-0.4.2 pycparser-3.12 pydantic-2.14.3 pydantic-core-2.50.4 python-dateutil-4.0.0 python-dotenv-1.2.4 regex-2026.11.15 requests-2.34.2 sniffio-1.3.1 tenacity-9.1.4 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.5 tzdata-2026.6 urllib3-2.8.0 websockets-17.4 yarl-1.25.1
+WARNING: Unable to detect NVIDIA/AMD GPU. Install lspci or lshw to automatically detect and install GPU dependencies.
 >>> Installing ollama to /usr/local
+>>> Downloading ollama-linux-amd64.tar.zst
+#=#=#                                                                          
+
+                                                                           0.7%
+##                                                                         3.0%
+###                                                                        4.8%
+#####                                                                      7.6%
+#######                                                                   10.3%
+#########                                                                 13.2%
+###########                                                               15.7%
+############                                                              17.6%
+##############                                                            19.7%
+################                                                          22.2%
+##################                                                        25.0%
+###################                                                       27.3%
+#####################                                                     29.7%
+######################                                                    30.9%
+#######################                                                   32.7%
+#########################                                                 35.3%
+###########################                                               37.9%
+############################                                              40.1%
+##############################                                            42.0%
+################################                                          45.1%
+##################################                                        48.0%
+####################################                                      50.0%
+#####################################                                     52.6%
+#######################################                                   55.5%
+#########################################                                 57.6%
+##########################################                                59.1%
+############################################                              61.4%
+#############################################                             63.8%
+###############################################                           65.9%
+#################################################                         68.3%
+##################################################                        70.5%
+####################################################                      72.7%
+#####################################################                     74.9%
+######################################################                    76.3%
+#######################################################                   77.6%
+########################################################                  78.9%
+#########################################################                 80.2%
+##########################################################                81.1%
+###########################################################               82.3%
+###########################################################               83.3%
+############################################################              84.4%
+#############################################################             85.5%
+##############################################################            86.6%
+###############################################################           87.6%
+###############################################################           88.5%
+################################################################          89.4%
+#################################################################         90.3%
+#################################################################         91.1%
+##################################################################        92.0%
+##################################################################        92.8%
+###################################################################       93.8%
+###################################################################       94.3%
+#####################################################################     96.0%
+######################################################################    97.7%
+######################################################################    98.3%
+#######################################################################   99.6%
+######################################################################## 100.0%
+>>> The Ollama API is now available at 127.0.0.1:11434.
+>>> Install complete. Run "ollama" from the command line.
+Error: could not connect to ollama server, run 'ollama serve' to start it

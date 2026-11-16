@@ -1,33 +1,141 @@
-Traceback (most recent call last):
-  File "/work/.venv/bin/paddleocr", line 5, in <module>
-    from paddleocr.__main__ import console_entry
-  File "/work/.venv/lib/python3.12/site-packages/paddleocr/__init__.py", line 15, in <module>
-    from paddlex.inference.utils.benchmark import benchmark
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/__init__.py", line 53, in <module>
-    from .inference import create_pipeline, create_predictor
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/inference/__init__.py", line 16, in <module>
-    from .models import HPIConfig, PaddlePredictorOption, create_predictor
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/inference/models/__init__.py", line 25, in <module>
-    from ..utils.official_models import official_models
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/inference/utils/official_models.py", line 58, in <module>
-    from ..models.utils.model_paths import LocalModelFormat
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/inference/models/utils/__init__.py", line 17, in <module>
-    from .model_config import get_model_config_path, load_model_config
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/inference/models/utils/model_config.py", line 21, in <module>
-    from ...utils.io import YAMLReader
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/inference/utils/io/__init__.py", line 16, in <module>
-    from .readers import (
-  File "/work/.venv/lib/python3.12/site-packages/paddlex/inference/utils/io/readers.py", line 30, in <module>
-    import cv2
-  File "/work/.venv/lib/python3.12/site-packages/cv2/__init__.py", line 181, in <module>
-    bootstrap()
-  File "/work/.venv/lib/python3.12/site-packages/cv2/__init__.py", line 153, in bootstrap
-    native_module = importlib.import_module("cv2")
-                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
-    return _bootstrap._gcd_import(name[level:], package, level)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-ImportError: libGL.so.1: cannot open shared object file: No such file or directory
+
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]
+Fetching 5 files:  80%|████████  | 4/5 [00:00<00:00, 39.67it/s]
+Fetching 5 files: 100%|██████████| 5/5 [00:01<00:00,  3.46it/s]
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+ReduceMeanCheckIfOneDNNSupport
+[2026/11/16 11:42:15] paddleocr INFO: Processed item 0 in 676.3582229614258 ms
+[32m{'res': {'input_path': '/tmp/oracle_2CiWXf/in.png', 'page_index': None, 'model_settings': {'use_doc_preprocessor': False, 'use_textline_orientation': False}, 'dt_polys': array([[[ 41,  49],
+        ...,
+        [ 41,  99]],
+
+       [[ 37, 167],
+        ...,
+        [ 37, 230]]], shape=(2, 4, 2), dtype=int16), 'text_det_params': {'limit_side_len': 64, 'limit_type': 'min', 'thresh': 0.3, 'max_side_limit': 4000, 'box_thresh': 0.6, 'unclip_ratio': 1.5}, 'text_type': 'general', 'textline_orientation_angles': array([-1, -1], shape=(2,)), 'text_rec_score_thresh': 0.0, 'return_word_box': False, 'rec_texts': ['HELLO PADDLEOCR', 'Reproducibility Test 2024'], 'rec_scores': array([0.99940223, 0.99088693], shape=(2,)), 'rec_polys': array([[[ 41,  49],
+        ...,
+        [ 41,  99]],
+
+       [[ 37, 167],
+        ...,
+        [ 37, 230]]], shape=(2, 4, 2), dtype=int16), 'rec_boxes': array([[ 41, ...,  99],
+       [ 37, ..., 230]], shape=(2, 4), dtype=int16)}}[0m
+Connecting to https://paddle-model-ecology.bj.bcebos.com/paddlex/PaddleX3.0/fonts/simfang.ttf ...
+Downloading simfang.ttf ...
+
+[                                                  ] 0.04%
+[                                                  ] 0.35%
+[                                                  ] 0.66%
+[                                                  ] 0.81%
+[                                                  ] 1.12%
+[                                                  ] 1.43%
+[                                                  ] 1.59%
+[                                                  ] 1.74%
+[                                                  ] 1.90%
+[=                                                 ] 2.05%
+[=                                                 ] 2.21%
+[=                                                 ] 2.36%
+[=                                                 ] 2.52%
+[=                                                 ] 2.67%
+[=                                                 ] 2.83%
+[=                                                 ] 2.98%
+[=                                                 ] 3.14%
+[=                                                 ] 3.29%
+[=                                                 ] 3.45%
+[=                                                 ] 3.60%
+[=                                                 ] 3.76%
+[=                                                 ] 3.91%
+[==                                                ] 4.07%
+[==                                                ] 4.22%
+[==                                                ] 4.38%
+[==                                                ] 4.53%
+[==                                                ] 4.69%
+[==                                                ] 4.84%
+[==                                                ] 5.00%
+[==                                                ] 5.15%
+[==                                                ] 5.31%
+[==                                                ] 5.46%
+[==                                                ] 5.62%
+[==                                                ] 5.77%
+[==                                                ] 5.93%
+[===                                               ] 6.08%
+[===                                               ] 6.24%
+[===                                               ] 6.39%
+[===                                               ] 6.55%
+[===                                               ] 6.70%
+[===                                               ] 6.86%
+[===                                               ] 7.01%
+[===                                               ] 7.16%
+[===                                               ] 7.32%
+[===                                               ] 7.47%
+[===                                               ] 7.63%
+[===                                               ] 7.78%
+[===                                               ] 7.94%
+[====                                              ] 8.09%
+[====                                              ] 8.25%
+[====                                              ] 8.40%
+[====                                              ] 8.56%
+[====                                              ] 8.71%
+[====                                              ] 9.02%
+[====                                              ] 9.33%
+[====                                              ] 9.64%
+[====                                              ] 9.95%
+[=====                                             ] 10.26%
+[=====                                             ] 10.57%
+[=====                                             ] 10.88%
+[=====                                             ] 11.35%
+[=====                                             ] 11.81%
+[======                                            ] 12.28%
+[======                                            ] 12.74%
+[======                                            ] 13.36%
+[======                                            ] 13.98%
+[=======                                           ] 14.60%
+[=======                                           ] 15.38%
+[========                                          ] 16.15%
+[========                                          ] 16.92%
+[========                                          ] 17.85%
+[=========                                         ] 18.78%
+[=========                                         ] 19.87%
+[==========                                        ] 20.95%
+[===========                                       ] 22.19%
+[===========                                       ] 23.43%
+[============                                      ] 24.83%
+[=============                                     ] 26.37%
+[==============                                    ] 28.08%
+[==============                                    ] 29.94%
+[===============                                   ] 31.95%
+[=================                                 ] 34.12%
+[==================                                ] 36.44%
+[===================                               ] 38.92%
+[====================                              ] 41.56%
+[======================                            ] 44.34%
+[=======================                           ] 47.44%
+[=========================                         ] 50.70%
+[===========================                       ] 54.26%
+[=============================                     ] 58.13%
+[===============================                   ] 62.32%
+[=================================                 ] 66.81%
+[===================================               ] 71.61%
+[======================================            ] 76.88%
+[=========================================         ] 82.61%
+[============================================      ] 88.81%
+[===============================================   ] 95.47%
+[==================================================] 100.00%
+total 48
+drwxr-xr-x 2 root root  4096 Nov 16 11:42 .
+drwx------ 3 root root  4096 Nov 16 11:42 ..
+-rw-r--r-- 1 root root 36710 Nov 16 11:42 in_ocr_res_img.png
+-rw-r--r-- 1 root root  2145 Nov 16 11:42 in_res.json
+TEXT: HELLOPADDLEOCRREPRODUCIBILITYTEST2024
+ORACLE PASS
 + set -e
 + source /work/env.sh
 ++ source /work/.venv/bin/activate
@@ -56,8 +164,16 @@ ImportError: libGL.so.1: cannot open shared object file: No such file or directo
 +++ hash -r
 + cd /work/PaddleOCR
 ++ mktemp -d /tmp/oracle_XXXXXX
-+ OUT=/tmp/oracle_PCY26n
-+ python - /tmp/oracle_PCY26n/in.png
-+ timeout 1500 paddleocr ocr -i /tmp/oracle_PCY26n/in.png --save_path /tmp/oracle_PCY26n/res --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False
-+ cat /tmp/oracle_PCY26n/stdout.txt
-+ exit 1
++ OUT=/tmp/oracle_2CiWXf
++ python - /tmp/oracle_2CiWXf/in.png
++ timeout 1500 paddleocr ocr -i /tmp/oracle_2CiWXf/in.png --save_path /tmp/oracle_2CiWXf/res --use_doc_orientation_classify False --use_doc_unwarping False --use_textline_orientation False
++ cat /tmp/oracle_2CiWXf/stdout.txt
++ tail -30
++ ls -la /tmp/oracle_2CiWXf/res
+++ ls /tmp/oracle_2CiWXf/res/in_res.json
+++ head -1
++ J=/tmp/oracle_2CiWXf/res/in_res.json
++ test -s /tmp/oracle_2CiWXf/res/in_res.json
++ python - /tmp/oracle_2CiWXf/res/in_res.json
++ ls /tmp/oracle_2CiWXf/res/in_ocr_res_img.png
++ echo 'ORACLE PASS'

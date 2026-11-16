@@ -3,7 +3,7 @@
   "repo": "google-deepmind/gemma",
   "commit": "9e1f74131ba9d45e5fe6ae7bb3941d9f2abb39c3",
   "track": "cpu-gha",
-  "started": "2026-11-16 07:47:44",
+  "started": "2026-11-16 11:39:01",
   "prep_ok": true,
   "setup": {
     "ok": false,
@@ -13,5 +13,5 @@
     "pass": false,
     "skipped": "setup failed"
   },
-  "finished": "2026-11-16 09:17:52"
+  "finished": "2026-11-16 13:09:14"
 }

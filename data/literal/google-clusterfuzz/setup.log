@@ -1,1 +1,25 @@
 debconf: delaying package configuration, since apt-utils is not installed
+Downloading cpython-3.11.18-linux-x86_64-gnu (download) (29.4MiB)
+ Downloaded cpython-3.11.18-linux-x86_64-gnu (download)
+Using CPython 3.11.18
+Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
+++ dirname local/install_deps.bash
++ dir=local
++ rm -rf local/../src/third_party
+++ uname
++ '[' Linux == Darwin ']'
++ local/install_deps_linux.bash
++ '[' '' '!=' '' ']'
++ '[' -z '' ']'
++ which python3.11
++ export PYTHON=python3.11
++ PYTHON=python3.11
++ which python3.11
+++ python3.11 --version
+++ cut -f2 '-d '
++ version=3.11.18
++ which lsb_release
++ echo 'ERROR: lsb_release not found in $PATH'
+ERROR: lsb_release not found in $PATH
++ exit 1

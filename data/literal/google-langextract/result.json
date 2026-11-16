@@ -3,7 +3,7 @@
   "repo": "google/langextract",
   "commit": "0e441bf77ddc3119dd0aa413322959234dd84ee5",
   "track": "cpu-gha",
-  "started": "2026-11-16 07:49:11",
+  "started": "2026-11-16 11:39:16",
   "prep_ok": true,
   "setup": {
     "ok": false,
@@ -13,5 +13,5 @@
     "pass": false,
     "skipped": "setup failed"
   },
-  "finished": "2026-11-16 07:49:45"
+  "finished": "2026-11-16 11:39:49"
 }

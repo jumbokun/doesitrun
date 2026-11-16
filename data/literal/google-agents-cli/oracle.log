@@ -1,7 +1,8 @@
-timeout: failed to run command 'agents-cli': No such file or directory
-create failed
+ORACLE PASS
 + set -e
 + source /work/env.sh
+++ export PATH=/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+++ PATH=/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ++ source /work/.venv/bin/activate
 +++ deactivate nondestructive
 +++ '[' -n '' ']'
@@ -15,8 +16,8 @@ create failed
 +++ '[' linux-gnu = msys ']'
 +++ export VIRTUAL_ENV=/work/.venv
 +++ VIRTUAL_ENV=/work/.venv
-+++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-+++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ _OLD_VIRTUAL_PATH=/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 +++ export PATH
 +++ '[' -n '' ']'
 +++ '[' -z '' ']'
@@ -28,8 +29,18 @@ create failed
 +++ hash -r
 + cd /work/agents-cli
 ++ mktemp -d /tmp/oracle.XXXXXX
-+ OUT=/tmp/oracle.CtPKbT
-+ timeout 1500 agents-cli create caveman-agent -y --skip-checks -o /tmp/oracle.CtPKbT
-+ cat /tmp/oracle.CtPKbT/create.log
-+ echo create failed
-+ exit 1
++ OUT=/tmp/oracle.5TvsAN
++ timeout 1500 agents-cli create caveman-agent -y --skip-checks -o /tmp/oracle.5TvsAN
+++ find /tmp/oracle.5TvsAN -maxdepth 2 -name pyproject.toml -printf '%h\n'
+++ head -1
++ P=/tmp/oracle.5TvsAN/caveman-agent
++ '[' -n /tmp/oracle.5TvsAN/caveman-agent ']'
++ test -s /tmp/oracle.5TvsAN/caveman-agent/pyproject.toml
++ test -s /tmp/oracle.5TvsAN/caveman-agent/app/agent.py
++ grep -q root_agent /tmp/oracle.5TvsAN/caveman-agent/app/agent.py
++ grep -qi caveman /tmp/oracle.5TvsAN/caveman-agent/pyproject.toml
++ python3 -I -c 'import ast,sys;ast.parse(open(sys.argv[1]).read())' /tmp/oracle.5TvsAN/caveman-agent/app/agent.py
++ timeout 600 agents-cli info
++ timeout 300 agents-cli --help
++ grep -q create
++ echo ORACLE PASS

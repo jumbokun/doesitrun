@@ -1,0 +1,64 @@
+  File "/work/.venv/lib/python3.12/site-packages/protenix/model/modules/confidence.py", line 20, in <module>
+    from protenix.model.modules.pairformer import PairformerStack
+  File "/work/.venv/lib/python3.12/site-packages/protenix/model/modules/pairformer.py", line 24, in <module>
+    from protenix.model.modules.primitives import LinearNoBias, Transition
+  File "/work/.venv/lib/python3.12/site-packages/protenix/model/modules/primitives.py", line 23, in <module>
+    from protenix.model.triangular.layers import LayerNorm, trunc_normal_init_
+  File "/work/.venv/lib/python3.12/site-packages/protenix/model/triangular/layers.py", line 35, in <module>
+    from protenix.model.layer_norm.layer_norm import FusedLayerNorm
+  File "/work/.venv/lib/python3.12/site-packages/protenix/model/layer_norm/__init__.py", line 16, in <module>
+    from .layer_norm import FusedLayerNorm
+  File "/work/.venv/lib/python3.12/site-packages/protenix/model/layer_norm/layer_norm.py", line 58, in <module>
+    fast_layer_norm_cuda_v2 = compile(
+                              ^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/protenix/model/layer_norm/torch_ext_compile.py", line 70, in compile
+    return load(
+           ^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 1623, in load
+    return _jit_compile(
+           ^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2076, in _jit_compile
+    _write_ninja_file_and_build_library(
+  File "/work/.venv/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2189, in _write_ninja_file_and_build_library
+    extra_ldflags = _prepare_ldflags(
+                    ^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2288, in _prepare_ldflags
+    if (not os.path.exists(_join_cuda_home(extra_lib_dir)) and
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/.venv/lib/python3.12/site-packages/torch/utils/cpp_extension.py", line 2889, in _join_cuda_home
+    raise OSError('CUDA_HOME environment variable is not set. '
+OSError: CUDA_HOME environment variable is not set. Please set it to your CUDA install root.
++ set -e
++ set -o pipefail
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/Protenix
+++ mktemp -d /tmp/protenix_oracle.XXXXXX
++ OUT=/tmp/protenix_oracle.y7ODzV
++ cat
++ timeout 3000 protenix pred -i /tmp/protenix_oracle.y7ODzV/in.json -o /tmp/protenix_oracle.y7ODzV/out -n protenix_base_default_v1.0.0 --use_msa false -d fp32 -c 4 -p 20 -e 1 -s 101 --trimul_kernel torch --triatt_kernel torch
++ tee /tmp/protenix_oracle.y7ODzV/log.txt
++ tail -30

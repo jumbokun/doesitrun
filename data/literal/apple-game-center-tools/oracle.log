@@ -1,3 +1,4 @@
+ORACLE PASS
 + set -e
 + source /work/env.sh
 ++ source /work/.venv/bin/activate
@@ -26,10 +27,8 @@
 +++ hash -r
 + cd /work/game-center-tools
 ++ mktemp -d /tmp/oracle.XXXX
-+ O=/tmp/oracle.U6bG
++ O=/tmp/oracle.DYMO
 + echo '[{"secondsInQueue":20,"skill":1},{"secondsInQueue":10,"skill":50},[{"skill":20},{"skill":30}]]'
 + timeout 120 python3 scripts/genrulesinput.py
-Traceback (most recent call last):
-  File "/work/game-center-tools/scripts/genrulesinput.py", line 11, in <module>
-    import requests
-ModuleNotFoundError: No module named 'requests'
++ python3 - /tmp/oracle.DYMO/out.json
++ echo ORACLE PASS

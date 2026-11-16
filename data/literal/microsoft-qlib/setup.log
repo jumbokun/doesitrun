@@ -1,300 +1,300 @@
-              You can read more about "package data files" on setuptools documentation page:
-      
-              - https://setuptools.pypa.io/en/latest/userguide/datafiles.html
-      
-      
-              [^1]: For Python, any directory (with suitable naming) can be imported,
-                    even if it does not contain any `.py` files.
-                    On the other hand, currently there is no concept of package data
-                    directory, all directories are treated like packages.
-              ********************************************************************************
-      
-      !!
-        check.warn(importable)
-      creating build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/account.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/backtest.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/decision.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/exchange.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/executor.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/high_performance_ds.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/position.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/profit_attribution.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/report.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/signal.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      copying qlib/backtest/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/backtest
-      creating build/lib.linux-x86_64-cpython-312/qlib/cli
-      copying qlib/cli/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/cli
-      copying qlib/cli/data.py -> build/lib.linux-x86_64-cpython-312/qlib/cli
-      copying qlib/cli/run.py -> build/lib.linux-x86_64-cpython-312/qlib/cli
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib
-      copying qlib/contrib/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
-      copying qlib/contrib/evaluate.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
-      copying qlib/contrib/evaluate_portfolio.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
-      copying qlib/contrib/torch.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/data.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/dataset.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/handler.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/highfreq_handler.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/highfreq_processor.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/highfreq_provider.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/loader.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      copying qlib/contrib/data/processor.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/data/utils
-      copying qlib/contrib/data/utils/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data/utils
-      copying qlib/contrib/data/utils/sepdf.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/data/utils
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/eva
-      copying qlib/contrib/eva/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/eva
-      copying qlib/contrib/eva/alpha.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/eva
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/meta
-      copying qlib/contrib/meta/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
-      copying qlib/contrib/meta/data_selection/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
-      copying qlib/contrib/meta/data_selection/dataset.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
-      copying qlib/contrib/meta/data_selection/model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
-      copying qlib/contrib/meta/data_selection/net.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
-      copying qlib/contrib/meta/data_selection/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/meta/data_selection
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/catboost_model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/double_ensemble.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/gbdt.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/highfreq_gdbt_model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/linear.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_adarnn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_add.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_alstm.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_alstm_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_gats.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_gats_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_general_nn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_gru.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_gru_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_hist.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_igmtf.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_krnn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_localformer.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_localformer_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_lstm.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_lstm_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_nn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_sandwich.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_sfm.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_tabnet.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_tcn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_tcn_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_tcts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_tra.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_transformer.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_transformer_ts.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/pytorch_utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/tcn.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      copying qlib/contrib/model/xgboost.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/model
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/online
-      copying qlib/contrib/online/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
-      copying qlib/contrib/online/manager.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
-      copying qlib/contrib/online/online_model.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
-      copying qlib/contrib/online/operator.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
-      copying qlib/contrib/online/user.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
-      copying qlib/contrib/online/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/online
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/ops
-      copying qlib/contrib/ops/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/ops
-      copying qlib/contrib/ops/high_freq.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/ops
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report
-      copying qlib/contrib/report/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report
-      copying qlib/contrib/report/graph.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report
-      copying qlib/contrib/report/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_model
-      copying qlib/contrib/report/analysis_model/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_model
-      copying qlib/contrib/report/analysis_model/analysis_model_performance.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_model
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      copying qlib/contrib/report/analysis_position/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      copying qlib/contrib/report/analysis_position/cumulative_return.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      copying qlib/contrib/report/analysis_position/parse_position.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      copying qlib/contrib/report/analysis_position/rank_label.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      copying qlib/contrib/report/analysis_position/report.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      copying qlib/contrib/report/analysis_position/risk_analysis.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      copying qlib/contrib/report/analysis_position/score_ic.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/analysis_position
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
-      copying qlib/contrib/report/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
-      copying qlib/contrib/report/data/ana.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
-      copying qlib/contrib/report/data/base.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/report/data
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
-      copying qlib/contrib/rolling/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
-      copying qlib/contrib/rolling/__main__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
-      copying qlib/contrib/rolling/base.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
-      copying qlib/contrib/rolling/ddgda.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/rolling
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
-      copying qlib/contrib/strategy/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
-      copying qlib/contrib/strategy/cost_control.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
-      copying qlib/contrib/strategy/order_generator.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
-      copying qlib/contrib/strategy/rule_strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
-      copying qlib/contrib/strategy/signal_strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
-      copying qlib/contrib/strategy/optimizer/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
-      copying qlib/contrib/strategy/optimizer/base.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
-      copying qlib/contrib/strategy/optimizer/enhanced_indexing.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
-      copying qlib/contrib/strategy/optimizer/optimizer.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/strategy/optimizer
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
-      copying qlib/contrib/tuner/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
-      copying qlib/contrib/tuner/config.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
-      copying qlib/contrib/tuner/launcher.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
-      copying qlib/contrib/tuner/pipeline.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
-      copying qlib/contrib/tuner/space.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
-      copying qlib/contrib/tuner/tuner.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/tuner
-      creating build/lib.linux-x86_64-cpython-312/qlib/contrib/workflow
-      copying qlib/contrib/workflow/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/workflow
-      copying qlib/contrib/workflow/record_temp.py -> build/lib.linux-x86_64-cpython-312/qlib/contrib/workflow
-      creating build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/base.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/cache.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/client.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/data.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/expression_parser.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/filter.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/inst_processor.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/ops.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      copying qlib/data/pit.py -> build/lib.linux-x86_64-cpython-312/qlib/data
-      creating build/lib.linux-x86_64-cpython-312/qlib/data/_libs
-      copying qlib/data/_libs/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data/_libs
-      copying qlib/data/_libs/expanding.pyx -> build/lib.linux-x86_64-cpython-312/qlib/data/_libs
-      copying qlib/data/_libs/rolling.pyx -> build/lib.linux-x86_64-cpython-312/qlib/data/_libs
-      creating build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      copying qlib/data/dataset/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      copying qlib/data/dataset/handler.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      copying qlib/data/dataset/loader.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      copying qlib/data/dataset/processor.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      copying qlib/data/dataset/storage.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      copying qlib/data/dataset/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      copying qlib/data/dataset/weight.py -> build/lib.linux-x86_64-cpython-312/qlib/data/dataset
-      creating build/lib.linux-x86_64-cpython-312/qlib/data/storage
-      copying qlib/data/storage/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/data/storage
-      copying qlib/data/storage/file_storage.py -> build/lib.linux-x86_64-cpython-312/qlib/data/storage
-      copying qlib/data/storage/storage.py -> build/lib.linux-x86_64-cpython-312/qlib/data/storage
-      creating build/lib.linux-x86_64-cpython-312/qlib/model
-      copying qlib/model/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model
-      copying qlib/model/base.py -> build/lib.linux-x86_64-cpython-312/qlib/model
-      copying qlib/model/trainer.py -> build/lib.linux-x86_64-cpython-312/qlib/model
-      copying qlib/model/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/model
-      creating build/lib.linux-x86_64-cpython-312/qlib/model/ens
-      copying qlib/model/ens/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/ens
-      copying qlib/model/ens/ensemble.py -> build/lib.linux-x86_64-cpython-312/qlib/model/ens
-      copying qlib/model/ens/group.py -> build/lib.linux-x86_64-cpython-312/qlib/model/ens
-      creating build/lib.linux-x86_64-cpython-312/qlib/model/interpret
-      copying qlib/model/interpret/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/interpret
-      copying qlib/model/interpret/base.py -> build/lib.linux-x86_64-cpython-312/qlib/model/interpret
-      creating build/lib.linux-x86_64-cpython-312/qlib/model/meta
-      copying qlib/model/meta/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
-      copying qlib/model/meta/dataset.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
-      copying qlib/model/meta/model.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
-      copying qlib/model/meta/task.py -> build/lib.linux-x86_64-cpython-312/qlib/model/meta
-      creating build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
-      copying qlib/model/riskmodel/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
-      copying qlib/model/riskmodel/base.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
-      copying qlib/model/riskmodel/poet.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
-      copying qlib/model/riskmodel/shrink.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
-      copying qlib/model/riskmodel/structured.py -> build/lib.linux-x86_64-cpython-312/qlib/model/riskmodel
-      creating build/lib.linux-x86_64-cpython-312/qlib/rl
-      copying qlib/rl/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
-      copying qlib/rl/aux_info.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
-      copying qlib/rl/interpreter.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
-      copying qlib/rl/reward.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
-      copying qlib/rl/seed.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
-      copying qlib/rl/simulator.py -> build/lib.linux-x86_64-cpython-312/qlib/rl
-      creating build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
-      copying qlib/rl/contrib/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
-      copying qlib/rl/contrib/backtest.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
-      copying qlib/rl/contrib/naive_config_parser.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
-      copying qlib/rl/contrib/train_onpolicy.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
-      copying qlib/rl/contrib/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/contrib
-      creating build/lib.linux-x86_64-cpython-312/qlib/rl/data
-      copying qlib/rl/data/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
-      copying qlib/rl/data/base.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
-      copying qlib/rl/data/integration.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
-      copying qlib/rl/data/native.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
-      copying qlib/rl/data/pickle_styled.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/data
-      creating build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/interpreter.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/network.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/policy.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/reward.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/simulator_qlib.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/simulator_simple.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/state.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      copying qlib/rl/order_execution/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/order_execution
-      creating build/lib.linux-x86_64-cpython-312/qlib/rl/strategy
-      copying qlib/rl/strategy/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/strategy
-      copying qlib/rl/strategy/single_order.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/strategy
-      creating build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
-      copying qlib/rl/trainer/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
-      copying qlib/rl/trainer/api.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
-      copying qlib/rl/trainer/callbacks.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
-      copying qlib/rl/trainer/trainer.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
-      copying qlib/rl/trainer/vessel.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/trainer
-      creating build/lib.linux-x86_64-cpython-312/qlib/rl/utils
-      copying qlib/rl/utils/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
-      copying qlib/rl/utils/data_queue.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
-      copying qlib/rl/utils/env_wrapper.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
-      copying qlib/rl/utils/finite_env.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
-      copying qlib/rl/utils/log.py -> build/lib.linux-x86_64-cpython-312/qlib/rl/utils
-      creating build/lib.linux-x86_64-cpython-312/qlib/strategy
-      copying qlib/strategy/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/strategy
-      copying qlib/strategy/base.py -> build/lib.linux-x86_64-cpython-312/qlib/strategy
-      creating build/lib.linux-x86_64-cpython-312/qlib/tests
-      copying qlib/tests/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
-      copying qlib/tests/config.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
-      copying qlib/tests/data.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
-      copying qlib/tests/test_config_validation.py -> build/lib.linux-x86_64-cpython-312/qlib/tests
-      creating build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/data.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/exceptions.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/file.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/index_data.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/mod.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/objm.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/paral.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/pickle_utils.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/resam.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/serial.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      copying qlib/utils/time.py -> build/lib.linux-x86_64-cpython-312/qlib/utils
-      creating build/lib.linux-x86_64-cpython-312/qlib/workflow
-      copying qlib/workflow/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
-      copying qlib/workflow/exp.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
-      copying qlib/workflow/expm.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
-      copying qlib/workflow/record_temp.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
-      copying qlib/workflow/recorder.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
-      copying qlib/workflow/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow
-      creating build/lib.linux-x86_64-cpython-312/qlib/workflow/online
-      copying qlib/workflow/online/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
-      copying qlib/workflow/online/manager.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
-      copying qlib/workflow/online/strategy.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
-      copying qlib/workflow/online/update.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
-      copying qlib/workflow/online/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/online
-      creating build/lib.linux-x86_64-cpython-312/qlib/workflow/task
-      copying qlib/workflow/task/__init__.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
-      copying qlib/workflow/task/collect.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
-      copying qlib/workflow/task/gen.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
-      copying qlib/workflow/task/manage.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
-      copying qlib/workflow/task/utils.py -> build/lib.linux-x86_64-cpython-312/qlib/workflow/task
-      running build_ext
-      Compiling qlib/data/_libs/rolling.pyx because it changed.
-      [1/1] Cythonizing qlib/data/_libs/rolling.pyx
-      building 'qlib.data._libs.rolling' extension
-      x86_64-linux-gnu-g++ -fno-strict-overflow -Wsign-compare -DNDEBUG -g -O2 -Wall -fPIC -I/tmp/pip-build-env-ub1yotgf/overlay/lib/python3.12/site-packages/numpy/_core/include -I/work/.venv/include -I/usr/include/python3.12 -c qlib/data/_libs/rolling.cpp -o build/temp.linux-x86_64-cpython-312/qlib/data/_libs/rolling.o
-      qlib/data/_libs/rolling.cpp:42:10: fatal error: Python.h: No such file or directory
-         42 | #include "Python.h"
-            |          ^~~~~~~~~~
-      compilation terminated.
-      error: Command '['x86_64-linux-gnu-g++', '-fno-strict-overflow', '-Wsign-compare', '-DNDEBUG', '-g', '-O2', '-Wall', '-fPIC', '-I/tmp/pip-build-env-ub1yotgf/overlay/lib/python3.12/site-packages/numpy/_core/include', '-I/work/.venv/include', '-I/usr/include/python3.12', '-c', 'qlib/data/_libs/rolling.cpp', '-o', 'build/temp.linux-x86_64-cpython-312/qlib/data/_libs/rolling.o']' returned non-zero exit status 1.
-      [end of output]
-  
-  note: This error originates from a subprocess, and is likely not a problem with pip.
-  ERROR: Failed building wheel for pyqlib
-ERROR: Could not build wheels for pyqlib, which is required to install pyproject.toml-based projects
+543250K .......... .......... .......... .......... .......... 97%  748M 0s
+543300K .......... .......... .......... .......... .......... 97%  650M 0s
+543350K .......... .......... .......... .......... .......... 97%  809M 0s
+543400K .......... .......... .......... .......... .......... 97%  641M 0s
+543450K .......... .......... .......... .......... .......... 97%  762M 0s
+543500K .......... .......... .......... .......... .......... 97%  424M 0s
+543550K .......... .......... .......... .......... .......... 97%  422M 0s
+543600K .......... .......... .......... .......... .......... 97%  520M 0s
+543650K .......... .......... .......... .......... .......... 97%  393M 0s
+543700K .......... .......... .......... .......... .......... 97%  643M 0s
+543750K .......... .......... .......... .......... .......... 97%  385M 0s
+543800K .......... .......... .......... .......... .......... 97%  812M 0s
+543850K .......... .......... .......... .......... .......... 97%  532M 0s
+543900K .......... .......... .......... .......... .......... 97%  641M 0s
+543950K .......... .......... .......... .......... .......... 97%  533M 0s
+544000K .......... .......... .......... .......... .......... 97%  404M 0s
+544050K .......... .......... .......... .......... .......... 97%  721M 0s
+544100K .......... .......... .......... .......... .......... 97%  708M 0s
+544150K .......... .......... .......... .......... .......... 97%  291M 0s
+544200K .......... .......... .......... .......... .......... 97%  643M 0s
+544250K .......... .......... .......... .......... .......... 97%  739M 0s
+544300K .......... .......... .......... .......... .......... 97%  796M 0s
+544350K .......... .......... .......... .......... .......... 97%  404M 0s
+544400K .......... .......... .......... .......... .......... 97%  663M 0s
+544450K .......... .......... .......... .......... .......... 97%  262M 0s
+544500K .......... .......... .......... .......... .......... 97%  621M 0s
+544550K .......... .......... .......... .......... .......... 97%  708M 0s
+544600K .......... .......... .......... .......... .......... 97%  814M 0s
+544650K .......... .......... .......... .......... .......... 97%  686M 0s
+544700K .......... .......... .......... .......... .......... 97%  133M 0s
+544750K .......... .......... .......... .......... .......... 97%  586M 0s
+544800K .......... .......... .......... .......... .......... 97%  752M 0s
+544850K .......... .......... .......... .......... .......... 97%  813M 0s
+544900K .......... .......... .......... .......... .......... 97%  686M 0s
+544950K .......... .......... .......... .......... .......... 97%  881M 0s
+545000K .......... .......... .......... .......... .......... 97%  732M 0s
+545050K .......... .......... .......... .......... .......... 97%  714M 0s
+545100K .......... .......... .......... .......... .......... 97%  805M 0s
+545150K .......... .......... .......... .......... .......... 97%  489M 0s
+545200K .......... .......... .......... .......... .......... 97%  776M 0s
+545250K .......... .......... .......... .......... .......... 97%  533M 0s
+545300K .......... .......... .......... .......... .......... 97%  726M 0s
+545350K .......... .......... .......... .......... .......... 97%  759M 0s
+545400K .......... .......... .......... .......... .......... 97%  252M 0s
+545450K .......... .......... .......... .......... .......... 97%  393M 0s
+545500K .......... .......... .......... .......... .......... 97%  494M 0s
+545550K .......... .......... .......... .......... .......... 97%  581M 0s
+545600K .......... .......... .......... .......... .......... 97%  743M 0s
+545650K .......... .......... .......... .......... .......... 97%  845M 0s
+545700K .......... .......... .......... .......... .......... 97%  409M 0s
+545750K .......... .......... .......... .......... .......... 97%  875M 0s
+545800K .......... .......... .......... .......... .......... 97%  510M 0s
+545850K .......... .......... .......... .......... .......... 97%  681M 0s
+545900K .......... .......... .......... .......... .......... 97%  700M 0s
+545950K .......... .......... .......... .......... .......... 97%  432M 0s
+546000K .......... .......... .......... .......... .......... 97%  302M 0s
+546050K .......... .......... .......... .......... .......... 97%  131M 0s
+546100K .......... .......... .......... .......... .......... 97%  617M 0s
+546150K .......... .......... .......... .......... .......... 97%  502M 0s
+546200K .......... .......... .......... .......... .......... 97%  611M 0s
+546250K .......... .......... .......... .......... .......... 97%  528M 0s
+546300K .......... .......... .......... .......... .......... 97%  487M 0s
+546350K .......... .......... .......... .......... .......... 97%  118M 0s
+546400K .......... .......... .......... .......... .......... 97% 72.6M 0s
+546450K .......... .......... .......... .......... .......... 97%  397M 0s
+546500K .......... .......... .......... .......... .......... 97%  128M 0s
+546550K .......... .......... .......... .......... .......... 97%  405M 0s
+546600K .......... .......... .......... .......... .......... 97%  473M 0s
+546650K .......... .......... .......... .......... .......... 97%  548M 0s
+546700K .......... .......... .......... .......... .......... 97%  309M 0s
+546750K .......... .......... .......... .......... .......... 97%  459M 0s
+546800K .......... .......... .......... .......... .......... 97%  490M 0s
+546850K .......... .......... .......... .......... .......... 97%  613M 0s
+546900K .......... .......... .......... .......... .......... 98%  509M 0s
+546950K .......... .......... .......... .......... .......... 98%  575M 0s
+547000K .......... .......... .......... .......... .......... 98%  493M 0s
+547050K .......... .......... .......... .......... .......... 98%  367M 0s
+547100K .......... .......... .......... .......... .......... 98%  574M 0s
+547150K .......... .......... .......... .......... .......... 98%  401M 0s
+547200K .......... .......... .......... .......... .......... 98%  336M 0s
+547250K .......... .......... .......... .......... .......... 98%  554M 0s
+547300K .......... .......... .......... .......... .......... 98%  407M 0s
+547350K .......... .......... .......... .......... .......... 98%  373M 0s
+547400K .......... .......... .......... .......... .......... 98%  579M 0s
+547450K .......... .......... .......... .......... .......... 98%  561M 0s
+547500K .......... .......... .......... .......... .......... 98%  397M 0s
+547550K .......... .......... .......... .......... .......... 98%  337M 0s
+547600K .......... .......... .......... .......... .......... 98%  560M 0s
+547650K .......... .......... .......... .......... .......... 98%  459M 0s
+547700K .......... .......... .......... .......... .......... 98%  350M 0s
+547750K .......... .......... .......... .......... .......... 98%  556M 0s
+547800K .......... .......... .......... .......... .......... 98%  606M 0s
+547850K .......... .......... .......... .......... .......... 98%  584M 0s
+547900K .......... .......... .......... .......... .......... 98%  801M 0s
+547950K .......... .......... .......... .......... .......... 98%  552M 0s
+548000K .......... .......... .......... .......... .......... 98%  613M 0s
+548050K .......... .......... .......... .......... .......... 98%  379M 0s
+548100K .......... .......... .......... .......... .......... 98%  543M 0s
+548150K .......... .......... .......... .......... .......... 98%  406M 0s
+548200K .......... .......... .......... .......... .......... 98%  379M 0s
+548250K .......... .......... .......... .......... .......... 98%  529M 0s
+548300K .......... .......... .......... .......... .......... 98%  620M 0s
+548350K .......... .......... .......... .......... .......... 98%  362M 0s
+548400K .......... .......... .......... .......... .......... 98%  305M 0s
+548450K .......... .......... .......... .......... .......... 98%  433M 0s
+548500K .......... .......... .......... .......... .......... 98%  494M 0s
+548550K .......... .......... .......... .......... .......... 98%  479M 0s
+548600K .......... .......... .......... .......... .......... 98%  418M 0s
+548650K .......... .......... .......... .......... .......... 98%  572M 0s
+548700K .......... .......... .......... .......... .......... 98%  319M 0s
+548750K .......... .......... .......... .......... .......... 98%  340M 0s
+548800K .......... .......... .......... .......... .......... 98%  460M 0s
+548850K .......... .......... .......... .......... .......... 98%  480M 0s
+548900K .......... .......... .......... .......... .......... 98%  376M 0s
+548950K .......... .......... .......... .......... .......... 98%  487M 0s
+549000K .......... .......... .......... .......... .......... 98%  659M 0s
+549050K .......... .......... .......... .......... .......... 98%  748M 0s
+549100K .......... .......... .......... .......... .......... 98%  710M 0s
+549150K .......... .......... .......... .......... .......... 98%  581M 0s
+549200K .......... .......... .......... .......... .......... 98%  341M 0s
+549250K .......... .......... .......... .......... .......... 98%  479M 0s
+549300K .......... .......... .......... .......... .......... 98%  631M 0s
+549350K .......... .......... .......... .......... .......... 98%  458M 0s
+549400K .......... .......... .......... .......... .......... 98%  423M 0s
+549450K .......... .......... .......... .......... .......... 98%  416M 0s
+549500K .......... .......... .......... .......... .......... 98%  474M 0s
+549550K .......... .......... .......... .......... .......... 98%  535M 0s
+549600K .......... .......... .......... .......... .......... 98%  722M 0s
+549650K .......... .......... .......... .......... .......... 98%  789M 0s
+549700K .......... .......... .......... .......... .......... 98%  485M 0s
+549750K .......... .......... .......... .......... .......... 98%  696M 0s
+549800K .......... .......... .......... .......... .......... 98%  783M 0s
+549850K .......... .......... .......... .......... .......... 98%  813M 0s
+549900K .......... .......... .......... .......... .......... 98%  125M 0s
+549950K .......... .......... .......... .......... .......... 98%  267M 0s
+550000K .......... .......... .......... .......... .......... 98%  129M 0s
+550050K .......... .......... .......... .......... .......... 98%  263M 0s
+550100K .......... .......... .......... .......... .......... 98%  647M 0s
+550150K .......... .......... .......... .......... .......... 98%  429M 0s
+550200K .......... .......... .......... .......... .......... 98%  668M 0s
+550250K .......... .......... .......... .......... .......... 98%  719M 0s
+550300K .......... .......... .......... .......... .......... 98%  853M 0s
+550350K .......... .......... .......... .......... .......... 98%  600M 0s
+550400K .......... .......... .......... .......... .......... 98%  758M 0s
+550450K .......... .......... .......... .......... .......... 98%  325M 0s
+550500K .......... .......... .......... .......... .......... 98%  369M 0s
+550550K .......... .......... .......... .......... .......... 98%  579M 0s
+550600K .......... .......... .......... .......... .......... 98%  455M 0s
+550650K .......... .......... .......... .......... .......... 98%  395M 0s
+550700K .......... .......... .......... .......... .......... 98%  480M 0s
+550750K .......... .......... .......... .......... .......... 98%  390M 0s
+550800K .......... .......... .......... .......... .......... 98%  579M 0s
+550850K .......... .......... .......... .......... .......... 98%  490M 0s
+550900K .......... .......... .......... .......... .......... 98%  418M 0s
+550950K .......... .......... .......... .......... .......... 98%  520M 0s
+551000K .......... .......... .......... .......... .......... 98%  498M 0s
+551050K .......... .......... .......... .......... .......... 98%  626M 0s
+551100K .......... .......... .......... .......... .......... 98%  346M 0s
+551150K .......... .......... .......... .......... .......... 98%  349M 0s
+551200K .......... .......... .......... .......... .......... 98%  384M 0s
+551250K .......... .......... .......... .......... .......... 98%  417M 0s
+551300K .......... .......... .......... .......... .......... 98%  598M 0s
+551350K .......... .......... .......... .......... .......... 98%  556M 0s
+551400K .......... .......... .......... .......... .......... 98%  380M 0s
+551450K .......... .......... .......... .......... .......... 98%  574M 0s
+551500K .......... .......... .......... .......... .......... 98%  512M 0s
+551550K .......... .......... .......... .......... .......... 98%  464M 0s
+551600K .......... .......... .......... .......... .......... 98%  430M 0s
+551650K .......... .......... .......... .......... .......... 98%  347M 0s
+551700K .......... .......... .......... .......... .......... 98%  587M 0s
+551750K .......... .......... .......... .......... .......... 98%  437M 0s
+551800K .......... .......... .......... .......... .......... 98%  432M 0s
+551850K .......... .......... .......... .......... .......... 98%  491M 0s
+551900K .......... .......... .......... .......... .......... 98%  639M 0s
+551950K .......... .......... .......... .......... .......... 98%  416M 0s
+552000K .......... .......... .......... .......... .......... 98%  545M 0s
+552050K .......... .......... .......... .......... .......... 98%  358M 0s
+552100K .......... .......... .......... .......... .......... 98%  568M 0s
+552150K .......... .......... .......... .......... .......... 98%  640M 0s
+552200K .......... .......... .......... .......... .......... 98%  366M 0s
+552250K .......... .......... .......... .......... .......... 98%  450M 0s
+552300K .......... .......... .......... .......... .......... 98%  554M 0s
+552350K .......... .......... .......... .......... .......... 98%  386M 0s
+552400K .......... .......... .......... .......... .......... 98%  378M 0s
+552450K .......... .......... .......... .......... .......... 99%  595M 0s
+552500K .......... .......... .......... .......... .......... 99%  559M 0s
+552550K .......... .......... .......... .......... .......... 99%  343M 0s
+552600K .......... .......... .......... .......... .......... 99%  515M 0s
+552650K .......... .......... .......... .......... .......... 99%  708M 0s
+552700K .......... .......... .......... .......... .......... 99%  708M 0s
+552750K .......... .......... .......... .......... .......... 99%  521M 0s
+552800K .......... .......... .......... .......... .......... 99%  465M 0s
+552850K .......... .......... .......... .......... .......... 99%  779M 0s
+552900K .......... .......... .......... .......... .......... 99%  862M 0s
+552950K .......... .......... .......... .......... .......... 99%  894K 0s
+553000K .......... .......... .......... .......... .......... 99%  162M 0s
+553050K .......... .......... .......... .......... .......... 99%  122M 0s
+553100K .......... .......... .......... .......... .......... 99%  149M 0s
+553150K .......... .......... .......... .......... .......... 99%  606M 0s
+553200K .......... .......... .......... .......... .......... 99%  120M 0s
+553250K .......... .......... .......... .......... .......... 99%  106M 0s
+553300K .......... .......... .......... .......... .......... 99%  124M 0s
+553350K .......... .......... .......... .......... .......... 99%  601M 0s
+553400K .......... .......... .......... .......... .......... 99%  120M 0s
+553450K .......... .......... .......... .......... .......... 99%  241M 0s
+553500K .......... .......... .......... .......... .......... 99%  560M 0s
+553550K .......... .......... .......... .......... .......... 99%  765M 0s
+553600K .......... .......... .......... .......... .......... 99%  635M 0s
+553650K .......... .......... .......... .......... .......... 99%  661M 0s
+553700K .......... .......... .......... .......... .......... 99%  704M 0s
+553750K .......... .......... .......... .......... .......... 99%  313M 0s
+553800K .......... .......... .......... .......... .......... 99%  376M 0s
+553850K .......... .......... .......... .......... .......... 99%  739M 0s
+553900K .......... .......... .......... .......... .......... 99%  134M 0s
+553950K .......... .......... .......... .......... .......... 99%  346M 0s
+554000K .......... .......... .......... .......... .......... 99%  463M 0s
+554050K .......... .......... .......... .......... .......... 99%  452M 0s
+554100K .......... .......... .......... .......... .......... 99%  356M 0s
+554150K .......... .......... .......... .......... .......... 99%  439M 0s
+554200K .......... .......... .......... .......... .......... 99%  562M 0s
+554250K .......... .......... .......... .......... .......... 99%  760M 0s
+554300K .......... .......... .......... .......... .......... 99%  151M 0s
+554350K .......... .......... .......... .......... .......... 99%  556M 0s
+554400K .......... .......... .......... .......... .......... 99%  624M 0s
+554450K .......... .......... .......... .......... .......... 99%  604M 0s
+554500K .......... .......... .......... .......... .......... 99%  718M 0s
+554550K .......... .......... .......... .......... .......... 99%  311M 0s
+554600K .......... .......... .......... .......... .......... 99%  531M 0s
+554650K .......... .......... .......... .......... .......... 99%  581M 0s
+554700K .......... .......... .......... .......... .......... 99%  252M 0s
+554750K .......... .......... .......... .......... .......... 99%  564M 0s
+554800K .......... .......... .......... .......... .......... 99%  360M 0s
+554850K .......... .......... .......... .......... .......... 99%  448M 0s
+554900K .......... .......... .......... .......... .......... 99%  326M 0s
+554950K .......... .......... .......... .......... .......... 99%  670M 0s
+555000K .......... .......... .......... .......... .......... 99%  682M 0s
+555050K .......... .......... .......... .......... .......... 99%  808M 0s
+555100K .......... .......... .......... .......... .......... 99%  322M 0s
+555150K .......... .......... .......... .......... .......... 99%  742M 0s
+555200K .......... .......... .......... .......... .......... 99%  636M 0s
+555250K .......... .......... .......... .......... .......... 99%  741M 0s
+555300K .......... .......... .......... .......... .......... 99%  321M 0s
+555350K .......... .......... .......... .......... .......... 99%  449M 0s
+555400K .......... .......... .......... .......... .......... 99%  421M 0s
+555450K .......... .......... .......... .......... .......... 99%  607M 0s
+555500K .......... .......... .......... .......... .......... 99%  379M 0s
+555550K .......... .......... .......... .......... .......... 99%  670M 0s
+555600K .......... .......... .......... .......... .......... 99%  569M 0s
+555650K .......... .......... .......... .......... .......... 99%  445M 0s
+555700K .......... .......... .......... .......... .......... 99%  630M 0s
+555750K .......... .......... .......... .......... .......... 99%  388M 0s
+555800K .......... .......... .......... .......... .......... 99%  539M 0s
+555850K .......... .......... .......... .......... .......... 99%  414M 0s
+555900K .......... .......... .......... .......... .......... 99%  299M 0s
+555950K .......... .......... .......... .......... .......... 99%  458M 0s
+556000K .......... .......... .......... .......... .......... 99%  575M 0s
+556050K .......... .......... .......... .......... .......... 99%  618M 0s
+556100K .......... .......... .......... .......... .......... 99%  632M 0s
+556150K .......... .......... .......... .......... .......... 99%  360M 0s
+556200K .......... .......... .......... .......... .......... 99%  452M 0s
+556250K .......... .......... .......... .......... .......... 99%  589M 0s
+556300K .......... .......... .......... .......... .......... 99%  530M 0s
+556350K .......... .......... .......... .......... .......... 99%  415M 0s
+556400K .......... .......... .......... .......... .......... 99%  444M 0s
+556450K .......... .......... .......... .......... .......... 99%  741M 0s
+556500K .......... .......... .......... .......... .......... 99%  737M 0s
+556550K .......... .......... .......... .......... .......... 99%  750M 0s
+556600K .......... .......... .......... .......... .......... 99%  584M 0s
+556650K .......... .......... .......... .......... .......... 99%  577M 0s
+556700K .......... .......... .......... .......... .......... 99%  466M 0s
+556750K .......... .......... .......... .......... .......... 99%  784M 0s
+556800K .......... .......... .......... .......... .......... 99%  225M 0s
+556850K .......... .......... .......... .......... .......... 99%  776M 0s
+556900K .......... .......... .......... .......... .......... 99%  148M 0s
+556950K .......... .......... .......... .......... .......... 99%  129M 0s
+557000K .......... .......... .......... .......... .......... 99%  388M 0s
+557050K .......... .......... .......... .......... .......... 99%  433M 0s
+557100K .......... .......... .......... .......... .......... 99%  407M 0s
+557150K .......... .......... .......... .......... .......... 99%  463M 0s
+557200K .......... .......... .......... .......... .......... 99%  656M 0s
+557250K .......... .......... .......... .......... .......... 99%  440M 0s
+557300K .......... .......... .......... .......... .......... 99%  701M 0s
+557350K .......... .......... .......... .......... .......... 99%  805M 0s
+557400K .......... .......... .......... .......... .......... 99%  183M 0s
+557450K .......... .......... .......... .......... .......... 99%  388M 0s
+557500K .......... .......... .......... .......... .......... 99%  472M 0s
+557550K .......... .......... .......... .......... .......... 99%  389M 0s
+557600K .......... .......... .......... .......... .......... 99%  568M 0s
+557650K .......... .......... .......... .......... .......... 99%  366M 0s
+557700K .......... .......... .......... .......... .......... 99%  557M 0s
+557750K .......... .......... .......... .......... .......... 99%  740M 0s
+557800K .......... .......... .......... .......... .......... 99%  819M 0s
+557850K .......... .......... .......... .......... .......... 99%  227M 0s
+557900K .......... .......... .......... .......... .......... 99%  460M 0s
+557950K .......... .......... .......... .......... .......... 99%  382M 0s
+558000K .......... .......... .......... .......... .......... 99%  728M 0s
+558050K .......... .....                                      100%  672M=5.1s
+
+2026-11-16 11:41:56 (107 MB/s) - 'qlib_bin.tar.gz' saved [571459530/571459530]
+

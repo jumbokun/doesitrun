@@ -3,15 +3,15 @@
   "repo": "PaddlePaddle/PaddleX",
   "commit": "ffb64904d23708863ff5b8da312a5cbd52a7f462",
   "track": "cpu-gha",
-  "started": "2026-11-16 07:55:17",
+  "started": "2026-11-16 11:39:22",
   "prep_ok": true,
   "setup": {
     "ok": true,
-    "secs": 85
+    "secs": 93
   },
   "oracle": {
     "pass": false,
-    "secs": 1
+    "secs": 13
   },
-  "finished": "2026-11-16 07:57:36"
+  "finished": "2026-11-16 11:41:58"
 }

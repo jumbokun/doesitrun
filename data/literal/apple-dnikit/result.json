@@ -3,15 +3,15 @@
   "repo": "apple/dnikit",
   "commit": "2f39056311d6e0fbbe4e5f73da3767a5b5070dac",
   "track": "cpu-gha",
-  "started": "2026-11-16 08:00:57",
+  "started": "2026-11-16 11:39:35",
   "prep_ok": true,
   "setup": {
-    "ok": false,
-    "secs": 3
+    "ok": true,
+    "secs": 14
   },
   "oracle": {
     "pass": false,
-    "skipped": "setup failed"
+    "secs": 1
   },
-  "finished": "2026-11-16 08:01:11"
+  "finished": "2026-11-16 11:40:05"
 }

@@ -1,29 +1,29 @@
 debconf: delaying package configuration, since apt-utils is not installed
-warning: `VIRTUAL_ENV=/work/.venv` does not match the project environment path `.venv` and will be ignored; use `--active` to target the active environment instead
 Using CPython 3.12.3 interpreter at: /usr/bin/python3
 Creating virtual environment at: .venv
+Activate with: source .venv/bin/activate
 Resolved 163 packages in 1ms
    Building skillspector @ file:///work/SkillSpector
-Downloading zstandard (5.3MiB)
-Downloading tiktoken (1.1MiB)
-Downloading openai (1.3MiB)
-Downloading pygments (1.2MiB)
 Downloading pydantic-core (2.0MiB)
-Downloading botocore (14.6MiB)
 Downloading cryptography (4.5MiB)
-Downloading yara-python (2.2MiB)
+Downloading openai (1.3MiB)
+Downloading tiktoken (1.1MiB)
 Downloading numpy (15.9MiB)
+Downloading botocore (14.6MiB)
+Downloading zstandard (5.3MiB)
+Downloading pygments (1.2MiB)
+Downloading yara-python (2.2MiB)
  Downloaded tiktoken
- Downloaded pygments
- Downloaded openai
  Downloaded pydantic-core
  Downloaded yara-python
+ Downloaded pygments
  Downloaded cryptography
  Downloaded zstandard
+ Downloaded openai
  Downloaded botocore
  Downloaded numpy
       Built skillspector @ file:///work/SkillSpector
-Prepared 71 packages in 654ms
+Prepared 71 packages in 652ms
 Installed 71 packages in 56ms
  + annotated-doc==0.0.4
  + annotated-types==0.7.0

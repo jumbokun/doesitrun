@@ -1,53 +1,68 @@
-rc malicious=127 safe=127 markdown=127
-==> /tmp/oracle.H3fIYV/mal.log <==
-timeout: failed to run command 'skillspector': No such file or directory
+rc malicious=1 safe=0 markdown=1
+==> /tmp/oracle.9jJtdg/mal.log <==
+Report saved to: /tmp/oracle.9jJtdg/mal.json
 
-==> /tmp/oracle.H3fIYV/safe.log <==
-timeout: failed to run command 'skillspector': No such file or directory
+==> /tmp/oracle.9jJtdg/safe.log <==
+Report saved to: /tmp/oracle.9jJtdg/safe.json
 
-==> /tmp/oracle.H3fIYV/md.log <==
-timeout: failed to run command 'skillspector': No such file or directory
-malicious scan errored
+==> /tmp/oracle.9jJtdg/md.log <==
+Report saved to: /tmp/oracle.9jJtdg/mal.md
+malicious issues 7 score 100 DO_NOT_INSTALL | safe issues 0 score 0
+json ok
+ORACLE PASS
 + set -e
 + source /work/env.sh
 ++ set -e
-++ source /work/.venv/bin/activate
+++ source /work/SkillSpector/.venv/bin/activate
++++ '[' -n x ']'
++++ '[' /work/SkillSpector/.venv/bin/activate = /oracle/nvidia-skillspector.sh ']'
++++ '[' false = true ']'
 +++ deactivate nondestructive
-+++ '[' -n '' ']'
-+++ '[' -n '' ']'
++++ unset -f pydoc
++++ '[' -z '' ']'
++++ '[' -z '' ']'
 +++ hash -r
-+++ '[' -n '' ']'
++++ '[' -z '' ']'
 +++ unset VIRTUAL_ENV
 +++ unset VIRTUAL_ENV_PROMPT
 +++ '[' '!' nondestructive = nondestructive ']'
++++ VIRTUAL_ENV=/work/SkillSpector/.venv
 +++ '[' linux-gnu = cygwin ']'
 +++ '[' linux-gnu = msys ']'
-+++ export VIRTUAL_ENV=/work/.venv
-+++ VIRTUAL_ENV=/work/.venv
++++ export VIRTUAL_ENV
++++ '[' false = true ']'
 +++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-+++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/SkillSpector/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 +++ export PATH
-+++ '[' -n '' ']'
++++ '[' x '!=' x ']'
+++++ basename /work/SkillSpector/.venv
++++ VIRTUAL_ENV_PROMPT=.venv
++++ export VIRTUAL_ENV_PROMPT
++++ '[' -z '' ']'
 +++ '[' -z '' ']'
 +++ _OLD_VIRTUAL_PS1=
 +++ PS1='(.venv) '
 +++ export PS1
-+++ VIRTUAL_ENV_PROMPT='(.venv) '
-+++ export VIRTUAL_ENV_PROMPT
++++ alias pydoc
++++ true
 +++ hash -r
 + cd /work/SkillSpector
 ++ mktemp -d /tmp/oracle.XXXXXX
-+ O=/tmp/oracle.H3fIYV
++ O=/tmp/oracle.9jJtdg
 + set +e
-+ timeout 900 skillspector scan tests/fixtures/malicious_skill --no-llm --format json --output /tmp/oracle.H3fIYV/mal.json
-+ rc_mal=127
-+ timeout 900 skillspector scan tests/fixtures/safe_skill --no-llm --format json --output /tmp/oracle.H3fIYV/safe.json
-+ rc_safe=127
-+ timeout 900 skillspector scan tests/fixtures/malicious_skill --no-llm --format markdown --output /tmp/oracle.H3fIYV/mal.md
-+ rc_md=127
++ timeout 900 skillspector scan tests/fixtures/malicious_skill --no-llm --format json --output /tmp/oracle.9jJtdg/mal.json
++ rc_mal=1
++ timeout 900 skillspector scan tests/fixtures/safe_skill --no-llm --format json --output /tmp/oracle.9jJtdg/safe.json
++ rc_safe=0
++ timeout 900 skillspector scan tests/fixtures/malicious_skill --no-llm --format markdown --output /tmp/oracle.9jJtdg/mal.md
++ rc_md=1
 + set -e
-+ echo 'rc malicious=127 safe=127 markdown=127'
-+ tail -n 5 /tmp/oracle.H3fIYV/mal.log /tmp/oracle.H3fIYV/safe.log /tmp/oracle.H3fIYV/md.log
++ echo 'rc malicious=1 safe=0 markdown=1'
++ tail -n 5 /tmp/oracle.9jJtdg/mal.log /tmp/oracle.9jJtdg/safe.log /tmp/oracle.9jJtdg/md.log
 + case "$rc_mal" in
-+ echo 'malicious scan errored'
-+ exit 1
++ case "$rc_md" in
++ '[' 0 = 0 ']'
++ python3 -I - /tmp/oracle.9jJtdg 1
++ grep -q '^# SkillSpector Security Report' /tmp/oracle.9jJtdg/mal.md
++ grep -Eq '^## Issues \([1-9][0-9]*\)' /tmp/oracle.9jJtdg/mal.md
++ echo 'ORACLE PASS'
