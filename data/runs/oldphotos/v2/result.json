@@ -1,0 +1,43 @@
+{
+  "slug": "oldphotos",
+  "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+  "track": "gpu-rtx5060",
+  "goal": "Follow the README Installation (Synchronized-BatchNorm copies, dlib landmark model, face and global checkpoints, requirements) so that the Full Pipeline `python run.py --input_folder <abs path to test_images/old_w_scratch> --output_folder <dir> --GPU 0 --with_scratch` restores every bundled scratched test image.",
+  "check": "runs that exact command on test_images/old_w_scratch with --GPU 0 --with_scratch and requires final_output/ to contain one result per input image",
+  "started": "2026-11-15 15:01:31",
+  "agent": {
+    "secs": 5400,
+    "timed_out": true,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "44228544-79f7-49a2-bfb5-3e9a848343db"
+  },
+  "oracle": {
+    "pass": false,
+    "secs": 67
+  },
+  "repo_diff": {
+    "files_changed": 0,
+    "lines_changed": 0,
+    "files": []
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 4071,
+    "mem": "4g",
+    "oracle": {
+      "pass": false,
+      "secs": 46
+    },
+    "class": "fail: other"
+  },
+  "finished": "2026-11-15 17:41:22",
+  "review": {
+    "by": "GPU rerun check 2026-11-15",
+    "invalidated": true,
+    "why": "Network-starved, not a verdict on the repo: 75 of the agent's 90 minutes were two commands waiting on the 2.7 GB of README checkpoints from GitHub Releases at about 0.5 MB/s (13.5 MB/s when re-measured at 23:2x). Superseded by a rerun, as rate-limit and outage runs are.",
+    "evidence": "runs/oldphotos commands.jsonl: setup.sh 3600 s (tool timeout) and wget -c resume 900 s; replay setup 4071 s; container download rate measured at 574 KB/s during the run"
+  }
+}
