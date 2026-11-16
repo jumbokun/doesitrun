@@ -1,0 +1,52 @@
+{
+  "slug": "oldphotos",
+  "repo": "microsoft/Bringing-Old-Photos-Back-to-Life",
+  "track": "gpu-rtx5060",
+  "goal": "Follow the README Installation (Synchronized-BatchNorm copies, dlib landmark model, face and global checkpoints, requirements) so that the Full Pipeline `python run.py --input_folder <abs path to test_images/old_w_scratch> --output_folder <dir> --GPU 0 --with_scratch` restores every bundled scratched test image.",
+  "check": "runs that exact command on test_images/old_w_scratch with --GPU 0 --with_scratch and requires final_output/ to contain one result per input image",
+  "started": "2026-11-16 02:08:14",
+  "agent": {
+    "secs": 827,
+    "timed_out": false,
+    "model": "claude-opus-5-5",
+    "tools": [
+      "mcp__box__sh"
+    ],
+    "session_id": "cdd5d489-2941-4818-a1c3-d66ec8595604",
+    "num_turns": 17,
+    "cost_usd": 0.3593413000000001,
+    "is_error": false,
+    "final": ". The pipeline still printed \"All the processing is done\", but `final_output/` only held the earlier, un-enhanced images. I changed one line (`mask *= 255.0`, two places) in each of `Face_Detection/align_warp_back_multiple_dlib.py` and its `_HR` version.\n\nI ran `setup.sh` several times in this same container, but not on a fresh one.\n\nFiles are in /work:\n- setup.sh\n- env.sh\n- NOTES.md\n- REPORT.json"
+  },
+  "oracle": {
+    "pass": true,
+    "secs": 23
+  },
+  "repo_diff": {
+    "files_changed": 2,
+    "lines_changed": 8,
+    "files": [
+      {
+        "path": "Face_Detection/align_warp_back_multiple_dlib.py",
+        "added": 2,
+        "removed": 2
+      },
+      {
+        "path": "Face_Detection/align_warp_back_multiple_dlib_HR.py",
+        "added": 2,
+        "removed": 2
+      }
+    ]
+  },
+  "replay": {
+    "setup_ok": true,
+    "setup_secs": 723,
+    "mem": "4g",
+    "oracle": {
+      "pass": true,
+      "secs": 39
+    },
+    "class": "pass"
+  },
+  "finished": "2026-11-16 02:35:12"
+}

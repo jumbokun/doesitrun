@@ -1,0 +1,7 @@
+{"readme_path_worked_as_written": false,
+ "interventions": [
+  {"kind": "system_package", "detail": "apt install wget, unzip (used by README commands), cmake and python3-dev (needed to build dlib from source), libgl1/libglib2.0-0 for opencv"},
+  {"kind": "gpu_compat", "detail": "Installed torch 2.8.0/torchvision 0.23.0 from the cu128 index for Blackwell sm_120 support (requirements.txt has torch unpinned)"},
+  {"kind": "dependency_pin", "detail": "Built dlib with DLIB_USE_CUDA=0 so it doesn't try an automatic CUDA build; landmark detection runs on CPU"},
+  {"kind": "code_patch", "detail": "Face_Detection/align_warp_back_multiple_dlib(_HR).py: mask *= 255.0 -> mask = mask.astype(np.float64)*255.0, because newer scikit-image warp returns a uint8 mask and Stage 4 crashed"}
+ ]}
