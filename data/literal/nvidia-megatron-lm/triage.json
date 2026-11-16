@@ -1,8 +1,8 @@
 {
   "slug": "nvidia-megatron-lm",
-  "verdict": "script",
-  "step": "README.md:L39 uv pip install -e . then tools/preprocess_data.py",
-  "error": "ModuleNotFoundError: No module named 'torch'",
-  "why": "README.md:L26 lists PyTorch 2.6.0+ as a requirement and the editable install does not pull it in; the script skipped installing PyTorch.",
-  "fix": "uv pip install torch  # prereq README.md:L26 \"PyTorch\""
+  "verdict": "test",
+  "step": "oracle: tools/preprocess_data.py with a GPT-2 tokenizer",
+  "error": "Exception: name 'AutoTokenizer' is not defined",
+  "why": "The README install worked; the hidden test tokenises with Hugging Face transformers, which the README neither installs nor mentions.",
+  "short": "Test needs transformers"
 }

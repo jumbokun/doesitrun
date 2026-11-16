@@ -1,7 +1,8 @@
 {
- "slug": "microsoft-playwright-python",
- "verdict": "env",
- "step": "test: p.chromium.launch() (after README playwright install)",
- "error": "  - [pid=808][err] /root/.cache/ms-playwright/chromium_headless_shell-1255/chrome-headless-shell-linux64/chrome-headless-shell: error while loading shared libraries: libglib-2.0.so.0: cannot open shared object file: No such file or directory",
- "why": "The browser downloaded fine but the bare container lacks system libraries (glib etc.) that Playwright itself says to add with install-deps; the README/intro steps are otherwise followed."
+  "slug": "microsoft-playwright-python",
+  "verdict": "env",
+  "step": "oracle: launch Chromium after playwright install",
+  "error": "error while loading shared libraries: libnspr4.so: cannot open shared object file",
+  "why": "The install steps worked; Chromium needs desktop libraries (libnspr4 and others) that a minimal container lacks and a normal Ubuntu desktop has.",
+  "short": "Container lacks browser libs"
 }

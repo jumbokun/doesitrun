@@ -1,7 +1,8 @@
 {
- "slug": "apple-dnikit",
- "verdict": "env",
- "step": "README.md:L12 pip install dnikit",
- "error": "      src/annoymodule.cc:17:10: fatal error: Python.h: No such file or directory",
- "why": "The README step is a plain PyPI install, but the dependency annoy has no wheel and builds from source, and the harness image has build-essential without python3-dev headers."
+  "slug": "apple-dnikit",
+  "verdict": "test",
+  "step": "oracle: repo unit tests",
+  "error": "/work/.venv/bin/python: No module named pytest",
+  "why": "The README demo ran (DNIKIT_OK); the hidden test also runs the repo's unit tests, which need pytest, and the README never installs it.",
+  "short": "Demo ran; test needs pytest"
 }

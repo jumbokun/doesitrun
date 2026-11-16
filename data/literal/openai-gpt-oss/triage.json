@@ -1,7 +1,8 @@
 {
- "slug": "openai-gpt-oss",
- "verdict": "env",
- "step": "README.md:L178 installing Ollama (curl -fsSL https://ollama.com/install.sh | sh)",
- "error": "ERROR: This version requires zstd for extraction. Please install zstd and try again:",
- "why": "The Ollama installer needs zstd, which the harness image lacks; the README only says to install Ollama, so this is a missing base tool, not a wrong README step."
+  "slug": "openai-gpt-oss",
+  "verdict": "env",
+  "step": "README.md:L182 ollama pull gpt-oss:20b",
+  "error": "Error: could not connect to ollama server, run 'ollama serve' to start it",
+  "why": "The README's Ollama path works on a normal Linux machine, where the installer starts the server through systemd; a container has no systemd, and a 20B model is beyond a CPU runner anyway.",
+  "short": "Container has no systemd"
 }
