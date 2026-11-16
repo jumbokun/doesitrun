@@ -4,5 +4,5 @@
   "step": "oracle t.py line 32: verifier(...).verify_and_decode_transaction(tx)",
   "error": "AttributeError: 'SignedDataVerifier' object has no attribute 'verify_and_decode_transaction'. Did you mean: 'verify_and_decode_app_transaction'?",
   "why": "README.md:L18 installs the PyPI release (3.1.2) whose method is verify_and_decode_signed_transaction; the test calls a method name that exists only in the repo source, which the README never mentions or tells you to install.",
-  "short": "Test calls unreleased API"
+  "short": "Test uses unreleased API"
 }

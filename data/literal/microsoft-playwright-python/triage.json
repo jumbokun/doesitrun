@@ -4,5 +4,5 @@
   "step": "oracle: launch Chromium after playwright install",
   "error": "error while loading shared libraries: libnspr4.so: cannot open shared object file",
   "why": "The install steps worked; Chromium needs desktop libraries (libnspr4 and others) that a minimal container lacks and a normal Ubuntu desktop has.",
-  "short": "Container lacks browser libs"
+  "short": "No browser libs in box"
 }

@@ -4,5 +4,5 @@
   "step": "oracle: import torch; t5.models.HfPyTorchModel('t5-base', ...)",
   "error": "ModuleNotFoundError: No module named 'torch'",
   "why": "README.md:L161 installs t5[gcp] for the MtfModel path; the test exercises the HfPyTorchModel that the README calls experimental (L92-L95) and gives no install for.",
-  "short": "Test uses other model path"
+  "short": "Test uses another path"
 }

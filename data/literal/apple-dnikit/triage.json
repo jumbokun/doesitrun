@@ -4,5 +4,5 @@
   "step": "oracle: repo unit tests",
   "error": "/work/.venv/bin/python: No module named pytest",
   "why": "The README demo ran (DNIKIT_OK); the hidden test also runs the repo's unit tests, which need pytest, and the README never installs it.",
-  "short": "Demo ran; test needs pytest"
+  "short": "Test needs pytest"
 }

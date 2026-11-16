@@ -4,5 +4,5 @@
   "step": "docs/installation_guide.md:L32 pip install parl gym (Python 3.10, inside the guide's 3.7 - 3.10 range)",
   "error": "ERROR: Failed to build 'grpcio' when getting requirements to build wheel",
   "why": "The guide allows Python 3.7 - 3.10; on 3.10, pip install parl pulls its pinned grpcio==1.37.0, which has no 3.10 wheel, and building it from source fails (No module named 'pkg_resources').",
-  "short": "grpcio 1.37 pin fails on 3.10"
+  "short": "grpcio pin fails on 3.10"
 }

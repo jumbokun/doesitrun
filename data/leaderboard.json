@@ -1030,7 +1030,7 @@
             "verdict": "readme",
             "step": "docs/installation_guide.md:L32 pip install parl gym (Python 3.10, inside the guide's 3.7 - 3.10 range)",
             "why": "The guide allows Python 3.7 - 3.10; on 3.10, pip install parl pulls its pinned grpcio==1.37.0, which has no 3.10 wheel, and building it from source fails (No module named 'pkg_resources').",
-            "short": "grpcio 1.37 pin fails on 3.10"
+            "short": "grpcio pin fails on 3.10"
           }
         },
         {
@@ -1059,7 +1059,7 @@
             "verdict": "readme",
             "step": "docs/vibevoice-realtime-0.5b.md:L100 pip install -e .[streamingtts] then L120 demo",
             "why": "The documented pip install leaves torch unpinned (got 2.15.0) and the demo's weights_only=True load of the bundled voice preset fails with it; only the GPU docker image (older torch) is verified, and that is the step we skipped as GPU-only.",
-            "short": "Unpinned torch breaks demo"
+            "short": "New torch breaks demo"
           }
         },
         {
@@ -1088,7 +1088,7 @@
             "verdict": "readme",
             "step": "README.md:L630 paddlex --pipeline OCR (CPU build from README.md:L596)",
             "why": "The README's CPU install (paddlepaddle==3.3.0, L596) and its own OCR command with --device cpu (L625) crash inside Paddle's oneDNN backend.",
-            "short": "OCR crashes on README's CPU build"
+            "short": "OCR crashes on CPU build"
           }
         },
         {
@@ -1204,7 +1204,7 @@
             "verdict": "readme",
             "step": "INSTALL.md:L20 python -m pip install -e detectron2",
             "why": "INSTALL.md:L20 builds in pip's isolated build env, where setup.py imports torch, so it fails right after the README's own torch install (no --no-build-isolation mentioned).",
-            "short": "Build isolation hides torch"
+            "short": "Build can't see torch"
           }
         },
         {
@@ -1349,7 +1349,7 @@
             "verdict": "test",
             "step": "oracle t.py line 32: verifier(...).verify_and_decode_transaction(tx)",
             "why": "README.md:L18 installs the PyPI release (3.1.2) whose method is verify_and_decode_signed_transaction; the test calls a method name that exists only in the repo source, which the README never mentions or tells you to install.",
-            "short": "Test calls unreleased API"
+            "short": "Test uses unreleased API"
           }
         },
         {
@@ -1407,7 +1407,7 @@
             "verdict": "test",
             "step": "oracle line: code=$(curl -s ... http://127.0.0.1:8000/) against /work/run.sh server",
             "why": "README.rst only has chalice deploy (needs AWS) and never starts a local server on port 8000; run.sh is empty (marked mismatch), so the test checks a server the README never describes.",
-            "short": "README has no local server"
+            "short": "README has no server"
           }
         },
         {
@@ -1436,7 +1436,7 @@
             "verdict": "test",
             "step": "oracle: python client.py spawning awslabs.aws-documentation-mcp-server from the env.sh environment",
             "why": "The server README (L31-L47) only shows an MCP client config launching `uvx awslabs.aws-documentation-mcp-server@latest` and installs nothing into a venv; the test expects an installed package and the mcp client library.",
-            "short": "Test needs a local install"
+            "short": "Test needs local install"
           }
         },
         {
@@ -1465,7 +1465,7 @@
             "verdict": "test",
             "step": "oracle: repo unit tests",
             "why": "The README demo ran (DNIKIT_OK); the hidden test also runs the repo's unit tests, which need pytest, and the README never installs it.",
-            "short": "Demo ran; test needs pytest"
+            "short": "Test needs pytest"
           }
         },
         {
@@ -1494,7 +1494,7 @@
             "verdict": "test",
             "step": "oracle: python examples/simple_mnist.py",
             "why": "The README's install and verify snippet work; the README only links Colab notebooks and never mentions examples/simple_mnist.py or tensorflow-datasets.",
-            "short": "Test runs unlisted example"
+            "short": "Test runs other example"
           }
         },
         {
@@ -1610,7 +1610,7 @@
             "verdict": "env",
             "step": "oracle: launch Chromium after playwright install",
             "why": "The install steps worked; Chromium needs desktop libraries (libnspr4 and others) that a minimal container lacks and a normal Ubuntu desktop has.",
-            "short": "Container lacks browser libs"
+            "short": "No browser libs in box"
           }
         },
         {
@@ -1755,7 +1755,7 @@
             "verdict": "test",
             "step": "oracle: import torch; t5.models.HfPyTorchModel('t5-base', ...)",
             "why": "README.md:L161 installs t5[gcp] for the MtfModel path; the test exercises the HfPyTorchModel that the README calls experimental (L92-L95) and gives no install for.",
-            "short": "Test uses other model path"
+            "short": "Test uses another path"
           }
         },
         {
@@ -1813,7 +1813,7 @@
             "verdict": "env",
             "step": "projects/sa2va/README.md:L85 python projects/sa2va/demo/demo.py ... (test, CPU-only box)",
             "why": "Setup passed; the model's remote code enables FlashAttention2 which needs a CUDA GPU, and the README demo (8B, multi-GPU split_model) targets GPU while this box is CPU-only.",
-            "short": "Needs a GPU (FlashAttn)"
+            "short": "Needs a GPU (flash-attn)"
           }
         }
       ],

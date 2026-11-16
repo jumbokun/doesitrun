@@ -4,5 +4,5 @@
   "step": "README.md:L630 paddlex --pipeline OCR (CPU build from README.md:L596)",
   "error": "NotImplementedError: (Unimplemented) ConvertPirAttribute2RuntimeAttribute not support",
   "why": "The README's CPU install (paddlepaddle==3.3.0, L596) and its own OCR command with --device cpu (L625) crash inside Paddle's oneDNN backend.",
-  "short": "OCR crashes on README's CPU build"
+  "short": "OCR crashes on CPU build"
 }
