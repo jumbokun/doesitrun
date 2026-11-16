@@ -3,7 +3,7 @@
 **How hard is it to get a GitHub repo's README demo actually running?**
 A sandboxed AI agent tries, a hidden test decides, and the agent's installer is replayed on a brand-new machine.
 
-**Live leaderboard → https://jumbokun.github.io/doesitrun/** · **The story: [what broke](STORY.md)**
+**Live leaderboard → https://jumbokun.github.io/doesitrun/**
 
 [![Does it run? leaderboard](docs/screenshot.png)](https://jumbokun.github.io/doesitrun/)
 
@@ -40,49 +40,9 @@ Company means in this view: Apple 99 (6), Amazon 99 (9), OpenAI 98 (3), Microsof
 NVIDIA 94 (6), Tencent 93 (3), Baidu 91 (5), Meta 90 (3), Alibaba 82 (7), ByteDance 76 (2). Several n are small.
 Scores count only files whose content changed and that the demo needed.
 
-**All CPU repos (maintained or not): 105 tested, 102 ran, 14 changed repo code.** The 3 that did not run have dead
-model links in their READMEs (BERT and trax: Google Storage 403; SPADE: Google Drive 404).
-
-### Results so far (2026-10-27)
-
-**CPU track — 80 repos, 10 from each of Google, Meta, Microsoft, NVIDIA, Alibaba, Tencent, ByteDance, Baidu**
-(GitHub-hosted runner, no GPU; chosen by a pre-registered rule from each company's 25 most-starred Python repos):
-
-| | |
-|---|---|
-| README demo actually ran (hidden test passed) | **62 / 80**, median agent time 4.2 min; 4 hit the 90-min cap |
-| Of the 62 that ran: installer replays on a fresh machine | 59 first try, the other 3 after one repair round |
-| Repos where the agent modified at least one of the repo's own files | 30 / 80 (measured with `git diff`) |
-| Top repos not even testable on a plain machine | 34 of 114 examined: GPU or >16 GB (16), paid API key (11), gated model (5), other (2) |
-| The 18 failed hidden tests, after audit and review | **5 upstream problems, each verified independently** (BERT's and trax's README model links 403, SPADE's 404, Depth-Anything-3's undeclared dependency, FunClip's README example pairing a sentence with the wrong video), **10 defective tests** (unscored), 3 agent timeouts (stay 0) |
-
-| company (mean score, n) | | teams (split only where GitHub org accounts show it) |
-|---|---|---|
-| Microsoft | 93 (9) | one org account; no reliable team split |
-| Meta | 93 (8) | FAIR 93 |
-| Alibaba | 84 (10) | Qwen 93 · ModelScope 78 |
-| Baidu | 83 (9) | Baidu 88 · PaddlePaddle 82 |
-| Google | 70 (9) | DeepMind 89 · Google 74 · Google Research 53 |
-| NVIDIA | 68 (7) | NVIDIA 84 · NVIDIA Research 61 — includes SPADE's 0 (dead model link) |
-| Tencent | 64 (9) | ARC Lab 94 · Tencent 76 · **Hunyuan 39** |
-| ByteDance | 55 (9) | ByteDance 58 · Seed 44 |
-
-**Batch 4 (2026-11-13) — 9 more repos, 3 each from OpenAI, Amazon and Apple,** same rule with a target of 3
-per company (the 8 companies above were not re-queried): **9 / 9 ran**, all 9 installers replayed first try.
-Means: Amazon 99 (3), Apple 86 (3), OpenAI 85 (3). The examiner skipped 3 OpenAI repos whose READMEs state they
-need an OpenAI API key or a Codex account. openai/gpt-2 (archived, pins TensorFlow 1.12) ran only after the agent
-ported 4 files to TF2's compat API; ml-explore/mlx-lm describes itself as Apple-silicon software, and on Linux CPU
-it took 29 minutes. Two aws-cli and one chalice attempts were refused by the pre-run firewall check (no internet
-from the sandbox at that moment) and rerun; refused attempts record nothing.
-
-**GPU track — 11 repos on an RTX 5060 8 GB:** 11/11 ran, 9/11 installers replayed first try. All six
-2020–23 repos needed a newer PyTorch than they pin (old pins have no Blackwell kernels), and four of the six
-also needed patches to their own code.
-
-The live page is the source of truth; this table is a snapshot. One run per repo: treat small gaps as noise.
-A run whose agent hit the 90-minute cap stays 0 whatever its audit says (the test never had a finished install to
-judge). Three Tencent failures were audited twice by mistake; both verdicts are kept in the records, and they
-disagreed once (Hunyuan3D-2.1: defect vs inconclusive) — borderline audits are not perfectly stable.
+**GPU track (same rule, 2026-11-16) — 5 maintained repos on an RTX 5060 8 GB** ([`data/active_gpu.json`](data/active_gpu.json)):
+5/5 ran, all 5 installers replayed first try, none needed changes to the repo's code.
+Archived or quiet repos are not on the board; their raw runs stay in `data/runs/` as logs.
 
 ## Get your repo tested, or dispute a result
 
@@ -226,11 +186,11 @@ Requires the Claude Code CLI logged in. To add a repo, append it to a repos file
 
 - **One run per repo.** Run-to-run variance is not measured yet; treat small gaps as noise.
 - **One agent.** Scores compare repos under the same agent (CPU track: Claude Opus 5.5, pinned; GPU track: Opus 5
-  for six repos, Opus 5.5 for the five rerun on 2026-11-15/16). A different agent would move every score.
+  for kev, UniMate and NanoJev, Opus 5.5 for manimgx and earshot). A different agent would move every score.
 - **AI-written tests.** 10 of 18 failed hidden tests were the test's fault; every failure is audited, audits of
   borderline cases are not perfectly stable, and one audit was corrected on review (Megatron-LM, see below).
 - **Hardware.** The CPU track judges CUDA-first repos on a path their authors may not prioritise. The GPU track is
-  one 8 GB Blackwell card, which penalises old PyTorch pins.
+  one 8 GB Blackwell card.
 - **Selection.** "Top 25 by stars" mixes research code with products. Agent time also moves with download speed.
 
 Every protocol change is logged in [`WORKLOG.md`](WORKLOG.md).
@@ -251,5 +211,5 @@ Suggest a repo or dispute a result: open an issue.
 最后再把 Agent 写的安装脚本放到一台全新的机器上重放一遍。榜单按公司汇总；有独立 GitHub 组织账号的团队
 （比如谷歌下面的 DeepMind、Google Research）再单独拆分。
 
-CPU 赛道测了八家公司各 10 个热门仓库，共 80 个，其中 62 个的 README 演示能跑通。跑通的 62 个里，59 个的安装脚本
-在新机器上一次就能复现，另外 3 个修复一轮后复现。GPU 赛道测了 11 个，全部跑通。
+只算最近三个月还在更新、没有归档的仓库。CPU 赛道：11 家公司的 117 个仓库里，能在普通机器上测的 67 个，
+README 演示全部跑通，安装脚本在新机器上都一次复现，其中 7 个要改仓库自己的代码。GPU 赛道按同样规则留下 5 个，全部跑通。

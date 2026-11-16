@@ -268,3 +268,8 @@ Question under test: can an agent, given only a sandbox, get freshly-popular Git
   never fired; fix: SetThreadExecutionState keep-awake for the run) and a 0.5 MB/s GitHub Releases download
   (75 of 90 agent minutes; archived in data/runs/oldphotos/v2/). Measure link speed before a run that downloads
   multi-GB checkpoints. GPU track now: 11/11 ran, 9/11 replay first try, 4 of 6 pre-2024 repos changed repo code.
+- 2026-11-16: the owner's rule is that only maintained repos (not archived, pushed to since 2026-08-13) appear in
+  public; the "All CPU" tab still showed archived repos such as google-research/bert. The board, LEADERBOARD.md and
+  README now publish only the maintained views: CPU 67 and GPU 5 (manimgx, earshot, UniMate, kev, NanoJev, per
+  data/active_gpu.json, checked with the GitHub API on 2026-11-16). Raw runs of the others stay in data/runs/.
+  STORY.md (the 80-repo batch) is no longer linked.
