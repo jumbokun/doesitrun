@@ -3,15 +3,15 @@
   "repo": "microsoft/promptflow",
   "commit": "33a68c9d3cf349d7fdfad1f41969af27543c0406",
   "track": "cpu-gha",
-  "started": "2026-11-16 11:38:18",
+  "started": "2026-11-16 13:19:13",
   "prep_ok": true,
   "setup": {
-    "ok": false,
-    "secs": 1
+    "ok": true,
+    "secs": 19
   },
   "oracle": {
-    "pass": false,
-    "skipped": "setup failed"
+    "pass": true,
+    "secs": 12
   },
-  "finished": "2026-11-16 11:38:42"
+  "finished": "2026-11-16 13:20:07"
 }

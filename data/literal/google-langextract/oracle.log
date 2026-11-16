@@ -1,0 +1,49 @@
+Ollama is runningEXTRACTIONS: [('character', 'Lady Juliet'), ('emotion', 'gazed longingly'), ('relationship', 'Romeo')]
+[92m✓[0m Saved [1m1[0m documents to [92mextraction_results.jsonl[0m
+[92m✓[0m Loaded [1m1[0m documents from [92mextraction_results.jsonl[0m
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/langextract
++ timeout 1500 bash /work/run.sh
+++ mktemp -d /tmp/oracle_out.XXXXXX
++ OUT=/tmp/oracle_out.yNpDTU
++ cat
++ timeout 1800 python /tmp/oracle_out.yNpDTU/t.py /tmp/oracle_out.yNpDTU
+
+[94m[1mLangExtract[0m: Processing [00:00]
+[94m[1mLangExtract[0m: Processing, current=[92m68[0m chars, processed=[92m0[0m chars:  [00:00]
+[94m[1mLangExtract[0m: Processing, current=[92m68[0m chars, processed=[92m0[0m chars:  [00:12]
+[94m[1mLangExtract[0m: Processing, current=[92m68[0m chars, processed=[92m0[0m chars:  [00:12]
+
+[94m[1mLangExtract[0m: Saving to [92mextraction_results.jsonl[0m: 0 docs [00:00, ? docs/s]
+[94m[1mLangExtract[0m: Saving to [92mextraction_results.jsonl[0m: 1 docs [00:00, 3194.44 docs/s]
+
+[94m[1mLangExtract[0m: Loading [92mextraction_results.jsonl[0m:   0%|          | 0.00/923 [00:00<?, ?B/s]
+[94m[1mLangExtract[0m: Loading [92mextraction_results.jsonl[0m: 100%|██████████| 923/923 [00:00<00:00, 9.70MB/s]
++ grep -qi 'juliet\|romeo' /tmp/oracle_out.yNpDTU/extraction_results.jsonl
++ echo ORACLE PASS

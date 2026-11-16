@@ -1,8 +1,229 @@
-debconf: delaying package configuration, since apt-utils is not installed
+Adding debian:D-TRUST_EV_Root_CA_1_2020.pem
+Adding debian:D-TRUST_EV_Root_CA_2_2023.pem
+Adding debian:D-TRUST_Root_Class_3_CA_2_2009.pem
+Adding debian:D-TRUST_Root_Class_3_CA_2_EV_2009.pem
+Adding debian:DigiCert_Assured_ID_Root_G2.pem
+Adding debian:DigiCert_Assured_ID_Root_G3.pem
+Adding debian:DigiCert_Global_Root_G2.pem
+Adding debian:DigiCert_Global_Root_G3.pem
+Adding debian:DigiCert_TLS_ECC_P384_Root_G5.pem
+Adding debian:DigiCert_TLS_RSA4096_Root_G5.pem
+Adding debian:DigiCert_Trusted_Root_G4.pem
+Adding debian:GDCA_TrustAUTH_R5_ROOT.pem
+Adding debian:GTS_Root_R1.pem
+Adding debian:GTS_Root_R3.pem
+Adding debian:GTS_Root_R4.pem
+Adding debian:GlobalSign_ECC_Root_CA_-_R4.pem
+Adding debian:GlobalSign_ECC_Root_CA_-_R5.pem
+Adding debian:GlobalSign_Root_CA_-_R3.pem
+Adding debian:GlobalSign_Root_CA_-_R6.pem
+Adding debian:GlobalSign_Root_E46.pem
+Adding debian:GlobalSign_Root_R46.pem
+Adding debian:Go_Daddy_Root_Certificate_Authority_-_G2.pem
+Adding debian:HARICA_TLS_ECC_Root_CA_2021.pem
+Adding debian:HARICA_TLS_RSA_Root_CA_2021.pem
+Adding debian:Hellenic_Academic_and_Research_Institutions_ECC_RootCA_2015.pem
+Adding debian:Hellenic_Academic_and_Research_Institutions_RootCA_2015.pem
+Adding debian:HiPKI_Root_CA_-_G1.pem
+Adding debian:Hongkong_Post_Root_CA_3.pem
+Adding debian:ISRG_Root_X1.pem
+Adding debian:ISRG_Root_X2.pem
+Adding debian:IdenTrust_Commercial_Root_CA_1.pem
+Adding debian:IdenTrust_Public_Sector_Root_CA_1.pem
+Adding debian:Izenpe.com.pem
+Adding debian:Microsec_e-Szigno_Root_CA_2009.pem
+Adding debian:Microsoft_ECC_Root_Certificate_Authority_2017.pem
+Adding debian:Microsoft_RSA_Root_Certificate_Authority_2017.pem
+Adding debian:NAVER_Global_Root_Certification_Authority.pem
+Adding debian:NetLock_Arany_=Class_Gold=_Főtanúsítvány.pem
+Adding debian:OISTE_Server_Root_ECC_G1.pem
+Adding debian:OISTE_Server_Root_RSA_G1.pem
+Adding debian:OISTE_WISeKey_Global_Root_GB_CA.pem
+Adding debian:OISTE_WISeKey_Global_Root_GC_CA.pem
+Adding debian:QuoVadis_Root_CA_1_G3.pem
+Adding debian:QuoVadis_Root_CA_2_G3.pem
+Adding debian:QuoVadis_Root_CA_3_G3.pem
+Adding debian:SECOM_TLS_ECC_Root_CA_2024.pem
+Adding debian:SECOM_TLS_RSA_Root_CA_2024.pem
+Adding debian:SSL.com_EV_Root_Certification_Authority_ECC.pem
+Adding debian:SSL.com_EV_Root_Certification_Authority_RSA_R2.pem
+Adding debian:SSL.com_Root_Certification_Authority_ECC.pem
+Adding debian:SSL.com_Root_Certification_Authority_RSA.pem
+Adding debian:SSL.com_TLS_ECC_Root_CA_2022.pem
+Adding debian:SSL.com_TLS_RSA_Root_CA_2022.pem
+Adding debian:SZAFIR_ROOT_CA2.pem
+Adding debian:Sectigo_Public_Server_Authentication_Root_E46.pem
+Adding debian:Sectigo_Public_Server_Authentication_Root_R46.pem
+Adding debian:SecureSign_Root_CA14.pem
+Adding debian:SecureSign_Root_CA15.pem
+Adding debian:Security_Communication_ECC_RootCA1.pem
+Adding debian:Security_Communication_RootCA2.pem
+Adding debian:Starfield_Root_Certificate_Authority_-_G2.pem
+Adding debian:Starfield_Services_Root_Certificate_Authority_-_G2.pem
+Adding debian:SwissSign_RSA_TLS_Root_CA_2022_-_1.pem
+Adding debian:T-TeleSec_GlobalRoot_Class_2.pem
+Adding debian:T-TeleSec_GlobalRoot_Class_3.pem
+Adding debian:TUBITAK_Kamu_SM_SSL_Kok_Sertifikasi_-_Surum_1.pem
+Adding debian:TWCA_CYBER_Root_CA.pem
+Adding debian:TWCA_Global_Root_CA.pem
+Adding debian:TWCA_Root_Certification_Authority.pem
+Adding debian:Telekom_Security_TLS_ECC_Root_2020.pem
+Adding debian:Telekom_Security_TLS_RSA_Root_2023.pem
+Adding debian:Telia_EC_TLS_Root_CA_v3.pem
+Adding debian:Telia_RSA_TLS_Root_CA_v3.pem
+Adding debian:Telia_Root_CA_v2.pem
+Adding debian:TrustAsia_Global_Root_CA_G3.pem
+Adding debian:TrustAsia_Global_Root_CA_G4.pem
+Adding debian:TrustAsia_TLS_ECC_Root_CA.pem
+Adding debian:TrustAsia_TLS_RSA_Root_CA.pem
+Adding debian:TunTrust_Root_CA.pem
+Adding debian:UCA_Extended_Validation_Root.pem
+Adding debian:UCA_Global_G2_Root.pem
+Adding debian:USERTrust_ECC_Certification_Authority.pem
+Adding debian:USERTrust_RSA_Certification_Authority.pem
+Adding debian:certSIGN_Root_CA_G2.pem
+Adding debian:e-Szigno_Root_CA_2017.pem
+Adding debian:e-Szigno_TLS_Root_CA_2023.pem
+Adding debian:emSign_ECC_Root_CA_-_C3.pem
+Adding debian:emSign_Root_CA_-_C1.pem
+Adding debian:emSign_Root_CA_-_G1.pem
+Adding debian:vTrus_ECC_Root_CA.pem
+Adding debian:vTrus_Root_CA.pem
+done.
+Setting up openjdk-17-jre:amd64 (17.0.21.0.3+1-1~24.04.1) ...
+Setting up openjdk-17-jdk-headless:amd64 (17.0.21.0.3+1-1~24.04.1) ...
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jar to provide /usr/bin/jar (jar) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jarsigner to provide /usr/bin/jarsigner (jarsigner) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/javac to provide /usr/bin/javac (javac) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/javadoc to provide /usr/bin/javadoc (javadoc) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/javap to provide /usr/bin/javap (javap) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jcmd to provide /usr/bin/jcmd (jcmd) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jdb to provide /usr/bin/jdb (jdb) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jdeprscan to provide /usr/bin/jdeprscan (jdeprscan) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jdeps to provide /usr/bin/jdeps (jdeps) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jfr to provide /usr/bin/jfr (jfr) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jimage to provide /usr/bin/jimage (jimage) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jinfo to provide /usr/bin/jinfo (jinfo) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jlink to provide /usr/bin/jlink (jlink) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jmap to provide /usr/bin/jmap (jmap) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jmod to provide /usr/bin/jmod (jmod) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jps to provide /usr/bin/jps (jps) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jrunscript to provide /usr/bin/jrunscript (jrunscript) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jshell to provide /usr/bin/jshell (jshell) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jstack to provide /usr/bin/jstack (jstack) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jstat to provide /usr/bin/jstat (jstat) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jstatd to provide /usr/bin/jstatd (jstatd) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/serialver to provide /usr/bin/serialver (serialver) in auto mode
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jhsdb to provide /usr/bin/jhsdb (jhsdb) in auto mode
+Setting up openjdk-17-jdk:amd64 (17.0.21.0.3+1-1~24.04.1) ...
+update-alternatives: using /usr/lib/jvm/java-17-openjdk-amd64/bin/jconsole to provide /usr/bin/jconsole (jconsole) in auto mode
+Processing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.10+dfsg-3ubuntu3.3) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  patchelf
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 106 kB of archives.
+After this operation, 280 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 patchelf amd64 0.18.0-1.1build1 [106 kB]
+Fetched 106 kB in 1s (140 kB/s)
+Selecting previously unselected package patchelf.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 83606 files and directories currently installed.)
+Preparing to unpack .../patchelf_0.18.0-1.1build1_amd64.deb ...
+Unpacking patchelf (0.18.0-1.1build1) ...
+Setting up patchelf (0.18.0-1.1build1) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+google-cloud-cli is already the newest version (593.0.0-0).
+The following NEW packages will be installed:
+  google-cloud-cli-app-engine-go google-cloud-cli-app-engine-python
+  google-cloud-cli-app-engine-python-extras
+  google-cloud-cli-datastore-emulator google-cloud-cli-pubsub-emulator
+0 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+Need to get 97.9 MB of archives.
+After this operation, 127 MB of additional disk space will be used.
+Get:1 https://packages.cloud.google.com/apt cloud-sdk/main all google-cloud-cli-app-engine-python all 593.0.0-0 [4033 kB]
+Get:2 https://packages.cloud.google.com/apt cloud-sdk/main amd64 google-cloud-cli-app-engine-go amd64 593.0.0-0 [2975 kB]
+Get:3 https://packages.cloud.google.com/apt cloud-sdk/main all google-cloud-cli-app-engine-python-extras all 593.0.0-0 [4726 B]
+Get:4 https://packages.cloud.google.com/apt cloud-sdk/main all google-cloud-cli-datastore-emulator all 591.0.0-0 [37.9 MB]
+Get:5 https://packages.cloud.google.com/apt cloud-sdk/main all google-cloud-cli-pubsub-emulator all 593.0.0-0 [53.0 MB]
+Fetched 97.9 MB in 4s (27.4 MB/s)
+Selecting previously unselected package google-cloud-cli-app-engine-python.
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 83614 files and directories currently installed.)
+Preparing to unpack .../google-cloud-cli-app-engine-python_593.0.0-0_all.deb ...
+Unpacking google-cloud-cli-app-engine-python (593.0.0-0) ...
+Selecting previously unselected package google-cloud-cli-app-engine-go.
+Preparing to unpack .../google-cloud-cli-app-engine-go_593.0.0-0_amd64.deb ...
+Unpacking google-cloud-cli-app-engine-go (593.0.0-0) ...
+Selecting previously unselected package google-cloud-cli-app-engine-python-extras.
+Preparing to unpack .../google-cloud-cli-app-engine-python-extras_593.0.0-0_all.deb ...
+Unpacking google-cloud-cli-app-engine-python-extras (593.0.0-0) ...
+Selecting previously unselected package google-cloud-cli-datastore-emulator.
+Preparing to unpack .../google-cloud-cli-datastore-emulator_591.0.0-0_all.deb ...
+Unpacking google-cloud-cli-datastore-emulator (591.0.0-0) ...
+Selecting previously unselected package google-cloud-cli-pubsub-emulator.
+Preparing to unpack .../google-cloud-cli-pubsub-emulator_593.0.0-0_all.deb ...
+Unpacking google-cloud-cli-pubsub-emulator (593.0.0-0) ...
+Setting up google-cloud-cli-pubsub-emulator (593.0.0-0) ...
+Setting up google-cloud-cli-app-engine-python (593.0.0-0) ...
+Setting up google-cloud-cli-datastore-emulator (591.0.0-0) ...
+Processing triggers for google-cloud-cli (593.0.0-0) ...
+Setting up google-cloud-cli-app-engine-go (593.0.0-0) ...
+Setting up google-cloud-cli-app-engine-python-extras (593.0.0-0) ...
+Processing triggers for google-cloud-cli (593.0.0-0) ...
+If this fails, you may need to build older Python from source
 Downloading cpython-3.11.18-linux-x86_64-gnu (download) (29.4MiB)
  Downloaded cpython-3.11.18-linux-x86_64-gnu (download)
 Using CPython 3.11.18
-Creating virtual environment at: .venv
+Creating virtual environment with seed packages at: .venv
+ + packaging==26.3
+ + pip==26.3
+ + setuptools==84.2.1
+ + wheel==0.48.0
 Activate with: source .venv/bin/activate
 ++ dirname local/install_deps.bash
 + dir=local
@@ -20,6 +241,60 @@ Activate with: source .venv/bin/activate
 ++ cut -f2 '-d '
 + version=3.11.18
 + which lsb_release
-+ echo 'ERROR: lsb_release not found in $PATH'
-ERROR: lsb_release not found in $PATH
-+ exit 1
+++ lsb_release --codename --short
++ distro_codename=noble
+++ lsb_release --id --short
++ distro_id=Ubuntu
++ supported_codenames='(xenial|artful|bionic|cosmic|focal|noble)'
++ supported_ids='(Debian)'
++ [[ ! noble =~ (xenial|artful|bionic|cosmic|focal|noble) ]]
++ uname -m
++ egrep -q 'i686|x86_64'
++ sudo apt-get update
++ sudo apt-get install -y blackbox curl libpython3-all-dev pipenv python3-dev python3-pip unzip xvfb
+debconf: delaying package configuration, since apt-utils is not installed
++ sudo apt-get install -y apt-transport-https software-properties-common
+debconf: delaying package configuration, since apt-utils is not installed
++ '[' noble == rodete ']'
++ curl -fsSL https://download.docker.com/linux/ubuntu/gpg
++ sudo apt-key add -
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
++ sudo add-apt-repository -y 'deb [arch=amd64] https://download.docker.com/linux/ubuntu       noble       stable'
+W: https://download.docker.com/linux/ubuntu/dists/noble/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
++ export CLOUD_SDK_REPO=cloud-sdk
++ CLOUD_SDK_REPO=cloud-sdk
++ export APT_FILE=/etc/apt/sources.list.d/google-cloud-sdk.list
++ APT_FILE=/etc/apt/sources.list.d/google-cloud-sdk.list
++ export 'APT_LINE=deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main'
++ APT_LINE='deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main'
++ sudo bash -c 'grep -Fx "deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main" /etc/apt/sources.list.d/google-cloud-sdk.list || (echo "deb [signed-by=/usr/share/keyrings/cloud.google.asc] https://packages.cloud.google.com/apt cloud-sdk main" | tee /etc/apt/sources.list.d/google-cloud-sdk.list)'
+grep: /etc/apt/sources.list.d/google-cloud-sdk.list: No such file or directory
++ curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg
++ sudo tee /usr/share/keyrings/cloud.google.asc
++ sudo apt-get update
+W: https://download.docker.com/linux/ubuntu/dists/noble/InRelease: Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.
++ sudo apt-get install -y docker-ce google-cloud-cli openjdk-17-jdk liblzma-dev
+debconf: delaying package configuration, since apt-utils is not installed
++ unsupported_codenames='(xenial|jessie)'
++ [[ noble =~ (xenial|jessie) ]]
++ sudo apt-get install -y patchelf
+debconf: delaying package configuration, since apt-utils is not installed
++ gcloud components install --quiet beta
+ERROR: (gcloud.components.install) 
+You cannot perform this action because the Google Cloud CLI component manager 
+is disabled for this installation. You can run the following command 
+to achieve the same result for this installation: 
+
+sudo apt-get install google-cloud-cli
+
+
++ '[' noble == rodete ']'
++ sudo apt-get install -y google-cloud-cli google-cloud-cli-app-engine-go google-cloud-cli-app-engine-python google-cloud-cli-app-engine-python-extras google-cloud-cli-datastore-emulator=591.0.0-0 google-cloud-cli-pubsub-emulator
+debconf: delaying package configuration, since apt-utils is not installed
+++ dirname local/install_deps_linux.bash
++ dir=local
++ local/install_python_deps_linux.bash
++ echo If this fails, you may need to build older Python from source
++ python3.11 -m pipenv --venv
++ python3.11 -m pipenv --python python3.11
+/work/.venv/bin/python3.11: No module named pipenv

@@ -1,300 +1,300 @@
-debconf: delaying package configuration, since apt-utils is not installed
-Obtaining file:///work/langextract
-  Installing build dependencies: started
-  Installing build dependencies: finished with status 'done'
-  Checking if build backend supports build_editable: started
-  Checking if build backend supports build_editable: finished with status 'done'
-  Getting requirements to build editable: started
-  Getting requirements to build editable: finished with status 'done'
-  Preparing editable metadata (pyproject.toml): started
-  Preparing editable metadata (pyproject.toml): finished with status 'done'
-Collecting absl-py>=1.0.0 (from langextract==1.7.2)
-  Downloading absl_py-2.5.1-py3-none-any.whl.metadata (3.3 kB)
-Collecting aiohttp>=3.8.0 (from langextract==1.7.2)
-  Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.3 kB)
-Collecting async_timeout>=4.0.0 (from langextract==1.7.2)
-  Downloading async_timeout-5.0.1-py3-none-any.whl.metadata (5.1 kB)
-Collecting exceptiongroup>=1.1.0 (from langextract==1.7.2)
-  Downloading exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
-Collecting google-genai>=1.39.0 (from langextract==1.7.2)
-  Downloading google_genai-3.3.0-py3-none-any.whl.metadata (61 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.4/61.4 kB 12.6 MB/s eta 0:00:00
-Collecting google-cloud-storage>=2.14.0 (from langextract==1.7.2)
-  Downloading google_cloud_storage-3.17.1-py3-none-any.whl.metadata (14 kB)
-Collecting ml-collections>=0.1.0 (from langextract==1.7.2)
-  Downloading ml_collections-1.1.0-py3-none-any.whl.metadata (22 kB)
-Collecting more-itertools>=8.0.0 (from langextract==1.7.2)
-  Downloading more_itertools-11.2.1-py3-none-any.whl.metadata (42 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 5.1 MB/s eta 0:00:00
-Collecting numpy>=1.20.0 (from langextract==1.7.2)
-  Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
-Collecting pandas>=1.3.0 (from langextract==1.7.2)
-  Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (16 kB)
-Collecting pydantic>=1.8.0 (from langextract==1.7.2)
-  Downloading pydantic-2.14.3-py3-none-any.whl.metadata (141 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 141.5/141.5 kB 37.8 MB/s eta 0:00:00
-Collecting python-dotenv>=0.19.0 (from langextract==1.7.2)
-  Downloading python_dotenv-1.2.4-py3-none-any.whl.metadata (29 kB)
-Collecting PyYAML>=6.0 (from langextract==1.7.2)
-  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
-Collecting regex>=2023.0.0 (from langextract==1.7.2)
-  Downloading regex-2026.11.15-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 kB 19.0 MB/s eta 0:00:00
-Collecting requests>=2.25.0 (from langextract==1.7.2)
-  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
-Collecting tqdm>=4.64.0 (from langextract==1.7.2)
-  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.4/57.4 kB 34.5 MB/s eta 0:00:00
-Collecting typing-extensions>=4.0.0 (from langextract==1.7.2)
-  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
-Collecting aiohappyeyeballs>=2.5.0 (from aiohttp>=3.8.0->langextract==1.7.2)
-  Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl.metadata (5.9 kB)
-Collecting aiosignal>=1.4.0 (from aiohttp>=3.8.0->langextract==1.7.2)
-  Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
-Collecting attrs>=17.3.0 (from aiohttp>=3.8.0->langextract==1.7.2)
-  Downloading attrs-26.1.0-py3-none-any.whl.metadata (8.8 kB)
-Collecting frozenlist>=1.1.1 (from aiohttp>=3.8.0->langextract==1.7.2)
-  Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
-Collecting multidict<8.0,>=4.5 (from aiohttp>=3.8.0->langextract==1.7.2)
-  Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (6.1 kB)
-Collecting propcache>=0.2.0 (from aiohttp>=3.8.0->langextract==1.7.2)
-  Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (25 kB)
-Collecting yarl<2.0,>=1.25.1 (from aiohttp>=3.8.0->langextract==1.7.2)
-  Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (111 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.6/111.6 kB 63.5 MB/s eta 0:00:00
-Collecting google-auth<3.0.0,>=2.26.1 (from google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading google_auth-2.62.2-py3-none-any.whl.metadata (6.0 kB)
-Collecting google-api-core<3.0.0,>=2.27.0 (from google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading google_api_core-2.44.0-py3-none-any.whl.metadata (3.2 kB)
-Collecting google-cloud-core<3.0.0,>=2.4.2 (from google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading google_cloud_core-2.8.0-py3-none-any.whl.metadata (2.9 kB)
-Collecting google-resumable-media<3.0.0,>=2.7.2 (from google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading google_resumable_media-2.11.0-py3-none-any.whl.metadata (2.3 kB)
-Collecting google-crc32c<2.0.0,>=1.6.0 (from google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading google_crc32c-1.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.2 kB)
-Collecting anyio<5.0.0,>=4.8.0 (from google-genai>=1.39.0->langextract==1.7.2)
-  Downloading anyio-4.16.0-py3-none-any.whl.metadata (4.7 kB)
-Collecting httpx2<3.0.0,>=2.0.0 (from google-genai>=1.39.0->langextract==1.7.2)
-  Downloading httpx2-2.16.2-py3-none-any.whl.metadata (10.0 kB)
-Collecting tenacity<9.2.0,>=8.2.3 (from google-genai>=1.39.0->langextract==1.7.2)
-  Downloading tenacity-9.1.4-py3-none-any.whl.metadata (1.2 kB)
-Collecting websockets<18.0,>=13.0.0 (from google-genai>=1.39.0->langextract==1.7.2)
-  Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (6.3 kB)
-Collecting distro<2,>=1.7.0 (from google-genai>=1.39.0->langextract==1.7.2)
-  Downloading distro-1.9.0-py3-none-any.whl.metadata (6.8 kB)
-Collecting sniffio (from google-genai>=1.39.0->langextract==1.7.2)
-  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
-Collecting python-dateutil>=2.9.0 (from pandas>=1.3.0->langextract==1.7.2)
-  Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
-Collecting annotated-types>=0.6.0 (from pydantic>=1.8.0->langextract==1.7.2)
-  Downloading annotated_types-0.8.0-py3-none-any.whl.metadata (15 kB)
-Collecting pydantic-core==2.50.4 (from pydantic>=1.8.0->langextract==1.7.2)
-  Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.6 kB)
-Collecting typing-inspection>=0.4.4 (from pydantic>=1.8.0->langextract==1.7.2)
-  Downloading typing_inspection-0.4.5-py3-none-any.whl.metadata (2.6 kB)
-Collecting charset_normalizer<4,>=2 (from requests>=2.25.0->langextract==1.7.2)
-  Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.4/46.4 kB 27.3 MB/s eta 0:00:00
-Collecting idna<4,>=2.5 (from requests>=2.25.0->langextract==1.7.2)
-  Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
-Collecting urllib3<3,>=1.26 (from requests>=2.25.0->langextract==1.7.2)
-  Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
-Collecting certifi>=2023.5.7 (from requests>=2.25.0->langextract==1.7.2)
-  Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
-Collecting googleapis-common-protos<2.0.0,>=1.69.2 (from google-api-core<3.0.0,>=2.27.0->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading googleapis_common_protos-1.76.0-py3-none-any.whl.metadata (8.5 kB)
-Collecting protobuf<8.0.0,>=6.33.5 (from google-api-core<3.0.0,>=2.27.0->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
-Collecting proto-plus<2.0.0,>=1.26.1 (from google-api-core<3.0.0,>=2.27.0->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading proto_plus-1.29.0-py3-none-any.whl.metadata (2.2 kB)
-Collecting opentelemetry-api<2.0.0,>=1.44.0 (from google-api-core<3.0.0,>=2.27.0->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading opentelemetry_api-1.45.2-py3-none-any.whl.metadata (1.4 kB)
-Collecting pyasn1-modules>=0.2.1 (from google-auth<3.0.0,>=2.26.1->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
-Collecting cryptography>=38.0.3 (from google-auth<3.0.0,>=2.26.1->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.4 kB)
-Collecting httpcore2==2.16.2 (from httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
-  Downloading httpcore2-2.16.2-py3-none-any.whl.metadata (28 kB)
-Collecting truststore>=0.10 (from httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
-  Downloading truststore-0.10.5-py3-none-any.whl.metadata (4.5 kB)
-Collecting h11>=0.16 (from httpcore2==2.16.2->httpx2<3.0.0,>=2.0.0->google-genai>=1.39.0->langextract==1.7.2)
-  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
-Collecting tzdata (from python-dateutil>=2.9.0->pandas>=1.3.0->langextract==1.7.2)
-  Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
-Collecting cffi>=2.0.0 (from cryptography>=38.0.3->google-auth<3.0.0,>=2.26.1->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
-Collecting pyasn1<0.7.0,>=0.6.1 (from pyasn1-modules>=0.2.1->google-auth<3.0.0,>=2.26.1->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading pyasn1-0.6.5-py3-none-any.whl.metadata (8.4 kB)
-Collecting pycparser (from cffi>=2.0.0->cryptography>=38.0.3->google-auth<3.0.0,>=2.26.1->google-cloud-storage>=2.14.0->langextract==1.7.2)
-  Downloading pycparser-3.12-py3-none-any.whl.metadata (9.7 kB)
-Downloading absl_py-2.5.1-py3-none-any.whl (137 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 137.7/137.7 kB 89.1 MB/s eta 0:00:00
-Downloading aiohttp-3.14.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.9 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 266.4 MB/s eta 0:00:00
-Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
 Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
 Downloading google_cloud_storage-3.17.1-py3-none-any.whl (345 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.7/345.7 kB 186.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 345.7/345.7 kB 137.0 MB/s eta 0:00:00
 Downloading google_genai-3.3.0-py3-none-any.whl (1.4 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 279.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 218.6 MB/s eta 0:00:00
 Downloading ml_collections-1.1.0-py3-none-any.whl (76 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.7/76.7 kB 57.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 76.7/76.7 kB 43.9 MB/s eta 0:00:00
 Downloading more_itertools-11.2.1-py3-none-any.whl (74 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.4/74.4 kB 55.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 74.4/74.4 kB 36.9 MB/s eta 0:00:00
 Downloading numpy-2.5.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (15.7 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 305.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.7/15.7 MB 112.2 MB/s eta 0:00:00
 Downloading pandas-3.1.1-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.0 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 350.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.0/12.0 MB 132.0 MB/s eta 0:00:00
 Downloading pydantic-2.14.3-py3-none-any.whl (494 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.1/494.1 kB 206.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 494.1/494.1 kB 142.9 MB/s eta 0:00:00
 Downloading pydantic_core-2.50.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 293.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 235.4 MB/s eta 0:00:00
 Downloading python_dotenv-1.2.4-py3-none-any.whl (23 kB)
 Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 269.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 97.0 MB/s eta 0:00:00
 Downloading regex-2026.11.15-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (809 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 809.2/809.2 kB 260.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 809.2/809.2 kB 186.5 MB/s eta 0:00:00
 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 48.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.1/73.1 kB 34.1 MB/s eta 0:00:00
 Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 58.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 80.2/80.2 kB 38.7 MB/s eta 0:00:00
 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 29.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 21.5 MB/s eta 0:00:00
 Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
 Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
 Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
 Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 94.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.5/134.5 kB 66.0 MB/s eta 0:00:00
 Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 50.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 67.5/67.5 kB 36.3 MB/s eta 0:00:00
 Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 94.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.1/135.1 kB 65.3 MB/s eta 0:00:00
 Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 154.9 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 257.6/257.6 kB 101.2 MB/s eta 0:00:00
 Downloading distro-1.9.0-py3-none-any.whl (20 kB)
 Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 153.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 107.9 MB/s eta 0:00:00
 Downloading google_api_core-2.44.0-py3-none-any.whl (225 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 225.6/225.6 kB 132.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 225.6/225.6 kB 99.3 MB/s eta 0:00:00
 Downloading google_auth-2.62.2-py3-none-any.whl (270 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 270.1/270.1 kB 150.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 270.1/270.1 kB 110.8 MB/s eta 0:00:00
 Downloading google_cloud_core-2.8.0-py3-none-any.whl (31 kB)
 Downloading google_crc32c-1.9.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (36 kB)
 Downloading google_resumable_media-2.11.0-py3-none-any.whl (81 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.5/81.5 kB 64.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.5/81.5 kB 25.1 MB/s eta 0:00:00
 Downloading httpx2-2.16.2-py3-none-any.whl (97 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 68.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 52.0 MB/s eta 0:00:00
 Downloading httpcore2-2.16.2-py3-none-any.whl (85 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.6/85.6 kB 61.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.6/85.6 kB 44.9 MB/s eta 0:00:00
 Downloading idna-3.20-py3-none-any.whl (69 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 49.7 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.6/69.6 kB 36.5 MB/s eta 0:00:00
 Downloading multidict-7.2.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (516 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.8/516.8 kB 214.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 516.8/516.8 kB 163.3 MB/s eta 0:00:00
 Downloading propcache-0.5.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (250 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 150.2 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.4/250.4 kB 94.9 MB/s eta 0:00:00
 Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 68.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 92.9/92.9 kB 46.7 MB/s eta 0:00:00
 Downloading tenacity-9.1.4-py3-none-any.whl (28 kB)
 Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 99.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 135.7/135.7 kB 70.4 MB/s eta 0:00:00
 Downloading websockets-17.4-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (226 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.3/226.3 kB 142.0 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 226.3/226.3 kB 98.4 MB/s eta 0:00:00
 Downloading yarl-1.25.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (117 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 83.8 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 49.7 MB/s eta 0:00:00
 Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
 Downloading cryptography-50.0.2-cp311-abi3-manylinux_2_34_x86_64.whl (4.8 MB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 317.4 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.8/4.8 MB 196.9 MB/s eta 0:00:00
 Downloading googleapis_common_protos-1.76.0-py3-none-any.whl (307 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 175.5 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 15.7 MB/s eta 0:00:00
 Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.3/60.3 kB 48.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.3/60.3 kB 24.7 MB/s eta 0:00:00
 Downloading proto_plus-1.29.0-py3-none-any.whl (50 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.8/50.8 kB 39.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.8/50.8 kB 22.1 MB/s eta 0:00:00
 Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 174.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.2/343.2 kB 134.3 MB/s eta 0:00:00
 Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 126.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.3/181.3 kB 86.3 MB/s eta 0:00:00
 Downloading truststore-0.10.5-py3-none-any.whl (19 kB)
 Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 185.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 47.9 MB/s eta 0:00:00
 Downloading cffi-2.1.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (221 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.8/221.8 kB 139.3 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 221.8/221.8 kB 38.1 MB/s eta 0:00:00
 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
 Downloading pyasn1-0.6.5-py3-none-any.whl (84 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.8/84.8 kB 63.1 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.8/84.8 kB 41.7 MB/s eta 0:00:00
 Downloading pycparser-3.12-py3-none-any.whl (62 kB)
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 44.6 MB/s eta 0:00:00
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.6/62.6 kB 28.2 MB/s eta 0:00:00
 Building wheels for collected packages: langextract
   Building editable for langextract (pyproject.toml): started
   Building editable for langextract (pyproject.toml): finished with status 'done'
-  Created wheel for langextract: filename=langextract-1.7.2-0.editable-py3-none-any.whl size=15802 sha256=0434dc500e8a7999ef80825eeea801a26ca0cf77d3c58ed81c3df27688227b93
-  Stored in directory: /tmp/pip-ephem-wheel-cache-k4ubfw1y/wheels/26/6b/34/ec4d0ac2a0c0e64c13f638b325021cf9cc0cc7e4498aaded3e
+  Created wheel for langextract: filename=langextract-1.7.2-0.editable-py3-none-any.whl size=15802 sha256=1f51ab4dc7701e2d349cceb69396fe3d915caac03fa24d6939c14aa715d4ee4a
+  Stored in directory: /tmp/pip-ephem-wheel-cache-p3u4iw3v/wheels/26/6b/34/ec4d0ac2a0c0e64c13f638b325021cf9cc0cc7e4498aaded3e
 Successfully built langextract
 Installing collected packages: websockets, urllib3, tzdata, typing-extensions, truststore, tqdm, tenacity, sniffio, regex, PyYAML, python-dotenv, pycparser, pyasn1, protobuf, propcache, numpy, multidict, more-itertools, idna, h11, google-crc32c, frozenlist, distro, charset_normalizer, certifi, attrs, async_timeout, annotated-types, aiohappyeyeballs, absl-py, yarl, typing-inspection, requests, python-dateutil, pydantic-core, pyasn1-modules, proto-plus, opentelemetry-api, ml-collections, httpcore2, googleapis-common-protos, google-resumable-media, exceptiongroup, cffi, anyio, aiosignal, pydantic, pandas, httpx2, cryptography, aiohttp, google-auth, google-api-core, google-genai, google-cloud-core, google-cloud-storage, langextract
 Successfully installed PyYAML-6.0.3 absl-py-2.5.1 aiohappyeyeballs-2.7.1 aiohttp-3.14.5 aiosignal-1.4.0 annotated-types-0.8.0 anyio-4.16.0 async_timeout-5.0.1 attrs-26.1.0 certifi-2026.10.23 cffi-2.1.1 charset_normalizer-3.5.2 cryptography-50.0.2 distro-1.9.0 exceptiongroup-1.3.1 frozenlist-1.8.0 google-api-core-2.44.0 google-auth-2.62.2 google-cloud-core-2.8.0 google-cloud-storage-3.17.1 google-crc32c-1.9.0 google-genai-3.3.0 google-resumable-media-2.11.0 googleapis-common-protos-1.76.0 h11-0.16.0 httpcore2-2.16.2 httpx2-2.16.2 idna-3.20 langextract-1.7.2 ml-collections-1.1.0 more-itertools-11.2.1 multidict-7.2.1 numpy-2.5.5 opentelemetry-api-1.45.2 pandas-3.1.1 propcache-0.5.4 proto-plus-1.29.0 protobuf-7.36.2 pyasn1-0.6.5 pyasn1-modules-0.4.2 pycparser-3.12 pydantic-2.14.3 pydantic-core-2.50.4 python-dateutil-4.0.0 python-dotenv-1.2.4 regex-2026.11.15 requests-2.34.2 sniffio-1.3.1 tenacity-9.1.4 tqdm-4.70.1 truststore-0.10.5 typing-extensions-4.16.0 typing-inspection-0.4.5 tzdata-2026.6 urllib3-2.8.0 websockets-17.4 yarl-1.25.1
 WARNING: Unable to detect NVIDIA/AMD GPU. Install lspci or lshw to automatically detect and install GPU dependencies.
->>> Installing ollama to /usr/local
+Ollama is running>>> Installing ollama to /usr/local
 >>> Downloading ollama-linux-amd64.tar.zst
 #=#=#                                                                          
 
                                                                            0.7%
-##                                                                         3.0%
-###                                                                        4.8%
-#####                                                                      7.6%
-#######                                                                   10.3%
-#########                                                                 13.2%
-###########                                                               15.7%
-############                                                              17.6%
-##############                                                            19.7%
-################                                                          22.2%
-##################                                                        25.0%
-###################                                                       27.3%
-#####################                                                     29.7%
-######################                                                    30.9%
-#######################                                                   32.7%
-#########################                                                 35.3%
-###########################                                               37.9%
-############################                                              40.1%
-##############################                                            42.0%
-################################                                          45.1%
-##################################                                        48.0%
-####################################                                      50.0%
-#####################################                                     52.6%
-#######################################                                   55.5%
-#########################################                                 57.6%
+#                                                                          2.1%
+###                                                                        5.4%
+######                                                                     8.8%
+########                                                                  11.8%
+##########                                                                14.9%
+############                                                              17.0%
+###############                                                           21.1%
+#################                                                         24.8%
+###################                                                       27.4%
+#####################                                                     29.4%
+######################                                                    30.7%
+#######################                                                   32.1%
+########################                                                  33.4%
+#########################                                                 36.0%
+###########################                                               38.7%
+############################                                              40.0%
+#############################                                             41.3%
+###############################                                           43.3%
+#################################                                         46.6%
+####################################                                      50.2%
+######################################                                    53.5%
+########################################                                  56.4%
+#########################################                                 57.8%
 ##########################################                                59.1%
-############################################                              61.4%
-#############################################                             63.8%
-###############################################                           65.9%
-#################################################                         68.3%
-##################################################                        70.5%
-####################################################                      72.7%
-#####################################################                     74.9%
-######################################################                    76.3%
-#######################################################                   77.6%
-########################################################                  78.9%
-#########################################################                 80.2%
+###########################################                               61.1%
+##############################################                            65.0%
+#################################################                         68.6%
+####################################################                      72.5%
+######################################################                    75.1%
+######################################################                    76.0%
+######################################################                    76.0%
+########################################################                  78.5%
+########################################################                  79.1%
+#########################################################                 79.8%
+#########################################################                 80.5%
 ##########################################################                81.1%
-###########################################################               82.3%
-###########################################################               83.3%
+###########################################################               82.4%
+###########################################################               83.1%
+############################################################              83.8%
 ############################################################              84.4%
-#############################################################             85.5%
-##############################################################            86.6%
-###############################################################           87.6%
-###############################################################           88.5%
-################################################################          89.4%
-#################################################################         90.3%
-#################################################################         91.1%
-##################################################################        92.0%
-##################################################################        92.8%
-###################################################################       93.8%
+#############################################################             85.1%
+##############################################################            86.4%
+###############################################################           87.7%
+###############################################################           88.4%
+################################################################          89.0%
+################################################################          89.7%
+#################################################################         90.4%
+#################################################################         91.0%
+##################################################################        92.3%
+##################################################################        93.0%
 ###################################################################       94.3%
-#####################################################################     96.0%
-######################################################################    97.7%
+####################################################################      95.6%
+#####################################################################     97.0%
+######################################################################    97.6%
 ######################################################################    98.3%
+#######################################################################   98.9%
 #######################################################################   99.6%
 ######################################################################## 100.0%
 >>> The Ollama API is now available at 127.0.0.1:11434.
 >>> Install complete. Run "ollama" from the command line.
-Error: could not connect to ollama server, run 'ollama serve' to start it
+[?2026h[?25l[1Gpulling manifest ⠋ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠙ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠹ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠸ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠼ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠴ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠦ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠧ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠇ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠏ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠋ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠙ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠹ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest ⠸ [K[?25h[?2026l[?2026h[?25l[1Gpulling manifest [K
+pulling 7462734796d6:   0% ▕                  ▏ 1.6 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:   6% ▕█                 ▏ 104 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  13% ▕██                ▏ 214 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  17% ▕███               ▏ 272 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  25% ▕████              ▏ 401 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  33% ▕█████             ▏ 533 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  37% ▕██████            ▏ 603 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  46% ▕████████          ▏ 749 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  54% ▕█████████         ▏ 885 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  59% ▕██████████        ▏ 958 MB/1.6 GB                  [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  67% ▕████████████      ▏ 1.1 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  78% ▕█████████████     ▏ 1.3 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  81% ▕██████████████    ▏ 1.3 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  88% ▕███████████████   ▏ 1.4 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  91% ▕████████████████  ▏ 1.5 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  92% ▕████████████████  ▏ 1.5 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  94% ▕████████████████  ▏ 1.5 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  96% ▕█████████████████ ▏ 1.6 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  96% ▕█████████████████ ▏ 1.6 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  97% ▕█████████████████ ▏ 1.6 GB/1.6 GB  1.1 GB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  98% ▕█████████████████ ▏ 1.6 GB/1.6 GB  795 MB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  98% ▕█████████████████ ▏ 1.6 GB/1.6 GB  795 MB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  98% ▕█████████████████ ▏ 1.6 GB/1.6 GB  795 MB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  99% ▕█████████████████ ▏ 1.6 GB/1.6 GB  795 MB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  99% ▕█████████████████ ▏ 1.6 GB/1.6 GB  795 MB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6:  99% ▕█████████████████ ▏ 1.6 GB/1.6 GB  795 MB/s      0s[K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K[?25h[?2026l[?2026h[?25l[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K[?25h[?2026l[?2026h[?25l[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K[?25h[?2026l[?2026h[?25l[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K[?25h[?2026l[?2026h[?25l[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K[?25h[?2026l[?2026h[?25l[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K[?25h[?2026l[?2026h[?25l[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K[?25h[?2026l[?2026h[?25l[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K[?25h[?2026l[?2026h[?25l[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K[?25h[?2026l[?2026h[?25l[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K[?25h[?2026l[?2026h[?25l[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K[?25h[?2026l[?2026h[?25l[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠋ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠙ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠹ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠸ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠼ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠴ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠦ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠧ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠇ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠏ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest ⠋ [K[?25h[?2026l[?2026h[?25l[A[A[A[A[A[A[1Gpulling manifest [K
+pulling 7462734796d6: 100% ▕██████████████████▏ 1.6 GB                         [K
+pulling e0a42594d802: 100% ▕██████████████████▏  358 B                         [K
+pulling 097a36493f71: 100% ▕██████████████████▏ 8.4 KB                         [K
+pulling 2490e7468436: 100% ▕██████████████████▏   65 B                         [K
+pulling e18ad7af7efb: 100% ▕██████████████████▏  487 B                         [K
+verifying sha256 digest [K
+writing manifest [K
+success [K[?25h[?2026l

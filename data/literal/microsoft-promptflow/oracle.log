@@ -1,0 +1,110 @@
+Start prompt flow service on 127.0.0.1:23333, version: 1.18.5.
+Starting prompt flow service...
+You can stop the prompt flow service with the following command:'[1mpf service stop[0m'.
+
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Start executing nodes in thread pool mode.
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Start to run 4 nodes with concurrency level 16.
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Executing node content_safety_check. node run id: 341a676a-36c3-402f-969f-414e586b0c01_content_safety_check_0
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Node content_safety_check completes.
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     The node 'llm_result' will be bypassed because the activate condition is not met, i.e. '${content_safety_check.output}' is not equal to 'True'.
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     The node 'default_result' will be executed because the activate condition is met, i.e. '${content_safety_check.output}' is equal to 'False'.
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Bypassing node llm_result. node run id: 341a676a-36c3-402f-969f-414e586b0c01_llm_result_0
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     The node 'default_result' will be executed because the activate condition is met, i.e. '${content_safety_check.output}' is equal to 'False'.
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Executing node default_result. node run id: 341a676a-36c3-402f-969f-414e586b0c01_default_result_0
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Node default_result completes.
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Executing node generate_result. node run id: 341a676a-36c3-402f-969f-414e586b0c01_generate_result_0
+2026-11-16 13:19:59 +0000     954 execution.flow     INFO     Node generate_result completes.
+{
+    "answer": "I'm not familiar with your query: What is Prompt flow?."
+}
++----+-------------------+--------------------+----------------------+
+|    | inputs.question   |   inputs.line_numb | outputs.answer       |
+|    |                   |                 er |                      |
++====+===================+====================+======================+
+|  0 | Tell me about     |                  0 | I'm not familiar     |
+|    | cats              |                    | with your query:     |
+|    |                   |                    | Tell me about cats.  |
++----+-------------------+--------------------+----------------------+
+|  1 | Hello there       |                  1 | Prompt flow is a     |
+|    |                   |                    | suite of development |
+|    |                   |                    | tools designed to    |
+|    |                   |                    | streamline the end-  |
+|    |                   |                    | to-end development   |
+|    |                   |                    | cycle of LLM-based   |
+|    |                   |                    | AI applications.     |
++----+-------------------+--------------------+----------------------+
+|  2 | How do rivers     |                  2 | Prompt flow is a     |
+|    | form              |                    | suite of development |
+|    |                   |                    | tools designed to    |
+|    |                   |                    | streamline the end-  |
+|    |                   |                    | to-end development   |
+|    |                   |                    | cycle of LLM-based   |
+|    |                   |                    | AI applications.     |
++----+-------------------+--------------------+----------------------+
+|  3 | Name a prime      |                  3 | I'm not familiar     |
+|    | number            |                    | with your query:     |
+|    |                   |                    | Name a prime number. |
++----+-------------------+--------------------+----------------------+
+|  4 | Why is the sky    |                  4 | I'm not familiar     |
+|    | blue              |                    | with your query: Why |
+|    |                   |                    | is the sky blue.     |
++----+-------------------+--------------------+----------------------+
+|  5 | What is a flow    |                  5 | Prompt flow is a     |
+|    | run               |                    | suite of development |
+|    |                   |                    | tools designed to    |
+|    |                   |                    | streamline the end-  |
+|    |                   |                    | to-end development   |
+|    |                   |                    | cycle of LLM-based   |
+|    |                   |                    | AI applications.     |
++----+-------------------+--------------------+----------------------+
+rows ok 6 echoed 3
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ set -e
+++ source /work/.venv/bin/activate
++++ '[' -n x ']'
++++ '[' /work/.venv/bin/activate = /oracle/microsoft-promptflow.sh ']'
++++ '[' false = true ']'
++++ deactivate nondestructive
++++ unset -f pydoc
++++ '[' -z '' ']'
++++ '[' -z '' ']'
++++ hash -r
++++ '[' -z '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ VIRTUAL_ENV=/work/.venv
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV
++++ '[' false = true ']'
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' x '!=' x ']'
+++++ basename /work/.venv
++++ VIRTUAL_ENV_PROMPT=.venv
++++ export VIRTUAL_ENV_PROMPT
++++ '[' -z '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ alias pydoc
++++ true
++++ hash -r
++ cd /work/promptflow
++ F=examples/flows/standard/conditional-flow-for-if-else
+++ mktemp -d /tmp/oracle.XXXXXX
++ O=/tmp/oracle.kgrtxx
++ printf '{"question": "Tell me about cats"}\n{"question": "Hello there"}\n{"question": "How do rivers form"}\n{"question": "Name a prime number"}\n{"question": "Why is the sky blue"}\n{"question": "What is a flow run"}\n'
++ timeout 900 pf flow test --flow examples/flows/standard/conditional-flow-for-if-else --inputs 'question=What is Prompt flow?'
++ cat /tmp/oracle.kgrtxx/test.txt
++ grep -Eq 'Prompt flow is a suite of development tools|not familiar with your query: What is Prompt flow\?' /tmp/oracle.kgrtxx/test.txt
++ timeout 1200 pf run create --flow examples/flows/standard/conditional-flow-for-if-else --data /tmp/oracle.kgrtxx/data.jsonl --column-mapping 'question=${data.question}' --name oracle_run_944
++ timeout 300 pf run show-details --name oracle_run_944
++ cat /tmp/oracle.kgrtxx/details.txt
++ python - /tmp/oracle.kgrtxx/data.jsonl
++ echo 'ORACLE PASS'
