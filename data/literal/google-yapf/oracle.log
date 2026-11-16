@@ -1,0 +1,55 @@
+yapf 0.43.0
+ORACLE PASS
++ set -e
++ source /work/env.sh
+++ source /work/.venv/bin/activate
++++ deactivate nondestructive
++++ '[' -n '' ']'
++++ '[' -n '' ']'
++++ hash -r
++++ '[' -n '' ']'
++++ unset VIRTUAL_ENV
++++ unset VIRTUAL_ENV_PROMPT
++++ '[' '!' nondestructive = nondestructive ']'
++++ '[' linux-gnu = cygwin ']'
++++ '[' linux-gnu = msys ']'
++++ export VIRTUAL_ENV=/work/.venv
++++ VIRTUAL_ENV=/work/.venv
++++ _OLD_VIRTUAL_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ PATH=/work/.venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
++++ export PATH
++++ '[' -n '' ']'
++++ '[' -z '' ']'
++++ _OLD_VIRTUAL_PS1=
++++ PS1='(.venv) '
++++ export PS1
++++ VIRTUAL_ENV_PROMPT='(.venv) '
++++ export VIRTUAL_ENV_PROMPT
++++ hash -r
++ cd /work/yapf
+++ mktemp -d /tmp/yapf_oracle.XXXXXX
++ D=/tmp/yapf_oracle.3sgxpP
++ cat
++ cp /tmp/yapf_oracle.3sgxpP/bad.py /tmp/yapf_oracle.3sgxpP/orig.py
++ Y='python -m yapf'
++ command -v yapf
++ Y=yapf
++ timeout 300 yapf --version
++ timeout 300 yapf /tmp/yapf_oracle.3sgxpP/bad.py
++ grep -q '^x = {'\''a'\'': 37, '\''b'\'': 42, '\''c'\'': 927}$' /tmp/yapf_oracle.3sgxpP/out.py
++ grep -q '^def f(a, b):$' /tmp/yapf_oracle.3sgxpP/out.py
++ grep -q '^    return a + b$' /tmp/yapf_oracle.3sgxpP/out.py
++ grep -q 'def g(self, z=1):' /tmp/yapf_oracle.3sgxpP/out.py
++ python -m py_compile /tmp/yapf_oracle.3sgxpP/out.py
++ cmp -s /tmp/yapf_oracle.3sgxpP/bad.py /tmp/yapf_oracle.3sgxpP/orig.py
++ rc=0
++ timeout 300 yapf --diff /tmp/yapf_oracle.3sgxpP/bad.py
++ rc=1
++ '[' 1 -ne 0 ']'
++ grep -q '^+def f(a, b):' /tmp/yapf_oracle.3sgxpP/diff.txt
++ timeout 300 yapf -i /tmp/yapf_oracle.3sgxpP/bad.py
++ cmp -s /tmp/yapf_oracle.3sgxpP/bad.py /tmp/yapf_oracle.3sgxpP/out.py
++ timeout 300 yapf --diff /tmp/yapf_oracle.3sgxpP/bad.py
++ timeout 300 yapf --style google /tmp/yapf_oracle.3sgxpP/orig.py
++ grep -q '^def f(a, b):$'
++ echo ORACLE PASS

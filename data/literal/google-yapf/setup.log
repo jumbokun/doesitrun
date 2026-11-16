@@ -1,0 +1,10 @@
+Collecting yapf
+  Downloading yapf-0.43.0-py3-none-any.whl.metadata (46 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.8/46.8 kB 534.7 kB/s eta 0:00:00
+Collecting platformdirs>=3.5.1 (from yapf)
+  Downloading platformdirs-4.14.5-py3-none-any.whl.metadata (5.7 kB)
+Downloading yapf-0.43.0-py3-none-any.whl (256 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 256.2/256.2 kB 9.2 MB/s eta 0:00:00
+Downloading platformdirs-4.14.5-py3-none-any.whl (35 kB)
+Installing collected packages: platformdirs, yapf
+Successfully installed platformdirs-4.14.5 yapf-0.43.0
