@@ -3,7 +3,7 @@
 # readme: README.md, docs/installation_guide.md
 set -e  # glue strict mode
 # choice: README.md:L94 points to the Detailed Installation Guide; follow it (CPU paddlepaddle)
-uv venv --clear --python 3.10 /work/.venv  # prereq docs/installation_guide.md:L6 "3.7 - 3.10"
+uv venv --seed --clear --python 3.10 /work/.venv  # prereq docs/installation_guide.md:L6 "3.7 - 3.10"
 source /work/.venv/bin/activate  # prereq docs/installation_guide.md:L6 "3.7 - 3.10"
 pip install paddlepaddle  # docs/installation_guide.md:L11
 pip install numpy==1.23.5  # docs/installation_guide.md:L26

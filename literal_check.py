@@ -29,7 +29,7 @@ GLUE_OK = [
 ]
 PREREQ_OK = [
     r"apt-get update", r"apt-get install -y [\w.+\- ]+", r"(DEBIAN_FRONTEND=noninteractive )?apt-get install -y [\w.+\- ]+",
-    r"uv venv (--clear )?--python [\d.]+ (--clear )?/work/\.venv", r"source /work/\.venv/bin/activate",
+    r"uv venv (--seed )?(--clear )?--python [\d.]+ (--clear )?/work/\.venv", r"source /work/\.venv/bin/activate",
     r"curl -[\w]+ \S+ (-o|>) \S+", r"bash \S+\.sh -b -p \S+", r"source \S+/(etc/profile\.d/conda\.sh|bin/activate)",
     r"curl -[\w]+ https://deb\.nodesource\.com/\S+ \| (sudo -E )?bash -?", r"curl -[\w]+ \S+ \| (sudo )?(ba)?sh(\s.*)?",
     r"(\S+/)?conda (init|config) .+", r"export PATH=\S+",
