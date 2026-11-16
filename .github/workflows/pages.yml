@@ -3,7 +3,7 @@ name: Publish leaderboard
 on:
   push:
     branches: [main]
-    paths: ["data/**", "build_site.py", ".github/workflows/pages.yml"]
+    paths: ["data/**", "build_site.py", "docs/og.png", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:

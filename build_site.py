@@ -13,6 +13,7 @@ import datetime
 import html
 import json
 import os
+import shutil
 import pathlib
 import re
 import statistics
@@ -464,6 +465,7 @@ JS = """
 })();
 """
 
+SITE_URL = "https://jumbokun.github.io/doesitrun/"
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' "
            "fill='%230a0a0a'/%3E%3Cpath d='M9 17l5 5 9-12' stroke='%23ffffff' stroke-width='3.5' fill='none' "
            "stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
@@ -482,8 +484,16 @@ def shell(title, desc, body, current):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<meta property="og:title" content="Does it run?">
+<meta property="og:title" content="Does it run? Big-tech READMEs, run exactly as written">
 <meta property="og:description" content="{esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{SITE_URL}{"" if current == "index.html" else current}">
+<meta property="og:image" content="{SITE_URL}og.png">
+<meta property="og:image:width" content="3840">
+<meta property="og:image:height" content="2010">
+<meta property="og:image:alt" content="34 of 50 big-tech READMEs work exactly as written, by company">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{SITE_URL}og.png">
 <link rel="icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -617,6 +627,7 @@ def main():
     _, pushed_since = active_slugs()
     OUT.mkdir(exist_ok=True)
     write_badges(tracks)
+    shutil.copyfile(ROOT / "docs" / "og.png", OUT / "og.png")  # share image, rendered by og_card.py
     (OUT / "index.html").write_text(index_page(tracks, all_exams, pushed_since), encoding="utf-8", newline="\n")
     (OUT / "method.html").write_text(method_page(tracks, all_exams, pushed_since), encoding="utf-8", newline="\n")
     (OUT / "leaderboard.json").write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8", newline="\n")
