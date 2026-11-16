@@ -1,8 +1,8 @@
 {
- "slug": "paddlepaddle-parl",
- "verdict": "script",
- "step": "docs/installation_guide.md:L6 prereq line: uv venv --python 3.10 /work/.venv",
- "error": "error: Failed to create virtual environment",
- "why": "Our script recreated /work/.venv, which the harness already provides, without clearing it, so uv refused; the README itself was never reached.",
- "fix": "uv venv --clear --python 3.10 /work/.venv  # prereq docs/installation_guide.md:L6 \"3.7 - 3.10\"\nsource /work/.venv/bin/activate  # prereq docs/installation_guide.md:L6 \"3.7 - 3.10\""
+  "slug": "paddlepaddle-parl",
+  "verdict": "readme",
+  "step": "docs/installation_guide.md:L32 pip install parl gym (Python 3.10, inside the guide's 3.7 - 3.10 range)",
+  "error": "ERROR: Failed to build 'grpcio' when getting requirements to build wheel",
+  "why": "The guide allows Python 3.7 - 3.10; on 3.10, pip install parl pulls its pinned grpcio==1.37.0, which has no 3.10 wheel, and building it from source fails (No module named 'pkg_resources').",
+  "short": "grpcio 1.37 pin fails on 3.10"
 }
