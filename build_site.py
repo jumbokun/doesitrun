@@ -5,9 +5,9 @@ method.html - how a run works, scoring, attribution, every repo not tested and w
 badge/...   - shields.io endpoint JSON per repo.
 
 Pure stdlib, reads only committed data: CI needs no Docker, GPU, network or secrets.
-Design follows the web3work DESIGN.md tokens (dark-native, Inter + JetBrains Mono for figures,
-semantic colours only); layout follows the common leaderboard pattern (Terminal-Bench, SWE-bench):
-title, one sentence, then the table, with the method on its own page.
+Look copied from Terminal-Bench's leaderboard (the owner asked for peers, not invention): one monospace
+face, black on white (dark if the system asks), square hairline boxes, one-line rows with an inline black
+bar. Colour only for meaning: red for did-not-run, amber for replayed-after-a-retry.
 """
 import datetime
 import html
@@ -84,7 +84,7 @@ def score_cell(r):
         return ('<td class="score"><span class="dim" title="The hidden test itself was found defective, so this run '
                 f'is not scored. {esc(r.get("audit_reason") or "")}">n/a</span></td>')
     s = r["score"]
-    return (f'<td class="score {tone(s)}"><span class="num">{s:.1f}</span>'
+    return (f'<td class="score {tone(s)}"><b>{s:.1f}</b>'
             f'<span class="bar" aria-hidden="true"><i style="width:{max(2, s):.0f}%"></i></span></td>')
 
 
@@ -100,14 +100,13 @@ def repo_table(t):
         if st in ("failed", "unscored"):
             note = (f'<div class="note neg">{esc(r["public_reason"])}</div>' if r.get("public_reason")
                     else '<div class="note">Did not pass; see the run log.</div>' if st == "failed" else "")
-        elif files:
-            note = f'<div class="note">Changed: {esc(", ".join(files[:3]))}{" …" if len(files) > 3 else ""}</div>'
         team = "" if r["team"] in (r["company"], None, owner) else f' · {esc(r["team"])}'
         rows.append(f"""
 <tr data-st="{st}" data-q="{esc((r['repo'] + ' ' + r['company'] + ' ' + (r['team'] or '')).lower())}">
   <td class="rank">{i}</td>
   <td class="repo"><a href="https://github.com/{esc(r['repo'])}" rel="noopener"><span class="owner">{esc(owner)}/</span>{esc(name)}</a>
-    <div class="sub">{esc(r['company'])}{team}<span class="m-only"> · {mins(r['agent_minutes'])} min</span></div>{note}</td>
+    <div class="sub m-only">{esc(r['company'])}{team} · {mins(r['agent_minutes'])} min</div>{note}</td>
+  <td class="co d-only"{f' title="{esc(r["team"])}"' if team else ''}>{esc(r['company'])}</td>
   {score_cell(r)}
   <td class="num d-only">{mins(r['agent_minutes'])}<span class="unit"> min</span></td>
   <td class="num d-only">{changed}</td>
@@ -116,9 +115,9 @@ def repo_table(t):
 </tr>""")
     return f"""
 <table class="board">
-  <thead><tr><th class="rank">#</th><th>Repo</th><th class="score" title="100 − agent minutes (max 50) − 10 per repo file changed (max 40); 0 if it never ran">Score</th>
-    <th class="num d-only">Agent time</th><th class="num d-only" title="Repo files whose content had to change">Files changed</th>
-    <th class="num d-only" title="The install script works again on a fresh machine">Replays</th><th class="num d-only">Run</th></tr></thead>
+  <thead><tr><th class="rank">#</th><th>Repo</th><th class="d-only">Company</th><th class="score" title="100 − agent minutes (max 50) − 10 per repo file changed (max 40); 0 if it never ran">Score</th>
+    <th class="num d-only">Time</th><th class="num d-only" title="Repo files whose content had to change">Files patched</th>
+    <th class="num d-only" title="The install script works again on a fresh machine">Replays</th><th class="num d-only">Log</th></tr></thead>
   <tbody>{''.join(rows)}</tbody>
 </table>"""
 
@@ -135,7 +134,7 @@ def company_table(t):
 <tr>
   <td class="rank">{i}</td>
   <td class="repo"><span class="cname">{esc(c['company'])}</span>{small}{f'<div class="sub">{teams}</div>' if teams else ''}</td>
-  <td class="score {tone(c['mean'])}"><span class="num">{c['mean']:.1f}</span><span class="bar" aria-hidden="true"><i style="width:{max(2, c['mean']):.0f}%"></i></span></td>
+  <td class="score {tone(c['mean'])}"><b>{c['mean']:.1f}</b><span class="bar" aria-hidden="true"><i style="width:{max(2, c['mean']):.0f}%"></i></span></td>
   <td class="num">{ran}<span class="unit">/{len(repos)}</span></td>
 </tr>""")
     return f"""
@@ -246,115 +245,110 @@ def exclusion_kind(reason):
 
 
 CSS = """
-:root {
-  --bg-base:#0a0b0d; --bg-panel:#111214; --bg-surface:#1a1b1f; --bg-hover:#222329; --bg-inset:#0e0f11;
-  --ink:#f0f1f3; --ink-2:#a0a4ab; --ink-3:#868a92; --ink-4:#5c5f66;
-  --pos:#00d4aa; --neg:#ff4757; --warn:#ffb347; --accent:#5b7fff; --accent-bg:rgba(91,127,255,.12);
-  --line:rgba(255,255,255,.06); --line-2:rgba(255,255,255,.10);
-  --mono:"JetBrains Mono","SF Mono",Consolas,monospace; --sans:Inter,-apple-system,system-ui,sans-serif;
-}
+:root { --bg:#fff; --ink:#0a0a0a; --ink-2:#525252; --ink-3:#8a8a8a; --line:#e5e5e5; --fill:#f4f4f4; --bar:#0a0a0a;
+  --neg:#d92d20; --warn:#b54708; --mono:"JetBrains Mono",ui-monospace,"SF Mono",Consolas,monospace; color-scheme:light; }
+@media (prefers-color-scheme:dark) { :root { --bg:#0a0a0a; --ink:#f2f2f2; --ink-2:#a3a3a3; --ink-3:#737373; --line:#262626;
+  --fill:#171717; --bar:#f2f2f2; --neg:#ff6b5e; --warn:#f5a524; color-scheme:dark; } }
 * { box-sizing:border-box; margin:0; padding:0; }
-body { background:var(--bg-base); color:var(--ink-2); font:400 14px/1.5 var(--sans); -webkit-font-smoothing:antialiased;
-  padding-bottom:calc(64px + env(safe-area-inset-bottom)); }
-a { color:var(--accent); text-decoration:none; }
-a:hover { text-decoration:underline; }
-:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
-.wrap { max-width:1040px; margin:0 auto; padding:0 16px; }
-.mono, .num, .score .num, .rank { font-family:var(--mono); font-variant-numeric:tabular-nums; }
-.top { display:flex; align-items:center; gap:8px; height:56px; }
-.brand { display:flex; align-items:center; gap:8px; color:var(--ink); font-weight:600; }
-.brand svg { width:20px; height:20px; }
-.links { display:none; margin-left:auto; gap:4px; }
-.links a { color:var(--ink-2); padding:8px 12px; border-radius:8px; font-weight:500; }
-.links a:hover { color:var(--ink); background:var(--bg-hover); text-decoration:none; }
-h1 { font:600 32px/1.1 var(--sans); letter-spacing:-.8px; color:var(--ink); margin:16px 0 8px; }
-.lede { color:var(--ink-2); max-width:640px; font-size:15px; }
-.lede a { white-space:nowrap; }
-.switch { margin-top:24px; display:flex; flex-direction:column; gap:12px; }
-.tabs { display:flex; gap:4px; border-bottom:1px solid var(--line); overflow-x:auto; }
-.tabs button { background:none; border:0; color:var(--ink-3); font:500 14px/1 var(--sans); padding:14px 12px; min-height:44px;
-  border-bottom:2px solid transparent; margin-bottom:-1px; cursor:pointer; white-space:nowrap; }
-.tabs button .n { font-family:var(--mono); font-size:12px; margin-left:6px; color:var(--ink-3); }
-.tabs button:hover { color:var(--ink); }
-.tabs button[aria-selected="true"] { color:var(--ink); border-bottom-color:var(--accent); }
-
-.seg { display:flex; align-self:flex-start; background:var(--bg-panel); border:1px solid var(--line); border-radius:8px; padding:2px; }
-.seg button { background:none; border:0; color:var(--ink-3); font:500 13px/1 var(--sans); padding:8px 12px; border-radius:6px; cursor:pointer; min-height:36px; }
-.seg button[aria-pressed="true"] { background:var(--bg-hover); color:var(--ink); }
-.finding { margin-top:16px; color:var(--ink-2); font-size:15px; }
+body { background:var(--bg); color:var(--ink); font:400 14px/1.5 var(--mono); font-variant-numeric:tabular-nums; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px; }
+a:hover { text-decoration-color:currentColor; }
+:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
+.wrap { max-width:1200px; margin:0 auto; padding:0 16px; }
+header.top { border-bottom:1px solid var(--line); background:var(--fill); }
+header.top .wrap { display:flex; align-items:center; gap:24px; height:56px; }
+.brand { font-weight:600; letter-spacing:.02em; text-transform:uppercase; text-decoration:none; white-space:nowrap; }
+.links { display:flex; gap:16px; margin-left:auto; }
+.links a { color:var(--ink-2); text-transform:uppercase; text-decoration:none; font-size:13px; padding:12px 0; }
+.links a:hover, .links a[aria-current] { color:var(--ink); }
+.links .l-board { display:none; }
+.hero { text-align:center; padding:48px 0 32px; }
+h1 { font:400 40px/1.05 var(--mono); letter-spacing:-.04em; text-transform:uppercase; }
+.lede { color:var(--ink-2); max-width:640px; margin:16px auto 0; font-size:15px; line-height:1.6; }
+.cta { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:24px; }
+.btn { display:inline-flex; align-items:center; min-height:44px; padding:0 16px; font-weight:500; text-decoration:none; border:1px solid var(--line); background:var(--fill); }
+.btn.primary { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.btn:hover { opacity:.85; }
+.switch { display:flex; flex-wrap:wrap; gap:8px; justify-content:space-between; align-items:center; margin-top:8px; }
+.tabs, .seg { display:flex; border:1px solid var(--line); }
+.tabs button, .seg button { background:var(--bg); border:0; border-left:1px solid var(--line); color:var(--ink-2); font:500 13px/1 var(--mono);
+  text-transform:uppercase; padding:0 14px; min-height:44px; cursor:pointer; white-space:nowrap; }
+.tabs button:first-child, .seg button:first-child { border-left:0; }
+.tabs button .n { color:var(--ink-3); margin-left:6px; }
+.tabs button[aria-selected="true"], .seg button[aria-pressed="true"] { background:var(--fill); color:var(--ink); }
+.finding { margin-top:20px; color:var(--ink-2); }
 .finding b { color:var(--ink); font-weight:600; }
-.finding .sep { color:var(--ink-3); margin:0 4px; }
-.tnote { margin-top:4px; font-size:13px; color:var(--ink-3); }
+.finding .sep { color:var(--ink-3); margin:0 6px; }
+.tnote { margin-top:4px; font-size:12px; color:var(--ink-3); }
 .tools { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:16px 0 12px; }
-.chips { display:flex; flex-wrap:wrap; gap:6px; }
-.chip { background:var(--bg-panel); border:1px solid var(--line); color:var(--ink-2); font:500 13px/1 var(--sans);
-  padding:8px 12px; border-radius:999px; cursor:pointer; min-height:36px; }
-.chip:hover { border-color:var(--line-2); color:var(--ink); }
-.chip.on { background:var(--accent-bg); border-color:rgba(91,127,255,.35); color:var(--ink); }
-.search { flex:1 1 200px; min-width:0; background:var(--bg-inset); border:1px solid var(--line); border-radius:8px; color:var(--ink);
-  font:400 14px/1 var(--sans); padding:10px 12px; min-height:40px; }
+.chips { display:flex; border:1px solid var(--line); }
+.chip { background:var(--bg); border:0; border-left:1px solid var(--line); color:var(--ink-2); font:500 13px/1 var(--mono); padding:0 12px; min-height:44px; cursor:pointer; white-space:nowrap; }
+.chip:first-child { border-left:0; }
+.chip.on { background:var(--fill); color:var(--ink); }
+.search { flex:1 1 220px; min-width:0; background:var(--bg); border:1px solid var(--line); color:var(--ink); font:400 13px/1 var(--mono); padding:0 12px; min-height:44px; }
 .search::placeholder { color:var(--ink-3); }
-.search:focus { outline:none; border-color:rgba(91,127,255,.4); }
-table.board { table-layout:fixed; width:100%; border-collapse:collapse; background:var(--bg-panel); border:1px solid var(--line); border-radius:12px; overflow:hidden; }
-.board th { text-align:left; font:500 13px/1 var(--sans); color:var(--ink-3); padding:12px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }
-.board td { padding:12px 12px; border-top:1px solid rgba(255,255,255,.04); vertical-align:top; }
+.search:focus { outline:none; border-color:var(--ink-3); }
+table.board { width:100%; border-collapse:collapse; border:1px solid var(--line); }
+.board th { text-align:left; font:500 12px/1 var(--mono); text-transform:uppercase; letter-spacing:.04em; color:var(--ink); padding:16px 12px; border-bottom:1px solid var(--line); white-space:nowrap; }
+.board td { padding:12px; border-top:1px solid var(--line); vertical-align:middle; }
 .board tbody tr:first-child td { border-top:0; }
-.board tbody tr:hover td { background:rgba(255,255,255,.02); }
-.board .rank { width:32px; color:var(--ink-3); font-size:13px; text-align:right; padding-right:4px; }
-.board .num { text-align:right; color:var(--ink-2); white-space:nowrap; }
+.board tbody tr:hover td { background:var(--fill); }
+.board .rank { width:40px; color:var(--ink-3); text-align:right; }
+.board .num { text-align:right; white-space:nowrap; color:var(--ink-2); }
 .board th.num, .board th.score { text-align:right; }
-.unit { color:var(--ink-3); font-size:12px; }
-.repo a { color:var(--ink); font-weight:500; word-break:break-word; }
-.repo .owner { color:var(--ink-3); font-weight:400; }
-.cname { color:var(--ink); font-weight:500; }
-.sub { font-size:13px; color:var(--ink-3); margin-top:2px; }
+.unit { color:var(--ink-3); }
+.repo a { text-decoration:none; overflow-wrap:anywhere; }
+.repo a:hover { text-decoration:underline; }
+.repo .owner { color:var(--ink-3); }
+.co { color:var(--ink-2); white-space:nowrap; }
+.cname { font-weight:500; }
+.sub { font-size:12px; color:var(--ink-3); margin-top:2px; }
 .sub .mono { color:var(--ink-2); }
-.note { font-size:13px; color:var(--ink-2); margin-top:4px; max-width:520px; overflow-wrap:anywhere; }
+.note { font-size:12px; color:var(--ink-2); margin-top:4px; max-width:560px; overflow-wrap:anywhere; }
 .note.neg { color:var(--neg); }
-.score { width:88px; text-align:right; white-space:nowrap; }
-.score .num { font-size:16px; font-weight:600; color:var(--ink); }
-.score .bar { display:block; height:3px; background:var(--bg-inset); border-radius:2px; margin:8px 0 0 auto; width:72px; overflow:hidden; }
-.score .bar i { display:block; height:100%; border-radius:2px; background:var(--ink-3); }
-.score.pos .bar i { background:var(--pos); } .score.warn .bar i { background:var(--warn); } .score.neg .bar i { background:var(--neg); }
-.score.warn .num { color:var(--warn); } .score.neg .num { color:var(--neg); }
+.score { white-space:nowrap; text-align:right; width:1%; }
+.score b { font-weight:600; display:inline-block; min-width:4ch; text-align:right; }
+.score .bar { display:none; }
+.score.neg b { color:var(--neg); }
+.score.warn, .score.pos { color:var(--ink); }
 .ic { width:16px; height:16px; vertical-align:-3px; }
 .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); }
-.ok { color:var(--pos); } .warn { color:var(--warn); } .neg { color:var(--neg); } .dim { color:var(--ink-3); }
-.chg { color:var(--warn); cursor:help; }
-.flag { font-size:12px; color:var(--warn); margin-left:6px; }
-.log { font-family:var(--sans); }
-.after { font-size:13px; color:var(--ink-3); margin-top:12px; }
+.ok { color:var(--ink); } .warn { color:var(--warn); } .neg { color:var(--neg); } .dim { color:var(--ink-3); }
+.chg { color:var(--ink); font-weight:600; cursor:help; text-decoration:underline dotted var(--ink-3); text-underline-offset:3px; }
+.flag { font-size:12px; color:var(--ink-3); margin-left:6px; text-transform:uppercase; }
+.after { font-size:12px; color:var(--ink-3); margin-top:12px; }
 .empty { padding:24px 0; color:var(--ink-3); }
 .d-only { display:none; }
-footer { margin:48px 0 24px; font-size:12px; color:var(--ink-3); display:flex; gap:16px; flex-wrap:wrap; }
-nav.bottom { position:fixed; left:0; right:0; bottom:0; display:flex; height:calc(56px + env(safe-area-inset-bottom));
-  padding-bottom:env(safe-area-inset-bottom); background:var(--bg-panel); border-top:1px solid var(--line); z-index:10; }
-nav.bottom { padding-left:12px; padding-right:12px; }
-nav.bottom a { flex:1; display:flex; align-items:center; justify-content:center; color:var(--ink-3); font-weight:500; font-size:13px; }
-nav.bottom a[aria-current] { color:var(--accent); }
-.prose { max-width:720px; }
-.prose h2 { font:600 18px/1.3 var(--sans); color:var(--ink); margin:40px 0 8px; letter-spacing:-.3px; }
-.prose p, .prose li { margin:8px 0; }
+footer { margin:48px 0 0; padding:24px 0; border-top:1px solid var(--line); font-size:12px; color:var(--ink-3); display:flex; gap:16px; flex-wrap:wrap; }
+.prose { max-width:760px; padding-top:32px; }
+.prose h1 { font-size:32px; }
+.prose .lede { margin-left:0; }
+.prose h2 { font:600 15px/1.3 var(--mono); text-transform:uppercase; letter-spacing:.04em; margin:40px 0 8px; padding-top:16px; border-top:1px solid var(--line); }
+.prose p, .prose li { margin:8px 0; color:var(--ink-2); }
 .prose ul { padding-left:18px; }
-.prose code { font-family:var(--mono); font-size:12px; background:var(--bg-inset); border:1px solid var(--line); border-radius:4px; padding:1px 5px; color:var(--ink); }
-.prose table { margin-top:12px; }
+.prose code { font-size:12px; background:var(--fill); border:1px solid var(--line); padding:1px 5px; color:var(--ink); }
 @media (min-width:768px) {
-  body { padding-bottom:0; }
-  .wrap { padding:0 24px; }
-  .links { display:flex; }
-  nav.bottom { display:none; }
-  h1 { font-size:40px; letter-spacing:-1px; margin-top:32px; }
+  .wrap { padding:0 32px; }
+  .links { gap:24px; }
+  .links .l-board { display:inline; }
+  .hero { padding:80px 0 48px; }
+  h1 { font-size:88px; }
+  .lede { font-size:17px; }
   .d-only { display:table-cell; }
   .m-only { display:none; }
-  .board td, .board th { padding:12px 16px; }
-  table.board { table-layout:auto; }
-  .board .rank { width:44px; }
-  .score { width:120px; }
-  .switch { flex-direction:row; align-items:flex-end; border-bottom:1px solid var(--line); }
-  .switch .tabs { border-bottom:0; flex:1; }
-  .seg { align-self:center; }
+  .board td { padding:0 16px; height:52px; }
+  .board th { padding:18px 16px; }
+  .note { padding-bottom:10px; }
+  .board td.repo:has(.note) { padding-top:10px; }
+  .repo a { white-space:nowrap; }
+  .board td.repo { min-width:300px; }
+
+  .score .bar { display:inline-block; vertical-align:middle; width:96px; height:12px; background:var(--fill); margin-left:12px; }
+  .score .bar i { display:block; height:100%; background:var(--bar); }
+  .score.neg .bar i { background:var(--neg); }
 }
 """
+
 
 JS = """
 (function () {
@@ -403,10 +397,8 @@ JS = """
 })();
 """
 
-MARK = ('<svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#1a1b1f"/>'
-        '<path d="M9 17l5 5 9-12" stroke="#00d4aa" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 FAVICON = ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' "
-           "rx='7' fill='%230a0b0d'/%3E%3Cpath d='M9 17l5 5 9-12' stroke='%2300d4aa' stroke-width='3.5' fill='none' "
+           "fill='%230a0a0a'/%3E%3Cpath d='M9 17l5 5 9-12' stroke='%23ffffff' stroke-width='3.5' fill='none' "
            "stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
 
 
@@ -414,7 +406,8 @@ def shell(title, desc, body, current):
     sha = os.environ.get("GITHUB_SHA", "local")[:7]
     built = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
     nav = [("index.html", "Leaderboard"), ("method.html", "Method"), (f"{REPO_URL}/blob/main/STORY.md", "Story"), (REPO_URL, "GitHub")]
-    links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in nav)
+    links = "".join(f'<a href="{h}"{" class=\"l-board\"" if h == "index.html" else ""}'
+                    f'{" aria-current=\"page\"" if h == current else ""}>{t}</a>' for h, t in nav)
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -427,17 +420,16 @@ def shell(title, desc, body, current):
 <link rel="icon" href="{FAVICON}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>{CSS}</style>
 </head>
 <body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html">Does it run?</a><nav class="links" aria-label="Pages">{links}</nav></div></header>
 <div class="wrap">
-<header class="top"><a class="brand" href="index.html">{MARK}Does it run?</a><nav class="links" aria-label="Pages">{links}</nav></header>
 {body}
 <footer><span>Built {built} from <a href="{REPO_URL}/commit/{esc(sha)}">{esc(sha)}</a></span>
   <a href="{REPO_URL}">Code and every raw run log</a><a href="method.html">Method</a></footer>
 </div>
-<nav class="bottom" aria-label="Pages">{links}</nav>
 </body>
 </html>
 """
@@ -451,9 +443,12 @@ def index_page(tracks, all_exams, pushed_since):
     panels = "".join(track_panel(t, i, all_exams, pushed_since) for i, t in enumerate(tracks))
     body = f"""
 <main>
+<div class="hero">
 <h1>Does it run?</h1>
 <p class="lede">An AI agent gets a clean Linux box and a big-company repo's README, and has to get the README's own demo running.
-  A hidden test checks the output. <a href="method.html">How it works</a></p>
+  A hidden test checks the output.</p>
+<div class="cta"><a class="btn primary" href="method.html">How it works →</a><a class="btn" href="{REPO_URL}/tree/main/data/runs">Every run log →</a></div>
+</div>
 <div class="switch"><div class="tabs" role="tablist" aria-label="Track">{tabs}</div>
   <div class="seg" role="group" aria-label="View"><button type="button" data-v="repos" aria-pressed="true">Repos</button><button type="button" data-v="companies" aria-pressed="false">Companies</button></div>
 </div>
