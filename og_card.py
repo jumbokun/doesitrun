@@ -72,8 +72,10 @@ h1 b {{ font-weight:700; }}
 .key {{ display:flex; gap:1.4em; }}
 .key i {{ display:inline-block; width:.8em; height:.8em; margin-right:.45em; vertical-align:-.05em; }}
 .foot .url {{ color:var(--ink); font-weight:600; }}
-.og {{ --w:1200px; --h:628px; --pad:52px 60px 44px; --gap:28px; --s-brand:20px; --s-h1:46px; --s-sub:19px; --sub-w:1000px;
-      --cols:2; --cg:56px; --co-w:150px; --row-pad:9px; --cell:17px; --cell-gap:5px; --s-row:17px; --s-foot:16px; }}
+.og {{ --w:1200px; --h:628px; --pad:44px 60px 36px; --gap:30px; --s-h1:62px;
+      --cols:2; --cg:48px; --co-w:170px; --row-pad:8px; --cell:24px; --cell-gap:6px; --s-row:24px; --s-foot:20px; }}
+.og .brand, .og .sub {{ display:none; }}
+.og h1 {{ margin-top:0; font-weight:700; }}
 .post {{ --w:1080px; --h:1350px; --pad:72px 76px 60px; --gap:42px; --s-brand:26px; --s-h1:68px; --s-sub:27px; --sub-w:900px;
         --cols:1; --cg:0; --co-w:220px; --row-pad:12px; --cell:30px; --cell-gap:8px; --s-row:26px; --s-foot:22px; }}
 .post .foot {{ flex-direction:column; align-items:flex-start; gap:18px; }}
